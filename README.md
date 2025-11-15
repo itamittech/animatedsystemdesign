@@ -11,16 +11,21 @@ animatedsystemdesign/
 │   │   ├── Box.tsx         # Component boxes (servers, databases, etc.)
 │   │   ├── Arrow.tsx       # Data flow arrows with labels
 │   │   ├── Title.tsx       # Topic titles with animations
-│   │   └── TextBox.tsx     # Information cards
+│   │   ├── TextBox.tsx     # Information cards
+│   │   ├── Character.tsx   # Character avatars (Junior Dev, Architect)
+│   │   ├── Dialogue.tsx    # Speech bubbles for conversations
+│   │   └── DataFlowParticle.tsx  # Animated traffic particles
 │   ├── design-system/       # Consistent design tokens
 │   │   ├── theme.ts        # Color coding and typography
 │   │   └── animations.ts   # Reusable animation functions
 │   ├── topics/             # System design topics
-│   │   └── LoadBalancingBasics.tsx  # First topic
+│   │   ├── LoadBalancingBasics.tsx     # Technical version
+│   │   └── LoadBalancingEnhanced.tsx   # Character-driven version ⭐
 │   ├── Root.tsx            # Remotion composition registry
 │   └── index.ts            # Entry point
 ├── package.json
 ├── tsconfig.json
+├── studio.js               # Cross-platform launcher script
 └── remotion.config.ts
 ```
 
@@ -46,21 +51,30 @@ animatedsystemdesign/
 
 ## Topics Implemented
 
-### 1. Load Balancing Basics (30 seconds / 900 frames)
+### 1. Load Balancing (Two Versions)
 
-Deep dive into load balancing covering:
-- Basic load balancing patterns
-- Algorithms: Round Robin, Weighted RR, Least Connections, IP Hash/Consistent Hashing
-- Layer 4 vs Layer 7 load balancing
-- Health checks and high availability patterns
+#### LoadBalancingBasics
+Technical deep dive with diagrams and detailed explanations.
+
+#### LoadBalancingEnhanced ⭐ **NEW - Character-Driven Learning**
+Interactive storytelling format featuring:
+- **Alex** (Junior Developer 👨‍💻) - Asks questions from a learning perspective
+- **Sarah** (Solutions Architect 👩‍💼) - Explains concepts with real-world insights
+
+**What's Enhanced:**
+- 🎭 **Character dialogue** - Natural conversation flow from basic to advanced
+- ✨ **Animated data flow particles** - Visual representation of traffic flowing through systems
+- 🎬 **Progressive complexity** - Starts simple, builds to production-ready concepts
+- 💡 **Visual storytelling** - Each scene tells a story with animations
 
 **Duration**: 30 seconds @ 30fps
 **Scenes**:
-1. Introduction (0-3s)
-2. Basic Pattern (3-9s)
-3. Algorithms (9-16s)
-4. L4 vs L7 (16-22s)
-5. Health Checks & HA (22-30s)
+1. **Introduction** (0-4s) - Alex discovers the scaling problem
+2. **The Problem** (4-9s) - Single server overload with visual traffic jam
+3. **The Solution** (9-15s) - Load balancer distributing traffic with animated flows
+4. **Algorithms** (15-21s) - Four key algorithms with visual cards
+5. **L4 vs L7** (21-27s) - Deep comparison for senior architects
+6. **Production Reality** (27-30s) - Health checks and automatic failover in action
 
 ## Getting Started
 
@@ -85,8 +99,19 @@ This will open the Remotion Studio in your browser where you can:
 ### Render Video
 
 ```bash
-npx remotion render LoadBalancingBasics out/load-balancing.mp4
+# Render the enhanced character-driven version (recommended)
+npm run render
+
+# Or render specific compositions
+npx remotion render src/index.ts LoadBalancingEnhanced out/load-balancing-enhanced.mp4
+npx remotion render src/index.ts LoadBalancingBasics out/load-balancing-basic.mp4
 ```
+
+### Select Composition in Studio
+
+When you run `npm start`, you'll see two compositions in the left panel:
+- **LoadBalancingBasics** - Technical diagram version
+- **LoadBalancingEnhanced** - Character-driven interactive version ⭐ (Recommended)
 
 ## Next Topics (Planned)
 
