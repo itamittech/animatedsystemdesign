@@ -884,7 +884,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   ✓ Data integrity protected (SHA-384 hashing)
                 </div>
                 <div style={{marginTop: 16, fontSize: 14, color: '#fbbf24'}}>
-                  <span style={{fontWeight: 'bold'}}>⚡ TLS 1.3 Handshake:</span> ~40ms (1-RTT) vs TLS 1.2 ~80ms (2-RTT)
+                  <span style={{fontWeight: 'bold'}}>⚡ TLS 1.3 Handshake:</span> ~25ms (1-RTT) vs TLS 1.2 ~50ms (2-RTT)
                 </div>
               </div>
             </div>
@@ -1142,19 +1142,19 @@ export const ClientServerDNSProxies: React.FC = () => {
               </div>
               <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2.5}}>
                 <div style={{opacity: fadeIn(frame, 2700, 15)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~20ms): Browser → Root → TLD → Authoritative → IP
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~5ms): Browser cache or local resolver
                 </div>
                 <div style={{opacity: fadeIn(frame, 2760, 15)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>2.</span> <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TCP Handshake</span> (~20ms): SYN → SYN-ACK → ACK (1 RTT)
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>2.</span> <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TCP Handshake</span> (~15ms): SYN → SYN-ACK → ACK (1 RTT)
                 </div>
                 <div style={{opacity: fadeIn(frame, 2820, 15)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>3.</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>TLS Handshake</span> (~40ms): ClientHello → ServerHello → Keys → Finished
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>3.</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>TLS Handshake</span> (~25ms): ClientHello → ServerHello → Keys → Finished
                 </div>
                 <div style={{opacity: fadeIn(frame, 2880, 15)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>4.</span> <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>HTTP Request</span> (~10ms): GET / HTTP/2 (multiplexed)
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>4.</span> <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>HTTP Request</span> (~8ms): GET / HTTP/2 (multiplexed)
                 </div>
                 <div style={{opacity: fadeIn(frame, 2940, 15)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>5.</span> <span style={{color: theme.colors.server, fontWeight: 'bold'}}>Server Response</span> (~50ms): HTML/CSS/JS/Images
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>5.</span> <span style={{color: theme.colors.server, fontWeight: 'bold'}}>Server Response</span> (~30ms): HTML/CSS/JS/Images
                 </div>
               </div>
 
@@ -1168,9 +1168,9 @@ export const ClientServerDNSProxies: React.FC = () => {
                   opacity: fadeIn(frame, 3000, 15),
                 }}>
                   <div style={{fontSize: 18, color: '#e2e8f0', textAlign: 'center', lineHeight: 2}}>
-                    <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ Total First Visit:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~140ms</span>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ Total First Visit:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~85ms</span>
                     {' '}<span style={{color: '#94a3b8'}}>|</span>{' '}
-                    <span style={{color: '#10b981', fontWeight: 'bold'}}>Cached:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~20-30ms!</span>
+                    <span style={{color: '#10b981', fontWeight: 'bold'}}>Cached:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~15-25ms!</span>
                   </div>
                 </div>
               )}
