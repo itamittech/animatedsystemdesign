@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Educational system design content with animations using Remotion",
   "scripts": {
-    "start": "npx @remotion/cli studio src/index.ts",
-    "render": "npx @remotion/cli render src/index.ts LoadBalancingBasics out/load-balancing.mp4",
-    "upgrade": "npx @remotion/cli upgrade",
+    "start": "node node_modules/@remotion/cli/remotion-cli.js studio src/index.ts",
+    "render": "node node_modules/@remotion/cli/remotion-cli.js render src/index.ts LoadBalancingBasics out/load-balancing.mp4",
+    "upgrade": "node node_modules/@remotion/cli/remotion-cli.js upgrade",
     "test": "echo \"No tests yet\""
   },
   "dependencies": {
