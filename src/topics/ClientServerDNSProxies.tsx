@@ -605,14 +605,14 @@ export const ClientServerDNSProxies: React.FC = () => {
             </div>
           )}
 
-          {/* PART 1: Cipher Suite Negotiation (1260-1500) */}
-          {frame >= 1260 && frame < 1500 && (
+          {/* PART 1: Cipher Suite Negotiation (1280-1540) */}
+          {frame >= 1280 && frame < 1540 && (
             <div style={{
               position: 'absolute',
               top: height * 0.26,
               left: width * 0.08,
               right: width * 0.08,
-              opacity: fadeIn(frame, 1260, 15),
+              opacity: fadeIn(frame, 1280, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -635,34 +635,34 @@ export const ClientServerDNSProxies: React.FC = () => {
                   borderRadius: 12,
                   padding: 20,
                   marginTop: 16,
-                  opacity: fadeIn(frame, 1300, 15),
+                  opacity: fadeIn(frame, 1320, 20),
                 }}>
                   <div style={{fontSize: 18, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12, textAlign: 'center'}}>
                     TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
                   </div>
 
                   <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16}}>
-                    <div style={{opacity: fadeIn(frame, 1340, 10)}}>
+                    <div style={{opacity: fadeIn(frame, 1360, 15)}}>
                       <div style={{fontSize: 16, fontWeight: 'bold', color: '#60a5fa', marginBottom: 6}}>ECDHE</div>
                       <div style={{fontSize: 14, color: '#94a3b8'}}>Key Exchange<br/>Elliptic Curve Diffie-Hellman</div>
                     </div>
-                    <div style={{opacity: fadeIn(frame, 1370, 10)}}>
+                    <div style={{opacity: fadeIn(frame, 1400, 15)}}>
                       <div style={{fontSize: 16, fontWeight: 'bold', color: '#10b981', marginBottom: 6}}>RSA</div>
                       <div style={{fontSize: 14, color: '#94a3b8'}}>Authentication<br/>Verifies server identity</div>
                     </div>
-                    <div style={{opacity: fadeIn(frame, 1400, 10)}}>
+                    <div style={{opacity: fadeIn(frame, 1440, 15)}}>
                       <div style={{fontSize: 16, fontWeight: 'bold', color: '#a78bfa', marginBottom: 6}}>AES-256-GCM</div>
                       <div style={{fontSize: 14, color: '#94a3b8'}}>Bulk Encryption<br/>Encrypts actual data</div>
                     </div>
-                    <div style={{opacity: fadeIn(frame, 1430, 10)}}>
+                    <div style={{opacity: fadeIn(frame, 1480, 15)}}>
                       <div style={{fontSize: 16, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>SHA384</div>
                       <div style={{fontSize: 14, color: '#94a3b8'}}>Hashing<br/>Data integrity check</div>
                     </div>
                   </div>
                 </div>
 
-                {frame >= 1460 && (
-                  <div style={{marginTop: 16, fontSize: 15, color: '#10b981', textAlign: 'center', opacity: fadeIn(frame, 1460, 10)}}>
+                {frame >= 1510 && (
+                  <div style={{marginTop: 16, fontSize: 15, color: '#10b981', textAlign: 'center', opacity: fadeIn(frame, 1510, 15)}}>
                     ✓ Server picks: "Let's use TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
                   </div>
                 )}
@@ -670,14 +670,14 @@ export const ClientServerDNSProxies: React.FC = () => {
             </div>
           )}
 
-          {/* PART 2: Certificate Chain Validation (1500-1740) */}
-          {frame >= 1500 && frame < 1740 && (
+          {/* PART 2: Certificate Chain Validation (1560-1820) */}
+          {frame >= 1560 && frame < 1820 && (
             <div style={{
               position: 'absolute',
               top: height * 0.24,
               left: width * 0.06,
               right: width * 0.06,
-              opacity: fadeIn(frame, 1500, 15),
+              opacity: fadeIn(frame, 1560, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -703,8 +703,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1540, 15),
-                    transform: `scale(${pulse(frame, 1540, 60)})`,
+                    opacity: fadeIn(frame, 1600, 20),
+                    transform: `scale(${pulse(frame, 1600, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>🏛️</div>
                     <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Root CA</div>
@@ -713,8 +713,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                   </div>
 
                   {/* Arrow */}
-                  {frame >= 1580 && (
-                    <div style={{fontSize: 32, color: '#fbbf24', margin: '0 12px', opacity: fadeIn(frame, 1580, 10)}}>→</div>
+                  {frame >= 1650 && (
+                    <div style={{fontSize: 32, color: '#fbbf24', margin: '0 12px', opacity: fadeIn(frame, 1650, 15)}}>→</div>
                   )}
 
                   {/* Intermediate CA */}
@@ -725,8 +725,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1600, 15),
-                    transform: `scale(${pulse(frame, 1600, 60)})`,
+                    opacity: fadeIn(frame, 1680, 20),
+                    transform: `scale(${pulse(frame, 1680, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>📜</div>
                     <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Intermediate CA</div>
@@ -735,8 +735,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                   </div>
 
                   {/* Arrow */}
-                  {frame >= 1640 && (
-                    <div style={{fontSize: 32, color: '#fbbf24', margin: '0 12px', opacity: fadeIn(frame, 1640, 10)}}>→</div>
+                  {frame >= 1730 && (
+                    <div style={{fontSize: 32, color: '#fbbf24', margin: '0 12px', opacity: fadeIn(frame, 1730, 15)}}>→</div>
                   )}
 
                   {/* Server Certificate */}
@@ -747,8 +747,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1660, 15),
-                    transform: `scale(${pulse(frame, 1660, 60)})`,
+                    opacity: fadeIn(frame, 1760, 20),
+                    transform: `scale(${pulse(frame, 1760, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>✅</div>
                     <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Server Cert</div>
@@ -757,14 +757,14 @@ export const ClientServerDNSProxies: React.FC = () => {
                   </div>
                 </div>
 
-                {frame >= 1700 && (
+                {frame >= 1790 && (
                   <div style={{
                     marginTop: 20,
                     backgroundColor: 'rgba(96, 165, 250, 0.1)',
                     border: '2px solid rgba(96, 165, 250, 0.3)',
                     borderRadius: 10,
                     padding: 16,
-                    opacity: fadeIn(frame, 1700, 10),
+                    opacity: fadeIn(frame, 1790, 15),
                   }}>
                     <div style={{fontSize: 15, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
                       Browser verifies: Root CA (trusted) → Intermediate CA (valid signature) → Server (matches google.com)
@@ -776,14 +776,14 @@ export const ClientServerDNSProxies: React.FC = () => {
             </div>
           )}
 
-          {/* PART 3: Key Exchange & Encryption (1740-1920) */}
-          {frame >= 1740 && frame < 1920 && (
+          {/* PART 3: Key Exchange & Encryption (1840-2040) */}
+          {frame >= 1840 && frame < 2040 && (
             <div style={{
               position: 'absolute',
               top: height * 0.26,
               left: width * 0.08,
               right: width * 0.08,
-              opacity: fadeIn(frame, 1740, 15),
+              opacity: fadeIn(frame, 1840, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -796,7 +796,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
-                  <div style={{opacity: fadeIn(frame, 1780, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 1880, 20)}}>
                     <div style={{
                       backgroundColor: 'rgba(96, 165, 250, 0.1)',
                       border: '2px solid rgba(96, 165, 250, 0.3)',
@@ -816,7 +816,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{opacity: fadeIn(frame, 1820, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 1930, 20)}}>
                     <div style={{
                       backgroundColor: 'rgba(139, 92, 246, 0.1)',
                       border: '2px solid rgba(139, 92, 246, 0.3)',
@@ -837,7 +837,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   </div>
                 </div>
 
-                {frame >= 1860 && (
+                {frame >= 1980 && (
                   <div style={{
                     marginTop: 20,
                     backgroundColor: 'rgba(245, 158, 11, 0.1)',
@@ -845,7 +845,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     borderRadius: 10,
                     padding: 16,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1860, 10),
+                    opacity: fadeIn(frame, 1980, 15),
                   }}>
                     <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>SHA-384 Hashing:</span> Every message gets a hash to detect tampering
@@ -857,14 +857,14 @@ export const ClientServerDNSProxies: React.FC = () => {
             </div>
           )}
 
-          {/* PART 4: Final - Encrypted Communication (removed - now flows into Part 3) */}
-          {frame >= 1880 && (
+          {/* PART 4: Final - Encrypted Communication */}
+          {frame >= 2010 && (
             <div style={{
               position: 'absolute',
               top: height * 0.28,
               left: width * 0.15,
               right: width * 0.15,
-              opacity: fadeIn(frame, 1880, 15),
+              opacity: fadeIn(frame, 2010, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(16, 185, 129, 0.15)',
@@ -892,20 +892,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 4: Proxies WITH FLOWING DOT (1920-2460 frames / 64-82s) */}
-      {frame >= 1920 && frame < 2460 && (
+      {/* Scene 4: Proxies WITH FLOWING DOT (2040-2460 frames / 68-82s) */}
+      {frame >= 2040 && frame < 2460 && (
         <>
-          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1920} />
+          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={2040} />
 
-          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={1930} size={95} />
-          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={1930} size={95} />
+          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={2050} size={95} />
+          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={2050} size={95} />
 
           <Dialogue
             speaker="junior"
             text="This seems like a lot of work! Is there a way to make it faster?"
             x={width * 0.05}
             y={height * 0.76}
-            startFrame={1950}
+            startFrame={2070}
             maxWidth={460}
           />
 
@@ -914,7 +914,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
             x={width * 0.77 - 320}
             y={height * 0.76}
-            startFrame={2040}
+            startFrame={2160}
             maxWidth={540}
           />
 
@@ -1098,8 +1098,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 5: Complete Flow Summary (2460-2820 frames / 82-94s) */}
-      {frame >= 2460 && frame < 2820 && (
+      {/* Scene 5: Complete Flow Summary (2460-3060 frames / 82-102s) */}
+      {frame >= 2460 && frame < 3060 && (
         <>
           <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2460} />
 
