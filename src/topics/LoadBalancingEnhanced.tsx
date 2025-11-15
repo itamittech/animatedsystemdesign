@@ -7,7 +7,6 @@ import {Title} from '../components/Title';
 import {Character} from '../components/Character';
 import {Dialogue} from '../components/Dialogue';
 import {DataFlowStream} from '../components/DataFlowParticle';
-import {SoundEffect} from '../components/SoundEffect';
 import {fadeIn, pulse} from '../design-system/animations';
 
 /**
@@ -25,25 +24,6 @@ export const LoadBalancingEnhanced: React.FC = () => {
         backgroundColor: theme.background.primary,
       }}
     >
-      {/* Sound Effects - Optional audio (COMMENTED OUT - uncomment after adding .wav files to public/audio/) */}
-      {/* Each sound effect renders for 60 frames (~2 seconds) to ensure playback */}
-      {/* {frame >= 0 && frame < 60 && <SoundEffect src="/audio/intro.wav" />} */}
-      {/* {frame >= 120 && frame < 180 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 200 && frame < 260 && <SoundEffect src="/audio/alert.wav" />} */}
-      {/* {frame >= 270 && frame < 330 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 450 && frame < 510 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 690 && frame < 750 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 960 && frame < 1020 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 1015 && frame < 1075 && <SoundEffect src="/audio/error.wav" />} */}
-      {/* {frame >= 1110 && frame < 1170 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 1290 && frame < 1350 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 1470 && frame < 1530 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 1740 && frame < 1800 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 1980 && frame < 2040 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 2160 && frame < 2220 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 2340 && frame < 2400 && <SoundEffect src="/audio/transition.wav" />} */}
-      {/* {frame >= 2520 && frame < 2580 && <SoundEffect src="/audio/success.wav" />} */}}
-
       {/* Credit Bookmark - Always visible at bottom */}
       <div
         style={{
