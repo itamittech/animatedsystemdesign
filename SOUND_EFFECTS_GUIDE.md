@@ -24,29 +24,24 @@ The project now supports sound effects! Audio is **optional** - animations work 
 
 ## Sound Files Needed
 
-Place these in `/public/audio/` folder:
+Place these in `/public/sfx/` folder:
 
 | File | Purpose | Search Terms |
 |------|---------|--------------|
-| `whoosh.mp3` | Dialogue slides in | "swoosh", "whoosh", "transition" |
-| `pop.mp3` | Elements appear | "pop", "bubble pop", "UI pop" |
-| `click.mp3` | UI interactions | "button click", "soft click" |
-| `data-flow.mp3` | Traffic flowing | "data", "stream", "digital flow" |
-| `server-start.mp3` | Server powers on | "startup", "power up", "boot" |
-| `error.mp3` | Server failure | "error beep", "alert", "warning" |
-| `success.mp3` | Server healthy | "success", "notification", "ding" |
-| `warning.mp3` | Warning state | "warning tone", "caution" |
-| `alert.mp3` | Critical alert | "alert", "alarm" |
-| `transition.mp3` | Scene changes | "transition", "scene change" |
+| `intro.mp3` | Video start | "intro", "start", "begin" |
+| `transition.mp3` | Scene changes | "transition", "whoosh", "scene change" |
+| `alert.mp3` | Warning moments | "alert", "notification", "attention" |
+| `error.mp3` | Server failure | "error beep", "fail", "warning" |
+| `success.mp3` | Success finale | "success", "win", "complete", "ding" |
 
 ## Installation Steps
 
-1. Create the audio directory:
+1. Create the sfx directory:
 ```bash
-mkdir -p public/audio
+mkdir -p public/sfx
 ```
 
-2. Download sound effects from Mix kit or Freesound
+2. Download sound effects from Mixkit or Freesound
 
 3. Rename files to match the table above
 
@@ -63,16 +58,14 @@ If you don't add sound files:
 - ⚠️ Browser console will show warnings (safe to ignore)
 - 📹 Final rendered video will be silent
 
-## Adding Your Own Sounds
+## Sound Effects Used in Load Balancing Video
 
-Edit `/src/utils/audio.ts` to customize sound effects:
-
-```typescript
-export const soundEffects = {
-  whoosh: '/audio/your-custom-whoosh.mp3',
-  // ... add more
-};
-```
+The video has sound effects at these key moments:
+- **Frame 0** (0s): Intro sound
+- **Frames 120, 270, 450, 630, 810, 900, 1080, 1260, 1440, 1680, 1860, 2040**: Scene transitions
+- **Frame 200** (6.7s): Alert sound when showing overloaded server
+- **Frame 865** (28.8s): Error sound when server fails
+- **Frame 2240** (74.7s): Success sound for finale
 
 ## Sound Effect Timing
 
@@ -106,7 +99,7 @@ export const volumePresets = {
 ## Troubleshooting
 
 **"Audio file not found" warning**
-- Check file path: Should be `public/audio/filename.mp3`
+- Check file path: Should be `public/sfx/filename.mp3`
 - Check filename matches exactly (case-sensitive)
 - Restart Remotion Studio after adding files
 
