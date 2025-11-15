@@ -4,6 +4,7 @@ import {theme} from '../design-system/theme';
 import {Title} from '../components/Title';
 import {Character} from '../components/Character';
 import {Dialogue} from '../components/Dialogue';
+import {Arrow} from '../components/Arrow';
 import {fadeIn, pulse} from '../design-system/animations';
 
 /**
@@ -661,31 +662,47 @@ export const CDNandAPIGateway: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Static connection lines (lighter, always visible) */}
+                  {/* Connection Arrows */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                    {frame >= 2110 && (
-                      <>
-                        {/* Client to Gateway */}
-                        <line x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160}
-                          stroke="rgba(96, 165, 250, 0.3)" strokeWidth="2" strokeDasharray="5,5"
-                          opacity={fadeIn(frame, 2110, 15)} />
+                    {/* Client to Gateway */}
+                    <Arrow
+                      x1={110}
+                      y1={height * 0.20 + 160}
+                      x2={width * 0.50 - 70}
+                      y2={height * 0.20 + 160}
+                      color={theme.colors.client}
+                      startFrame={2110}
+                    />
 
-                        {/* Gateway to User Service */}
-                        <line x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55}
-                          stroke="rgba(16, 185, 129, 0.3)" strokeWidth="2" strokeDasharray="5,5"
-                          opacity={fadeIn(frame, 2160, 15)} />
+                    {/* Gateway to User Service */}
+                    <Arrow
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 120}
+                      x2={width - 260}
+                      y2={height * 0.20 + 55}
+                      color={theme.colors.backend}
+                      startFrame={2160}
+                    />
 
-                        {/* Gateway to Order Service */}
-                        <line x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155}
-                          stroke="rgba(139, 92, 246, 0.3)" strokeWidth="2" strokeDasharray="5,5"
-                          opacity={fadeIn(frame, 2180, 15)} />
+                    {/* Gateway to Order Service */}
+                    <Arrow
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 160}
+                      x2={width - 220}
+                      y2={height * 0.20 + 155}
+                      color={theme.colors.eventStream}
+                      startFrame={2180}
+                    />
 
-                        {/* Gateway to Payment Service */}
-                        <line x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265}
-                          stroke="rgba(6, 182, 212, 0.3)" strokeWidth="2" strokeDasharray="5,5"
-                          opacity={fadeIn(frame, 2200, 15)} />
-                      </>
-                    )}
+                    {/* Gateway to Payment Service */}
+                    <Arrow
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 200}
+                      x2={width - 270}
+                      y2={height * 0.20 + 265}
+                      color={theme.colors.cdn}
+                      startFrame={2200}
+                    />
                   </svg>
 
                   {/* Flowing connections - animated dots */}
@@ -1040,26 +1057,58 @@ export const CDNandAPIGateway: React.FC = () => {
                     <div style={{fontSize: 9, color: '#10b981', marginTop: 4}}>US East</div>
                   </div>
 
-                  {/* Connection lines and animated dots */}
+                  {/* Connection Arrows - Beautiful animated connections */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                    {frame >= 3140 && (
-                      <>
-                        {/* User to CDN */}
-                        <line x1={130} y1={118} x2={280} y2={63} stroke="rgba(139, 92, 246, 0.4)" strokeWidth="3" strokeDasharray="5,5" />
-                        {/* User to API Gateway */}
-                        <line x1={130} y1={118} x2={270} y2={168} stroke="rgba(245, 158, 11, 0.4)" strokeWidth="3" strokeDasharray="5,5" />
-                        {/* CDN to Origin */}
-                        <line x1={390} y1={63} x2={width - 170} y2={175} stroke="rgba(52, 211, 153, 0.3)" strokeWidth="2" strokeDasharray="3,3" />
-                        {/* Gateway to Services */}
-                        <line x1={400} y1={168} x2={width - 200} y2={88} stroke="rgba(16, 185, 129, 0.4)" strokeWidth="3" strokeDasharray="5,5" />
-                      </>
-                    )}
+                    {/* User to CDN Edge */}
+                    <Arrow
+                      x1={130}
+                      y1={118}
+                      x2={280}
+                      y2={63}
+                      color={theme.colors.eventStream}
+                      startFrame={3140}
+                      label="Static"
+                    />
+
+                    {/* User to API Gateway */}
+                    <Arrow
+                      x1={130}
+                      y1={118}
+                      x2={270}
+                      y2={168}
+                      color={theme.colors.loadBalancer}
+                      startFrame={3150}
+                      label="API"
+                    />
+
+                    {/* CDN to Origin (cache miss) */}
+                    <Arrow
+                      x1={390}
+                      y1={63}
+                      x2={width - 170}
+                      y2={175}
+                      color={theme.colors.backend}
+                      startFrame={3180}
+                      dashed={true}
+                      label="Miss"
+                    />
+
+                    {/* Gateway to Services */}
+                    <Arrow
+                      x1={400}
+                      y1={168}
+                      x2={width - 200}
+                      y2={88}
+                      color={theme.colors.success}
+                      startFrame={3170}
+                      label="Route"
+                    />
                   </svg>
 
-                  {/* Animated dots */}
-                  <FlowingDot x1={130} y1={118} x2={280} y2={63} startFrame={3150} duration={30} color="#8b5cf6" />
-                  <FlowingDot x1={130} y1={118} x2={270} y2={168} startFrame={3170} duration={30} color="#f59e0b" />
-                  <FlowingDot x1={400} y1={168} x2={width - 200} y2={88} startFrame={3190} duration={30} color="#10b981" />
+                  {/* Animated flowing dots for extra visual flair */}
+                  <FlowingDot x1={130} y1={118} x2={280} y2={63} startFrame={3155} duration={30} color="#8b5cf6" />
+                  <FlowingDot x1={130} y1={118} x2={270} y2={168} startFrame={3175} duration={30} color="#f59e0b" />
+                  <FlowingDot x1={400} y1={168} x2={width - 200} y2={88} startFrame={3195} duration={30} color="#10b981" />
                   <FlowingDot x1={390} y1={63} x2={width - 170} y2={175} startFrame={3210} duration={35} color="#34d399" />
                 </div>
               </div>
