@@ -6,94 +6,74 @@ This project supports sound effects to enhance the learning experience!
 
 Download sound effects from these free sources:
 
-1. **Freesound.org** (Creative Commons)
-   - Search for: whoosh, pop, click, beep, error, success
-   - Requires free account
-   - https://freesound.org/
-
-2. **Mixkit.co** (Free license)
+1. **Mixkit.co** (Free license) - **RECOMMENDED**
    - UI sounds, alerts, transitions
    - No attribution required
    - https://mixkit.co/free-sound-effects/
 
+2. **Freesound.org** (Creative Commons)
+   - Search for: whoosh, beep, error, success
+   - Requires free account
+   - https://freesound.org/
+
 3. **Zapsplat.com** (Free with attribution)
-   - Huge library
+   - Professional quality sounds
    - https://www.zapsplat.com/
 
-## Sound Effects Needed
+## Sound Effects Needed for Load Balancing Video
 
-Place these files in `/public/audio/`:
+Place these **5 files** in this directory (`public/audio/`):
 
-### UI Sounds
-- `whoosh.mp3` - Smooth transition sound (for slides, fades)
-- `pop.mp3` - Quick pop for elements appearing
-- `click.mp3` - Click/select sound
+| File | Purpose | Search Terms |
+|------|---------|--------------|
+| `intro.mp3` | Video start | "intro", "start", "begin" |
+| `transition.mp3` | Scene changes | "transition", "whoosh", "scene change" |
+| `alert.mp3` | Warning moments | "alert", "notification", "attention" |
+| `error.mp3` | Server failure | "error beep", "fail", "warning" |
+| `success.mp3` | Success finale | "success", "win", "complete", "ding" |
 
-### Data Flow
-- `data-flow.mp3` - Flowing/streaming sound for traffic
+## Quick Start
 
-### System Sounds
-- `server-start.mp3` - Server powering up
-- `error.mp3` - Error alert (server crash)
-- `success.mp3` - Success chime (server healthy)
+1. **Download 5 sound files** from Mixkit.co:
+   - Go to https://mixkit.co/free-sound-effects/
+   - Search for each sound type (intro, transition, alert, error, success)
+   - Download as MP3 files
 
-### Alerts
-- `warning.mp3` - Warning tone
-- `alert.mp3` - Alert notification
+2. **Rename files** to match the table above exactly:
+   - `intro.mp3`
+   - `transition.mp3`
+   - `alert.mp3`
+   - `error.mp3`
+   - `success.mp3`
 
-### Transitions
-- `transition.mp3` - Scene change sound
+3. **Place files** in this directory (`public/audio/`)
 
-### Background (Optional)
-- `background.mp3` - Subtle ambient music loop
+4. **Restart Remotion Studio**:
+```bash
+npm start
+```
 
-## Recommended Search Terms
+## Without Audio
 
-When searching for sounds:
-- **Whoosh**: "swoosh", "transition", "whoosh"
-- **Pop**: "pop", "bubble pop", "UI pop"
-- **Click**: "button click", "UI click", "soft click"
-- **Data Flow**: "data transfer", "stream", "digital flow"
-- **Server Start**: "computer startup", "power up", "boot"
-- **Error**: "error beep", "alert error", "warning beep"
-- **Success**: "success chime", "notification", "ding"
+The animations work perfectly without audio! All sound effects are **optional**.
+
+If audio files are missing:
+- ✅ Animations still work perfectly
+- ✅ No errors in the video
+- ⚠️ Browser console will show warnings (safe to ignore)
+- 📹 Final rendered video will be silent
+
+## Audio Timing in Load Balancing Video
+
+The 86-second video has sound effects at these moments:
+- **Frame 0** (0s): Intro sound
+- **Scene transitions**: Frames 120, 270, 450, 690, 960, 1110, 1290, 1470, 1740, 1980, 2160, 2340
+- **Frame 200** (6.7s): Alert sound when showing overloaded server
+- **Frame 1015** (33.8s): Error sound when server fails
+- **Frame 2520** (84s): Success sound for finale
 
 ## File Format
 
 - **Preferred**: MP3 (best compatibility)
 - **Alternative**: WAV, OGG
-- **Keep files small**: < 1MB per sound
-
-## Installation
-
-1. Create the audio folder:
-```bash
-mkdir -p public/audio
-```
-
-2. Download sound effects from sources above
-
-3. Rename files to match the names in the list above
-
-4. Place in `public/audio/` folder
-
-## Without Audio
-
-The animations work perfectly without audio! All sound effects are optional. If audio files are missing, the project will:
-- Continue to work normally
-- Show a warning in browser console (can be ignored)
-- Display animations without sound
-
-## Testing Audio
-
-After adding audio files:
-```bash
-npm start
-```
-
-Open the composition and play - you should hear sounds at:
-- Scene transitions
-- Character appearances
-- Data flow animations
-- Server errors/success
-- UI element animations
+- **Keep files small**: < 500KB per sound

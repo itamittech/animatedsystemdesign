@@ -24,7 +24,7 @@ The project now supports sound effects! Audio is **optional** - animations work 
 
 ## Sound Files Needed
 
-Place these in `/public/sfx/` folder:
+Place these in the existing `/public/audio/` folder:
 
 | File | Purpose | Search Terms |
 |------|---------|--------------|
@@ -36,14 +36,13 @@ Place these in `/public/sfx/` folder:
 
 ## Installation Steps
 
-1. Create the sfx directory:
-```bash
-mkdir -p public/sfx
-```
+**Note**: The `public/audio/` directory already exists in your project!
 
-2. Download sound effects from Mixkit or Freesound
+1. Download sound effects from Mixkit or Freesound
 
-3. Rename files to match the table above
+2. Rename files to match the table above
+
+3. Place them in `public/audio/`
 
 4. Test:
 ```bash
@@ -99,7 +98,7 @@ export const volumePresets = {
 ## Troubleshooting
 
 **"Audio file not found" warning**
-- Check file path: Should be `public/sfx/filename.mp3`
+- Check file path: Should be `public/audio/filename.mp3`
 - Check filename matches exactly (case-sensitive)
 - Restart Remotion Studio after adding files
 
