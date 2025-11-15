@@ -468,13 +468,13 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 3: Security with TLS FLOW (1080-1560 frames / 36-52s) */}
-      {frame >= 1080 && frame < 1560 && (
+      {/* Scene 3: Security with TLS IN DETAIL (1080-1920 frames / 36-64s) - EXPANDED */}
+      {frame >= 1080 && frame < 1920 && (
         <>
-          <Title text="Making It Secure with TLS" subtitle="Encrypting the Connection" startFrame={1080} />
+          <Title text="Making It Secure with TLS" subtitle="Encryption, Certificates & Cryptography" startFrame={1080} />
 
-          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={100} />
-          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1090} size={100} />
+          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1090} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -487,179 +487,314 @@ export const ClientServerDNSProxies: React.FC = () => {
 
           <Dialogue
             speaker="architect"
-            text="Excellent question! Watch how TLS creates an encrypted tunnel. It's a handshake..."
+            text="Excellent question! TLS has three jobs: verify identity, negotiate encryption, and secure data. Let me show you each step..."
             x={width * 0.75 - 320}
             y={height * 0.74}
             startFrame={1200}
             maxWidth={540}
           />
 
-          {/* TLS Handshake WITH VISUAL FLOW */}
-          {frame >= 1290 && (
+          {/* PART 1: Cipher Suite Negotiation (1200-1440) */}
+          {frame >= 1200 && frame < 1440 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.26,
+              left: width * 0.08,
+              right: width * 0.08,
+              opacity: fadeIn(frame, 1200, 15),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.client, marginBottom: 16, textAlign: 'center'}}>
+                  Step 1: Cipher Suite Negotiation
+                </div>
+
+                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
+                  Browser says: "I support these encryption methods (cipher suites)..."
+                </div>
+
+                {/* Cipher Suite Breakdown */}
+                <div style={{
+                  backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                  border: '2px solid rgba(96, 165, 250, 0.3)',
+                  borderRadius: 12,
+                  padding: 20,
+                  marginTop: 16,
+                  opacity: fadeIn(frame, 1240, 15),
+                }}>
+                  <div style={{fontSize: 18, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12, textAlign: 'center'}}>
+                    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+                  </div>
+
+                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16}}>
+                    <div style={{opacity: fadeIn(frame, 1280, 10)}}>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#60a5fa', marginBottom: 6}}>ECDHE</div>
+                      <div style={{fontSize: 14, color: '#94a3b8'}}>Key Exchange<br/>Elliptic Curve Diffie-Hellman</div>
+                    </div>
+                    <div style={{opacity: fadeIn(frame, 1310, 10)}}>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#10b981', marginBottom: 6}}>RSA</div>
+                      <div style={{fontSize: 14, color: '#94a3b8'}}>Authentication<br/>Verifies server identity</div>
+                    </div>
+                    <div style={{opacity: fadeIn(frame, 1340, 10)}}>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#a78bfa', marginBottom: 6}}>AES-256-GCM</div>
+                      <div style={{fontSize: 14, color: '#94a3b8'}}>Bulk Encryption<br/>Encrypts actual data</div>
+                    </div>
+                    <div style={{opacity: fadeIn(frame, 1370, 10)}}>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>SHA384</div>
+                      <div style={{fontSize: 14, color: '#94a3b8'}}>Hashing<br/>Data integrity check</div>
+                    </div>
+                  </div>
+                </div>
+
+                {frame >= 1400 && (
+                  <div style={{marginTop: 16, fontSize: 15, color: '#10b981', textAlign: 'center', opacity: fadeIn(frame, 1400, 10)}}>
+                    ✓ Server picks: "Let's use TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* PART 2: Certificate Chain Validation (1440-1680) */}
+          {frame >= 1440 && frame < 1680 && (
             <div style={{
               position: 'absolute',
               top: height * 0.24,
-              left: width * 0.12,
-              right: width * 0.12,
-              opacity: fadeIn(frame, 1290, 15),
+              left: width * 0.06,
+              right: width * 0.06,
+              opacity: fadeIn(frame, 1440, 15),
             }}>
-              {/* Client and Server */}
-              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
-                <div style={{textAlign: 'center'}}>
-                  <div style={{fontSize: 48}}>💻</div>
-                  <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.client, marginTop: 8}}>Your Browser</div>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(16, 185, 129, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.success, marginBottom: 16, textAlign: 'center'}}>
+                  Step 2: Certificate Authority Chain
                 </div>
 
-                <div style={{textAlign: 'center'}}>
-                  <div style={{fontSize: 48}}>🖥️</div>
-                  <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.server, marginTop: 8}}>Google Server</div>
+                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2, marginBottom: 20}}>
+                  Server proves identity using a certificate chain...
                 </div>
-              </div>
 
-              {/* TLS Handshake Steps with arrows */}
-              <div style={{marginTop: 30}}>
-                {/* Step 1: ClientHello */}
-                {frame >= 1320 && (
-                  <>
-                    <div style={{
-                      position: 'absolute',
-                      top: 100,
-                      left: 120,
-                      fontSize: 14,
-                      color: '#60a5fa',
-                      fontWeight: 'bold',
-                      opacity: fadeIn(frame, 1320, 10),
-                    }}>
-                      ① ClientHello<br/>
-                      <span style={{fontSize: 12, color: '#94a3b8'}}>Cipher suites</span>
-                    </div>
-                    <FlowLine
-                      x1={120}
-                      y1={120}
-                      x2={width * 0.76 - 120}
-                      y2={120}
-                      color={theme.colors.client}
-                      startFrame={1320}
-                    />
-                  </>
-                )}
-
-                {/* Step 2: ServerHello */}
-                {frame >= 1360 && (
-                  <>
-                    <div style={{
-                      position: 'absolute',
-                      top: 170,
-                      right: 120,
-                      fontSize: 14,
-                      color: '#10b981',
-                      fontWeight: 'bold',
-                      textAlign: 'right',
-                      opacity: fadeIn(frame, 1360, 10),
-                    }}>
-                      ② ServerHello<br/>
-                      <span style={{fontSize: 12, color: '#94a3b8'}}>Certificate + Key</span>
-                    </div>
-                    <FlowLine
-                      x1={width * 0.76 - 120}
-                      y1={190}
-                      x2={120}
-                      y2={190}
-                      color={theme.colors.success}
-                      startFrame={1360}
-                    />
-                  </>
-                )}
-
-                {/* Step 3: Keys Generated */}
-                {frame >= 1400 && (
-                  <>
-                    <div style={{
-                      position: 'absolute',
-                      top: 240,
-                      left: 120,
-                      fontSize: 14,
-                      color: '#fbbf24',
-                      fontWeight: 'bold',
-                      opacity: fadeIn(frame, 1400, 10),
-                    }}>
-                      ③ Verify & Create Keys<br/>
-                      <span style={{fontSize: 12, color: '#94a3b8'}}>ECDHE exchange</span>
-                    </div>
-                    <FlowLine
-                      x1={120}
-                      y1={260}
-                      x2={width * 0.76 - 120}
-                      y2={260}
-                      color="#fbbf24"
-                      startFrame={1400}
-                    />
-                  </>
-                )}
-
-                {/* Step 4: Encrypted tunnel */}
-                {frame >= 1440 && (
+                {/* Certificate Chain Visual */}
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative'}}>
+                  {/* Root CA */}
                   <div style={{
-                    position: 'absolute',
-                    top: 310,
-                    left: width * 0.2,
-                    right: width * 0.2,
-                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                    border: '2px solid rgba(16, 185, 129, 0.5)',
+                    flex: 1,
+                    backgroundColor: '#dc2626',
+                    border: '3px solid #ef4444',
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1440, 15),
-                  }}>
-                    <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold'}}>
-                      🔒 Encrypted Tunnel Established!
-                    </div>
-                    <div style={{fontSize: 14, color: '#e2e8f0', marginTop: 8}}>
-                      All communication now secure
-                    </div>
-                  </div>
-                )}
-
-                {/* Performance note */}
-                {frame >= 1480 && (
-                  <div style={{
-                    position: 'absolute',
-                    top: 400,
-                    left: width * 0.15,
-                    right: width * 0.15,
-                    backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                    border: '2px solid rgba(245, 158, 11, 0.4)',
-                    borderRadius: 10,
-                    padding: 14,
-                    textAlign: 'center',
                     opacity: fadeIn(frame, 1480, 15),
+                    transform: `scale(${pulse(frame, 1480, 60)})`,
                   }}>
-                    <div style={{fontSize: 15, color: '#e2e8f0'}}>
-                      <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ TLS 1.3:</span> ~100ms (1 round trip)<br/>
-                      <span style={{fontSize: 13, color: '#94a3b8'}}>vs TLS 1.2: ~200ms (2 round trips)</span>
+                    <div style={{fontSize: 32, marginBottom: 8}}>🏛️</div>
+                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Root CA</div>
+                    <div style={{fontSize: 12, color: '#fca5a5', marginTop: 6}}>DigiCert/Let's Encrypt</div>
+                    <div style={{fontSize: 11, color: '#fca5a5', marginTop: 4}}>Trusted by your OS</div>
+                  </div>
+
+                  {/* Arrow */}
+                  {frame >= 1520 && (
+                    <div style={{fontSize: 32, color: '#fbbf24', margin: '0 12px', opacity: fadeIn(frame, 1520, 10)}}>→</div>
+                  )}
+
+                  {/* Intermediate CA */}
+                  <div style={{
+                    flex: 1,
+                    backgroundColor: theme.colors.cache,
+                    border: '3px solid #f59e0b',
+                    borderRadius: 12,
+                    padding: 16,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 1540, 15),
+                    transform: `scale(${pulse(frame, 1540, 60)})`,
+                  }}>
+                    <div style={{fontSize: 32, marginBottom: 8}}>📜</div>
+                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Intermediate CA</div>
+                    <div style={{fontSize: 12, color: '#fcd34d', marginTop: 6}}>Signed by Root</div>
+                    <div style={{fontSize: 11, color: '#fcd34d', marginTop: 4}}>Issues server certs</div>
+                  </div>
+
+                  {/* Arrow */}
+                  {frame >= 1580 && (
+                    <div style={{fontSize: 32, color: '#fbbf24', margin: '0 12px', opacity: fadeIn(frame, 1580, 10)}}>→</div>
+                  )}
+
+                  {/* Server Certificate */}
+                  <div style={{
+                    flex: 1,
+                    backgroundColor: theme.colors.success,
+                    border: '3px solid #10b981',
+                    borderRadius: 12,
+                    padding: 16,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 1600, 15),
+                    transform: `scale(${pulse(frame, 1600, 60)})`,
+                  }}>
+                    <div style={{fontSize: 32, marginBottom: 8}}>✅</div>
+                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Server Cert</div>
+                    <div style={{fontSize: 12, color: '#6ee7b7', marginTop: 6}}>google.com</div>
+                    <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 4}}>Valid: 90 days</div>
+                  </div>
+                </div>
+
+                {frame >= 1640 && (
+                  <div style={{
+                    marginTop: 20,
+                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                    border: '2px solid rgba(96, 165, 250, 0.3)',
+                    borderRadius: 10,
+                    padding: 16,
+                    opacity: fadeIn(frame, 1640, 10),
+                  }}>
+                    <div style={{fontSize: 15, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                      Browser verifies: Root CA (trusted) → Intermediate CA (valid signature) → Server (matches google.com)
+                      <br/><span style={{color: '#10b981', fontWeight: 'bold'}}>✓ Trust chain validated!</span>
                     </div>
                   </div>
                 )}
               </div>
             </div>
           )}
+
+          {/* PART 3: Key Exchange & Encryption (1680-1860) */}
+          {frame >= 1680 && frame < 1860 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.26,
+              left: width * 0.08,
+              right: width * 0.08,
+              opacity: fadeIn(frame, 1680, 15),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(139, 92, 246, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#a78bfa', marginBottom: 16, textAlign: 'center'}}>
+                  Step 3: Key Exchange & Encryption
+                </div>
+
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
+                  <div style={{opacity: fadeIn(frame, 1720, 15)}}>
+                    <div style={{
+                      backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                      border: '2px solid rgba(96, 165, 250, 0.3)',
+                      borderRadius: 12,
+                      padding: 18,
+                    }}>
+                      <div style={{fontSize: 28, marginBottom: 10, textAlign: 'center'}}>🔑</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#60a5fa', marginBottom: 10, textAlign: 'center'}}>
+                        ECDHE Key Exchange
+                      </div>
+                      <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                        • Both sides generate keys<br/>
+                        • Exchange public keys<br/>
+                        • Compute shared secret<br/>
+                        • <span style={{color: '#10b981', fontWeight: 'bold'}}>Perfect Forward Secrecy</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{opacity: fadeIn(frame, 1760, 15)}}>
+                    <div style={{
+                      backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                      border: '2px solid rgba(139, 92, 246, 0.3)',
+                      borderRadius: 12,
+                      padding: 18,
+                    }}>
+                      <div style={{fontSize: 28, marginBottom: 10, textAlign: 'center'}}>🔐</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', marginBottom: 10, textAlign: 'center'}}>
+                        AES-256-GCM
+                      </div>
+                      <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                        • Symmetric encryption<br/>
+                        • 256-bit key strength<br/>
+                        • GCM mode (authenticated)<br/>
+                        • <span style={{color: '#10b981', fontWeight: 'bold'}}>Fast & Secure</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {frame >= 1800 && (
+                  <div style={{
+                    marginTop: 20,
+                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                    border: '2px solid rgba(245, 158, 11, 0.3)',
+                    borderRadius: 10,
+                    padding: 16,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 1800, 10),
+                  }}>
+                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <span style={{color: '#fbbf24', fontWeight: 'bold'}}>SHA-384 Hashing:</span> Every message gets a hash to detect tampering
+                      <br/><span style={{fontSize: 14, color: '#94a3b8'}}>Ensures data integrity during transmission</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* PART 4: Final - Encrypted Communication (1860-1920) */}
+          {frame >= 1860 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.28,
+              left: width * 0.15,
+              right: width * 0.15,
+              opacity: fadeIn(frame, 1860, 15),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                border: '3px solid rgba(16, 185, 129, 0.5)',
+                borderRadius: 16,
+                padding: 28,
+                textAlign: 'center',
+              }}>
+                <div style={{fontSize: 48, marginBottom: 16}}>🔒</div>
+                <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 16}}>
+                  Secure Tunnel Established!
+                </div>
+                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2}}>
+                  ✓ Server identity verified via certificate chain<br/>
+                  ✓ Strong encryption negotiated (AES-256-GCM)<br/>
+                  ✓ Secure keys exchanged (ECDHE with PFS)<br/>
+                  ✓ Data integrity protected (SHA-384 hashing)
+                </div>
+                <div style={{marginTop: 20, fontSize: 15, color: '#fbbf24'}}>
+                  <span style={{fontWeight: 'bold'}}>⚡ TLS 1.3 Handshake:</span> ~100ms (1-RTT) vs TLS 1.2 ~200ms (2-RTT)
+                </div>
+              </div>
+            </div>
+          )}
         </>
       )}
 
-      {/* Scene 4: Proxies WITH FLOWING DOT (1560-2100 frames / 52-70s) - Extended for reading */}
-      {frame >= 1560 && frame < 2100 && (
+      {/* Scene 4: Proxies WITH FLOWING DOT (1920-2460 frames / 64-82s) */}
+      {frame >= 1920 && frame < 2460 && (
         <>
-          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1560} />
+          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1920} />
 
-          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={1570} size={95} />
-          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={1570} size={95} />
+          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={1930} size={95} />
+          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={1930} size={95} />
 
           <Dialogue
             speaker="junior"
             text="This seems like a lot of work! Is there a way to make it faster?"
             x={width * 0.05}
             y={height * 0.76}
-            startFrame={1590}
+            startFrame={1950}
             maxWidth={460}
           />
 
@@ -668,18 +803,18 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
             x={width * 0.77 - 320}
             y={height * 0.76}
-            startFrame={1680}
+            startFrame={2040}
             maxWidth={540}
           />
 
           {/* Proxy Flow Diagram - MOVED LOWER */}
-          {frame >= 1770 && (
+          {frame >= 2130 && (
             <div style={{
               position: 'absolute',
               top: height * 0.28,
               left: width * 0.05,
               right: width * 0.05,
-              opacity: fadeIn(frame, 1770, 15),
+              opacity: fadeIn(frame, 2130, 15),
             }}>
               {/* Components in a row */}
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative'}}>
@@ -703,7 +838,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
 
                 {/* Forward Proxy */}
-                <div style={{textAlign: 'center', opacity: fadeIn(frame, 1800, 15)}}>
+                <div style={{textAlign: 'center', opacity: fadeIn(frame, 2160, 15)}}>
                   <div style={{
                     width: 100,
                     height: 90,
@@ -715,7 +850,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 1800, 60)})`,
+                    transform: `scale(${pulse(frame, 2160, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Forward</div>
@@ -744,7 +879,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
 
                 {/* Reverse Proxy */}
-                <div style={{textAlign: 'center', opacity: fadeIn(frame, 1840, 15)}}>
+                <div style={{textAlign: 'center', opacity: fadeIn(frame, 2200, 15)}}>
                   <div style={{
                     width: 100,
                     height: 90,
@@ -756,7 +891,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 1840, 60)})`,
+                    transform: `scale(${pulse(frame, 2200, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Reverse</div>
@@ -786,7 +921,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               </div>
 
               {/* STATIC LINES (always visible after frame 1880) */}
-              {frame >= 1880 && (
+              {frame >= 2180 && (
                 <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
                   {/* Line 1: Client → Forward Proxy */}
                   <line x1={110} y1={45} x2={width * 0.235} y2={45} stroke="#60a5fa" strokeWidth="2" opacity="0.4" />
@@ -800,18 +935,18 @@ export const ClientServerDNSProxies: React.FC = () => {
               )}
 
               {/* FLOWING DOT ANIMATION */}
-              <FlowingDot x1={110} y1={45} x2={width * 0.235} y2={45} startFrame={1880} duration={30} color="#60a5fa" />
-              <FlowingDot x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} startFrame={1910} duration={30} color="#fbbf24" />
-              <FlowingDot x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} startFrame={1940} duration={30} color="#60a5fa" />
-              <FlowingDot x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} startFrame={1970} duration={30} color="#10b981" />
+              <FlowingDot x1={110} y1={45} x2={width * 0.235} y2={45} startFrame={2180} duration={30} color="#60a5fa" />
+              <FlowingDot x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} startFrame={2210} duration={30} color="#fbbf24" />
+              <FlowingDot x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} startFrame={2240} duration={30} color="#60a5fa" />
+              <FlowingDot x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} startFrame={2270} duration={30} color="#10b981" />
 
               {/* Explanation below - LARGER FONT, MORE TIME TO READ */}
-              {frame >= 1910 && (
+              {frame >= 2180 && (
                 <div style={{
                   marginTop: 140,
                   display: 'flex',
                   gap: 20,
-                  opacity: fadeIn(frame, 1910, 15),
+                  opacity: fadeIn(frame, 2180, 15),
                 }}>
                   <div style={{
                     flex: 1,
@@ -852,20 +987,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 5: Complete Flow Summary (2100-2460 frames / 70-82s) */}
-      {frame >= 2100 && frame < 2460 && (
+      {/* Scene 5: Complete Flow Summary (2460-2820 frames / 82-94s) */}
+      {frame >= 2460 && frame < 2820 && (
         <>
-          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2100} />
+          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2460} />
 
-          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2110} size={95} />
-          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={2110} size={95} />
+          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2470} size={95} />
+          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={2470} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Can we see how all these pieces - DNS, TLS, proxies - work together in one flow?"
             x={width * 0.05}
             y={height * 0.78}
-            startFrame={2130}
+            startFrame={2490}
             maxWidth={440}
           />
 
@@ -874,12 +1009,12 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Perfect! Let me walk you through the complete journey with timing..."
             x={width * 0.79 - 340}
             y={height * 0.78}
-            startFrame={2220}
+            startFrame={2580}
             maxWidth={560}
           />
 
           {/* Complete timeline - MOVED LOWER */}
-          {frame >= 2310 && (
+          {frame >= 2670 && (
             <div style={{
               position: 'absolute',
               top: height * 0.26,
@@ -889,37 +1024,37 @@ export const ClientServerDNSProxies: React.FC = () => {
               border: '3px solid rgba(96, 165, 250, 0.5)',
               borderRadius: 16,
               padding: 26,
-              opacity: fadeIn(frame, 2310, 15),
+              opacity: fadeIn(frame, 2670, 15),
             }}>
               <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
                 When You Press Enter on google.com...
               </div>
               <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2.5}}>
-                <div style={{opacity: fadeIn(frame, 2340, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2700, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~50ms): Browser → Root → TLD → Authoritative → IP
                 </div>
-                <div style={{opacity: fadeIn(frame, 2380, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2740, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>2.</span> <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TCP Handshake</span> (~30ms): SYN → SYN-ACK → ACK
                 </div>
-                <div style={{opacity: fadeIn(frame, 2420, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2780, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>3.</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>TLS Handshake</span> (~100ms): ClientHello → ServerHello → Encrypted tunnel
                 </div>
-                <div style={{opacity: fadeIn(frame, 2460, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2820, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>4.</span> <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>HTTP Request</span>: GET / HTTP/2 (multiplexed)
                 </div>
-                <div style={{opacity: fadeIn(frame, 2500, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2860, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>5.</span> <span style={{color: theme.colors.server, fontWeight: 'bold'}}>Server Response</span> (~80ms): HTML/CSS/JS/Images
                 </div>
               </div>
 
-              {frame >= 2540 && (
+              {frame >= 2900 && (
                 <div style={{
                   marginTop: 22,
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
                   border: '2px solid rgba(245, 158, 11, 0.4)',
                   borderRadius: 10,
                   padding: 18,
-                  opacity: fadeIn(frame, 2540, 15),
+                  opacity: fadeIn(frame, 2900, 15),
                 }}>
                   <div style={{fontSize: 18, color: '#e2e8f0', textAlign: 'center', lineHeight: 2}}>
                     <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ First Visit:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~260ms</span>
@@ -933,20 +1068,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 6: Production Best Practices (2460-2640 frames / 82-88s) */}
-      {frame >= 2460 && frame < 2640 && (
+      {/* Scene 6: Production Best Practices (2820-3000 frames / 94-100s) */}
+      {frame >= 2820 && frame < 3000 && (
         <>
-          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2460} />
+          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2820} />
 
-          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={2470} size={95} />
-          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={2470} size={95} />
+          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={2830} size={95} />
+          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={2830} size={95} />
 
           <Dialogue
             speaker="junior"
             text="This is amazing! What do I need to remember for real production systems?"
             x={width * 0.05}
             y={height * 0.78}
-            startFrame={2490}
+            startFrame={2850}
             maxWidth={470}
           />
 
@@ -955,12 +1090,12 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Here are the key principles that scale to billions of requests..."
             x={width * 0.76 - 340}
             y={height * 0.78}
-            startFrame={2560}
+            startFrame={2920}
             maxWidth={560}
           />
 
           {/* Best practices cards */}
-          {frame >= 2580 && (
+          {frame >= 2940 && (
             <div style={{
               position: 'absolute',
               top: height * 0.26,
@@ -969,7 +1104,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: 18,
-              opacity: fadeIn(frame, 2580, 15),
+              opacity: fadeIn(frame, 2940, 15),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -1043,8 +1178,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: What's Next (2640-2700 frames / 88-90s) */}
-      {frame >= 2640 && frame < 2700 && (
+      {/* Scene 7: What's Next (3000-3060 frames / 100-102s) */}
+      {frame >= 3000 && frame < 3060 && (
         <>
           <div style={{
             position: 'absolute',
@@ -1054,20 +1189,20 @@ export const ClientServerDNSProxies: React.FC = () => {
             fontWeight: 'bold',
             color: '#fff',
             textAlign: 'center',
-            opacity: fadeIn(frame, 2640, 20),
+            opacity: fadeIn(frame, 3000, 20),
           }}>
             You've Mastered the Fundamentals! 🎉
           </div>
 
-          <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={2660} size={120} />
-          <Character type="architect" x={width * 0.62} y={height * 0.52} startFrame={2660} size={120} />
+          <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={3020} size={120} />
+          <Character type="architect" x={width * 0.62} y={height * 0.52} startFrame={3020} size={120} />
 
           <Dialogue
             speaker="junior"
             text="This makes so much sense now! What's next?"
             x={width * 0.32 - 240}
             y={height * 0.64}
-            startFrame={2680}
+            startFrame={3040}
             maxWidth={460}
           />
 
@@ -1076,7 +1211,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Now let's learn about distributing traffic across multiple servers for high availability!"
             x={width * 0.62 - 180}
             y={height * 0.64}
-            startFrame={2700}
+            startFrame={3060}
             maxWidth={500}
           />
 
@@ -1091,7 +1226,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             padding: '20px 36px',
             borderRadius: 14,
             border: '3px solid rgba(96, 165, 250, 0.5)',
-            opacity: fadeIn(frame, 2720, 20),
+            opacity: fadeIn(frame, 3080, 20),
             textAlign: 'center',
           }}>
             Next Up: Load Balancing & CDNs 🚀
@@ -1104,7 +1239,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             fontSize: 15,
             color: '#94a3b8',
             textAlign: 'center',
-            opacity: fadeIn(frame, 2740, 15),
+            opacity: fadeIn(frame, 3100, 15),
           }}>
             Phase 1: Foundational Infrastructure - Topic 1 of 4 ✅
           </div>

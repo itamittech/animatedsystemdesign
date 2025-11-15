@@ -9,7 +9,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="ClientServerDNSProxies"
         component={ClientServerDNSProxies}
-        durationInFrames={2700}
+        durationInFrames={3060}
         fps={30}
         width={1920}
         height={1080}
