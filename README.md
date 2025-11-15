@@ -170,6 +170,39 @@ Content is designed for architects with 10+ years experience:
 - Includes failure modes and edge cases
 - References industry standards and protocols
 
+## Sound Effects (Optional)
+
+The project supports sound effects to enhance the learning experience!
+
+**Status**: Audio infrastructure ready, sound files are optional
+
+**To add sound effects**:
+1. See `SOUND_EFFECTS_GUIDE.md` for complete instructions
+2. Download free sounds from Mixkit.co or Freesound.org
+3. Place in `/public/audio/` folder
+4. That's it! Animations work perfectly with or without audio
+
+**Current sound effects support**:
+- Scene transitions (whoosh)
+- Element appearances (pop)
+- Data flow visualization
+- Server states (startup, error, success)
+- Alerts and warnings
+
+## Future Topics Planned
+
+Topics to be added in the same character-driven style:
+
+2. **Caching Strategies** - Multi-level caching, CDN, Redis patterns, cache invalidation
+3. **Database Scaling** - Replication, sharding, partitioning strategies
+4. **Message Queues** - Kafka, RabbitMQ, event streaming patterns
+5. **Microservices Patterns** - API Gateway, Service Mesh, Circuit Breaker
+6. **Data Consistency** - CAP Theorem, Eventually Consistent systems, SAGA pattern
+7. **Rate Limiting** - Advanced throttling and DDoS protection
+8. **CDN & Edge Computing** - Global content delivery
+9. **Monitoring & Observability** - Metrics, logs, distributed tracing
+10. **Disaster Recovery** - Backup strategies, failover patterns
+
 ## License
 
 Educational content for system design learning.
