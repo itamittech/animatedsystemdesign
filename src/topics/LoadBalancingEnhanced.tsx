@@ -26,22 +26,22 @@ export const LoadBalancingEnhanced: React.FC = () => {
       }}
     >
       {/* Sound Effects - Optional audio (graceful fallback if files missing) */}
-      {frame === 0 && <SoundEffect src="public/sfx/intro.mp3" />}
-      {frame === 120 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 200 && <SoundEffect src="public/sfx/alert.mp3" />}
-      {frame === 270 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 450 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 630 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 810 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 865 && <SoundEffect src="public/sfx/error.mp3" />}
-      {frame === 900 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 1080 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 1260 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 1440 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 1680 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 1860 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 2040 && <SoundEffect src="public/sfx/transition.mp3" />}
-      {frame === 2240 && <SoundEffect src="public/sfx/success.mp3" />}
+      {frame === 0 && <SoundEffect src="/sfx/intro.mp3" />}
+      {frame === 120 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 200 && <SoundEffect src="/sfx/alert.mp3" />}
+      {frame === 270 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 450 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 630 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 810 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 865 && <SoundEffect src="/sfx/error.mp3" />}
+      {frame === 900 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 1080 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 1260 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 1440 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 1680 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 1860 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 2040 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame === 2240 && <SoundEffect src="/sfx/success.mp3" />}
 
       {/* Scene 1: Introduction - The Problem (0-120 frames / 0-4s) */}
       {frame < 120 && (
@@ -776,7 +776,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
           </div>
 
           <div style={{position: 'absolute', left: 100, top: 480, opacity: fadeIn(frame, 1380, 20)}}>
-            <InfoCard title="Decision Framework" points={['On-prem → NGINX or HAProxy', 'Cloud → Managed LBs', 'Kubernetes → Envoy', 'Global → Cloudflare']} color={theme.colors.info} />
+            <InfoCard title="Decision Framework" points={['On-prem → NGINX or HAProxy', 'Cloud → Managed LBs (ALB, Azure LB)', 'Kubernetes → Ingress (NGINX, Envoy)', 'Global → GSLB (Route53, Cloudflare)']} color={theme.colors.info} />
           </div>
         </>
       )}
@@ -921,7 +921,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <Dialogue
             speaker="architect"
-            text="Finally, load balancers are your first line of defense. They can rate limit, detect attacks, and protect backends."
+            text="Load balancers add a critical security layer. They can rate limit, block malicious traffic, and protect backends from overload."
             x={width / 2 - 500}
             y={height - 150}
             startFrame={2060}
