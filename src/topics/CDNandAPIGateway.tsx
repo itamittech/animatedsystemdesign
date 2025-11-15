@@ -1,0 +1,984 @@
+import React from 'react';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
+import {theme} from '../design-system/theme';
+import {Title} from '../components/Title';
+import {Character} from '../components/Character';
+import {Dialogue} from '../components/Dialogue';
+import {fadeIn, pulse} from '../design-system/animations';
+
+/**
+ * CDN & API Gateway - Global Content Delivery & API Management
+ * Sarah (student) asks questions, Developer (teacher) explains
+ * Covers: Edge servers, caching strategies, API routing, rate limiting, authentication
+ */
+export const CDNandAPIGateway: React.FC = () => {
+  const frame = useCurrentFrame();
+  const {width, height} = useVideoConfig();
+
+  // Flowing dot animation component
+  const FlowingDot: React.FC<{
+    x1: number; y1: number; x2: number; y2: number;
+    startFrame: number; duration?: number; color?: string;
+  }> = ({x1, y1, x2, y2, startFrame, duration = 40, color = '#60a5fa'}) => {
+    if (frame < startFrame || frame > startFrame + duration) return null;
+
+    const progress = interpolate(
+      frame - startFrame,
+      [0, duration],
+      [0, 1],
+      {extrapolateRight: 'clamp'}
+    );
+
+    const currentX = x1 + (x2 - x1) * progress;
+    const currentY = y1 + (y2 - y1) * progress;
+
+    return (
+      <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+        <circle
+          cx={currentX}
+          cy={currentY}
+          r="6"
+          fill={color}
+          opacity="0.9"
+        >
+          <animate attributeName="r" values="6;8;6" dur="0.5s" repeatCount="indefinite" />
+        </circle>
+        <circle
+          cx={currentX}
+          cy={currentY}
+          r="10"
+          fill={color}
+          opacity="0.3"
+        />
+      </svg>
+    );
+  };
+
+  return (
+    <AbsoluteFill style={{backgroundColor: theme.background.primary}}>
+      {/* Credit Bookmark */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          right: 30,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 12,
+          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backdropFilter: 'blur(10px)',
+          padding: '12px 24px',
+          borderRadius: 30,
+          border: '2px solid rgba(96, 165, 250, 0.4)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+          opacity: fadeIn(frame, 30, 20),
+          zIndex: 1000,
+        }}
+      >
+        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{
+          fontSize: 20,
+          fontWeight: 'bold',
+          background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}>
+          Amit Mishra
+        </div>
+        <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        </div>
+      </div>
+
+      {/* Scene 1: Introduction (0-450 frames / 0-15s) */}
+      {frame >= 0 && frame < 450 && (
+        <>
+          <Title text="CDN & API Gateway" subtitle="Global Content Delivery & Intelligent API Management" startFrame={0} />
+
+          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+
+          <Dialogue
+            speaker="junior"
+            text="We covered how browsers talk to servers. But how do massive platforms like Netflix serve millions of users globally so fast?"
+            x={width * 0.05}
+            y={height * 0.73}
+            startFrame={60}
+            maxWidth={520}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Great question! That's where CDNs and API Gateways come in. They're the secret sauce behind global-scale applications!"
+            x={width * 0.72 - 280}
+            y={height * 0.73}
+            startFrame={180}
+            maxWidth={540}
+          />
+
+          {/* The Problem Visualization */}
+          {frame >= 270 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.24,
+              left: width * 0.15,
+              right: width * 0.15,
+              backgroundColor: 'rgba(30, 41, 59, 0.95)',
+              border: '3px solid rgba(239, 68, 68, 0.5)',
+              borderRadius: 16,
+              padding: 28,
+              opacity: fadeIn(frame, 270, 20),
+            }}>
+              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', marginBottom: 16, textAlign: 'center'}}>
+                The Global Scale Challenge
+              </div>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
+                <div style={{opacity: fadeIn(frame, 310, 15)}}>
+                  <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>😰 Without CDN/Gateway:</div>
+                  <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                    • User in Tokyo → Server in US (~150ms latency)<br/>
+                    • Every request hits origin server<br/>
+                    • No caching, no load distribution<br/>
+                    • Server overload, slow response
+                  </div>
+                </div>
+                <div style={{opacity: fadeIn(frame, 360, 15)}}>
+                  <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>🚀 With CDN/Gateway:</div>
+                  <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                    • User in Tokyo → Edge server in Tokyo (~5ms)<br/>
+                    • Static content served from cache<br/>
+                    • API Gateway routes smartly<br/>
+                    • Fast, scalable, resilient
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 2: CDN Deep Dive (450-1200 frames / 15-40s) */}
+      {frame >= 450 && frame < 1200 && (
+        <>
+          <Title text="Content Delivery Network (CDN)" subtitle="Bringing Content Closer to Users" startFrame={450} />
+
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={460} size={95} />
+
+          <Dialogue
+            speaker="junior"
+            text="How does a CDN actually make things faster? What's the magic?"
+            x={width * 0.05}
+            y={height * 0.74}
+            startFrame={480}
+            maxWidth={450}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Simple! Instead of one server, you have hundreds of edge servers worldwide. Content gets cached near users."
+            x={width * 0.78 - 300}
+            y={height * 0.74}
+            startFrame={590}
+            maxWidth={520}
+          />
+
+          {/* CDN Network Visualization */}
+          {frame >= 700 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.24,
+              left: width * 0.05,
+              right: width * 0.05,
+              opacity: fadeIn(frame, 700, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
+                  CDN Global Network Architecture
+                </div>
+
+                {/* Visual representation */}
+                <div style={{position: 'relative', height: 280}}>
+                  {/* Origin Server (center) */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 120,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 740, 20),
+                  }}>
+                    <div style={{
+                      width: 100,
+                      height: 90,
+                      backgroundColor: theme.colors.server,
+                      borderRadius: 12,
+                      border: '3px solid #10b981',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                      transform: `scale(${pulse(frame, 60)})`,
+                    }}>
+                      <div style={{fontSize: 32}}>🏢</div>
+                      <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>Origin</div>
+                    </div>
+                    <div style={{fontSize: 11, color: '#10b981', marginTop: 6}}>US East</div>
+                  </div>
+
+                  {/* Edge Servers */}
+                  {/* Tokyo */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 20,
+                    right: 80,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 800, 20),
+                  }}>
+                    <div style={{
+                      width: 80,
+                      height: 70,
+                      backgroundColor: '#8b5cf6',
+                      borderRadius: 10,
+                      border: '2px solid #a78bfa',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 24}}>🌏</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                    </div>
+                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>Tokyo</div>
+                  </div>
+
+                  {/* London */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 60,
+                    left: 100,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 840, 20),
+                  }}>
+                    <div style={{
+                      width: 80,
+                      height: 70,
+                      backgroundColor: '#8b5cf6',
+                      borderRadius: 10,
+                      border: '2px solid #a78bfa',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 24}}>🌍</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                    </div>
+                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>London</div>
+                  </div>
+
+                  {/* Sydney */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 20,
+                    right: 120,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 880, 20),
+                  }}>
+                    <div style={{
+                      width: 80,
+                      height: 70,
+                      backgroundColor: '#8b5cf6',
+                      borderRadius: 10,
+                      border: '2px solid #a78bfa',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 24}}>🌏</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                    </div>
+                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>Sydney</div>
+                  </div>
+
+                  {/* São Paulo */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 40,
+                    left: 140,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 920, 20),
+                  }}>
+                    <div style={{
+                      width: 80,
+                      height: 70,
+                      backgroundColor: '#8b5cf6',
+                      borderRadius: 10,
+                      border: '2px solid #a78bfa',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 24}}>🌎</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                    </div>
+                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>São Paulo</div>
+                  </div>
+                </div>
+
+                {frame >= 980 && (
+                  <div style={{
+                    marginTop: 20,
+                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                    border: '2px solid rgba(96, 165, 250, 0.3)',
+                    borderRadius: 10,
+                    padding: 16,
+                    opacity: fadeIn(frame, 980, 15),
+                  }}>
+                    <div style={{fontSize: 15, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                      <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Cloudflare, AWS CloudFront, Fastly:</span> 200+ edge locations worldwide
+                      <br/><span style={{fontSize: 13, color: '#94a3b8'}}>Users connect to nearest edge → Reduced latency from 150ms to 5-20ms</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 3: CDN Caching Strategy (1200-1800 frames / 40-60s) */}
+      {frame >= 1200 && frame < 1800 && (
+        <>
+          <Title text="CDN Caching Strategy" subtitle="Cache Hit vs Cache Miss" startFrame={1200} />
+
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1210} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1210} size={95} />
+
+          <Dialogue
+            speaker="junior"
+            text="Okay, so content is stored at edge servers. But how does the CDN know what to cache and for how long?"
+            x={width * 0.05}
+            y={height * 0.74}
+            startFrame={1230}
+            maxWidth={480}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Great question! It's all about cache control headers, TTL (Time To Live), and smart cache invalidation strategies."
+            x={width * 0.78 - 300}
+            y={height * 0.74}
+            startFrame={1350}
+            maxWidth={520}
+          />
+
+          {/* Cache Hit vs Miss Visualization */}
+          {frame >= 1470 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.22,
+              left: width * 0.08,
+              right: width * 0.08,
+              opacity: fadeIn(frame, 1470, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                  How CDN Caching Works
+                </div>
+
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
+                  {/* Cache HIT */}
+                  <div style={{opacity: fadeIn(frame, 1510, 20)}}>
+                    <div style={{
+                      backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                      border: '2px solid #10b981',
+                      borderRadius: 12,
+                      padding: 16,
+                    }}>
+                      <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                        ✅ Cache HIT (~5ms)
+                      </div>
+                      <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 2}}>
+                        1. User requests <span style={{color: '#fbbf24'}}>/logo.png</span><br/>
+                        2. Edge server checks cache<br/>
+                        3. <span style={{color: '#10b981', fontWeight: 'bold'}}>File found!</span> Serve immediately<br/>
+                        4. No origin server hit needed
+                      </div>
+                      <div style={{fontSize: 11, color: '#10b981', marginTop: 10, textAlign: 'center'}}>
+                        90-95% of requests are cache hits
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Cache MISS */}
+                  <div style={{opacity: fadeIn(frame, 1570, 20)}}>
+                    <div style={{
+                      backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                      border: '2px solid #ef4444',
+                      borderRadius: 12,
+                      padding: 16,
+                    }}>
+                      <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                        ❌ Cache MISS (~85ms)
+                      </div>
+                      <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 2}}>
+                        1. User requests <span style={{color: '#fbbf24'}}>/new-video.mp4</span><br/>
+                        2. Edge server checks cache<br/>
+                        3. <span style={{color: '#ef4444', fontWeight: 'bold'}}>Not found!</span> Fetch from origin<br/>
+                        4. Cache at edge + serve to user
+                      </div>
+                      <div style={{fontSize: 11, color: '#ef4444', marginTop: 10, textAlign: 'center'}}>
+                        First request or expired cache
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* TTL Explanation */}
+                {frame >= 1630 && (
+                  <div style={{
+                    marginTop: 20,
+                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                    border: '2px solid #8b5cf6',
+                    borderRadius: 12,
+                    padding: 16,
+                    opacity: fadeIn(frame, 1630, 20),
+                  }}>
+                    <div style={{fontSize: 16, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+                      ⏰ Cache Control Headers
+                    </div>
+                    <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
+                      • <span style={{color: '#fbbf24'}}>Static assets</span> (images, CSS, JS): <span style={{color: '#10b981'}}>Cache-Control: max-age=31536000</span> (1 year)<br/>
+                      • <span style={{color: '#fbbf24'}}>HTML pages</span>: <span style={{color: '#10b981'}}>Cache-Control: max-age=3600</span> (1 hour)<br/>
+                      • <span style={{color: '#fbbf24'}}>API responses</span>: <span style={{color: '#10b981'}}>Cache-Control: max-age=60, must-revalidate</span> (1 minute)<br/>
+                      • <span style={{color: '#fbbf24'}}>Dynamic content</span>: <span style={{color: '#ef4444'}}>Cache-Control: no-cache, no-store</span> (never cache)
+                    </div>
+                  </div>
+                )}
+
+                {/* Cache Invalidation */}
+                {frame >= 1700 && (
+                  <div style={{
+                    marginTop: 16,
+                    backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                    border: '2px solid #f59e0b',
+                    borderRadius: 12,
+                    padding: 14,
+                    opacity: fadeIn(frame, 1700, 20),
+                  }}>
+                    <div style={{fontSize: 14, color: '#fbbf24', fontWeight: 'bold', marginBottom: 8, textAlign: 'center'}}>
+                      🔄 Cache Invalidation: When you need to purge stale content
+                    </div>
+                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                      Manual purge, versioned URLs (/v2/logo.png), or invalidation API calls
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 4: API Gateway Introduction (1800-2250 frames / 60-75s) */}
+      {frame >= 1800 && frame < 2250 && (
+        <>
+          <Title text="API Gateway" subtitle="The Smart Router for Your APIs" startFrame={1800} />
+
+          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1810} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1810} size={95} />
+
+          <Dialogue
+            speaker="junior"
+            text="We've got the CDN handling static content. What about API calls and backend services?"
+            x={width * 0.05}
+            y={height * 0.74}
+            startFrame={1830}
+            maxWidth={480}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="That's where API Gateway shines! It's a single entry point that routes, secures, and manages all your API traffic."
+            x={width * 0.75 - 280}
+            y={height * 0.74}
+            startFrame={1950}
+            maxWidth={520}
+          />
+
+          {/* API Gateway Architecture */}
+          {frame >= 2070 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.20,
+              left: width * 0.08,
+              right: width * 0.08,
+              opacity: fadeIn(frame, 2070, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                  API Gateway: Single Entry Point
+                </div>
+
+                <div style={{position: 'relative', height: 300}}>
+                  {/* Client */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 130,
+                    left: 50,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 2100, 20),
+                  }}>
+                    <div style={{fontSize: 48}}>📱</div>
+                    <div style={{fontSize: 12, color: theme.colors.client, marginTop: 6}}>Client</div>
+                  </div>
+
+                  {/* API Gateway */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 100,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 2130, 20),
+                  }}>
+                    <div style={{
+                      width: 140,
+                      height: 120,
+                      backgroundColor: '#f59e0b',
+                      borderRadius: 12,
+                      border: '3px solid #fbbf24',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                      transform: `scale(${pulse(frame, 60)})`,
+                    }}>
+                      <div style={{fontSize: 36}}>🚪</div>
+                      <div style={{fontSize: 14, fontWeight: 'bold', color: '#fff', marginTop: 6}}>API Gateway</div>
+                      <div style={{fontSize: 10, color: '#1e293b', marginTop: 4}}>Route • Secure • Transform</div>
+                    </div>
+                  </div>
+
+                  {/* Microservices */}
+                  {/* User Service */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 20,
+                    right: 100,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 2160, 20),
+                  }}>
+                    <div style={{
+                      width: 85,
+                      height: 70,
+                      backgroundColor: '#10b981',
+                      borderRadius: 10,
+                      border: '2px solid #34d399',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 20}}>👤</div>
+                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>User Service</div>
+                    </div>
+                  </div>
+
+                  {/* Order Service */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 120,
+                    right: 60,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 2180, 20),
+                  }}>
+                    <div style={{
+                      width: 85,
+                      height: 70,
+                      backgroundColor: '#8b5cf6',
+                      borderRadius: 10,
+                      border: '2px solid #a78bfa',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 20}}>🛒</div>
+                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Order Service</div>
+                    </div>
+                  </div>
+
+                  {/* Payment Service */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 10,
+                    right: 110,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 2200, 20),
+                  }}>
+                    <div style={{
+                      width: 85,
+                      height: 70,
+                      backgroundColor: '#06b6d4',
+                      borderRadius: 10,
+                      border: '2px solid #22d3ee',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 20}}>💳</div>
+                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Payment Service</div>
+                    </div>
+                  </div>
+
+                  {/* Flowing connections */}
+                  <FlowingDot x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160} startFrame={2110} duration={30} color="#60a5fa" />
+                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55} startFrame={2170} duration={30} color="#10b981" />
+                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155} startFrame={2190} duration={30} color="#8b5cf6" />
+                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265} startFrame={2210} duration={30} color="#06b6d4" />
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 5: API Gateway Features (2250-2850 frames / 75-95s) */}
+      {frame >= 2250 && frame < 2850 && (
+        <>
+          <Title text="API Gateway Features" subtitle="Security, Rate Limiting & More" startFrame={2250} />
+
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={2260} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={2260} size={95} />
+
+          <Dialogue
+            speaker="junior"
+            text="What specific features does an API Gateway provide? It sounds like it does a lot!"
+            x={width * 0.05}
+            y={height * 0.74}
+            startFrame={2280}
+            maxWidth={480}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Absolutely! It handles authentication, rate limiting, request transformation, load balancing, and monitoring. Let me show you!"
+            x={width * 0.78 - 300}
+            y={height * 0.74}
+            startFrame={2400}
+            maxWidth={540}
+          />
+
+          {/* Features Grid */}
+          {frame >= 2520 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.18,
+              left: width * 0.06,
+              right: width * 0.06,
+              opacity: fadeIn(frame, 2520, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 24,
+              }}>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                  Core API Gateway Features
+                </div>
+
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
+                  {/* Authentication */}
+                  {frame >= 2560 && (
+                    <div style={{
+                      backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                      border: '2px solid #10b981',
+                      borderRadius: 12,
+                      padding: 16,
+                      opacity: fadeIn(frame, 2560, 20),
+                    }}>
+                      <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+                        🔐 Authentication & Authorization
+                      </div>
+                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                        • Verify JWT tokens<br/>
+                        • OAuth 2.0 / API keys<br/>
+                        • Reject unauthorized requests<br/>
+                        • Single auth layer for all services
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Rate Limiting */}
+                  {frame >= 2620 && (
+                    <div style={{
+                      backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                      border: '2px solid #ef4444',
+                      borderRadius: 12,
+                      padding: 16,
+                      opacity: fadeIn(frame, 2620, 20),
+                    }}>
+                      <div style={{fontSize: 16, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>
+                        ⏱️ Rate Limiting
+                      </div>
+                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                        • Limit: 100 requests/minute per user<br/>
+                        • Prevent DDoS attacks<br/>
+                        • Fair usage policies<br/>
+                        • Return 429 Too Many Requests
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Request Transformation */}
+                  {frame >= 2680 && (
+                    <div style={{
+                      backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                      border: '2px solid #8b5cf6',
+                      borderRadius: 12,
+                      padding: 16,
+                      opacity: fadeIn(frame, 2680, 20),
+                    }}>
+                      <div style={{fontSize: 16, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+                        🔄 Request/Response Transformation
+                      </div>
+                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                        • Convert XML ↔ JSON<br/>
+                        • Add/remove headers<br/>
+                        • Aggregate multiple API calls<br/>
+                        • Versioning (v1, v2 routing)
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Load Balancing & Monitoring */}
+                  {frame >= 2740 && (
+                    <div style={{
+                      backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                      border: '2px solid #f59e0b',
+                      borderRadius: 12,
+                      padding: 16,
+                      opacity: fadeIn(frame, 2740, 20),
+                    }}>
+                      <div style={{fontSize: 16, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
+                        ⚖️ Load Balancing & Monitoring
+                      </div>
+                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                        • Distribute requests across servers<br/>
+                        • Health checks & circuit breakers<br/>
+                        • Logging, metrics, tracing<br/>
+                        • Real-time analytics dashboard
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {frame >= 2800 && (
+                  <div style={{
+                    marginTop: 16,
+                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                    border: '2px solid rgba(96, 165, 250, 0.3)',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 2800, 20),
+                  }}>
+                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                      <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Popular Gateways:</span> AWS API Gateway, Kong, NGINX, Apigee, Azure API Management
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 6: CDN + API Gateway Together (2850-3300 frames / 95-110s) */}
+      {frame >= 2850 && frame < 3300 && (
+        <>
+          <Title text="CDN + API Gateway" subtitle="The Complete Picture" startFrame={2850} />
+
+          <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={2860} size={90} />
+          <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={2860} size={90} />
+
+          <Dialogue
+            speaker="junior"
+            text="How do CDN and API Gateway work together in a real application?"
+            x={width * 0.05}
+            y={height * 0.76}
+            startFrame={2880}
+            maxWidth={450}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Let me show you the complete request flow - it's beautiful when they work together!"
+            x={width * 0.78 - 280}
+            y={height * 0.76}
+            startFrame={2990}
+            maxWidth={500}
+          />
+
+          {/* Complete Flow Diagram */}
+          {frame >= 3100 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.16,
+              left: width * 0.05,
+              right: width * 0.05,
+              opacity: fadeIn(frame, 3100, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 22,
+              }}>
+                <div style={{fontSize: 20, fontWeight: 'bold', color: '#60a5fa', marginBottom: 16, textAlign: 'center'}}>
+                  Complete Request Flow
+                </div>
+
+                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2.5}}>
+                  <div style={{opacity: fadeIn(frame, 3140, 15)}}>
+                    <span style={{color: '#60a5fa', fontWeight: 'bold'}}>1. User Request:</span> Browser requests <span style={{color: '#fbbf24'}}>https://example.com/app.js</span>
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 3180, 15)}}>
+                    <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>2. CDN Check:</span> Edge server in Tokyo checks cache → <span style={{color: '#10b981'}}>Cache HIT! Serve immediately (~5ms)</span>
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 3220, 15)}}>
+                    <span style={{color: '#60a5fa', fontWeight: 'bold'}}>3. API Call:</span> User clicks button → <span style={{color: '#fbbf24'}}>POST /api/orders</span>
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 3260, 15)}}>
+                    <span style={{color: '#f59e0b', fontWeight: 'bold'}}>4. API Gateway:</span> Validates JWT token → Checks rate limit → Routes to Order Service
+                  </div>
+                </div>
+
+                {frame >= 3280 && (
+                  <div style={{
+                    marginTop: 14,
+                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                    border: '2px solid #10b981',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 3280, 15),
+                  }}>
+                    <div style={{fontSize: 15, fontWeight: 'bold', color: '#10b981', textAlign: 'center', marginBottom: 6}}>
+                      Result: Lightning Fast + Secure + Scalable! ⚡
+                    </div>
+                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center'}}>
+                      Static content from CDN (~5ms) + Dynamic APIs through Gateway (~50ms) = Optimal Performance
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 7: Real-World Examples & Next Steps (3300-3600 frames / 110-120s) */}
+      {frame >= 3300 && frame < 3600 && (
+        <>
+          <Title text="Real-World Impact" subtitle="Industry Examples & What's Next" startFrame={3300} />
+
+          <Character type="junior" x={width * 0.2} y={height * 0.65} startFrame={3310} size={100} />
+          <Character type="architect" x={width * 0.72} y={height * 0.65} startFrame={3310} size={100} />
+
+          {/* Real-World Examples */}
+          {frame >= 3330 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.22,
+              left: width * 0.12,
+              right: width * 0.12,
+              opacity: fadeIn(frame, 3330, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 26,
+              }}>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 18, textAlign: 'center'}}>
+                  Real-World Success Stories
+                </div>
+
+                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2.2}}>
+                  <div style={{opacity: fadeIn(frame, 3370, 15)}}>
+                    <span style={{fontSize: 20}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Cloudflare CDN + Zuul API Gateway → Serves 200M+ users globally
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 3410, 15)}}>
+                    <span style={{fontSize: 20}}>🛒</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Amazon:</span> CloudFront CDN + Custom Gateway → 99.99% availability
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 3450, 15)}}>
+                    <span style={{fontSize: 20}}>🎵</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Spotify:</span> Fastly CDN + Kong Gateway → Handles billions of API requests/day
+                  </div>
+                </div>
+
+                {frame >= 3490 && (
+                  <div style={{
+                    marginTop: 18,
+                    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                    border: '2px solid #8b5cf6',
+                    borderRadius: 12,
+                    padding: 18,
+                    opacity: fadeIn(frame, 3490, 20),
+                  }}>
+                    <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', textAlign: 'center', marginBottom: 10}}>
+                      🚀 What's Next?
+                    </div>
+                    <div style={{fontSize: 14, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                      Next up: <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Database Scaling & Caching</span><br/>
+                      Learn about sharding, replication, Redis, and more!
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          <Dialogue
+            speaker="junior"
+            text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
+            x={width * 0.05}
+            y={height * 0.75}
+            startFrame={3540}
+            maxWidth={500}
+          />
+        </>
+      )}
+
+    </AbsoluteFill>
+  );
+};

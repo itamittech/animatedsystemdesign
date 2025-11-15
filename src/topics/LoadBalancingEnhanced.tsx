@@ -392,7 +392,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
               title="Weighted"
               icon="⚖️"
               description="Based on server capacity (more powerful = more traffic)"
-              color={theme.colors.purple}
+              color={theme.colors.messageQueue}
             />
           </div>
         </>
@@ -850,7 +850,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
           </div>
 
           <div style={{position: 'absolute', left: 1400, top: 180, opacity: fadeIn(frame, 1850, 20)}}>
-            <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.purple} />
+            <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.messageQueue} />
           </div>
 
           <svg width={width} height={height}>

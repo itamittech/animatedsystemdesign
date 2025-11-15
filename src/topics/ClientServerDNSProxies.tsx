@@ -185,7 +185,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               borderRadius: 16,
               padding: 28,
               opacity: fadeIn(frame, 240, 20),
-              transform: `scale(${pulse(frame, 260, 60)})`,
+              transform: `scale(${pulse(frame, 60)})`,
             }}>
               <div style={{fontSize: 26, fontWeight: 'bold', color: theme.colors.client, marginBottom: 16, textAlign: 'center'}}>
                 💻 IP Address: The Computer's Address
@@ -704,7 +704,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 16,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1600, 20),
-                    transform: `scale(${pulse(frame, 1600, 60)})`,
+                    transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>🏛️</div>
                     <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Root CA</div>
@@ -726,7 +726,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 16,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1680, 20),
-                    transform: `scale(${pulse(frame, 1680, 60)})`,
+                    transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>📜</div>
                     <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Intermediate CA</div>
@@ -748,7 +748,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 16,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1760, 20),
-                    transform: `scale(${pulse(frame, 1760, 60)})`,
+                    transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>✅</div>
                     <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Server Cert</div>
@@ -961,7 +961,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 2160, 60)})`,
+                    transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Forward</div>
@@ -1002,7 +1002,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 2200, 60)})`,
+                    transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Reverse</div>
