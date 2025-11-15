@@ -10,51 +10,25 @@ A systematic approach to teaching system design from fundamentals to advanced pa
 
 ---
 
-## Phase 1: Foundational Concepts (Building Blocks)
+## Phase 1: Foundational Infrastructure (The Internet Stack)
 
-### 1.1 Client-Server Architecture ✅ PREREQUISITE
-**Duration:** 60s | **Complexity:** Beginner
-- What is client-server model?
-- Request-response cycle
-- Stateless vs stateful servers
-- Three-tier architecture (presentation, business logic, data)
-- When to use vs peer-to-peer
-
-### 1.2 Network Protocols & APIs
-**Duration:** 75s | **Complexity:** Beginner
+### 1.1 Client-Server, DNS & Proxies (Fundamentals) 🔄 IN PROGRESS
+**Duration:** 90s | **Complexity:** Beginner
+**Covers:** How the internet works from user request to server response
+- Client-Server model and request-response cycle
+- DNS resolution (hierarchical lookup, caching, records)
 - HTTP/HTTPS fundamentals
-- REST API principles
-- GraphQL vs REST
-- gRPC for microservices
-- WebSockets for real-time
+- Forward proxy (client-side, corporate networks)
+- Reverse proxy (server-side, NGINX, Caddy)
+- When to use each component
 
-### 1.3 DNS & Domain Name Resolution
-**Duration:** 60s | **Complexity:** Beginner
-- How DNS works (hierarchical lookup)
-- DNS caching (browser, OS, ISP)
-- A, CNAME, MX, TXT records
-- TTL and propagation
-- DNS as a load balancing tool
-
----
-
-## Phase 2: Core Infrastructure Components
-
-### 2.1 Load Balancing ✅ COMPLETED
+### 1.2 Load Balancing ✅ COMPLETED
 **Duration:** 86s | **Complexity:** Intermediate
 - Algorithms, health checks, sticky sessions
 - L4 vs L7, GSLB, SSL termination
 - Tools: NGINX, HAProxy, ALB, Cloudflare
 
-### 2.2 Reverse Proxy & Forward Proxy
-**Duration:** 70s | **Complexity:** Intermediate
-- Reverse proxy (NGINX, Caddy)
-- Forward proxy (corporate firewalls, VPNs)
-- Use cases: caching, security, load balancing
-- SSL termination and certificate management
-- Difference from load balancer
-
-### 2.3 Content Delivery Networks (CDN)
+### 1.3 Content Delivery Networks (CDN)
 **Duration:** 80s | **Complexity:** Intermediate
 - Edge locations and PoPs
 - Cache hit ratio optimization
@@ -62,13 +36,41 @@ A systematic approach to teaching system design from fundamentals to advanced pa
 - Invalidation strategies
 - Cloudflare, CloudFront, Akamai
 
-### 2.4 API Gateway
+### 1.4 API Gateway
 **Duration:** 75s | **Complexity:** Intermediate
 - Centralized entry point
 - Authentication, rate limiting, routing
 - Request/response transformation
 - Service discovery integration
 - Kong, Apigee, AWS API Gateway
+
+---
+
+## Phase 2: Communication Protocols & APIs
+
+### 2.1 REST API Design Best Practices
+**Duration:** 75s | **Complexity:** Intermediate
+- Resource-based URLs
+- HTTP methods (GET, POST, PUT, DELETE, PATCH)
+- Status codes and error handling
+- Versioning strategies
+- Pagination and filtering
+
+### 2.2 GraphQL vs REST
+**Duration:** 70s | **Complexity:** Intermediate
+- GraphQL query language
+- Resolvers and schema
+- Over-fetching and under-fetching problem
+- When to use GraphQL vs REST
+- Apollo, Relay
+
+### 2.3 gRPC & Protocol Buffers
+**Duration:** 75s | **Complexity:** Intermediate
+- Protocol Buffers serialization
+- HTTP/2 multiplexing
+- Streaming (unary, server, client, bidirectional)
+- Performance vs REST
+- Microservices communication
 
 ---
 
