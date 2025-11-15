@@ -10,7 +10,7 @@ import {fadeIn, pulse} from '../design-system/animations';
 /**
  * Client-Server, DNS & Proxies - Teaching Through Visual Flow
  * Sarah (student) asks questions, Developer (teacher) explains
- * EVERYTHING connects visually with animated arrows
+ * Developer GUIDES you through each visual flow step-by-step
  */
 export const ClientServerDNSProxies: React.FC = () => {
   const frame = useCurrentFrame();
@@ -138,7 +138,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           {frame >= 240 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.18,
+              top: height * 0.22,
               left: width * 0.25,
               width: 600,
               backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -166,51 +166,51 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 2: The DNS Discovery WITH VISUAL FLOW (450-1020 frames / 15-34s) */}
-      {frame >= 450 && frame < 1020 && (
+      {/* Scene 2: DNS Discovery WITH STEP-BY-STEP FLOW (450-1080 frames / 15-36s) */}
+      {frame >= 450 && frame < 1080 && (
         <>
           <Title text="DNS: The Internet's Phone Book" subtitle="How Domain Names Become IP Addresses" startFrame={450} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.65} startFrame={460} size={100} />
-          <Character type="architect" x={width * 0.78} y={height * 0.65} startFrame={460} size={100} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={460} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Okay, so I typed 'google.com' but computers need IP addresses. How does that conversion happen?"
             x={width * 0.05}
-            y={height * 0.75}
+            y={height * 0.74}
             startFrame={480}
             maxWidth={450}
           />
 
           <Dialogue
             speaker="architect"
-            text="That's where DNS comes in! Watch how your browser queries this hierarchy to find the IP..."
+            text="That's where DNS comes in! It's a hierarchy of servers. Let me show you step by step..."
             x={width * 0.78 - 300}
-            y={height * 0.75}
+            y={height * 0.74}
             startFrame={570}
             maxWidth={500}
           />
 
-          {/* DNS Hierarchy WITH FLOW VISUALIZATION */}
-          {frame >= 660 && (
+          {/* DNS Hierarchy WITH GUIDED FLOW */}
+          {frame >= 650 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.12,
+              top: height * 0.24,
               left: width * 0.08,
               right: width * 0.08,
-              opacity: fadeIn(frame, 660, 15),
+              opacity: fadeIn(frame, 650, 15),
             }}>
               {/* Browser */}
               <div style={{
                 position: 'absolute',
-                top: 0,
+                top: 10,
                 left: width * 0.05,
                 textAlign: 'center',
               }}>
                 <div style={{fontSize: 42}}>💻</div>
                 <div style={{fontSize: 14, fontWeight: 'bold', color: theme.colors.client, marginTop: 6}}>Your Browser</div>
-                <div style={{fontSize: 12, color: '#94a3b8', marginTop: 4}}>Query: google.com?</div>
+                <div style={{fontSize: 12, color: '#94a3b8', marginTop: 4}}>google.com?</div>
               </div>
 
               {/* Root DNS */}
@@ -225,17 +225,16 @@ export const ClientServerDNSProxies: React.FC = () => {
                 padding: 16,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                 textAlign: 'center',
-                transform: `scale(${pulse(frame, 680, 60)})`,
               }}>
                 <div style={{fontSize: 28}}>🌍</div>
                 <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Root DNS</div>
-                <div style={{fontSize: 11, color: '#fca5a5', marginTop: 4}}>13 root servers</div>
+                <div style={{fontSize: 11, color: '#fca5a5', marginTop: 4}}>13 servers</div>
               </div>
 
               {/* TLD DNS */}
               <div style={{
                 position: 'absolute',
-                top: 150,
+                top: 130,
                 left: width * 0.35,
                 width: 160,
                 backgroundColor: theme.colors.cache,
@@ -254,7 +253,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               {/* Authoritative DNS */}
               <div style={{
                 position: 'absolute',
-                top: 300,
+                top: 260,
                 left: width * 0.35,
                 width: 160,
                 backgroundColor: theme.colors.success,
@@ -263,139 +262,207 @@ export const ClientServerDNSProxies: React.FC = () => {
                 padding: 14,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                 textAlign: 'center',
-                opacity: fadeIn(frame, 760, 15),
+                opacity: fadeIn(frame, 800, 15),
               }}>
                 <div style={{fontSize: 24}}>📋</div>
-                <div style={{fontSize: 15, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Authoritative NS</div>
-                <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 4}}>google.com's server</div>
+                <div style={{fontSize: 15, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Authoritative</div>
+                <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 4}}>google.com</div>
               </div>
 
-              {/* THE VISUAL FLOW - Step by step */}
+              {/* STEP-BY-STEP FLOW with Developer narration */}
+
               {/* Step 1: Browser → Root DNS */}
-              {frame >= 800 && (
-                <FlowLine
-                  x1={width * 0.05 + 40}
-                  y1={30}
-                  x2={width * 0.35}
-                  y2={50}
-                  label="① Where is .com?"
-                  color={theme.colors.client}
-                  startFrame={800}
-                />
-              )}
-
-              {/* Step 2: Root DNS → TLD */}
-              {frame >= 840 && (
-                <FlowLine
-                  x1={width * 0.35 + 80}
-                  y1={85}
-                  x2={width * 0.35 + 80}
-                  y2={150}
-                  label="② Ask .com TLD"
-                  color="#fbbf24"
-                  startFrame={840}
-                />
-              )}
-
-              {/* Step 3: TLD → Authoritative */}
-              {frame >= 880 && (
-                <FlowLine
-                  x1={width * 0.35 + 80}
-                  y1={210}
-                  x2={width * 0.35 + 80}
-                  y2={300}
-                  label="③ Ask google NS"
-                  color="#f59e0b"
-                  startFrame={880}
-                />
-              )}
-
-              {/* Step 4: Authoritative → Browser (return path) */}
-              {frame >= 920 && (
-                <FlowLine
-                  x1={width * 0.35}
-                  y1={340}
-                  x2={width * 0.05 + 40}
-                  y2={80}
-                  label="④ IP: 142.250.185.46"
-                  color={theme.colors.success}
-                  startFrame={920}
-                />
-              )}
-
-              {/* Animated particles showing data flow */}
-              {frame >= 960 && (
+              {frame >= 680 && (
                 <>
-                  <DataFlowStream x1={width * 0.05 + 40} y1={30} x2={width * 0.35} y2={50} startFrame={960} />
-                  <DataFlowStream x1={width * 0.35 + 80} y1={85} x2={width * 0.35 + 80} y2={150} startFrame={970} />
-                  <DataFlowStream x1={width * 0.35 + 80} y1={210} x2={width * 0.35 + 80} y2={300} startFrame={980} />
-                  <DataFlowStream x1={width * 0.35} y1={340} x2={width * 0.05 + 40} y2={80} startFrame={990} />
+                  <FlowLine
+                    x1={width * 0.05 + 40}
+                    y1={35}
+                    x2={width * 0.35}
+                    y2={50}
+                    label="STEP 1"
+                    color={theme.colors.client}
+                    startFrame={680}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    width: 300,
+                    backgroundColor: 'rgba(96, 165, 250, 0.15)',
+                    border: '2px solid rgba(96, 165, 250, 0.4)',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 680, 10),
+                  }}>
+                    <div style={{fontSize: 14, fontWeight: 'bold', color: theme.colors.client, marginBottom: 6}}>
+                      STEP 1: Browser asks Root
+                    </div>
+                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                      "Where can I find .com domains?"
+                    </div>
+                  </div>
                 </>
               )}
 
-              {/* Explanation box with timing */}
-              {frame >= 1000 && (
-                <div style={{
-                  position: 'absolute',
-                  top: 150,
-                  right: 0,
-                  width: 340,
-                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                  border: '2px solid rgba(245, 158, 11, 0.4)',
-                  borderRadius: 12,
-                  padding: 18,
-                  opacity: fadeIn(frame, 1000, 15),
-                }}>
-                  <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2}}>
-                    <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ The Journey:</span><br/>
-                    1. Browser asks Root<br/>
-                    2. Root points to .com TLD<br/>
-                    3. TLD points to google's NS<br/>
-                    4. NS returns IP address<br/>
-                    <br/>
-                    <span style={{fontSize: 13, color: '#94a3b8'}}>First time: ~50-100ms<br/>Cached: &lt;1ms!</span>
+              {/* Step 2: Root → TLD */}
+              {frame >= 750 && (
+                <>
+                  <FlowLine
+                    x1={width * 0.35 + 80}
+                    y1={85}
+                    x2={width * 0.35 + 80}
+                    y2={130}
+                    label="STEP 2"
+                    color="#fbbf24"
+                    startFrame={750}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: 95,
+                    right: 0,
+                    width: 300,
+                    backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                    border: '2px solid rgba(245, 158, 11, 0.4)',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 750, 10),
+                  }}>
+                    <div style={{fontSize: 14, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>
+                      STEP 2: Root points to TLD
+                    </div>
+                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                      "Ask the .com TLD server!"
+                    </div>
                   </div>
-                </div>
+                </>
+              )}
+
+              {/* Step 3: TLD → Authoritative */}
+              {frame >= 830 && (
+                <>
+                  <FlowLine
+                    x1={width * 0.35 + 80}
+                    y1={190}
+                    x2={width * 0.35 + 80}
+                    y2={260}
+                    label="STEP 3"
+                    color="#f59e0b"
+                    startFrame={830}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: 195,
+                    right: 0,
+                    width: 300,
+                    backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                    border: '2px solid rgba(245, 158, 11, 0.4)',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 830, 10),
+                  }}>
+                    <div style={{fontSize: 14, fontWeight: 'bold', color: '#f59e0b', marginBottom: 6}}>
+                      STEP 3: TLD points to google
+                    </div>
+                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                      "Ask google.com's nameserver!"
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Step 4: Authoritative → Browser (return) */}
+              {frame >= 910 && (
+                <>
+                  <FlowLine
+                    x1={width * 0.35}
+                    y1={300}
+                    x2={width * 0.05 + 40}
+                    y2={80}
+                    label="STEP 4"
+                    color={theme.colors.success}
+                    startFrame={910}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: 295,
+                    right: 0,
+                    width: 300,
+                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                    border: '2px solid rgba(16, 185, 129, 0.4)',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 910, 10),
+                  }}>
+                    <div style={{fontSize: 14, fontWeight: 'bold', color: theme.colors.success, marginBottom: 6}}>
+                      STEP 4: Returns IP address
+                    </div>
+                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                      "Here it is: 142.250.185.46"
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Animated particles showing data flow */}
+              {frame >= 1000 && (
+                <>
+                  <DataFlowStream x1={width * 0.05 + 40} y1={35} x2={width * 0.35} y2={50} startFrame={1000} />
+                  <DataFlowStream x1={width * 0.35 + 80} y1={85} x2={width * 0.35 + 80} y2={130} startFrame={1010} />
+                  <DataFlowStream x1={width * 0.35 + 80} y1={190} x2={width * 0.35 + 80} y2={260} startFrame={1020} />
+                  <DataFlowStream x1={width * 0.35} y1={300} x2={width * 0.05 + 40} y2={80} startFrame={1030} />
+                </>
               )}
             </div>
+          )}
+
+          {/* Developer explains the flow */}
+          {frame >= 990 && (
+            <Dialogue
+              speaker="architect"
+              text="See? Four steps: Browser→Root→TLD→Authoritative→Back to Browser with the IP!"
+              x={width * 0.78 - 300}
+              y={height * 0.74}
+              startFrame={990}
+              maxWidth={500}
+            />
           )}
         </>
       )}
 
-      {/* Scene 3: Security with TLS FLOW (1020-1500 frames / 34-50s) */}
-      {frame >= 1020 && frame < 1500 && (
+      {/* Scene 3: Security with TLS FLOW (1080-1560 frames / 36-52s) */}
+      {frame >= 1080 && frame < 1560 && (
         <>
-          <Title text="Making It Secure with TLS" subtitle="Encrypting the Connection" startFrame={1020} />
+          <Title text="Making It Secure with TLS" subtitle="Encrypting the Connection" startFrame={1080} />
 
-          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1030} size={105} />
-          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1030} size={105} />
+          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={100} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1090} size={100} />
 
           <Dialogue
             speaker="junior"
-            text="Got it! DNS found the IP address. But how do we know we're really talking to Google and not a hacker?"
+            text="Got it! DNS found the IP. But how do we know we're really talking to Google and not a hacker?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={1050}
+            startFrame={1110}
             maxWidth={480}
           />
 
           <Dialogue
             speaker="architect"
-            text="Excellent security thinking! Watch how TLS creates an encrypted tunnel and verifies Google's identity..."
+            text="Excellent question! Watch how TLS creates an encrypted tunnel. It's a handshake..."
             x={width * 0.75 - 320}
             y={height * 0.74}
-            startFrame={1140}
+            startFrame={1200}
             maxWidth={540}
           />
 
           {/* TLS Handshake WITH VISUAL FLOW */}
-          {frame >= 1230 && (
+          {frame >= 1290 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.14,
+              top: height * 0.22,
               left: width * 0.12,
               right: width * 0.12,
-              opacity: fadeIn(frame, 1230, 15),
+              opacity: fadeIn(frame, 1290, 15),
             }}>
               {/* Client and Server */}
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
@@ -413,7 +480,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               {/* TLS Handshake Steps with arrows */}
               <div style={{marginTop: 30}}>
                 {/* Step 1: ClientHello */}
-                {frame >= 1260 && (
+                {frame >= 1320 && (
                   <>
                     <div style={{
                       position: 'absolute',
@@ -422,7 +489,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                       fontSize: 14,
                       color: '#60a5fa',
                       fontWeight: 'bold',
-                      opacity: fadeIn(frame, 1260, 10),
+                      opacity: fadeIn(frame, 1320, 10),
                     }}>
                       ① ClientHello<br/>
                       <span style={{fontSize: 12, color: '#94a3b8'}}>Cipher suites</span>
@@ -433,13 +500,13 @@ export const ClientServerDNSProxies: React.FC = () => {
                       x2={width * 0.76 - 120}
                       y2={120}
                       color={theme.colors.client}
-                      startFrame={1260}
+                      startFrame={1320}
                     />
                   </>
                 )}
 
                 {/* Step 2: ServerHello */}
-                {frame >= 1300 && (
+                {frame >= 1360 && (
                   <>
                     <div style={{
                       position: 'absolute',
@@ -449,7 +516,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                       color: '#10b981',
                       fontWeight: 'bold',
                       textAlign: 'right',
-                      opacity: fadeIn(frame, 1300, 10),
+                      opacity: fadeIn(frame, 1360, 10),
                     }}>
                       ② ServerHello<br/>
                       <span style={{fontSize: 12, color: '#94a3b8'}}>Certificate + Key</span>
@@ -460,13 +527,13 @@ export const ClientServerDNSProxies: React.FC = () => {
                       x2={120}
                       y2={190}
                       color={theme.colors.success}
-                      startFrame={1300}
+                      startFrame={1360}
                     />
                   </>
                 )}
 
                 {/* Step 3: Keys Generated */}
-                {frame >= 1340 && (
+                {frame >= 1400 && (
                   <>
                     <div style={{
                       position: 'absolute',
@@ -475,9 +542,9 @@ export const ClientServerDNSProxies: React.FC = () => {
                       fontSize: 14,
                       color: '#fbbf24',
                       fontWeight: 'bold',
-                      opacity: fadeIn(frame, 1340, 10),
+                      opacity: fadeIn(frame, 1400, 10),
                     }}>
-                      ③ Verify & Generate Keys<br/>
+                      ③ Verify & Create Keys<br/>
                       <span style={{fontSize: 12, color: '#94a3b8'}}>ECDHE exchange</span>
                     </div>
                     <FlowLine
@@ -486,13 +553,13 @@ export const ClientServerDNSProxies: React.FC = () => {
                       x2={width * 0.76 - 120}
                       y2={260}
                       color="#fbbf24"
-                      startFrame={1340}
+                      startFrame={1400}
                     />
                   </>
                 )}
 
                 {/* Step 4: Encrypted tunnel */}
-                {frame >= 1380 && (
+                {frame >= 1440 && (
                   <div style={{
                     position: 'absolute',
                     top: 310,
@@ -503,7 +570,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1380, 15),
+                    opacity: fadeIn(frame, 1440, 15),
                   }}>
                     <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold'}}>
                       🔒 Encrypted Tunnel Established!
@@ -515,7 +582,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 )}
 
                 {/* Performance note */}
-                {frame >= 1420 && (
+                {frame >= 1480 && (
                   <div style={{
                     position: 'absolute',
                     top: 400,
@@ -526,7 +593,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     borderRadius: 10,
                     padding: 14,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 1420, 15),
+                    opacity: fadeIn(frame, 1480, 15),
                   }}>
                     <div style={{fontSize: 15, color: '#e2e8f0'}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ TLS 1.3:</span> ~100ms (1 round trip)<br/>
@@ -540,40 +607,40 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 4: Proxies WITH FLOW (1500-1920 frames / 50-64s) */}
-      {frame >= 1500 && frame < 1920 && (
+      {/* Scene 4: Proxies WITH FLOW (1560-1980 frames / 52-66s) */}
+      {frame >= 1560 && frame < 1980 && (
         <>
-          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1500} />
+          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1560} />
 
-          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={1510} size={100} />
-          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={1510} size={100} />
+          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={1570} size={95} />
+          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={1570} size={95} />
 
           <Dialogue
             speaker="junior"
-            text="This seems like a lot of work for every request! Is there a way to make it faster?"
+            text="This seems like a lot of work! Is there a way to make it faster?"
             x={width * 0.05}
             y={height * 0.76}
-            startFrame={1530}
+            startFrame={1590}
             maxWidth={460}
           />
 
           <Dialogue
             speaker="architect"
-            text="Absolutely! Proxies act as smart helpers. Let me show you how they fit into the flow..."
+            text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
             x={width * 0.77 - 320}
             y={height * 0.76}
-            startFrame={1620}
+            startFrame={1680}
             maxWidth={540}
           />
 
           {/* Proxy Flow Diagram */}
-          {frame >= 1710 && (
+          {frame >= 1770 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.14,
+              top: height * 0.22,
               left: width * 0.05,
               right: width * 0.05,
-              opacity: fadeIn(frame, 1710, 15),
+              opacity: fadeIn(frame, 1770, 15),
             }}>
               {/* Components in a row */}
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative'}}>
@@ -597,7 +664,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
 
                 {/* Forward Proxy */}
-                <div style={{textAlign: 'center', opacity: fadeIn(frame, 1740, 15)}}>
+                <div style={{textAlign: 'center', opacity: fadeIn(frame, 1800, 15)}}>
                   <div style={{
                     width: 100,
                     height: 90,
@@ -609,7 +676,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 1740, 60)})`,
+                    transform: `scale(${pulse(frame, 1800, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Forward</div>
@@ -638,7 +705,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
 
                 {/* Reverse Proxy */}
-                <div style={{textAlign: 'center', opacity: fadeIn(frame, 1780, 15)}}>
+                <div style={{textAlign: 'center', opacity: fadeIn(frame, 1840, 15)}}>
                   <div style={{
                     width: 100,
                     height: 90,
@@ -650,7 +717,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 1780, 60)})`,
+                    transform: `scale(${pulse(frame, 1840, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Reverse</div>
@@ -680,22 +747,22 @@ export const ClientServerDNSProxies: React.FC = () => {
               </div>
 
               {/* FLOW ARROWS showing the complete journey */}
-              {frame >= 1820 && (
+              {frame >= 1880 && (
                 <>
-                  <FlowLine x1={110} y1={45} x2={width * 0.235} y2={45} label="Request" color={theme.colors.client} startFrame={1820} />
-                  <FlowLine x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} label="DNS?" color="#fbbf24" startFrame={1850} />
-                  <FlowLine x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} label="HTTPS" color={theme.colors.loadBalancer} startFrame={1880} />
-                  <FlowLine x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} label="HTTP" color={theme.colors.success} startFrame={1910} />
+                  <FlowLine x1={110} y1={45} x2={width * 0.235} y2={45} label="Request" color={theme.colors.client} startFrame={1880} />
+                  <FlowLine x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} label="DNS?" color="#fbbf24" startFrame={1910} />
+                  <FlowLine x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} label="HTTPS" color={theme.colors.loadBalancer} startFrame={1940} />
+                  <FlowLine x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} label="HTTP" color={theme.colors.success} startFrame={1970} />
                 </>
               )}
 
               {/* Explanation below */}
-              {frame >= 1850 && (
+              {frame >= 1910 && (
                 <div style={{
                   marginTop: 140,
                   display: 'flex',
                   gap: 20,
-                  opacity: fadeIn(frame, 1850, 15),
+                  opacity: fadeIn(frame, 1910, 15),
                 }}>
                   <div style={{
                     flex: 1,
@@ -736,20 +803,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 5: Complete Flow Summary (1920-2340 frames / 64-78s) */}
-      {frame >= 1920 && frame < 2340 && (
+      {/* Scene 5: Complete Flow Summary (1980-2400 frames / 66-80s) */}
+      {frame >= 1980 && frame < 2400 && (
         <>
-          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={1920} />
+          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={1980} />
 
-          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={1930} size={95} />
-          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={1930} size={95} />
+          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={1990} size={95} />
+          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={1990} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Can we see how all these pieces - DNS, TLS, proxies - work together in one flow?"
             x={width * 0.05}
             y={height * 0.78}
-            startFrame={1950}
+            startFrame={2010}
             maxWidth={440}
           />
 
@@ -758,52 +825,52 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Perfect! Let me walk you through the complete journey with timing..."
             x={width * 0.79 - 340}
             y={height * 0.78}
-            startFrame={2040}
+            startFrame={2100}
             maxWidth={560}
           />
 
           {/* Complete timeline */}
-          {frame >= 2130 && (
+          {frame >= 2190 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.12,
+              top: height * 0.20,
               left: width * 0.08,
               right: width * 0.08,
               backgroundColor: 'rgba(30, 41, 59, 0.95)',
               border: '3px solid rgba(96, 165, 250, 0.5)',
               borderRadius: 16,
               padding: 26,
-              opacity: fadeIn(frame, 2130, 15),
+              opacity: fadeIn(frame, 2190, 15),
             }}>
               <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
                 When You Press Enter on google.com...
               </div>
               <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2.5}}>
-                <div style={{opacity: fadeIn(frame, 2160, 10)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~50ms): Browser → Root → TLD → Authoritative → IP address
+                <div style={{opacity: fadeIn(frame, 2220, 10)}}>
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~50ms): Browser → Root → TLD → Authoritative → IP
                 </div>
-                <div style={{opacity: fadeIn(frame, 2200, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2260, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>2.</span> <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TCP Handshake</span> (~30ms): SYN → SYN-ACK → ACK
                 </div>
-                <div style={{opacity: fadeIn(frame, 2240, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2300, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>3.</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>TLS Handshake</span> (~100ms): ClientHello → ServerHello → Encrypted tunnel
                 </div>
-                <div style={{opacity: fadeIn(frame, 2280, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2340, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>4.</span> <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>HTTP Request</span>: GET / HTTP/2 (multiplexed)
                 </div>
-                <div style={{opacity: fadeIn(frame, 2320, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2380, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>5.</span> <span style={{color: theme.colors.server, fontWeight: 'bold'}}>Server Response</span> (~80ms): HTML/CSS/JS/Images
                 </div>
               </div>
 
-              {frame >= 2360 && (
+              {frame >= 2420 && (
                 <div style={{
                   marginTop: 22,
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
                   border: '2px solid rgba(245, 158, 11, 0.4)',
                   borderRadius: 10,
                   padding: 18,
-                  opacity: fadeIn(frame, 2360, 15),
+                  opacity: fadeIn(frame, 2420, 15),
                 }}>
                   <div style={{fontSize: 18, color: '#e2e8f0', textAlign: 'center', lineHeight: 2}}>
                     <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ First Visit:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~260ms</span>
@@ -817,20 +884,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 6: Production Best Practices (2340-2580 frames / 78-86s) */}
-      {frame >= 2340 && frame < 2580 && (
+      {/* Scene 6: Production Best Practices (2400-2580 frames / 80-86s) */}
+      {frame >= 2400 && frame < 2580 && (
         <>
-          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2340} />
+          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2400} />
 
-          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={2350} size={100} />
-          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={2350} size={100} />
+          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={2410} size={95} />
+          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={2410} size={95} />
 
           <Dialogue
             speaker="junior"
             text="This is amazing! What do I need to remember for real production systems?"
             x={width * 0.05}
             y={height * 0.78}
-            startFrame={2370}
+            startFrame={2430}
             maxWidth={470}
           />
 
@@ -839,21 +906,21 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Here are the key principles that scale to billions of requests..."
             x={width * 0.76 - 340}
             y={height * 0.78}
-            startFrame={2460}
+            startFrame={2500}
             maxWidth={560}
           />
 
           {/* Best practices cards */}
-          {frame >= 2490 && (
+          {frame >= 2520 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.12,
+              top: height * 0.20,
               left: width * 0.08,
               right: width * 0.08,
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: 18,
-              opacity: fadeIn(frame, 2490, 15),
+              opacity: fadeIn(frame, 2520, 15),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
