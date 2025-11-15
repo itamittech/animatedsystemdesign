@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Educational system design content with animations using Remotion",
   "scripts": {
-    "start": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts LoadBalancingBasics out/load-balancing.mp4",
-    "upgrade": "remotion upgrade",
+    "start": "node studio.js studio src/index.ts",
+    "render": "node studio.js render src/index.ts LoadBalancingBasics out/load-balancing.mp4",
+    "upgrade": "node studio.js upgrade",
     "test": "echo \"No tests yet\""
   },
   "dependencies": {
