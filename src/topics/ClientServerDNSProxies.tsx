@@ -16,7 +16,7 @@ export const ClientServerDNSProxies: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Elegant animated flow line component
+  // Elegant animated flow line component (for DNS scene)
   const FlowLine: React.FC<{
     x1: number; y1: number; x2: number; y2: number;
     label?: string; color?: string; startFrame: number;
@@ -67,6 +67,45 @@ export const ClientServerDNSProxies: React.FC = () => {
             {label}
           </text>
         )}
+      </svg>
+    );
+  };
+
+  // Flowing dot animation component (for proxy scene)
+  const FlowingDot: React.FC<{
+    x1: number; y1: number; x2: number; y2: number;
+    startFrame: number; duration?: number; color?: string;
+  }> = ({x1, y1, x2, y2, startFrame, duration = 40, color = '#60a5fa'}) => {
+    if (frame < startFrame || frame > startFrame + duration) return null;
+
+    const progress = interpolate(
+      frame - startFrame,
+      [0, duration],
+      [0, 1],
+      {extrapolateRight: 'clamp'}
+    );
+
+    const currentX = x1 + (x2 - x1) * progress;
+    const currentY = y1 + (y2 - y1) * progress;
+
+    return (
+      <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+        <circle
+          cx={currentX}
+          cy={currentY}
+          r="6"
+          fill={color}
+          opacity="0.9"
+        >
+          <animate attributeName="r" values="6;8;6" dur="0.5s" repeatCount="indefinite" />
+        </circle>
+        <circle
+          cx={currentX}
+          cy={currentY}
+          r="10"
+          fill={color}
+          opacity="0.3"
+        />
       </svg>
     );
   };
@@ -459,7 +498,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           {frame >= 1290 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.22,
+              top: height * 0.24,
               left: width * 0.12,
               right: width * 0.12,
               opacity: fadeIn(frame, 1290, 15),
@@ -607,8 +646,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 4: Proxies WITH FLOW (1560-1980 frames / 52-66s) */}
-      {frame >= 1560 && frame < 1980 && (
+      {/* Scene 4: Proxies WITH FLOWING DOT (1560-2100 frames / 52-70s) - Extended for reading */}
+      {frame >= 1560 && frame < 2100 && (
         <>
           <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1560} />
 
@@ -633,11 +672,11 @@ export const ClientServerDNSProxies: React.FC = () => {
             maxWidth={540}
           />
 
-          {/* Proxy Flow Diagram */}
+          {/* Proxy Flow Diagram - MOVED LOWER */}
           {frame >= 1770 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.22,
+              top: height * 0.28,
               left: width * 0.05,
               right: width * 0.05,
               opacity: fadeIn(frame, 1770, 15),
@@ -746,17 +785,27 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
               </div>
 
-              {/* FLOW ARROWS showing the complete journey */}
+              {/* STATIC LINES (always visible after frame 1880) */}
               {frame >= 1880 && (
-                <>
-                  <FlowLine x1={110} y1={45} x2={width * 0.235} y2={45} label="Request" color={theme.colors.client} startFrame={1880} />
-                  <FlowLine x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} label="DNS?" color="#fbbf24" startFrame={1910} />
-                  <FlowLine x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} label="HTTPS" color={theme.colors.loadBalancer} startFrame={1940} />
-                  <FlowLine x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} label="HTTP" color={theme.colors.success} startFrame={1970} />
-                </>
+                <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                  {/* Line 1: Client → Forward Proxy */}
+                  <line x1={110} y1={45} x2={width * 0.235} y2={45} stroke="#60a5fa" strokeWidth="2" opacity="0.4" />
+                  {/* Line 2: Forward Proxy → DNS */}
+                  <line x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} stroke="#fbbf24" strokeWidth="2" opacity="0.4" />
+                  {/* Line 3: DNS → Reverse Proxy */}
+                  <line x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} stroke="#60a5fa" strokeWidth="2" opacity="0.4" />
+                  {/* Line 4: Reverse Proxy → App */}
+                  <line x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} stroke="#10b981" strokeWidth="2" opacity="0.4" />
+                </svg>
               )}
 
-              {/* Explanation below */}
+              {/* FLOWING DOT ANIMATION */}
+              <FlowingDot x1={110} y1={45} x2={width * 0.235} y2={45} startFrame={1880} duration={30} color="#60a5fa" />
+              <FlowingDot x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} startFrame={1910} duration={30} color="#fbbf24" />
+              <FlowingDot x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} startFrame={1940} duration={30} color="#60a5fa" />
+              <FlowingDot x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} startFrame={1970} duration={30} color="#10b981" />
+
+              {/* Explanation below - LARGER FONT, MORE TIME TO READ */}
               {frame >= 1910 && (
                 <div style={{
                   marginTop: 140,
@@ -767,14 +816,14 @@ export const ClientServerDNSProxies: React.FC = () => {
                   <div style={{
                     flex: 1,
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                    border: '2px solid rgba(139, 92, 246, 0.4)',
-                    borderRadius: 10,
-                    padding: 16,
+                    border: '3px solid rgba(139, 92, 246, 0.5)',
+                    borderRadius: 12,
+                    padding: 20,
                   }}>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#a78bfa', marginBottom: 8}}>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#a78bfa', marginBottom: 10}}>
                       Forward Proxy
                     </div>
-                    <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.9}}>
                       • Caches requests<br/>
                       • Filters content<br/>
                       • Corporate networks
@@ -783,14 +832,14 @@ export const ClientServerDNSProxies: React.FC = () => {
                   <div style={{
                     flex: 1,
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                    border: '2px solid rgba(96, 165, 250, 0.4)',
-                    borderRadius: 10,
-                    padding: 16,
+                    border: '3px solid rgba(96, 165, 250, 0.5)',
+                    borderRadius: 12,
+                    padding: 20,
                   }}>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 8}}>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 10}}>
                       Reverse Proxy
                     </div>
-                    <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.9}}>
                       • TLS termination<br/>
                       • Load balancing<br/>
                       • Protects servers
@@ -803,20 +852,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 5: Complete Flow Summary (1980-2400 frames / 66-80s) */}
-      {frame >= 1980 && frame < 2400 && (
+      {/* Scene 5: Complete Flow Summary (2100-2460 frames / 70-82s) */}
+      {frame >= 2100 && frame < 2460 && (
         <>
-          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={1980} />
+          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2100} />
 
-          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={1990} size={95} />
-          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={1990} size={95} />
+          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2110} size={95} />
+          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={2110} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Can we see how all these pieces - DNS, TLS, proxies - work together in one flow?"
             x={width * 0.05}
             y={height * 0.78}
-            startFrame={2010}
+            startFrame={2130}
             maxWidth={440}
           />
 
@@ -825,52 +874,52 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Perfect! Let me walk you through the complete journey with timing..."
             x={width * 0.79 - 340}
             y={height * 0.78}
-            startFrame={2100}
+            startFrame={2220}
             maxWidth={560}
           />
 
-          {/* Complete timeline */}
-          {frame >= 2190 && (
+          {/* Complete timeline - MOVED LOWER */}
+          {frame >= 2310 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.20,
+              top: height * 0.26,
               left: width * 0.08,
               right: width * 0.08,
               backgroundColor: 'rgba(30, 41, 59, 0.95)',
               border: '3px solid rgba(96, 165, 250, 0.5)',
               borderRadius: 16,
               padding: 26,
-              opacity: fadeIn(frame, 2190, 15),
+              opacity: fadeIn(frame, 2310, 15),
             }}>
               <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
                 When You Press Enter on google.com...
               </div>
               <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2.5}}>
-                <div style={{opacity: fadeIn(frame, 2220, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2340, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~50ms): Browser → Root → TLD → Authoritative → IP
                 </div>
-                <div style={{opacity: fadeIn(frame, 2260, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2380, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>2.</span> <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TCP Handshake</span> (~30ms): SYN → SYN-ACK → ACK
                 </div>
-                <div style={{opacity: fadeIn(frame, 2300, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2420, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>3.</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>TLS Handshake</span> (~100ms): ClientHello → ServerHello → Encrypted tunnel
                 </div>
-                <div style={{opacity: fadeIn(frame, 2340, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2460, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>4.</span> <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>HTTP Request</span>: GET / HTTP/2 (multiplexed)
                 </div>
-                <div style={{opacity: fadeIn(frame, 2380, 10)}}>
+                <div style={{opacity: fadeIn(frame, 2500, 10)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>5.</span> <span style={{color: theme.colors.server, fontWeight: 'bold'}}>Server Response</span> (~80ms): HTML/CSS/JS/Images
                 </div>
               </div>
 
-              {frame >= 2420 && (
+              {frame >= 2540 && (
                 <div style={{
                   marginTop: 22,
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
                   border: '2px solid rgba(245, 158, 11, 0.4)',
                   borderRadius: 10,
                   padding: 18,
-                  opacity: fadeIn(frame, 2420, 15),
+                  opacity: fadeIn(frame, 2540, 15),
                 }}>
                   <div style={{fontSize: 18, color: '#e2e8f0', textAlign: 'center', lineHeight: 2}}>
                     <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ First Visit:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~260ms</span>
@@ -884,20 +933,20 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 6: Production Best Practices (2400-2580 frames / 80-86s) */}
-      {frame >= 2400 && frame < 2580 && (
+      {/* Scene 6: Production Best Practices (2460-2640 frames / 82-88s) */}
+      {frame >= 2460 && frame < 2640 && (
         <>
-          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2400} />
+          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2460} />
 
-          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={2410} size={95} />
-          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={2410} size={95} />
+          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={2470} size={95} />
+          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={2470} size={95} />
 
           <Dialogue
             speaker="junior"
             text="This is amazing! What do I need to remember for real production systems?"
             x={width * 0.05}
             y={height * 0.78}
-            startFrame={2430}
+            startFrame={2490}
             maxWidth={470}
           />
 
@@ -906,21 +955,21 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Here are the key principles that scale to billions of requests..."
             x={width * 0.76 - 340}
             y={height * 0.78}
-            startFrame={2500}
+            startFrame={2560}
             maxWidth={560}
           />
 
           {/* Best practices cards */}
-          {frame >= 2520 && (
+          {frame >= 2580 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.20,
+              top: height * 0.26,
               left: width * 0.08,
               right: width * 0.08,
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: 18,
-              opacity: fadeIn(frame, 2520, 15),
+              opacity: fadeIn(frame, 2580, 15),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -994,8 +1043,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: What's Next (2580-2700 frames / 86-90s) */}
-      {frame >= 2580 && frame < 2700 && (
+      {/* Scene 7: What's Next (2640-2700 frames / 88-90s) */}
+      {frame >= 2640 && frame < 2700 && (
         <>
           <div style={{
             position: 'absolute',
@@ -1005,20 +1054,20 @@ export const ClientServerDNSProxies: React.FC = () => {
             fontWeight: 'bold',
             color: '#fff',
             textAlign: 'center',
-            opacity: fadeIn(frame, 2580, 20),
+            opacity: fadeIn(frame, 2640, 20),
           }}>
             You've Mastered the Fundamentals! 🎉
           </div>
 
-          <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={2600} size={120} />
-          <Character type="architect" x={width * 0.62} y={height * 0.52} startFrame={2600} size={120} />
+          <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={2660} size={120} />
+          <Character type="architect" x={width * 0.62} y={height * 0.52} startFrame={2660} size={120} />
 
           <Dialogue
             speaker="junior"
             text="This makes so much sense now! What's next?"
             x={width * 0.32 - 240}
             y={height * 0.64}
-            startFrame={2620}
+            startFrame={2680}
             maxWidth={460}
           />
 
@@ -1027,7 +1076,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Now let's learn about distributing traffic across multiple servers for high availability!"
             x={width * 0.62 - 180}
             y={height * 0.64}
-            startFrame={2640}
+            startFrame={2700}
             maxWidth={500}
           />
 
@@ -1042,7 +1091,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             padding: '20px 36px',
             borderRadius: 14,
             border: '3px solid rgba(96, 165, 250, 0.5)',
-            opacity: fadeIn(frame, 2660, 20),
+            opacity: fadeIn(frame, 2720, 20),
             textAlign: 'center',
           }}>
             Next Up: Load Balancing & CDNs 🚀
@@ -1055,7 +1104,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             fontSize: 15,
             color: '#94a3b8',
             textAlign: 'center',
-            opacity: fadeIn(frame, 2680, 15),
+            opacity: fadeIn(frame, 2740, 15),
           }}>
             Phase 1: Foundational Infrastructure - Topic 1 of 4 ✅
           </div>
