@@ -130,26 +130,26 @@ export const CDNandAPIGateway: React.FC = () => {
               padding: 28,
               opacity: fadeIn(frame, 270, 20),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', marginBottom: 16, textAlign: 'center'}}>
+              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', marginBottom: 16, textAlign: 'center', opacity: fadeIn(frame, 290, 20)}}>
                 The Global Scale Challenge
               </div>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
-                <div style={{opacity: fadeIn(frame, 310, 15)}}>
+                <div style={{opacity: fadeIn(frame, 330, 20)}}>
                   <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>😰 Without CDN/Gateway:</div>
                   <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-                    • User in Tokyo → Server in US (~150ms latency)<br/>
-                    • Every request hits origin server<br/>
-                    • No caching, no load distribution<br/>
-                    • Server overload, slow response
+                    <div style={{opacity: fadeIn(frame, 360, 15)}}>• User in Tokyo → Server in US (~150ms latency)</div>
+                    <div style={{opacity: fadeIn(frame, 380, 15)}}>• Every request hits origin server</div>
+                    <div style={{opacity: fadeIn(frame, 400, 15)}}>• No caching, no load distribution</div>
+                    <div style={{opacity: fadeIn(frame, 420, 15)}}>• Server overload, slow response</div>
                   </div>
                 </div>
-                <div style={{opacity: fadeIn(frame, 360, 15)}}>
+                <div style={{opacity: fadeIn(frame, 330, 20)}}>
                   <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>🚀 With CDN/Gateway:</div>
                   <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-                    • User in Tokyo → Edge server in Tokyo (~5ms)<br/>
-                    • Static content served from cache<br/>
-                    • API Gateway routes smartly<br/>
-                    • Fast, scalable, resilient
+                    <div style={{opacity: fadeIn(frame, 360, 15)}}>• User in Tokyo → Edge server in Tokyo (~5ms)</div>
+                    <div style={{opacity: fadeIn(frame, 380, 15)}}>• Static content served from cache</div>
+                    <div style={{opacity: fadeIn(frame, 400, 15)}}>• API Gateway routes smartly</div>
+                    <div style={{opacity: fadeIn(frame, 420, 15)}}>• Fast, scalable, resilient</div>
                   </div>
                 </div>
               </div>
@@ -661,11 +661,49 @@ export const CDNandAPIGateway: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Flowing connections */}
-                  <FlowingDot x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160} startFrame={2110} duration={30} color="#60a5fa" />
-                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55} startFrame={2170} duration={30} color="#10b981" />
-                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155} startFrame={2190} duration={30} color="#8b5cf6" />
-                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265} startFrame={2210} duration={30} color="#06b6d4" />
+                  {/* Static connection lines (lighter, always visible) */}
+                  <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                    {frame >= 2110 && (
+                      <>
+                        {/* Client to Gateway */}
+                        <line x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160}
+                          stroke="rgba(96, 165, 250, 0.3)" strokeWidth="2" strokeDasharray="5,5"
+                          opacity={fadeIn(frame, 2110, 15)} />
+
+                        {/* Gateway to User Service */}
+                        <line x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55}
+                          stroke="rgba(16, 185, 129, 0.3)" strokeWidth="2" strokeDasharray="5,5"
+                          opacity={fadeIn(frame, 2160, 15)} />
+
+                        {/* Gateway to Order Service */}
+                        <line x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155}
+                          stroke="rgba(139, 92, 246, 0.3)" strokeWidth="2" strokeDasharray="5,5"
+                          opacity={fadeIn(frame, 2180, 15)} />
+
+                        {/* Gateway to Payment Service */}
+                        <line x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265}
+                          stroke="rgba(6, 182, 212, 0.3)" strokeWidth="2" strokeDasharray="5,5"
+                          opacity={fadeIn(frame, 2200, 15)} />
+                      </>
+                    )}
+                  </svg>
+
+                  {/* Flowing connections - animated dots */}
+                  <FlowingDot x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160} startFrame={2115} duration={40} color="#60a5fa" />
+                  <FlowingDot x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160} startFrame={2135} duration={40} color="#60a5fa" />
+
+                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55} startFrame={2170} duration={35} color="#10b981" />
+                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155} startFrame={2190} duration={35} color="#8b5cf6" />
+                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265} startFrame={2210} duration={35} color="#06b6d4" />
+
+                  {/* Additional flowing dots for continuous animation */}
+                  {frame >= 2170 && (
+                    <>
+                      <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55} startFrame={2190} duration={35} color="#10b981" />
+                      <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155} startFrame={2210} duration={35} color="#8b5cf6" />
+                      <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265} startFrame={2230} duration={35} color="#06b6d4" />
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -850,11 +888,11 @@ export const CDNandAPIGateway: React.FC = () => {
             maxWidth={500}
           />
 
-          {/* Complete Flow Diagram */}
-          {frame >= 3100 && (
+          {/* Visual Flow Architecture - shown first */}
+          {frame >= 3100 && frame < 3280 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.16,
+              top: height * 0.14,
               left: width * 0.05,
               right: width * 0.05,
               opacity: fadeIn(frame, 3100, 20),
@@ -863,13 +901,191 @@ export const CDNandAPIGateway: React.FC = () => {
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
                 border: '3px solid rgba(96, 165, 250, 0.5)',
                 borderRadius: 16,
-                padding: 22,
+                padding: 20,
               }}>
                 <div style={{fontSize: 20, fontWeight: 'bold', color: '#60a5fa', marginBottom: 16, textAlign: 'center'}}>
-                  Complete Request Flow
+                  Complete Architecture Flow
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2.5}}>
+                <div style={{position: 'relative', height: 220}}>
+                  {/* User/Browser */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 80,
+                    left: 40,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 3120, 20),
+                  }}>
+                    <div style={{
+                      width: 90,
+                      height: 75,
+                      backgroundColor: theme.colors.client,
+                      borderRadius: 10,
+                      border: '3px solid #93c5fd',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 28}}>👤</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>User</div>
+                    </div>
+                  </div>
+
+                  {/* CDN Edge Server */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 20,
+                    left: 280,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 3140, 20),
+                  }}>
+                    <div style={{
+                      width: 110,
+                      height: 85,
+                      backgroundColor: '#8b5cf6',
+                      borderRadius: 10,
+                      border: '3px solid #a78bfa',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 28}}>🌏</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
+                      <div style={{fontSize: 9, color: '#e9d5ff'}}>Tokyo</div>
+                    </div>
+                    <div style={{fontSize: 10, color: '#10b981', marginTop: 4}}>Static Assets</div>
+                  </div>
+
+                  {/* API Gateway */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 125,
+                    left: 270,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 3160, 20),
+                  }}>
+                    <div style={{
+                      width: 130,
+                      height: 85,
+                      backgroundColor: '#f59e0b',
+                      borderRadius: 10,
+                      border: '3px solid #fbbf24',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      transform: `scale(${pulse(frame, 60)})`,
+                    }}>
+                      <div style={{fontSize: 28}}>🚪</div>
+                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>API Gateway</div>
+                      <div style={{fontSize: 9, color: '#1e293b'}}>Auth • Rate Limit</div>
+                    </div>
+                    <div style={{fontSize: 10, color: '#60a5fa', marginTop: 4}}>API Requests</div>
+                  </div>
+
+                  {/* Backend Services */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 50,
+                    right: 100,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 3180, 20),
+                  }}>
+                    <div style={{
+                      width: 100,
+                      height: 75,
+                      backgroundColor: '#10b981',
+                      borderRadius: 10,
+                      border: '2px solid #34d399',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 24}}>⚙️</div>
+                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Services</div>
+                    </div>
+                    <div style={{fontSize: 9, color: '#10b981', marginTop: 4}}>User/Order/Pay</div>
+                  </div>
+
+                  {/* Origin Server */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 140,
+                    right: 80,
+                    textAlign: 'center',
+                    opacity: fadeIn(frame, 3200, 20),
+                  }}>
+                    <div style={{
+                      width: 90,
+                      height: 70,
+                      backgroundColor: theme.colors.server,
+                      borderRadius: 10,
+                      border: '2px solid #10b981',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                    }}>
+                      <div style={{fontSize: 24}}>🏢</div>
+                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Origin</div>
+                    </div>
+                    <div style={{fontSize: 9, color: '#10b981', marginTop: 4}}>US East</div>
+                  </div>
+
+                  {/* Connection lines and animated dots */}
+                  <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                    {frame >= 3140 && (
+                      <>
+                        {/* User to CDN */}
+                        <line x1={130} y1={118} x2={280} y2={63} stroke="rgba(139, 92, 246, 0.4)" strokeWidth="3" strokeDasharray="5,5" />
+                        {/* User to API Gateway */}
+                        <line x1={130} y1={118} x2={270} y2={168} stroke="rgba(245, 158, 11, 0.4)" strokeWidth="3" strokeDasharray="5,5" />
+                        {/* CDN to Origin */}
+                        <line x1={390} y1={63} x2={width - 170} y2={175} stroke="rgba(52, 211, 153, 0.3)" strokeWidth="2" strokeDasharray="3,3" />
+                        {/* Gateway to Services */}
+                        <line x1={400} y1={168} x2={width - 200} y2={88} stroke="rgba(16, 185, 129, 0.4)" strokeWidth="3" strokeDasharray="5,5" />
+                      </>
+                    )}
+                  </svg>
+
+                  {/* Animated dots */}
+                  <FlowingDot x1={130} y1={118} x2={280} y2={63} startFrame={3150} duration={30} color="#8b5cf6" />
+                  <FlowingDot x1={130} y1={118} x2={270} y2={168} startFrame={3170} duration={30} color="#f59e0b" />
+                  <FlowingDot x1={400} y1={168} x2={width - 200} y2={88} startFrame={3190} duration={30} color="#10b981" />
+                  <FlowingDot x1={390} y1={63} x2={width - 170} y2={175} startFrame={3210} duration={35} color="#34d399" />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Text Flow Explanation - shown after visual */}
+          {frame >= 3100 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.54,
+              left: width * 0.05,
+              right: width * 0.05,
+              opacity: fadeIn(frame, 3100, 20),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 20,
+              }}>
+                <div style={{fontSize: 18, fontWeight: 'bold', color: '#60a5fa', marginBottom: 12, textAlign: 'center'}}>
+                  Request Flow Steps
+                </div>
+
+                <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 2.2}}>
                   <div style={{opacity: fadeIn(frame, 3140, 15)}}>
                     <span style={{color: '#60a5fa', fontWeight: 'bold'}}>1. User Request:</span> Browser requests <span style={{color: '#fbbf24'}}>https://example.com/app.js</span>
                   </div>
@@ -886,17 +1102,17 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 {frame >= 3280 && (
                   <div style={{
-                    marginTop: 14,
+                    marginTop: 12,
                     backgroundColor: 'rgba(16, 185, 129, 0.2)',
                     border: '2px solid #10b981',
                     borderRadius: 10,
-                    padding: 14,
+                    padding: 12,
                     opacity: fadeIn(frame, 3280, 15),
                   }}>
-                    <div style={{fontSize: 15, fontWeight: 'bold', color: '#10b981', textAlign: 'center', marginBottom: 6}}>
+                    <div style={{fontSize: 14, fontWeight: 'bold', color: '#10b981', textAlign: 'center', marginBottom: 4}}>
                       Result: Lightning Fast + Secure + Scalable! ⚡
                     </div>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center'}}>
+                    <div style={{fontSize: 11, color: '#e2e8f0', textAlign: 'center'}}>
                       Static content from CDN (~5ms) + Dynamic APIs through Gateway (~50ms) = Optimal Performance
                     </div>
                   </div>
