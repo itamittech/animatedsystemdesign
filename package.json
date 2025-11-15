@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Educational system design content with animations using Remotion",
   "scripts": {
-    "start": "remotion studio",
-    "build": "remotion render",
-    "upgrade": "remotion upgrade",
+    "start": "npx remotion studio",
+    "build": "npx remotion render",
+    "upgrade": "npx remotion upgrade",
     "test": "echo \"No tests yet\""
   },
   "dependencies": {
