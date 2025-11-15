@@ -54,9 +54,11 @@ animatedsystemdesign/
 ### 1. Load Balancing (Two Versions)
 
 #### LoadBalancingBasics
-Technical deep dive with diagrams and detailed explanations.
+Technical deep dive with diagrams and detailed explanations (30 seconds).
 
-#### LoadBalancingEnhanced ⭐ **NEW - Character-Driven Learning**
+#### LoadBalancingEnhanced ⭐ **COMPREHENSIVE - Complete Load Balancing Masterclass**
+76-second complete course from basics to production-ready architectures!
+
 Interactive storytelling format featuring:
 - **Alex** (Junior Developer 👨‍💻) - Asks questions from a learning perspective
 - **Sarah** (Solutions Architect 👩‍💼) - Explains concepts with real-world insights
@@ -66,15 +68,28 @@ Interactive storytelling format featuring:
 - ✨ **Animated data flow particles** - Visual representation of traffic flowing through systems
 - 🎬 **Progressive complexity** - Starts simple, builds to production-ready concepts
 - 💡 **Visual storytelling** - Each scene tells a story with animations
+- 🏆 **Complete curriculum** - All essential load balancing topics in one video
 
-**Duration**: 30 seconds @ 30fps
-**Scenes**:
+**Duration**: 76 seconds @ 30fps (2280 frames)
+
+**Complete Scene Breakdown:**
+
+**Part 1: Fundamentals (0-30s)**
 1. **Introduction** (0-4s) - Alex discovers the scaling problem
 2. **The Problem** (4-9s) - Single server overload with visual traffic jam
 3. **The Solution** (9-15s) - Load balancer distributing traffic with animated flows
-4. **Algorithms** (15-21s) - Four key algorithms with visual cards
-5. **L4 vs L7** (21-27s) - Deep comparison for senior architects
-6. **Production Reality** (27-30s) - Health checks and automatic failover in action
+4. **Algorithms** (15-21s) - Round Robin, Least Connections, IP Hash, Weighted
+5. **L4 vs L7** (21-27s) - Transport vs Application layer comparison
+6. **Health Checks** (27-30s) - Automatic failure detection and recovery
+
+**Part 2: Advanced Concepts (30-76s)**
+7. **Sticky Sessions** (30-36s) - Session affinity with trade-offs
+8. **Global Load Balancing** (36-42s) - GeoDNS, multi-datacenter routing
+9. **Tools Comparison** (42-48s) - NGINX, HAProxy, Envoy, AWS ALB/NLB
+10. **Deployment Patterns** (48-56s) - Canary, Blue-Green, A/B Testing
+11. **SSL/TLS Termination** (56-62s) - Performance optimization
+12. **WebSocket Load Balancing** (62-68s) - Long-lived connections
+13. **Rate Limiting & DDoS** (68-76s) - Protection strategies + finale
 
 ## Getting Started
 
