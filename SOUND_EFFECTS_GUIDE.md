@@ -60,12 +60,12 @@ If you don't add sound files:
 
 ## Sound Effects Used in Load Balancing Video
 
-The video has sound effects at these key moments:
+The video is **86 seconds long** (2580 frames @ 30fps) and has sound effects at these key moments:
 - **Frame 0** (0s): Intro sound
-- **Frames 120, 270, 450, 630, 810, 900, 1080, 1260, 1440, 1680, 1860, 2040**: Scene transitions
+- **Scene transitions**: Frames 120, 270, 450, 690, 960, 1110, 1290, 1470, 1740, 1980, 2160, 2340
 - **Frame 200** (6.7s): Alert sound when showing overloaded server
-- **Frame 865** (28.8s): Error sound when server fails
-- **Frame 2240** (74.7s): Success sound for finale
+- **Frame 1015** (33.8s): Error sound when server fails
+- **Frame 2520** (84s): Success sound for finale
 
 ## Sound Effect Timing
 

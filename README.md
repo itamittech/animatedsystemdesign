@@ -57,7 +57,7 @@ animatedsystemdesign/
 Technical deep dive with diagrams and detailed explanations (30 seconds).
 
 #### LoadBalancingEnhanced ⭐ **COMPREHENSIVE - Complete Load Balancing Masterclass**
-76-second complete course from basics to production-ready architectures!
+86-second complete course from basics to production-ready architectures!
 
 Interactive storytelling format featuring:
 - **Alex** (Junior Developer 👨‍💻) - Asks questions from a learning perspective
@@ -69,27 +69,28 @@ Interactive storytelling format featuring:
 - 🎬 **Progressive complexity** - Starts simple, builds to production-ready concepts
 - 💡 **Visual storytelling** - Each scene tells a story with animations
 - 🏆 **Complete curriculum** - All essential load balancing topics in one video
+- ⏱️ **Readable pacing** - Extended scenes for complex topics, giving time to absorb information
 
-**Duration**: 76 seconds @ 30fps (2280 frames)
+**Duration**: 86 seconds @ 30fps (2580 frames)
 
 **Complete Scene Breakdown:**
 
-**Part 1: Fundamentals (0-30s)**
+**Part 1: Fundamentals (0-37s)**
 1. **Introduction** (0-4s) - Alex discovers the scaling problem
 2. **The Problem** (4-9s) - Single server overload with visual traffic jam
 3. **The Solution** (9-15s) - Load balancer distributing traffic with animated flows
-4. **Algorithms** (15-21s) - Round Robin, Least Connections, IP Hash, Weighted
-5. **L4 vs L7** (21-27s) - Transport vs Application layer comparison
-6. **Health Checks** (27-30s) - Automatic failure detection and recovery
+4. **Algorithms** (15-23s) - Round Robin, Least Connections, IP Hash, Weighted ⏱️ _Extended_
+5. **L4 vs L7** (23-32s) - Transport vs Application layer detailed comparison ⏱️ _Extended_
+6. **Health Checks** (32-37s) - Automatic failure detection and recovery ⏱️ _Extended_
 
-**Part 2: Advanced Concepts (30-76s)**
-7. **Sticky Sessions** (30-36s) - Session affinity with trade-offs
-8. **Global Load Balancing** (36-42s) - GeoDNS, multi-datacenter routing
-9. **Tools Comparison** (42-48s) - NGINX, HAProxy, Envoy, AWS ALB/NLB
-10. **Deployment Patterns** (48-56s) - Canary, Blue-Green, A/B Testing
-11. **SSL/TLS Termination** (56-62s) - Performance optimization
-12. **WebSocket Load Balancing** (62-68s) - Long-lived connections
-13. **Rate Limiting & DDoS** (68-76s) - Protection strategies + finale
+**Part 2: Advanced Concepts (37-86s)**
+7. **Sticky Sessions** (37-43s) - Session affinity with trade-offs
+8. **Global Load Balancing** (43-49s) - GeoDNS, multi-datacenter routing
+9. **Tools Comparison** (49-58s) - NGINX, HAProxy, Envoy, AWS ALB/NLB ⏱️ _Extended_
+10. **Deployment Patterns** (58-66s) - Canary, Blue-Green, A/B Testing
+11. **SSL/TLS Termination** (66-72s) - Performance optimization
+12. **WebSocket Load Balancing** (72-78s) - Long-lived connections
+13. **Rate Limiting & DDoS** (78-86s) - Protection strategies + finale
 
 ## Getting Started
 
