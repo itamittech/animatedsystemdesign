@@ -7,6 +7,7 @@ import {Title} from '../components/Title';
 import {Character} from '../components/Character';
 import {Dialogue} from '../components/Dialogue';
 import {DataFlowStream} from '../components/DataFlowParticle';
+import {SoundEffect} from '../components/SoundEffect';
 import {fadeIn, pulse} from '../design-system/animations';
 
 /**
@@ -24,6 +25,24 @@ export const LoadBalancingEnhanced: React.FC = () => {
         backgroundColor: theme.background.primary,
       }}
     >
+      {/* Sound Effects - Optional audio (graceful fallback if files missing) */}
+      {frame === 0 && <SoundEffect src="public/sfx/intro.mp3" />}
+      {frame === 120 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 200 && <SoundEffect src="public/sfx/alert.mp3" />}
+      {frame === 270 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 450 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 630 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 810 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 865 && <SoundEffect src="public/sfx/error.mp3" />}
+      {frame === 900 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 1080 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 1260 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 1440 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 1680 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 1860 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 2040 && <SoundEffect src="public/sfx/transition.mp3" />}
+      {frame === 2240 && <SoundEffect src="public/sfx/success.mp3" />}
+
       {/* Scene 1: Introduction - The Problem (0-120 frames / 0-4s) */}
       {frame < 120 && (
         <>
@@ -437,7 +456,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
       )}
 
       {/* Scene 6: Production Reality - Health Checks & Failure (810-900 frames / 27-30s) */}
-      {frame >= 810 && (
+      {frame >= 810 && frame < 900 && (
         <>
           <Title
             text="Production Reality: Failures Happen"
