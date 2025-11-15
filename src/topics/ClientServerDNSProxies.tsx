@@ -8,9 +8,9 @@ import {DataFlowStream} from '../components/DataFlowParticle';
 import {fadeIn, pulse} from '../design-system/animations';
 
 /**
- * Client-Server, DNS & Proxies - Architect's Perspective
- * Production-level technical depth with elegant animations
- * Story-driven but technically rigorous
+ * Client-Server, DNS & Proxies - Teaching Through Conversation
+ * Sarah (student) asks questions, Developer (teacher) explains
+ * Story-driven learning with technical depth
  */
 export const ClientServerDNSProxies: React.FC = () => {
   const frame = useCurrentFrame();
@@ -108,91 +108,57 @@ export const ClientServerDNSProxies: React.FC = () => {
         </div>
       </div>
 
-      {/* Scene 1: IP Addressing & Network Fundamentals (0-360 frames / 0-12s) */}
-      {frame >= 0 && frame < 360 && (
+      {/* Scene 1: The Journey Begins (0-450 frames / 0-15s) */}
+      {frame >= 0 && frame < 450 && (
         <>
-          <Title text="Internet Fundamentals for Production Systems" subtitle="Building Blocks of Distributed Architecture" startFrame={0} />
+          <Title text="How the Internet Really Works" subtitle="A Journey from google.com to Your Screen" startFrame={0} />
 
-          <Character type="architect" x={width * 0.5 - 60} y={height * 0.78} startFrame={30} size={100} />
+          <Character type="junior" x={width * 0.2} y={height * 0.78} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.78} startFrame={30} size={110} />
+
+          <Dialogue
+            speaker="junior"
+            text="When I type 'google.com' and press Enter, what actually happens? How does my browser know where to go?"
+            x={width * 0.05}
+            y={height * 0.88}
+            startFrame={60}
+            maxWidth={500}
+          />
 
           <Dialogue
             speaker="architect"
-            text="Let's understand the production internet stack from an architect's perspective. We'll start with IP addressing."
-            x={width * 0.5 - 420}
+            text="Great question! Let's trace this journey together. First, computers don't understand 'google.com' - they only speak in IP addresses."
+            x={width * 0.72 - 280}
             y={height * 0.88}
-            startFrame={60}
-            maxWidth={840}
+            startFrame={150}
+            maxWidth={520}
           />
 
-          {frame >= 120 && (
+          {/* Show IP Address concept */}
+          {frame >= 240 && (
             <div style={{
               position: 'absolute',
               top: height * 0.22,
-              left: width * 0.15,
-              right: width * 0.15,
-              opacity: fadeIn(frame, 120, 20),
+              left: width * 0.25,
+              width: 600,
+              backgroundColor: 'rgba(30, 41, 59, 0.95)',
+              border: '3px solid rgba(96, 165, 250, 0.5)',
+              borderRadius: 16,
+              padding: 28,
+              opacity: fadeIn(frame, 240, 20),
+              transform: `scale(${pulse(frame, 260, 60)})`,
             }}>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                gap: 40,
-              }}>
-                {/* IPv4 */}
-                <div style={{
-                  flex: 1,
-                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                  border: '3px solid rgba(96, 165, 250, 0.5)',
-                  borderRadius: 16,
-                  padding: 24,
-                  transform: `scale(${pulse(frame, 140, 60)})`,
-                }}>
-                  <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.client, marginBottom: 16}}>
-                    📡 IPv4 Address Space
-                  </div>
-                  <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2}}>
-                    • <span style={{color: '#fbbf24', fontWeight: 'bold'}}>32-bit address:</span> 192.168.1.10<br/>
-                    • <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Total IPs:</span> ~4.3 billion (exhausted)<br/>
-                    • <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Private ranges:</span><br/>
-                    &nbsp;&nbsp;10.0.0.0/8 (Class A)<br/>
-                    &nbsp;&nbsp;172.16.0.0/12 (Class B)<br/>
-                    &nbsp;&nbsp;192.168.0.0/16 (Class C)<br/>
-                    • <span style={{color: '#fbbf24', fontWeight: 'bold'}}>NAT/PAT:</span> Address conservation
-                  </div>
-                </div>
-
-                {/* Network Stack */}
-                <div style={{
-                  flex: 1,
-                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                  border: '3px solid rgba(16, 185, 129, 0.5)',
-                  borderRadius: 16,
-                  padding: 24,
-                  opacity: fadeIn(frame, 200, 15),
-                }}>
-                  <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.success, marginBottom: 16}}>
-                    🔧 OSI Layer Context
-                  </div>
-                  <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2}}>
-                    • <span style={{color: '#10b981', fontWeight: 'bold'}}>Layer 3 (Network):</span> IP routing<br/>
-                    • <span style={{color: '#10b981', fontWeight: 'bold'}}>Layer 4 (Transport):</span> TCP/UDP<br/>
-                    • <span style={{color: '#10b981', fontWeight: 'bold'}}>Layer 7 (Application):</span> HTTP/DNS<br/>
-                    • <span style={{color: '#10b981', fontWeight: 'bold'}}>TCP handshake:</span> SYN, SYN-ACK, ACK<br/>
-                    • <span style={{color: '#10b981', fontWeight: 'bold'}}>MTU:</span> 1500 bytes (Ethernet)
-                  </div>
-                </div>
+              <div style={{fontSize: 26, fontWeight: 'bold', color: theme.colors.client, marginBottom: 16, textAlign: 'center'}}>
+                💻 IP Address: The Computer's Address
               </div>
-
-              <div style={{
-                marginTop: 24,
-                backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                border: '2px solid rgba(245, 158, 11, 0.4)',
-                borderRadius: 12,
-                padding: 20,
-                opacity: fadeIn(frame, 260, 15),
-              }}>
-                <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.8}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ Production Insight:</span> Modern apps use <span style={{fontWeight: 'bold'}}>dual-stack (IPv4+IPv6)</span> for compatibility. AWS VPCs support both. IPv6 uses <span style={{fontWeight: 'bold'}}>128-bit addresses</span> (2001:0db8:85a3::8a2e:0370:7334), solving exhaustion.
+              <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 2, textAlign: 'center'}}>
+                <div style={{fontSize: 32, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12}}>
+                  142.250.185.46
+                </div>
+                <div style={{fontSize: 16, color: '#94a3b8'}}>
+                  Every device on the internet has a unique IP address.<br/>
+                  IPv4 uses 32 bits (4.3 billion addresses - now exhausted!)<br/>
+                  <span style={{color: '#10b981', fontWeight: 'bold'}}>IPv6 uses 128 bits</span> - solving the shortage problem
                 </div>
               </div>
             </div>
@@ -200,757 +166,598 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 2: DNS Deep Dive (360-780 frames / 12-26s) */}
-      {frame >= 360 && frame < 780 && (
+      {/* Scene 2: The DNS Discovery (450-960 frames / 15-32s) */}
+      {frame >= 450 && frame < 960 && (
         <>
-          <div style={{
-            position: 'absolute',
-            top: 40,
-            left: width / 2 - 320,
-            fontSize: 32,
-            fontWeight: 'bold',
-            color: '#fff',
-            opacity: fadeIn(frame, 360, 15),
-          }}>
-            DNS: Hierarchical Distributed Database
-          </div>
+          <Title text="DNS: The Internet's Phone Book" subtitle="How Domain Names Become IP Addresses" startFrame={450} />
 
-          {/* DNS Hierarchy Diagram */}
-          <div style={{
-            position: 'absolute',
-            top: height * 0.18,
-            left: width * 0.12,
-            right: width * 0.12,
-            opacity: fadeIn(frame, 380, 15),
-          }}>
-            {/* Root DNS */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: width * 0.38,
-              width: 180,
-              backgroundColor: '#dc2626',
-              borderRadius: 12,
-              border: '3px solid #ef4444',
-              padding: 16,
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-              textAlign: 'center',
-            }}>
-              <div style={{fontSize: 28}}>🌍</div>
-              <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 8}}>Root DNS</div>
-              <div style={{fontSize: 12, color: '#fca5a5', marginTop: 4}}>13 root servers</div>
-            </div>
+          <Character type="junior" x={width * 0.15} y={height * 0.82} startFrame={460} size={100} />
+          <Character type="architect" x={width * 0.78} y={height * 0.82} startFrame={460} size={100} />
 
-            {/* TLD DNS */}
-            <div style={{
-              position: 'absolute',
-              top: 120,
-              left: width * 0.25,
-              width: 160,
-              backgroundColor: theme.colors.cache,
-              borderRadius: 12,
-              border: '3px solid #f59e0b',
-              padding: 14,
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-              textAlign: 'center',
-              opacity: fadeIn(frame, 420, 15),
-            }}>
-              <div style={{fontSize: 24}}>🔗</div>
-              <div style={{fontSize: 14, fontWeight: 'bold', color: '#fff', marginTop: 6}}>TLD DNS</div>
-              <div style={{fontSize: 11, color: '#fcd34d', marginTop: 4}}>.com .org .net</div>
-            </div>
-
-            {/* Authoritative DNS */}
-            <div style={{
-              position: 'absolute',
-              top: 120,
-              left: width * 0.51,
-              width: 160,
-              backgroundColor: theme.colors.success,
-              borderRadius: 12,
-              border: '3px solid #10b981',
-              padding: 14,
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-              textAlign: 'center',
-              opacity: fadeIn(frame, 440, 15),
-            }}>
-              <div style={{fontSize: 24}}>📋</div>
-              <div style={{fontSize: 14, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Authoritative</div>
-              <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 4}}>google.com NS</div>
-            </div>
-
-            {/* Flow arrows */}
-            {frame >= 460 && (
-              <>
-                <FlowLine
-                  x1={width * 0.38 + 90}
-                  y1={80}
-                  x2={width * 0.25 + 80}
-                  y2={120}
-                  label="❶ Query .com"
-                  color="#fbbf24"
-                  startFrame={460}
-                />
-                <FlowLine
-                  x1={width * 0.38 + 90}
-                  y1={80}
-                  x2={width * 0.51 + 80}
-                  y2={120}
-                  label="❷ Query google"
-                  color={theme.colors.success}
-                  startFrame={500}
-                />
-              </>
-            )}
-          </div>
-
-          {/* DNS Technical Details */}
-          <div style={{
-            position: 'absolute',
-            top: height * 0.52,
-            left: width * 0.08,
-            right: width * 0.08,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(96, 165, 250, 0.5)',
-            borderRadius: 16,
-            padding: 24,
-            opacity: fadeIn(frame, 480, 15),
-          }}>
-            <div style={{fontSize: 20, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 18}}>
-              🏗️ DNS Resolution Flow (Production Details)
-            </div>
-            <div style={{display: 'flex', gap: 30, fontSize: 14, color: '#e2e8f0', lineHeight: 2}}>
-              <div style={{flex: 1}}>
-                <div style={{opacity: fadeIn(frame, 520, 10)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold'}}>1. Recursive Resolver:</span> ISP/8.8.8.8 caches ~24hrs
-                </div>
-                <div style={{opacity: fadeIn(frame, 560, 10)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold'}}>2. Root Server:</span> Returns .com TLD nameserver
-                </div>
-                <div style={{opacity: fadeIn(frame, 600, 10)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold'}}>3. TLD Server:</span> Returns google.com NS (Route53)
-                </div>
-                <div style={{opacity: fadeIn(frame, 640, 10)}}>
-                  <span style={{color: '#fbbf24', fontWeight: 'bold'}}>4. Authoritative:</span> Returns A record with IP
-                </div>
-              </div>
-              <div style={{flex: 1}}>
-                <div style={{opacity: fadeIn(frame, 560, 10)}}>
-                  <span style={{color: '#10b981', fontWeight: 'bold'}}>Record Types:</span><br/>
-                  • A: IPv4 (142.250.185.46)<br/>
-                  • AAAA: IPv6<br/>
-                  • CNAME: Alias (www → apex)<br/>
-                  • MX: Mail server<br/>
-                  • TXT: Verification/SPF
-                </div>
-              </div>
-            </div>
-            <div style={{marginTop: 16, fontSize: 15, color: '#fbbf24', opacity: fadeIn(frame, 680, 10)}}>
-              <span style={{fontWeight: 'bold'}}>⚡ Performance:</span> Uncached: 50-100ms | Browser cache: &lt;1ms | DNS prefetch via &lt;link rel="dns-prefetch"&gt;
-            </div>
-          </div>
-
-          <Character type="architect" x={width * 0.05} y={height * 0.85} startFrame={370} size={90} />
-        </>
-      )}
-
-      {/* Scene 3: TLS/SSL & HTTPS (780-1200 frames / 26-40s) */}
-      {frame >= 780 && frame < 1200 && (
-        <>
-          <div style={{
-            position: 'absolute',
-            top: 40,
-            left: width / 2 - 280,
-            fontSize: 32,
-            fontWeight: 'bold',
-            color: '#fff',
-            opacity: fadeIn(frame, 780, 15),
-          }}>
-            TLS/SSL: Transport Layer Security
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.18,
-            left: width * 0.08,
-            right: width * 0.08,
-            display: 'flex',
-            gap: 24,
-            opacity: fadeIn(frame, 800, 15),
-          }}>
-            {/* TLS Handshake */}
-            <div style={{
-              flex: 1,
-              backgroundColor: 'rgba(30, 41, 59, 0.95)',
-              border: '3px solid rgba(139, 92, 246, 0.5)',
-              borderRadius: 16,
-              padding: 22,
-            }}>
-              <div style={{fontSize: 20, fontWeight: 'bold', color: '#a78bfa', marginBottom: 16}}>
-                🔐 TLS 1.3 Handshake (1-RTT)
-              </div>
-              <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2}}>
-                <div style={{opacity: fadeIn(frame, 840, 10)}}>
-                  <span style={{color: '#a78bfa', fontWeight: 'bold'}}>1. ClientHello:</span> Cipher suites + extensions
-                </div>
-                <div style={{opacity: fadeIn(frame, 880, 10)}}>
-                  <span style={{color: '#a78bfa', fontWeight: 'bold'}}>2. ServerHello:</span> Certificate + key share
-                </div>
-                <div style={{opacity: fadeIn(frame, 920, 10)}}>
-                  <span style={{color: '#a78bfa', fontWeight: 'bold'}}>3. Derive Keys:</span> ECDHE for perfect forward secrecy
-                </div>
-                <div style={{opacity: fadeIn(frame, 960, 10)}}>
-                  <span style={{color: '#a78bfa', fontWeight: 'bold'}}>4. Encrypted:</span> All subsequent traffic
-                </div>
-                <div style={{marginTop: 12, fontSize: 13, color: '#fbbf24', opacity: fadeIn(frame, 1000, 10)}}>
-                  ⚡ TLS 1.3: ~100ms | TLS 1.2: ~200ms (2-RTT)
-                </div>
-              </div>
-            </div>
-
-            {/* Certificate Management */}
-            <div style={{
-              flex: 1,
-              backgroundColor: 'rgba(30, 41, 59, 0.95)',
-              border: '3px solid rgba(16, 185, 129, 0.5)',
-              borderRadius: 16,
-              padding: 22,
-            }}>
-              <div style={{fontSize: 20, fontWeight: 'bold', color: theme.colors.success, marginBottom: 16}}>
-                📜 Certificate Management
-              </div>
-              <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2}}>
-                <div style={{opacity: fadeIn(frame, 860, 10)}}>
-                  <span style={{color: '#10b981', fontWeight: 'bold'}}>Certificate Authority:</span> Let's Encrypt/DigiCert
-                </div>
-                <div style={{opacity: fadeIn(frame, 900, 10)}}>
-                  <span style={{color: '#10b981', fontWeight: 'bold'}}>Validation:</span> DV, OV, EV levels
-                </div>
-                <div style={{opacity: fadeIn(frame, 940, 10)}}>
-                  <span style={{color: '#10b981', fontWeight: 'bold'}}>Expiry:</span> 90 days (Let's Encrypt automation)
-                </div>
-                <div style={{opacity: fadeIn(frame, 980, 10)}}>
-                  <span style={{color: '#10b981', fontWeight: 'bold'}}>Wildcard:</span> *.example.com coverage
-                </div>
-                <div style={{marginTop: 12, fontSize: 13, color: '#fbbf24', opacity: fadeIn(frame, 1020, 10)}}>
-                  🔧 Tools: Certbot, ACM, cert-manager (K8s)
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* HTTP/2 vs HTTP/3 */}
-          <div style={{
-            position: 'absolute',
-            top: height * 0.58,
-            left: width * 0.08,
-            right: width * 0.08,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(96, 165, 250, 0.5)',
-            borderRadius: 16,
-            padding: 24,
-            opacity: fadeIn(frame, 1040, 15),
-          }}>
-            <div style={{fontSize: 20, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 18}}>
-              🚀 HTTP Evolution: 1.1 → 2 → 3 (QUIC)
-            </div>
-            <div style={{display: 'flex', gap: 40, fontSize: 14, color: '#e2e8f0', lineHeight: 2}}>
-              <div style={{flex: 1}}>
-                <div style={{fontWeight: 'bold', color: '#60a5fa', marginBottom: 8}}>HTTP/2 (2015)</div>
-                • Multiplexing (no head-of-line blocking)<br/>
-                • Binary framing (vs text)<br/>
-                • Server push (proactive resources)<br/>
-                • Header compression (HPACK)<br/>
-                • Single TCP connection
-              </div>
-              <div style={{flex: 1}}>
-                <div style={{fontWeight: 'bold', color: '#10b981', marginBottom: 8}}>HTTP/3 (2022)</div>
-                • QUIC over UDP (not TCP)<br/>
-                • 0-RTT reconnection<br/>
-                • Built-in encryption (no TLS layer)<br/>
-                • Connection migration (mobile)<br/>
-                • Adopted: Google, Cloudflare, AWS
-              </div>
-            </div>
-          </div>
-
-          <Character type="architect" x={width * 0.88} y={height * 0.85} startFrame={790} size={90} />
+          <Dialogue
+            speaker="junior"
+            text="Okay, so I typed 'google.com' but computers need IP addresses. How does that conversion happen?"
+            x={width * 0.05}
+            y={height * 0.92}
+            startFrame={480}
+            maxWidth={450}
+          />
 
           <Dialogue
             speaker="architect"
-            text="Production systems use TLS 1.3 for performance. HTTP/3 reduces latency by 30% on mobile networks with packet loss."
-            x={width * 0.88 - 620}
-            y={height * 0.9}
-            startFrame={820}
-            maxWidth={600}
+            text="That's where DNS comes in! Think of it as a distributed phone book. But it's not just one server - it's a hierarchy."
+            x={width * 0.78 - 300}
+            y={height * 0.92}
+            startFrame={570}
+            maxWidth={520}
           />
-        </>
-      )}
 
-      {/* Scene 4: Proxy Architecture (1200-1680 frames / 40-56s) */}
-      {frame >= 1200 && frame < 1680 && (
-        <>
-          <div style={{
-            position: 'absolute',
-            top: 40,
-            left: width / 2 - 240,
-            fontSize: 32,
-            fontWeight: 'bold',
-            color: '#fff',
-            opacity: fadeIn(frame, 1200, 15),
-          }}>
-            Production Proxy Architecture
-          </div>
-
-          {/* Components */}
-          <div style={{position: 'absolute', top: height * 0.22, left: width * 0.08}}>
+          {/* DNS Hierarchy Visualization */}
+          {frame >= 660 && (
             <div style={{
-              width: 130,
-              height: 105,
-              backgroundColor: theme.colors.client,
-              borderRadius: 12,
-              border: '3px solid #60a5fa',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+              position: 'absolute',
+              top: height * 0.15,
+              left: width * 0.12,
+              right: width * 0.12,
+              opacity: fadeIn(frame, 660, 15),
             }}>
-              <div style={{fontSize: 36}}>💻</div>
-              <div style={{fontSize: 14, fontWeight: 'bold', color: '#fff'}}>Client</div>
-            </div>
-            <div style={{textAlign: 'center', marginTop: 6, fontSize: 12, color: '#94a3b8'}}>192.168.1.10</div>
-          </div>
+              {/* Root DNS */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: width * 0.38,
+                width: 180,
+                backgroundColor: '#dc2626',
+                borderRadius: 12,
+                border: '3px solid #ef4444',
+                padding: 18,
+                boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                textAlign: 'center',
+                transform: `scale(${pulse(frame, 680, 60)})`,
+              }}>
+                <div style={{fontSize: 32}}>🌍</div>
+                <div style={{fontSize: 17, fontWeight: 'bold', color: '#fff', marginTop: 8}}>Root DNS</div>
+                <div style={{fontSize: 13, color: '#fca5a5', marginTop: 6}}>13 root servers worldwide</div>
+              </div>
 
-          <div style={{
-            position: 'absolute',
-            top: height * 0.22,
-            left: width * 0.26,
-            opacity: fadeIn(frame, 1240, 15),
-          }}>
-            <div style={{
-              width: 130,
-              height: 105,
-              backgroundColor: '#8b5cf6',
-              borderRadius: 12,
-              border: '3px solid #a78bfa',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-              transform: `scale(${pulse(frame, 1240, 60)})`,
-            }}>
-              <div style={{fontSize: 36}}>🔀</div>
-              <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>Forward Proxy</div>
-            </div>
-            <div style={{textAlign: 'center', marginTop: 6, fontSize: 12, color: '#a78bfa', fontWeight: 'bold'}}>Squid :3128</div>
-          </div>
+              {/* TLD DNS */}
+              <div style={{
+                position: 'absolute',
+                top: 130,
+                left: width * 0.2,
+                width: 170,
+                backgroundColor: theme.colors.cache,
+                borderRadius: 12,
+                border: '3px solid #f59e0b',
+                padding: 16,
+                boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                textAlign: 'center',
+                opacity: fadeIn(frame, 720, 15),
+              }}>
+                <div style={{fontSize: 28}}>🔗</div>
+                <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 6}}>TLD Server</div>
+                <div style={{fontSize: 12, color: '#fcd34d', marginTop: 4}}>.com .org .net</div>
+              </div>
 
-          <div style={{position: 'absolute', top: height * 0.22, left: width * 0.47}}>
-            <div style={{
-              width: 120,
-              height: 95,
-              backgroundColor: theme.colors.cache,
-              borderRadius: 12,
-              border: '3px solid #f59e0b',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-            }}>
-              <div style={{fontSize: 32}}>🌐</div>
-              <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>DNS</div>
-            </div>
-          </div>
+              {/* Authoritative DNS */}
+              <div style={{
+                position: 'absolute',
+                top: 130,
+                left: width * 0.56,
+                width: 170,
+                backgroundColor: theme.colors.success,
+                borderRadius: 12,
+                border: '3px solid #10b981',
+                padding: 16,
+                boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                textAlign: 'center',
+                opacity: fadeIn(frame, 760, 15),
+              }}>
+                <div style={{fontSize: 28}}>📋</div>
+                <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Authoritative</div>
+                <div style={{fontSize: 12, color: '#6ee7b7', marginTop: 4}}>google.com's NS</div>
+              </div>
 
-          <div style={{
-            position: 'absolute',
-            top: height * 0.22,
-            left: width * 0.66,
-            opacity: fadeIn(frame, 1280, 15),
-          }}>
-            <div style={{
-              width: 130,
-              height: 105,
-              backgroundColor: theme.colors.loadBalancer,
-              borderRadius: 12,
-              border: '3px solid #60a5fa',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-              transform: `scale(${pulse(frame, 1280, 60)})`,
-            }}>
-              <div style={{fontSize: 36}}>🔀</div>
-              <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>Reverse Proxy</div>
-            </div>
-            <div style={{textAlign: 'center', marginTop: 6, fontSize: 12, color: '#60a5fa', fontWeight: 'bold'}}>NGINX :443</div>
-          </div>
-
-          <div style={{position: 'absolute', top: height * 0.22, left: width * 0.84}}>
-            <div style={{
-              width: 120,
-              height: 95,
-              backgroundColor: theme.colors.server,
-              borderRadius: 12,
-              border: '3px solid #10b981',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-            }}>
-              <div style={{fontSize: 32}}>🖥️</div>
-              <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>App Server</div>
-            </div>
-          </div>
-
-          {/* Elegant flow lines */}
-          {frame >= 1320 && (
-            <>
-              <FlowLine x1={width * 0.08 + 130} y1={height * 0.22 + 52} x2={width * 0.26} y2={height * 0.22 + 52} color={theme.colors.client} startFrame={1320} />
-              <FlowLine x1={width * 0.26 + 130} y1={height * 0.22 + 50} x2={width * 0.47} y2={height * 0.22 + 47} color="#fbbf24" startFrame={1360} label="DNS Query" />
-              <FlowLine x1={width * 0.47 + 120} y1={height * 0.22 + 52} x2={width * 0.66} y2={height * 0.22 + 52} color={theme.colors.loadBalancer} startFrame={1400} />
-              <FlowLine x1={width * 0.66 + 130} y1={height * 0.22 + 52} x2={width * 0.84} y2={height * 0.22 + 47} color={theme.colors.success} startFrame={1440} label="HTTP" />
-
-              {/* Animated particles */}
-              {frame >= 1480 && (
+              {/* Flow arrows showing the lookup */}
+              {frame >= 800 && (
                 <>
-                  <DataFlowStream x1={width * 0.08 + 130} y1={height * 0.22 + 52} x2={width * 0.26} y2={height * 0.22 + 52} startFrame={1480} />
-                  <DataFlowStream x1={width * 0.26 + 130} y1={height * 0.22 + 50} x2={width * 0.47} y2={height * 0.22 + 47} startFrame={1520} />
-                  <DataFlowStream x1={width * 0.47 + 120} y1={height * 0.22 + 52} x2={width * 0.66} y2={height * 0.22 + 52} startFrame={1560} />
-                  <DataFlowStream x1={width * 0.66 + 130} y1={height * 0.22 + 52} x2={width * 0.84} y2={height * 0.22 + 47} startFrame={1600} />
+                  <FlowLine
+                    x1={width * 0.38 + 90}
+                    y1={75}
+                    x2={width * 0.2 + 85}
+                    y2={130}
+                    label="1. Where is .com?"
+                    color="#fbbf24"
+                    startFrame={800}
+                  />
+                  <FlowLine
+                    x1={width * 0.38 + 90}
+                    y1={75}
+                    x2={width * 0.56 + 85}
+                    y2={130}
+                    label="2. Where is google?"
+                    color={theme.colors.success}
+                    startFrame={850}
+                  />
                 </>
               )}
-            </>
+
+              {/* Explanation box */}
+              {frame >= 900 && (
+                <div style={{
+                  position: 'absolute',
+                  top: 280,
+                  left: width * 0.08,
+                  right: width * 0.08,
+                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                  border: '2px solid rgba(245, 158, 11, 0.4)',
+                  borderRadius: 12,
+                  padding: 20,
+                  opacity: fadeIn(frame, 900, 15),
+                }}>
+                  <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2, textAlign: 'center'}}>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ The Lookup Journey:</span> Your browser asks Root DNS → Root says "ask .com TLD" → TLD says "ask Google's nameserver" → Finally gets IP: <span style={{fontWeight: 'bold', color: theme.colors.client}}>142.250.185.46</span>
+                    <br/>
+                    <span style={{fontSize: 14, color: '#94a3b8'}}>Cached at every step! First lookup: ~50-100ms | Subsequent: &lt;1ms</span>
+                  </div>
+                </div>
+              )}
+            </div>
           )}
-
-          {/* Technical details */}
-          <div style={{
-            position: 'absolute',
-            top: height * 0.5,
-            left: width * 0.08,
-            width: 380,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(139, 92, 246, 0.5)',
-            borderRadius: 14,
-            padding: 20,
-            opacity: fadeIn(frame, 1340, 15),
-          }}>
-            <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', marginBottom: 12}}>
-              🏢 Forward Proxy (Squid)
-            </div>
-            <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
-              • ACL-based access control<br/>
-              • SSL bumping for HTTPS inspection<br/>
-              • Cache: disk (SSD) + memory (RAM)<br/>
-              • Authentication: LDAP/Kerberos<br/>
-              • Logging: access.log, cache.log<br/>
-              • Monitoring: Prometheus exporter
-            </div>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.5,
-            left: width * 0.52,
-            width: 400,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(96, 165, 250, 0.5)',
-            borderRadius: 14,
-            padding: 20,
-            opacity: fadeIn(frame, 1380, 15),
-          }}>
-            <div style={{fontSize: 18, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 12}}>
-              🌐 Reverse Proxy (NGINX)
-            </div>
-            <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
-              • TLS termination: libssl (OpenSSL 3.x)<br/>
-              • HTTP/2 & HTTP/3 (QUIC) support<br/>
-              • Static caching: proxy_cache_path<br/>
-              • Rate limiting: limit_req_zone<br/>
-              • Load balancing: upstream directive<br/>
-              • WebSocket proxying: Upgrade header
-            </div>
-          </div>
-
-          <Character type="architect" x={width * 0.05} y={height * 0.82} startFrame={1210} size={90} />
-
-          <Dialogue
-            speaker="architect"
-            text="In enterprise: Forward proxy for egress control + reverse proxy for ingress. Both log, cache, and secure traffic differently."
-            x={width * 0.05 + 100}
-            y={height * 0.87}
-            startFrame={1250}
-            maxWidth={650}
-          />
         </>
       )}
 
-      {/* Scene 5: Complete Production Flow (1680-2160 frames / 56-72s) */}
-      {frame >= 1680 && frame < 2160 && (
+      {/* Scene 3: Security Question (960-1440 frames / 32-48s) */}
+      {frame >= 960 && frame < 1440 && (
         <>
-          <div style={{
-            position: 'absolute',
-            top: 30,
-            left: width / 2 - 380,
-            fontSize: 34,
-            fontWeight: 'bold',
-            color: '#fff',
-            opacity: fadeIn(frame, 1680, 15),
-            textAlign: 'center',
-          }}>
-            Production Request Flow with Latency Breakdown
-          </div>
+          <Title text="Making It Secure with TLS" subtitle="Encrypting the Connection" startFrame={960} />
 
-          <div style={{
-            position: 'absolute',
-            top: height * 0.16,
-            left: width * 0.08,
-            right: width * 0.08,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(96, 165, 250, 0.5)',
-            borderRadius: 16,
-            padding: 26,
-            opacity: fadeIn(frame, 1700, 15),
-          }}>
-            <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20}}>
-              Complete Request Journey (Technical Breakdown)
-            </div>
-            <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2.3}}>
-              <div style={{opacity: fadeIn(frame, 1740, 10)}}>
-                <span style={{color: theme.colors.client, fontWeight: 'bold'}}>① CLIENT → Forward Proxy:</span> TCP handshake (3-way) + HTTP CONNECT method for HTTPS tunneling
-              </div>
-              <div style={{opacity: fadeIn(frame, 1790, 10)}}>
-                <span style={{color: '#a78bfa', fontWeight: 'bold'}}>② Proxy → DNS:</span> Recursive query to 8.8.8.8 or internal resolver (bind9). Checks cache first (TTL-aware).
-              </div>
-              <div style={{opacity: fadeIn(frame, 1840, 10)}}>
-                <span style={{color: theme.colors.cache, fontWeight: 'bold'}}>③ DNS Resolution:</span> Root → TLD → Authoritative. Returns A/AAAA record. DNSSEC validation if enabled.
-              </div>
-              <div style={{opacity: fadeIn(frame, 1890, 10)}}>
-                <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>④ Proxy → Reverse Proxy:</span> TLS 1.3 handshake (1-RTT). ClientHello/ServerHello + certificate chain validation.
-              </div>
-              <div style={{opacity: fadeIn(frame, 1940, 10)}}>
-                <span style={{color: theme.colors.server, fontWeight: 'bold'}}>⑤ NGINX → App Server:</span> HTTP/2 over plain HTTP (no TLS). Connection pool reuse. Keep-alive timeout: 65s.
-              </div>
-              <div style={{marginTop: 18, fontSize: 16, opacity: fadeIn(frame, 2000, 10)}}>
-                <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ Latency Budget:</span> DNS (50ms) + TLS (100ms) + Proxy (10ms) + App (80ms) + Network (30ms) = <span style={{fontWeight: 'bold'}}>270ms total</span>
-              </div>
-              <div style={{marginTop: 8, fontSize: 16, color: '#10b981', opacity: fadeIn(frame, 2060, 10)}}>
-                <span style={{fontWeight: 'bold'}}>⚡ Optimized (cached):</span> DNS (0ms) + TLS resume (30ms) + HTTP/2 multiplexing = <span style={{fontWeight: 'bold'}}>~50ms</span>
-              </div>
-            </div>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.65,
-            left: width * 0.08,
-            right: width * 0.08,
-            backgroundColor: 'rgba(245, 158, 11, 0.15)',
-            border: '3px solid rgba(245, 158, 11, 0.5)',
-            borderRadius: 12,
-            padding: 22,
-            opacity: fadeIn(frame, 2020, 15),
-          }}>
-            <div style={{fontSize: 18, fontWeight: 'bold', color: '#fbbf24', marginBottom: 14}}>
-              🔧 Production Troubleshooting Checklist
-            </div>
-            <div style={{display: 'flex', gap: 30, fontSize: 14, color: '#e2e8f0', lineHeight: 2}}>
-              <div style={{flex: 1}}>
-                • <span style={{fontWeight: 'bold'}}>DNS issues:</span> `dig +trace example.com`<br/>
-                • <span style={{fontWeight: 'bold'}}>TLS problems:</span> `openssl s_client -connect host:443`<br/>
-                • <span style={{fontWeight: 'bold'}}>Proxy logs:</span> Check access/error logs<br/>
-                • <span style={{fontWeight: 'bold'}}>Latency:</span> `curl -w "@curl-format.txt" -o /dev/null -s URL`
-              </div>
-              <div style={{flex: 1}}>
-                • <span style={{fontWeight: 'bold'}}>TCP dump:</span> `tcpdump -i any port 443`<br/>
-                • <span style={{fontWeight: 'bold'}}>Keep-alive:</span> Connection pool exhaustion?<br/>
-                • <span style={{fontWeight: 'bold'}}>MTU issues:</span> Packet fragmentation on VPN<br/>
-                • <span style={{fontWeight: 'bold'}}>Monitoring:</span> Prometheus + Grafana dashboards
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-
-      {/* Scene 6: Key Architect Takeaways (2160-2460 frames / 72-82s) */}
-      {frame >= 2160 && frame < 2460 && (
-        <>
-          <div style={{
-            position: 'absolute',
-            top: 50,
-            left: width / 2 - 280,
-            fontSize: 34,
-            fontWeight: 'bold',
-            color: '#fff',
-            opacity: fadeIn(frame, 2160, 15),
-          }}>
-            Production Architecture Principles
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.18,
-            left: width * 0.08,
-            width: 420,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(96, 165, 250, 0.5)',
-            borderRadius: 12,
-            padding: 20,
-            opacity: fadeIn(frame, 2180, 15),
-          }}>
-            <div style={{fontSize: 19, fontWeight: 'bold', color: theme.colors.client, marginBottom: 12}}>
-              🌐 Network & DNS
-            </div>
-            <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-              • Dual-stack (IPv4 + IPv6) everywhere<br/>
-              • DNS: Use Cloudflare/Route53 for GSLB<br/>
-              • TTL strategy: 300s staging, 3600s prod<br/>
-              • DNSSEC for zone signing/validation<br/>
-              • Anycast DNS for global resilience
-            </div>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.18,
-            left: width * 0.52,
-            width: 420,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(139, 92, 246, 0.5)',
-            borderRadius: 12,
-            padding: 20,
-            opacity: fadeIn(frame, 2220, 15),
-          }}>
-            <div style={{fontSize: 19, fontWeight: 'bold', color: '#a78bfa', marginBottom: 12}}>
-              🔐 Security & TLS
-            </div>
-            <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-              • TLS 1.3 only (disable 1.0/1.1)<br/>
-              • HSTS headers (Strict-Transport-Security)<br/>
-              • Certificate pinning for mobile apps<br/>
-              • Let's Encrypt + automation (certbot)<br/>
-              • mTLS for service-to-service auth
-            </div>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.5,
-            left: width * 0.08,
-            width: 420,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(16, 185, 129, 0.5)',
-            borderRadius: 12,
-            padding: 20,
-            opacity: fadeIn(frame, 2260, 15),
-          }}>
-            <div style={{fontSize: 19, fontWeight: 'bold', color: theme.colors.success, marginBottom: 12}}>
-              🔀 Proxy Strategy
-            </div>
-            <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-              • Forward: Squid/HAProxy for egress<br/>
-              • Reverse: NGINX/Envoy for ingress<br/>
-              • Service mesh: Istio/Linkerd for mTLS<br/>
-              • WAF integration (ModSecurity/Cloudflare)<br/>
-              • Rate limiting at edge (not app layer)
-            </div>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: height * 0.5,
-            left: width * 0.52,
-            width: 420,
-            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-            border: '3px solid rgba(245, 158, 11, 0.5)',
-            borderRadius: 12,
-            padding: 20,
-            opacity: fadeIn(frame, 2300, 15),
-          }}>
-            <div style={{fontSize: 19, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12}}>
-              ⚡ Performance
-            </div>
-            <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-              • HTTP/3 (QUIC) for mobile clients<br/>
-              • Connection pooling (keep-alive 65s)<br/>
-              • TCP Fast Open (TFO) when possible<br/>
-              • BBR congestion control (Linux kernel)<br/>
-              • CDN for static assets (Cloudflare/Fastly)
-            </div>
-          </div>
-
-          <Character type="architect" x={width * 0.45} y={height * 0.82} startFrame={2170} size={100} />
+          <Character type="junior" x={width * 0.18} y={height * 0.8} startFrame={970} size={105} />
+          <Character type="architect" x={width * 0.75} y={height * 0.8} startFrame={970} size={105} />
 
           <Dialogue
-            speaker="architect"
-            text="These patterns scale to billions of requests. Netflix, AWS, Google all use this exact stack with HTTP/3, TLS 1.3, and distributed DNS."
-            x={width * 0.45 - 500}
+            speaker="junior"
+            text="Got it! DNS found the IP address. But how do we know we're really talking to Google and not a hacker pretending to be Google?"
+            x={width * 0.05}
             y={height * 0.9}
-            startFrame={2200}
-            maxWidth={980}
+            startFrame={990}
+            maxWidth={480}
           />
+
+          <Dialogue
+            speaker="architect"
+            text="Excellent security thinking! That's where TLS comes in - it creates an encrypted tunnel and verifies the server's identity."
+            x={width * 0.75 - 320}
+            y={height * 0.9}
+            startFrame={1080}
+            maxWidth={540}
+          />
+
+          {/* TLS Handshake Visualization */}
+          {frame >= 1170 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.14,
+              left: width * 0.15,
+              right: width * 0.15,
+              opacity: fadeIn(frame, 1170, 15),
+            }}>
+              {/* Client and Server icons */}
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <div style={{textAlign: 'center'}}>
+                  <div style={{fontSize: 48}}>💻</div>
+                  <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.client, marginTop: 8}}>Your Browser</div>
+                </div>
+
+                <div style={{flex: 1, margin: '0 40px'}}>
+                  {/* TLS Handshake Steps */}
+                  <div style={{
+                    backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                    border: '3px solid rgba(139, 92, 246, 0.5)',
+                    borderRadius: 14,
+                    padding: 24,
+                  }}>
+                    <div style={{fontSize: 22, fontWeight: 'bold', color: '#a78bfa', marginBottom: 16, textAlign: 'center'}}>
+                      🔐 TLS 1.3 Handshake (~100ms)
+                    </div>
+                    <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2.2}}>
+                      <div style={{opacity: fadeIn(frame, 1200, 10)}}>
+                        <span style={{color: '#60a5fa', fontWeight: 'bold'}}>① ClientHello:</span> "Here are the encryption methods I support..."
+                      </div>
+                      <div style={{opacity: fadeIn(frame, 1240, 10)}}>
+                        <span style={{color: '#10b981', fontWeight: 'bold'}}>② ServerHello:</span> "Let's use this one. Here's my certificate from Let's Encrypt..."
+                      </div>
+                      <div style={{opacity: fadeIn(frame, 1280, 10)}}>
+                        <span style={{color: '#fbbf24', fontWeight: 'bold'}}>③ Browser Verifies:</span> "Certificate is valid! Let's create encryption keys..."
+                      </div>
+                      <div style={{opacity: fadeIn(frame, 1320, 10)}}>
+                        <span style={{color: '#10b981', fontWeight: 'bold'}}>④ Encrypted Tunnel:</span> "All communication now encrypted! 🔒"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{textAlign: 'center'}}>
+                  <div style={{fontSize: 48}}>🖥️</div>
+                  <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.server, marginTop: 8}}>Google Server</div>
+                </div>
+              </div>
+
+              {/* Key insight */}
+              {frame >= 1360 && (
+                <div style={{
+                  marginTop: 24,
+                  backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                  border: '2px solid rgba(16, 185, 129, 0.4)',
+                  borderRadius: 12,
+                  padding: 18,
+                  opacity: fadeIn(frame, 1360, 15),
+                }}>
+                  <div style={{fontSize: 16, color: '#e2e8f0', textAlign: 'center', lineHeight: 2}}>
+                    <span style={{color: '#10b981', fontWeight: 'bold'}}>⚡ Why TLS 1.3 is Better:</span> Only 1 round trip (~100ms) vs TLS 1.2's 2 round trips (~200ms)
+                    <br/>
+                    <span style={{fontSize: 14, color: '#94a3b8'}}>Production systems disable TLS 1.0/1.1 - security vulnerabilities!</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </>
       )}
 
-      {/* Scene 7: What's Next (2460-2700 frames / 82-90s) */}
-      {frame >= 2460 && frame < 2700 && (
+      {/* Scene 4: Proxies Optimization (1440-1860 frames / 48-62s) */}
+      {frame >= 1440 && frame < 1860 && (
+        <>
+          <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={1440} />
+
+          <Character type="junior" x={width * 0.16} y={height * 0.82} startFrame={1450} size={100} />
+          <Character type="architect" x={width * 0.77} y={height * 0.82} startFrame={1450} size={100} />
+
+          <Dialogue
+            speaker="junior"
+            text="This seems like a lot of work for every request! Is there a way to make it faster or more efficient?"
+            x={width * 0.05}
+            y={height * 0.92}
+            startFrame={1470}
+            maxWidth={460}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Absolutely! That's where proxies come in. They're like smart helpers. Let me show you two important types..."
+            x={width * 0.77 - 320}
+            y={height * 0.92}
+            startFrame={1560}
+            maxWidth={540}
+          />
+
+          {/* Proxy comparison */}
+          {frame >= 1650 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.16,
+              left: width * 0.08,
+              right: width * 0.08,
+              display: 'flex',
+              gap: 28,
+              opacity: fadeIn(frame, 1650, 15),
+            }}>
+              {/* Forward Proxy */}
+              <div style={{
+                flex: 1,
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(139, 92, 246, 0.5)',
+                borderRadius: 14,
+                padding: 24,
+              }}>
+                <div style={{textAlign: 'center', fontSize: 42, marginBottom: 12}}>🔀</div>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: '#a78bfa', marginBottom: 16, textAlign: 'center'}}>
+                  Forward Proxy
+                </div>
+                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2}}>
+                  <div style={{color: '#fbbf24', fontWeight: 'bold', marginBottom: 8}}>Client-Side Helper</div>
+                  <div style={{fontSize: 14}}>
+                    • Sits between YOU and the internet<br/>
+                    • Corporate networks use this<br/>
+                    • Can cache common requests<br/>
+                    • Filters/monitors traffic<br/>
+                    • Common tool: <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Squid (port 3128)</span>
+                  </div>
+                  <div style={{marginTop: 12, fontSize: 13, color: '#94a3b8', fontStyle: 'italic'}}>
+                    "I'll fetch websites on your behalf and cache popular ones!"
+                  </div>
+                </div>
+              </div>
+
+              {/* Reverse Proxy */}
+              <div style={{
+                flex: 1,
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 14,
+                padding: 24,
+              }}>
+                <div style={{textAlign: 'center', fontSize: 42, marginBottom: 12}}>🔀</div>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 16, textAlign: 'center'}}>
+                  Reverse Proxy
+                </div>
+                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2}}>
+                  <div style={{color: '#fbbf24', fontWeight: 'bold', marginBottom: 8}}>Server-Side Helper</div>
+                  <div style={{fontSize: 14}}>
+                    • Sits in front of web servers<br/>
+                    • Handles TLS encryption<br/>
+                    • Load balances traffic<br/>
+                    • Caches static content<br/>
+                    • Common tool: <span style={{color: '#10b981', fontWeight: 'bold'}}>NGINX (port 443)</span>
+                  </div>
+                  <div style={{marginTop: 12, fontSize: 13, color: '#94a3b8', fontStyle: 'italic'}}>
+                    "I'll protect servers and distribute traffic efficiently!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 5: The Complete Flow (1860-2280 frames / 62-76s) */}
+      {frame >= 1860 && frame < 2280 && (
+        <>
+          <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={1860} />
+
+          <Character type="junior" x={width * 0.14} y={height * 0.84} startFrame={1870} size={95} />
+          <Character type="architect" x={width * 0.79} y={height * 0.84} startFrame={1870} size={95} />
+
+          <Dialogue
+            speaker="junior"
+            text="Can we see how all these pieces - DNS, TLS, proxies - work together when I visit google.com?"
+            x={width * 0.05}
+            y={height * 0.94}
+            startFrame={1890}
+            maxWidth={440}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Great idea! Let me walk you through the complete journey, step by step with real timing..."
+            x={width * 0.79 - 340}
+            y={height * 0.94}
+            startFrame={1980}
+            maxWidth={560}
+          />
+
+          {/* Complete flow diagram */}
+          {frame >= 2070 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.12,
+              left: width * 0.08,
+              right: width * 0.08,
+              opacity: fadeIn(frame, 2070, 15),
+            }}>
+              {/* Step-by-step narration */}
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
+                padding: 26,
+              }}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
+                  When You Press Enter on google.com...
+                </div>
+                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2.5}}>
+                  <div style={{opacity: fadeIn(frame, 2100, 10)}}>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~50ms first time, then cached): "What's the IP for google.com?" → 142.250.185.46
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 2140, 10)}}>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>2.</span> <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TCP Connection</span> (~30ms): Three-way handshake (SYN, SYN-ACK, ACK) establishes connection
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 2180, 10)}}>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>3.</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>TLS Handshake</span> (~100ms): Verify certificate, create encrypted tunnel
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 2220, 10)}}>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>4.</span> <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>HTTP Request</span>: "GET / HTTP/2" - asking for the homepage
+                  </div>
+                  <div style={{opacity: fadeIn(frame, 2260, 10)}}>
+                    <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>5.</span> <span style={{color: theme.colors.server, fontWeight: 'bold'}}>Server Response</span> (~80ms): NGINX reverse proxy → App servers → Send HTML/CSS/JS
+                  </div>
+                </div>
+
+                {frame >= 2300 && (
+                  <div style={{
+                    marginTop: 22,
+                    backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                    border: '2px solid rgba(245, 158, 11, 0.4)',
+                    borderRadius: 10,
+                    padding: 18,
+                    opacity: fadeIn(frame, 2300, 15),
+                  }}>
+                    <div style={{fontSize: 18, color: '#e2e8f0', textAlign: 'center', lineHeight: 2}}>
+                      <span style={{color: '#fbbf24', fontWeight: 'bold'}}>⚡ Total Time First Visit:</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~260ms</span><br/>
+                      <span style={{color: '#10b981', fontWeight: 'bold'}}>⚡ Subsequent Visits (cached):</span> <span style={{fontWeight: 'bold', fontSize: 22}}>~30-50ms!</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 6: Production Insights (2280-2580 frames / 76-86s) */}
+      {frame >= 2280 && frame < 2580 && (
+        <>
+          <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={2280} />
+
+          <Character type="junior" x={width * 0.17} y={height * 0.84} startFrame={2290} size={100} />
+          <Character type="architect" x={width * 0.76} y={height * 0.84} startFrame={2290} size={100} />
+
+          <Dialogue
+            speaker="junior"
+            text="This is amazing! All this happens in a fraction of a second. What do I need to remember for real systems?"
+            x={width * 0.05}
+            y={height * 0.94}
+            startFrame={2310}
+            maxWidth={470}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Let me share the key principles that scale to billions of requests at companies like Google, Netflix, and AWS..."
+            x={width * 0.76 - 340}
+            y={height * 0.94}
+            startFrame={2400}
+            maxWidth={560}
+          />
+
+          {/* Production insights in cards */}
+          {frame >= 2490 && (
+            <div style={{
+              position: 'absolute',
+              top: height * 0.14,
+              left: width * 0.08,
+              right: width * 0.08,
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 20,
+              opacity: fadeIn(frame, 2490, 15),
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 12,
+                padding: 20,
+              }}>
+                <div style={{fontSize: 19, fontWeight: 'bold', color: theme.colors.client, marginBottom: 12}}>
+                  🌐 DNS Strategy
+                </div>
+                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  • Use <span style={{color: '#60a5fa', fontWeight: 'bold'}}>dual-stack</span> (IPv4 + IPv6)<br/>
+                  • <span style={{color: '#60a5fa', fontWeight: 'bold'}}>TTL:</span> 300s for dev, 3600s for prod<br/>
+                  • Enable <span style={{color: '#60a5fa', fontWeight: 'bold'}}>DNSSEC</span> for security<br/>
+                  • Cloudflare/Route53 for global reach
+                </div>
+              </div>
+
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(139, 92, 246, 0.5)',
+                borderRadius: 12,
+                padding: 20,
+              }}>
+                <div style={{fontSize: 19, fontWeight: 'bold', color: '#a78bfa', marginBottom: 12}}>
+                  🔐 TLS/Security
+                </div>
+                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  • <span style={{color: '#a78bfa', fontWeight: 'bold'}}>TLS 1.3 only</span> (disable 1.0/1.1)<br/>
+                  • Let's Encrypt with auto-renewal<br/>
+                  • <span style={{color: '#a78bfa', fontWeight: 'bold'}}>HSTS headers</span> enforce HTTPS<br/>
+                  • HTTP/3 (QUIC) for mobile clients
+                </div>
+              </div>
+
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(16, 185, 129, 0.5)',
+                borderRadius: 12,
+                padding: 20,
+              }}>
+                <div style={{fontSize: 19, fontWeight: 'bold', color: theme.colors.success, marginBottom: 12}}>
+                  🔀 Proxy Setup
+                </div>
+                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  • <span style={{color: '#10b981', fontWeight: 'bold'}}>NGINX/Envoy</span> for reverse proxy<br/>
+                  • TLS termination at edge<br/>
+                  • Rate limiting prevents abuse<br/>
+                  • Static content caching (CDN next!)
+                </div>
+              </div>
+
+              <div style={{
+                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                border: '3px solid rgba(245, 158, 11, 0.5)',
+                borderRadius: 12,
+                padding: 20,
+              }}>
+                <div style={{fontSize: 19, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12}}>
+                  ⚡ Performance
+                </div>
+                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  • <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Connection pooling</span> (keep-alive)<br/>
+                  • HTTP/2 multiplexing (parallel requests)<br/>
+                  • TCP Fast Open for faster handshakes<br/>
+                  • Monitor with Prometheus + Grafana
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 7: What's Next (2580-2700 frames / 86-90s) */}
+      {frame >= 2580 && frame < 2700 && (
         <>
           <div style={{
             position: 'absolute',
-            top: height / 2 - 150,
-            left: width / 2 - 320,
+            top: height / 2 - 120,
+            left: width / 2 - 360,
             fontSize: 42,
             fontWeight: 'bold',
             color: '#fff',
             textAlign: 'center',
-            opacity: fadeIn(frame, 2460, 20),
+            opacity: fadeIn(frame, 2580, 20),
           }}>
-            Next: Load Balancing at Scale
+            You've Mastered the Fundamentals! 🎉
           </div>
+
+          <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={2600} size={120} />
+          <Character type="architect" x={width * 0.62} y={height * 0.52} startFrame={2600} size={120} />
+
+          <Dialogue
+            speaker="junior"
+            text="This makes so much sense now! What should I learn next?"
+            x={width * 0.32 - 240}
+            y={height * 0.64}
+            startFrame={2620}
+            maxWidth={460}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Now that you understand how requests flow, let's learn about distributing traffic across multiple servers for high availability!"
+            x={width * 0.62 - 180}
+            y={height * 0.64}
+            startFrame={2640}
+            maxWidth={500}
+          />
 
           <div style={{
             position: 'absolute',
-            top: height / 2 - 40,
-            left: width / 2 - 480,
-            fontSize: 19,
-            color: '#94a3b8',
-            textAlign: 'center',
-            lineHeight: 2,
-            opacity: fadeIn(frame, 2500, 20),
-          }}>
-            Now that you understand the production internet stack,<br/>
-            let's explore <span style={{color: theme.colors.loadBalancer, fontWeight: 'bold'}}>distributing traffic across backend servers</span><br/>
-            for high availability and horizontal scalability.<br/>
-            <br/>
-            <span style={{fontSize: 17, color: '#60a5fa'}}>
-              • L4 (TCP) vs L7 (HTTP) load balancing algorithms<br/>
-              • Health checks, circuit breakers, and failover<br/>
-              • Global Server Load Balancing (GeoDNS + GSLB)
-            </span>
-          </div>
-
-          <Character type="junior" x={width * 0.32} y={height * 0.7} startFrame={2480} size={120} />
-          <Character type="architect" x={width * 0.62} y={height * 0.7} startFrame={2480} size={120} />
-
-          <div style={{
-            position: 'absolute',
-            bottom: 90,
-            left: width / 2 - 340,
-            fontSize: 22,
+            bottom: 140,
+            left: width / 2 - 320,
+            fontSize: 28,
             fontWeight: 'bold',
             color: theme.colors.loadBalancer,
             backgroundColor: 'rgba(96, 165, 250, 0.15)',
-            padding: '16px 32px',
-            borderRadius: 12,
-            border: '3px solid rgba(96, 165, 250, 0.4)',
-            opacity: fadeIn(frame, 2560, 20),
+            padding: '20px 36px',
+            borderRadius: 14,
+            border: '3px solid rgba(96, 165, 250, 0.5)',
+            opacity: fadeIn(frame, 2660, 20),
+            textAlign: 'center',
           }}>
-            📚 Phase 1: Foundational Infrastructure (Topic 1 of 4) ✅
+            Next Up: Load Balancing & CDNs 🚀
+          </div>
+
+          <div style={{
+            position: 'absolute',
+            bottom: 80,
+            left: width / 2 - 280,
+            fontSize: 15,
+            color: '#94a3b8',
+            textAlign: 'center',
+            opacity: fadeIn(frame, 2680, 15),
+          }}>
+            Phase 1: Foundational Infrastructure - Topic 1 of 4 ✅
           </div>
         </>
       )}
