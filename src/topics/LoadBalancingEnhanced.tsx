@@ -625,7 +625,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="junior"
             text="What if users need to stay on the same server? Like for shopping carts?"
             x={200}
-            y={height - 350}
+            y={height - 150}
             startFrame={920}
             maxWidth={500}
           />
@@ -676,7 +676,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             maxWidth={700}
           />
 
-          <div style={{position: 'absolute', right: 50, top: 200, opacity: fadeIn(frame, 1040, 20)}}>
+          <div style={{position: 'absolute', right: 50, top: 650, opacity: fadeIn(frame, 1040, 20)}}>
             <InfoCard title="Trade-offs" points={['✅ Session persistence guaranteed', '✅ Simpler application design', '❌ Uneven load distribution', '❌ Harder failover (lost sessions)']} color={theme.colors.warning} />
           </div>
         </>
@@ -693,7 +693,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="For global scale, we route users to the nearest datacenter using GeoDNS. Disaster recovery built-in!"
             x={width / 2 - 400}
-            y={height - 350}
+            y={height - 150}
             startFrame={1100}
             maxWidth={800}
           />
@@ -736,28 +736,28 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Character type="junior" x={150} y={height - 200} startFrame={1260} size={80} />
           <Character type="architect" x={width - 300} y={height - 200} startFrame={1260} size={80} />
 
-          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 350} startFrame={1280} maxWidth={450} />
+          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 150} startFrame={1280} maxWidth={450} />
 
-          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 250} startFrame={1300} maxWidth={600} />
+          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 150} startFrame={1300} maxWidth={600} />
 
-          <div style={{position: 'absolute', left: 100, top: 200, opacity: fadeIn(frame, 1320, 20)}}>
-            <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great documentation', 'Free & open source']} cons={['Config can be complex']} useCase="General purpose, microservices" />
+          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1320, 20)}}>
+            <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great docs']} cons={['Complex config']} useCase="General purpose" />
           </div>
 
-          <div style={{position: 'absolute', left: 550, top: 200, opacity: fadeIn(frame, 1335, 20)}}>
-            <ToolCard name="HAProxy" icon="🔵" type="Software LB" pros={['Ultra reliable', 'Advanced features', 'TCP & HTTP']} cons={['Steeper learning curve']} useCase="High-traffic, complex routing" />
+          <div style={{position: 'absolute', left: 530, top: 180, opacity: fadeIn(frame, 1335, 20)}}>
+            <ToolCard name="HAProxy" icon="🔵" type="Software LB" pros={['Ultra reliable', 'Advanced features']} cons={['Steep curve']} useCase="High-traffic" />
           </div>
 
-          <div style={{position: 'absolute', left: 1000, top: 200, opacity: fadeIn(frame, 1350, 20)}}>
-            <ToolCard name="Envoy" icon="🟣" type="Service Mesh" pros={['Modern architecture', 'Observability', 'Dynamic config']} cons={['Complex setup']} useCase="Microservices, Kubernetes" />
+          <div style={{position: 'absolute', left: 960, top: 180, opacity: fadeIn(frame, 1350, 20)}}>
+            <ToolCard name="Envoy" icon="🟣" type="Service Mesh" pros={['Modern', 'Observability']} cons={['Complex setup']} useCase="Kubernetes" />
           </div>
 
-          <div style={{position: 'absolute', left: 1450, top: 200, opacity: fadeIn(frame, 1365, 20)}}>
-            <ToolCard name="AWS ALB/NLB" icon="🟠" type="Managed Cloud" pros={['Fully managed', 'Auto-scaling', 'AWS integration']} cons={['Vendor lock-in', 'Cost']} useCase="AWS-native applications" />
+          <div style={{position: 'absolute', left: 1390, top: 180, opacity: fadeIn(frame, 1365, 20)}}>
+            <ToolCard name="AWS ALB" icon="🟠" type="Managed" pros={['Fully managed', 'Auto-scaling']} cons={['Vendor lock-in']} useCase="AWS apps" />
           </div>
 
-          <div style={{position: 'absolute', left: 100, top: 520, opacity: fadeIn(frame, 1380, 20)}}>
-            <InfoCard title="Decision Framework" points={['On-prem → NGINX or HAProxy', 'Cloud → Managed LBs (ALB, Azure LB)', 'Kubernetes → Ingress + Envoy', 'Global → Cloudflare, Akamai']} color={theme.colors.info} />
+          <div style={{position: 'absolute', left: 100, top: 480, opacity: fadeIn(frame, 1380, 20)}}>
+            <InfoCard title="Decision Framework" points={['On-prem → NGINX or HAProxy', 'Cloud → Managed LBs', 'Kubernetes → Envoy', 'Global → Cloudflare']} color={theme.colors.info} />
           </div>
         </>
       )}
@@ -773,21 +773,21 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Load balancers enable sophisticated deployment strategies. Let me show you three critical patterns..."
             x={width / 2 - 450}
-            y={height - 350}
+            y={height - 150}
             startFrame={1460}
             maxWidth={900}
           />
 
-          <div style={{position: 'absolute', left: 100, top: 200, opacity: fadeIn(frame, 1490, 20)}}>
-            <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% traffic to new version', 'Monitor metrics/errors', 'Gradually increase % if healthy', 'Instant rollback if issues']} color={theme.colors.warning} />
+          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1490, 20)}}>
+            <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% to new version', 'Monitor metrics/errors', 'Gradual increase if healthy', 'Instant rollback']} color={theme.colors.warning} />
           </div>
 
-          <div style={{position: 'absolute', left: 800, top: 200, opacity: fadeIn(frame, 1520, 20)}}>
-            <InfoCard title="🔵🟢 Blue-Green" points={['Two identical environments', 'Switch all traffic instantly', 'Easy rollback (switch back)', 'Requires 2x infrastructure']} color={theme.colors.info} />
+          <div style={{position: 'absolute', left: 750, top: 180, opacity: fadeIn(frame, 1520, 20)}}>
+            <InfoCard title="🔵🟢 Blue-Green" points={['Two identical environments', 'Switch traffic instantly', 'Easy rollback', '2x infrastructure needed']} color={theme.colors.info} />
           </div>
 
-          <div style={{position: 'absolute', left: 1500, top: 200, opacity: fadeIn(frame, 1550, 20)}}>
-            <InfoCard title="🅰️🅱️ A/B Testing" points={['Split traffic by user cohort', 'Test features, UX, pricing', 'Data-driven decisions', 'Requires analytics integration']} color={theme.colors.purple} />
+          <div style={{position: 'absolute', left: 1400, top: 180, opacity: fadeIn(frame, 1550, 20)}}>
+            <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.purple} />
           </div>
 
           <svg width={width} height={height}>
@@ -812,13 +812,13 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <Character type="junior" x={150} y={height - 200} startFrame={1680} size={80} />
 
-          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 350} startFrame={1700} maxWidth={450} />
+          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 150} startFrame={1700} maxWidth={450} />
 
           <Dialogue
             speaker="architect"
             text="No! Terminate SSL at the load balancer. Decrypt once, forward as HTTP internally. Huge performance win!"
             x={width - 900}
-            y={height - 250}
+            y={height - 150}
             startFrame={1730}
             maxWidth={680}
           />
@@ -856,13 +856,13 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Character type="junior" x={150} y={height - 200} startFrame={1860} size={80} />
           <Character type="architect" x={width - 300} y={height - 200} startFrame={1860} size={80} />
 
-          <Dialogue speaker="junior" text="What about WebSockets for our real-time chat?" x={200} y={height - 380} startFrame={1880} maxWidth={500} />
+          <Dialogue speaker="junior" text="What about WebSockets for our real-time chat?" x={200} y={height - 180} startFrame={1880} maxWidth={500} />
 
           <Dialogue
             speaker="architect"
             text="Good catch! WebSockets are persistent. You MUST use sticky sessions or consistent hashing."
             x={width - 900}
-            y={height - 280}
+            y={height - 180}
             startFrame={1910}
             maxWidth={680}
           />
@@ -904,7 +904,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Finally, load balancers are your first line of defense. They can rate limit, detect attacks, and protect backends."
             x={width / 2 - 500}
-            y={height - 350}
+            y={height - 150}
             startFrame={2060}
             maxWidth={1000}
           />
@@ -935,12 +935,12 @@ export const LoadBalancingEnhanced: React.FC = () => {
             <DataFlowStream x1={800} y1={370} x2={1100} y2={370} startFrame={2175} color={theme.colors.success} particleCount={3} />
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 600, opacity: fadeIn(frame, 2190, 20)}}>
-            <InfoCard title="Rate Limiting Strategies" points={['Per-IP limits (e.g., 100 req/min)', 'Token bucket algorithm', 'WAF rules (SQL injection, XSS)', 'Challenge bad actors (CAPTCHA)']} color={theme.colors.loadBalancer} />
+          <div style={{position: 'absolute', left: 100, top: 590, opacity: fadeIn(frame, 2190, 20)}}>
+            <InfoCard title="Rate Limiting Strategies" points={['Per-IP limits (100 req/min)', 'Token bucket algorithm', 'WAF rules (SQL/XSS)', 'Challenge bad actors']} color={theme.colors.loadBalancer} />
           </div>
 
-          <div style={{position: 'absolute', right: 50, top: 600, opacity: fadeIn(frame, 2210, 20)}}>
-            <InfoCard title="Advanced: Circuit Breaker" points={['Monitor backend health', 'Auto-stop forwarding to failing servers', 'Retry with exponential backoff', 'Graceful degradation']} color={theme.colors.info} />
+          <div style={{position: 'absolute', right: 50, top: 590, opacity: fadeIn(frame, 2210, 20)}}>
+            <InfoCard title="Circuit Breaker" points={['Monitor backend health', 'Auto-stop to failing servers', 'Exponential backoff', 'Graceful degradation']} color={theme.colors.info} />
           </div>
 
           {frame > 2240 && (
@@ -1029,9 +1029,9 @@ const InfoCard: React.FC<{
     <div
       style={{
         backgroundColor: theme.background.card,
-        padding: 24,
+        padding: 20,
         borderRadius: theme.borderRadius.lg,
-        width: 600,
+        width: 580,
         border: `3px solid ${color}`,
         boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
       }}
@@ -1039,22 +1039,22 @@ const InfoCard: React.FC<{
       <h3
         style={{
           margin: 0,
-          marginBottom: 16,
+          marginBottom: 12,
           color: theme.text.primary,
-          fontSize: 32,
+          fontSize: 28,
           fontWeight: 'bold',
         }}
       >
         {title}
       </h3>
-      <div style={{display: 'flex', flexDirection: 'column', gap: 8}}>
+      <div style={{display: 'flex', flexDirection: 'column', gap: 6}}>
         {points.map((point, i) => (
           <div
             key={i}
             style={{
               color: theme.text.secondary,
-              fontSize: 20,
-              lineHeight: 1.5,
+              fontSize: 18,
+              lineHeight: 1.4,
             }}
           >
             {point}
@@ -1080,19 +1080,19 @@ const ToolCard: React.FC<{
     <div
       style={{
         backgroundColor: theme.background.card,
-        padding: 20,
+        padding: 16,
         borderRadius: theme.borderRadius.lg,
-        width: 400,
+        width: 380,
         border: `3px solid ${theme.colors.network}`,
         boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
       }}
     >
-      <div style={{fontSize: 40, marginBottom: 8, textAlign: 'center'}}>{icon}</div>
+      <div style={{fontSize: 36, marginBottom: 6, textAlign: 'center'}}>{icon}</div>
       <h4
         style={{
           margin: 0,
           color: theme.text.primary,
-          fontSize: 28,
+          fontSize: 24,
           fontWeight: 'bold',
           textAlign: 'center',
           marginBottom: 4,
@@ -1103,20 +1103,20 @@ const ToolCard: React.FC<{
       <div
         style={{
           color: theme.text.muted,
-          fontSize: 16,
+          fontSize: 14,
           textAlign: 'center',
-          marginBottom: 12,
+          marginBottom: 10,
         }}
       >
         {type}
       </div>
-      <div style={{fontSize: 16, lineHeight: 1.6, color: theme.text.secondary}}>
-        <div style={{marginBottom: 8}}>
+      <div style={{fontSize: 15, lineHeight: 1.5, color: theme.text.secondary}}>
+        <div style={{marginBottom: 6}}>
           {pros.map((p, i) => (
             <div key={i}>✓ {p}</div>
           ))}
         </div>
-        <div style={{marginBottom: 8}}>
+        <div style={{marginBottom: 6}}>
           {cons.map((c, i) => (
             <div key={i} style={{color: theme.colors.warning}}>
               ⚠ {c}
@@ -1125,11 +1125,11 @@ const ToolCard: React.FC<{
         </div>
         <div
           style={{
-            marginTop: 12,
-            padding: 8,
+            marginTop: 10,
+            padding: 6,
             backgroundColor: theme.background.highlight,
             borderRadius: 6,
-            fontSize: 15,
+            fontSize: 13,
           }}
         >
           <strong>Best for:</strong> {useCase}
