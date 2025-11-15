@@ -28,11 +28,11 @@ Place these in the existing `/public/audio/` folder:
 
 | File | Purpose | Search Terms |
 |------|---------|--------------|
-| `intro.mp3` | Video start | "intro", "start", "begin" |
-| `transition.mp3` | Scene changes | "transition", "whoosh", "scene change" |
-| `alert.mp3` | Warning moments | "alert", "notification", "attention" |
-| `error.mp3` | Server failure | "error beep", "fail", "warning" |
-| `success.mp3` | Success finale | "success", "win", "complete", "ding" |
+| `intro.wav` | Video start | "intro", "start", "begin" |
+| `transition.wav` | Scene changes | "transition", "whoosh", "scene change" |
+| `alert.wav` | Warning moments | "alert", "notification", "attention" |
+| `error.wav` | Server failure | "error beep", "fail", "warning" |
+| `success.wav` | Success finale | "success", "win", "complete", "ding" |
 
 ## Installation Steps
 
@@ -90,16 +90,18 @@ export const volumePresets = {
 
 ## Tips
 
-1. **Keep files small**: < 500KB per sound
-2. **Use MP3 format**: Best compatibility
-3. **Test in browser first**: Some sounds may be too loud/quiet
-4. **Normalize volumes**: Use Audacity (free) to match volumes
+1. **WAV format recommended**: Better quality, uncompressed audio
+2. **File size**: WAV files will be 1-2MB each (larger than MP3 but better quality)
+3. **Convert if needed**: Use Audacity (free) or online converters to convert MP3 to WAV
+4. **Test in browser first**: Some sounds may be too loud/quiet
+5. **Normalize volumes**: Use Audacity to ensure all sounds have consistent volume levels
 
 ## Troubleshooting
 
 **"Audio file not found" warning**
-- Check file path: Should be `public/audio/filename.mp3`
+- Check file path: Should be `public/audio/filename.wav`
 - Check filename matches exactly (case-sensitive)
+- Ensure files are in WAV format (not MP3)
 - Restart Remotion Studio after adding files
 
 **No sound in preview**

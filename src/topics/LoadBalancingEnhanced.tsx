@@ -27,22 +27,85 @@ export const LoadBalancingEnhanced: React.FC = () => {
     >
       {/* Sound Effects - Optional audio (graceful fallback if files missing) */}
       {/* Each sound effect renders for 60 frames (~2 seconds) to ensure playback */}
-      {frame >= 0 && frame < 60 && <SoundEffect src="/audio/intro.mp3" />}
-      {frame >= 120 && frame < 180 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 200 && frame < 260 && <SoundEffect src="/audio/alert.mp3" />}
-      {frame >= 270 && frame < 330 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 450 && frame < 510 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 690 && frame < 750 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 960 && frame < 1020 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 1015 && frame < 1075 && <SoundEffect src="/audio/error.mp3" />}
-      {frame >= 1110 && frame < 1170 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 1290 && frame < 1350 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 1470 && frame < 1530 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 1740 && frame < 1800 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 1980 && frame < 2040 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 2160 && frame < 2220 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 2340 && frame < 2400 && <SoundEffect src="/audio/transition.mp3" />}
-      {frame >= 2520 && frame < 2580 && <SoundEffect src="/audio/success.mp3" />}
+      {frame >= 0 && frame < 60 && <SoundEffect src="/audio/intro.wav" />}
+      {frame >= 120 && frame < 180 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 200 && frame < 260 && <SoundEffect src="/audio/alert.wav" />}
+      {frame >= 270 && frame < 330 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 450 && frame < 510 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 690 && frame < 750 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 960 && frame < 1020 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 1015 && frame < 1075 && <SoundEffect src="/audio/error.wav" />}
+      {frame >= 1110 && frame < 1170 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 1290 && frame < 1350 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 1470 && frame < 1530 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 1740 && frame < 1800 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 1980 && frame < 2040 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 2160 && frame < 2220 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 2340 && frame < 2400 && <SoundEffect src="/audio/transition.wav" />}
+      {frame >= 2520 && frame < 2580 && <SoundEffect src="/audio/success.wav" />}
+
+      {/* Credit Bookmark - Always visible at bottom */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          right: 30,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 12,
+          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backdropFilter: 'blur(10px)',
+          padding: '12px 24px',
+          borderRadius: 30,
+          border: '2px solid rgba(96, 165, 250, 0.4)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+          opacity: fadeIn(frame, 30, 20),
+        }}
+      >
+        <div
+          style={{
+            fontSize: 16,
+            color: '#94a3b8',
+            fontWeight: '500',
+            letterSpacing: '0.5px',
+          }}
+        >
+          Created by
+        </div>
+        <div
+          style={{
+            fontSize: 20,
+            fontWeight: 'bold',
+            background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '0.5px',
+          }}
+        >
+          Amit Mishra
+        </div>
+        <div
+          style={{
+            width: 2,
+            height: 20,
+            backgroundColor: 'rgba(96, 165, 250, 0.3)',
+          }}
+        />
+        <div
+          style={{
+            fontSize: 14,
+            color: '#64748b',
+            fontStyle: 'italic',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+          }}
+        >
+          <span style={{fontSize: 16}}>⚡</span>
+          Powered by Claude Code
+        </div>
+      </div>
 
       {/* Scene 1: Introduction - The Problem (0-120 frames / 0-4s) */}
       {frame < 120 && (

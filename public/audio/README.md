@@ -26,25 +26,25 @@ Place these **5 files** in this directory (`public/audio/`):
 
 | File | Purpose | Search Terms |
 |------|---------|--------------|
-| `intro.mp3` | Video start | "intro", "start", "begin" |
-| `transition.mp3` | Scene changes | "transition", "whoosh", "scene change" |
-| `alert.mp3` | Warning moments | "alert", "notification", "attention" |
-| `error.mp3` | Server failure | "error beep", "fail", "warning" |
-| `success.mp3` | Success finale | "success", "win", "complete", "ding" |
+| `intro.wav` | Video start | "intro", "start", "begin" |
+| `transition.wav` | Scene changes | "transition", "whoosh", "scene change" |
+| `alert.wav` | Warning moments | "alert", "notification", "attention" |
+| `error.wav` | Server failure | "error beep", "fail", "warning" |
+| `success.wav` | Success finale | "success", "win", "complete", "ding" |
 
 ## Quick Start
 
 1. **Download 5 sound files** from Mixkit.co:
    - Go to https://mixkit.co/free-sound-effects/
    - Search for each sound type (intro, transition, alert, error, success)
-   - Download as MP3 files
+   - Download as WAV files (or convert MP3 to WAV)
 
 2. **Rename files** to match the table above exactly:
-   - `intro.mp3`
-   - `transition.mp3`
-   - `alert.mp3`
-   - `error.mp3`
-   - `success.mp3`
+   - `intro.wav`
+   - `transition.wav`
+   - `alert.wav`
+   - `error.wav`
+   - `success.wav`
 
 3. **Place files** in this directory (`public/audio/`)
 
@@ -74,6 +74,7 @@ The 86-second video has sound effects at these moments:
 
 ## File Format
 
-- **Preferred**: MP3 (best compatibility)
-- **Alternative**: WAV, OGG
-- **Keep files small**: < 500KB per sound
+- **Preferred**: WAV (uncompressed, best quality)
+- **Alternative**: MP3, OGG
+- **File size**: WAV files are larger (~1-2MB) but provide better quality
+- **Conversion**: Use online tools or Audacity (free) to convert MP3 to WAV if needed
