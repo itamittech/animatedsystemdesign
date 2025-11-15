@@ -32,17 +32,17 @@ export const LoadBalancingEnhanced: React.FC = () => {
       {frame >= 200 && frame < 260 && <SoundEffect src="/sfx/alert.mp3" />}
       {frame >= 270 && frame < 330 && <SoundEffect src="/sfx/transition.mp3" />}
       {frame >= 450 && frame < 510 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 690 && frame < 750 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 960 && frame < 1020 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 1015 && frame < 1075 && <SoundEffect src="/sfx/error.mp3" />}
-      {frame >= 1110 && frame < 1170 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 1290 && frame < 1350 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 1470 && frame < 1530 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 1740 && frame < 1800 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 1980 && frame < 2040 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 2160 && frame < 2220 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 2340 && frame < 2400 && <SoundEffect src="/sfx/transition.mp3" />}
-      {frame >= 2520 && frame < 2580 && <SoundEffect src="/sfx/success.mp3" />}
+      {frame >= 630 && frame < 690 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 810 && frame < 870 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 865 && frame < 925 && <SoundEffect src="/sfx/error.mp3" />}
+      {frame >= 900 && frame < 960 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 1080 && frame < 1140 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 1260 && frame < 1320 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 1440 && frame < 1500 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 1680 && frame < 1740 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 1860 && frame < 1920 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 2040 && frame < 2100 && <SoundEffect src="/sfx/transition.mp3" />}
+      {frame >= 2240 && frame < 2280 && <SoundEffect src="/sfx/success.mp3" />}
 
       {/* Scene 1: Introduction - The Problem (0-120 frames / 0-4s) */}
       {frame < 120 && (
@@ -646,7 +646,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             text="What if users need to stay on the same server? Like for shopping carts?"
             x={200}
             y={height - 150}
-            startFrame={1130}
+            startFrame={920}
             maxWidth={500}
           />
 
@@ -660,7 +660,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
               label="User + 🍪"
               icon="👤"
               subLabel="Session ID: ABC"
-              startFrame={1160}
+              startFrame={950}
             />
 
             <Box
@@ -672,15 +672,15 @@ export const LoadBalancingEnhanced: React.FC = () => {
               label="Load Balancer"
               icon="⚖️"
               subLabel="Cookie-based routing"
-              startFrame={1170}
+              startFrame={960}
             />
 
-            <Box x={1200} y={250} width={180} height={110} color={theme.colors.server} label="Server 1" icon="🖥️" startFrame={1180} />
-            <Box x={1200} y={400} width={180} height={110} color={theme.colors.success} label="Server 2" icon="🖥️" subLabel="User's Server ⭐" startFrame={1185} />
-            <Box x={1200} y={550} width={180} height={110} color={theme.colors.server} label="Server 3" icon="🖥️" startFrame={1190} />
+            <Box x={1200} y={250} width={180} height={110} color={theme.colors.server} label="Server 1" icon="🖥️" startFrame={970} />
+            <Box x={1200} y={400} width={180} height={110} color={theme.colors.success} label="Server 2" icon="🖥️" subLabel="User's Server ⭐" startFrame={975} />
+            <Box x={1200} y={550} width={180} height={110} color={theme.colors.server} label="Server 3" icon="🖥️" startFrame={980} />
 
-            <Arrow x1={340} y1={350} x2={600} y2={430} color={theme.colors.client} label="Cookie: server=2" startFrame={1200} />
-            <Arrow x1={860} y1={450} x2={1200} y2={455} color={theme.colors.loadBalancer} label="Always to Server 2" startFrame={1210} />
+            <Arrow x1={340} y1={350} x2={600} y2={430} color={theme.colors.client} label="Cookie: server=2" startFrame={990} />
+            <Arrow x1={860} y1={450} x2={1200} y2={455} color={theme.colors.loadBalancer} label="Always to Server 2" startFrame={1000} />
 
             {[0, 1, 2].map((i) => (
               <DataFlowStream key={i} x1={340} y1={350} x2={1200} y2={455} startFrame={1010 + i * 20} color={theme.colors.success} particleCount={2} />
@@ -692,167 +692,167 @@ export const LoadBalancingEnhanced: React.FC = () => {
             text="Sticky sessions! Use cookies or IP hash. Same user → same server. Great for stateful apps, but reduces load distribution and failover options."
             x={width - 950}
             y={height - 200}
-            startFrame={1230}
+            startFrame={1020}
             maxWidth={700}
           />
 
-          <div style={{position: 'absolute', right: 50, top: 650, opacity: fadeIn(frame, 1250, 20)}}>
+          <div style={{position: 'absolute', right: 50, top: 650, opacity: fadeIn(frame, 1040, 20)}}>
             <InfoCard title="Trade-offs" points={['✅ Session persistence guaranteed', '✅ Simpler application design', '❌ Uneven load distribution', '❌ Harder failover (lost sessions)']} color={theme.colors.warning} />
           </div>
         </>
       )}
 
-      {/* Scene 8: Global Load Balancing (1290-1470 frames / 43-49s) */}
-      {frame >= 1290 && frame < 1470 && (
+      {/* Scene 8: Global Load Balancing (1080-1260 frames / 36-42s) */}
+      {frame >= 1080 && frame < 1260 && (
         <>
-          <Title text="Global Load Balancing (GSLB)" subtitle="Multi-datacenter, geo-distributed traffic routing" startFrame={1290} y={50} />
+          <Title text="Global Load Balancing (GSLB)" subtitle="Multi-datacenter, geo-distributed traffic routing" startFrame={1080} y={50} />
 
-          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={1290} size={80} />
+          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={1080} size={80} />
 
           <Dialogue
             speaker="architect"
             text="For global scale, we route users to the nearest datacenter using GeoDNS. Disaster recovery built-in!"
             x={width / 2 - 400}
             y={height - 150}
-            startFrame={1310}
+            startFrame={1100}
             maxWidth={800}
           />
 
           <svg width={width} height={height}>
-            <Box x={100} y={200} width={140} height={90} color={theme.colors.client} label="🌍 Europe" icon="👥" startFrame={1330} />
-            <Box x={100} y={330} width={140} height={90} color={theme.colors.client} label="🌎 Americas" icon="👥" startFrame={1335} />
-            <Box x={100} y={460} width={140} height={90} color={theme.colors.client} label="🌏 Asia" icon="👥" startFrame={1340} />
+            <Box x={100} y={200} width={140} height={90} color={theme.colors.client} label="🌍 Europe" icon="👥" startFrame={1120} />
+            <Box x={100} y={330} width={140} height={90} color={theme.colors.client} label="🌎 Americas" icon="👥" startFrame={1125} />
+            <Box x={100} y={460} width={140} height={90} color={theme.colors.client} label="🌏 Asia" icon="👥" startFrame={1130} />
 
-            <Box x={500} y={330} width={280} height={150} color={theme.colors.network} label="Global Load Balancer" icon="🌐" subLabel="GeoDNS Routing" startFrame={1350} />
+            <Box x={500} y={330} width={280} height={150} color={theme.colors.network} label="Global Load Balancer" icon="🌐" subLabel="GeoDNS Routing" startFrame={1140} />
 
-            <Box x={1200} y={200} width={200} height={90} color={theme.colors.success} label="EU Datacenter" icon="🏢" subLabel="Frankfurt" startFrame={1360} />
-            <Box x={1200} y={330} width={200} height={90} color={theme.colors.success} label="US Datacenter" icon="🏢" subLabel="Virginia" startFrame={1365} />
-            <Box x={1200} y={460} width={200} height={90} color={theme.colors.success} label="APAC Datacenter" icon="🏢" subLabel="Singapore" startFrame={1370} />
+            <Box x={1200} y={200} width={200} height={90} color={theme.colors.success} label="EU Datacenter" icon="🏢" subLabel="Frankfurt" startFrame={1150} />
+            <Box x={1200} y={330} width={200} height={90} color={theme.colors.success} label="US Datacenter" icon="🏢" subLabel="Virginia" startFrame={1155} />
+            <Box x={1200} y={460} width={200} height={90} color={theme.colors.success} label="APAC Datacenter" icon="🏢" subLabel="Singapore" startFrame={1160} />
 
-            <Arrow x1={240} y1={245} x2={500} y2={370} color={theme.colors.client} startFrame={1380} />
-            <Arrow x1={780} y1={370} x2={1200} y2={245} color={theme.colors.network} label="Lowest latency" startFrame={1390} />
-            <DataFlowStream x1={240} y1={245} x2={1200} y2={245} startFrame={1395} color={theme.colors.success} />
+            <Arrow x1={240} y1={245} x2={500} y2={370} color={theme.colors.client} startFrame={1170} />
+            <Arrow x1={780} y1={370} x2={1200} y2={245} color={theme.colors.network} label="Lowest latency" startFrame={1180} />
+            <DataFlowStream x1={240} y1={245} x2={1200} y2={245} startFrame={1185} color={theme.colors.success} />
 
-            <Arrow x1={240} y1={375} x2={500} y2={395} color={theme.colors.client} startFrame={1382} />
-            <Arrow x1={780} y1={395} x2={1200} y2={375} color={theme.colors.network} startFrame={1392} />
-            <DataFlowStream x1={240} y1={375} x2={1200} y2={375} startFrame={1400} color={theme.colors.success} />
+            <Arrow x1={240} y1={375} x2={500} y2={395} color={theme.colors.client} startFrame={1172} />
+            <Arrow x1={780} y1={395} x2={1200} y2={375} color={theme.colors.network} startFrame={1182} />
+            <DataFlowStream x1={240} y1={375} x2={1200} y2={375} startFrame={1190} color={theme.colors.success} />
 
-            <Arrow x1={240} y1={505} x2={500} y2={420} color={theme.colors.client} startFrame={1384} />
-            <Arrow x1={780} y1={420} x2={1200} y2={505} color={theme.colors.network} startFrame={1394} />
-            <DataFlowStream x1={240} y1={505} x2={1200} y2={505} startFrame={1405} color={theme.colors.success} />
+            <Arrow x1={240} y1={505} x2={500} y2={420} color={theme.colors.client} startFrame={1174} />
+            <Arrow x1={780} y1={420} x2={1200} y2={505} color={theme.colors.network} startFrame={1184} />
+            <DataFlowStream x1={240} y1={505} x2={1200} y2={505} startFrame={1195} color={theme.colors.success} />
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 600, opacity: fadeIn(frame, 1410, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 600, opacity: fadeIn(frame, 1200, 20)}}>
             <InfoCard title="GSLB Benefits" points={['Reduced latency (users hit nearest DC)', 'Automatic failover between regions', 'Compliance (data residency)', 'DDoS mitigation at edge']} color={theme.colors.network} />
           </div>
         </>
       )}
 
-      {/* Scene 9: Tools Comparison (1470-1740 frames / 49-58s) */}
-      {frame >= 1470 && frame < 1740 && (
+      {/* Scene 9: Tools Comparison (1260-1440 frames / 42-48s) */}
+      {frame >= 1260 && frame < 1440 && (
         <>
-          <Title text="Real-World Load Balancers" subtitle="Choosing the right tool for your needs" startFrame={1470} y={50} />
+          <Title text="Real-World Load Balancers" subtitle="Choosing the right tool for your needs" startFrame={1260} y={50} />
 
-          <Character type="junior" x={150} y={height - 200} startFrame={1470} size={80} />
-          <Character type="architect" x={width - 300} y={height - 200} startFrame={1470} size={80} />
+          <Character type="junior" x={150} y={height - 200} startFrame={1260} size={80} />
+          <Character type="architect" x={width - 300} y={height - 200} startFrame={1260} size={80} />
 
-          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 150} startFrame={1490} maxWidth={450} />
+          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 150} startFrame={1280} maxWidth={450} />
 
-          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 150} startFrame={1510} maxWidth={600} />
+          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 150} startFrame={1300} maxWidth={600} />
 
-          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1530, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1320, 20)}}>
             <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great docs']} cons={['Complex config']} useCase="General purpose" />
           </div>
 
-          <div style={{position: 'absolute', left: 530, top: 180, opacity: fadeIn(frame, 1545, 20)}}>
+          <div style={{position: 'absolute', left: 530, top: 180, opacity: fadeIn(frame, 1335, 20)}}>
             <ToolCard name="HAProxy" icon="🔵" type="Software LB" pros={['Ultra reliable', 'Advanced features']} cons={['Steep curve']} useCase="High-traffic" />
           </div>
 
-          <div style={{position: 'absolute', left: 960, top: 180, opacity: fadeIn(frame, 1560, 20)}}>
+          <div style={{position: 'absolute', left: 960, top: 180, opacity: fadeIn(frame, 1350, 20)}}>
             <ToolCard name="Envoy" icon="🟣" type="Service Mesh" pros={['Modern', 'Observability']} cons={['Complex setup']} useCase="Kubernetes" />
           </div>
 
-          <div style={{position: 'absolute', left: 1390, top: 180, opacity: fadeIn(frame, 1575, 20)}}>
+          <div style={{position: 'absolute', left: 1390, top: 180, opacity: fadeIn(frame, 1365, 20)}}>
             <ToolCard name="AWS ALB" icon="🟠" type="Managed" pros={['Fully managed', 'Auto-scaling']} cons={['Vendor lock-in']} useCase="AWS apps" />
           </div>
 
-          <div style={{position: 'absolute', left: 100, top: 480, opacity: fadeIn(frame, 1590, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 480, opacity: fadeIn(frame, 1380, 20)}}>
             <InfoCard title="Decision Framework" points={['On-prem → NGINX or HAProxy', 'Cloud → Managed LBs (ALB, Azure LB)', 'Kubernetes → Ingress (NGINX, Envoy)', 'Global → GSLB (Route53, Cloudflare)']} color={theme.colors.info} />
           </div>
         </>
       )}
 
-      {/* Scene 10: Deployment Patterns (1740-1980 frames / 58-66s) */}
-      {frame >= 1740 && frame < 1980 && (
+      {/* Scene 10: Deployment Patterns (1440-1680 frames / 48-56s) */}
+      {frame >= 1440 && frame < 1680 && (
         <>
-          <Title text="Advanced Deployment Patterns" subtitle="Canary, Blue-Green, A/B Testing" startFrame={1740} y={50} />
+          <Title text="Advanced Deployment Patterns" subtitle="Canary, Blue-Green, A/B Testing" startFrame={1440} y={50} />
 
-          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={1740} size={80} />
+          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={1440} size={80} />
 
           <Dialogue
             speaker="architect"
             text="Load balancers enable sophisticated deployment strategies. Let me show you three critical patterns..."
             x={width / 2 - 450}
             y={height - 150}
-            startFrame={1760}
+            startFrame={1460}
             maxWidth={900}
           />
 
-          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1790, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1490, 20)}}>
             <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% to new version', 'Monitor metrics/errors', 'Gradual increase if healthy', 'Instant rollback']} color={theme.colors.warning} />
           </div>
 
-          <div style={{position: 'absolute', left: 750, top: 180, opacity: fadeIn(frame, 1820, 20)}}>
+          <div style={{position: 'absolute', left: 750, top: 180, opacity: fadeIn(frame, 1520, 20)}}>
             <InfoCard title="🔵🟢 Blue-Green" points={['Two identical environments', 'Switch traffic instantly', 'Easy rollback', '2x infrastructure needed']} color={theme.colors.info} />
           </div>
 
-          <div style={{position: 'absolute', left: 1400, top: 180, opacity: fadeIn(frame, 1850, 20)}}>
+          <div style={{position: 'absolute', left: 1400, top: 180, opacity: fadeIn(frame, 1550, 20)}}>
             <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.purple} />
           </div>
 
           <svg width={width} height={height}>
-            <Box x={200} y={600} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={1880} />
-            <Box x={600} y={580} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🎯" subLabel="Traffic splitting" startFrame={1890} />
-            <Box x={1100} y={550} width={180} height={90} color={theme.colors.server} label="v1.0 (90%)" icon="🖥️" startFrame={1900} />
-            <Box x={1100} y={670} width={180} height={90} color={theme.colors.success} label="v2.0 (10%)" icon="✨" startFrame={1905} />
+            <Box x={200} y={600} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={1580} />
+            <Box x={600} y={580} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🎯" subLabel="Traffic splitting" startFrame={1590} />
+            <Box x={1100} y={550} width={180} height={90} color={theme.colors.server} label="v1.0 (90%)" icon="🖥️" startFrame={1600} />
+            <Box x={1100} y={670} width={180} height={90} color={theme.colors.success} label="v2.0 (10%)" icon="✨" startFrame={1605} />
 
-            <Arrow x1={320} y1={640} x2={600} y2={640} color={theme.colors.client} startFrame={1915} />
-            <Arrow x1={800} y1={620} x2={1100} y2={595} color={theme.colors.loadBalancer} label="90%" startFrame={1925} />
-            <Arrow x1={800} y1={660} x2={1100} y2={715} color={theme.colors.loadBalancer} label="10%" startFrame={1930} />
-            <DataFlowStream x1={320} y1={640} x2={1100} y2={595} startFrame={1935} color={theme.colors.server} particleCount={4} />
-            <DataFlowStream x1={320} y1={640} x2={1100} y2={715} startFrame={1940} color={theme.colors.success} particleCount={1} />
+            <Arrow x1={320} y1={640} x2={600} y2={640} color={theme.colors.client} startFrame={1615} />
+            <Arrow x1={800} y1={620} x2={1100} y2={595} color={theme.colors.loadBalancer} label="90%" startFrame={1625} />
+            <Arrow x1={800} y1={660} x2={1100} y2={715} color={theme.colors.loadBalancer} label="10%" startFrame={1630} />
+            <DataFlowStream x1={320} y1={640} x2={1100} y2={595} startFrame={1635} color={theme.colors.server} particleCount={4} />
+            <DataFlowStream x1={320} y1={640} x2={1100} y2={715} startFrame={1640} color={theme.colors.success} particleCount={1} />
           </svg>
         </>
       )}
 
-      {/* Scene 11: SSL/TLS Termination (1980-2160 frames / 66-72s) */}
-      {frame >= 1980 && frame < 2160 && (
+      {/* Scene 11: SSL/TLS Termination (1680-1860 frames / 56-62s) */}
+      {frame >= 1680 && frame < 1860 && (
         <>
-          <Title text="SSL/TLS Termination" subtitle="Decrypt once, performance gains" startFrame={1980} y={50} />
+          <Title text="SSL/TLS Termination" subtitle="Decrypt once, performance gains" startFrame={1680} y={50} />
 
-          <Character type="junior" x={150} y={height - 200} startFrame={1980} size={80} />
+          <Character type="junior" x={150} y={height - 200} startFrame={1680} size={80} />
 
-          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 150} startFrame={2000} maxWidth={450} />
+          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 150} startFrame={1700} maxWidth={450} />
 
           <Dialogue
             speaker="architect"
             text="No! Terminate SSL at the load balancer. Decrypt once, forward as HTTP internally. Huge performance win!"
             x={width - 900}
             y={height - 150}
-            startFrame={2030}
+            startFrame={1730}
             maxWidth={680}
           />
 
           <svg width={width} height={height}>
-            <Box x={100} y={350} width={140} height={100} color={theme.colors.client} label="Client" icon="👤" startFrame={2060} />
-            <Box x={500} y={330} width={260} height={140} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔐" subLabel="SSL Termination" startFrame={2070} />
+            <Box x={100} y={350} width={140} height={100} color={theme.colors.client} label="Client" icon="👤" startFrame={1760} />
+            <Box x={500} y={330} width={260} height={140} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔐" subLabel="SSL Termination" startFrame={1770} />
 
             {[0, 1, 2].map((i) => (
               <Box key={i} x={1100} y={250 + i * 130} width={180} height={100} color={theme.colors.server} label={`Server ${i + 1}`} icon="🖥️" subLabel="HTTP only" startFrame={1780 + i * 5} />
             ))}
 
-            <Arrow x1={240} y1={400} x2={500} y2={400} color={theme.colors.success} label="HTTPS 🔒" startFrame={2100} />
-            <DataFlowStream x1={240} y1={400} x2={500} y2={400} startFrame={2105} color={theme.colors.success} />
+            <Arrow x1={240} y1={400} x2={500} y2={400} color={theme.colors.success} label="HTTPS 🔒" startFrame={1800} />
+            <DataFlowStream x1={240} y1={400} x2={500} y2={400} startFrame={1805} color={theme.colors.success} />
 
             {[0, 1, 2].map((i) => (
               <React.Fragment key={i}>
@@ -862,44 +862,44 @@ export const LoadBalancingEnhanced: React.FC = () => {
             ))}
           </svg>
 
-          <div style={{position: 'absolute', right: 50, top: 600, opacity: fadeIn(frame, 2120, 20)}}>
+          <div style={{position: 'absolute', right: 50, top: 600, opacity: fadeIn(frame, 1820, 20)}}>
             <InfoCard title="SSL Termination Benefits" points={['✅ Decrypt once (not per server)', '✅ Centralized certificate management', '✅ Backend servers focus on app logic', '⚠️ Internal traffic unencrypted (use VPC)']} color={theme.colors.success} />
           </div>
         </>
       )}
 
-      {/* Scene 12: WebSocket Load Balancing (2160-2340 frames / 72-78s) */}
-      {frame >= 2160 && frame < 2340 && (
+      {/* Scene 12: WebSocket Load Balancing (1860-2040 frames / 62-68s) */}
+      {frame >= 1860 && frame < 2040 && (
         <>
-          <Title text="WebSocket Load Balancing" subtitle="Long-lived connections require special handling" startFrame={2160} y={50} />
+          <Title text="WebSocket Load Balancing" subtitle="Long-lived connections require special handling" startFrame={1860} y={50} />
 
-          <Character type="junior" x={150} y={height - 200} startFrame={2160} size={80} />
-          <Character type="architect" x={width - 300} y={height - 200} startFrame={2160} size={80} />
+          <Character type="junior" x={150} y={height - 200} startFrame={1860} size={80} />
+          <Character type="architect" x={width - 300} y={height - 200} startFrame={1860} size={80} />
 
-          <Dialogue speaker="junior" text="What about WebSockets for our real-time chat?" x={200} y={height - 180} startFrame={2180} maxWidth={500} />
+          <Dialogue speaker="junior" text="What about WebSockets for our real-time chat?" x={200} y={height - 180} startFrame={1880} maxWidth={500} />
 
           <Dialogue
             speaker="architect"
             text="Good catch! WebSockets are persistent. You MUST use sticky sessions or consistent hashing."
             x={width - 900}
             y={height - 180}
-            startFrame={2210}
+            startFrame={1910}
             maxWidth={680}
           />
 
           <svg width={width} height={height}>
-            <Box x={150} y={300} width={140} height={100} color={theme.colors.client} label="Chat Client" icon="💬" subLabel="WebSocket" startFrame={2240} />
-            <Box x={550} y={350} width={280} height={140} color={theme.colors.loadBalancer} label="Load Balancer" icon="⚖️" subLabel="IP Hash enabled" startFrame={2250} />
+            <Box x={150} y={300} width={140} height={100} color={theme.colors.client} label="Chat Client" icon="💬" subLabel="WebSocket" startFrame={1940} />
+            <Box x={550} y={350} width={280} height={140} color={theme.colors.loadBalancer} label="Load Balancer" icon="⚖️" subLabel="IP Hash enabled" startFrame={1950} />
 
             {[0, 1].map((i) => (
               <Box key={i} x={1150} y={300 + i * 150} width={200} height={110} color={i === 1 ? theme.colors.success : theme.colors.server} label={`WS Server ${i + 1}`} icon="🔌" subLabel={i === 1 ? 'Connected ⚡' : ''} startFrame={1960 + i * 5} />
             ))}
 
-            <Arrow x1={290} y1={350} x2={550} y2={410} color={theme.colors.client} label="Initial WS Handshake" startFrame={2280} />
-            <Arrow x1={830} y1={420} x2={1150} y2={455} color={theme.colors.loadBalancer} label="Routed to Server 2" startFrame={2290} />
-            <DataFlowStream x1={290} y1={350} x2={1150} y2={455} startFrame={2300} color={theme.colors.success} particleCount={3} />
+            <Arrow x1={290} y1={350} x2={550} y2={410} color={theme.colors.client} label="Initial WS Handshake" startFrame={1980} />
+            <Arrow x1={830} y1={420} x2={1150} y2={455} color={theme.colors.loadBalancer} label="Routed to Server 2" startFrame={1990} />
+            <DataFlowStream x1={290} y1={350} x2={1150} y2={455} startFrame={2000} color={theme.colors.success} particleCount={3} />
 
-            <g opacity={fadeIn(frame, 2310, 15)}>
+            <g opacity={fadeIn(frame, 2010, 15)}>
               <line x1={290} y1={370} x2={1150} y2={470} stroke={theme.colors.success} strokeWidth={4} strokeDasharray="8,4" />
               <text x={700} y={420} fill={theme.colors.success} fontSize={20} fontWeight="bold">
                 Persistent Connection
@@ -907,43 +907,43 @@ export const LoadBalancingEnhanced: React.FC = () => {
             </g>
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 650, opacity: fadeIn(frame, 2315, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 650, opacity: fadeIn(frame, 2015, 20)}}>
             <InfoCard title="WebSocket Considerations" points={['Must use sticky sessions / IP hash', 'Connection draining during deploys', 'Monitor connection pool limits', 'Consider dedicated WS servers']} color={theme.colors.warning} />
           </div>
         </>
       )}
 
-      {/* Scene 13: Rate Limiting & DDoS Protection (2340-2580 frames / 78-86s) */}
-      {frame >= 2340 && (
+      {/* Scene 13: Rate Limiting & DDoS Protection (2040-2280 frames / 68-76s) */}
+      {frame >= 2040 && (
         <>
-          <Title text="Rate Limiting & DDoS Protection" subtitle="Protecting your infrastructure" startFrame={2340} y={50} />
+          <Title text="Rate Limiting & DDoS Protection" subtitle="Protecting your infrastructure" startFrame={2040} y={50} />
 
-          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={2340} size={80} />
+          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={2040} size={80} />
 
           <Dialogue
             speaker="architect"
             text="Load balancers add a critical security layer. They can rate limit, block malicious traffic, and protect backends from overload."
             x={width / 2 - 500}
             y={height - 150}
-            startFrame={2360}
+            startFrame={2060}
             maxWidth={1000}
           />
 
           <svg width={width} height={height}>
-            <Box x={100} y={200} width={140} height={80} color={theme.colors.client} label="Legit User" icon="👤" startFrame={2390} />
-            <Box x={100} y={310} width={140} height={80} color={theme.colors.warning} label="Abuser" icon="😈" subLabel="1000 req/s" startFrame={2395} />
-            <Box x={100} y={420} width={140} height={80} color={theme.colors.error} label="DDoS Bot" icon="🤖" subLabel="100k req/s" startFrame={2400} />
+            <Box x={100} y={200} width={140} height={80} color={theme.colors.client} label="Legit User" icon="👤" startFrame={2090} />
+            <Box x={100} y={310} width={140} height={80} color={theme.colors.warning} label="Abuser" icon="😈" subLabel="1000 req/s" startFrame={2095} />
+            <Box x={100} y={420} width={140} height={80} color={theme.colors.error} label="DDoS Bot" icon="🤖" subLabel="100k req/s" startFrame={2100} />
 
-            <Box x={500} y={280} width={300} height={180} color={theme.colors.loadBalancer} label="Smart Load Balancer" icon="🛡️" subLabel="Rate Limiting + WAF" startFrame={2410} />
+            <Box x={500} y={280} width={300} height={180} color={theme.colors.loadBalancer} label="Smart Load Balancer" icon="🛡️" subLabel="Rate Limiting + WAF" startFrame={2110} />
 
-            <Box x={1100} y={300} width={200} height={140} color={theme.colors.success} label="Protected Backend" icon="🖥️" subLabel="Safe!" startFrame={2420} />
+            <Box x={1100} y={300} width={200} height={140} color={theme.colors.success} label="Protected Backend" icon="🖥️" subLabel="Safe!" startFrame={2120} />
 
-            <Arrow x1={240} y1={240} x2={500} y2={340} color={theme.colors.success} label="✅ Allowed" startFrame={2430} />
-            <DataFlowStream x1={240} y1={240} x2={500} y2={340} startFrame={2435} color={theme.colors.success} />
+            <Arrow x1={240} y1={240} x2={500} y2={340} color={theme.colors.success} label="✅ Allowed" startFrame={2130} />
+            <DataFlowStream x1={240} y1={240} x2={500} y2={340} startFrame={2135} color={theme.colors.success} />
 
-            <Arrow x1={240} y1={350} x2={500} y2={360} color={theme.colors.warning} label="⚠️ Throttled" startFrame={2440} />
+            <Arrow x1={240} y1={350} x2={500} y2={360} color={theme.colors.warning} label="⚠️ Throttled" startFrame={2140} />
 
-            <g opacity={fadeIn(frame, 2450, 15)}>
+            <g opacity={fadeIn(frame, 2150, 15)}>
               <line x1={240} y1={460} x2={500} y2={390} stroke={theme.colors.error} strokeWidth={6} />
               <line x1={240} y1={390} x2={500} y2={460} stroke={theme.colors.error} strokeWidth={6} />
               <text x={350} y={450} fill={theme.colors.error} fontSize={24} fontWeight="bold" textAnchor="middle">
@@ -951,25 +951,25 @@ export const LoadBalancingEnhanced: React.FC = () => {
               </text>
             </g>
 
-            <Arrow x1={800} y1={370} x2={1100} y2={370} color={theme.colors.success} label="Clean traffic only" startFrame={2470} />
-            <DataFlowStream x1={800} y1={370} x2={1100} y2={370} startFrame={2475} color={theme.colors.success} particleCount={3} />
+            <Arrow x1={800} y1={370} x2={1100} y2={370} color={theme.colors.success} label="Clean traffic only" startFrame={2170} />
+            <DataFlowStream x1={800} y1={370} x2={1100} y2={370} startFrame={2175} color={theme.colors.success} particleCount={3} />
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 590, opacity: fadeIn(frame, 2490, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 590, opacity: fadeIn(frame, 2190, 20)}}>
             <InfoCard title="Rate Limiting Strategies" points={['Per-IP limits (100 req/min)', 'Token bucket algorithm', 'WAF rules (SQL/XSS)', 'Challenge bad actors']} color={theme.colors.loadBalancer} />
           </div>
 
-          <div style={{position: 'absolute', right: 50, top: 590, opacity: fadeIn(frame, 2510, 20)}}>
+          <div style={{position: 'absolute', right: 50, top: 590, opacity: fadeIn(frame, 2210, 20)}}>
             <InfoCard title="Circuit Breaker" points={['Monitor backend health', 'Auto-stop to failing servers', 'Exponential backoff', 'Graceful degradation']} color={theme.colors.info} />
           </div>
 
-          {frame > 2540 && (
+          {frame > 2240 && (
             <div
               style={{
                 position: 'absolute',
                 left: width / 2 - 300,
                 top: 900,
-                opacity: fadeIn(frame, 2540, 20),
+                opacity: fadeIn(frame, 2240, 20),
                 backgroundColor: theme.background.highlight,
                 padding: 24,
                 borderRadius: 16,
