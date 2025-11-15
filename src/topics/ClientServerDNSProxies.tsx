@@ -468,8 +468,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 3: Security with TLS IN DETAIL (1080-1920 frames / 36-64s) - EXPANDED */}
-      {frame >= 1080 && frame < 1920 && (
+      {/* Scene 3: Security with TLS IN DETAIL (1080-2040 frames / 36-68s) - EXPANDED */}
+      {frame >= 1080 && frame < 2040 && (
         <>
           <Title text="Making It Secure with TLS" subtitle="Encryption, Certificates & Cryptography" startFrame={1080} />
 
@@ -857,8 +857,8 @@ export const ClientServerDNSProxies: React.FC = () => {
             </div>
           )}
 
-          {/* PART 4: Final - Encrypted Communication */}
-          {frame >= 2010 && (
+          {/* PART 4: Final - Encrypted Communication (1980-2040) */}
+          {frame >= 1980 && (
             <div style={{
               position: 'absolute',
               top: height * 0.28,
