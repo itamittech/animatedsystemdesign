@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 // Wrapper script to launch Remotion Studio
-require('@remotion/cli/remotion-cli.js');
+const path = require('path');
+const cliPath = path.join(__dirname, 'node_modules', '@remotion', 'cli', 'remotion-cli.js');
+require(cliPath);
