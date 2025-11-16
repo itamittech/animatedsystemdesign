@@ -1,10 +1,11 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {theme} from '../design-system/theme';
 import {Title} from '../components/Title';
 import {Character} from '../components/Character';
 import {Dialogue} from '../components/Dialogue';
 import {Arrow} from '../components/Arrow';
+import {DataFlowParticle} from '../components/DataFlowParticle';
 import {fadeIn, pulse} from '../design-system/animations';
 
 /**
@@ -15,45 +16,6 @@ import {fadeIn, pulse} from '../design-system/animations';
 export const CDNandAPIGateway: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
-
-  // Flowing dot animation component
-  const FlowingDot: React.FC<{
-    x1: number; y1: number; x2: number; y2: number;
-    startFrame: number; duration?: number; color?: string;
-  }> = ({x1, y1, x2, y2, startFrame, duration = 40, color = '#60a5fa'}) => {
-    if (frame < startFrame || frame > startFrame + duration) return null;
-
-    const progress = interpolate(
-      frame - startFrame,
-      [0, duration],
-      [0, 1],
-      {extrapolateRight: 'clamp'}
-    );
-
-    const currentX = x1 + (x2 - x1) * progress;
-    const currentY = y1 + (y2 - y1) * progress;
-
-    return (
-      <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-        <circle
-          cx={currentX}
-          cy={currentY}
-          r="6"
-          fill={color}
-          opacity="0.9"
-        >
-          <animate attributeName="r" values="6;8;6" dur="0.5s" repeatCount="indefinite" />
-        </circle>
-        <circle
-          cx={currentX}
-          cy={currentY}
-          r="10"
-          fill={color}
-          opacity="0.3"
-        />
-      </svg>
-    );
-  };
 
   return (
     <AbsoluteFill style={{backgroundColor: theme.background.primary}}>
@@ -662,8 +624,19 @@ export const CDNandAPIGateway: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Connection Arrows */}
+                  {/* Connection Arrows - Beautiful animated connections */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                    {/* SVG Filter for glow effect */}
+                    <defs>
+                      <filter id="glow-api-gateway">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
                     {/* Client to Gateway */}
                     <Arrow
                       x1={110}
@@ -672,6 +645,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       y2={height * 0.20 + 160}
                       color={theme.colors.client}
                       startFrame={2110}
+                      label="API Request"
                     />
 
                     {/* Gateway to User Service */}
@@ -703,24 +677,105 @@ export const CDNandAPIGateway: React.FC = () => {
                       color={theme.colors.cdn}
                       startFrame={2200}
                     />
+
+                    {/* Animated data flow particles - Client to Gateway */}
+                    <DataFlowParticle
+                      x1={110}
+                      y1={height * 0.20 + 160}
+                      x2={width * 0.50 - 70}
+                      y2={height * 0.20 + 160}
+                      startFrame={2115}
+                      duration={40}
+                      color={theme.colors.client}
+                    />
+                    <DataFlowParticle
+                      x1={110}
+                      y1={height * 0.20 + 160}
+                      x2={width * 0.50 - 70}
+                      y2={height * 0.20 + 160}
+                      startFrame={2135}
+                      duration={40}
+                      color={theme.colors.client}
+                    />
+                    <DataFlowParticle
+                      x1={110}
+                      y1={height * 0.20 + 160}
+                      x2={width * 0.50 - 70}
+                      y2={height * 0.20 + 160}
+                      startFrame={2155}
+                      duration={40}
+                      color={theme.colors.client}
+                    />
+
+                    {/* Gateway to User Service */}
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 120}
+                      x2={width - 260}
+                      y2={height * 0.20 + 55}
+                      startFrame={2170}
+                      duration={35}
+                      color={theme.colors.backend}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 120}
+                      x2={width - 260}
+                      y2={height * 0.20 + 55}
+                      startFrame={2190}
+                      duration={35}
+                      color={theme.colors.backend}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 120}
+                      x2={width - 260}
+                      y2={height * 0.20 + 55}
+                      startFrame={2210}
+                      duration={35}
+                      color={theme.colors.backend}
+                    />
+
+                    {/* Gateway to Order Service */}
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 160}
+                      x2={width - 220}
+                      y2={height * 0.20 + 155}
+                      startFrame={2190}
+                      duration={35}
+                      color={theme.colors.eventStream}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 160}
+                      x2={width - 220}
+                      y2={height * 0.20 + 155}
+                      startFrame={2210}
+                      duration={35}
+                      color={theme.colors.eventStream}
+                    />
+
+                    {/* Gateway to Payment Service */}
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 200}
+                      x2={width - 270}
+                      y2={height * 0.20 + 265}
+                      startFrame={2210}
+                      duration={35}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 + 70}
+                      y1={height * 0.20 + 200}
+                      x2={width - 270}
+                      y2={height * 0.20 + 265}
+                      startFrame={2230}
+                      duration={35}
+                      color={theme.colors.cdn}
+                    />
                   </svg>
-
-                  {/* Flowing connections - animated dots */}
-                  <FlowingDot x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160} startFrame={2115} duration={40} color="#60a5fa" />
-                  <FlowingDot x1={110} y1={height * 0.20 + 160} x2={width * 0.50 - 70} y2={height * 0.20 + 160} startFrame={2135} duration={40} color="#60a5fa" />
-
-                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55} startFrame={2170} duration={35} color="#10b981" />
-                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155} startFrame={2190} duration={35} color="#8b5cf6" />
-                  <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265} startFrame={2210} duration={35} color="#06b6d4" />
-
-                  {/* Additional flowing dots for continuous animation */}
-                  {frame >= 2170 && (
-                    <>
-                      <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 120} x2={width - 260} y2={height * 0.20 + 55} startFrame={2190} duration={35} color="#10b981" />
-                      <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 160} x2={width - 220} y2={height * 0.20 + 155} startFrame={2210} duration={35} color="#8b5cf6" />
-                      <FlowingDot x1={width * 0.50 + 70} y1={height * 0.20 + 200} x2={width - 270} y2={height * 0.20 + 265} startFrame={2230} duration={35} color="#06b6d4" />
-                    </>
-                  )}
                 </div>
               </div>
             </div>
@@ -1059,6 +1114,17 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* Connection Arrows - Beautiful animated connections */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                    {/* SVG Filter for glow effect */}
+                    <defs>
+                      <filter id="glow-complete-arch">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
                     {/* User to CDN Edge */}
                     <Arrow
                       x1={130}
@@ -1103,13 +1169,114 @@ export const CDNandAPIGateway: React.FC = () => {
                       startFrame={3170}
                       label="Route"
                     />
-                  </svg>
 
-                  {/* Animated flowing dots for extra visual flair */}
-                  <FlowingDot x1={130} y1={118} x2={280} y2={63} startFrame={3155} duration={30} color="#8b5cf6" />
-                  <FlowingDot x1={130} y1={118} x2={270} y2={168} startFrame={3175} duration={30} color="#f59e0b" />
-                  <FlowingDot x1={400} y1={168} x2={width - 200} y2={88} startFrame={3195} duration={30} color="#10b981" />
-                  <FlowingDot x1={390} y1={63} x2={width - 170} y2={175} startFrame={3210} duration={35} color="#34d399" />
+                    {/* Animated data flow particles - User to CDN */}
+                    <DataFlowParticle
+                      x1={130}
+                      y1={118}
+                      x2={280}
+                      y2={63}
+                      startFrame={3155}
+                      duration={30}
+                      color={theme.colors.eventStream}
+                    />
+                    <DataFlowParticle
+                      x1={130}
+                      y1={118}
+                      x2={280}
+                      y2={63}
+                      startFrame={3175}
+                      duration={30}
+                      color={theme.colors.eventStream}
+                    />
+                    <DataFlowParticle
+                      x1={130}
+                      y1={118}
+                      x2={280}
+                      y2={63}
+                      startFrame={3195}
+                      duration={30}
+                      color={theme.colors.eventStream}
+                    />
+
+                    {/* User to API Gateway */}
+                    <DataFlowParticle
+                      x1={130}
+                      y1={118}
+                      x2={270}
+                      y2={168}
+                      startFrame={3165}
+                      duration={30}
+                      color={theme.colors.loadBalancer}
+                    />
+                    <DataFlowParticle
+                      x1={130}
+                      y1={118}
+                      x2={270}
+                      y2={168}
+                      startFrame={3185}
+                      duration={30}
+                      color={theme.colors.loadBalancer}
+                    />
+                    <DataFlowParticle
+                      x1={130}
+                      y1={118}
+                      x2={270}
+                      y2={168}
+                      startFrame={3205}
+                      duration={30}
+                      color={theme.colors.loadBalancer}
+                    />
+
+                    {/* Gateway to Services */}
+                    <DataFlowParticle
+                      x1={400}
+                      y1={168}
+                      x2={width - 200}
+                      y2={88}
+                      startFrame={3190}
+                      duration={30}
+                      color={theme.colors.success}
+                    />
+                    <DataFlowParticle
+                      x1={400}
+                      y1={168}
+                      x2={width - 200}
+                      y2={88}
+                      startFrame={3210}
+                      duration={30}
+                      color={theme.colors.success}
+                    />
+                    <DataFlowParticle
+                      x1={400}
+                      y1={168}
+                      x2={width - 200}
+                      y2={88}
+                      startFrame={3230}
+                      duration={30}
+                      color={theme.colors.success}
+                    />
+
+                    {/* CDN to Origin (cache miss) */}
+                    <DataFlowParticle
+                      x1={390}
+                      y1={63}
+                      x2={width - 170}
+                      y2={175}
+                      startFrame={3200}
+                      duration={35}
+                      color={theme.colors.backend}
+                    />
+                    <DataFlowParticle
+                      x1={390}
+                      y1={63}
+                      x2={width - 170}
+                      y2={175}
+                      startFrame={3225}
+                      duration={35}
+                      color={theme.colors.backend}
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
