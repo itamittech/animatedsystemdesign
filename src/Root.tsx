@@ -3,6 +3,7 @@ import {ClientServerDNSProxies} from './topics/ClientServerDNSProxies';
 import {LoadBalancingBasics} from './topics/LoadBalancingBasics';
 import {LoadBalancingEnhanced} from './topics/LoadBalancingEnhanced';
 import {CDNandAPIGateway} from './topics/CDNandAPIGateway';
+import {RESTAPIDesign} from './topics/RESTAPIDesign';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -35,6 +36,14 @@ export const RemotionRoot: React.FC = () => {
         id="CDNandAPIGateway"
         component={CDNandAPIGateway}
         durationInFrames={5400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="RESTAPIDesign"
+        component={RESTAPIDesign}
+        durationInFrames={3750}
         fps={30}
         width={1920}
         height={1080}
