@@ -57,14 +57,14 @@ export const NoSQLDatabases: React.FC = () => {
         <>
           <Title text="NoSQL Databases" subtitle="Choosing the Right Type for Your Data" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="junior" x={width * 0.2} y={height * 0.50} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.50} startFrame={30} size={110} />
 
           <Dialogue
             speaker="junior"
             text="NoSQL isn't just one thing, right? What are the different types?"
             x={width * 0.05}
-            y={height * 0.73}
+            y={height * 0.60}
             startFrame={60}
             maxWidth={520}
           />
@@ -73,7 +73,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="Exactly! There are 4 main types, each optimized for different data patterns and use cases."
             x={width * 0.72 - 300}
-            y={height * 0.73}
+            y={height * 0.60}
             startFrame={180}
             maxWidth={600}
           />
@@ -198,7 +198,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="Document stores are perfect for flexible, nested data. Think JSON objects in a database."
             x={width * 0.72 - 320}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={480}
             maxWidth={640}
           />
@@ -314,7 +314,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="junior"
             text="What about caching and high-scale writes?"
             x={width * 0.05}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={930}
             maxWidth={520}
           />
@@ -323,7 +323,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="That's where key-value stores like Redis and column-family stores like Cassandra excel!"
             x={width * 0.72 - 320}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={1050}
             maxWidth={640}
           />
@@ -446,7 +446,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="When relationships ARE your data, graph databases are the answer. Think social networks."
             x={width * 0.72 - 340}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={1530}
             maxWidth={680}
           />
@@ -559,7 +559,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="junior"
             text="How do I pick the right NoSQL type for my project?"
             x={width * 0.05}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={2130}
             maxWidth={520}
           />
@@ -568,7 +568,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="It's all about your access patterns and data structure. Here's a decision guide!"
             x={width * 0.72 - 320}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={2250}
             maxWidth={640}
           />
