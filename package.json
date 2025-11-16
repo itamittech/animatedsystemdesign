@@ -12,7 +12,8 @@
     "render:rest-api": "node studio.js render src/index.ts RESTAPIDesign out/rest-api-design.mp4",
     "render:graphql": "node studio.js render src/index.ts GraphQLvsREST out/graphql-vs-rest.mp4",
     "render:grpc": "node studio.js render src/index.ts gRPCProtocolBuffers out/grpc-protocol-buffers.mp4",
-    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc",
+    "render:database-fundamentals": "node studio.js render src/index.ts DatabaseFundamentals out/database-fundamentals.mp4",
+    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc && npm run render:database-fundamentals",
     "upgrade": "node studio.js upgrade",
     "test": "echo \"No tests yet\""
   },
