@@ -1098,7 +1098,7 @@ export const CDNandAPIGateway: React.FC = () => {
             maxWidth={540}
           />
 
-          {/* Detailed Flow Diagram with complete lifecycle */}
+          {/* Detailed Flow Diagram with complete lifecycle - SIMPLIFIED LAYOUT */}
           {frame >= 3100 && (
             <div style={{
               position: 'absolute',
@@ -1114,21 +1114,18 @@ export const CDNandAPIGateway: React.FC = () => {
                 padding: 20,
               }}>
                 <div style={{fontSize: 20, fontWeight: 'bold', color: '#60a5fa', marginBottom: 16, textAlign: 'center'}}>
-                  Complete Architecture Flow
+                  Complete Request Flow: User → CDN → API Gateway → Backend
                 </div>
 
-                <div style={{position: 'relative', height: 220}}>
+                <div style={{position: 'relative', height: 280, display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
                   {/* User/Browser */}
                   <div style={{
-                    position: 'absolute',
-                    top: 80,
-                    left: 40,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3120, 20),
                   }}>
                     <div style={{
-                      width: 90,
-                      height: 75,
+                      width: 100,
+                      height: 80,
                       backgroundColor: theme.colors.client,
                       borderRadius: 10,
                       border: '3px solid #93c5fd',
@@ -1138,22 +1135,20 @@ export const CDNandAPIGateway: React.FC = () => {
                       justifyContent: 'center',
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
-                      <div style={{fontSize: 28}}>👤</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>User</div>
+                      <div style={{fontSize: 32}}>👤</div>
+                      <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>User</div>
                     </div>
+                    <div style={{fontSize: 10, color: '#60a5fa', marginTop: 6}}>Tokyo</div>
                   </div>
 
                   {/* CDN Edge Server */}
                   <div style={{
-                    position: 'absolute',
-                    top: 20,
-                    left: 280,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3140, 20),
                   }}>
                     <div style={{
-                      width: 110,
-                      height: 85,
+                      width: 120,
+                      height: 90,
                       backgroundColor: '#8b5cf6',
                       borderRadius: 10,
                       border: '3px solid #a78bfa',
@@ -1163,24 +1158,21 @@ export const CDNandAPIGateway: React.FC = () => {
                       justifyContent: 'center',
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
-                      <div style={{fontSize: 28}}>🌏</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
-                      <div style={{fontSize: 9, color: '#e9d5ff'}}>Tokyo</div>
+                      <div style={{fontSize: 32}}>🌏</div>
+                      <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
+                      <div style={{fontSize: 10, color: '#e9d5ff'}}>Cache Layer</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#10b981', marginTop: 4}}>Static Assets</div>
+                    <div style={{fontSize: 10, color: '#8b5cf6', marginTop: 6}}>Edge Cache</div>
                   </div>
 
                   {/* API Gateway */}
                   <div style={{
-                    position: 'absolute',
-                    top: 125,
-                    left: 270,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3160, 20),
                   }}>
                     <div style={{
-                      width: 130,
-                      height: 85,
+                      width: 140,
+                      height: 100,
                       backgroundColor: '#f59e0b',
                       borderRadius: 10,
                       border: '3px solid #fbbf24',
@@ -1191,70 +1183,41 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
-                      <div style={{fontSize: 28}}>🚪</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>API Gateway</div>
-                      <div style={{fontSize: 9, color: '#1e293b'}}>Auth • Rate Limit</div>
+                      <div style={{fontSize: 36}}>🚪</div>
+                      <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>API Gateway</div>
+                      <div style={{fontSize: 10, color: '#1e293b'}}>Auth • Route</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#60a5fa', marginTop: 4}}>API Requests</div>
+                    <div style={{fontSize: 10, color: '#f59e0b', marginTop: 6}}>Smart Router</div>
                   </div>
 
                   {/* Backend Services */}
                   <div style={{
-                    position: 'absolute',
-                    top: 50,
-                    right: 100,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3180, 20),
                   }}>
                     <div style={{
-                      width: 100,
-                      height: 75,
+                      width: 120,
+                      height: 90,
                       backgroundColor: '#10b981',
                       borderRadius: 10,
-                      border: '2px solid #34d399',
+                      border: '3px solid #34d399',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
-                      <div style={{fontSize: 24}}>⚙️</div>
-                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Services</div>
+                      <div style={{fontSize: 32}}>⚙️</div>
+                      <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Services</div>
+                      <div style={{fontSize: 10, color: '#d1fae5'}}>API Logic</div>
                     </div>
-                    <div style={{fontSize: 9, color: '#10b981', marginTop: 4}}>User/Order/Pay</div>
+                    <div style={{fontSize: 10, color: '#10b981', marginTop: 6}}>Backend</div>
                   </div>
 
-                  {/* Origin Server */}
-                  <div style={{
-                    position: 'absolute',
-                    top: 140,
-                    right: 80,
-                    textAlign: 'center',
-                    opacity: fadeIn(frame, 3200, 20),
-                  }}>
-                    <div style={{
-                      width: 90,
-                      height: 70,
-                      backgroundColor: theme.colors.server,
-                      borderRadius: 10,
-                      border: '2px solid #10b981',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
-                    }}>
-                      <div style={{fontSize: 24}}>🏢</div>
-                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Origin</div>
-                    </div>
-                    <div style={{fontSize: 9, color: '#10b981', marginTop: 4}}>US East</div>
-                  </div>
-
-                  {/* Connection Arrows - Complete bidirectional flow properly aligned */}
+                  {/* Connection Arrows - Horizontal flow */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                    {/* SVG Filter for glow effect */}
                     <defs>
-                      <filter id="glow-complete-arch">
+                      <filter id="glow-simple">
                         <feGaussianBlur stdDeviation="3" result="coloredBlur" />
                         <feMerge>
                           <feMergeNode in="coloredBlur" />
@@ -1263,195 +1226,181 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* User (center: 85, 117.5) to CDN Edge (center: 335, 62.5) */}
+                    {/* User to CDN */}
                     <Arrow
-                      x1={85}
-                      y1={117.5}
-                      x2={335}
-                      y2={62.5}
-                      color={theme.colors.eventStream}
-                      startFrame={3140}
-                      label="Static"
-                    />
-
-                    {/* User (center: 85, 117.5) to API Gateway (center: 335, 167.5) */}
-                    <Arrow
-                      x1={85}
-                      y1={117.5}
-                      x2={335}
-                      y2={167.5}
+                      x1={width * 0.05 + 150}
+                      y1={140}
+                      x2={width * 0.05 + 280}
+                      y2={140}
                       color={theme.colors.client}
-                      startFrame={3150}
-                      label="API"
+                      startFrame={3145}
+                      label="Request"
                     />
 
-                    {/* CDN Edge (center: 335, 62.5) to Origin (center: width-125, 175) - cache miss */}
+                    {/* CDN to API Gateway */}
                     <Arrow
-                      x1={390}
-                      y1={62.5}
-                      x2={width - 125}
-                      y2={175}
-                      color={theme.colors.backend}
-                      startFrame={3180}
-                      dashed={true}
-                      label="Miss"
+                      x1={width * 0.05 + 460}
+                      y1={140}
+                      x2={width * 0.05 + 580}
+                      y2={140}
+                      color={theme.colors.eventStream}
+                      startFrame={3165}
+                      label="API Call"
                     />
 
-                    {/* API Gateway (center: 335, 167.5) to Services (center: width-150, 87.5) */}
+                    {/* API Gateway to Services */}
                     <Arrow
-                      x1={400}
-                      y1={167.5}
-                      x2={width - 150}
-                      y2={87.5}
+                      x1={width * 0.05 + 790}
+                      y1={140}
+                      x2={width * 0.05 + 930}
+                      y2={140}
                       color={theme.colors.backend}
-                      startFrame={3170}
+                      startFrame={3185}
                       label="Route"
                     />
 
-                    {/* Services (center: width-150, 87.5) back to API Gateway (center: 335, 167.5) - response */}
+                    {/* Response flow back - Services to Gateway */}
                     <Arrow
-                      x1={width - 150}
-                      y1={87.5}
-                      x2={335}
-                      y2={167.5}
+                      x1={width * 0.05 + 930}
+                      y1={160}
+                      x2={width * 0.05 + 790}
+                      y2={160}
                       color={theme.colors.success}
-                      startFrame={3190}
+                      startFrame={3205}
                       dashed={true}
                     />
 
-                    {/* API Gateway (top edge: 125) to CDN Edge (bottom edge: 105) - CACHE RESPONSE! */}
+                    {/* Gateway to CDN (caching) */}
                     <Arrow
-                      x1={335}
-                      y1={125}
-                      x2={335}
-                      y2={105}
+                      x1={width * 0.05 + 580}
+                      y1={160}
+                      x2={width * 0.05 + 460}
+                      y2={160}
                       color={theme.colors.cdn}
-                      startFrame={3200}
-                      label="Cache"
-                      bidirectional={false}
+                      startFrame={3220}
+                      label="Cache!"
                     />
 
-                    {/* Animated data flow particles - User to CDN */}
+                    {/* Data flow particles - User to CDN */}
                     <DataFlowParticle
-                      x1={85}
-                      y1={117.5}
-                      x2={335}
-                      y2={62.5}
-                      startFrame={3155}
-                      duration={30}
-                      color={theme.colors.eventStream}
-                    />
-                    <DataFlowParticle
-                      x1={85}
-                      y1={117.5}
-                      x2={335}
-                      y2={62.5}
-                      startFrame={3175}
-                      duration={30}
-                      color={theme.colors.eventStream}
-                    />
-
-                    {/* User to API Gateway */}
-                    <DataFlowParticle
-                      x1={85}
-                      y1={117.5}
-                      x2={335}
-                      y2={167.5}
-                      startFrame={3160}
-                      duration={30}
+                      x1={width * 0.05 + 150}
+                      y1={140}
+                      x2={width * 0.05 + 280}
+                      y2={140}
+                      startFrame={3150}
+                      duration={25}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
-                      x1={85}
-                      y1={117.5}
-                      x2={335}
-                      y2={167.5}
-                      startFrame={3180}
-                      duration={30}
+                      x1={width * 0.05 + 150}
+                      y1={140}
+                      x2={width * 0.05 + 280}
+                      y2={140}
+                      startFrame={3170}
+                      duration={25}
                       color={theme.colors.client}
+                    />
+
+                    {/* CDN to Gateway */}
+                    <DataFlowParticle
+                      x1={width * 0.05 + 460}
+                      y1={140}
+                      x2={width * 0.05 + 580}
+                      y2={140}
+                      startFrame={3170}
+                      duration={25}
+                      color={theme.colors.eventStream}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.05 + 460}
+                      y1={140}
+                      x2={width * 0.05 + 580}
+                      y2={140}
+                      startFrame={3190}
+                      duration={25}
+                      color={theme.colors.eventStream}
                     />
 
                     {/* Gateway to Services */}
                     <DataFlowParticle
-                      x1={400}
-                      y1={167.5}
-                      x2={width - 150}
-                      y2={87.5}
-                      startFrame={3175}
-                      duration={30}
-                      color={theme.colors.backend}
-                    />
-                    <DataFlowParticle
-                      x1={400}
-                      y1={167.5}
-                      x2={width - 150}
-                      y2={87.5}
-                      startFrame={3195}
-                      duration={30}
-                      color={theme.colors.backend}
-                    />
-
-                    {/* Services back to API Gateway (response) */}
-                    <DataFlowParticle
-                      x1={width - 150}
-                      y1={87.5}
-                      x2={335}
-                      y2={167.5}
-                      startFrame={3195}
-                      duration={30}
-                      color={theme.colors.success}
-                    />
-                    <DataFlowParticle
-                      x1={width - 150}
-                      y1={87.5}
-                      x2={335}
-                      y2={167.5}
-                      startFrame={3215}
-                      duration={30}
-                      color={theme.colors.success}
-                    />
-
-                    {/* API Gateway to CDN Edge (CACHING!) */}
-                    <DataFlowParticle
-                      x1={335}
-                      y1={125}
-                      x2={335}
-                      y2={105}
-                      startFrame={3205}
+                      x1={width * 0.05 + 790}
+                      y1={140}
+                      x2={width * 0.05 + 930}
+                      y2={140}
+                      startFrame={3190}
                       duration={25}
-                      color={theme.colors.cdn}
+                      color={theme.colors.backend}
                     />
                     <DataFlowParticle
-                      x1={335}
-                      y1={125}
-                      x2={335}
-                      y2={105}
+                      x1={width * 0.05 + 790}
+                      y1={140}
+                      x2={width * 0.05 + 930}
+                      y2={140}
+                      startFrame={3210}
+                      duration={25}
+                      color={theme.colors.backend}
+                    />
+
+                    {/* Response - Services to Gateway */}
+                    <DataFlowParticle
+                      x1={width * 0.05 + 930}
+                      y1={160}
+                      x2={width * 0.05 + 790}
+                      y2={160}
+                      startFrame={3210}
+                      duration={25}
+                      color={theme.colors.success}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.05 + 930}
+                      y1={160}
+                      x2={width * 0.05 + 790}
+                      y2={160}
+                      startFrame={3230}
+                      duration={25}
+                      color={theme.colors.success}
+                    />
+
+                    {/* Caching - Gateway to CDN */}
+                    <DataFlowParticle
+                      x1={width * 0.05 + 580}
+                      y1={160}
+                      x2={width * 0.05 + 460}
+                      y2={160}
                       startFrame={3225}
                       duration={25}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={335}
-                      y1={125}
-                      x2={335}
-                      y2={105}
+                      x1={width * 0.05 + 580}
+                      y1={160}
+                      x2={width * 0.05 + 460}
+                      y2={160}
                       startFrame={3245}
                       duration={25}
                       color={theme.colors.cdn}
                     />
-
-                    {/* CDN to Origin (cache miss) */}
-                    <DataFlowParticle
-                      x1={390}
-                      y1={62.5}
-                      x2={width - 125}
-                      y2={175}
-                      startFrame={3185}
-                      duration={35}
-                      color={theme.colors.backend}
-                    />
                   </svg>
                 </div>
+
+                {/* Flow explanation */}
+                {frame >= 3240 && (
+                  <div style={{
+                    marginTop: 16,
+                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                    border: '2px solid #8b5cf6',
+                    borderRadius: 10,
+                    padding: 14,
+                    opacity: fadeIn(frame, 3240, 15),
+                  }}>
+                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.9}}>
+                      <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Complete Flow:</span> User → CDN (cache check) → API Gateway (auth/route) → Services →
+                      <span style={{color: '#10b981', fontWeight: 'bold'}}> Response back</span> →
+                      <span style={{color: '#06b6d4', fontWeight: 'bold'}}> Cached at CDN!</span> →
+                      Next request served in ~8ms 🚀
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
