@@ -300,6 +300,144 @@ export const CDNandAPIGateway: React.FC = () => {
                     </div>
                     <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>São Paulo</div>
                   </div>
+
+                  {/* Connection Arrows from Origin to Edge Servers */}
+                  <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                    {/* SVG Filter for glow effect */}
+                    <defs>
+                      <filter id="glow-cdn-network">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
+                    {/* Origin to Tokyo */}
+                    <Arrow
+                      x1={width * 0.50 + 50}
+                      y1={155}
+                      x2={width - 120}
+                      y2={55}
+                      color={theme.colors.cdn}
+                      startFrame={810}
+                      dashed={true}
+                    />
+
+                    {/* Origin to London */}
+                    <Arrow
+                      x1={width * 0.50 - 50}
+                      y1={155}
+                      x2={180}
+                      y2={95}
+                      color={theme.colors.cdn}
+                      startFrame={850}
+                      dashed={true}
+                    />
+
+                    {/* Origin to Sydney */}
+                    <Arrow
+                      x1={width * 0.50 + 50}
+                      y1={210}
+                      x2={width - 160}
+                      y2={240}
+                      color={theme.colors.cdn}
+                      startFrame={890}
+                      dashed={true}
+                    />
+
+                    {/* Origin to São Paulo */}
+                    <Arrow
+                      x1={width * 0.50 - 50}
+                      y1={210}
+                      x2={220}
+                      y2={240}
+                      color={theme.colors.cdn}
+                      startFrame={930}
+                      dashed={true}
+                    />
+
+                    {/* Animated data flow particles - Origin to Tokyo */}
+                    <DataFlowParticle
+                      x1={width * 0.50 + 50}
+                      y1={155}
+                      x2={width - 120}
+                      y2={55}
+                      startFrame={820}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 + 50}
+                      y1={155}
+                      x2={width - 120}
+                      y2={55}
+                      startFrame={850}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+
+                    {/* Origin to London */}
+                    <DataFlowParticle
+                      x1={width * 0.50 - 50}
+                      y1={155}
+                      x2={180}
+                      y2={95}
+                      startFrame={860}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 - 50}
+                      y1={155}
+                      x2={180}
+                      y2={95}
+                      startFrame={890}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+
+                    {/* Origin to Sydney */}
+                    <DataFlowParticle
+                      x1={width * 0.50 + 50}
+                      y1={210}
+                      x2={width - 160}
+                      y2={240}
+                      startFrame={900}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 + 50}
+                      y1={210}
+                      x2={width - 160}
+                      y2={240}
+                      startFrame={930}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+
+                    {/* Origin to São Paulo */}
+                    <DataFlowParticle
+                      x1={width * 0.50 - 50}
+                      y1={210}
+                      x2={220}
+                      y2={240}
+                      startFrame={940}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={width * 0.50 - 50}
+                      y1={210}
+                      x2={220}
+                      y2={240}
+                      startFrame={970}
+                      duration={40}
+                      color={theme.colors.cdn}
+                    />
+                  </svg>
                 </div>
 
                 {frame >= 980 && (
@@ -1301,66 +1439,97 @@ export const CDNandAPIGateway: React.FC = () => {
                   Production Request Lifecycle
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, fontSize: 11, color: '#e2e8f0', lineHeight: 1.9}}>
-                  {/* Request 1: Cache MISS Flow */}
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 10, color: '#e2e8f0', lineHeight: 1.8}}>
+                  {/* Flow 1: Static Asset Cache MISS */}
                   <div style={{opacity: fadeIn(frame, 3130, 15)}}>
-                    <div style={{fontSize: 13, color: '#ef4444', fontWeight: 'bold', marginBottom: 6}}>
-                      📍 Request 1: Cache MISS (~85ms)
+                    <div style={{fontSize: 12, color: '#ef4444', fontWeight: 'bold', marginBottom: 5}}>
+                      📦 Static Asset - Cache MISS (~85ms)
                     </div>
                     <div>
-                      1. User in Tokyo → <span style={{color: '#fbbf24'}}>GET /bundle.js</span><br/>
-                      2. CDN Edge checks cache → <span style={{color: '#ef4444'}}>MISS</span><br/>
-                      3. Forward to Origin (US East) → 60ms latency<br/>
-                      4. Origin serves file + <span style={{color: '#10b981'}}>Cache-Control: max-age=31536000</span><br/>
-                      5. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Store in Edge cache</span> → Return to user<br/>
-                      <span style={{fontSize: 10, color: '#94a3b8'}}>⏱️ Total: ~85ms (first-time penalty)</span>
+                      1. User → <span style={{color: '#fbbf24'}}>GET /bundle.js</span><br/>
+                      2. CDN Edge: Cache check → <span style={{color: '#ef4444'}}>MISS</span><br/>
+                      3. Forward to Origin (60ms latency)<br/>
+                      4. Origin → <span style={{color: '#10b981'}}>Cache-Control: 1 year</span><br/>
+                      5. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Store at Edge</span> → Serve to user<br/>
+                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 85ms (one-time penalty)</span>
                     </div>
                   </div>
 
-                  {/* Request 2: API Gateway Flow */}
-                  <div style={{opacity: fadeIn(frame, 3180, 15)}}>
-                    <div style={{fontSize: 13, color: '#f59e0b', fontWeight: 'bold', marginBottom: 6}}>
-                      🚪 API Request via Gateway (~50ms)
+                  {/* Flow 2: API Request Through Gateway */}
+                  <div style={{opacity: fadeIn(frame, 3165, 15)}}>
+                    <div style={{fontSize: 12, color: '#f59e0b', fontWeight: 'bold', marginBottom: 5}}>
+                      🚪 API via Gateway - First Call (~50ms)
                     </div>
                     <div>
-                      1. User clicks "Order" → <span style={{color: '#fbbf24'}}>POST /api/v1/orders</span><br/>
-                      2. API Gateway: Validate JWT (sub, exp, iat)<br/>
-                      3. Rate Limit check: 100 req/min → <span style={{color: '#10b981'}}>✓ Pass</span><br/>
-                      4. Route to Order Service (round-robin)<br/>
-                      5. Service processes → DB write → Response<br/>
-                      <span style={{fontSize: 10, color: '#94a3b8'}}>⏱️ Total: ~50ms (secured & monitored)</span>
+                      1. User → <span style={{color: '#fbbf24'}}>GET /api/products</span><br/>
+                      2. API Gateway: JWT validation<br/>
+                      3. Rate limit: 100/min → <span style={{color: '#10b981'}}>✓ Pass</span><br/>
+                      4. Route to Service → DB query<br/>
+                      5. Response + <span style={{color: '#10b981'}}>Cache-Control: 60s</span><br/>
+                      6. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Cached at CDN Edge!</span><br/>
+                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 50ms (full API flow)</span>
                     </div>
                   </div>
 
-                  {/* Request 3: Cache HIT Flow */}
-                  <div style={{opacity: fadeIn(frame, 3230, 15)}}>
-                    <div style={{fontSize: 13, color: '#10b981', fontWeight: 'bold', marginBottom: 6}}>
-                      ⚡ Request 2: Cache HIT (~5ms)
+                  {/* Flow 3: Static Asset Cache HIT */}
+                  <div style={{opacity: fadeIn(frame, 3200, 15)}}>
+                    <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
+                      ⚡ Static Asset - Cache HIT (~5ms)
                     </div>
                     <div>
-                      1. Another user in Tokyo → <span style={{color: '#fbbf24'}}>GET /bundle.js</span><br/>
-                      2. CDN Edge checks cache → <span style={{color: '#10b981', fontWeight: 'bold'}}>HIT!</span><br/>
-                      3. <span style={{color: '#8b5cf6'}}>Serve immediately from memory</span><br/>
-                      4. No origin server hit needed<br/>
-                      5. Reduced latency by <span style={{color: '#10b981'}}>94%</span> (85ms → 5ms)<br/>
-                      <span style={{fontSize: 10, color: '#94a3b8'}}>⏱️ Total: ~5ms (optimal performance!)</span>
+                      1. Another user → <span style={{color: '#fbbf24'}}>GET /bundle.js</span><br/>
+                      2. CDN Edge: Cache check → <span style={{color: '#10b981', fontWeight: 'bold'}}>HIT!</span><br/>
+                      3. <span style={{color: '#8b5cf6'}}>Serve from memory</span><br/>
+                      4. No origin/gateway needed<br/>
+                      5. 94% faster (85ms → 5ms)<br/>
+                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 5ms (edge cache win!)</span>
                     </div>
                   </div>
 
-                  {/* Production Considerations */}
-                  <div style={{opacity: fadeIn(frame, 3270, 15)}}>
-                    <div style={{fontSize: 13, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6}}>
-                      🏗️ Production Considerations
+                  {/* Flow 4: API Cache HIT */}
+                  <div style={{opacity: fadeIn(frame, 3235, 15)}}>
+                    <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
+                      🚀 API via CDN - Cache HIT (~8ms)
                     </div>
                     <div>
-                      • <span style={{color: '#fbbf24'}}>Cache Invalidation:</span> Purge on deploy (CI/CD hook)<br/>
-                      • <span style={{color: '#fbbf24'}}>Multi-region:</span> Replicate across 200+ edge locations<br/>
-                      • <span style={{color: '#fbbf24'}}>Failover:</span> Circuit breaker if origin fails (5xx)<br/>
-                      • <span style={{color: '#fbbf24'}}>Monitoring:</span> Real-time metrics (hit ratio, p99 latency)<br/>
-                      • <span style={{color: '#fbbf24'}}>Cost:</span> 90%+ cache hit → Massive bandwidth savings
+                      1. User → <span style={{color: '#fbbf24'}}>GET /api/products</span><br/>
+                      2. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>CDN intercepts!</span> Cache check → <span style={{color: '#10b981'}}>HIT!</span><br/>
+                      3. Serve cached API response<br/>
+                      4. <span style={{color: '#ef4444', fontWeight: 'bold'}}>No API Gateway/Service hit!</span><br/>
+                      5. 84% faster (50ms → 8ms)<br/>
+                      6. Massive backend load reduction<br/>
+                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 8ms (CDN serving API!)</span>
                     </div>
                   </div>
                 </div>
+
+                {/* Production Considerations */}
+                {frame >= 3270 && (
+                  <div style={{
+                    marginTop: 12,
+                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                    border: '2px solid #8b5cf6',
+                    borderRadius: 10,
+                    padding: 12,
+                    opacity: fadeIn(frame, 3270, 15),
+                  }}>
+                    <div style={{fontSize: 12, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6, textAlign: 'center'}}>
+                      🏗️ Production Patterns
+                    </div>
+                    <div style={{fontSize: 10, color: '#e2e8f0', lineHeight: 1.7, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8}}>
+                      <div>
+                        • <span style={{color: '#fbbf24'}}>Cache Strategy:</span> GET requests cached, POST/PUT bypass<br/>
+                        • <span style={{color: '#fbbf24'}}>Invalidation:</span> Purge API cache on data mutation<br/>
+                        • <span style={{color: '#fbbf24'}}>Multi-region:</span> 200+ edges globally
+                      </div>
+                      <div>
+                        • <span style={{color: '#fbbf24'}}>Vary headers:</span> Cache by user-agent, accept-encoding<br/>
+                        • <span style={{color: '#fbbf24'}}>Monitoring:</span> Hit ratio, p99 latency, origin load<br/>
+                        • <span style={{color: '#fbbf24'}}>Cost:</span> 90%+ cache hit = 10x cost reduction
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
