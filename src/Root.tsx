@@ -5,6 +5,7 @@ import {LoadBalancingEnhanced} from './topics/LoadBalancingEnhanced';
 import {CDNandAPIGateway} from './topics/CDNandAPIGateway';
 import {RESTAPIDesign} from './topics/RESTAPIDesign';
 import {GraphQLvsREST} from './topics/GraphQLvsREST';
+import {gRPCProtocolBuffers} from './topics/gRPCProtocolBuffers';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -52,6 +53,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="GraphQLvsREST"
         component={GraphQLvsREST}
+        durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="gRPCProtocolBuffers"
+        component={gRPCProtocolBuffers}
         durationInFrames={2700}
         fps={30}
         width={1920}
