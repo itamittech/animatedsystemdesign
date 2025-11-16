@@ -637,43 +637,43 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* Client to Gateway */}
+                    {/* Client to Gateway - properly aligned to component centers */}
                     <Arrow
                       x1={110}
-                      y1={height * 0.20 + 160}
+                      y1={160}
                       x2={width * 0.50 - 70}
-                      y2={height * 0.20 + 160}
+                      y2={160}
                       color={theme.colors.client}
                       startFrame={2110}
                       label="API Request"
                     />
 
-                    {/* Gateway to User Service */}
+                    {/* Gateway to User Service - aligned to box centers */}
                     <Arrow
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 120}
-                      x2={width - 260}
-                      y2={height * 0.20 + 55}
+                      y1={135}
+                      x2={width - 185}
+                      y2={55}
                       color={theme.colors.backend}
                       startFrame={2160}
                     />
 
-                    {/* Gateway to Order Service */}
+                    {/* Gateway to Order Service - aligned to box centers */}
                     <Arrow
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 160}
-                      x2={width - 220}
-                      y2={height * 0.20 + 155}
+                      y1={160}
+                      x2={width - 145}
+                      y2={155}
                       color={theme.colors.eventStream}
                       startFrame={2180}
                     />
 
-                    {/* Gateway to Payment Service */}
+                    {/* Gateway to Payment Service - aligned to box centers */}
                     <Arrow
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 200}
-                      x2={width - 270}
-                      y2={height * 0.20 + 265}
+                      y1={185}
+                      x2={width - 195}
+                      y2={255}
                       color={theme.colors.cdn}
                       startFrame={2200}
                     />
@@ -681,27 +681,27 @@ export const CDNandAPIGateway: React.FC = () => {
                     {/* Animated data flow particles - Client to Gateway */}
                     <DataFlowParticle
                       x1={110}
-                      y1={height * 0.20 + 160}
+                      y1={160}
                       x2={width * 0.50 - 70}
-                      y2={height * 0.20 + 160}
+                      y2={160}
                       startFrame={2115}
                       duration={40}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
                       x1={110}
-                      y1={height * 0.20 + 160}
+                      y1={160}
                       x2={width * 0.50 - 70}
-                      y2={height * 0.20 + 160}
+                      y2={160}
                       startFrame={2135}
                       duration={40}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
                       x1={110}
-                      y1={height * 0.20 + 160}
+                      y1={160}
                       x2={width * 0.50 - 70}
-                      y2={height * 0.20 + 160}
+                      y2={160}
                       startFrame={2155}
                       duration={40}
                       color={theme.colors.client}
@@ -710,27 +710,27 @@ export const CDNandAPIGateway: React.FC = () => {
                     {/* Gateway to User Service */}
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 120}
-                      x2={width - 260}
-                      y2={height * 0.20 + 55}
+                      y1={135}
+                      x2={width - 185}
+                      y2={55}
                       startFrame={2170}
                       duration={35}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 120}
-                      x2={width - 260}
-                      y2={height * 0.20 + 55}
+                      y1={135}
+                      x2={width - 185}
+                      y2={55}
                       startFrame={2190}
                       duration={35}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 120}
-                      x2={width - 260}
-                      y2={height * 0.20 + 55}
+                      y1={135}
+                      x2={width - 185}
+                      y2={55}
                       startFrame={2210}
                       duration={35}
                       color={theme.colors.backend}
@@ -739,18 +739,18 @@ export const CDNandAPIGateway: React.FC = () => {
                     {/* Gateway to Order Service */}
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 160}
-                      x2={width - 220}
-                      y2={height * 0.20 + 155}
+                      y1={160}
+                      x2={width - 145}
+                      y2={155}
                       startFrame={2190}
                       duration={35}
                       color={theme.colors.eventStream}
                     />
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 160}
-                      x2={width - 220}
-                      y2={height * 0.20 + 155}
+                      y1={160}
+                      x2={width - 145}
+                      y2={155}
                       startFrame={2210}
                       duration={35}
                       color={theme.colors.eventStream}
@@ -759,18 +759,18 @@ export const CDNandAPIGateway: React.FC = () => {
                     {/* Gateway to Payment Service */}
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 200}
-                      x2={width - 270}
-                      y2={height * 0.20 + 265}
+                      y1={185}
+                      x2={width - 195}
+                      y2={255}
                       startFrame={2210}
                       duration={35}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
-                      y1={height * 0.20 + 200}
-                      x2={width - 270}
-                      y2={height * 0.20 + 265}
+                      y1={185}
+                      x2={width - 195}
+                      y2={255}
                       startFrame={2230}
                       duration={35}
                       color={theme.colors.cdn}
@@ -937,31 +937,31 @@ export const CDNandAPIGateway: React.FC = () => {
       {/* Scene 6: CDN + API Gateway Together (2850-3300 frames / 95-110s) */}
       {frame >= 2850 && frame < 3300 && (
         <>
-          <Title text="CDN + API Gateway" subtitle="The Complete Picture" startFrame={2850} />
+          <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={2850} />
 
           <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={2860} size={90} />
           <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={2860} size={90} />
 
           <Dialogue
             speaker="junior"
-            text="How do CDN and API Gateway work together in a real application?"
+            text="Walk me through a real production scenario - what happens from first request to cached response?"
             x={width * 0.05}
             y={height * 0.76}
             startFrame={2880}
-            maxWidth={450}
+            maxWidth={480}
           />
 
           <Dialogue
             speaker="architect"
-            text="Let me show you the complete request flow - it's beautiful when they work together!"
-            x={width * 0.78 - 280}
+            text="Perfect! Let me show you the complete lifecycle: cache miss, API gateway routing, and then cache hit. This is how Netflix and Amazon actually work!"
+            x={width * 0.78 - 300}
             y={height * 0.76}
             startFrame={2990}
-            maxWidth={500}
+            maxWidth={540}
           />
 
-          {/* Visual Flow Architecture - shown first */}
-          {frame >= 3100 && frame < 3280 && (
+          {/* Detailed Flow Diagram with complete lifecycle */}
+          {frame >= 3100 && (
             <div style={{
               position: 'absolute',
               top: height * 0.14,
@@ -1282,57 +1282,85 @@ export const CDNandAPIGateway: React.FC = () => {
             </div>
           )}
 
-          {/* Text Flow Explanation - shown after visual */}
+          {/* Detailed Production Flow Explanation - Architect Level */}
           {frame >= 3100 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.54,
-              left: width * 0.05,
-              right: width * 0.05,
+              top: height * 0.52,
+              left: width * 0.04,
+              right: width * 0.04,
               opacity: fadeIn(frame, 3100, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
                 border: '3px solid rgba(96, 165, 250, 0.5)',
                 borderRadius: 16,
-                padding: 20,
+                padding: 18,
               }}>
-                <div style={{fontSize: 18, fontWeight: 'bold', color: '#60a5fa', marginBottom: 12, textAlign: 'center'}}>
-                  Request Flow Steps
+                <div style={{fontSize: 17, fontWeight: 'bold', color: '#60a5fa', marginBottom: 10, textAlign: 'center'}}>
+                  Production Request Lifecycle
                 </div>
 
-                <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 2.2}}>
-                  <div style={{opacity: fadeIn(frame, 3140, 15)}}>
-                    <span style={{color: '#60a5fa', fontWeight: 'bold'}}>1. User Request:</span> Browser requests <span style={{color: '#fbbf24'}}>https://example.com/app.js</span>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, fontSize: 11, color: '#e2e8f0', lineHeight: 1.9}}>
+                  {/* Request 1: Cache MISS Flow */}
+                  <div style={{opacity: fadeIn(frame, 3130, 15)}}>
+                    <div style={{fontSize: 13, color: '#ef4444', fontWeight: 'bold', marginBottom: 6}}>
+                      📍 Request 1: Cache MISS (~85ms)
+                    </div>
+                    <div>
+                      1. User in Tokyo → <span style={{color: '#fbbf24'}}>GET /bundle.js</span><br/>
+                      2. CDN Edge checks cache → <span style={{color: '#ef4444'}}>MISS</span><br/>
+                      3. Forward to Origin (US East) → 60ms latency<br/>
+                      4. Origin serves file + <span style={{color: '#10b981'}}>Cache-Control: max-age=31536000</span><br/>
+                      5. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Store in Edge cache</span> → Return to user<br/>
+                      <span style={{fontSize: 10, color: '#94a3b8'}}>⏱️ Total: ~85ms (first-time penalty)</span>
+                    </div>
                   </div>
+
+                  {/* Request 2: API Gateway Flow */}
                   <div style={{opacity: fadeIn(frame, 3180, 15)}}>
-                    <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>2. CDN Check:</span> Edge server in Tokyo checks cache → <span style={{color: '#10b981'}}>Cache HIT! Serve immediately (~5ms)</span>
+                    <div style={{fontSize: 13, color: '#f59e0b', fontWeight: 'bold', marginBottom: 6}}>
+                      🚪 API Request via Gateway (~50ms)
+                    </div>
+                    <div>
+                      1. User clicks "Order" → <span style={{color: '#fbbf24'}}>POST /api/v1/orders</span><br/>
+                      2. API Gateway: Validate JWT (sub, exp, iat)<br/>
+                      3. Rate Limit check: 100 req/min → <span style={{color: '#10b981'}}>✓ Pass</span><br/>
+                      4. Route to Order Service (round-robin)<br/>
+                      5. Service processes → DB write → Response<br/>
+                      <span style={{fontSize: 10, color: '#94a3b8'}}>⏱️ Total: ~50ms (secured & monitored)</span>
+                    </div>
                   </div>
-                  <div style={{opacity: fadeIn(frame, 3220, 15)}}>
-                    <span style={{color: '#60a5fa', fontWeight: 'bold'}}>3. API Call:</span> User clicks button → <span style={{color: '#fbbf24'}}>POST /api/orders</span>
+
+                  {/* Request 3: Cache HIT Flow */}
+                  <div style={{opacity: fadeIn(frame, 3230, 15)}}>
+                    <div style={{fontSize: 13, color: '#10b981', fontWeight: 'bold', marginBottom: 6}}>
+                      ⚡ Request 2: Cache HIT (~5ms)
+                    </div>
+                    <div>
+                      1. Another user in Tokyo → <span style={{color: '#fbbf24'}}>GET /bundle.js</span><br/>
+                      2. CDN Edge checks cache → <span style={{color: '#10b981', fontWeight: 'bold'}}>HIT!</span><br/>
+                      3. <span style={{color: '#8b5cf6'}}>Serve immediately from memory</span><br/>
+                      4. No origin server hit needed<br/>
+                      5. Reduced latency by <span style={{color: '#10b981'}}>94%</span> (85ms → 5ms)<br/>
+                      <span style={{fontSize: 10, color: '#94a3b8'}}>⏱️ Total: ~5ms (optimal performance!)</span>
+                    </div>
                   </div>
-                  <div style={{opacity: fadeIn(frame, 3260, 15)}}>
-                    <span style={{color: '#f59e0b', fontWeight: 'bold'}}>4. API Gateway:</span> Validates JWT token → Checks rate limit → Routes to Order Service
+
+                  {/* Production Considerations */}
+                  <div style={{opacity: fadeIn(frame, 3270, 15)}}>
+                    <div style={{fontSize: 13, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6}}>
+                      🏗️ Production Considerations
+                    </div>
+                    <div>
+                      • <span style={{color: '#fbbf24'}}>Cache Invalidation:</span> Purge on deploy (CI/CD hook)<br/>
+                      • <span style={{color: '#fbbf24'}}>Multi-region:</span> Replicate across 200+ edge locations<br/>
+                      • <span style={{color: '#fbbf24'}}>Failover:</span> Circuit breaker if origin fails (5xx)<br/>
+                      • <span style={{color: '#fbbf24'}}>Monitoring:</span> Real-time metrics (hit ratio, p99 latency)<br/>
+                      • <span style={{color: '#fbbf24'}}>Cost:</span> 90%+ cache hit → Massive bandwidth savings
+                    </div>
                   </div>
                 </div>
-
-                {frame >= 3280 && (
-                  <div style={{
-                    marginTop: 12,
-                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                    border: '2px solid #10b981',
-                    borderRadius: 10,
-                    padding: 12,
-                    opacity: fadeIn(frame, 3280, 15),
-                  }}>
-                    <div style={{fontSize: 14, fontWeight: 'bold', color: '#10b981', textAlign: 'center', marginBottom: 4}}>
-                      Result: Lightning Fast + Secure + Scalable! ⚡
-                    </div>
-                    <div style={{fontSize: 11, color: '#e2e8f0', textAlign: 'center'}}>
-                      Static content from CDN (~5ms) + Dynamic APIs through Gateway (~50ms) = Optimal Performance
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           )}
