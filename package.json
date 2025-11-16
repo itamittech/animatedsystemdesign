@@ -10,7 +10,11 @@
     "render:loadbalancing": "node studio.js render src/index.ts LoadBalancingEnhanced out/load-balancing-enhanced.mp4",
     "render:cdn-api-gateway": "node studio.js render src/index.ts CDNandAPIGateway out/cdn-api-gateway.mp4",
     "render:rest-api": "node studio.js render src/index.ts RESTAPIDesign out/rest-api-design.mp4",
-    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api",
+    "render:graphql": "node studio.js render src/index.ts GraphQLvsREST out/graphql-vs-rest.mp4",
+    "render:grpc": "node studio.js render src/index.ts gRPCProtocolBuffers out/grpc-protocol-buffers.mp4",
+    "render:database-fundamentals": "node studio.js render src/index.ts DatabaseFundamentals out/database-fundamentals.mp4",
+    "render:sql-databases": "node studio.js render src/index.ts SQLDatabases out/sql-databases.mp4",
+    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc && npm run render:database-fundamentals && npm run render:sql-databases",
     "upgrade": "node studio.js upgrade",
     "test": "echo \"No tests yet\""
   },

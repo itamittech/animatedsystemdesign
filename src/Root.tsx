@@ -4,6 +4,10 @@ import {LoadBalancingBasics} from './topics/LoadBalancingBasics';
 import {LoadBalancingEnhanced} from './topics/LoadBalancingEnhanced';
 import {CDNandAPIGateway} from './topics/CDNandAPIGateway';
 import {RESTAPIDesign} from './topics/RESTAPIDesign';
+import {GraphQLvsREST} from './topics/GraphQLvsREST';
+import {gRPCProtocolBuffers} from './topics/gRPCProtocolBuffers';
+import {DatabaseFundamentals} from './topics/DatabaseFundamentals';
+import {SQLDatabases} from './topics/SQLDatabases';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -44,6 +48,38 @@ export const RemotionRoot: React.FC = () => {
         id="RESTAPIDesign"
         component={RESTAPIDesign}
         durationInFrames={3750}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="GraphQLvsREST"
+        component={GraphQLvsREST}
+        durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="gRPCProtocolBuffers"
+        component={gRPCProtocolBuffers}
+        durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DatabaseFundamentals"
+        component={DatabaseFundamentals}
+        durationInFrames={2100}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SQLDatabases"
+        component={SQLDatabases}
+        durationInFrames={2550}
         fps={30}
         width={1920}
         height={1080}
