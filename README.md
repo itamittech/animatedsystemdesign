@@ -102,10 +102,18 @@ Essential REST API design principles for building intuitive APIs.
 ### Phase 2: Communication Protocols & APIs (In Progress)
 
 #### 2.1 REST API Design ✅ Complete
-See above.
+See above (1.4).
 
 #### 2.2 GraphQL vs REST
-**Status**: 📋 Planned
+**Duration**: 90 seconds | **Status**: ✅ Complete
+Comprehensive comparison of GraphQL and REST API architectures.
+
+**Topics Covered**:
+- Over-fetching and under-fetching problems
+- GraphQL query language and schema
+- When to use GraphQL vs REST
+- Decision matrix with real-world examples
+- Ecosystem tools (Apollo, Relay, DataLoader)
 
 #### 2.3 gRPC & Protocol Buffers
 **Status**: 📋 Planned
@@ -145,6 +153,7 @@ npm run render:cdn-api-gateway     # CDN & API Gateway (180s)
 
 # Phase 2: Communication Protocols & APIs
 npm run render:rest-api            # REST API Design (125s)
+npm run render:graphql             # GraphQL vs REST (90s)
 
 # Render all videos sequentially
 npm run render:all
@@ -158,6 +167,7 @@ All rendered videos are saved to the `out/` directory:
 - `out/load-balancing-enhanced.mp4`
 - `out/cdn-api-gateway.mp4`
 - `out/rest-api-design.mp4`
+- `out/graphql-vs-rest.mp4`
 
 ### Advanced Rendering Options
 
@@ -193,17 +203,18 @@ When you run `npm start`, you'll see all compositions in the left panel:
 
 **Phase 2: Communication Protocols & APIs**
 - RESTAPIDesign
+- GraphQLvsREST
 
 ## Progress Overview
 
-**Completed**: 5/58 topics (9% complete)
+**Completed**: 6/58 topics (10% complete)
 - ✅ Phase 1: Foundational Infrastructure (4/4 complete)
-- 🔄 Phase 2: Communication Protocols & APIs (1/3 complete)
+- 🔄 Phase 2: Communication Protocols & APIs (2/3 complete)
 
 **Next Up**:
-1. GraphQL vs REST (Phase 2.2)
-2. gRPC & Protocol Buffers (Phase 2.3)
-3. Database Fundamentals (Phase 3.1)
+1. gRPC & Protocol Buffers (Phase 2.3) - Complete Phase 2!
+2. Database Fundamentals (Phase 3.1)
+3. SQL Databases & Relational Design (Phase 3.2)
 
 See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
@@ -272,16 +283,15 @@ The project supports sound effects to enhance the learning experience!
 
 This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-**Current Status**: 5/58 topics complete (9%)
+**Current Status**: 6/58 topics complete (10%)
 
 **Phase Progress**:
 - ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
-- 🔄 Phase 2: Communication Protocols & APIs (33% - 1/3)
+- 🔄 Phase 2: Communication Protocols & APIs (67% - 2/3)
 - 📋 Phase 3-14: Planned
 
 **Key Upcoming Topics**:
-- GraphQL vs REST
-- gRPC & Protocol Buffers
+- gRPC & Protocol Buffers (complete Phase 2!)
 - Database Fundamentals & Scaling
 - Caching Strategies
 - Message Queues & Event Streaming
