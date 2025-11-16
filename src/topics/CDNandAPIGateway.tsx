@@ -1117,9 +1117,12 @@ export const CDNandAPIGateway: React.FC = () => {
                   Complete Request Flow: User → CDN → API Gateway → Backend
                 </div>
 
-                <div style={{position: 'relative', height: 280, display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
+                <div style={{position: 'relative', height: 280}}>
                   {/* User/Browser */}
                   <div style={{
+                    position: 'absolute',
+                    top: 100,
+                    left: 60,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3120, 20),
                   }}>
@@ -1143,6 +1146,10 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* CDN Edge Server */}
                   <div style={{
+                    position: 'absolute',
+                    top: 95,
+                    left: width * 0.30,
+                    transform: 'translateX(-50%)',
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3140, 20),
                   }}>
@@ -1167,6 +1174,10 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* API Gateway */}
                   <div style={{
+                    position: 'absolute',
+                    top: 90,
+                    left: width * 0.55,
+                    transform: 'translateX(-50%)',
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3160, 20),
                   }}>
@@ -1192,6 +1203,9 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* Backend Services */}
                   <div style={{
+                    position: 'absolute',
+                    top: 95,
+                    right: 80,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3180, 20),
                   }}>
@@ -1214,10 +1228,10 @@ export const CDNandAPIGateway: React.FC = () => {
                     <div style={{fontSize: 10, color: '#10b981', marginTop: 6}}>Backend</div>
                   </div>
 
-                  {/* Connection Arrows - Horizontal flow */}
+                  {/* Connection Arrows - Properly aligned to component centers */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
                     <defs>
-                      <filter id="glow-simple">
+                      <filter id="glow-complete-flow">
                         <feGaussianBlur stdDeviation="3" result="coloredBlur" />
                         <feMerge>
                           <feMergeNode in="coloredBlur" />
@@ -1226,33 +1240,33 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* User to CDN */}
+                    {/* User (center: 110, 140) to CDN (center: width*0.30, 140) */}
                     <Arrow
-                      x1={width * 0.05 + 150}
+                      x1={110}
                       y1={140}
-                      x2={width * 0.05 + 280}
+                      x2={width * 0.30 - 60}
                       y2={140}
                       color={theme.colors.client}
                       startFrame={3145}
                       label="Request"
                     />
 
-                    {/* CDN to API Gateway */}
+                    {/* CDN (center: width*0.30, 140) to Gateway (center: width*0.55, 140) */}
                     <Arrow
-                      x1={width * 0.05 + 460}
+                      x1={width * 0.30 + 60}
                       y1={140}
-                      x2={width * 0.05 + 580}
+                      x2={width * 0.55 - 70}
                       y2={140}
                       color={theme.colors.eventStream}
                       startFrame={3165}
                       label="API Call"
                     />
 
-                    {/* API Gateway to Services */}
+                    {/* Gateway (center: width*0.55, 140) to Services (center: width-140, 140) */}
                     <Arrow
-                      x1={width * 0.05 + 790}
+                      x1={width * 0.55 + 70}
                       y1={140}
-                      x2={width * 0.05 + 930}
+                      x2={width - 140 - 60}
                       y2={140}
                       color={theme.colors.backend}
                       startFrame={3185}
@@ -1261,9 +1275,9 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Response flow back - Services to Gateway */}
                     <Arrow
-                      x1={width * 0.05 + 930}
+                      x1={width - 140 - 60}
                       y1={160}
-                      x2={width * 0.05 + 790}
+                      x2={width * 0.55 + 70}
                       y2={160}
                       color={theme.colors.success}
                       startFrame={3205}
@@ -1272,9 +1286,9 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Gateway to CDN (caching) */}
                     <Arrow
-                      x1={width * 0.05 + 580}
+                      x1={width * 0.55 - 70}
                       y1={160}
-                      x2={width * 0.05 + 460}
+                      x2={width * 0.30 + 60}
                       y2={160}
                       color={theme.colors.cdn}
                       startFrame={3220}
@@ -1283,101 +1297,101 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Data flow particles - User to CDN */}
                     <DataFlowParticle
-                      x1={width * 0.05 + 150}
+                      x1={110}
                       y1={140}
-                      x2={width * 0.05 + 280}
+                      x2={width * 0.30 - 60}
                       y2={140}
                       startFrame={3150}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
-                      x1={width * 0.05 + 150}
+                      x1={110}
                       y1={140}
-                      x2={width * 0.05 + 280}
+                      x2={width * 0.30 - 60}
                       y2={140}
                       startFrame={3170}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.client}
                     />
 
                     {/* CDN to Gateway */}
                     <DataFlowParticle
-                      x1={width * 0.05 + 460}
+                      x1={width * 0.30 + 60}
                       y1={140}
-                      x2={width * 0.05 + 580}
+                      x2={width * 0.55 - 70}
                       y2={140}
                       startFrame={3170}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.eventStream}
                     />
                     <DataFlowParticle
-                      x1={width * 0.05 + 460}
+                      x1={width * 0.30 + 60}
                       y1={140}
-                      x2={width * 0.05 + 580}
+                      x2={width * 0.55 - 70}
                       y2={140}
                       startFrame={3190}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.eventStream}
                     />
 
                     {/* Gateway to Services */}
                     <DataFlowParticle
-                      x1={width * 0.05 + 790}
+                      x1={width * 0.55 + 70}
                       y1={140}
-                      x2={width * 0.05 + 930}
+                      x2={width - 140 - 60}
                       y2={140}
                       startFrame={3190}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
-                      x1={width * 0.05 + 790}
+                      x1={width * 0.55 + 70}
                       y1={140}
-                      x2={width * 0.05 + 930}
+                      x2={width - 140 - 60}
                       y2={140}
                       startFrame={3210}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.backend}
                     />
 
                     {/* Response - Services to Gateway */}
                     <DataFlowParticle
-                      x1={width * 0.05 + 930}
+                      x1={width - 140 - 60}
                       y1={160}
-                      x2={width * 0.05 + 790}
+                      x2={width * 0.55 + 70}
                       y2={160}
                       startFrame={3210}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.success}
                     />
                     <DataFlowParticle
-                      x1={width * 0.05 + 930}
+                      x1={width - 140 - 60}
                       y1={160}
-                      x2={width * 0.05 + 790}
+                      x2={width * 0.55 + 70}
                       y2={160}
                       startFrame={3230}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.success}
                     />
 
                     {/* Caching - Gateway to CDN */}
                     <DataFlowParticle
-                      x1={width * 0.05 + 580}
+                      x1={width * 0.55 - 70}
                       y1={160}
-                      x2={width * 0.05 + 460}
+                      x2={width * 0.30 + 60}
                       y2={160}
                       startFrame={3225}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.05 + 580}
+                      x1={width * 0.55 - 70}
                       y1={160}
-                      x2={width * 0.05 + 460}
+                      x2={width * 0.30 + 60}
                       y2={160}
                       startFrame={3245}
-                      duration={25}
+                      duration={30}
                       color={theme.colors.cdn}
                     />
                   </svg>
