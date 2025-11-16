@@ -59,15 +59,15 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="CDN & API Gateway" subtitle="Global Content Delivery & Intelligent API Management" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={45} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={45} size={110} />
+          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
 
           <Dialogue
             speaker="junior"
             text="We covered how browsers talk to servers. But how do massive platforms like Netflix serve millions of users globally so fast?"
             x={width * 0.05}
             y={height * 0.73}
-            startFrame={90}
+            startFrame={60}
             maxWidth={520}
           />
 
@@ -76,7 +76,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Great question! That's where CDNs and API Gateways come in. They're the secret sauce behind global-scale applications!"
             x={width * 0.72 - 280}
             y={height * 0.73}
-            startFrame={270}
+            startFrame={180}
             maxWidth={540}
           />
 
@@ -126,15 +126,15 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="Content Delivery Network (CDN)" subtitle="Bringing Content Closer to Users" startFrame={675} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={690} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={690} size={95} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={685} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={685} size={95} />
 
           <Dialogue
             speaker="junior"
             text="How does a CDN actually make things faster? What's the magic?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={720}
+            startFrame={705}
             maxWidth={450}
           />
 
@@ -143,7 +143,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Simple! Instead of one server, you have hundreds of edge servers worldwide. Content gets cached near users."
             x={width * 0.78 - 300}
             y={height * 0.74}
-            startFrame={885}
+            startFrame={825}
             maxWidth={520}
           />
 
@@ -466,15 +466,15 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="CDN Caching Strategy" subtitle="Cache Hit vs Cache Miss" startFrame={1800} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1815} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1815} size={95} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1810} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1810} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Okay, so content is stored at edge servers. But how does the CDN know what to cache and for how long?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={1845}
+            startFrame={1830}
             maxWidth={480}
           />
 
@@ -483,7 +483,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Great question! It's all about cache control headers, TTL (Time To Live), and smart cache invalidation strategies."
             x={width * 0.78 - 300}
             y={height * 0.74}
-            startFrame={2025}
+            startFrame={1950}
             maxWidth={520}
           />
 
@@ -605,15 +605,15 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="API Gateway" subtitle="The Smart Router for Your APIs" startFrame={2700} />
 
-          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={2715} size={95} />
-          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2715} size={95} />
+          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={2710} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2710} size={95} />
 
           <Dialogue
             speaker="junior"
             text="We've got the CDN handling static content. What about API calls and backend services?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={2745}
+            startFrame={2730}
             maxWidth={480}
           />
 
@@ -622,7 +622,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="That's where API Gateway shines! It's a single entry point that routes, secures, and manages all your API traffic."
             x={width * 0.75 - 280}
             y={height * 0.74}
-            startFrame={2925}
+            startFrame={2850}
             maxWidth={520}
           />
 
@@ -926,15 +926,15 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="API Gateway Features" subtitle="Security, Rate Limiting & More" startFrame={3375} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={3390} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={3390} size={95} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={3385} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={3385} size={95} />
 
           <Dialogue
             speaker="junior"
             text="What specific features does an API Gateway provide? It sounds like it does a lot!"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={3420}
+            startFrame={3405}
             maxWidth={480}
           />
 
@@ -943,7 +943,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Absolutely! It handles authentication, rate limiting, request transformation, load balancing, and monitoring. Let me show you!"
             x={width * 0.78 - 300}
             y={height * 0.74}
-            startFrame={3600}
+            startFrame={3525}
             maxWidth={540}
           />
 
@@ -1077,15 +1077,15 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={4275} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={4290} size={90} />
-          <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={4290} size={90} />
+          <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={4285} size={90} />
+          <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={4285} size={90} />
 
           <Dialogue
             speaker="junior"
             text="Walk me through a real production scenario - what happens from first request to cached response?"
             x={width * 0.05}
             y={height * 0.76}
-            startFrame={4320}
+            startFrame={4305}
             maxWidth={480}
           />
 
@@ -1094,7 +1094,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Perfect! Let me show you the complete lifecycle: cache miss, API gateway routing, and then cache hit. This is how Netflix and Amazon actually work!"
             x={width * 0.78 - 300}
             y={height * 0.76}
-            startFrame={4485}
+            startFrame={4425}
             maxWidth={540}
           />
 
@@ -1540,8 +1540,8 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="Real-World Impact" subtitle="Industry Examples & What's Next" startFrame={4950} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.65} startFrame={4965} size={100} />
-          <Character type="architect" x={width * 0.72} y={height * 0.65} startFrame={4965} size={100} />
+          <Character type="junior" x={width * 0.2} y={height * 0.65} startFrame={4960} size={100} />
+          <Character type="architect" x={width * 0.72} y={height * 0.65} startFrame={4960} size={100} />
 
           {/* Real-World Examples */}
           {frame >= 4995 && (
@@ -1601,7 +1601,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
             x={width * 0.05}
             y={height * 0.75}
-            startFrame={5310}
+            startFrame={5010}
             maxWidth={500}
           />
         </>
