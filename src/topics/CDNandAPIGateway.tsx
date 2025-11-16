@@ -54,20 +54,20 @@ export const CDNandAPIGateway: React.FC = () => {
         </div>
       </div>
 
-      {/* Scene 1: Introduction (0-450 frames / 0-15s) */}
-      {frame >= 0 && frame < 450 && (
+      {/* Scene 1: Introduction (0-675 frames / 0-22.5s) */}
+      {frame >= 0 && frame < 675 && (
         <>
           <Title text="CDN & API Gateway" subtitle="Global Content Delivery & Intelligent API Management" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={45} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={45} size={110} />
 
           <Dialogue
             speaker="junior"
             text="We covered how browsers talk to servers. But how do massive platforms like Netflix serve millions of users globally so fast?"
             x={width * 0.05}
             y={height * 0.73}
-            startFrame={60}
+            startFrame={90}
             maxWidth={520}
           />
 
@@ -76,12 +76,12 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Great question! That's where CDNs and API Gateways come in. They're the secret sauce behind global-scale applications!"
             x={width * 0.72 - 280}
             y={height * 0.73}
-            startFrame={180}
+            startFrame={270}
             maxWidth={540}
           />
 
           {/* The Problem Visualization */}
-          {frame >= 270 && (
+          {frame >= 405 && (
             <div style={{
               position: 'absolute',
               top: height * 0.24,
@@ -91,28 +91,28 @@ export const CDNandAPIGateway: React.FC = () => {
               border: '3px solid rgba(239, 68, 68, 0.5)',
               borderRadius: 16,
               padding: 28,
-              opacity: fadeIn(frame, 270, 20),
+              opacity: fadeIn(frame, 405, 20),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', marginBottom: 16, textAlign: 'center', opacity: fadeIn(frame, 290, 20)}}>
+              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', marginBottom: 16, textAlign: 'center', opacity: fadeIn(frame, 435, 20)}}>
                 The Global Scale Challenge
               </div>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
-                <div style={{opacity: fadeIn(frame, 330, 20)}}>
+                <div style={{opacity: fadeIn(frame, 495, 20)}}>
                   <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>😰 Without CDN/Gateway:</div>
                   <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-                    <div style={{opacity: fadeIn(frame, 360, 15)}}>• User in Tokyo → Server in US (~150ms latency)</div>
-                    <div style={{opacity: fadeIn(frame, 380, 15)}}>• Every request hits origin server</div>
-                    <div style={{opacity: fadeIn(frame, 400, 15)}}>• No caching, no load distribution</div>
-                    <div style={{opacity: fadeIn(frame, 420, 15)}}>• Server overload, slow response</div>
+                    <div style={{opacity: fadeIn(frame, 540, 15)}}>• User in Tokyo → Server in US (~150ms latency)</div>
+                    <div style={{opacity: fadeIn(frame, 570, 15)}}>• Every request hits origin server</div>
+                    <div style={{opacity: fadeIn(frame, 600, 15)}}>• No caching, no load distribution</div>
+                    <div style={{opacity: fadeIn(frame, 630, 15)}}>• Server overload, slow response</div>
                   </div>
                 </div>
-                <div style={{opacity: fadeIn(frame, 330, 20)}}>
+                <div style={{opacity: fadeIn(frame, 495, 20)}}>
                   <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>🚀 With CDN/Gateway:</div>
                   <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
-                    <div style={{opacity: fadeIn(frame, 360, 15)}}>• User in Tokyo → Edge server in Tokyo (~5ms)</div>
-                    <div style={{opacity: fadeIn(frame, 380, 15)}}>• Static content served from cache</div>
-                    <div style={{opacity: fadeIn(frame, 400, 15)}}>• API Gateway routes smartly</div>
-                    <div style={{opacity: fadeIn(frame, 420, 15)}}>• Fast, scalable, resilient</div>
+                    <div style={{opacity: fadeIn(frame, 540, 15)}}>• User in Tokyo → Edge server in Tokyo (~5ms)</div>
+                    <div style={{opacity: fadeIn(frame, 570, 15)}}>• Static content served from cache</div>
+                    <div style={{opacity: fadeIn(frame, 600, 15)}}>• API Gateway routes smartly</div>
+                    <div style={{opacity: fadeIn(frame, 630, 15)}}>• Fast, scalable, resilient</div>
                   </div>
                 </div>
               </div>
@@ -121,20 +121,20 @@ export const CDNandAPIGateway: React.FC = () => {
         </>
       )}
 
-      {/* Scene 2: CDN Deep Dive (450-1200 frames / 15-40s) */}
-      {frame >= 450 && frame < 1200 && (
+      {/* Scene 2: CDN Deep Dive (675-1800 frames / 22.5-60s) */}
+      {frame >= 675 && frame < 1800 && (
         <>
-          <Title text="Content Delivery Network (CDN)" subtitle="Bringing Content Closer to Users" startFrame={450} />
+          <Title text="Content Delivery Network (CDN)" subtitle="Bringing Content Closer to Users" startFrame={675} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={460} size={95} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={690} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={690} size={95} />
 
           <Dialogue
             speaker="junior"
             text="How does a CDN actually make things faster? What's the magic?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={480}
+            startFrame={720}
             maxWidth={450}
           />
 
@@ -143,18 +143,18 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Simple! Instead of one server, you have hundreds of edge servers worldwide. Content gets cached near users."
             x={width * 0.78 - 300}
             y={height * 0.74}
-            startFrame={590}
+            startFrame={885}
             maxWidth={520}
           />
 
           {/* CDN Network Visualization */}
-          {frame >= 700 && (
+          {frame >= 1050 && (
             <div style={{
               position: 'absolute',
               top: height * 0.24,
               left: width * 0.05,
               right: width * 0.05,
-              opacity: fadeIn(frame, 700, 20),
+              opacity: fadeIn(frame, 1050, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -175,7 +175,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: '50%',
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 740, 20),
+                    opacity: fadeIn(frame, 1110, 20),
                   }}>
                     <div style={{
                       width: 100,
@@ -203,7 +203,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 20,
                     right: 80,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 800, 20),
+                    opacity: fadeIn(frame, 1200, 20),
                   }}>
                     <div style={{
                       width: 80,
@@ -229,7 +229,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 60,
                     left: 100,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 840, 20),
+                    opacity: fadeIn(frame, 1260, 20),
                   }}>
                     <div style={{
                       width: 80,
@@ -255,7 +255,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     bottom: 20,
                     right: 120,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 880, 20),
+                    opacity: fadeIn(frame, 1320, 20),
                   }}>
                     <div style={{
                       width: 80,
@@ -281,7 +281,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     bottom: 40,
                     left: 140,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 920, 20),
+                    opacity: fadeIn(frame, 1380, 20),
                   }}>
                     <div style={{
                       width: 80,
@@ -321,7 +321,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width - 120}
                       y2={55}
                       color={theme.colors.cdn}
-                      startFrame={810}
+                      startFrame={1215}
                       dashed={true}
                     />
 
@@ -332,7 +332,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={140}
                       y2={95}
                       color={theme.colors.cdn}
-                      startFrame={850}
+                      startFrame={1275}
                       dashed={true}
                     />
 
@@ -343,7 +343,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width - 160}
                       y2={225}
                       color={theme.colors.cdn}
-                      startFrame={890}
+                      startFrame={1335}
                       dashed={true}
                     />
 
@@ -354,7 +354,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={180}
                       y2={205}
                       color={theme.colors.cdn}
-                      startFrame={930}
+                      startFrame={1395}
                       dashed={true}
                     />
 
@@ -364,8 +364,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={width - 120}
                       y2={55}
-                      startFrame={820}
-                      duration={40}
+                      startFrame={1230}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
@@ -373,8 +373,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={width - 120}
                       y2={55}
-                      startFrame={850}
-                      duration={40}
+                      startFrame={1275}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
 
@@ -384,8 +384,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={140}
                       y2={95}
-                      startFrame={860}
-                      duration={40}
+                      startFrame={1290}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
@@ -393,8 +393,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={140}
                       y2={95}
-                      startFrame={890}
-                      duration={40}
+                      startFrame={1335}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
 
@@ -404,8 +404,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={width - 160}
                       y2={225}
-                      startFrame={900}
-                      duration={40}
+                      startFrame={1350}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
@@ -413,8 +413,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={width - 160}
                       y2={225}
-                      startFrame={930}
-                      duration={40}
+                      startFrame={1395}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
 
@@ -424,8 +424,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={180}
                       y2={205}
-                      startFrame={940}
-                      duration={40}
+                      startFrame={1410}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
@@ -433,21 +433,21 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={165}
                       x2={180}
                       y2={205}
-                      startFrame={970}
-                      duration={40}
+                      startFrame={1455}
+                      duration={60}
                       color={theme.colors.cdn}
                     />
                   </svg>
                 </div>
 
-                {frame >= 980 && (
+                {frame >= 1470 && (
                   <div style={{
                     marginTop: 20,
                     backgroundColor: 'rgba(96, 165, 250, 0.1)',
                     border: '2px solid rgba(96, 165, 250, 0.3)',
                     borderRadius: 10,
                     padding: 16,
-                    opacity: fadeIn(frame, 980, 15),
+                    opacity: fadeIn(frame, 1470, 15),
                   }}>
                     <div style={{fontSize: 15, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Cloudflare, AWS CloudFront, Fastly:</span> 200+ edge locations worldwide
@@ -461,20 +461,20 @@ export const CDNandAPIGateway: React.FC = () => {
         </>
       )}
 
-      {/* Scene 3: CDN Caching Strategy (1200-1800 frames / 40-60s) */}
-      {frame >= 1200 && frame < 1800 && (
+      {/* Scene 3: CDN Caching Strategy (1800-2700 frames / 60-90s) */}
+      {frame >= 1800 && frame < 2700 && (
         <>
-          <Title text="CDN Caching Strategy" subtitle="Cache Hit vs Cache Miss" startFrame={1200} />
+          <Title text="CDN Caching Strategy" subtitle="Cache Hit vs Cache Miss" startFrame={1800} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1210} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1210} size={95} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1815} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1815} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Okay, so content is stored at edge servers. But how does the CDN know what to cache and for how long?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={1230}
+            startFrame={1845}
             maxWidth={480}
           />
 
@@ -483,18 +483,18 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Great question! It's all about cache control headers, TTL (Time To Live), and smart cache invalidation strategies."
             x={width * 0.78 - 300}
             y={height * 0.74}
-            startFrame={1350}
+            startFrame={2025}
             maxWidth={520}
           />
 
           {/* Cache Hit vs Miss Visualization */}
-          {frame >= 1470 && (
+          {frame >= 2205 && (
             <div style={{
               position: 'absolute',
               top: height * 0.22,
               left: width * 0.08,
               right: width * 0.08,
-              opacity: fadeIn(frame, 1470, 20),
+              opacity: fadeIn(frame, 2205, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -508,7 +508,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
                   {/* Cache HIT */}
-                  <div style={{opacity: fadeIn(frame, 1510, 20)}}>
+                  <div style={{opacity: fadeIn(frame, 2265, 20)}}>
                     <div style={{
                       backgroundColor: 'rgba(16, 185, 129, 0.15)',
                       border: '2px solid #10b981',
@@ -531,7 +531,7 @@ export const CDNandAPIGateway: React.FC = () => {
                   </div>
 
                   {/* Cache MISS */}
-                  <div style={{opacity: fadeIn(frame, 1570, 20)}}>
+                  <div style={{opacity: fadeIn(frame, 2355, 20)}}>
                     <div style={{
                       backgroundColor: 'rgba(239, 68, 68, 0.15)',
                       border: '2px solid #ef4444',
@@ -555,14 +555,14 @@ export const CDNandAPIGateway: React.FC = () => {
                 </div>
 
                 {/* TTL Explanation */}
-                {frame >= 1630 && (
+                {frame >= 2445 && (
                   <div style={{
                     marginTop: 20,
                     backgroundColor: 'rgba(139, 92, 246, 0.15)',
                     border: '2px solid #8b5cf6',
                     borderRadius: 12,
                     padding: 16,
-                    opacity: fadeIn(frame, 1630, 20),
+                    opacity: fadeIn(frame, 2445, 20),
                   }}>
                     <div style={{fontSize: 16, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
                       ⏰ Cache Control Headers
@@ -577,14 +577,14 @@ export const CDNandAPIGateway: React.FC = () => {
                 )}
 
                 {/* Cache Invalidation */}
-                {frame >= 1700 && (
+                {frame >= 2550 && (
                   <div style={{
                     marginTop: 16,
                     backgroundColor: 'rgba(245, 158, 11, 0.15)',
                     border: '2px solid #f59e0b',
                     borderRadius: 12,
                     padding: 14,
-                    opacity: fadeIn(frame, 1700, 20),
+                    opacity: fadeIn(frame, 2550, 20),
                   }}>
                     <div style={{fontSize: 14, color: '#fbbf24', fontWeight: 'bold', marginBottom: 8, textAlign: 'center'}}>
                       🔄 Cache Invalidation: When you need to purge stale content
@@ -600,20 +600,20 @@ export const CDNandAPIGateway: React.FC = () => {
         </>
       )}
 
-      {/* Scene 4: API Gateway Introduction (1800-2250 frames / 60-75s) */}
-      {frame >= 1800 && frame < 2250 && (
+      {/* Scene 4: API Gateway Introduction (2700-3375 frames / 90-112.5s) */}
+      {frame >= 2700 && frame < 3375 && (
         <>
-          <Title text="API Gateway" subtitle="The Smart Router for Your APIs" startFrame={1800} />
+          <Title text="API Gateway" subtitle="The Smart Router for Your APIs" startFrame={2700} />
 
-          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1810} size={95} />
-          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1810} size={95} />
+          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={2715} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2715} size={95} />
 
           <Dialogue
             speaker="junior"
             text="We've got the CDN handling static content. What about API calls and backend services?"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={1830}
+            startFrame={2745}
             maxWidth={480}
           />
 
@@ -622,18 +622,18 @@ export const CDNandAPIGateway: React.FC = () => {
             text="That's where API Gateway shines! It's a single entry point that routes, secures, and manages all your API traffic."
             x={width * 0.75 - 280}
             y={height * 0.74}
-            startFrame={1950}
+            startFrame={2925}
             maxWidth={520}
           />
 
           {/* API Gateway Architecture */}
-          {frame >= 2070 && (
+          {frame >= 3105 && (
             <div style={{
               position: 'absolute',
               top: height * 0.20,
               left: width * 0.08,
               right: width * 0.08,
-              opacity: fadeIn(frame, 2070, 20),
+              opacity: fadeIn(frame, 3105, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -652,7 +652,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 130,
                     left: 50,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 2100, 20),
+                    opacity: fadeIn(frame, 3150, 20),
                   }}>
                     <div style={{fontSize: 48}}>📱</div>
                     <div style={{fontSize: 12, color: theme.colors.client, marginTop: 6}}>Client</div>
@@ -665,7 +665,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: '50%',
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 2130, 20),
+                    opacity: fadeIn(frame, 3195, 20),
                   }}>
                     <div style={{
                       width: 140,
@@ -693,7 +693,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 20,
                     right: 100,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 2160, 20),
+                    opacity: fadeIn(frame, 3240, 20),
                   }}>
                     <div style={{
                       width: 85,
@@ -718,7 +718,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 120,
                     right: 60,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 2180, 20),
+                    opacity: fadeIn(frame, 3270, 20),
                   }}>
                     <div style={{
                       width: 85,
@@ -743,7 +743,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     bottom: 10,
                     right: 110,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 2200, 20),
+                    opacity: fadeIn(frame, 3300, 20),
                   }}>
                     <div style={{
                       width: 85,
@@ -782,7 +782,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width * 0.50 - 70}
                       y2={160}
                       color={theme.colors.client}
-                      startFrame={2110}
+                      startFrame={3165}
                       label="API Request"
                     />
 
@@ -793,7 +793,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width - 142.5}
                       y2={55}
                       color={theme.colors.backend}
-                      startFrame={2160}
+                      startFrame={3240}
                     />
 
                     {/* Gateway to Order Service (center: width-102.5, 155) */}
@@ -803,7 +803,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width - 102.5}
                       y2={155}
                       color={theme.colors.eventStream}
-                      startFrame={2180}
+                      startFrame={3270}
                     />
 
                     {/* Gateway to Payment Service (center: width-152.5, 255) */}
@@ -813,7 +813,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width - 152.5}
                       y2={255}
                       color={theme.colors.cdn}
-                      startFrame={2200}
+                      startFrame={3300}
                     />
 
                     {/* Animated data flow particles - Client to Gateway */}
@@ -822,8 +822,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={154}
                       x2={width * 0.50 - 70}
                       y2={160}
-                      startFrame={2115}
-                      duration={40}
+                      startFrame={3172}
+                      duration={60}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
@@ -831,8 +831,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={154}
                       x2={width * 0.50 - 70}
                       y2={160}
-                      startFrame={2135}
-                      duration={40}
+                      startFrame={3202}
+                      duration={60}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
@@ -840,8 +840,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={154}
                       x2={width * 0.50 - 70}
                       y2={160}
-                      startFrame={2155}
-                      duration={40}
+                      startFrame={3232}
+                      duration={60}
                       color={theme.colors.client}
                     />
 
@@ -851,8 +851,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 142.5}
                       y2={55}
-                      startFrame={2170}
-                      duration={35}
+                      startFrame={3255}
+                      duration={53}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
@@ -860,8 +860,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 142.5}
                       y2={55}
-                      startFrame={2190}
-                      duration={35}
+                      startFrame={3285}
+                      duration={53}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
@@ -869,8 +869,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 142.5}
                       y2={55}
-                      startFrame={2210}
-                      duration={35}
+                      startFrame={3315}
+                      duration={53}
                       color={theme.colors.backend}
                     />
 
@@ -880,8 +880,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 102.5}
                       y2={155}
-                      startFrame={2190}
-                      duration={35}
+                      startFrame={3285}
+                      duration={53}
                       color={theme.colors.eventStream}
                     />
                     <DataFlowParticle
@@ -889,8 +889,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 102.5}
                       y2={155}
-                      startFrame={2210}
-                      duration={35}
+                      startFrame={3315}
+                      duration={53}
                       color={theme.colors.eventStream}
                     />
 
@@ -900,8 +900,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 152.5}
                       y2={255}
-                      startFrame={2210}
-                      duration={35}
+                      startFrame={3315}
+                      duration={53}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
@@ -909,8 +909,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width - 152.5}
                       y2={255}
-                      startFrame={2230}
-                      duration={35}
+                      startFrame={3345}
+                      duration={53}
                       color={theme.colors.cdn}
                     />
                   </svg>
@@ -921,20 +921,20 @@ export const CDNandAPIGateway: React.FC = () => {
         </>
       )}
 
-      {/* Scene 5: API Gateway Features (2250-2850 frames / 75-95s) */}
-      {frame >= 2250 && frame < 2850 && (
+      {/* Scene 5: API Gateway Features (3375-4275 frames / 112.5-142.5s) */}
+      {frame >= 3375 && frame < 4275 && (
         <>
-          <Title text="API Gateway Features" subtitle="Security, Rate Limiting & More" startFrame={2250} />
+          <Title text="API Gateway Features" subtitle="Security, Rate Limiting & More" startFrame={3375} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={2260} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={2260} size={95} />
+          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={3390} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={3390} size={95} />
 
           <Dialogue
             speaker="junior"
             text="What specific features does an API Gateway provide? It sounds like it does a lot!"
             x={width * 0.05}
             y={height * 0.74}
-            startFrame={2280}
+            startFrame={3420}
             maxWidth={480}
           />
 
@@ -943,18 +943,18 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Absolutely! It handles authentication, rate limiting, request transformation, load balancing, and monitoring. Let me show you!"
             x={width * 0.78 - 300}
             y={height * 0.74}
-            startFrame={2400}
+            startFrame={3600}
             maxWidth={540}
           />
 
           {/* Features Grid */}
-          {frame >= 2520 && (
+          {frame >= 3780 && (
             <div style={{
               position: 'absolute',
               top: height * 0.18,
               left: width * 0.06,
               right: width * 0.06,
-              opacity: fadeIn(frame, 2520, 20),
+              opacity: fadeIn(frame, 3780, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -968,13 +968,13 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
                   {/* Authentication */}
-                  {frame >= 2560 && (
+                  {frame >= 3840 && (
                     <div style={{
                       backgroundColor: 'rgba(16, 185, 129, 0.15)',
                       border: '2px solid #10b981',
                       borderRadius: 12,
                       padding: 16,
-                      opacity: fadeIn(frame, 2560, 20),
+                      opacity: fadeIn(frame, 3840, 20),
                     }}>
                       <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                         🔐 Authentication & Authorization
@@ -989,13 +989,13 @@ export const CDNandAPIGateway: React.FC = () => {
                   )}
 
                   {/* Rate Limiting */}
-                  {frame >= 2620 && (
+                  {frame >= 3930 && (
                     <div style={{
                       backgroundColor: 'rgba(239, 68, 68, 0.15)',
                       border: '2px solid #ef4444',
                       borderRadius: 12,
                       padding: 16,
-                      opacity: fadeIn(frame, 2620, 20),
+                      opacity: fadeIn(frame, 3930, 20),
                     }}>
                       <div style={{fontSize: 16, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>
                         ⏱️ Rate Limiting
@@ -1010,13 +1010,13 @@ export const CDNandAPIGateway: React.FC = () => {
                   )}
 
                   {/* Request Transformation */}
-                  {frame >= 2680 && (
+                  {frame >= 4020 && (
                     <div style={{
                       backgroundColor: 'rgba(139, 92, 246, 0.15)',
                       border: '2px solid #8b5cf6',
                       borderRadius: 12,
                       padding: 16,
-                      opacity: fadeIn(frame, 2680, 20),
+                      opacity: fadeIn(frame, 4020, 20),
                     }}>
                       <div style={{fontSize: 16, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
                         🔄 Request/Response Transformation
@@ -1031,13 +1031,13 @@ export const CDNandAPIGateway: React.FC = () => {
                   )}
 
                   {/* Load Balancing & Monitoring */}
-                  {frame >= 2740 && (
+                  {frame >= 4110 && (
                     <div style={{
                       backgroundColor: 'rgba(245, 158, 11, 0.15)',
                       border: '2px solid #f59e0b',
                       borderRadius: 12,
                       padding: 16,
-                      opacity: fadeIn(frame, 2740, 20),
+                      opacity: fadeIn(frame, 4110, 20),
                     }}>
                       <div style={{fontSize: 16, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
                         ⚖️ Load Balancing & Monitoring
@@ -1052,14 +1052,14 @@ export const CDNandAPIGateway: React.FC = () => {
                   )}
                 </div>
 
-                {frame >= 2800 && (
+                {frame >= 4200 && (
                   <div style={{
                     marginTop: 16,
                     backgroundColor: 'rgba(96, 165, 250, 0.1)',
                     border: '2px solid rgba(96, 165, 250, 0.3)',
                     borderRadius: 10,
                     padding: 14,
-                    opacity: fadeIn(frame, 2800, 20),
+                    opacity: fadeIn(frame, 4200, 20),
                   }}>
                     <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Popular Gateways:</span> AWS API Gateway, Kong, NGINX, Apigee, Azure API Management
@@ -1072,20 +1072,20 @@ export const CDNandAPIGateway: React.FC = () => {
         </>
       )}
 
-      {/* Scene 6: CDN + API Gateway Together (2850-3300 frames / 95-110s) */}
-      {frame >= 2850 && frame < 3300 && (
+      {/* Scene 6: CDN + API Gateway Together (4275-4950 frames / 142.5-165s) */}
+      {frame >= 4275 && frame < 4950 && (
         <>
-          <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={2850} />
+          <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={4275} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={2860} size={90} />
-          <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={2860} size={90} />
+          <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={4290} size={90} />
+          <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={4290} size={90} />
 
           <Dialogue
             speaker="junior"
             text="Walk me through a real production scenario - what happens from first request to cached response?"
             x={width * 0.05}
             y={height * 0.76}
-            startFrame={2880}
+            startFrame={4320}
             maxWidth={480}
           />
 
@@ -1094,18 +1094,18 @@ export const CDNandAPIGateway: React.FC = () => {
             text="Perfect! Let me show you the complete lifecycle: cache miss, API gateway routing, and then cache hit. This is how Netflix and Amazon actually work!"
             x={width * 0.78 - 300}
             y={height * 0.76}
-            startFrame={2990}
+            startFrame={4485}
             maxWidth={540}
           />
 
           {/* Detailed Flow Diagram with complete lifecycle - SIMPLIFIED LAYOUT */}
-          {frame >= 3100 && (
+          {frame >= 4650 && (
             <div style={{
               position: 'absolute',
               top: height * 0.14,
               left: width * 0.05,
               right: width * 0.05,
-              opacity: fadeIn(frame, 3100, 20),
+              opacity: fadeIn(frame, 4650, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -1124,7 +1124,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 100,
                     left: 60,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 3120, 20),
+                    opacity: fadeIn(frame, 4680, 20),
                   }}>
                     <div style={{
                       width: 100,
@@ -1151,7 +1151,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: width * 0.30,
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 3140, 20),
+                    opacity: fadeIn(frame, 4710, 20),
                   }}>
                     <div style={{
                       width: 120,
@@ -1179,7 +1179,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: width * 0.55,
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 3160, 20),
+                    opacity: fadeIn(frame, 4740, 20),
                   }}>
                     <div style={{
                       width: 140,
@@ -1207,7 +1207,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     top: 95,
                     right: 80,
                     textAlign: 'center',
-                    opacity: fadeIn(frame, 3180, 20),
+                    opacity: fadeIn(frame, 4770, 20),
                   }}>
                     <div style={{
                       width: 120,
@@ -1247,7 +1247,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width * 0.30 - 60}
                       y2={140}
                       color={theme.colors.client}
-                      startFrame={3145}
+                      startFrame={4717}
                       label="Request"
                     />
 
@@ -1258,7 +1258,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width * 0.55 - 70}
                       y2={140}
                       color={theme.colors.eventStream}
-                      startFrame={3165}
+                      startFrame={4747}
                       label="API Call"
                     />
 
@@ -1269,7 +1269,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width - 140 - 60}
                       y2={140}
                       color={theme.colors.backend}
-                      startFrame={3185}
+                      startFrame={4777}
                       label="Route"
                     />
 
@@ -1280,7 +1280,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width * 0.55 + 70}
                       y2={160}
                       color={theme.colors.success}
-                      startFrame={3205}
+                      startFrame={4807}
                       dashed={true}
                     />
 
@@ -1291,7 +1291,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       x2={width * 0.30 + 60}
                       y2={160}
                       color={theme.colors.cdn}
-                      startFrame={3220}
+                      startFrame={4830}
                       label="Cache!"
                     />
 
@@ -1301,8 +1301,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={140}
                       x2={width * 0.30 - 60}
                       y2={140}
-                      startFrame={3150}
-                      duration={30}
+                      startFrame={4725}
+                      duration={45}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
@@ -1310,8 +1310,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={140}
                       x2={width * 0.30 - 60}
                       y2={140}
-                      startFrame={3170}
-                      duration={30}
+                      startFrame={4755}
+                      duration={45}
                       color={theme.colors.client}
                     />
 
@@ -1321,8 +1321,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={140}
                       x2={width * 0.55 - 70}
                       y2={140}
-                      startFrame={3170}
-                      duration={30}
+                      startFrame={4755}
+                      duration={45}
                       color={theme.colors.eventStream}
                     />
                     <DataFlowParticle
@@ -1330,8 +1330,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={140}
                       x2={width * 0.55 - 70}
                       y2={140}
-                      startFrame={3190}
-                      duration={30}
+                      startFrame={4785}
+                      duration={45}
                       color={theme.colors.eventStream}
                     />
 
@@ -1341,8 +1341,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={140}
                       x2={width - 140 - 60}
                       y2={140}
-                      startFrame={3190}
-                      duration={30}
+                      startFrame={4785}
+                      duration={45}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
@@ -1350,8 +1350,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={140}
                       x2={width - 140 - 60}
                       y2={140}
-                      startFrame={3210}
-                      duration={30}
+                      startFrame={4815}
+                      duration={45}
                       color={theme.colors.backend}
                     />
 
@@ -1361,8 +1361,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width * 0.55 + 70}
                       y2={160}
-                      startFrame={3210}
-                      duration={30}
+                      startFrame={4815}
+                      duration={45}
                       color={theme.colors.success}
                     />
                     <DataFlowParticle
@@ -1370,8 +1370,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width * 0.55 + 70}
                       y2={160}
-                      startFrame={3230}
-                      duration={30}
+                      startFrame={4845}
+                      duration={45}
                       color={theme.colors.success}
                     />
 
@@ -1381,8 +1381,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width * 0.30 + 60}
                       y2={160}
-                      startFrame={3225}
-                      duration={30}
+                      startFrame={4837}
+                      duration={45}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
@@ -1390,22 +1390,22 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={160}
                       x2={width * 0.30 + 60}
                       y2={160}
-                      startFrame={3245}
-                      duration={30}
+                      startFrame={4867}
+                      duration={45}
                       color={theme.colors.cdn}
                     />
                   </svg>
                 </div>
 
                 {/* Flow explanation */}
-                {frame >= 3240 && (
+                {frame >= 4860 && (
                   <div style={{
                     marginTop: 16,
                     backgroundColor: 'rgba(139, 92, 246, 0.15)',
                     border: '2px solid #8b5cf6',
                     borderRadius: 10,
                     padding: 14,
-                    opacity: fadeIn(frame, 3240, 15),
+                    opacity: fadeIn(frame, 4860, 15),
                   }}>
                     <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.9}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Complete Flow:</span> User → CDN (cache check) → API Gateway (auth/route) → Services →
@@ -1420,13 +1420,13 @@ export const CDNandAPIGateway: React.FC = () => {
           )}
 
           {/* Detailed Production Flow Explanation - Architect Level */}
-          {frame >= 3100 && (
+          {frame >= 4650 && (
             <div style={{
               position: 'absolute',
               top: height * 0.52,
               left: width * 0.04,
               right: width * 0.04,
-              opacity: fadeIn(frame, 3100, 20),
+              opacity: fadeIn(frame, 4650, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -1440,7 +1440,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 10, color: '#e2e8f0', lineHeight: 1.8}}>
                   {/* Flow 1: Static Asset Cache MISS */}
-                  <div style={{opacity: fadeIn(frame, 3130, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 4695, 15)}}>
                     <div style={{fontSize: 12, color: '#ef4444', fontWeight: 'bold', marginBottom: 5}}>
                       📦 Static Asset - Cache MISS (~85ms)
                     </div>
@@ -1455,7 +1455,7 @@ export const CDNandAPIGateway: React.FC = () => {
                   </div>
 
                   {/* Flow 2: API Request Through Gateway */}
-                  <div style={{opacity: fadeIn(frame, 3165, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 4747, 15)}}>
                     <div style={{fontSize: 12, color: '#f59e0b', fontWeight: 'bold', marginBottom: 5}}>
                       🚪 API via Gateway - First Call (~50ms)
                     </div>
@@ -1471,7 +1471,7 @@ export const CDNandAPIGateway: React.FC = () => {
                   </div>
 
                   {/* Flow 3: Static Asset Cache HIT */}
-                  <div style={{opacity: fadeIn(frame, 3200, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 4800, 15)}}>
                     <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
                       ⚡ Static Asset - Cache HIT (~5ms)
                     </div>
@@ -1486,7 +1486,7 @@ export const CDNandAPIGateway: React.FC = () => {
                   </div>
 
                   {/* Flow 4: API Cache HIT */}
-                  <div style={{opacity: fadeIn(frame, 3235, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 4852, 15)}}>
                     <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
                       🚀 API via CDN - Cache HIT (~8ms)
                     </div>
@@ -1503,14 +1503,14 @@ export const CDNandAPIGateway: React.FC = () => {
                 </div>
 
                 {/* Production Considerations */}
-                {frame >= 3270 && (
+                {frame >= 4905 && (
                   <div style={{
                     marginTop: 12,
                     backgroundColor: 'rgba(139, 92, 246, 0.15)',
                     border: '2px solid #8b5cf6',
                     borderRadius: 10,
                     padding: 12,
-                    opacity: fadeIn(frame, 3270, 15),
+                    opacity: fadeIn(frame, 4905, 15),
                   }}>
                     <div style={{fontSize: 12, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6, textAlign: 'center'}}>
                       🏗️ Production Patterns
@@ -1535,22 +1535,22 @@ export const CDNandAPIGateway: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: Real-World Examples & Next Steps (3300-3600 frames / 110-120s) */}
-      {frame >= 3300 && frame < 3600 && (
+      {/* Scene 7: Real-World Examples & Next Steps (4950-5400 frames / 165-180s) */}
+      {frame >= 4950 && frame < 5400 && (
         <>
-          <Title text="Real-World Impact" subtitle="Industry Examples & What's Next" startFrame={3300} />
+          <Title text="Real-World Impact" subtitle="Industry Examples & What's Next" startFrame={4950} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.65} startFrame={3310} size={100} />
-          <Character type="architect" x={width * 0.72} y={height * 0.65} startFrame={3310} size={100} />
+          <Character type="junior" x={width * 0.2} y={height * 0.65} startFrame={4965} size={100} />
+          <Character type="architect" x={width * 0.72} y={height * 0.65} startFrame={4965} size={100} />
 
           {/* Real-World Examples */}
-          {frame >= 3330 && (
+          {frame >= 4995 && (
             <div style={{
               position: 'absolute',
               top: height * 0.22,
               left: width * 0.12,
               right: width * 0.12,
-              opacity: fadeIn(frame, 3330, 20),
+              opacity: fadeIn(frame, 4995, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -1563,25 +1563,25 @@ export const CDNandAPIGateway: React.FC = () => {
                 </div>
 
                 <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2.2}}>
-                  <div style={{opacity: fadeIn(frame, 3370, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 5055, 15)}}>
                     <span style={{fontSize: 20}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Cloudflare CDN + Zuul API Gateway → Serves 200M+ users globally
                   </div>
-                  <div style={{opacity: fadeIn(frame, 3410, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 5115, 15)}}>
                     <span style={{fontSize: 20}}>🛒</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Amazon:</span> CloudFront CDN + Custom Gateway → 99.99% availability
                   </div>
-                  <div style={{opacity: fadeIn(frame, 3450, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 5175, 15)}}>
                     <span style={{fontSize: 20}}>🎵</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Spotify:</span> Fastly CDN + Kong Gateway → Handles billions of API requests/day
                   </div>
                 </div>
 
-                {frame >= 3490 && (
+                {frame >= 5235 && (
                   <div style={{
                     marginTop: 18,
                     backgroundColor: 'rgba(139, 92, 246, 0.2)',
                     border: '2px solid #8b5cf6',
                     borderRadius: 12,
                     padding: 18,
-                    opacity: fadeIn(frame, 3490, 20),
+                    opacity: fadeIn(frame, 5235, 20),
                   }}>
                     <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', textAlign: 'center', marginBottom: 10}}>
                       🚀 What's Next?
@@ -1601,7 +1601,7 @@ export const CDNandAPIGateway: React.FC = () => {
             text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
             x={width * 0.05}
             y={height * 0.75}
-            startFrame={3540}
+            startFrame={5310}
             maxWidth={500}
           />
         </>
