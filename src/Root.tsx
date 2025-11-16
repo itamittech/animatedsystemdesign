@@ -10,6 +10,7 @@ import {DatabaseFundamentals} from './topics/DatabaseFundamentals';
 import {SQLDatabases} from './topics/SQLDatabases';
 import {NoSQLDatabases} from './topics/NoSQLDatabases';
 import {DatabaseReplication} from './topics/DatabaseReplication';
+import {DatabaseSharding} from './topics/DatabaseSharding';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -98,6 +99,14 @@ export const RemotionRoot: React.FC = () => {
         id="DatabaseReplication"
         component={DatabaseReplication}
         durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DatabaseSharding"
+        component={DatabaseSharding}
+        durationInFrames={2550}
         fps={30}
         width={1920}
         height={1080}

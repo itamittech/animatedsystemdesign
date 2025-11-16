@@ -172,6 +172,17 @@ Scaling reads and ensuring high availability through database replication.
 - Read replicas for scaling and geo-distribution
 - Replication lag handling strategies (read your writes, monotonic reads)
 
+#### 3.5 Database Sharding
+**Duration**: 85 seconds | **Status**: ✅ Complete
+Horizontal partitioning strategies for scaling databases to billions of rows.
+
+**Topics Covered**:
+- What is sharding: Horizontal partitioning across multiple databases
+- Shard key strategies: Hash-based, Range-based, Geographic sharding
+- Consistent hashing: Minimizing data movement when adding/removing shards
+- Cross-shard query challenges: JOINs, aggregations, unique constraints
+- Resharding approaches: Stop writes, dual writes, virtual shards
+
 ## Getting Started
 
 ### Install Dependencies
@@ -215,6 +226,7 @@ npm run render:database-fundamentals  # Database Fundamentals (70s)
 npm run render:sql-databases          # SQL Databases & Relational Design (85s)
 npm run render:nosql-databases        # NoSQL Databases (90s)
 npm run render:database-replication   # Database Replication (80s)
+npm run render:database-sharding      # Database Sharding (85s)
 
 # Render all videos sequentially
 npm run render:all
@@ -234,6 +246,7 @@ All rendered videos are saved to the `out/` directory:
 - `out/sql-databases.mp4`
 - `out/nosql-databases.mp4`
 - `out/database-replication.mp4`
+- `out/database-sharding.mp4`
 
 ### Advanced Rendering Options
 
@@ -277,18 +290,19 @@ When you run `npm start`, you'll see all compositions in the left panel:
 - SQLDatabases
 - NoSQLDatabases
 - DatabaseReplication
+- DatabaseSharding
 
 ## Progress Overview
 
-**Completed**: 11/58 topics (19% complete)
+**Completed**: 12/58 topics (21% complete)
 - ✅ Phase 1: Foundational Infrastructure (4/4 complete)
 - ✅ Phase 2: Communication Protocols & APIs (3/3 complete)
-- 🔄 Phase 3: Data Storage & Management (4/6 complete - 67%)
+- 🔄 Phase 3: Data Storage & Management (5/6 complete - 83%)
 
 **Next Up**:
-1. Database Sharding (Phase 3.5)
-2. Distributed Transactions (Phase 3.6)
-3. Caching Fundamentals (Phase 4.1)
+1. Distributed Transactions (Phase 3.6) - Complete Phase 3!
+2. Caching Fundamentals (Phase 4.1)
+3. Advanced Caching Strategies (Phase 4.2)
 
 See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
@@ -357,17 +371,16 @@ The project supports sound effects to enhance the learning experience!
 
 This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-**Current Status**: 11/58 topics complete (19%)
+**Current Status**: 12/58 topics complete (21%)
 
 **Phase Progress**:
 - ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
 - ✅ Phase 2: Communication Protocols & APIs (100% - 3/3)
-- 🔄 Phase 3: Data Storage & Management (67% - 4/6)
+- 🔄 Phase 3: Data Storage & Management (83% - 5/6)
 - 📋 Phase 4-14: Planned
 
 **Key Upcoming Topics**:
-- Database Sharding
-- Distributed Transactions
+- Distributed Transactions (to complete Phase 3!)
 - Caching Strategies
 - Message Queues & Event Streaming
 - Microservices Architecture
