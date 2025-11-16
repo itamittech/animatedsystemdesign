@@ -6,8 +6,11 @@
     "start": "node studio.js studio src/index.ts",
     "render": "node studio.js render src/index.ts ClientServerDNSProxies out/client-server-dns-proxies.mp4",
     "render:fundamentals": "node studio.js render src/index.ts ClientServerDNSProxies out/client-server-dns-proxies.mp4",
+    "render:loadbalancing-basic": "node studio.js render src/index.ts LoadBalancingBasics out/load-balancing-basic.mp4",
     "render:loadbalancing": "node studio.js render src/index.ts LoadBalancingEnhanced out/load-balancing-enhanced.mp4",
-    "render:basic": "node studio.js render src/index.ts LoadBalancingBasics out/load-balancing-basic.mp4",
+    "render:cdn-api-gateway": "node studio.js render src/index.ts CDNandAPIGateway out/cdn-api-gateway.mp4",
+    "render:rest-api": "node studio.js render src/index.ts RESTAPIDesign out/rest-api-design.mp4",
+    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api",
     "upgrade": "node studio.js upgrade",
     "test": "echo \"No tests yet\""
   },

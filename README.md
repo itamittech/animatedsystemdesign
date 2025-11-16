@@ -51,13 +51,17 @@ animatedsystemdesign/
 
 ## Topics Implemented
 
-### 1. Load Balancing (Two Versions)
+### Phase 1: Foundational Infrastructure ✅ COMPLETE
 
-#### LoadBalancingBasics
-Technical deep dive with diagrams and detailed explanations (30 seconds).
+#### 1.1 Client-Server, DNS & Proxies
+**Duration**: 110 seconds | **Status**: ✅ Complete
+Foundation of how the internet works from request to response.
 
-#### LoadBalancingEnhanced ⭐ **COMPREHENSIVE - Complete Load Balancing Masterclass**
-86-second complete course from basics to production-ready architectures!
+#### 1.2 Load Balancing (Two Versions)
+
+**LoadBalancingBasics** - Technical deep dive with diagrams (30 seconds).
+
+**LoadBalancingEnhanced** ⭐ - Complete 86-second masterclass from basics to production architectures!
 
 Interactive storytelling format featuring:
 - **Alex** (Junior Developer 👨‍💻) - Asks questions from a learning perspective
@@ -73,24 +77,38 @@ Interactive storytelling format featuring:
 
 **Duration**: 86 seconds @ 30fps (2580 frames)
 
-**Complete Scene Breakdown:**
+#### 1.3 CDN & API Gateway
+**Duration**: 180 seconds | **Status**: ✅ Complete
+Combined comprehensive video covering Content Delivery Networks and API Gateway patterns.
 
-**Part 1: Fundamentals (0-37s)**
-1. **Introduction** (0-4s) - Alex discovers the scaling problem
-2. **The Problem** (4-9s) - Single server overload with visual traffic jam
-3. **The Solution** (9-15s) - Load balancer distributing traffic with animated flows
-4. **Algorithms** (15-23s) - Round Robin, Least Connections, IP Hash, Weighted ⏱️ _Extended_
-5. **L4 vs L7** (23-32s) - Transport vs Application layer detailed comparison ⏱️ _Extended_
-6. **Health Checks** (32-37s) - Automatic failure detection and recovery ⏱️ _Extended_
+**Topics Covered**:
+- Edge locations and global distribution
+- Cache hit/miss optimization
+- API Gateway routing, authentication, rate limiting
+- Complete request flow with bidirectional caching
+- Production lifecycle examples
 
-**Part 2: Advanced Concepts (37-86s)**
-7. **Sticky Sessions** (37-43s) - Session affinity with trade-offs
-8. **Global Load Balancing** (43-49s) - GeoDNS, multi-datacenter routing
-9. **Tools Comparison** (49-58s) - NGINX, HAProxy, Envoy, AWS ALB/NLB ⏱️ _Extended_
-10. **Deployment Patterns** (58-66s) - Canary, Blue-Green, A/B Testing
-11. **SSL/TLS Termination** (66-72s) - Performance optimization
-12. **WebSocket Load Balancing** (72-78s) - Long-lived connections
-13. **Rate Limiting & DDoS** (78-86s) - Protection strategies + finale
+#### 1.4 REST API Design Best Practices
+**Duration**: 125 seconds | **Status**: ✅ Complete
+Essential REST API design principles for building intuitive APIs.
+
+**Topics Covered**:
+- Resource-based URLs (nouns vs verbs)
+- HTTP methods (GET, POST, PUT, PATCH, DELETE)
+- Status codes and error handling
+- API versioning strategies
+- Pagination and filtering patterns
+
+### Phase 2: Communication Protocols & APIs (In Progress)
+
+#### 2.1 REST API Design ✅ Complete
+See above.
+
+#### 2.2 GraphQL vs REST
+**Status**: 📋 Planned
+
+#### 2.3 gRPC & Protocol Buffers
+**Status**: 📋 Planned
 
 ## Getting Started
 
@@ -112,37 +130,82 @@ This will open the Remotion Studio in your browser where you can:
 - Render videos
 - Adjust compositions
 
-### Render Video
+## Rendering Videos
+
+### Quick Start - Render Individual Videos
+
+Use these npm scripts to render specific videos:
 
 ```bash
-# Render the enhanced character-driven version (recommended)
-npm run render
+# Phase 1: Foundational Infrastructure
+npm run render:fundamentals        # Client-Server, DNS & Proxies (110s)
+npm run render:loadbalancing-basic # Load Balancing Basics (30s)
+npm run render:loadbalancing       # Load Balancing Enhanced (86s) ⭐
+npm run render:cdn-api-gateway     # CDN & API Gateway (180s)
 
-# Or render specific compositions
-npx remotion render src/index.ts LoadBalancingEnhanced out/load-balancing-enhanced.mp4
-npx remotion render src/index.ts LoadBalancingBasics out/load-balancing-basic.mp4
+# Phase 2: Communication Protocols & APIs
+npm run render:rest-api            # REST API Design (125s)
+
+# Render all videos sequentially
+npm run render:all
+```
+
+### Output Location
+
+All rendered videos are saved to the `out/` directory:
+- `out/client-server-dns-proxies.mp4`
+- `out/load-balancing-basic.mp4`
+- `out/load-balancing-enhanced.mp4`
+- `out/cdn-api-gateway.mp4`
+- `out/rest-api-design.mp4`
+
+### Advanced Rendering Options
+
+**Faster preview (lower quality)**:
+```bash
+npx remotion render src/index.ts RESTAPIDesign out/preview.mp4 --scale=0.5
+```
+
+**Render specific frame range** (test a section):
+```bash
+npx remotion render src/index.ts CDNandAPIGateway out/test-clip.mp4 --frames=900-1500
+```
+
+**Higher quality**:
+```bash
+npx remotion render src/index.ts LoadBalancingEnhanced out/high-quality.mp4 --quality=100
+```
+
+**Custom resolution**:
+```bash
+npx remotion render src/index.ts RESTAPIDesign out/custom.mp4 --width=2560 --height=1440
 ```
 
 ### Select Composition in Studio
 
-When you run `npm start`, you'll see two compositions in the left panel:
-- **LoadBalancingBasics** - Technical diagram version
-- **LoadBalancingEnhanced** - Character-driven interactive version ⭐ (Recommended)
+When you run `npm start`, you'll see all compositions in the left panel:
 
-## Next Topics (Planned)
+**Phase 1: Foundational Infrastructure**
+- ClientServerDNSProxies
+- LoadBalancingBasics
+- LoadBalancingEnhanced ⭐
+- CDNandAPIGateway
 
-Sequence for comprehensive system design education:
+**Phase 2: Communication Protocols & APIs**
+- RESTAPIDesign
 
-1. ✅ Load Balancing
-2. Caching Strategies (Multi-level, CDN, Redis, Cache invalidation)
-3. Database Scaling (Replication, Sharding, Partitioning)
-4. Message Queues & Event Streaming (Kafka, RabbitMQ, SQS)
-5. Microservices Patterns (API Gateway, Service Mesh, Circuit Breaker)
-6. Data Consistency (CAP Theorem, Eventually Consistent, SAGA)
-7. Rate Limiting & Throttling
-8. CDN & Edge Computing
-9. Monitoring & Observability (Metrics, Logs, Traces)
-10. Disaster Recovery & Backup Strategies
+## Progress Overview
+
+**Completed**: 5/58 topics (9% complete)
+- ✅ Phase 1: Foundational Infrastructure (4/4 complete)
+- 🔄 Phase 2: Communication Protocols & APIs (1/3 complete)
+
+**Next Up**:
+1. GraphQL vs REST (Phase 2.2)
+2. gRPC & Protocol Buffers (Phase 2.3)
+3. Database Fundamentals (Phase 3.1)
+
+See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
 ## Development Guidelines
 
@@ -205,19 +268,26 @@ The project supports sound effects to enhance the learning experience!
 - Server states (startup, error, success)
 - Alerts and warnings
 
-## Future Topics Planned
+## Complete Curriculum
 
-Topics to be added in the same character-driven style:
+This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-2. **Caching Strategies** - Multi-level caching, CDN, Redis patterns, cache invalidation
-3. **Database Scaling** - Replication, sharding, partitioning strategies
-4. **Message Queues** - Kafka, RabbitMQ, event streaming patterns
-5. **Microservices Patterns** - API Gateway, Service Mesh, Circuit Breaker
-6. **Data Consistency** - CAP Theorem, Eventually Consistent systems, SAGA pattern
-7. **Rate Limiting** - Advanced throttling and DDoS protection
-8. **CDN & Edge Computing** - Global content delivery
-9. **Monitoring & Observability** - Metrics, logs, distributed tracing
-10. **Disaster Recovery** - Backup strategies, failover patterns
+**Current Status**: 5/58 topics complete (9%)
+
+**Phase Progress**:
+- ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
+- 🔄 Phase 2: Communication Protocols & APIs (33% - 1/3)
+- 📋 Phase 3-14: Planned
+
+**Key Upcoming Topics**:
+- GraphQL vs REST
+- gRPC & Protocol Buffers
+- Database Fundamentals & Scaling
+- Caching Strategies
+- Message Queues & Event Streaming
+- Microservices Architecture
+- Security & Authentication
+- Real-World Case Studies (URL shortener, Social media feed, etc.)
 
 ## License
 
