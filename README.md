@@ -139,6 +139,17 @@ The core concepts every engineer must know about databases.
 - Indexes and query optimization (B-tree)
 - CAP Theorem (Consistency, Availability, Partition Tolerance)
 
+#### 3.2 SQL Databases & Relational Design
+**Duration**: 85 seconds | **Status**: ✅ Complete
+Deep dive into SQL databases, internals, and when to use them.
+
+**Topics Covered**:
+- When to use SQL databases (data integrity, complex relationships, ACID)
+- PostgreSQL vs MySQL internals and architecture
+- Indexing strategies: B-tree (ranges, sorting) vs Hash (equality)
+- Transactions and isolation levels (Read Uncommitted to Serializable)
+- Vertical scaling limits and when to move beyond
+
 ## Getting Started
 
 ### Install Dependencies
@@ -179,6 +190,7 @@ npm run render:grpc                # gRPC & Protocol Buffers (90s)
 
 # Phase 3: Data Storage & Management
 npm run render:database-fundamentals  # Database Fundamentals (70s)
+npm run render:sql-databases          # SQL Databases & Relational Design (85s)
 
 # Render all videos sequentially
 npm run render:all
@@ -195,6 +207,7 @@ All rendered videos are saved to the `out/` directory:
 - `out/graphql-vs-rest.mp4`
 - `out/grpc-protocol-buffers.mp4`
 - `out/database-fundamentals.mp4`
+- `out/sql-databases.mp4`
 
 ### Advanced Rendering Options
 
@@ -235,18 +248,19 @@ When you run `npm start`, you'll see all compositions in the left panel:
 
 **Phase 3: Data Storage & Management**
 - DatabaseFundamentals
+- SQLDatabases
 
 ## Progress Overview
 
-**Completed**: 8/58 topics (14% complete)
+**Completed**: 9/58 topics (16% complete)
 - ✅ Phase 1: Foundational Infrastructure (4/4 complete)
 - ✅ Phase 2: Communication Protocols & APIs (3/3 complete)
-- 🔄 Phase 3: Data Storage & Management (1/6 complete)
+- 🔄 Phase 3: Data Storage & Management (2/6 complete)
 
 **Next Up**:
-1. SQL Databases & Relational Design (Phase 3.2)
-2. NoSQL Databases (Phase 3.3)
-3. Database Replication (Phase 3.4)
+1. NoSQL Databases (Phase 3.3)
+2. Database Replication (Phase 3.4)
+3. Database Sharding (Phase 3.5)
 
 See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
@@ -315,18 +329,18 @@ The project supports sound effects to enhance the learning experience!
 
 This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-**Current Status**: 8/58 topics complete (14%)
+**Current Status**: 9/58 topics complete (16%)
 
 **Phase Progress**:
 - ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
 - ✅ Phase 2: Communication Protocols & APIs (100% - 3/3)
-- 🔄 Phase 3: Data Storage & Management (17% - 1/6)
+- 🔄 Phase 3: Data Storage & Management (33% - 2/6)
 - 📋 Phase 4-14: Planned
 
 **Key Upcoming Topics**:
-- SQL Databases & Relational Design
 - NoSQL Databases (MongoDB, DynamoDB, Cassandra)
 - Database Replication & Sharding
+- Distributed Transactions
 - Caching Strategies
 - Message Queues & Event Streaming
 - Microservices Architecture
