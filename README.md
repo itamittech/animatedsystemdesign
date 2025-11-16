@@ -161,6 +161,17 @@ Comprehensive guide to NoSQL database types and when to use each.
 - Graph databases: Neo4j (relationships, social networks, recommendations)
 - Use case decision matrix for choosing the right NoSQL type
 
+#### 3.4 Database Replication
+**Duration**: 80 seconds | **Status**: ✅ Complete
+Scaling reads and ensuring high availability through database replication.
+
+**Topics Covered**:
+- Master-slave replication (one master, multiple read replicas)
+- Master-master replication (bi-directional, write conflicts)
+- Synchronous vs asynchronous replication trade-offs
+- Read replicas for scaling and geo-distribution
+- Replication lag handling strategies (read your writes, monotonic reads)
+
 ## Getting Started
 
 ### Install Dependencies
@@ -203,6 +214,7 @@ npm run render:grpc                # gRPC & Protocol Buffers (90s)
 npm run render:database-fundamentals  # Database Fundamentals (70s)
 npm run render:sql-databases          # SQL Databases & Relational Design (85s)
 npm run render:nosql-databases        # NoSQL Databases (90s)
+npm run render:database-replication   # Database Replication (80s)
 
 # Render all videos sequentially
 npm run render:all
@@ -221,6 +233,7 @@ All rendered videos are saved to the `out/` directory:
 - `out/database-fundamentals.mp4`
 - `out/sql-databases.mp4`
 - `out/nosql-databases.mp4`
+- `out/database-replication.mp4`
 
 ### Advanced Rendering Options
 
@@ -263,18 +276,19 @@ When you run `npm start`, you'll see all compositions in the left panel:
 - DatabaseFundamentals
 - SQLDatabases
 - NoSQLDatabases
+- DatabaseReplication
 
 ## Progress Overview
 
-**Completed**: 10/58 topics (17% complete)
+**Completed**: 11/58 topics (19% complete)
 - ✅ Phase 1: Foundational Infrastructure (4/4 complete)
 - ✅ Phase 2: Communication Protocols & APIs (3/3 complete)
-- 🔄 Phase 3: Data Storage & Management (3/6 complete - 50%)
+- 🔄 Phase 3: Data Storage & Management (4/6 complete - 67%)
 
 **Next Up**:
-1. Database Replication (Phase 3.4)
-2. Database Sharding (Phase 3.5)
-3. Distributed Transactions (Phase 3.6)
+1. Database Sharding (Phase 3.5)
+2. Distributed Transactions (Phase 3.6)
+3. Caching Fundamentals (Phase 4.1)
 
 See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
@@ -343,16 +357,16 @@ The project supports sound effects to enhance the learning experience!
 
 This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-**Current Status**: 10/58 topics complete (17%)
+**Current Status**: 11/58 topics complete (19%)
 
 **Phase Progress**:
 - ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
 - ✅ Phase 2: Communication Protocols & APIs (100% - 3/3)
-- 🔄 Phase 3: Data Storage & Management (50% - 3/6)
+- 🔄 Phase 3: Data Storage & Management (67% - 4/6)
 - 📋 Phase 4-14: Planned
 
 **Key Upcoming Topics**:
-- Database Replication & Sharding
+- Database Sharding
 - Distributed Transactions
 - Caching Strategies
 - Message Queues & Event Streaming

@@ -9,6 +9,7 @@ import {gRPCProtocolBuffers} from './topics/gRPCProtocolBuffers';
 import {DatabaseFundamentals} from './topics/DatabaseFundamentals';
 import {SQLDatabases} from './topics/SQLDatabases';
 import {NoSQLDatabases} from './topics/NoSQLDatabases';
+import {DatabaseReplication} from './topics/DatabaseReplication';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -89,6 +90,14 @@ export const RemotionRoot: React.FC = () => {
         id="NoSQLDatabases"
         component={NoSQLDatabases}
         durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DatabaseReplication"
+        component={DatabaseReplication}
+        durationInFrames={2400}
         fps={30}
         width={1920}
         height={1080}
