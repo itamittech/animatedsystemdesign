@@ -1250,7 +1250,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     <div style={{fontSize: 9, color: '#10b981', marginTop: 4}}>US East</div>
                   </div>
 
-                  {/* Connection Arrows - Beautiful animated connections */}
+                  {/* Connection Arrows - Complete bidirectional flow */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
                     {/* SVG Filter for glow effect */}
                     <defs>
@@ -1263,7 +1263,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* User to CDN Edge */}
+                    {/* User to CDN Edge - properly aligned */}
                     <Arrow
                       x1={130}
                       y1={118}
@@ -1274,22 +1274,22 @@ export const CDNandAPIGateway: React.FC = () => {
                       label="Static"
                     />
 
-                    {/* User to API Gateway */}
+                    {/* User to API Gateway - properly aligned */}
                     <Arrow
                       x1={130}
                       y1={118}
                       x2={270}
                       y2={168}
-                      color={theme.colors.loadBalancer}
+                      color={theme.colors.client}
                       startFrame={3150}
                       label="API"
                     />
 
-                    {/* CDN to Origin (cache miss) */}
+                    {/* CDN to Origin (cache miss) - properly aligned */}
                     <Arrow
                       x1={390}
                       y1={63}
-                      x2={width - 170}
+                      x2={width - 35}
                       y2={175}
                       color={theme.colors.backend}
                       startFrame={3180}
@@ -1297,15 +1297,38 @@ export const CDNandAPIGateway: React.FC = () => {
                       label="Miss"
                     />
 
-                    {/* Gateway to Services */}
+                    {/* API Gateway to Services - properly aligned */}
                     <Arrow
                       x1={400}
                       y1={168}
-                      x2={width - 200}
+                      x2={width - 50}
                       y2={88}
-                      color={theme.colors.success}
+                      color={theme.colors.backend}
                       startFrame={3170}
                       label="Route"
+                    />
+
+                    {/* Services back to API Gateway (response) - bidirectional */}
+                    <Arrow
+                      x1={width - 50}
+                      y1={95}
+                      x2={400}
+                      y2={175}
+                      color={theme.colors.success}
+                      startFrame={3190}
+                      dashed={true}
+                    />
+
+                    {/* API Gateway to CDN Edge (CACHE RESPONSE!) - KEY FLOW */}
+                    <Arrow
+                      x1={335}
+                      y1={125}
+                      x2={335}
+                      y2={105}
+                      color={theme.colors.cdn}
+                      startFrame={3200}
+                      label="Cache"
+                      bidirectional={false}
                     />
 
                     {/* Animated data flow particles - User to CDN */}
@@ -1327,15 +1350,6 @@ export const CDNandAPIGateway: React.FC = () => {
                       duration={30}
                       color={theme.colors.eventStream}
                     />
-                    <DataFlowParticle
-                      x1={130}
-                      y1={118}
-                      x2={280}
-                      y2={63}
-                      startFrame={3195}
-                      duration={30}
-                      color={theme.colors.eventStream}
-                    />
 
                     {/* User to API Gateway */}
                     <DataFlowParticle
@@ -1343,74 +1357,96 @@ export const CDNandAPIGateway: React.FC = () => {
                       y1={118}
                       x2={270}
                       y2={168}
-                      startFrame={3165}
+                      startFrame={3160}
                       duration={30}
-                      color={theme.colors.loadBalancer}
+                      color={theme.colors.client}
                     />
                     <DataFlowParticle
                       x1={130}
                       y1={118}
                       x2={270}
                       y2={168}
-                      startFrame={3185}
+                      startFrame={3180}
                       duration={30}
-                      color={theme.colors.loadBalancer}
-                    />
-                    <DataFlowParticle
-                      x1={130}
-                      y1={118}
-                      x2={270}
-                      y2={168}
-                      startFrame={3205}
-                      duration={30}
-                      color={theme.colors.loadBalancer}
+                      color={theme.colors.client}
                     />
 
                     {/* Gateway to Services */}
                     <DataFlowParticle
                       x1={400}
                       y1={168}
-                      x2={width - 200}
+                      x2={width - 50}
                       y2={88}
-                      startFrame={3190}
+                      startFrame={3175}
                       duration={30}
-                      color={theme.colors.success}
+                      color={theme.colors.backend}
                     />
                     <DataFlowParticle
                       x1={400}
                       y1={168}
-                      x2={width - 200}
+                      x2={width - 50}
                       y2={88}
-                      startFrame={3210}
+                      startFrame={3195}
+                      duration={30}
+                      color={theme.colors.backend}
+                    />
+
+                    {/* Services back to API Gateway (response) */}
+                    <DataFlowParticle
+                      x1={width - 50}
+                      y1={95}
+                      x2={400}
+                      y2={175}
+                      startFrame={3195}
                       duration={30}
                       color={theme.colors.success}
                     />
                     <DataFlowParticle
-                      x1={400}
-                      y1={168}
-                      x2={width - 200}
-                      y2={88}
-                      startFrame={3230}
+                      x1={width - 50}
+                      y1={95}
+                      x2={400}
+                      y2={175}
+                      startFrame={3215}
                       duration={30}
                       color={theme.colors.success}
+                    />
+
+                    {/* API Gateway to CDN Edge (CACHING!) */}
+                    <DataFlowParticle
+                      x1={335}
+                      y1={125}
+                      x2={335}
+                      y2={105}
+                      startFrame={3205}
+                      duration={25}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={335}
+                      y1={125}
+                      x2={335}
+                      y2={105}
+                      startFrame={3225}
+                      duration={25}
+                      color={theme.colors.cdn}
+                    />
+                    <DataFlowParticle
+                      x1={335}
+                      y1={125}
+                      x2={335}
+                      y2={105}
+                      startFrame={3245}
+                      duration={25}
+                      color={theme.colors.cdn}
                     />
 
                     {/* CDN to Origin (cache miss) */}
                     <DataFlowParticle
                       x1={390}
                       y1={63}
-                      x2={width - 170}
+                      x2={width - 35}
                       y2={175}
-                      startFrame={3200}
-                      duration={35}
-                      color={theme.colors.backend}
-                    />
-                    <DataFlowParticle
-                      x1={390}
-                      y1={63}
-                      x2={width - 170}
-                      y2={175}
-                      startFrame={3225}
+                      startFrame={3185}
                       duration={35}
                       color={theme.colors.backend}
                     />
