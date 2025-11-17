@@ -460,7 +460,7 @@ export const LargeLanguageModels: React.FC = () => {
                 Input: <strong>"The cat sat on the mat"</strong>
               </div>
 
-              <div style={{display: 'flex', gap: 15, marginBottom: 40}}>
+              <div style={{position: 'relative', height: 60, marginBottom: 40}}>
                 <Box text="The" x={0} y={0} width={80} height={60} color="#0ea5e9" startFrame={1230} fontSize={16} />
                 <Box text="cat" x={95} y={0} width={80} height={60} color="#0ea5e9" startFrame={1250} fontSize={16} />
                 <Box text="sat" x={190} y={0} width={80} height={60} color="#0ea5e9" startFrame={1270} fontSize={16} />
@@ -529,21 +529,21 @@ export const LargeLanguageModels: React.FC = () => {
               🏗️ Full Architecture
             </div>
             <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 2}}>
-              <div style={{marginBottom: 12}}>
+              <div style={{position: 'relative', marginBottom: 12}}>
                 <Box text="Input Text" x={0} y={0} width={380} height={50} color="#0ea5e9" startFrame={1620} fontSize={16} />
               </div>
-              <div style={{marginTop: 60, marginBottom: 12}}>
+              <div style={{position: 'relative', marginTop: 60, marginBottom: 12}}>
                 <Box text="Embeddings" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1650} fontSize={16} />
-                <div style={{fontSize: 13, color: '#94a3b8', marginTop: 5}}>Convert to numbers</div>
+                <div style={{fontSize: 13, color: '#94a3b8', marginTop: 55}}>Convert to numbers</div>
               </div>
-              <div style={{marginTop: 70, marginBottom: 12}}>
+              <div style={{position: 'relative', marginTop: 70, marginBottom: 12}}>
                 <Box text="Multi-Head Attention" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1680} fontSize={16} />
-                <div style={{fontSize: 13, color: '#94a3b8', marginTop: 5}}>×96 layers (GPT-3)</div>
+                <div style={{fontSize: 13, color: '#94a3b8', marginTop: 55}}>×96 layers (GPT-3)</div>
               </div>
-              <div style={{marginTop: 70, marginBottom: 12}}>
+              <div style={{position: 'relative', marginTop: 70, marginBottom: 12}}>
                 <Box text="Feed-Forward Network" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1710} fontSize={16} />
               </div>
-              <div style={{marginTop: 60}}>
+              <div style={{position: 'relative', marginTop: 60}}>
                 <Box text="Output (Next Token)" x={0} y={0} width={380} height={50} color="#10b981" startFrame={1740} fontSize={16} />
               </div>
             </div>

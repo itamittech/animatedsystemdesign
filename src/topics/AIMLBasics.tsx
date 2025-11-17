@@ -279,93 +279,78 @@ export const AIMLBasics: React.FC = () => {
 
           <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={480} />
 
-          {/* Nested boxes showing hierarchy */}
-          <Box
-            text="🤖 Artificial Intelligence (AI)"
-            x={width / 2 - 500}
-            y={150}
-            width={1000}
-            height={600}
-            color="#581c8720"
-            startFrame={510}
-            fontSize={24}
-            textColor="#c084fc"
-          />
-
+          {/* Nested boxes showing hierarchy - FIXED LAYOUT */}
+          {/* Outer AI box */}
           <div
             style={{
               position: 'absolute',
-              left: width / 2 - 470,
-              top: 200,
-              fontSize: 16,
-              color: '#cbd5e1',
-              opacity: frame >= 540 ? 1 : 0,
-              transition: 'opacity 0.3s',
-              maxWidth: 940,
+              left: width / 2 - 500,
+              top: 150,
+              width: 1000,
+              height: 600,
+              backgroundColor: '#581c8720',
+              borderRadius: '8px',
+              opacity: frame >= 510 ? 1 : 0,
+              border: '2px solid #581c87',
             }}
           >
-            Any system that mimics human intelligence:<br/>
-            • Rule-based expert systems<br/>
-            • Game playing (Chess, Go)<br/>
-            • Robotics, Computer Vision, NLP
+            <div style={{fontSize: 24, fontWeight: 'bold', color: '#c084fc', padding: 15}}>
+              🤖 Artificial Intelligence (AI)
+            </div>
+            <div style={{fontSize: 14, color: '#cbd5e1', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 540 ? 1 : 0}}>
+              Any system that mimics human intelligence:<br/>
+              • Rule-based expert systems<br/>
+              • Game playing (Chess, Go)<br/>
+              • Robotics, Computer Vision, NLP
+            </div>
           </div>
 
-          <Box
-            text="🧠 Machine Learning (ML)"
-            x={width / 2 - 450}
-            y={320}
-            width={900}
-            height={380}
-            color="#7c3aed40"
-            startFrame={600}
-            fontSize={22}
-            textColor="#a78bfa"
-          />
-
+          {/* ML box */}
           <div
             style={{
               position: 'absolute',
-              left: width / 2 - 420,
-              top: 370,
-              fontSize: 16,
-              color: '#cbd5e1',
-              opacity: frame >= 630 ? 1 : 0,
-              transition: 'opacity 0.3s',
-              maxWidth: 840,
+              left: width / 2 - 450,
+              top: 300,
+              width: 900,
+              height: 380,
+              backgroundColor: '#7c3aed40',
+              borderRadius: '8px',
+              opacity: frame >= 600 ? 1 : 0,
+              border: '2px solid #7c3aed',
             }}
           >
-            Systems that <strong>learn from data</strong> without explicit programming:<br/>
-            • Linear Regression, Decision Trees<br/>
-            • Support Vector Machines, Random Forests
+            <div style={{fontSize: 22, fontWeight: 'bold', color: '#a78bfa', padding: 15}}>
+              🧠 Machine Learning (ML)
+            </div>
+            <div style={{fontSize: 14, color: '#cbd5e1', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 630 ? 1 : 0}}>
+              Systems that <strong>learn from data</strong> without explicit programming:<br/>
+              • Linear Regression, Decision Trees<br/>
+              • Support Vector Machines, Random Forests
+            </div>
           </div>
 
-          <Box
-            text="🔥 Deep Learning (DL)"
-            x={width / 2 - 400}
-            y={490}
-            width={800}
-            height={160}
-            color="#7c3aed80"
-            startFrame={690}
-            fontSize={20}
-            textColor="#ffffff"
-          />
-
+          {/* DL box */}
           <div
             style={{
               position: 'absolute',
-              left: width / 2 - 370,
-              top: 540,
-              fontSize: 16,
-              color: '#ffffff',
-              opacity: frame >= 720 ? 1 : 0,
-              transition: 'opacity 0.3s',
-              maxWidth: 740,
+              left: width / 2 - 400,
+              top: 450,
+              width: 800,
+              height: 180,
+              backgroundColor: '#7c3aed80',
+              borderRadius: '8px',
+              opacity: frame >= 690 ? 1 : 0,
+              border: '2px solid #a78bfa',
             }}
           >
-            ML using <strong>multi-layer neural networks</strong>:<br/>
-            • Image recognition, Language models (GPT, Claude)<br/>
-            • Speech recognition, Self-driving cars
+            <div style={{fontSize: 20, fontWeight: 'bold', color: '#ffffff', padding: 15}}>
+              🔥 Deep Learning (DL)
+            </div>
+            <div style={{fontSize: 14, color: '#ffffff', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 720 ? 1 : 0}}>
+              ML using <strong>multi-layer neural networks</strong>:<br/>
+              • Image recognition, Language models (GPT, Claude)<br/>
+              • Speech recognition, Self-driving cars
+            </div>
           </div>
 
           <Dialogue
@@ -489,14 +474,14 @@ export const AIMLBasics: React.FC = () => {
         </>
       )}
 
-      {/* Scene 4: Where AI Fits in Modern Systems (51-69s / 1530-2070 frames) */}
+      {/* Scene 4: Where AI Fits in Modern Systems (51-69s / 1530-2070 frames) - FIXED LAYOUT */}
       {frame >= 1530 && frame < 2070 && (
         <>
           <Title text="AI in Modern Systems" x={width / 2 - 350} y={50} color="#c084fc" startFrame={1530} />
 
           <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={1560} />
 
-          {/* System architecture diagram */}
+          {/* Use cases - FIXED to not use flexbox with absolute positioned boxes */}
           <div
             style={{
               position: 'absolute',
@@ -510,78 +495,82 @@ export const AIMLBasics: React.FC = () => {
               Real-World Use Cases
             </div>
 
-            {/* Use case boxes */}
-            <div style={{display: 'flex', flexDirection: 'column', gap: 25}}>
-              {/* Recommendation Engine */}
-              <div style={{opacity: frame >= 1590 ? 1 : 0}}>
-                <Box
-                  text="🎯 Recommendation Engine"
-                  x={0}
-                  y={0}
-                  width={400}
-                  height={70}
-                  color="#7c3aed"
-                  startFrame={1590}
-                  fontSize={20}
-                />
-                <div style={{fontSize: 14, color: '#94a3b8', marginTop: 10, marginLeft: 10}}>
-                  Netflix, YouTube, Amazon product suggestions<br/>
-                  ML Model predicts what you'll like based on behavior
-                </div>
+            {/* Recommendation Engine */}
+            <div
+              style={{
+                width: 420,
+                padding: 15,
+                backgroundColor: '#7c3aed',
+                borderRadius: 8,
+                marginBottom: 20,
+                opacity: frame >= 1590 ? 1 : 0,
+              }}
+            >
+              <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
+                🎯 Recommendation Engine
               </div>
-
-              {/* Search & Ranking */}
-              <div style={{opacity: frame >= 1680 ? 1 : 0, marginTop: 90}}>
-                <Box
-                  text="🔍 Search & Ranking"
-                  x={0}
-                  y={0}
-                  width={400}
-                  height={70}
-                  color="#7c3aed"
-                  startFrame={1680}
-                  fontSize={20}
-                />
-                <div style={{fontSize: 14, color: '#94a3b8', marginTop: 10, marginLeft: 10}}>
-                  Google Search, LinkedIn job matches<br/>
-                  ML ranks results by relevance, not just keywords
-                </div>
+              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                Netflix, YouTube, Amazon product suggestions<br/>
+                ML Model predicts what you'll like based on behavior
               </div>
+            </div>
 
-              {/* Chatbots & Assistants */}
-              <div style={{opacity: frame >= 1770 ? 1 : 0, marginTop: 180}}>
-                <Box
-                  text="💬 Chatbots & Assistants"
-                  x={0}
-                  y={0}
-                  width={400}
-                  height={70}
-                  color="#7c3aed"
-                  startFrame={1770}
-                  fontSize={20}
-                />
-                <div style={{fontSize: 14, color: '#94a3b8', marginTop: 10, marginLeft: 10}}>
-                  Customer support, Siri, Alexa, ChatGPT<br/>
-                  Deep Learning (LLMs) understand & generate text
-                </div>
+            {/* Search & Ranking */}
+            <div
+              style={{
+                width: 420,
+                padding: 15,
+                backgroundColor: '#7c3aed',
+                borderRadius: 8,
+                marginBottom: 20,
+                opacity: frame >= 1680 ? 1 : 0,
+              }}
+            >
+              <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
+                🔍 Search & Ranking
               </div>
+              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                Google Search, LinkedIn job matches<br/>
+                ML ranks results by relevance, not just keywords
+              </div>
+            </div>
 
-              {/* Fraud Detection */}
-              <div style={{opacity: frame >= 1860 ? 1 : 0, marginTop: 270}}>
-                <Box
-                  text="🛡️ Fraud Detection"
-                  x={0}
-                  y={0}
-                  width={400}
-                  height={70}
-                  color="#7c3aed"
-                  startFrame={1860}
-                  fontSize={20}
-                />
-                <div style={{fontSize: 14, color: '#94a3b8', marginTop: 10, marginLeft: 10}}>
-                  Banking, credit cards, payment systems<br/>
-                  ML detects anomalous patterns in real-time
-                </div>
+            {/* Chatbots & Assistants */}
+            <div
+              style={{
+                width: 420,
+                padding: 15,
+                backgroundColor: '#7c3aed',
+                borderRadius: 8,
+                marginBottom: 20,
+                opacity: frame >= 1770 ? 1 : 0,
+              }}
+            >
+              <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
+                💬 Chatbots & Assistants
+              </div>
+              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                Customer support, Siri, Alexa, ChatGPT<br/>
+                Deep Learning (LLMs) understand & generate text
+              </div>
+            </div>
+
+            {/* Fraud Detection */}
+            <div
+              style={{
+                width: 420,
+                padding: 15,
+                backgroundColor: '#7c3aed',
+                borderRadius: 8,
+                opacity: frame >= 1860 ? 1 : 0,
+              }}
+            >
+              <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
+                🛡️ Fraud Detection
+              </div>
+              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                Banking, credit cards, payment systems<br/>
+                ML detects anomalous patterns in real-time
               </div>
             </div>
           </div>
