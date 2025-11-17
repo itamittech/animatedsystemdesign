@@ -254,7 +254,7 @@ export const MicroservicesCommunication: React.FC = () => {
           <div
             style={{
               position: 'absolute',
-              left: width / 2 - 540,
+              left: width / 2 - 620,
               top: 160,
               opacity: frame >= 210 ? 1 : 0,
             }}
@@ -263,7 +263,7 @@ export const MicroservicesCommunication: React.FC = () => {
               Communication Patterns
             </div>
 
-            <div style={{display: 'flex', gap: 60}}>
+            <div style={{display: 'flex', gap: 120}}>
               {/* Synchronous */}
               <div
                 style={{
@@ -281,9 +281,9 @@ export const MicroservicesCommunication: React.FC = () => {
                 <div style={{position: 'relative', height: 200, marginBottom: 15}}>
                   <Box
                     text="Order Service"
-                    x={20}
+                    x={15}
                     y={0}
-                    width={140}
+                    width={150}
                     height={60}
                     color="#10b981"
                     startFrame={270}
@@ -291,20 +291,20 @@ export const MicroservicesCommunication: React.FC = () => {
                   />
                   <Box
                     text="Payment Service"
-                    x={280}
+                    x={300}
                     y={0}
-                    width={140}
+                    width={160}
                     height={60}
                     color="#f59e0b"
                     startFrame={300}
-                    fontSize={20}
+                    fontSize={18}
                   />
 
-                  <Arrow x1={160} y1={30} x2={280} y2={30} color="#22d3ee" startFrame={360} label="Request" />
-                  <Arrow x1={280} y1={45} x2={160} y2={45} color="#10b981" startFrame={420} label="Response" />
+                  <Arrow x1={165} y1={30} x2={300} y2={30} color="#22d3ee" startFrame={360} label="Request" />
+                  <Arrow x1={300} y1={45} x2={165} y2={45} color="#10b981" startFrame={420} label="Response" />
 
                   {/* Animated data packets */}
-                  <svg style={{position: 'absolute', left: 0, top: 0, width: 440, height: 200, pointerEvents: 'none'}}>
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 480, height: 200, pointerEvents: 'none'}}>
                     <defs>
                       <filter id="glow-sync">
                         <feGaussianBlur stdDeviation="2" result="coloredBlur" />
@@ -318,7 +318,7 @@ export const MicroservicesCommunication: React.FC = () => {
                     {/* Request packet animation (loops every 90 frames) */}
                     {frame >= 360 && (frame - 360) % 90 < 30 && (
                       <circle
-                        cx={160 + ((280 - 160) * ((frame - 360) % 90)) / 30}
+                        cx={165 + ((300 - 165) * ((frame - 360) % 90)) / 30}
                         cy={30}
                         r={5}
                         fill="#22d3ee"
@@ -330,7 +330,7 @@ export const MicroservicesCommunication: React.FC = () => {
                     {/* Response packet animation (loops every 90 frames, offset) */}
                     {frame >= 420 && (frame - 420) % 90 < 30 && (
                       <circle
-                        cx={280 - ((280 - 160) * ((frame - 420) % 90)) / 30}
+                        cx={300 - ((300 - 165) * ((frame - 420) % 90)) / 30}
                         cy={45}
                         r={5}
                         fill="#10b981"
@@ -343,7 +343,7 @@ export const MicroservicesCommunication: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      left: 20,
+                      left: 15,
                       top: 90,
                       fontSize: 20,
                       color: '#cbd5e1',
@@ -388,31 +388,31 @@ export const MicroservicesCommunication: React.FC = () => {
                 <div style={{position: 'relative', height: 200, marginBottom: 15}}>
                   <Box
                     text="Order Service"
-                    x={10}
+                    x={5}
                     y={0}
-                    width={130}
+                    width={145}
                     height={60}
                     color="#10b981"
                     startFrame={540}
                     fontSize={20}
                   />
-                  <Box text="Message Queue" x={160} y={0} width={130} height={60} color="#7c3aed" startFrame={570} fontSize={20} />
+                  <Box text="Message Queue" x={170} y={0} width={155} height={60} color="#7c3aed" startFrame={570} fontSize={18} />
                   <Box
                     text="Email Service"
-                    x={310}
+                    x={345}
                     y={0}
-                    width={130}
+                    width={140}
                     height={60}
                     color="#ec4899"
                     startFrame={600}
                     fontSize={20}
                   />
 
-                  <Arrow x1={140} y1={30} x2={160} y2={30} color="#22d3ee" startFrame={630} label="Publish" />
-                  <Arrow x1={290} y1={30} x2={310} y2={30} color="#c084fc" startFrame={690} label="Subscribe" />
+                  <Arrow x1={150} y1={30} x2={170} y2={30} color="#22d3ee" startFrame={630} label="Publish" />
+                  <Arrow x1={325} y1={30} x2={345} y2={30} color="#c084fc" startFrame={690} label="Subscribe" />
 
                   {/* Animated messages */}
-                  <svg style={{position: 'absolute', left: 0, top: 0, width: 440, height: 200, pointerEvents: 'none'}}>
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 500, height: 200, pointerEvents: 'none'}}>
                     <defs>
                       <filter id="glow-async">
                         <feGaussianBlur stdDeviation="2" result="coloredBlur" />
@@ -430,7 +430,7 @@ export const MicroservicesCommunication: React.FC = () => {
                       return progress > 0 && progress < 1 ? (
                         <circle
                           key={`to-queue-${i}`}
-                          cx={140 + (160 - 140) * progress}
+                          cx={150 + (170 - 150) * progress}
                           cy={30}
                           r={4}
                           fill="#22d3ee"
@@ -443,16 +443,16 @@ export const MicroservicesCommunication: React.FC = () => {
                     {/* Messages in queue (small dots stacking up) */}
                     {frame >= 660 && frame < 750 && (
                       <>
-                        <circle cx={225} cy={20} r={3} fill="#c084fc" opacity={0.7} />
-                        <circle cx={225} cy={28} r={3} fill="#c084fc" opacity={0.7} />
-                        <circle cx={225} cy={36} r={3} fill="#c084fc" opacity={0.7} />
+                        <circle cx={248} cy={20} r={3} fill="#c084fc" opacity={0.7} />
+                        <circle cx={248} cy={28} r={3} fill="#c084fc" opacity={0.7} />
+                        <circle cx={248} cy={36} r={3} fill="#c084fc" opacity={0.7} />
                       </>
                     )}
 
                     {/* Messages flowing from queue to service (continuous) */}
                     {frame >= 690 && (frame - 690) % 60 < 25 && (
                       <circle
-                        cx={290 + ((310 - 290) * ((frame - 690) % 60)) / 25}
+                        cx={325 + ((345 - 325) * ((frame - 690) % 60)) / 25}
                         cy={30}
                         r={4}
                         fill="#c084fc"
@@ -465,7 +465,7 @@ export const MicroservicesCommunication: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      left: 10,
+                      left: 5,
                       top: 90,
                       fontSize: 20,
                       color: '#cbd5e1',
