@@ -23,6 +23,7 @@ import {ModelContextProtocol} from './topics/ModelContextProtocol';
 import {AIInAction} from './topics/AIInAction';
 import {MonolithVsMicroservices} from './topics/MonolithVsMicroservices';
 import {ServiceDecomposition} from './topics/ServiceDecomposition';
+import {MicroservicesCommunication} from './topics/MicroservicesCommunication';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -214,6 +215,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="ServiceDecomposition"
         component={ServiceDecomposition}
+        durationInFrames={3000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MicroservicesCommunication"
+        component={MicroservicesCommunication}
         durationInFrames={3000}
         fps={30}
         width={1920}
