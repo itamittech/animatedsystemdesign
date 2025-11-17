@@ -261,7 +261,7 @@ export const AgenticAI: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -393,7 +393,7 @@ export const AgenticAI: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -591,7 +591,7 @@ export const AgenticAI: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -731,7 +731,7 @@ export const AgenticAI: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -824,7 +824,7 @@ export const AgenticAI: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
