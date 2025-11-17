@@ -739,7 +739,7 @@ export const DistributedCaching: React.FC = () => {
                       4️⃣ Hot Key Detection
                     </div>
                     <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
-                      • Identify keys with >10K req/sec<br/>
+                      • Identify keys with &gt;10K req/sec<br/>
                       • Use local cache for hot keys<br/>
                       • Or replicate hot data to multiple slots<br/>
                       • Avoid celebrity problem (one key slams node)
