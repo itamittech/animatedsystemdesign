@@ -20,7 +20,8 @@
     "render:distributed-transactions": "node studio.js render src/index.ts DistributedTransactions out/distributed-transactions.mp4",
     "render:caching-fundamentals": "node studio.js render src/index.ts CachingFundamentals out/caching-fundamentals.mp4",
     "render:multi-layer-caching": "node studio.js render src/index.ts MultiLayerCaching out/multi-layer-caching.mp4",
-    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc && npm run render:database-fundamentals && npm run render:sql-databases && npm run render:nosql-databases && npm run render:database-replication && npm run render:database-sharding && npm run render:distributed-transactions && npm run render:caching-fundamentals && npm run render:multi-layer-caching",
+    "render:distributed-caching": "node studio.js render src/index.ts DistributedCaching out/distributed-caching.mp4",
+    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc && npm run render:database-fundamentals && npm run render:sql-databases && npm run render:nosql-databases && npm run render:database-replication && npm run render:database-sharding && npm run render:distributed-transactions && npm run render:caching-fundamentals && npm run render:multi-layer-caching && npm run render:distributed-caching",
     "upgrade": "node studio.js upgrade",
     "test": "echo \"No tests yet\""
   },

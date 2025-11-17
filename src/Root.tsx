@@ -14,6 +14,7 @@ import {DatabaseSharding} from './topics/DatabaseSharding';
 import {DistributedTransactions} from './topics/DistributedTransactions';
 import {CachingFundamentals} from './topics/CachingFundamentals';
 import {MultiLayerCaching} from './topics/MultiLayerCaching';
+import {DistributedCaching} from './topics/DistributedCaching';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -134,6 +135,14 @@ export const RemotionRoot: React.FC = () => {
         id="MultiLayerCaching"
         component={MultiLayerCaching}
         durationInFrames={3000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DistributedCaching"
+        component={DistributedCaching}
+        durationInFrames={3150}
         fps={30}
         width={1920}
         height={1080}
