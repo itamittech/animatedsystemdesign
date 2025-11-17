@@ -31,6 +31,7 @@ import {MicroservicesInAction} from './topics/MicroservicesInAction';
 import {MessageQueueFundamentals} from './topics/MessageQueueFundamentals';
 import {ApacheKafka} from './topics/ApacheKafka';
 import {PublishSubscribePattern} from './topics/PublishSubscribePattern';
+import {HorizontalVerticalScaling} from './topics/HorizontalVerticalScaling';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -287,6 +288,14 @@ export const RemotionRoot: React.FC = () => {
         id="PublishSubscribePattern"
         component={PublishSubscribePattern}
         durationInFrames={2100}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="HorizontalVerticalScaling"
+        component={HorizontalVerticalScaling}
+        durationInFrames={1950}
         fps={30}
         width={1920}
         height={1080}
