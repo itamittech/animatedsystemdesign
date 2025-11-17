@@ -73,7 +73,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="Exactly! There are 4 main types, each optimized for different data patterns and use cases."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={180}
             maxWidth={600}
           />
@@ -200,7 +200,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="Document stores are perfect for flexible, nested data. Think JSON objects in a database."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={480}
             maxWidth={640}
           />
@@ -328,7 +328,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="That's where key-value stores like Redis and column-family stores like Cassandra excel!"
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1050}
             maxWidth={640}
           />
@@ -453,7 +453,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="When relationships ARE your data, graph databases are the answer. Think social networks."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1530}
             maxWidth={680}
           />
@@ -578,7 +578,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="architect"
             text="It's all about your access patterns and data structure. Here's a decision guide!"
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={2250}
             maxWidth={640}
           />

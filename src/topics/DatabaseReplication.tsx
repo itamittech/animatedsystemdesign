@@ -73,7 +73,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="architect"
             text="That's where replication comes in! Let's explore how databases copy data across multiple servers."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={180}
             maxWidth={640}
           />
@@ -143,7 +143,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="architect"
             text="The most common pattern: One master handles writes, replicas handle reads."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={480}
             maxWidth={600}
           />
@@ -282,7 +282,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="architect"
             text="Yes! Master-Master lets both servers accept writes. But it comes with complexity."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1050}
             maxWidth={640}
           />
@@ -415,7 +415,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="architect"
             text="This is the critical trade-off: consistency versus performance."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1380}
             maxWidth={560}
           />
@@ -568,7 +568,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="architect"
             text="Lag is the delay between master write and replica sync. It's the price of async replication."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1950}
             maxWidth={680}
           />
