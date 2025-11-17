@@ -263,7 +263,7 @@ export const MicroservicesCommunication: React.FC = () => {
               Communication Patterns
             </div>
 
-            <div style={{display: 'flex', gap: 30}}>
+            <div style={{display: 'flex', gap: 60}}>
               {/* Synchronous */}
               <div
                 style={{
@@ -281,32 +281,32 @@ export const MicroservicesCommunication: React.FC = () => {
                 <div style={{position: 'relative', height: 200, marginBottom: 15}}>
                   <Box
                     text="Order Service"
-                    x={50}
+                    x={20}
                     y={0}
-                    width={150}
+                    width={140}
                     height={60}
                     color="#10b981"
                     startFrame={270}
-                    fontSize={14}
+                    fontSize={13}
                   />
                   <Box
                     text="Payment Service"
-                    x={330}
+                    x={280}
                     y={0}
-                    width={150}
+                    width={140}
                     height={60}
                     color="#f59e0b"
                     startFrame={300}
                     fontSize={13}
                   />
 
-                  <Arrow x1={200} y1={30} x2={330} y2={30} color="#22d3ee" startFrame={360} label="Request" />
-                  <Arrow x1={330} y1={45} x2={200} y2={45} color="#10b981" startFrame={420} label="Response" />
+                  <Arrow x1={160} y1={30} x2={280} y2={30} color="#22d3ee" startFrame={360} label="Request" />
+                  <Arrow x1={280} y1={45} x2={160} y2={45} color="#10b981" startFrame={420} label="Response" />
 
                   <div
                     style={{
                       position: 'absolute',
-                      left: 50,
+                      left: 20,
                       top: 90,
                       fontSize: 13,
                       color: '#cbd5e1',
@@ -351,33 +351,33 @@ export const MicroservicesCommunication: React.FC = () => {
                 <div style={{position: 'relative', height: 200, marginBottom: 15}}>
                   <Box
                     text="Order Service"
-                    x={50}
+                    x={10}
                     y={0}
-                    width={150}
+                    width={130}
                     height={60}
                     color="#10b981"
                     startFrame={540}
-                    fontSize={14}
+                    fontSize={13}
                   />
-                  <Box text="Message Queue" x={240} y={0} width={140} height={60} color="#7c3aed" startFrame={570} fontSize={13} />
+                  <Box text="Message Queue" x={160} y={0} width={130} height={60} color="#7c3aed" startFrame={570} fontSize={12} />
                   <Box
                     text="Email Service"
-                    x={410}
+                    x={310}
                     y={0}
-                    width={140}
+                    width={130}
                     height={60}
                     color="#ec4899"
                     startFrame={600}
-                    fontSize={13}
+                    fontSize={12}
                   />
 
-                  <Arrow x1={200} y1={30} x2={240} y2={30} color="#22d3ee" startFrame={630} label="Publish" />
-                  <Arrow x1={380} y1={30} x2={410} y2={30} color="#c084fc" startFrame={690} label="Subscribe" />
+                  <Arrow x1={140} y1={30} x2={160} y2={30} color="#22d3ee" startFrame={630} label="Publish" />
+                  <Arrow x1={290} y1={30} x2={310} y2={30} color="#c084fc" startFrame={690} label="Subscribe" />
 
                   <div
                     style={{
                       position: 'absolute',
-                      left: 50,
+                      left: 10,
                       top: 90,
                       fontSize: 13,
                       color: '#cbd5e1',
@@ -699,23 +699,38 @@ export const MicroservicesCommunication: React.FC = () => {
           <Character type="developer" x={200} y={height / 2 - 100} startFrame={2280} />
           <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2310} />
 
-          <Dialogue
-            speaker="developer"
-            text="How do I handle retries, timeouts, circuit breakers for all these service-to-service calls? Seems like a lot of code!"
-            x={100}
-            y={height - 280}
-            startFrame={2340}
-            maxWidth={650}
-          />
+          {frame < 2460 && (
+            <Dialogue
+              speaker="developer"
+              text="How do I handle retries, timeouts, circuit breakers for all these service-to-service calls? Seems like a lot of code!"
+              x={100}
+              y={height - 280}
+              startFrame={2340}
+              maxWidth={650}
+            />
+          )}
 
-          <Dialogue
-            speaker="architect"
-            text="Service Mesh! Infrastructure layer that handles all network concerns transparently using sidecar proxies. No code changes needed!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2460}
-            maxWidth={580}
-          />
+          {frame >= 2460 && frame < 2910 && (
+            <Dialogue
+              speaker="architect"
+              text="Service Mesh! Infrastructure layer that handles all network concerns transparently using sidecar proxies. No code changes needed!"
+              x={width - 750}
+              y={height - 280}
+              startFrame={2460}
+              maxWidth={580}
+            />
+          )}
+
+          {frame >= 2910 && (
+            <Dialogue
+              speaker="developer"
+              text="This is great! We've covered communication patterns, but what happens when services fail? How do we build resilient systems?"
+              x={100}
+              y={height - 280}
+              startFrame={2910}
+              maxWidth={650}
+            />
+          )}
 
           {/* Service Mesh Visualization */}
           <div
