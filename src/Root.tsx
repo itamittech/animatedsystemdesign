@@ -25,6 +25,7 @@ import {MonolithVsMicroservices} from './topics/MonolithVsMicroservices';
 import {ServiceDecomposition} from './topics/ServiceDecomposition';
 import {MicroservicesCommunication} from './topics/MicroservicesCommunication';
 import {MicroservicesResilience} from './topics/MicroservicesResilience';
+import {DistributedSagas} from './topics/DistributedSagas';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -233,6 +234,14 @@ export const RemotionRoot: React.FC = () => {
         id="MicroservicesResilience"
         component={MicroservicesResilience}
         durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DistributedSagas"
+        component={DistributedSagas}
+        durationInFrames={3000}
         fps={30}
         width={1920}
         height={1080}
