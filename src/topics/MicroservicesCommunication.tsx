@@ -303,6 +303,43 @@ export const MicroservicesCommunication: React.FC = () => {
                   <Arrow x1={160} y1={30} x2={280} y2={30} color="#22d3ee" startFrame={360} label="Request" />
                   <Arrow x1={280} y1={45} x2={160} y2={45} color="#10b981" startFrame={420} label="Response" />
 
+                  {/* Animated data packets */}
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 440, height: 200, pointerEvents: 'none'}}>
+                    <defs>
+                      <filter id="glow-sync">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
+                    {/* Request packet animation (loops every 90 frames) */}
+                    {frame >= 360 && (frame - 360) % 90 < 30 && (
+                      <circle
+                        cx={160 + ((280 - 160) * ((frame - 360) % 90)) / 30}
+                        cy={30}
+                        r={5}
+                        fill="#22d3ee"
+                        filter="url(#glow-sync)"
+                        opacity={0.8}
+                      />
+                    )}
+
+                    {/* Response packet animation (loops every 90 frames, offset) */}
+                    {frame >= 420 && (frame - 420) % 90 < 30 && (
+                      <circle
+                        cx={280 - ((280 - 160) * ((frame - 420) % 90)) / 30}
+                        cy={45}
+                        r={5}
+                        fill="#10b981"
+                        filter="url(#glow-sync)"
+                        opacity={0.8}
+                      />
+                    )}
+                  </svg>
+
                   <div
                     style={{
                       position: 'absolute',
@@ -373,6 +410,57 @@ export const MicroservicesCommunication: React.FC = () => {
 
                   <Arrow x1={140} y1={30} x2={160} y2={30} color="#22d3ee" startFrame={630} label="Publish" />
                   <Arrow x1={290} y1={30} x2={310} y2={30} color="#c084fc" startFrame={690} label="Subscribe" />
+
+                  {/* Animated messages */}
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 440, height: 200, pointerEvents: 'none'}}>
+                    <defs>
+                      <filter id="glow-async">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
+                    {/* Messages flowing to queue (multiple, staggered) */}
+                    {[0, 1, 2].map((i) => {
+                      const msgFrame = 630 + i * 40;
+                      const progress = frame >= msgFrame ? Math.min((frame - msgFrame) / 25, 1) : 0;
+                      return progress > 0 && progress < 1 ? (
+                        <circle
+                          key={`to-queue-${i}`}
+                          cx={140 + (160 - 140) * progress}
+                          cy={30}
+                          r={4}
+                          fill="#22d3ee"
+                          filter="url(#glow-async)"
+                          opacity={0.9}
+                        />
+                      ) : null;
+                    })}
+
+                    {/* Messages in queue (small dots stacking up) */}
+                    {frame >= 660 && frame < 750 && (
+                      <>
+                        <circle cx={225} cy={20} r={3} fill="#c084fc" opacity={0.7} />
+                        <circle cx={225} cy={28} r={3} fill="#c084fc" opacity={0.7} />
+                        <circle cx={225} cy={36} r={3} fill="#c084fc" opacity={0.7} />
+                      </>
+                    )}
+
+                    {/* Messages flowing from queue to service (continuous) */}
+                    {frame >= 690 && (frame - 690) % 60 < 25 && (
+                      <circle
+                        cx={290 + ((310 - 290) * ((frame - 690) % 60)) / 25}
+                        cy={30}
+                        r={4}
+                        fill="#c084fc"
+                        filter="url(#glow-async)"
+                        opacity={0.9}
+                      />
+                    )}
+                  </svg>
 
                   <div
                     style={{
@@ -815,6 +903,86 @@ export const MicroservicesCommunication: React.FC = () => {
               {/* Mesh connections */}
               <Arrow x1={210} y1={105} x2={430} y2={105} color="#22d3ee" startFrame={2850} />
               <Arrow x1={570} y1={105} x2={790} y2={105} color="#22d3ee" startFrame={2850} />
+
+              {/* Animated traffic between proxies */}
+              <svg style={{position: 'absolute', left: 0, top: 0, width: 1000, height: 150, pointerEvents: 'none'}}>
+                <defs>
+                  <filter id="glow-mesh">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  {/* Pulsing effect for proxies */}
+                  <radialGradient id="proxy-glow">
+                    <stop offset="0%" stopColor="#6366f1" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+
+                {/* Glowing aura around active proxies */}
+                {frame >= 2850 && (
+                  <>
+                    <circle
+                      cx={140}
+                      cy={105}
+                      r={30 + Math.sin((frame - 2850) / 15) * 5}
+                      fill="url(#proxy-glow)"
+                      opacity={0.6}
+                    />
+                    <circle
+                      cx={500}
+                      cy={105}
+                      r={30 + Math.sin((frame - 2850 + 10) / 15) * 5}
+                      fill="url(#proxy-glow)"
+                      opacity={0.6}
+                    />
+                    <circle
+                      cx={860}
+                      cy={105}
+                      r={30 + Math.sin((frame - 2850 + 20) / 15) * 5}
+                      fill="url(#proxy-glow)"
+                      opacity={0.6}
+                    />
+                  </>
+                )}
+
+                {/* Animated data packets between proxies (continuous loop) */}
+                {frame >= 2850 && (frame - 2850) % 70 < 35 && (
+                  <circle
+                    cx={210 + ((430 - 210) * ((frame - 2850) % 70)) / 35}
+                    cy={105}
+                    r={4}
+                    fill="#22d3ee"
+                    filter="url(#glow-mesh)"
+                    opacity={0.9}
+                  />
+                )}
+                {frame >= 2870 && (frame - 2870) % 70 < 35 && (
+                  <circle
+                    cx={570 + ((790 - 570) * ((frame - 2870) % 70)) / 35}
+                    cy={105}
+                    r={4}
+                    fill="#22d3ee"
+                    filter="url(#glow-mesh)"
+                    opacity={0.9}
+                  />
+                )}
+
+                {/* Return traffic */}
+                {frame >= 2860 && (frame - 2860) % 70 < 35 && (
+                  <circle
+                    cx={430 - ((430 - 210) * ((frame - 2860) % 70)) / 35}
+                    cy={100}
+                    r={4}
+                    fill="#10b981"
+                    filter="url(#glow-mesh)"
+                    opacity={0.8}
+                  />
+                )}
+              </svg>
 
               {/* Service Mesh Benefits */}
               <div
