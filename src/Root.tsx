@@ -15,6 +15,11 @@ import {DistributedTransactions} from './topics/DistributedTransactions';
 import {CachingFundamentals} from './topics/CachingFundamentals';
 import {MultiLayerCaching} from './topics/MultiLayerCaching';
 import {DistributedCaching} from './topics/DistributedCaching';
+import {AIMLBasics} from './topics/AIMLBasics';
+import {NeuralNetworks} from './topics/NeuralNetworks';
+import {LargeLanguageModels} from './topics/LargeLanguageModels';
+import {AgenticAI} from './topics/AgenticAI';
+import {ModelContextProtocol} from './topics/ModelContextProtocol';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -143,6 +148,46 @@ export const RemotionRoot: React.FC = () => {
         id="DistributedCaching"
         component={DistributedCaching}
         durationInFrames={3150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AIMLBasics"
+        component={AIMLBasics}
+        durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="NeuralNetworks"
+        component={NeuralNetworks}
+        durationInFrames={3000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="LargeLanguageModels"
+        component={LargeLanguageModels}
+        durationInFrames={3150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AgenticAI"
+        component={AgenticAI}
+        durationInFrames={3000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ModelContextProtocol"
+        component={ModelContextProtocol}
+        durationInFrames={2850}
         fps={30}
         width={1920}
         height={1080}
