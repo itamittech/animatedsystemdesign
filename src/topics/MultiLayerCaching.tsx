@@ -36,7 +36,7 @@ export const MultiLayerCaching: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const MultiLayerCaching: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(20, 184, 166, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -116,7 +116,7 @@ export const MultiLayerCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 24, color: '#60a5fa', fontWeight: 'bold'}}>1️⃣ Browser Cache</div>
-                    <div style={{fontSize: 16, color: '#cbd5e1', marginTop: 8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', marginTop: 8}}>
                       🚀 Fastest (0ms) • Local storage, HTTP cache • Static assets
                     </div>
                   </div>
@@ -134,7 +134,7 @@ export const MultiLayerCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 24, color: '#34d399', fontWeight: 'bold'}}>2️⃣ CDN Cache</div>
-                    <div style={{fontSize: 16, color: '#cbd5e1', marginTop: 8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', marginTop: 8}}>
                       🌍 Edge locations (10-50ms) • Images, CSS, JS • Global distribution
                     </div>
                   </div>
@@ -152,7 +152,7 @@ export const MultiLayerCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 24, color: '#fbbf24', fontWeight: 'bold'}}>3️⃣ Application Cache (Redis)</div>
-                    <div style={{fontSize: 16, color: '#cbd5e1', marginTop: 8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', marginTop: 8}}>
                       ⚡ In-memory (1-5ms) • Session data, API responses • Shared across servers
                     </div>
                   </div>
@@ -170,7 +170,7 @@ export const MultiLayerCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 24, color: '#f472b6', fontWeight: 'bold'}}>4️⃣ Database Query Cache</div>
-                    <div style={{fontSize: 16, color: '#cbd5e1', marginTop: 8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', marginTop: 8}}>
                       💾 DB-level (10-50ms) • Query results • Last resort before disk
                     </div>
                   </div>
@@ -236,20 +236,20 @@ export const MultiLayerCaching: React.FC = () => {
                 <div style={{fontSize: 22, color: '#3b82f6', fontWeight: 'bold', marginBottom: 12}}>
                   ✅ Scenario 1: Browser Cache Hit (Best Case)
                 </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 16, fontSize: 16, color: '#e2e8f0'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 28}}>👤</div>
-                    <div style={{fontSize: 14}}>User</div>
+                    <div style={{fontSize: 22}}>User</div>
                   </div>
                   <div style={{fontSize: 24, color: '#3b82f6'}}>→</div>
                   <div style={{backgroundColor: 'rgba(59, 130, 246, 0.3)', padding: '12px 20px', borderRadius: 8, border: '2px solid #3b82f6'}}>
                     <div style={{fontWeight: 'bold', color: '#60a5fa'}}>Browser Cache</div>
-                    <div style={{fontSize: 14, color: '#10b981'}}>✓ HIT (0ms)</div>
+                    <div style={{fontSize: 22, color: '#10b981'}}>✓ HIT (0ms)</div>
                   </div>
                   <div style={{fontSize: 24, color: '#10b981'}}>→</div>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 28}}>👤</div>
-                    <div style={{fontSize: 14, color: '#10b981'}}>Instant!</div>
+                    <div style={{fontSize: 22, color: '#10b981'}}>Instant!</div>
                   </div>
                   <div style={{fontSize: 18, color: '#94a3b8', marginLeft: 'auto'}}>
                     No network needed ⚡
@@ -270,26 +270,26 @@ export const MultiLayerCaching: React.FC = () => {
                 <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                   ✅ Scenario 2: CDN Cache Hit
                 </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 15, color: '#e2e8f0'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 24, color: '#e2e8f0'}}>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 24}}>👤</div>
-                    <div style={{fontSize: 13}}>User</div>
+                    <div style={{fontSize: 20}}>User</div>
                   </div>
                   <div style={{fontSize: 20, color: '#ef4444'}}>→</div>
                   <div style={{backgroundColor: 'rgba(59, 130, 246, 0.2)', padding: '10px 16px', borderRadius: 8, border: '2px solid #3b82f6', opacity: 0.5}}>
-                    <div style={{fontSize: 14, color: '#94a3b8'}}>Browser ✗</div>
+                    <div style={{fontSize: 22, color: '#94a3b8'}}>Browser ✗</div>
                   </div>
                   <div style={{fontSize: 20, color: '#10b981'}}>→</div>
                   <div style={{backgroundColor: 'rgba(16, 185, 129, 0.3)', padding: '10px 16px', borderRadius: 8, border: '2px solid #10b981'}}>
                     <div style={{fontWeight: 'bold', color: '#34d399'}}>CDN</div>
-                    <div style={{fontSize: 13, color: '#10b981'}}>✓ HIT (20ms)</div>
+                    <div style={{fontSize: 20, color: '#10b981'}}>✓ HIT (20ms)</div>
                   </div>
                   <div style={{fontSize: 20, color: '#10b981'}}>→</div>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 24}}>👤</div>
-                    <div style={{fontSize: 13, color: '#10b981'}}>Fast</div>
+                    <div style={{fontSize: 20, color: '#10b981'}}>Fast</div>
                   </div>
-                  <div style={{fontSize: 16, color: '#94a3b8', marginLeft: 'auto'}}>
+                  <div style={{fontSize: 24, color: '#94a3b8', marginLeft: 'auto'}}>
                     Edge location 🌍
                   </div>
                 </div>
@@ -308,24 +308,24 @@ export const MultiLayerCaching: React.FC = () => {
                 <div style={{fontSize: 22, color: '#f59e0b', fontWeight: 'bold', marginBottom: 12}}>
                   ✅ Scenario 3: Application Cache (Redis) Hit
                 </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: '#e2e8f0'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: 10, fontSize: 22, color: '#e2e8f0'}}>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 22}}>👤</div>
                   </div>
                   <div style={{fontSize: 18}}>→</div>
-                  <div style={{padding: '8px 12px', borderRadius: 6, border: '1px solid #3b82f6', opacity: 0.4, fontSize: 13}}>Browser ✗</div>
+                  <div style={{padding: '8px 12px', borderRadius: 6, border: '1px solid #3b82f6', opacity: 0.4, fontSize: 20}}>Browser ✗</div>
                   <div style={{fontSize: 18}}>→</div>
-                  <div style={{padding: '8px 12px', borderRadius: 6, border: '1px solid #10b981', opacity: 0.4, fontSize: 13}}>CDN ✗</div>
+                  <div style={{padding: '8px 12px', borderRadius: 6, border: '1px solid #10b981', opacity: 0.4, fontSize: 20}}>CDN ✗</div>
                   <div style={{fontSize: 18, color: '#f59e0b'}}>→</div>
                   <div style={{backgroundColor: 'rgba(245, 158, 11, 0.3)', padding: '8px 12px', borderRadius: 6, border: '2px solid #f59e0b'}}>
                     <div style={{fontWeight: 'bold', color: '#fbbf24'}}>Redis</div>
-                    <div style={{fontSize: 12, color: '#10b981'}}>✓ HIT (2ms)</div>
+                    <div style={{fontSize: 20, color: '#10b981'}}>✓ HIT (2ms)</div>
                   </div>
                   <div style={{fontSize: 18, color: '#10b981'}}>→</div>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 22}}>👤</div>
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8', marginLeft: 'auto'}}>
+                  <div style={{fontSize: 24, color: '#94a3b8', marginLeft: 'auto'}}>
                     In-memory ⚡
                   </div>
                 </div>
@@ -344,22 +344,22 @@ export const MultiLayerCaching: React.FC = () => {
                 <div style={{fontSize: 22, color: '#ec4899', fontWeight: 'bold', marginBottom: 12}}>
                   ⚠️ Scenario 4: Cache Miss - Database Query (Slowest)
                 </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#e2e8f0'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: 8, fontSize: 20, color: '#e2e8f0'}}>
                   <div style={{fontSize: 20}}>👤</div>
-                  <div style={{fontSize: 16}}>→</div>
-                  <div style={{padding: '6px 10px', borderRadius: 6, opacity: 0.3, fontSize: 12}}>Browser ✗</div>
-                  <div style={{fontSize: 16}}>→</div>
-                  <div style={{padding: '6px 10px', borderRadius: 6, opacity: 0.3, fontSize: 12}}>CDN ✗</div>
-                  <div style={{fontSize: 16}}>→</div>
-                  <div style={{padding: '6px 10px', borderRadius: 6, opacity: 0.3, fontSize: 12}}>Redis ✗</div>
-                  <div style={{fontSize: 16, color: '#ec4899'}}>→</div>
+                  <div style={{fontSize: 24}}>→</div>
+                  <div style={{padding: '6px 10px', borderRadius: 6, opacity: 0.3, fontSize: 20}}>Browser ✗</div>
+                  <div style={{fontSize: 24}}>→</div>
+                  <div style={{padding: '6px 10px', borderRadius: 6, opacity: 0.3, fontSize: 20}}>CDN ✗</div>
+                  <div style={{fontSize: 24}}>→</div>
+                  <div style={{padding: '6px 10px', borderRadius: 6, opacity: 0.3, fontSize: 20}}>Redis ✗</div>
+                  <div style={{fontSize: 24, color: '#ec4899'}}>→</div>
                   <div style={{backgroundColor: 'rgba(236, 72, 153, 0.3)', padding: '6px 10px', borderRadius: 6, border: '2px solid #ec4899'}}>
                     <div style={{fontWeight: 'bold', color: '#f472b6'}}>Database 💾</div>
-                    <div style={{fontSize: 11, color: '#fbbf24'}}>Query (100ms)</div>
+                    <div style={{fontSize: 18, color: '#fbbf24'}}>Query (100ms)</div>
                   </div>
-                  <div style={{fontSize: 16, color: '#fbbf24'}}>→</div>
+                  <div style={{fontSize: 24, color: '#fbbf24'}}>→</div>
                   <div style={{fontSize: 20}}>👤</div>
-                  <div style={{fontSize: 14, color: '#94a3b8', marginLeft: 'auto'}}>
+                  <div style={{fontSize: 22, color: '#94a3b8', marginLeft: 'auto'}}>
                     Then populate caches ↑
                   </div>
                 </div>
@@ -440,7 +440,7 @@ export const MultiLayerCaching: React.FC = () => {
                       borderRadius: 12,
                       padding: 24,
                       fontFamily: 'monospace',
-                      fontSize: 15,
+                      fontSize: 24,
                       lineHeight: 1.9,
                       border: '2px solid #14b8a6',
                     }}
@@ -477,7 +477,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                       ✓ Benefits
                     </div>
-                    <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       • Only cache what's requested<br/>
                       • App controls cache logic<br/>
                       • Works with any data store<br/>
@@ -496,7 +496,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{fontSize: 20, color: '#f59e0b', fontWeight: 'bold', marginBottom: 12}}>
                       ⚠️ Considerations
                     </div>
-                    <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       • Initial requests are slow (miss)<br/>
                       • Cache and DB can diverge<br/>
                       • Need invalidation strategy<br/>
@@ -565,7 +565,7 @@ export const MultiLayerCaching: React.FC = () => {
                   ⏱️ TTL-Based
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
                   Set expiration time, auto-delete when expired
                 </div>
 
@@ -575,7 +575,7 @@ export const MultiLayerCaching: React.FC = () => {
                     borderRadius: 8,
                     padding: 16,
                     fontFamily: 'monospace',
-                    fontSize: 13,
+                    fontSize: 20,
                     marginBottom: 16,
                   }}
                 >
@@ -584,7 +584,7 @@ export const MultiLayerCaching: React.FC = () => {
                   <div style={{color: '#3b82f6'}}>)</div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.7}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.7}}>
                   <div style={{color: '#10b981'}}>✓ Simple</div>
                   <div style={{color: '#10b981'}}>✓ Automatic cleanup</div>
                   <div style={{color: '#ef4444', marginTop: 8}}>✗ May serve stale data</div>
@@ -606,7 +606,7 @@ export const MultiLayerCaching: React.FC = () => {
                   🔔 Event-Based
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
                   Invalidate immediately when data changes
                 </div>
 
@@ -616,7 +616,7 @@ export const MultiLayerCaching: React.FC = () => {
                     borderRadius: 8,
                     padding: 16,
                     fontFamily: 'monospace',
-                    fontSize: 13,
+                    fontSize: 20,
                     marginBottom: 16,
                   }}
                 >
@@ -629,7 +629,7 @@ export const MultiLayerCaching: React.FC = () => {
                   <div style={{color: '#fbbf24'}}>)</div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.7}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.7}}>
                   <div style={{color: '#10b981'}}>✓ Always fresh</div>
                   <div style={{color: '#10b981'}}>✓ Strong consistency</div>
                   <div style={{color: '#ef4444', marginTop: 8}}>✗ More complex</div>
@@ -651,7 +651,7 @@ export const MultiLayerCaching: React.FC = () => {
                   ✍️ Write-Through
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
                   Update cache and DB together on write
                 </div>
 
@@ -661,7 +661,7 @@ export const MultiLayerCaching: React.FC = () => {
                     borderRadius: 8,
                     padding: 16,
                     fontFamily: 'monospace',
-                    fontSize: 13,
+                    fontSize: 20,
                     marginBottom: 16,
                   }}
                 >
@@ -671,7 +671,7 @@ export const MultiLayerCaching: React.FC = () => {
                   <div style={{color: '#94a3b8', marginTop: 8}}>// Atomic update</div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.7}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.7}}>
                   <div style={{color: '#10b981'}}>✓ Cache always valid</div>
                   <div style={{color: '#10b981'}}>✓ Read-heavy workloads</div>
                   <div style={{color: '#ef4444', marginTop: 8}}>✗ Slower writes</div>
@@ -683,7 +683,7 @@ export const MultiLayerCaching: React.FC = () => {
               style={{
                 marginTop: 24,
                 textAlign: 'center',
-                fontSize: 19,
+                fontSize: 24,
                 color: '#fbbf24',
                 fontWeight: 'bold',
                 opacity: fadeIn(frame, 2220, 15),
@@ -758,12 +758,12 @@ export const MultiLayerCaching: React.FC = () => {
                   🏆 Production Best Practices
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, fontSize: 17, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#5eead4', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       1️⃣ Different TTLs per Layer
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       Browser: 1 hour • CDN: 1 day • Redis: 5 min • DB cache: 1 min<br/>
                       <span style={{color: '#94a3b8'}}>Closer to user = longer TTL</span>
                     </div>
@@ -773,7 +773,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{color: '#5eead4', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       2️⃣ Cache Busting for Static Assets
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       Use versioned URLs: <span style={{fontFamily: 'monospace', color: '#fbbf24'}}>app.js?v=1.2.3</span><br/>
                       <span style={{color: '#94a3b8'}}>Or hash: app.abc123.js</span>
                     </div>
@@ -783,7 +783,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{color: '#5eead4', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       3️⃣ Monitor Cache Hit Rates
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       Target: Browser 90% • CDN 80% • Redis 70%<br/>
                       <span style={{color: '#94a3b8'}}>Low hit rate = wasted cache</span>
                     </div>
@@ -793,7 +793,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{color: '#5eead4', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       4️⃣ Cache Warming
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       Proactively load popular data on deploy<br/>
                       <span style={{color: '#94a3b8'}}>Prevent stampede on first requests</span>
                     </div>
@@ -803,7 +803,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{color: '#5eead4', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       5️⃣ Graceful Degradation
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       If Redis down, serve from DB (slower but working)<br/>
                       <span style={{color: '#94a3b8'}}>Cache failures shouldn't break app</span>
                     </div>
@@ -813,7 +813,7 @@ export const MultiLayerCaching: React.FC = () => {
                     <div style={{color: '#5eead4', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       6️⃣ Separate Hot & Cold Data
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       User sessions (hot) → Redis<br/>
                       Analytics (cold) → Don't cache or long TTL
                     </div>
@@ -832,7 +832,7 @@ export const MultiLayerCaching: React.FC = () => {
                   <div style={{fontSize: 22, color: '#60a5fa', fontWeight: 'bold', marginBottom: 10}}>
                     🎯 Remember: Caching is about trade-offs
                   </div>
-                  <div style={{fontSize: 17, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>
                     Fresh data vs Speed • Memory cost vs DB load • Complexity vs Performance
                   </div>
                 </div>

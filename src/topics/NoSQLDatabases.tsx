@@ -36,7 +36,7 @@ export const NoSQLDatabases: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const NoSQLDatabases: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(245, 158, 11, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -104,7 +104,7 @@ export const NoSQLDatabases: React.FC = () => {
                   <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>
                     📄 Document Stores
                   </div>
-                  <div style={{fontSize: 16, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>
                     JSON-like documents<br/>
                     MongoDB, DynamoDB
                   </div>
@@ -124,7 +124,7 @@ export const NoSQLDatabases: React.FC = () => {
                   <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 8}}>
                     🔑 Key-Value Stores
                   </div>
-                  <div style={{fontSize: 16, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>
                     Simple key → value lookups<br/>
                     Redis, Memcached
                   </div>
@@ -144,7 +144,7 @@ export const NoSQLDatabases: React.FC = () => {
                   <div style={{fontSize: 28, color: '#3b82f6', fontWeight: 'bold', marginBottom: 8}}>
                     📊 Column-Family
                   </div>
-                  <div style={{fontSize: 16, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>
                     Wide-column storage<br/>
                     Cassandra, HBase
                   </div>
@@ -164,7 +164,7 @@ export const NoSQLDatabases: React.FC = () => {
                   <div style={{fontSize: 28, color: '#ec4899', fontWeight: 'bold', marginBottom: 8}}>
                     🕸️ Graph Databases
                   </div>
-                  <div style={{fontSize: 16, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>
                     Nodes & relationships<br/>
                     Neo4j, Amazon Neptune
                   </div>
@@ -232,7 +232,7 @@ export const NoSQLDatabases: React.FC = () => {
 
                 <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                   <div style={{flex: 1}}>
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{marginBottom: 10}}>
                         <span style={{color: '#34d399', fontWeight: 'bold'}}>Data model:</span> Nested JSON documents
                       </div>
@@ -248,7 +248,7 @@ export const NoSQLDatabases: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 14, color: '#94a3b8'}}>
+                  <div style={{flex: 1, fontSize: 22, color: '#94a3b8'}}>
                     <div style={{fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                       <div style={{color: '#10b981', fontWeight: 'bold'}}>// MongoDB document example</div>
                       <div style={{color: '#e2e8f0', marginTop: 8}}>{'{'}</div>
@@ -361,24 +361,24 @@ export const NoSQLDatabases: React.FC = () => {
 
                 <div style={{display: 'flex', gap: 32}}>
                   <div style={{flex: 1}}>
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div><span style={{color: '#fbbf24', fontWeight: 'bold'}}>Structure:</span> Simple key → value</div>
                       <div><span style={{color: '#fbbf24', fontWeight: 'bold'}}>Speed:</span> In-memory, sub-ms latency</div>
                       <div><span style={{color: '#fbbf24', fontWeight: 'bold'}}>Use for:</span> Caching, sessions, leaderboards</div>
                     </div>
-                    <div style={{marginTop: 16, fontSize: 17, color: '#10b981', fontWeight: 'bold'}}>
+                    <div style={{marginTop: 16, fontSize: 24, color: '#10b981', fontWeight: 'bold'}}>
                       ⚡ 100,000+ ops/sec per node!
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 15, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                  <div style={{flex: 1, fontSize: 24, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                     <div style={{color: '#f59e0b'}}>// Redis examples</div>
                     <div style={{color: '#e2e8f0', marginTop: 8}}>SET user:123 "{'{"name":"Alice"}'}"</div>
                     <div style={{color: '#e2e8f0', marginTop: 8}}>GET user:123</div>
                     <div style={{color: '#10b981', marginTop: 12}}>→ "{'{"name":"Alice"}'}"</div>
                     <div style={{color: '#94a3b8', marginTop: 14}}>// TTL support</div>
                     <div style={{color: '#e2e8f0'}}>SETEX session:xyz 3600 "data"</div>
-                    <div style={{color: '#94a3b8', fontSize: 13}}>(expires in 1 hour)</div>
+                    <div style={{color: '#94a3b8', fontSize: 20}}>(expires in 1 hour)</div>
                   </div>
                 </div>
               </div>
@@ -402,7 +402,7 @@ export const NoSQLDatabases: React.FC = () => {
 
                 <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                   <div style={{flex: 1}}>
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div><span style={{color: '#60a5fa', fontWeight: 'bold'}}>Structure:</span> Rows with dynamic columns</div>
                       <div><span style={{color: '#60a5fa', fontWeight: 'bold'}}>Writes:</span> Extremely fast (append-only)</div>
                       <div><span style={{color: '#60a5fa', fontWeight: 'bold'}}>Scale:</span> Petabytes of data</div>
@@ -410,7 +410,7 @@ export const NoSQLDatabases: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 16, color: '#e2e8f0'}}>
+                  <div style={{flex: 1, fontSize: 24, color: '#e2e8f0'}}>
                     <div style={{backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                       <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 10}}>Perfect for:</div>
                       <div style={{lineHeight: 1.8}}>
@@ -484,7 +484,7 @@ export const NoSQLDatabases: React.FC = () => {
 
               <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                 <div style={{flex: 1}}>
-                  <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.9}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{marginBottom: 12}}>
                       <span style={{color: '#f9a8d4', fontWeight: 'bold'}}>Nodes:</span> Entities (users, products)
                     </div>
@@ -534,7 +534,7 @@ export const NoSQLDatabases: React.FC = () => {
                   <div>✓ Knowledge graphs</div>
                 </div>
 
-                <div style={{marginTop: 20, textAlign: 'center', fontSize: 17, color: '#fbbf24', fontWeight: 'bold'}}>
+                <div style={{marginTop: 20, textAlign: 'center', fontSize: 24, color: '#fbbf24', fontWeight: 'bold'}}>
                   💡 "Find friends of friends who like Product X" → 1 query vs many JOINs!
                 </div>
               </div>
@@ -607,25 +607,25 @@ export const NoSQLDatabases: React.FC = () => {
                   NoSQL Decision Matrix
                 </div>
 
-                <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 2.2}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2.2}}>
                   <div style={{opacity: fadeIn(frame, 2370, 15)}}>
                     <span style={{fontSize: 24}}>📄</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>Document Store</span> if:
-                    <span style={{fontSize: 17, marginLeft: 20, color: '#94a3b8'}}>Flexible schema, nested objects, rich queries</span>
+                    <span style={{fontSize: 24, marginLeft: 20, color: '#94a3b8'}}>Flexible schema, nested objects, rich queries</span>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2420, 15)}}>
                     <span style={{fontSize: 24}}>🔑</span> <span style={{color: '#f59e0b', fontWeight: 'bold'}}>Key-Value</span> if:
-                    <span style={{fontSize: 17, marginLeft: 20, color: '#94a3b8'}}>Simple lookups, caching, sessions, ultra-fast reads</span>
+                    <span style={{fontSize: 24, marginLeft: 20, color: '#94a3b8'}}>Simple lookups, caching, sessions, ultra-fast reads</span>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2470, 15)}}>
                     <span style={{fontSize: 24}}>📊</span> <span style={{color: '#3b82f6', fontWeight: 'bold'}}>Column-Family</span> if:
-                    <span style={{fontSize: 17, marginLeft: 20, color: '#94a3b8'}}>Massive writes, time-series, IoT data, petabyte scale</span>
+                    <span style={{fontSize: 24, marginLeft: 20, color: '#94a3b8'}}>Massive writes, time-series, IoT data, petabyte scale</span>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2520, 15)}}>
                     <span style={{fontSize: 24}}>🕸️</span> <span style={{color: '#ec4899', fontWeight: 'bold'}}>Graph</span> if:
-                    <span style={{fontSize: 17, marginLeft: 20, color: '#94a3b8'}}>Relationships matter, social networks, recommendations</span>
+                    <span style={{fontSize: 24, marginLeft: 20, color: '#94a3b8'}}>Relationships matter, social networks, recommendations</span>
                   </div>
                 </div>
 

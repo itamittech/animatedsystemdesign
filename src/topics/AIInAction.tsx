@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2,
             top: (y1 + y2) / 2 - 20,
             color,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             opacity: animation,
           }}
@@ -275,7 +275,7 @@ export const AIInAction: React.FC = () => {
                 borderRadius: 12,
                 border: '2px solid #22d3ee',
                 width: 850,
-                fontSize: 18,
+                fontSize: 28,
                 color: '#cbd5e1',
                 fontFamily: 'monospace',
               }}
@@ -299,7 +299,7 @@ export const AIInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -329,13 +329,13 @@ export const AIInAction: React.FC = () => {
               🔤 Tokenization
             </div>
             <div style={{position: 'relative', height: 70, marginBottom: 20}}>
-              <Box text="create" x={0} y={0} width={90} height={60} color="#0ea5e9" startFrame={690} fontSize={14} />
-              <Box text="linked" x={100} y={0} width={90} height={60} color="#0ea5e9" startFrame={710} fontSize={14} />
-              <Box text="list" x={200} y={0} width={70} height={60} color="#0ea5e9" startFrame={730} fontSize={14} />
-              <Box text="in" x={280} y={0} width={50} height={60} color="#0ea5e9" startFrame={750} fontSize={14} />
-              <Box text="java" x={340} y={0} width={70} height={60} color="#0ea5e9" startFrame={770} fontSize={14} />
+              <Box text="create" x={0} y={0} width={90} height={60} color="#0ea5e9" startFrame={690} fontSize={22} />
+              <Box text="linked" x={100} y={0} width={90} height={60} color="#0ea5e9" startFrame={710} fontSize={22} />
+              <Box text="list" x={200} y={0} width={70} height={60} color="#0ea5e9" startFrame={730} fontSize={22} />
+              <Box text="in" x={280} y={0} width={50} height={60} color="#0ea5e9" startFrame={750} fontSize={22} />
+              <Box text="java" x={340} y={0} width={70} height={60} color="#0ea5e9" startFrame={770} fontSize={22} />
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 15}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 15}}>
               Text → Tokens (numerical representations)
             </div>
           </div>
@@ -357,22 +357,22 @@ export const AIInAction: React.FC = () => {
             <div style={{fontSize: 20, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
               🧠 Transformer Neural Network
             </div>
-            <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.9}}>
+            <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.9}}>
               <div style={{opacity: frame >= 870 ? 1 : 0}}>
                 <strong style={{color: '#fbbf24'}}>Self-Attention:</strong> Understanding relationships<br/>
-                <span style={{fontSize: 13, color: '#94a3b8'}}>
+                <span style={{fontSize: 20, color: '#94a3b8'}}>
                   "create" → coding task | "linkedlist" → data structure | "java" → programming language
                 </span>
               </div>
               <div style={{marginTop: 15, opacity: frame >= 960 ? 1 : 0}}>
                 <strong style={{color: '#fbbf24'}}>Deep Layers (96 layers):</strong> Building understanding<br/>
-                <span style={{fontSize: 13, color: '#94a3b8'}}>
+                <span style={{fontSize: 20, color: '#94a3b8'}}>
                   Layer 1-30: Syntax understanding | Layer 31-60: Semantic meaning | Layer 61-96: Intent & planning
                 </span>
               </div>
               <div style={{marginTop: 15, opacity: frame >= 1050 ? 1 : 0}}>
                 <strong style={{color: '#10b981'}}>Output Understanding:</strong><br/>
-                <span style={{fontSize: 13, color: '#22d3ee'}}>
+                <span style={{fontSize: 20, color: '#22d3ee'}}>
                   ✓ Task: Generate code<br/>
                   ✓ Type: LinkedList data structure<br/>
                   ✓ Language: Java<br/>
@@ -397,7 +397,7 @@ export const AIInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -436,10 +436,10 @@ export const AIInAction: React.FC = () => {
                 opacity: frame >= 1410 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                 1️⃣ THINK
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 <div style={{opacity: frame >= 1440 ? 1 : 0}}>
                   💭 "User wants LinkedList in Java + commit to repo"<br/>
                 </div>
@@ -462,10 +462,10 @@ export const AIInAction: React.FC = () => {
                 opacity: frame >= 1620 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#60a5fa', fontWeight: 'bold', marginBottom: 10}}>
                 2️⃣ PLAN
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 <div style={{opacity: frame >= 1650 ? 1 : 0}}>
                   📋 Step 1: Generate LinkedList code<br/>
                 </div>
@@ -490,10 +490,10 @@ export const AIInAction: React.FC = () => {
                 opacity: frame >= 1890 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                 ✅ DECISION
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+              <div style={{fontSize: 22, color: '#cbd5e1'}}>
                 Tool to use: <strong style={{color: '#22d3ee'}}>git_commit_and_push()</strong> via MCP GitHub Server
               </div>
             </div>
@@ -513,10 +513,10 @@ export const AIInAction: React.FC = () => {
               opacity: frame >= 1950 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+            <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
               💻 Generated Code (in memory)
             </div>
-            <pre style={{fontSize: 11, color: '#cbd5e1', lineHeight: 1.5, margin: 0, fontFamily: 'monospace'}}>
+            <pre style={{fontSize: 18, color: '#cbd5e1', lineHeight: 1.5, margin: 0, fontFamily: 'monospace'}}>
 {`public class LinkedList {
   private Node head;
 
@@ -550,7 +550,7 @@ export const AIInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -583,8 +583,8 @@ export const AIInAction: React.FC = () => {
             <div style={{position: 'relative', height: 500}}>
               {/* 1. Claude makes tool call */}
               <div style={{opacity: frame >= 2160 ? 1 : 0}}>
-                <Box text="Claude (LLM)" x={0} y={0} width={180} height={70} color="#7c3aed" startFrame={2160} fontSize={16} />
-                <div style={{position: 'absolute', left: 190, top: 20, fontSize: 14, color: '#cbd5e1', width: 380}}>
+                <Box text="Claude (LLM)" x={0} y={0} width={180} height={70} color="#7c3aed" startFrame={2160} fontSize={24} />
+                <div style={{position: 'absolute', left: 190, top: 20, fontSize: 22, color: '#cbd5e1', width: 380}}>
                   Calls: <code style={{color: '#fbbf24'}}>git_commit_and_push("LinkedList.java", code, "Add LinkedList")</code>
                 </div>
               </div>
@@ -596,8 +596,8 @@ export const AIInAction: React.FC = () => {
 
               {/* 2. MCP Client */}
               <div style={{opacity: frame >= 2310 ? 1 : 0}}>
-                <Box text="MCP Client" x={0} y={130} width={180} height={70} color="#0ea5e9" startFrame={2310} fontSize={16} />
-                <div style={{position: 'absolute', left: 190, top: 150, fontSize: 14, color: '#cbd5e1', width: 350}}>
+                <Box text="MCP Client" x={0} y={130} width={180} height={70} color="#0ea5e9" startFrame={2310} fontSize={24} />
+                <div style={{position: 'absolute', left: 190, top: 150, fontSize: 22, color: '#cbd5e1', width: 350}}>
                   Routes request to MCP GitHub Server
                 </div>
               </div>
@@ -609,8 +609,8 @@ export const AIInAction: React.FC = () => {
 
               {/* 3. MCP GitHub Server */}
               <div style={{opacity: frame >= 2460 ? 1 : 0}}>
-                <Box text="MCP GitHub Server" x={0} y={260} width={180} height={70} color="#22d3ee" startFrame={2460} fontSize={14} />
-                <div style={{position: 'absolute', left: 190, top: 275, fontSize: 14, color: '#cbd5e1', width: 350}}>
+                <Box text="MCP GitHub Server" x={0} y={260} width={180} height={70} color="#22d3ee" startFrame={2460} fontSize={22} />
+                <div style={{position: 'absolute', left: 190, top: 275, fontSize: 22, color: '#cbd5e1', width: 350}}>
                   Authenticates with GitHub API,<br/>
                   creates commit, pushes to repository
                 </div>
@@ -623,8 +623,8 @@ export const AIInAction: React.FC = () => {
 
               {/* 4. Git Commit */}
               <div style={{opacity: frame >= 2610 ? 1 : 0}}>
-                <Box text="✅ Git Commit" x={0} y={390} width={200} height={70} color="#10b981" startFrame={2610} fontSize={16} />
-                <div style={{position: 'absolute', left: 210, top: 415, fontSize: 14, color: '#10b981'}}>
+                <Box text="✅ Git Commit" x={0} y={390} width={200} height={70} color="#10b981" startFrame={2610} fontSize={24} />
+                <div style={{position: 'absolute', left: 210, top: 415, fontSize: 22, color: '#10b981'}}>
                   Pushed to GitHub repo!
                 </div>
               </div>
@@ -648,7 +648,7 @@ export const AIInAction: React.FC = () => {
             <div style={{fontSize: 20, color: '#22d3ee', fontWeight: 'bold', marginBottom: 15}}>
               🔒 Why MCP?
             </div>
-            <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 2}}>
+            <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 2}}>
               <strong style={{color: '#10b981'}}>Security:</strong><br/>
               • Claude never sees your GitHub tokens<br/>
               • MCP Server handles authentication<br/>
@@ -680,7 +680,7 @@ export const AIInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -719,7 +719,7 @@ export const AIInAction: React.FC = () => {
                 borderRadius: 12,
                 border: '2px solid #7c3aed',
                 lineHeight: 2.2,
-                fontSize: 16,
+                fontSize: 24,
                 color: '#cbd5e1',
               }}
             >
@@ -753,10 +753,10 @@ export const AIInAction: React.FC = () => {
                   opacity: frame >= 3270 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                   ⏱️ All of this happens in ~2-5 seconds!
                 </div>
-                <div style={{fontSize: 14, color: '#94a3b8'}}>
+                <div style={{fontSize: 22, color: '#94a3b8'}}>
                   From your keystrokes → Neural network inference → Agent planning → Tool execution → Code in GitHub
                 </div>
               </div>
@@ -787,7 +787,7 @@ export const AIInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

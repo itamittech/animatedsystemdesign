@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2 - 30,
             top: (y1 + y2) / 2 - 25,
             color,
-            fontSize: 12,
+            fontSize: 20,
             fontWeight: 'bold',
             opacity: animation,
             backgroundColor: '#0f172a',
@@ -287,7 +287,7 @@ export const MicroservicesCommunication: React.FC = () => {
                     height={60}
                     color="#10b981"
                     startFrame={270}
-                    fontSize={13}
+                    fontSize={20}
                   />
                   <Box
                     text="Payment Service"
@@ -297,7 +297,7 @@ export const MicroservicesCommunication: React.FC = () => {
                     height={60}
                     color="#f59e0b"
                     startFrame={300}
-                    fontSize={13}
+                    fontSize={20}
                   />
 
                   <Arrow x1={160} y1={30} x2={280} y2={30} color="#22d3ee" startFrame={360} label="Request" />
@@ -345,7 +345,7 @@ export const MicroservicesCommunication: React.FC = () => {
                       position: 'absolute',
                       left: 20,
                       top: 90,
-                      fontSize: 13,
+                      fontSize: 20,
                       color: '#cbd5e1',
                       opacity: frame >= 480 ? 1 : 0,
                     }}
@@ -356,7 +356,7 @@ export const MicroservicesCommunication: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>Protocols:</strong>
                   <br />
                   • REST (HTTP/JSON)
@@ -394,9 +394,9 @@ export const MicroservicesCommunication: React.FC = () => {
                     height={60}
                     color="#10b981"
                     startFrame={540}
-                    fontSize={13}
+                    fontSize={20}
                   />
-                  <Box text="Message Queue" x={160} y={0} width={130} height={60} color="#7c3aed" startFrame={570} fontSize={12} />
+                  <Box text="Message Queue" x={160} y={0} width={130} height={60} color="#7c3aed" startFrame={570} fontSize={20} />
                   <Box
                     text="Email Service"
                     x={310}
@@ -405,7 +405,7 @@ export const MicroservicesCommunication: React.FC = () => {
                     height={60}
                     color="#ec4899"
                     startFrame={600}
-                    fontSize={12}
+                    fontSize={20}
                   />
 
                   <Arrow x1={140} y1={30} x2={160} y2={30} color="#22d3ee" startFrame={630} label="Publish" />
@@ -467,7 +467,7 @@ export const MicroservicesCommunication: React.FC = () => {
                       position: 'absolute',
                       left: 10,
                       top: 90,
-                      fontSize: 13,
+                      fontSize: 20,
                       color: '#cbd5e1',
                       opacity: frame >= 750 ? 1 : 0,
                     }}
@@ -478,7 +478,7 @@ export const MicroservicesCommunication: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>Technologies:</strong>
                   <br />
                   • Kafka, RabbitMQ
@@ -501,7 +501,7 @@ export const MicroservicesCommunication: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -543,9 +543,9 @@ export const MicroservicesCommunication: React.FC = () => {
             <div style={{position: 'relative', height: 450}}>
               {/* Clients */}
               <div style={{opacity: frame >= 1080 ? 1 : 0}}>
-                <Box text="📱 Mobile App" x={0} y={0} width={140} height={60} color="#6366f1" startFrame={1080} fontSize={14} />
-                <Box text="💻 Web App" x={0} y={75} width={140} height={60} color="#8b5cf6" startFrame={1110} fontSize={14} />
-                <Box text="🖥️ Desktop App" x={0} y={150} width={140} height={60} color="#a855f7" startFrame={1140} fontSize={14} />
+                <Box text="📱 Mobile App" x={0} y={0} width={140} height={60} color="#6366f1" startFrame={1080} fontSize={22} />
+                <Box text="💻 Web App" x={0} y={75} width={140} height={60} color="#8b5cf6" startFrame={1110} fontSize={22} />
+                <Box text="🖥️ Desktop App" x={0} y={150} width={140} height={60} color="#a855f7" startFrame={1140} fontSize={22} />
               </div>
 
               {/* API Gateway */}
@@ -562,7 +562,7 @@ export const MicroservicesCommunication: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 18,
+                    fontSize: 28,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -578,12 +578,12 @@ export const MicroservicesCommunication: React.FC = () => {
 
               {/* Microservices */}
               <div style={{opacity: frame >= 1260 ? 1 : 0}}>
-                <Box text="👤 User" x={550} y={0} width={110} height={50} color="#7c3aed" startFrame={1260} fontSize={13} />
-                <Box text="📦 Product" x={680} y={0} width={110} height={50} color="#0ea5e9" startFrame={1290} fontSize={13} />
-                <Box text="🛒 Order" x={810} y={0} width={110} height={50} color="#10b981" startFrame={1320} fontSize={13} />
-                <Box text="💳 Payment" x={550} y={70} width={110} height={50} color="#f59e0b" startFrame={1350} fontSize={13} />
-                <Box text="📊 Inventory" x={680} y={70} width={110} height={50} color="#ec4899" startFrame={1380} fontSize={13} />
-                <Box text="📧 Notify" x={810} y={70} width={110} height={50} color="#06b6d4" startFrame={1410} fontSize={13} />
+                <Box text="👤 User" x={550} y={0} width={110} height={50} color="#7c3aed" startFrame={1260} fontSize={20} />
+                <Box text="📦 Product" x={680} y={0} width={110} height={50} color="#0ea5e9" startFrame={1290} fontSize={20} />
+                <Box text="🛒 Order" x={810} y={0} width={110} height={50} color="#10b981" startFrame={1320} fontSize={20} />
+                <Box text="💳 Payment" x={550} y={70} width={110} height={50} color="#f59e0b" startFrame={1350} fontSize={20} />
+                <Box text="📊 Inventory" x={680} y={70} width={110} height={50} color="#ec4899" startFrame={1380} fontSize={20} />
+                <Box text="📧 Notify" x={810} y={70} width={110} height={50} color="#06b6d4" startFrame={1410} fontSize={20} />
               </div>
 
               {/* Arrows from gateway to services */}
@@ -607,10 +607,10 @@ export const MicroservicesCommunication: React.FC = () => {
                   opacity: frame >= 1500 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#22d3ee', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#22d3ee', fontWeight: 'bold', marginBottom: 10}}>
                   ✅ API Gateway Benefits
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong>• Request Routing:</strong> Routes /users to User Service, /products to Product Service
                   <br />
                   <strong>• API Composition:</strong> Aggregates data from multiple services into one response
@@ -631,7 +631,7 @@ export const MicroservicesCommunication: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -672,14 +672,14 @@ export const MicroservicesCommunication: React.FC = () => {
 
             <div style={{position: 'relative', height: 400}}>
               {/* Clients */}
-              <Box text="📱 Mobile" x={0} y={0} width={140} height={70} color="#6366f1" startFrame={1830} fontSize={16} />
-              <Box text="💻 Web" x={0} y={110} width={140} height={70} color="#8b5cf6" startFrame={1860} fontSize={16} />
-              <Box text="🖥️ Desktop" x={0} y={220} width={140} height={70} color="#a855f7" startFrame={1890} fontSize={16} />
+              <Box text="📱 Mobile" x={0} y={0} width={140} height={70} color="#6366f1" startFrame={1830} fontSize={24} />
+              <Box text="💻 Web" x={0} y={110} width={140} height={70} color="#8b5cf6" startFrame={1860} fontSize={24} />
+              <Box text="🖥️ Desktop" x={0} y={220} width={140} height={70} color="#a855f7" startFrame={1890} fontSize={24} />
 
               {/* BFF Gateways */}
-              <Box text="Mobile BFF" x={240} y={0} width={160} height={70} color="#0ea5e9" startFrame={1920} fontSize={15} />
-              <Box text="Web BFF" x={240} y={110} width={160} height={70} color="#0ea5e9" startFrame={1950} fontSize={15} />
-              <Box text="Desktop BFF" x={240} y={220} width={160} height={70} color="#0ea5e9" startFrame={1980} fontSize={15} />
+              <Box text="Mobile BFF" x={240} y={0} width={160} height={70} color="#0ea5e9" startFrame={1920} fontSize={24} />
+              <Box text="Web BFF" x={240} y={110} width={160} height={70} color="#0ea5e9" startFrame={1950} fontSize={24} />
+              <Box text="Desktop BFF" x={240} y={220} width={160} height={70} color="#0ea5e9" startFrame={1980} fontSize={24} />
 
               <Arrow x1={140} y1={35} x2={240} y2={35} color="#22d3ee" startFrame={2010} />
               <Arrow x1={140} y1={145} x2={240} y2={145} color="#22d3ee" startFrame={2010} />
@@ -700,10 +700,10 @@ export const MicroservicesCommunication: React.FC = () => {
                   opacity: frame >= 2040 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 15, color: '#10b981', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
                   Shared Services
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.8}}>
                   • User Service
                   <br />
                   • Product Service
@@ -733,10 +733,10 @@ export const MicroservicesCommunication: React.FC = () => {
                   opacity: frame >= 2100 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 15, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
                   Example: Product Page
                 </div>
-                <div style={{fontSize: 12, color: '#cbd5e1', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.8}}>
                   <strong style={{color: '#6366f1'}}>📱 Mobile BFF returns:</strong>
                   <br />
                   • Title, price, thumbnail
@@ -769,7 +769,7 @@ export const MicroservicesCommunication: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -848,9 +848,9 @@ export const MicroservicesCommunication: React.FC = () => {
                   opacity: frame >= 2580 ? 1 : 0,
                 }}
               >
-                <Box text="Order Service" x={70} y={10} width={140} height={60} color="#10b981" startFrame={2610} fontSize={14} />
-                <Box text="Envoy Proxy" x={70} y={80} width={140} height={50} color="#6366f1" startFrame={2640} fontSize={12} />
-                <div style={{position: 'absolute', left: 5, top: 5, fontSize: 11, color: '#64748b'}}>Pod</div>
+                <Box text="Order Service" x={70} y={10} width={140} height={60} color="#10b981" startFrame={2610} fontSize={22} />
+                <Box text="Envoy Proxy" x={70} y={80} width={140} height={50} color="#6366f1" startFrame={2640} fontSize={20} />
+                <div style={{position: 'absolute', left: 5, top: 5, fontSize: 18, color: '#64748b'}}>Pod</div>
               </div>
 
               {/* Service 2 with sidecar */}
@@ -875,10 +875,10 @@ export const MicroservicesCommunication: React.FC = () => {
                   height={60}
                   color="#f59e0b"
                   startFrame={2700}
-                  fontSize={13}
+                  fontSize={20}
                 />
-                <Box text="Envoy Proxy" x={70} y={80} width={140} height={50} color="#6366f1" startFrame={2730} fontSize={12} />
-                <div style={{position: 'absolute', left: 5, top: 5, fontSize: 11, color: '#64748b'}}>Pod</div>
+                <Box text="Envoy Proxy" x={70} y={80} width={140} height={50} color="#6366f1" startFrame={2730} fontSize={20} />
+                <div style={{position: 'absolute', left: 5, top: 5, fontSize: 18, color: '#64748b'}}>Pod</div>
               </div>
 
               {/* Service 3 with sidecar */}
@@ -895,9 +895,9 @@ export const MicroservicesCommunication: React.FC = () => {
                   opacity: frame >= 2760 ? 1 : 0,
                 }}
               >
-                <Box text="User Service" x={70} y={10} width={140} height={60} color="#7c3aed" startFrame={2790} fontSize={14} />
-                <Box text="Envoy Proxy" x={70} y={80} width={140} height={50} color="#6366f1" startFrame={2820} fontSize={12} />
-                <div style={{position: 'absolute', left: 5, top: 5, fontSize: 11, color: '#64748b'}}>Pod</div>
+                <Box text="User Service" x={70} y={10} width={140} height={60} color="#7c3aed" startFrame={2790} fontSize={22} />
+                <Box text="Envoy Proxy" x={70} y={80} width={140} height={50} color="#6366f1" startFrame={2820} fontSize={20} />
+                <div style={{position: 'absolute', left: 5, top: 5, fontSize: 18, color: '#64748b'}}>Pod</div>
               </div>
 
               {/* Mesh connections */}
@@ -997,10 +997,10 @@ export const MicroservicesCommunication: React.FC = () => {
                   opacity: frame >= 2880 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#22d3ee', fontWeight: 'bold', marginBottom: 12}}>
+                <div style={{fontSize: 24, color: '#22d3ee', fontWeight: 'bold', marginBottom: 12}}>
                   ✅ Service Mesh Handles
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2, display: 'flex', gap: 40}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2, display: 'flex', gap: 40}}>
                   <div style={{flex: 1}}>
                     <strong style={{color: '#10b981'}}>• Traffic Management</strong>
                     <br />
@@ -1032,7 +1032,7 @@ export const MicroservicesCommunication: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

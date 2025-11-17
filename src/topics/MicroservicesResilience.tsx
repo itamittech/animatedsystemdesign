@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2 - 20,
             top: (y1 + y2) / 2 - 25,
             color,
-            fontSize: 11,
+            fontSize: 18,
             fontWeight: 'bold',
             opacity: animation,
             backgroundColor: '#0f172a',
@@ -274,7 +274,7 @@ export const MicroservicesResilience: React.FC = () => {
 
             <div style={{position: 'relative', height: 350}}>
               {/* User */}
-              <Box text="👤 User" x={0} y={120} width={120} height={60} color="#6366f1" startFrame={330} fontSize={16} />
+              <Box text="👤 User" x={0} y={120} width={120} height={60} color="#6366f1" startFrame={330} fontSize={24} />
 
               {/* API Gateway - turns red when it fails */}
               <div
@@ -289,7 +289,7 @@ export const MicroservicesResilience: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 14,
+                  fontSize: 22,
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 360 ? 1 : 0,
@@ -314,7 +314,7 @@ export const MicroservicesResilience: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 14,
+                  fontSize: 22,
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 390 ? 1 : 0,
@@ -339,7 +339,7 @@ export const MicroservicesResilience: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 14,
+                  fontSize: 22,
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 420 ? 1 : 0,
@@ -409,10 +409,10 @@ export const MicroservicesResilience: React.FC = () => {
                   opacity: frame >= 540 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#fca5a5', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#fca5a5', fontWeight: 'bold', marginBottom: 10}}>
                   🚨 What Happens
                 </div>
-                <div style={{fontSize: 14, color: '#fecaca', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#fecaca', lineHeight: 1.9}}>
                   1. Payment Service crashes
                   <br />
                   2. Order Service waits 30s for timeout (threads blocked!)
@@ -433,7 +433,7 @@ export const MicroservicesResilience: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -491,10 +491,10 @@ export const MicroservicesResilience: React.FC = () => {
                   boxShadow: frame >= 990 && frame < 1080 ? '0 0 30px rgba(16, 185, 129, 0.5)' : 'none',
                 }}
               >
-                <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
                   🟢 CLOSED
                 </div>
-                <div style={{fontSize: 13, color: '#d1fae5', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#d1fae5', lineHeight: 1.8}}>
                   <strong>Normal operation</strong>
                   <br />
                   • Requests flow through
@@ -503,7 +503,7 @@ export const MicroservicesResilience: React.FC = () => {
                   <br />
                   • If failures {'>'} threshold → OPEN
                   <br />
-                  <span style={{fontSize: 11}}>Example: 5 failures in 10s</span>
+                  <span style={{fontSize: 18}}>Example: 5 failures in 10s</span>
                 </div>
               </div>
 
@@ -525,10 +525,10 @@ export const MicroservicesResilience: React.FC = () => {
                   boxShadow: frame >= 1110 && frame < 1200 ? '0 0 30px rgba(239, 68, 68, 0.5)' : 'none',
                 }}
               >
-                <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#ef4444', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
                   🔴 OPEN
                 </div>
-                <div style={{fontSize: 13, color: '#fecaca', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#fecaca', lineHeight: 1.8}}>
                   <strong>Circuit tripped!</strong>
                   <br />
                   • Fails fast immediately
@@ -537,7 +537,7 @@ export const MicroservicesResilience: React.FC = () => {
                   <br />
                   • After timeout → HALF-OPEN
                   <br />
-                  <span style={{fontSize: 11}}>Example: Wait 60s</span>
+                  <span style={{fontSize: 18}}>Example: Wait 60s</span>
                 </div>
               </div>
 
@@ -559,10 +559,10 @@ export const MicroservicesResilience: React.FC = () => {
                   boxShadow: frame >= 1230 && frame < 1320 ? '0 0 30px rgba(245, 158, 11, 0.5)' : 'none',
                 }}
               >
-                <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
                   🟡 HALF-OPEN
                 </div>
-                <div style={{fontSize: 13, color: '#fef3c7', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#fef3c7', lineHeight: 1.8}}>
                   <strong>Testing recovery</strong>
                   <br />
                   • Allow limited requests
@@ -571,7 +571,7 @@ export const MicroservicesResilience: React.FC = () => {
                   <br />
                   • If fail → OPEN again
                   <br />
-                  <span style={{fontSize: 11}}>Example: Try 3 requests</span>
+                  <span style={{fontSize: 18}}>Example: Try 3 requests</span>
                 </div>
               </div>
 
@@ -607,7 +607,7 @@ export const MicroservicesResilience: React.FC = () => {
                     y="60"
                     textAnchor="middle"
                     fill="#ef4444"
-                    fontSize="11"
+                    fontSize="20"
                     fontWeight="bold"
                     opacity={frame >= 990 ? 1 : 0}
                   >
@@ -631,7 +631,7 @@ export const MicroservicesResilience: React.FC = () => {
                     y="60"
                     textAnchor="middle"
                     fill="#f59e0b"
-                    fontSize="11"
+                    fontSize="20"
                     fontWeight="bold"
                     opacity={frame >= 1110 ? 1 : 0}
                   >
@@ -653,7 +653,7 @@ export const MicroservicesResilience: React.FC = () => {
                     y="215"
                     textAnchor="middle"
                     fill="#10b981"
-                    fontSize="11"
+                    fontSize="20"
                     fontWeight="bold"
                     opacity={frame >= 1230 ? 1 : 0}
                   >
@@ -675,7 +675,7 @@ export const MicroservicesResilience: React.FC = () => {
                     y="-10"
                     textAnchor="middle"
                     fill="#ef4444"
-                    fontSize="10"
+                    fontSize="20"
                     opacity={frame >= 1230 ? 0.6 : 0}
                   >
                     Fail again
@@ -703,12 +703,12 @@ export const MicroservicesResilience: React.FC = () => {
                   opacity: frame >= 1260 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12}}>
+                <div style={{fontSize: 24, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12}}>
                   💻 Code Example (Resilience4j)
                 </div>
                 <pre
                   style={{
-                    fontSize: 13,
+                    fontSize: 20,
                     color: '#cbd5e1',
                     lineHeight: 1.7,
                     margin: 0,
@@ -736,7 +736,7 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -786,10 +786,10 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   border: '3px solid #0ea5e9',
                 }}
               >
-                <div style={{fontSize: 18, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   🔄 Retry Pattern
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>What:</strong> Retry failed requests automatically
                   <br />
                   <br />
@@ -823,10 +823,10 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   border: '3px solid #f59e0b',
                 }}
               >
-                <div style={{fontSize: 18, color: '#f59e0b', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   ⏱️ Timeout Pattern
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>What:</strong> Set maximum wait time for responses
                   <br />
                   <br />
@@ -860,10 +860,10 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   border: '3px solid #c084fc',
                 }}
               >
-                <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   🚢 Bulkhead Pattern
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>What:</strong> Isolate resources (thread pools, connections)
                   <br />
                   <br />
@@ -898,10 +898,10 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                 opacity: frame >= 1800 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+              <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                 💡 Best Practice: Combine All Patterns!
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2, textAlign: 'center'}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2, textAlign: 'center'}}>
                 Timeout (5s) + Retry (3x with backoff) + Circuit Breaker + Bulkhead = Resilient System 🛡️
               </div>
             </div>
@@ -913,7 +913,7 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -966,16 +966,16 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   opacity: frame >= 2340 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
                   Example 1: Recommendation Service Down
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#ef4444'}}>❌ Bad:</strong> Show error, blank page
                   <br />
                   <strong style={{color: '#10b981'}}>✅ Good:</strong> Show "Popular Products" from cache instead
                   <br />
                   <br />
-                  <span style={{fontSize: 13, color: '#94a3b8'}}>
+                  <span style={{fontSize: 20, color: '#94a3b8'}}>
                     User still gets value, may not even notice the degradation
                   </span>
                 </div>
@@ -992,17 +992,17 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   opacity: frame >= 2430 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>
                   Example 2: Payment Service Slow
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#ef4444'}}>❌ Bad:</strong> User waits 30s, times out
                   <br />
                   <strong style={{color: '#10b981'}}>✅ Good:</strong> Queue payment for async processing, show "Order
                   Pending" status
                   <br />
                   <br />
-                  <span style={{fontSize: 13, color: '#94a3b8'}}>Process payment in background, notify user when done</span>
+                  <span style={{fontSize: 20, color: '#94a3b8'}}>Process payment in background, notify user when done</span>
                 </div>
               </div>
 
@@ -1016,16 +1016,16 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   opacity: frame >= 2520 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                   Example 3: Search Service Down
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#ef4444'}}>❌ Bad:</strong> "Search unavailable, try later"
                   <br />
                   <strong style={{color: '#10b981'}}>✅ Good:</strong> Return cached popular searches or browse by category
                   <br />
                   <br />
-                  <span style={{fontSize: 13, color: '#94a3b8'}}>
+                  <span style={{fontSize: 20, color: '#94a3b8'}}>
                     Alternative navigation keeps users engaged on the site
                   </span>
                 </div>
@@ -1048,7 +1048,7 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

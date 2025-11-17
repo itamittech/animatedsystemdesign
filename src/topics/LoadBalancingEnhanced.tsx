@@ -44,7 +44,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
       >
         <div
           style={{
-            fontSize: 16,
+            fontSize: 24,
             color: '#94a3b8',
             fontWeight: '500',
             letterSpacing: '0.5px',
@@ -74,7 +74,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
         />
         <div
           style={{
-            fontSize: 14,
+            fontSize: 22,
             color: '#64748b',
             fontStyle: 'italic',
             display: 'flex',
@@ -82,7 +82,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             gap: 6,
           }}
         >
-          <span style={{fontSize: 16}}>⚡</span>
+          <span style={{fontSize: 24}}>⚡</span>
           Powered by Claude Code
         </div>
       </div>
@@ -1166,14 +1166,14 @@ const ToolCard: React.FC<{
       <div
         style={{
           color: theme.text.muted,
-          fontSize: 14,
+          fontSize: 22,
           textAlign: 'center',
           marginBottom: 10,
         }}
       >
         {type}
       </div>
-      <div style={{fontSize: 15, lineHeight: 1.5, color: theme.text.secondary}}>
+      <div style={{fontSize: 24, lineHeight: 1.5, color: theme.text.secondary}}>
         <div style={{marginBottom: 6}}>
           {pros.map((p, i) => (
             <div key={i}>✓ {p}</div>
@@ -1192,7 +1192,7 @@ const ToolCard: React.FC<{
             padding: 6,
             backgroundColor: theme.background.highlight,
             borderRadius: 6,
-            fontSize: 13,
+            fontSize: 20,
           }}
         >
           <strong>Best for:</strong> {useCase}

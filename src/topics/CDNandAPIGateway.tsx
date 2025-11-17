@@ -38,7 +38,7 @@ export const CDNandAPIGateway: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -49,8 +49,8 @@ export const CDNandAPIGateway: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -99,7 +99,7 @@ export const CDNandAPIGateway: React.FC = () => {
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
                 <div style={{opacity: fadeIn(frame, 495, 20)}}>
                   <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>😰 Without CDN/Gateway:</div>
-                  <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                  <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
                     <div style={{opacity: fadeIn(frame, 540, 15)}}>• User in Tokyo → Server in US (~150ms latency)</div>
                     <div style={{opacity: fadeIn(frame, 570, 15)}}>• Every request hits origin server</div>
                     <div style={{opacity: fadeIn(frame, 600, 15)}}>• No caching, no load distribution</div>
@@ -108,7 +108,7 @@ export const CDNandAPIGateway: React.FC = () => {
                 </div>
                 <div style={{opacity: fadeIn(frame, 495, 20)}}>
                   <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>🚀 With CDN/Gateway:</div>
-                  <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                  <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
                     <div style={{opacity: fadeIn(frame, 540, 15)}}>• User in Tokyo → Edge server in Tokyo (~5ms)</div>
                     <div style={{opacity: fadeIn(frame, 570, 15)}}>• Static content served from cache</div>
                     <div style={{opacity: fadeIn(frame, 600, 15)}}>• API Gateway routes smartly</div>
@@ -191,9 +191,9 @@ export const CDNandAPIGateway: React.FC = () => {
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
                       <div style={{fontSize: 32}}>🏢</div>
-                      <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>Origin</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Origin</div>
                     </div>
-                    <div style={{fontSize: 11, color: '#10b981', marginTop: 6}}>US East</div>
+                    <div style={{fontSize: 18, color: '#10b981', marginTop: 6}}>US East</div>
                   </div>
 
                   {/* Edge Servers */}
@@ -218,9 +218,9 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 24}}>🌏</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>Tokyo</div>
+                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>Tokyo</div>
                   </div>
 
                   {/* London */}
@@ -244,9 +244,9 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 24}}>🌍</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>London</div>
+                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>London</div>
                   </div>
 
                   {/* Sydney */}
@@ -270,9 +270,9 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 24}}>🌏</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>Sydney</div>
+                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>Sydney</div>
                   </div>
 
                   {/* São Paulo */}
@@ -296,9 +296,9 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 24}}>🌎</div>
-                      <div style={{fontSize: 11, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#a78bfa', marginTop: 4}}>São Paulo</div>
+                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>São Paulo</div>
                   </div>
 
                   {/* Connection Arrows from Origin to Edge Servers */}
@@ -449,9 +449,9 @@ export const CDNandAPIGateway: React.FC = () => {
                     padding: 16,
                     opacity: fadeIn(frame, 1470, 15),
                   }}>
-                    <div style={{fontSize: 15, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Cloudflare, AWS CloudFront, Fastly:</span> 200+ edge locations worldwide
-                      <br/><span style={{fontSize: 13, color: '#94a3b8'}}>Users connect to nearest edge → Reduced latency from 150ms to 5-20ms</span>
+                      <br/><span style={{fontSize: 20, color: '#94a3b8'}}>Users connect to nearest edge → Reduced latency from 150ms to 5-20ms</span>
                     </div>
                   </div>
                 )}
@@ -518,13 +518,13 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                         ✅ Cache HIT (~5ms)
                       </div>
-                      <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 2}}>
+                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                         1. User requests <span style={{color: '#fbbf24'}}>/logo.png</span><br/>
                         2. Edge server checks cache<br/>
                         3. <span style={{color: '#10b981', fontWeight: 'bold'}}>File found!</span> Serve immediately<br/>
                         4. No origin server hit needed
                       </div>
-                      <div style={{fontSize: 11, color: '#10b981', marginTop: 10, textAlign: 'center'}}>
+                      <div style={{fontSize: 18, color: '#10b981', marginTop: 10, textAlign: 'center'}}>
                         90-95% of requests are cache hits
                       </div>
                     </div>
@@ -541,13 +541,13 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                         ❌ Cache MISS (~85ms)
                       </div>
-                      <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 2}}>
+                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                         1. User requests <span style={{color: '#fbbf24'}}>/new-video.mp4</span><br/>
                         2. Edge server checks cache<br/>
                         3. <span style={{color: '#ef4444', fontWeight: 'bold'}}>Not found!</span> Fetch from origin<br/>
                         4. Cache at edge + serve to user
                       </div>
-                      <div style={{fontSize: 11, color: '#ef4444', marginTop: 10, textAlign: 'center'}}>
+                      <div style={{fontSize: 18, color: '#ef4444', marginTop: 10, textAlign: 'center'}}>
                         First request or expired cache
                       </div>
                     </div>
@@ -564,10 +564,10 @@ export const CDNandAPIGateway: React.FC = () => {
                     padding: 16,
                     opacity: fadeIn(frame, 2445, 20),
                   }}>
-                    <div style={{fontSize: 16, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+                    <div style={{fontSize: 24, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
                       ⏰ Cache Control Headers
                     </div>
-                    <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                       • <span style={{color: '#fbbf24'}}>Static assets</span> (images, CSS, JS): <span style={{color: '#10b981'}}>Cache-Control: max-age=31536000</span> (1 year)<br/>
                       • <span style={{color: '#fbbf24'}}>HTML pages</span>: <span style={{color: '#10b981'}}>Cache-Control: max-age=3600</span> (1 hour)<br/>
                       • <span style={{color: '#fbbf24'}}>API responses</span>: <span style={{color: '#10b981'}}>Cache-Control: max-age=60, must-revalidate</span> (1 minute)<br/>
@@ -586,10 +586,10 @@ export const CDNandAPIGateway: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 2550, 20),
                   }}>
-                    <div style={{fontSize: 14, color: '#fbbf24', fontWeight: 'bold', marginBottom: 8, textAlign: 'center'}}>
+                    <div style={{fontSize: 22, color: '#fbbf24', fontWeight: 'bold', marginBottom: 8, textAlign: 'center'}}>
                       🔄 Cache Invalidation: When you need to purge stale content
                     </div>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       Manual purge, versioned URLs (/v2/logo.png), or invalidation API calls
                     </div>
                   </div>
@@ -655,7 +655,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     opacity: fadeIn(frame, 3150, 20),
                   }}>
                     <div style={{fontSize: 48}}>📱</div>
-                    <div style={{fontSize: 12, color: theme.colors.client, marginTop: 6}}>Client</div>
+                    <div style={{fontSize: 20, color: theme.colors.client, marginTop: 6}}>Client</div>
                   </div>
 
                   {/* API Gateway */}
@@ -681,8 +681,8 @@ export const CDNandAPIGateway: React.FC = () => {
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
                       <div style={{fontSize: 36}}>🚪</div>
-                      <div style={{fontSize: 14, fontWeight: 'bold', color: '#fff', marginTop: 6}}>API Gateway</div>
-                      <div style={{fontSize: 10, color: '#1e293b', marginTop: 4}}>Route • Secure • Transform</div>
+                      <div style={{fontSize: 22, fontWeight: 'bold', color: '#fff', marginTop: 6}}>API Gateway</div>
+                      <div style={{fontSize: 18, color: '#1e293b', marginTop: 4}}>Route • Secure • Transform</div>
                     </div>
                   </div>
 
@@ -708,7 +708,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 20}}>👤</div>
-                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>User Service</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>User Service</div>
                     </div>
                   </div>
 
@@ -733,7 +733,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 20}}>🛒</div>
-                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Order Service</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Order Service</div>
                     </div>
                   </div>
 
@@ -758,7 +758,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 20}}>💳</div>
-                      <div style={{fontSize: 10, fontWeight: 'bold', color: '#fff'}}>Payment Service</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Payment Service</div>
                     </div>
                   </div>
 
@@ -976,10 +976,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       padding: 16,
                       opacity: fadeIn(frame, 3840, 20),
                     }}>
-                      <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                         🔐 Authentication & Authorization
                       </div>
-                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                         • Verify JWT tokens<br/>
                         • OAuth 2.0 / API keys<br/>
                         • Reject unauthorized requests<br/>
@@ -997,10 +997,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       padding: 16,
                       opacity: fadeIn(frame, 3930, 20),
                     }}>
-                      <div style={{fontSize: 16, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>
                         ⏱️ Rate Limiting
                       </div>
-                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                         • Limit: 100 requests/minute per user<br/>
                         • Prevent DDoS attacks<br/>
                         • Fair usage policies<br/>
@@ -1018,10 +1018,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       padding: 16,
                       opacity: fadeIn(frame, 4020, 20),
                     }}>
-                      <div style={{fontSize: 16, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 24, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
                         🔄 Request/Response Transformation
                       </div>
-                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                         • Convert XML ↔ JSON<br/>
                         • Add/remove headers<br/>
                         • Aggregate multiple API calls<br/>
@@ -1039,10 +1039,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       padding: 16,
                       opacity: fadeIn(frame, 4110, 20),
                     }}>
-                      <div style={{fontSize: 16, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 24, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
                         ⚖️ Load Balancing & Monitoring
                       </div>
-                      <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                         • Distribute requests across servers<br/>
                         • Health checks & circuit breakers<br/>
                         • Logging, metrics, tracing<br/>
@@ -1061,7 +1061,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 4200, 20),
                   }}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Popular Gateways:</span> AWS API Gateway, Kong, NGINX, Apigee, Azure API Management
                     </div>
                   </div>
@@ -1139,9 +1139,9 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 32}}>👤</div>
-                      <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>User</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>User</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#60a5fa', marginTop: 6}}>Tokyo</div>
+                    <div style={{fontSize: 18, color: '#60a5fa', marginTop: 6}}>Tokyo</div>
                   </div>
 
                   {/* CDN Edge Server */}
@@ -1166,10 +1166,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 32}}>🌏</div>
-                      <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
-                      <div style={{fontSize: 10, color: '#e9d5ff'}}>Cache Layer</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
+                      <div style={{fontSize: 18, color: '#e9d5ff'}}>Cache Layer</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#8b5cf6', marginTop: 6}}>Edge Cache</div>
+                    <div style={{fontSize: 18, color: '#8b5cf6', marginTop: 6}}>Edge Cache</div>
                   </div>
 
                   {/* API Gateway */}
@@ -1195,10 +1195,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
                       <div style={{fontSize: 36}}>🚪</div>
-                      <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>API Gateway</div>
-                      <div style={{fontSize: 10, color: '#1e293b'}}>Auth • Route</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>API Gateway</div>
+                      <div style={{fontSize: 18, color: '#1e293b'}}>Auth • Route</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#f59e0b', marginTop: 6}}>Smart Router</div>
+                    <div style={{fontSize: 18, color: '#f59e0b', marginTop: 6}}>Smart Router</div>
                   </div>
 
                   {/* Backend Services */}
@@ -1222,10 +1222,10 @@ export const CDNandAPIGateway: React.FC = () => {
                       boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 32}}>⚙️</div>
-                      <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Services</div>
-                      <div style={{fontSize: 10, color: '#d1fae5'}}>API Logic</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Services</div>
+                      <div style={{fontSize: 18, color: '#d1fae5'}}>API Logic</div>
                     </div>
-                    <div style={{fontSize: 10, color: '#10b981', marginTop: 6}}>Backend</div>
+                    <div style={{fontSize: 18, color: '#10b981', marginTop: 6}}>Backend</div>
                   </div>
 
                   {/* Connection Arrows - Properly aligned to component centers */}
@@ -1407,7 +1407,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 4860, 15),
                   }}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.9}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.9}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Complete Flow:</span> User → CDN (cache check) → API Gateway (auth/route) → Services →
                       <span style={{color: '#10b981', fontWeight: 'bold'}}> Response back</span> →
                       <span style={{color: '#06b6d4', fontWeight: 'bold'}}> Cached at CDN!</span> →
@@ -1434,14 +1434,14 @@ export const CDNandAPIGateway: React.FC = () => {
                 borderRadius: 16,
                 padding: 18,
               }}>
-                <div style={{fontSize: 17, fontWeight: 'bold', color: '#60a5fa', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 10, textAlign: 'center'}}>
                   Production Request Lifecycle
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 10, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                   {/* Flow 1: Static Asset Cache MISS */}
                   <div style={{opacity: fadeIn(frame, 4695, 15)}}>
-                    <div style={{fontSize: 12, color: '#ef4444', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#ef4444', fontWeight: 'bold', marginBottom: 5}}>
                       📦 Static Asset - Cache MISS (~85ms)
                     </div>
                     <div>
@@ -1450,13 +1450,13 @@ export const CDNandAPIGateway: React.FC = () => {
                       3. Forward to Origin (60ms latency)<br/>
                       4. Origin → <span style={{color: '#10b981'}}>Cache-Control: 1 year</span><br/>
                       5. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Store at Edge</span> → Serve to user<br/>
-                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 85ms (one-time penalty)</span>
+                      <span style={{fontSize: 18, color: '#94a3b8'}}>⏱️ 85ms (one-time penalty)</span>
                     </div>
                   </div>
 
                   {/* Flow 2: API Request Through Gateway */}
                   <div style={{opacity: fadeIn(frame, 4747, 15)}}>
-                    <div style={{fontSize: 12, color: '#f59e0b', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#f59e0b', fontWeight: 'bold', marginBottom: 5}}>
                       🚪 API via Gateway - First Call (~50ms)
                     </div>
                     <div>
@@ -1466,13 +1466,13 @@ export const CDNandAPIGateway: React.FC = () => {
                       4. Route to Service → DB query<br/>
                       5. Response + <span style={{color: '#10b981'}}>Cache-Control: 60s</span><br/>
                       6. <span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Cached at CDN Edge!</span><br/>
-                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 50ms (full API flow)</span>
+                      <span style={{fontSize: 18, color: '#94a3b8'}}>⏱️ 50ms (full API flow)</span>
                     </div>
                   </div>
 
                   {/* Flow 3: Static Asset Cache HIT */}
                   <div style={{opacity: fadeIn(frame, 4800, 15)}}>
-                    <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
                       ⚡ Static Asset - Cache HIT (~5ms)
                     </div>
                     <div>
@@ -1481,13 +1481,13 @@ export const CDNandAPIGateway: React.FC = () => {
                       3. <span style={{color: '#8b5cf6'}}>Serve from memory</span><br/>
                       4. No origin/gateway needed<br/>
                       5. 94% faster (85ms → 5ms)<br/>
-                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 5ms (edge cache win!)</span>
+                      <span style={{fontSize: 18, color: '#94a3b8'}}>⏱️ 5ms (edge cache win!)</span>
                     </div>
                   </div>
 
                   {/* Flow 4: API Cache HIT */}
                   <div style={{opacity: fadeIn(frame, 4852, 15)}}>
-                    <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
                       🚀 API via CDN - Cache HIT (~8ms)
                     </div>
                     <div>
@@ -1497,7 +1497,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       4. <span style={{color: '#ef4444', fontWeight: 'bold'}}>No API Gateway/Service hit!</span><br/>
                       5. 84% faster (50ms → 8ms)<br/>
                       6. Massive backend load reduction<br/>
-                      <span style={{fontSize: 9, color: '#94a3b8'}}>⏱️ 8ms (CDN serving API!)</span>
+                      <span style={{fontSize: 18, color: '#94a3b8'}}>⏱️ 8ms (CDN serving API!)</span>
                     </div>
                   </div>
                 </div>
@@ -1512,10 +1512,10 @@ export const CDNandAPIGateway: React.FC = () => {
                     padding: 12,
                     opacity: fadeIn(frame, 4905, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6, textAlign: 'center'}}>
+                    <div style={{fontSize: 20, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6, textAlign: 'center'}}>
                       🏗️ Production Patterns
                     </div>
-                    <div style={{fontSize: 10, color: '#e2e8f0', lineHeight: 1.7, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8}}>
+                    <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8}}>
                       <div>
                         • <span style={{color: '#fbbf24'}}>Cache Strategy:</span> GET requests cached, POST/PUT bypass<br/>
                         • <span style={{color: '#fbbf24'}}>Invalidation:</span> Purge API cache on data mutation<br/>
@@ -1562,7 +1562,7 @@ export const CDNandAPIGateway: React.FC = () => {
                   Real-World Success Stories
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 2.2}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 2.2}}>
                   <div style={{opacity: fadeIn(frame, 5055, 15)}}>
                     <span style={{fontSize: 20}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Cloudflare CDN + Zuul API Gateway → Serves 200M+ users globally
                   </div>
@@ -1586,7 +1586,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', textAlign: 'center', marginBottom: 10}}>
                       🚀 What's Next?
                     </div>
-                    <div style={{fontSize: 14, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                    <div style={{fontSize: 22, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
                       Next up: <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Database Scaling & Caching</span><br/>
                       Learn about sharding, replication, Redis, and more!
                     </div>

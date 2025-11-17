@@ -36,7 +36,7 @@ export const DatabaseSharding: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const DatabaseSharding: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(20, 184, 166, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -112,7 +112,7 @@ export const DatabaseSharding: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 18, color: '#e2e8f0'}}>Single Database</div>
-                    <div style={{fontSize: 16, color: '#fca5a5', marginTop: 8}}>1B rows 🔥</div>
+                    <div style={{fontSize: 24, color: '#fca5a5', marginTop: 8}}>1B rows 🔥</div>
                   </div>
                 </div>
 
@@ -135,8 +135,8 @@ export const DatabaseSharding: React.FC = () => {
                           padding: 12,
                         }}
                       >
-                        <span style={{fontSize: 16, color: '#5eead4'}}>Shard {num}</span>
-                        <span style={{fontSize: 14, color: '#94a3b8', marginLeft: 12}}>250M rows</span>
+                        <span style={{fontSize: 24, color: '#5eead4'}}>Shard {num}</span>
+                        <span style={{fontSize: 22, color: '#94a3b8', marginLeft: 12}}>250M rows</span>
                       </div>
                     ))}
                   </div>
@@ -222,7 +222,7 @@ export const DatabaseSharding: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 14, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                  <div style={{flex: 1, fontSize: 22, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                     <div style={{color: '#f59e0b'}}>// Hash example</div>
                     <div style={{color: '#e2e8f0', marginTop: 8}}>user_id = 12345</div>
                     <div style={{color: '#e2e8f0'}}>hash(12345) = 789023</div>
@@ -259,7 +259,7 @@ export const DatabaseSharding: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 15, color: '#e2e8f0', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                  <div style={{flex: 1, fontSize: 24, color: '#e2e8f0', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                     <div style={{color: '#60a5fa', marginBottom: 8}}>Shard by timestamp:</div>
                     <div>Shard 1: Jan-Mar 2024</div>
                     <div>Shard 2: Apr-Jun 2024</div>
@@ -295,7 +295,7 @@ export const DatabaseSharding: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 15, color: '#e2e8f0', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                  <div style={{flex: 1, fontSize: 24, color: '#e2e8f0', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                     <div style={{color: '#34d399', marginBottom: 8}}>Shard by region:</div>
                     <div>🇺🇸 Shard 1: US users</div>
                     <div>🇪🇺 Shard 2: EU users</div>
@@ -363,7 +363,7 @@ export const DatabaseSharding: React.FC = () => {
                 ❌ Problem with Simple Hash Mod
               </div>
 
-              <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 2}}>
+              <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2}}>
                 <div>
                   <span style={{fontSize: 24}}>1️⃣</span> You have 4 shards: hash(key) % <span style={{color: '#fbbf24'}}>4</span>
                 </div>
@@ -391,7 +391,7 @@ export const DatabaseSharding: React.FC = () => {
 
               <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                 <div style={{flex: 1}}>
-                  <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.9}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{marginBottom: 12}}>
                       <span style={{color: '#5eead4', fontWeight: 'bold'}}>How:</span> Hash ring (0 to 2³²)
                     </div>
@@ -411,7 +411,7 @@ export const DatabaseSharding: React.FC = () => {
                   <div style={{fontSize: 56, marginBottom: 16}}>⭕</div>
                   <div style={{fontSize: 18, color: '#94a3b8', lineHeight: 1.7}}>
                     Hash Ring<br/>
-                    <span style={{fontSize: 15}}>
+                    <span style={{fontSize: 24}}>
                       Each shard owns a segment<br/>
                       Adding shard = split 1 segment<br/>
                       <span style={{color: '#10b981', fontWeight: 'bold'}}>Minimal data movement ⚡</span>
@@ -491,19 +491,19 @@ export const DatabaseSharding: React.FC = () => {
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                 <div>
                   ❌ <span style={{color: '#fca5a5', fontWeight: 'bold'}}>JOINs across shards</span><br/>
-                  <span style={{fontSize: 15, color: '#94a3b8'}}>Must fetch from all shards and merge</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Must fetch from all shards and merge</span>
                 </div>
                 <div>
                   ❌ <span style={{color: '#fca5a5', fontWeight: 'bold'}}>Global aggregations</span><br/>
-                  <span style={{fontSize: 15, color: '#94a3b8'}}>COUNT, SUM across all shards</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>COUNT, SUM across all shards</span>
                 </div>
                 <div>
                   ❌ <span style={{color: '#fca5a5', fontWeight: 'bold'}}>Unique constraints</span><br/>
-                  <span style={{fontSize: 15, color: '#94a3b8'}}>Can't guarantee uniqueness globally</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Can't guarantee uniqueness globally</span>
                 </div>
                 <div>
                   ❌ <span style={{color: '#fca5a5', fontWeight: 'bold'}}>Transactions</span><br/>
-                  <span style={{fontSize: 15, color: '#94a3b8'}}>Distributed transactions complex</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Distributed transactions complex</span>
                 </div>
               </div>
             </div>
@@ -521,30 +521,30 @@ export const DatabaseSharding: React.FC = () => {
                 💡 Workarounds
               </div>
 
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, fontSize: 17, color: '#e2e8f0', lineHeight: 1.8}}>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                 <div>
-                  <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 19, marginBottom: 8}}>
+                  <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                     Denormalize
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8'}}>
+                  <div style={{fontSize: 24, color: '#94a3b8'}}>
                     Duplicate data to avoid cross-shard queries
                   </div>
                 </div>
 
                 <div>
-                  <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 19, marginBottom: 8}}>
+                  <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                     Scatter-Gather
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8'}}>
+                  <div style={{fontSize: 24, color: '#94a3b8'}}>
                     Query all shards, merge results in app layer
                   </div>
                 </div>
 
                 <div>
-                  <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 19, marginBottom: 8}}>
+                  <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                     Shard by Tenant
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8'}}>
+                  <div style={{fontSize: 24, color: '#94a3b8'}}>
                     All data for one tenant in same shard
                   </div>
                 </div>
@@ -617,24 +617,24 @@ export const DatabaseSharding: React.FC = () => {
                   Resharding Approaches
                 </div>
 
-                <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 2.2}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2.2}}>
                   <div style={{opacity: fadeIn(frame, 2370, 15)}}>
                     <span style={{fontSize: 28}}>1️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Stop Writes</span> (Downtime)
-                    <div style={{fontSize: 16, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Freeze DB, copy data, switch over - simple but requires maintenance window
                     </div>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2420, 15)}}>
                     <span style={{fontSize: 28}}>2️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Dual Writes</span> (Online)
-                    <div style={{fontSize: 16, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Write to old & new shards, migrate in background, cutover - zero downtime
                     </div>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2470, 15)}}>
                     <span style={{fontSize: 28}}>3️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Virtual Shards</span> (Plan Ahead)
-                    <div style={{fontSize: 16, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Create 1000 logical shards mapped to 10 physical - just remap, no data move
                     </div>
                   </div>

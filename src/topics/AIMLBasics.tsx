@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2,
             top: (y1 + y2) / 2 - 20,
             color,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             opacity: animation,
           }}
@@ -262,7 +262,7 @@ export const AIMLBasics: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -297,7 +297,7 @@ export const AIMLBasics: React.FC = () => {
             <div style={{fontSize: 24, fontWeight: 'bold', color: '#c084fc', padding: 15}}>
               🤖 Artificial Intelligence (AI)
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 540 ? 1 : 0}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 540 ? 1 : 0}}>
               Any system that mimics human intelligence:<br/>
               • Rule-based expert systems<br/>
               • Game playing (Chess, Go)<br/>
@@ -322,7 +322,7 @@ export const AIMLBasics: React.FC = () => {
             <div style={{fontSize: 22, fontWeight: 'bold', color: '#a78bfa', padding: 15}}>
               🧠 Machine Learning (ML)
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 630 ? 1 : 0}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 630 ? 1 : 0}}>
               Systems that <strong>learn from data</strong> without explicit programming:<br/>
               • Linear Regression, Decision Trees<br/>
               • Support Vector Machines, Random Forests
@@ -346,7 +346,7 @@ export const AIMLBasics: React.FC = () => {
             <div style={{fontSize: 20, fontWeight: 'bold', color: '#ffffff', padding: 15}}>
               🔥 Deep Learning (DL)
             </div>
-            <div style={{fontSize: 14, color: '#ffffff', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 720 ? 1 : 0}}>
+            <div style={{fontSize: 22, color: '#ffffff', paddingLeft: 20, paddingRight: 20, marginTop: 5, opacity: frame >= 720 ? 1 : 0}}>
               ML using <strong>multi-layer neural networks</strong>:<br/>
               • Image recognition, Language models (GPT, Claude)<br/>
               • Speech recognition, Self-driving cars
@@ -368,7 +368,7 @@ export const AIMLBasics: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -405,9 +405,9 @@ export const AIMLBasics: React.FC = () => {
             <Arrow x1={530} y1={40} x2={590} y2={40} color="#ffffff" startFrame={1170} />
             <Box text="Output" x={590} y={0} width={140} height={80} color="#10b981" startFrame={1170} fontSize={18} />
 
-            <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 100, lineHeight: 1.8}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 100, lineHeight: 1.8}}>
               <strong>Example:</strong> Email Spam Filter<br/>
-              <code style={{color: '#fbbf24', fontSize: 13}}>
+              <code style={{color: '#fbbf24', fontSize: 20}}>
                 if (email.contains("viagra")) spam = true;<br/>
                 if (email.contains("winner")) spam = true;<br/>
                 if (email.allCaps) spam = true;
@@ -436,9 +436,9 @@ export const AIMLBasics: React.FC = () => {
             <Arrow x1={350} y1={40} x2={410} y2={40} color="#ffffff" startFrame={1350} />
             <Box text="Model" x={410} y={0} width={140} height={80} color="#10b981" startFrame={1350} fontSize={18} />
 
-            <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 100, lineHeight: 1.8}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 100, lineHeight: 1.8}}>
               <strong>Example:</strong> Email Spam Filter<br/>
-              <div style={{color: '#22d3ee', fontSize: 13, marginTop: 5}}>
+              <div style={{color: '#22d3ee', fontSize: 20, marginTop: 5}}>
                 Feed 1M emails (spam + not spam)<br/>
                 Model learns patterns automatically<br/>
                 Adapts to new spam techniques
@@ -464,7 +464,7 @@ export const AIMLBasics: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -487,7 +487,7 @@ export const AIMLBasics: React.FC = () => {
               position: 'absolute',
               left: width / 2 - 500,
               top: 150,
-              fontSize: 18,
+              fontSize: 28,
               color: '#cbd5e1',
             }}
           >
@@ -509,7 +509,7 @@ export const AIMLBasics: React.FC = () => {
               <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
                 🎯 Recommendation Engine
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+              <div style={{fontSize: 22, color: '#cbd5e1'}}>
                 Netflix, YouTube, Amazon product suggestions<br/>
                 ML Model predicts what you'll like based on behavior
               </div>
@@ -529,7 +529,7 @@ export const AIMLBasics: React.FC = () => {
               <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
                 🔍 Search & Ranking
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+              <div style={{fontSize: 22, color: '#cbd5e1'}}>
                 Google Search, LinkedIn job matches<br/>
                 ML ranks results by relevance, not just keywords
               </div>
@@ -549,7 +549,7 @@ export const AIMLBasics: React.FC = () => {
               <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
                 💬 Chatbots & Assistants
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+              <div style={{fontSize: 22, color: '#cbd5e1'}}>
                 Customer support, Siri, Alexa, ChatGPT<br/>
                 Deep Learning (LLMs) understand & generate text
               </div>
@@ -568,7 +568,7 @@ export const AIMLBasics: React.FC = () => {
               <div style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
                 🛡️ Fraud Detection
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1'}}>
+              <div style={{fontSize: 22, color: '#cbd5e1'}}>
                 Banking, credit cards, payment systems<br/>
                 ML detects anomalous patterns in real-time
               </div>
@@ -592,7 +592,7 @@ export const AIMLBasics: React.FC = () => {
             <div style={{fontSize: 20, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15}}>
               🏗️ System Design Perspective
             </div>
-            <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+            <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
               AI models are just another service:<br/><br/>
 
               • <strong style={{color: '#22d3ee'}}>Model Serving</strong>: Deploy like APIs<br/>
@@ -619,7 +619,7 @@ export const AIMLBasics: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -644,7 +644,7 @@ export const AIMLBasics: React.FC = () => {
               left: width / 2 - 450,
               top: 180,
               width: 900,
-              fontSize: 18,
+              fontSize: 28,
               color: '#cbd5e1',
             }}
           >
@@ -682,7 +682,7 @@ export const AIMLBasics: React.FC = () => {
                 Treat ML models like any service - latency, scaling, caching matter
               </div>
 
-              <div style={{marginTop: 25, fontSize: 16, color: '#22d3ee', fontStyle: 'italic'}}>
+              <div style={{marginTop: 25, fontSize: 24, color: '#22d3ee', fontStyle: 'italic'}}>
                 🎯 Next: We'll dive into Neural Networks & Deep Learning - the engine behind modern AI!
               </div>
             </div>
@@ -712,7 +712,7 @@ export const AIMLBasics: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

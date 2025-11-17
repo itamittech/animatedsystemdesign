@@ -59,7 +59,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={(x1 + currentX2) / 2}
             y={(y1 + currentY2) / 2 - 12}
             fill={color}
-            fontSize="13"
+            fontSize="22"
             fontWeight="600"
             textAnchor="middle"
             opacity={interpolate(frame - startFrame, [10, 25], [0, 1], {extrapolateRight: 'clamp'})}
@@ -131,7 +131,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -142,8 +142,8 @@ export const ClientServerDNSProxies: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -194,7 +194,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 <div style={{fontSize: 32, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12}}>
                   142.250.185.46
                 </div>
-                <div style={{fontSize: 16, color: '#94a3b8'}}>
+                <div style={{fontSize: 24, color: '#94a3b8'}}>
                   Every device on the internet has a unique IP address.<br/>
                   IPv4 uses 32 bits (4.3 billion addresses - now exhausted!)<br/>
                   <span style={{color: '#10b981', fontWeight: 'bold'}}>IPv6 uses 128 bits</span> - solving the shortage problem
@@ -248,8 +248,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                 textAlign: 'center',
               }}>
                 <div style={{fontSize: 42}}>💻</div>
-                <div style={{fontSize: 14, fontWeight: 'bold', color: theme.colors.client, marginTop: 6}}>Your Browser</div>
-                <div style={{fontSize: 12, color: '#94a3b8', marginTop: 4}}>google.com?</div>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.client, marginTop: 6}}>Your Browser</div>
+                <div style={{fontSize: 20, color: '#94a3b8', marginTop: 4}}>google.com?</div>
               </div>
 
               {/* Root DNS */}
@@ -266,8 +266,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                 textAlign: 'center',
               }}>
                 <div style={{fontSize: 28}}>🌍</div>
-                <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Root DNS</div>
-                <div style={{fontSize: 11, color: '#fca5a5', marginTop: 4}}>13 servers</div>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Root DNS</div>
+                <div style={{fontSize: 18, color: '#fca5a5', marginTop: 4}}>13 servers</div>
               </div>
 
               {/* TLD DNS */}
@@ -285,8 +285,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                 opacity: fadeIn(frame, 720, 15),
               }}>
                 <div style={{fontSize: 24}}>🔗</div>
-                <div style={{fontSize: 15, fontWeight: 'bold', color: '#fff', marginTop: 6}}>TLD Server</div>
-                <div style={{fontSize: 11, color: '#fcd34d', marginTop: 4}}>.com registry</div>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#fff', marginTop: 6}}>TLD Server</div>
+                <div style={{fontSize: 18, color: '#fcd34d', marginTop: 4}}>.com registry</div>
               </div>
 
               {/* Authoritative DNS */}
@@ -304,8 +304,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                 opacity: fadeIn(frame, 800, 15),
               }}>
                 <div style={{fontSize: 24}}>📋</div>
-                <div style={{fontSize: 15, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Authoritative</div>
-                <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 4}}>google.com</div>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#fff', marginTop: 6}}>Authoritative</div>
+                <div style={{fontSize: 18, color: '#6ee7b7', marginTop: 4}}>google.com</div>
               </div>
 
               {/* STEP-BY-STEP FLOW with Developer narration */}
@@ -333,10 +333,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 680, 10),
                   }}>
-                    <div style={{fontSize: 14, fontWeight: 'bold', color: theme.colors.client, marginBottom: 6}}>
+                    <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.client, marginBottom: 6}}>
                       STEP 1: Browser asks Root
                     </div>
-                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.6}}>
                       "Where can I find .com domains?"
                     </div>
                   </div>
@@ -366,10 +366,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 750, 10),
                   }}>
-                    <div style={{fontSize: 14, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>
+                    <div style={{fontSize: 22, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>
                       STEP 2: Root points to TLD
                     </div>
-                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.6}}>
                       "Ask the .com TLD server!"
                     </div>
                   </div>
@@ -399,10 +399,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 830, 10),
                   }}>
-                    <div style={{fontSize: 14, fontWeight: 'bold', color: '#f59e0b', marginBottom: 6}}>
+                    <div style={{fontSize: 22, fontWeight: 'bold', color: '#f59e0b', marginBottom: 6}}>
                       STEP 3: TLD points to google
                     </div>
-                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.6}}>
                       "Ask google.com's nameserver!"
                     </div>
                   </div>
@@ -432,10 +432,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 910, 10),
                   }}>
-                    <div style={{fontSize: 14, fontWeight: 'bold', color: theme.colors.success, marginBottom: 6}}>
+                    <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.success, marginBottom: 6}}>
                       STEP 4: Returns IP address
                     </div>
-                    <div style={{fontSize: 12, color: '#e2e8f0', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.6}}>
                       "Here it is: 142.250.185.46"
                     </div>
                   </div>
@@ -518,7 +518,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   {/* Client Side */}
                   <div style={{flex: 1, textAlign: 'center'}}>
                     <div style={{fontSize: 48, marginBottom: 8}}>💻</div>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.client}}>Browser</div>
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.client}}>Browser</div>
                   </div>
 
                   {/* Handshake Steps */}
@@ -532,10 +532,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                         marginBottom: 10,
                         opacity: fadeIn(frame, 1160, 10),
                       }}>
-                        <div style={{fontSize: 14, color: '#60a5fa', fontWeight: 'bold', marginBottom: 4}}>
+                        <div style={{fontSize: 22, color: '#60a5fa', fontWeight: 'bold', marginBottom: 4}}>
                           1. ClientHello →
                         </div>
-                        <div style={{fontSize: 12, color: '#e2e8f0'}}>
+                        <div style={{fontSize: 20, color: '#e2e8f0'}}>
                           Supported cipher suites, TLS version, random number
                         </div>
                       </div>
@@ -550,10 +550,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                         marginBottom: 10,
                         opacity: fadeIn(frame, 1180, 10),
                       }}>
-                        <div style={{fontSize: 14, color: '#10b981', fontWeight: 'bold', marginBottom: 4, textAlign: 'right'}}>
+                        <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 4, textAlign: 'right'}}>
                           ← 2. ServerHello + Certificate
                         </div>
-                        <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'right'}}>
+                        <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'right'}}>
                           Chosen cipher suite, certificate chain, random number
                         </div>
                       </div>
@@ -568,10 +568,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                         marginBottom: 10,
                         opacity: fadeIn(frame, 1200, 10),
                       }}>
-                        <div style={{fontSize: 14, color: '#a78bfa', fontWeight: 'bold', marginBottom: 4}}>
+                        <div style={{fontSize: 22, color: '#a78bfa', fontWeight: 'bold', marginBottom: 4}}>
                           3. Key Exchange →
                         </div>
-                        <div style={{fontSize: 12, color: '#e2e8f0'}}>
+                        <div style={{fontSize: 20, color: '#e2e8f0'}}>
                           Client generates & encrypts pre-master secret
                         </div>
                       </div>
@@ -585,10 +585,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                         padding: 12,
                         opacity: fadeIn(frame, 1220, 10),
                       }}>
-                        <div style={{fontSize: 14, color: '#fbbf24', fontWeight: 'bold', marginBottom: 4, textAlign: 'center'}}>
+                        <div style={{fontSize: 22, color: '#fbbf24', fontWeight: 'bold', marginBottom: 4, textAlign: 'center'}}>
                           4. ✓ Both send "Finished" (encrypted)
                         </div>
-                        <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center'}}>
+                        <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center'}}>
                           Secure tunnel established! 🔒
                         </div>
                       </div>
@@ -598,7 +598,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   {/* Server Side */}
                   <div style={{flex: 1, textAlign: 'center'}}>
                     <div style={{fontSize: 48, marginBottom: 8}}>🖥️</div>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: theme.colors.server}}>Server</div>
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.server}}>Server</div>
                   </div>
                 </div>
               </div>
@@ -624,7 +624,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   Step 1: Cipher Suite Negotiation
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
                   Browser says: "I support these encryption methods (cipher suites)..."
                 </div>
 
@@ -643,26 +643,26 @@ export const ClientServerDNSProxies: React.FC = () => {
 
                   <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16}}>
                     <div style={{opacity: fadeIn(frame, 1360, 15)}}>
-                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#60a5fa', marginBottom: 6}}>ECDHE</div>
-                      <div style={{fontSize: 14, color: '#94a3b8'}}>Key Exchange<br/>Elliptic Curve Diffie-Hellman</div>
+                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 6}}>ECDHE</div>
+                      <div style={{fontSize: 22, color: '#94a3b8'}}>Key Exchange<br/>Elliptic Curve Diffie-Hellman</div>
                     </div>
                     <div style={{opacity: fadeIn(frame, 1400, 15)}}>
-                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#10b981', marginBottom: 6}}>RSA</div>
-                      <div style={{fontSize: 14, color: '#94a3b8'}}>Authentication<br/>Verifies server identity</div>
+                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#10b981', marginBottom: 6}}>RSA</div>
+                      <div style={{fontSize: 22, color: '#94a3b8'}}>Authentication<br/>Verifies server identity</div>
                     </div>
                     <div style={{opacity: fadeIn(frame, 1440, 15)}}>
-                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#a78bfa', marginBottom: 6}}>AES-256-GCM</div>
-                      <div style={{fontSize: 14, color: '#94a3b8'}}>Bulk Encryption<br/>Encrypts actual data</div>
+                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#a78bfa', marginBottom: 6}}>AES-256-GCM</div>
+                      <div style={{fontSize: 22, color: '#94a3b8'}}>Bulk Encryption<br/>Encrypts actual data</div>
                     </div>
                     <div style={{opacity: fadeIn(frame, 1480, 15)}}>
-                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>SHA384</div>
-                      <div style={{fontSize: 14, color: '#94a3b8'}}>Hashing<br/>Data integrity check</div>
+                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#fbbf24', marginBottom: 6}}>SHA384</div>
+                      <div style={{fontSize: 22, color: '#94a3b8'}}>Hashing<br/>Data integrity check</div>
                     </div>
                   </div>
                 </div>
 
                 {frame >= 1510 && (
-                  <div style={{marginTop: 16, fontSize: 15, color: '#10b981', textAlign: 'center', opacity: fadeIn(frame, 1510, 15)}}>
+                  <div style={{marginTop: 16, fontSize: 24, color: '#10b981', textAlign: 'center', opacity: fadeIn(frame, 1510, 15)}}>
                     ✓ Server picks: "Let's use TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
                   </div>
                 )}
@@ -689,7 +689,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   Step 2: Certificate Authority Chain
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2, marginBottom: 20}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2, marginBottom: 20}}>
                   Server proves identity using a certificate chain...
                 </div>
 
@@ -707,9 +707,9 @@ export const ClientServerDNSProxies: React.FC = () => {
                     transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>🏛️</div>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Root CA</div>
-                    <div style={{fontSize: 12, color: '#fca5a5', marginTop: 6}}>DigiCert/Let's Encrypt</div>
-                    <div style={{fontSize: 11, color: '#fca5a5', marginTop: 4}}>Trusted by your OS</div>
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: '#fff'}}>Root CA</div>
+                    <div style={{fontSize: 20, color: '#fca5a5', marginTop: 6}}>DigiCert/Let's Encrypt</div>
+                    <div style={{fontSize: 18, color: '#fca5a5', marginTop: 4}}>Trusted by your OS</div>
                   </div>
 
                   {/* Arrow */}
@@ -729,9 +729,9 @@ export const ClientServerDNSProxies: React.FC = () => {
                     transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>📜</div>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Intermediate CA</div>
-                    <div style={{fontSize: 12, color: '#fcd34d', marginTop: 6}}>Signed by Root</div>
-                    <div style={{fontSize: 11, color: '#fcd34d', marginTop: 4}}>Issues server certs</div>
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: '#fff'}}>Intermediate CA</div>
+                    <div style={{fontSize: 20, color: '#fcd34d', marginTop: 6}}>Signed by Root</div>
+                    <div style={{fontSize: 18, color: '#fcd34d', marginTop: 4}}>Issues server certs</div>
                   </div>
 
                   {/* Arrow */}
@@ -751,9 +751,9 @@ export const ClientServerDNSProxies: React.FC = () => {
                     transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 32, marginBottom: 8}}>✅</div>
-                    <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff'}}>Server Cert</div>
-                    <div style={{fontSize: 12, color: '#6ee7b7', marginTop: 6}}>google.com</div>
-                    <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 4}}>Valid: 90 days</div>
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: '#fff'}}>Server Cert</div>
+                    <div style={{fontSize: 20, color: '#6ee7b7', marginTop: 6}}>google.com</div>
+                    <div style={{fontSize: 18, color: '#6ee7b7', marginTop: 4}}>Valid: 90 days</div>
                   </div>
                 </div>
 
@@ -766,7 +766,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     padding: 16,
                     opacity: fadeIn(frame, 1790, 15),
                   }}>
-                    <div style={{fontSize: 15, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
                       Browser verifies: Root CA (trusted) → Intermediate CA (valid signature) → Server (matches google.com)
                       <br/><span style={{color: '#10b981', fontWeight: 'bold'}}>✓ Trust chain validated!</span>
                     </div>
@@ -807,7 +807,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                       <div style={{fontSize: 18, fontWeight: 'bold', color: '#60a5fa', marginBottom: 10, textAlign: 'center'}}>
                         ECDHE Key Exchange
                       </div>
-                      <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
                         • Both sides generate keys<br/>
                         • Exchange public keys<br/>
                         • Compute shared secret<br/>
@@ -827,7 +827,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                       <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', marginBottom: 10, textAlign: 'center'}}>
                         AES-256-GCM
                       </div>
-                      <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
                         • Symmetric encryption<br/>
                         • 256-bit key strength<br/>
                         • GCM mode (authenticated)<br/>
@@ -847,9 +847,9 @@ export const ClientServerDNSProxies: React.FC = () => {
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1980, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>SHA-384 Hashing:</span> Every message gets a hash to detect tampering
-                      <br/><span style={{fontSize: 14, color: '#94a3b8'}}>Ensures data integrity during transmission</span>
+                      <br/><span style={{fontSize: 22, color: '#94a3b8'}}>Ensures data integrity during transmission</span>
                     </div>
                   </div>
                 )}
@@ -877,13 +877,13 @@ export const ClientServerDNSProxies: React.FC = () => {
                 <div style={{fontSize: 26, color: '#10b981', fontWeight: 'bold', marginBottom: 14}}>
                   Secure Tunnel Established!
                 </div>
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 1.9}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
                   ✓ Server identity verified via certificate chain<br/>
                   ✓ Strong encryption negotiated (AES-256-GCM)<br/>
                   ✓ Secure keys exchanged (ECDHE with PFS)<br/>
                   ✓ Data integrity protected (SHA-384 hashing)
                 </div>
-                <div style={{marginTop: 16, fontSize: 14, color: '#fbbf24'}}>
+                <div style={{marginTop: 16, fontSize: 22, color: '#fbbf24'}}>
                   <span style={{fontWeight: 'bold'}}>⚡ TLS 1.3 Handshake:</span> ~25ms (1-RTT) vs TLS 1.2 ~50ms (2-RTT)
                 </div>
               </div>
@@ -944,7 +944,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                   }}>
                     <div style={{fontSize: 32}}>💻</div>
-                    <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>Client</div>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Client</div>
                   </div>
                 </div>
 
@@ -964,10 +964,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                     transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
-                    <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Forward</div>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Forward</div>
                   </div>
-                  <div style={{fontSize: 11, color: '#a78bfa', marginTop: 4}}>Squid :3128</div>
-                  <div style={{fontSize: 10, color: '#94a3b8', marginTop: 2}}>Client-side</div>
+                  <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>Squid :3128</div>
+                  <div style={{fontSize: 18, color: '#94a3b8', marginTop: 2}}>Client-side</div>
                 </div>
 
                 {/* DNS */}
@@ -985,7 +985,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                   }}>
                     <div style={{fontSize: 28}}>🌐</div>
-                    <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>DNS</div>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>DNS</div>
                   </div>
                 </div>
 
@@ -1005,10 +1005,10 @@ export const ClientServerDNSProxies: React.FC = () => {
                     transform: `scale(${pulse(frame, 60)})`,
                   }}>
                     <div style={{fontSize: 28}}>🔀</div>
-                    <div style={{fontSize: 12, fontWeight: 'bold', color: '#fff'}}>Reverse</div>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Reverse</div>
                   </div>
-                  <div style={{fontSize: 11, color: '#60a5fa', marginTop: 4}}>NGINX :443</div>
-                  <div style={{fontSize: 10, color: '#94a3b8', marginTop: 2}}>Server-side</div>
+                  <div style={{fontSize: 18, color: '#60a5fa', marginTop: 4}}>NGINX :443</div>
+                  <div style={{fontSize: 18, color: '#94a3b8', marginTop: 2}}>Server-side</div>
                 </div>
 
                 {/* App Server */}
@@ -1026,7 +1026,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                   }}>
                     <div style={{fontSize: 28}}>🖥️</div>
-                    <div style={{fontSize: 13, fontWeight: 'bold', color: '#fff'}}>App</div>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>App</div>
                   </div>
                 </div>
               </div>
@@ -1069,7 +1069,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     <div style={{fontSize: 20, fontWeight: 'bold', color: '#a78bfa', marginBottom: 10}}>
                       Forward Proxy
                     </div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.9}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
                       • Caches requests<br/>
                       • Filters content<br/>
                       • Corporate networks
@@ -1085,7 +1085,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     <div style={{fontSize: 20, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 10}}>
                       Reverse Proxy
                     </div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.9}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
                       • TLS termination<br/>
                       • Load balancing<br/>
                       • Protects servers
@@ -1140,7 +1140,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
                 When You Press Enter on google.com...
               </div>
-              <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 2.5}}>
+              <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2.5}}>
                 <div style={{opacity: fadeIn(frame, 2700, 15)}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: 20}}>1.</span> <span style={{color: theme.colors.client, fontWeight: 'bold'}}>DNS Lookup</span> (~5ms): Browser cache or local resolver
                 </div>
@@ -1226,7 +1226,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 <div style={{fontSize: 18, fontWeight: 'bold', color: theme.colors.client, marginBottom: 10}}>
                   🌐 DNS Strategy
                 </div>
-                <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                   • Dual-stack (IPv4 + IPv6)<br/>
                   • TTL: 3600s for prod<br/>
                   • DNSSEC for security<br/>
@@ -1243,7 +1243,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', marginBottom: 10}}>
                   🔐 TLS/Security
                 </div>
-                <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                   • TLS 1.3 only<br/>
                   • Let's Encrypt auto-renewal<br/>
                   • HSTS headers<br/>
@@ -1260,7 +1260,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 <div style={{fontSize: 18, fontWeight: 'bold', color: theme.colors.success, marginBottom: 10}}>
                   🔀 Proxy Setup
                 </div>
-                <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                   • NGINX/Envoy reverse proxy<br/>
                   • TLS termination<br/>
                   • Rate limiting<br/>
@@ -1277,7 +1277,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 <div style={{fontSize: 18, fontWeight: 'bold', color: '#fbbf24', marginBottom: 10}}>
                   ⚡ Performance
                 </div>
-                <div style={{fontSize: 13, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
                   • Connection pooling<br/>
                   • HTTP/2 multiplexing<br/>
                   • TCP Fast Open<br/>
@@ -1347,7 +1347,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             position: 'absolute',
             bottom: 80,
             left: width / 2 - 280,
-            fontSize: 15,
+            fontSize: 24,
             color: '#94a3b8',
             textAlign: 'center',
             opacity: fadeIn(frame, 3340, 15),

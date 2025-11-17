@@ -36,7 +36,7 @@ export const DistributedTransactions: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const DistributedTransactions: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(139, 92, 246, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -117,7 +117,7 @@ export const DistributedTransactions: React.FC = () => {
                   >
                     <div style={{fontSize: 32, marginBottom: 8}}>💳</div>
                     <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>Payment Service</div>
-                    <div style={{fontSize: 15, color: '#cbd5e1'}}>Charge $100</div>
+                    <div style={{fontSize: 24, color: '#cbd5e1'}}>Charge $100</div>
                   </div>
 
                   <div
@@ -131,7 +131,7 @@ export const DistributedTransactions: React.FC = () => {
                   >
                     <div style={{fontSize: 32, marginBottom: 8}}>📦</div>
                     <div style={{fontSize: 18, color: '#34d399', fontWeight: 'bold', marginBottom: 8}}>Inventory Service</div>
-                    <div style={{fontSize: 15, color: '#cbd5e1'}}>Reserve items</div>
+                    <div style={{fontSize: 24, color: '#cbd5e1'}}>Reserve items</div>
                   </div>
 
                   <div
@@ -145,7 +145,7 @@ export const DistributedTransactions: React.FC = () => {
                   >
                     <div style={{fontSize: 32, marginBottom: 8}}>📧</div>
                     <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 8}}>Order Service</div>
-                    <div style={{fontSize: 15, color: '#cbd5e1'}}>Create order</div>
+                    <div style={{fontSize: 24, color: '#cbd5e1'}}>Create order</div>
                   </div>
                 </div>
 
@@ -162,7 +162,7 @@ export const DistributedTransactions: React.FC = () => {
                   <div style={{fontSize: 20, color: '#ef4444', fontWeight: 'bold', marginBottom: 12}}>
                     ⚠️ What if payment succeeds but inventory fails?
                   </div>
-                  <div style={{fontSize: 16, color: '#fca5a5'}}>
+                  <div style={{fontSize: 24, color: '#fca5a5'}}>
                     Customer charged but no order! We need <span style={{fontWeight: 'bold'}}>atomicity across services</span>.
                   </div>
                 </div>
@@ -241,7 +241,7 @@ export const DistributedTransactions: React.FC = () => {
                 >
                   <div style={{fontSize: 24, marginBottom: 8}}>👔</div>
                   <div style={{fontSize: 18, color: '#a78bfa', fontWeight: 'bold'}}>Coordinator</div>
-                  <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 8}}>Can you commit?</div>
+                  <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>Can you commit?</div>
                 </div>
 
                 <div style={{fontSize: 32, color: '#60a5fa'}}>→</div>
@@ -260,8 +260,8 @@ export const DistributedTransactions: React.FC = () => {
                         opacity: fadeIn(frame, 780 + idx * 60, 15),
                       }}
                     >
-                      <div style={{fontSize: 15, color: '#34d399', fontWeight: 'bold'}}>{db}</div>
-                      <div style={{fontSize: 13, color: '#10b981', marginTop: 4}}>✅ YES, ready!</div>
+                      <div style={{fontSize: 24, color: '#34d399', fontWeight: 'bold'}}>{db}</div>
+                      <div style={{fontSize: 20, color: '#10b981', marginTop: 4}}>✅ YES, ready!</div>
                     </div>
                   ))}
                 </div>
@@ -295,12 +295,12 @@ export const DistributedTransactions: React.FC = () => {
                 >
                   <div style={{fontSize: 24, marginBottom: 8}}>👔</div>
                   <div style={{fontSize: 18, color: '#a78bfa', fontWeight: 'bold'}}>Coordinator</div>
-                  <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 8}}>All YES? COMMIT!</div>
+                  <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>All YES? COMMIT!</div>
                 </div>
 
                 <div style={{fontSize: 32, color: '#10b981'}}>→</div>
 
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2}}>
                   <div style={{color: '#10b981'}}>✅ All voted YES → <span style={{fontWeight: 'bold'}}>COMMIT</span></div>
                   <div style={{color: '#ef4444'}}>❌ Any voted NO → <span style={{fontWeight: 'bold'}}>ABORT all</span></div>
                 </div>
@@ -373,18 +373,18 @@ export const DistributedTransactions: React.FC = () => {
               <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                 ⚠️ 2PC Problems
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 15, color: '#e2e8f0'}}>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
                 <div>
                   <span style={{color: '#fca5a5', fontWeight: 'bold'}}>🔒 Blocking</span><br/>
-                  <span style={{fontSize: 14, color: '#94a3b8'}}>Resources locked until commit/abort</span>
+                  <span style={{fontSize: 22, color: '#94a3b8'}}>Resources locked until commit/abort</span>
                 </div>
                 <div>
                   <span style={{color: '#fca5a5', fontWeight: 'bold'}}>💥 Single Point of Failure</span><br/>
-                  <span style={{fontSize: 14, color: '#94a3b8'}}>Coordinator failure = system halt</span>
+                  <span style={{fontSize: 22, color: '#94a3b8'}}>Coordinator failure = system halt</span>
                 </div>
                 <div>
                   <span style={{color: '#fca5a5', fontWeight: 'bold'}}>⏱️ High Latency</span><br/>
-                  <span style={{fontSize: 14, color: '#94a3b8'}}>Multiple round trips required</span>
+                  <span style={{fontSize: 22, color: '#94a3b8'}}>Multiple round trips required</span>
                 </div>
               </div>
             </div>
@@ -403,7 +403,7 @@ export const DistributedTransactions: React.FC = () => {
                 ✓ Saga Pattern: Local Transactions + Compensations
               </div>
 
-              <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
+              <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
                 Each service executes its <span style={{color: '#34d399', fontWeight: 'bold'}}>own local transaction</span>. If one fails, run <span style={{color: '#fbbf24', fontWeight: 'bold'}}>compensating transactions</span> to undo previous steps.
               </div>
 
@@ -428,10 +428,10 @@ export const DistributedTransactions: React.FC = () => {
                       marginBottom: 8,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#60a5fa', fontWeight: 'bold'}}>1. Charge Payment</div>
-                    <div style={{fontSize: 13, color: '#10b981'}}>✅ Success</div>
+                    <div style={{fontSize: 24, color: '#60a5fa', fontWeight: 'bold'}}>1. Charge Payment</div>
+                    <div style={{fontSize: 20, color: '#10b981'}}>✅ Success</div>
                   </div>
-                  <div style={{fontSize: 12, color: '#94a3b8'}}>Compensation:<br/>Refund payment</div>
+                  <div style={{fontSize: 20, color: '#94a3b8'}}>Compensation:<br/>Refund payment</div>
                 </div>
 
                 <div style={{fontSize: 24, color: '#10b981'}}>→</div>
@@ -446,10 +446,10 @@ export const DistributedTransactions: React.FC = () => {
                       marginBottom: 8,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#34d399', fontWeight: 'bold'}}>2. Reserve Inventory</div>
-                    <div style={{fontSize: 13, color: '#ef4444'}}>❌ Failed!</div>
+                    <div style={{fontSize: 24, color: '#34d399', fontWeight: 'bold'}}>2. Reserve Inventory</div>
+                    <div style={{fontSize: 20, color: '#ef4444'}}>❌ Failed!</div>
                   </div>
-                  <div style={{fontSize: 12, color: '#94a3b8'}}>Compensation:<br/>Release inventory</div>
+                  <div style={{fontSize: 20, color: '#94a3b8'}}>Compensation:<br/>Release inventory</div>
                 </div>
 
                 <div style={{fontSize: 24, color: '#fbbf24'}}>⤺</div>
@@ -463,8 +463,8 @@ export const DistributedTransactions: React.FC = () => {
                     textAlign: 'center',
                   }}
                 >
-                  <div style={{fontSize: 16, color: '#fca5a5', fontWeight: 'bold'}}>Rollback</div>
-                  <div style={{fontSize: 13, color: '#cbd5e1', marginTop: 4}}>Run compensations<br/>to undo step 1</div>
+                  <div style={{fontSize: 24, color: '#fca5a5', fontWeight: 'bold'}}>Rollback</div>
+                  <div style={{fontSize: 20, color: '#cbd5e1', marginTop: 4}}>Run compensations<br/>to undo step 1</div>
                 </div>
               </div>
             </div>
@@ -526,7 +526,7 @@ export const DistributedTransactions: React.FC = () => {
                   🔄 Choreography
                 </div>
 
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
                   Services publish and listen to events. <span style={{color: '#60a5fa', fontWeight: 'bold'}}>No central coordinator</span>.
                 </div>
 
@@ -535,7 +535,7 @@ export const DistributedTransactions: React.FC = () => {
                     backgroundColor: 'rgba(15, 23, 42, 0.9)',
                     borderRadius: 10,
                     padding: 16,
-                    fontSize: 13,
+                    fontSize: 20,
                     color: '#cbd5e1',
                     lineHeight: 1.8,
                     marginBottom: 16,
@@ -547,11 +547,11 @@ export const DistributedTransactions: React.FC = () => {
                   <div>4️⃣ Order listens → Create order</div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
                   <div style={{color: '#10b981', fontWeight: 'bold'}}>✓ Pros:</div>
-                  <div style={{fontSize: 13, color: '#94a3b8'}}>• Loose coupling<br/>• No single point of failure</div>
+                  <div style={{fontSize: 20, color: '#94a3b8'}}>• Loose coupling<br/>• No single point of failure</div>
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 8}}>✗ Cons:</div>
-                  <div style={{fontSize: 13, color: '#94a3b8'}}>• Hard to track flow<br/>• Complex debugging</div>
+                  <div style={{fontSize: 20, color: '#94a3b8'}}>• Hard to track flow<br/>• Complex debugging</div>
                 </div>
               </div>
 
@@ -569,7 +569,7 @@ export const DistributedTransactions: React.FC = () => {
                   🎯 Orchestration
                 </div>
 
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
                   <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Central orchestrator</span> coordinates the saga steps.
                 </div>
 
@@ -578,7 +578,7 @@ export const DistributedTransactions: React.FC = () => {
                     backgroundColor: 'rgba(15, 23, 42, 0.9)',
                     borderRadius: 10,
                     padding: 16,
-                    fontSize: 13,
+                    fontSize: 20,
                     color: '#cbd5e1',
                     lineHeight: 1.8,
                     marginBottom: 16,
@@ -591,11 +591,11 @@ export const DistributedTransactions: React.FC = () => {
                   <div style={{color: '#ef4444', marginTop: 8}}>If any fails → Run compensations</div>
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
                   <div style={{color: '#10b981', fontWeight: 'bold'}}>✓ Pros:</div>
-                  <div style={{fontSize: 13, color: '#94a3b8'}}>• Easy to understand<br/>• Clear flow control</div>
+                  <div style={{fontSize: 20, color: '#94a3b8'}}>• Easy to understand<br/>• Clear flow control</div>
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 8}}>✗ Cons:</div>
-                  <div style={{fontSize: 13, color: '#94a3b8'}}>• Central dependency<br/>• Orchestrator complexity</div>
+                  <div style={{fontSize: 20, color: '#94a3b8'}}>• Central dependency<br/>• Orchestrator complexity</div>
                 </div>
               </div>
             </div>
@@ -614,7 +614,7 @@ export const DistributedTransactions: React.FC = () => {
               <div style={{fontSize: 20, color: '#a78bfa', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                 ⏱️ Key Insight: Eventual Consistency
               </div>
-              <div style={{fontSize: 16, color: '#e2e8f0', textAlign: 'center'}}>
+              <div style={{fontSize: 24, color: '#e2e8f0', textAlign: 'center'}}>
                 Sagas embrace <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>eventual consistency</span>. The system may be temporarily inconsistent but will eventually become consistent after all compensations complete.
               </div>
             </div>
@@ -687,30 +687,30 @@ export const DistributedTransactions: React.FC = () => {
                   🚫 When to Avoid Distributed Transactions
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 15, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
-                    <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 17, marginBottom: 8}}>
+                    <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Rethink Service Boundaries
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1'}}>
                       If you need distributed transactions, maybe you split services wrong! Keep related data together.
                     </div>
                   </div>
 
                   <div>
-                    <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 17, marginBottom: 8}}>
+                    <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Use Single Database
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1'}}>
                       Don't microservice too early. A well-designed monolith with one DB is simpler and faster.
                     </div>
                   </div>
 
                   <div>
-                    <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 17, marginBottom: 8}}>
+                    <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Accept Inconsistency
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1'}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1'}}>
                       Not all data needs to be perfectly consistent. Analytics can tolerate delays.
                     </div>
                   </div>
@@ -731,12 +731,12 @@ export const DistributedTransactions: React.FC = () => {
                   💡 Best Practices
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 15, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 18, marginBottom: 8}}>
                       ✓ Idempotency
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.7}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.7}}>
                       All operations must be safely retryable. Use unique IDs to prevent duplicate processing.
                     </div>
                   </div>
@@ -745,7 +745,7 @@ export const DistributedTransactions: React.FC = () => {
                     <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 18, marginBottom: 8}}>
                       ✓ Timeouts & Retries
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.7}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.7}}>
                       Set timeouts for each step. Use exponential backoff for retries with circuit breakers.
                     </div>
                   </div>
@@ -754,7 +754,7 @@ export const DistributedTransactions: React.FC = () => {
                     <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 18, marginBottom: 8}}>
                       ✓ Monitoring & Observability
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.7}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.7}}>
                       Track saga state. Alert on stuck transactions. Distributed tracing is essential!
                     </div>
                   </div>
@@ -763,7 +763,7 @@ export const DistributedTransactions: React.FC = () => {
                     <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 18, marginBottom: 8}}>
                       ✓ Test Failure Scenarios
                     </div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.7}}>
+                    <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.7}}>
                       Test compensations! Simulate failures. Chaos engineering helps find issues.
                     </div>
                   </div>
@@ -784,7 +784,7 @@ export const DistributedTransactions: React.FC = () => {
                 <div style={{fontSize: 22, color: '#a78bfa', fontWeight: 'bold', textAlign: 'center'}}>
                   🎯 Quick Decision Guide
                 </div>
-                <div style={{fontSize: 16, color: '#e2e8f0', marginTop: 12, textAlign: 'center', lineHeight: 2}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', marginTop: 12, textAlign: 'center', lineHeight: 2}}>
                   <span style={{color: '#3b82f6', fontWeight: 'bold'}}>Single service/DB?</span> → Use local transactions (ACID)<br/>
                   <span style={{color: '#10b981', fontWeight: 'bold'}}>Need strong consistency?</span> → Consider 2PC (with caution)<br/>
                   <span style={{color: '#f59e0b', fontWeight: 'bold'}}>Can tolerate eventual consistency?</span> → Use Sagas (recommended)<br/>

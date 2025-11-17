@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2 - 30,
             top: (y1 + y2) / 2 - 25,
             color,
-            fontSize: 12,
+            fontSize: 20,
             fontWeight: 'bold',
             opacity: animation,
             backgroundColor: '#0f172a',
@@ -274,13 +274,13 @@ export const DistributedSagas: React.FC = () => {
 
             <div style={{position: 'relative', height: 350}}>
               {/* Three services with separate DBs */}
-              <Box text="Order Service" x={0} y={0} width={150} height={60} color="#10b981" startFrame={330} fontSize={14} />
+              <Box text="Order Service" x={0} y={0} width={150} height={60} color="#10b981" startFrame={330} fontSize={22} />
               <div
                 style={{
                   position: 'absolute',
                   left: 15,
                   top: 70,
-                  fontSize: 11,
+                  fontSize: 18,
                   color: '#94a3b8',
                   opacity: frame >= 360 ? 1 : 0,
                 }}
@@ -296,14 +296,14 @@ export const DistributedSagas: React.FC = () => {
                 height={60}
                 color="#f59e0b"
                 startFrame={390}
-                fontSize={13}
+                fontSize={20}
               />
               <div
                 style={{
                   position: 'absolute',
                   left: 365,
                   top: 70,
-                  fontSize: 11,
+                  fontSize: 18,
                   color: '#94a3b8',
                   opacity: frame >= 420 ? 1 : 0,
                 }}
@@ -319,14 +319,14 @@ export const DistributedSagas: React.FC = () => {
                 height={60}
                 color="#ec4899"
                 startFrame={450}
-                fontSize={13}
+                fontSize={20}
               />
               <div
                 style={{
                   position: 'absolute',
                   left: 715,
                   top: 70,
-                  fontSize: 11,
+                  fontSize: 18,
                   color: '#94a3b8',
                   opacity: frame >= 480 ? 1 : 0,
                 }}
@@ -347,10 +347,10 @@ export const DistributedSagas: React.FC = () => {
                   opacity: frame >= 510 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#fca5a5', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 24, color: '#fca5a5', fontWeight: 'bold', marginBottom: 10}}>
                   💥 The Failure Scenario
                 </div>
-                <div style={{fontSize: 14, color: '#fecaca', lineHeight: 2}}>
+                <div style={{fontSize: 22, color: '#fecaca', lineHeight: 2}}>
                   <strong style={{color: '#10b981'}}>✅ Step 1:</strong> Order Service creates order → SUCCESS
                   <br />
                   <strong style={{color: '#10b981'}}>✅ Step 2:</strong> Payment Service charges card → SUCCESS
@@ -371,7 +371,7 @@ export const DistributedSagas: React.FC = () => {
                   position: 'absolute',
                   left: 0,
                   top: 280,
-                  fontSize: 13,
+                  fontSize: 20,
                   color: '#94a3b8',
                   opacity: frame >= 660 ? 1 : 0,
                 }}
@@ -387,7 +387,7 @@ export const DistributedSagas: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -441,10 +441,10 @@ export const DistributedSagas: React.FC = () => {
                   opacity: frame >= 930 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   ✅ Happy Path (All Succeed)
                 </div>
-                <div style={{fontSize: 14, color: '#d1fae5', lineHeight: 2}}>
+                <div style={{fontSize: 22, color: '#d1fae5', lineHeight: 2}}>
                   <strong>T1:</strong> Create Order → order_id: 123
                   <br />↓<br />
                   <strong>T2:</strong> Charge Payment → payment_id: 456
@@ -472,10 +472,10 @@ export const DistributedSagas: React.FC = () => {
                   opacity: frame >= 1110 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#ef4444', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   ❌ Failure Path (T3 Fails)
                 </div>
-                <div style={{fontSize: 14, color: '#fecaca', lineHeight: 2}}>
+                <div style={{fontSize: 22, color: '#fecaca', lineHeight: 2}}>
                   <strong style={{color: '#10b981'}}>T1:</strong> Create Order → ✅ order_id: 123
                   <br />↓<br />
                   <strong style={{color: '#10b981'}}>T2:</strong> Charge Payment → ✅ payment_id: 456
@@ -506,10 +506,10 @@ export const DistributedSagas: React.FC = () => {
                   opacity: frame >= 1350 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12}}>
+                <div style={{fontSize: 24, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12}}>
                   💡 Key Insight: Compensating Transactions
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                   Every transaction <strong>T</strong> must have a compensating transaction <strong>C</strong> that undoes
                   its effects.
                   <br />
@@ -527,7 +527,7 @@ export const DistributedSagas: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -582,9 +582,9 @@ export const DistributedSagas: React.FC = () => {
                 </div>
 
                 <div style={{position: 'relative', height: 220, marginBottom: 15}}>
-                  <Box text="Order" x={30} y={0} width={95} height={50} color="#10b981" startFrame={1860} fontSize={13} />
-                  <Box text="Payment" x={150} y={0} width={95} height={50} color="#f59e0b" startFrame={1890} fontSize={12} />
-                  <Box text="Inventory" x={270} y={0} width={95} height={50} color="#ec4899" startFrame={1920} fontSize={12} />
+                  <Box text="Order" x={30} y={0} width={95} height={50} color="#10b981" startFrame={1860} fontSize={20} />
+                  <Box text="Payment" x={150} y={0} width={95} height={50} color="#f59e0b" startFrame={1890} fontSize={20} />
+                  <Box text="Inventory" x={270} y={0} width={95} height={50} color="#ec4899" startFrame={1920} fontSize={20} />
 
                   <Arrow x1={125} y1={50} x2={150} y2={25} color="#22d3ee" startFrame={1950} label="Event" />
                   <Arrow x1={245} y1={50} x2={270} y2={25} color="#22d3ee" startFrame={1980} label="Event" />
@@ -616,7 +616,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={125 + ((150 - 125) * ((frame - 1950) % 120)) / 30 - 15}
                           y={50 - ((50 - 25) * ((frame - 1950) % 120)) / 30 - 10}
-                          fontSize="9"
+                          fontSize="18"
                           fill="#22d3ee"
                           opacity={0.8}
                         >
@@ -639,7 +639,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={245 + ((270 - 245) * ((frame - 1980) % 120)) / 30 - 15}
                           y={50 - ((50 - 25) * ((frame - 1980) % 120)) / 30 - 10}
-                          fontSize="9"
+                          fontSize="18"
                           fill="#22d3ee"
                           opacity={0.8}
                         >
@@ -662,7 +662,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={270 - ((270 - 125) * ((frame - 2010) % 120)) / 40 - 12}
                           y={35 + ((60 - 35) * ((frame - 2010) % 120)) / 40 - 10}
-                          fontSize="9"
+                          fontSize="18"
                           fill="#ef4444"
                           opacity={0.8}
                         >
@@ -677,7 +677,7 @@ export const DistributedSagas: React.FC = () => {
                       position: 'absolute',
                       left: 0,
                       top: 110,
-                      fontSize: 12,
+                      fontSize: 20,
                       color: '#cbd5e1',
                       opacity: frame >= 2040 ? 1 : 0,
                     }}
@@ -688,7 +688,7 @@ export const DistributedSagas: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#10b981'}}>✅ Pros:</strong>
                   <br />
                   • Simple, decoupled
@@ -726,13 +726,13 @@ export const DistributedSagas: React.FC = () => {
                     height={50}
                     color="#7c3aed"
                     startFrame={2100}
-                    fontSize={13}
+                    fontSize={20}
                   />
 
-                  <Box text="Order" x={10} y={90} width={80} height={45} color="#10b981" startFrame={2130} fontSize={11} />
-                  <Box text="Payment" x={105} y={90} width={80} height={45} color="#f59e0b" startFrame={2160} fontSize={11} />
-                  <Box text="Inventory" x={200} y={90} width={80} height={45} color="#ec4899" startFrame={2190} fontSize={11} />
-                  <Box text="Email" x={295} y={90} width={80} height={45} color="#06b6d4" startFrame={2220} fontSize={11} />
+                  <Box text="Order" x={10} y={90} width={80} height={45} color="#10b981" startFrame={2130} fontSize={18} />
+                  <Box text="Payment" x={105} y={90} width={80} height={45} color="#f59e0b" startFrame={2160} fontSize={18} />
+                  <Box text="Inventory" x={200} y={90} width={80} height={45} color="#ec4899" startFrame={2190} fontSize={18} />
+                  <Box text="Email" x={295} y={90} width={80} height={45} color="#06b6d4" startFrame={2220} fontSize={18} />
 
                   <Arrow x1={190} y1={50} x2={50} y2={90} color="#22d3ee" startFrame={2250} />
                   <Arrow x1={190} y1={50} x2={145} y2={90} color="#22d3ee" startFrame={2250} />
@@ -782,7 +782,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={190 - ((190 - 50) * ((frame - 2250) % 100)) / 25 - 12}
                           y={50 + ((90 - 50) * ((frame - 2250) % 100)) / 25 - 8}
-                          fontSize="8"
+                          fontSize="18"
                           fill="#c026d3"
                           opacity={0.7}
                         >
@@ -804,7 +804,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={190 - ((190 - 145) * ((frame - 2270) % 100)) / 25 - 10}
                           y={50 + ((90 - 50) * ((frame - 2270) % 100)) / 25 - 8}
-                          fontSize="8"
+                          fontSize="18"
                           fill="#c026d3"
                           opacity={0.7}
                         >
@@ -826,7 +826,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={190 + ((240 - 190) * ((frame - 2290) % 100)) / 25 - 12}
                           y={50 + ((90 - 50) * ((frame - 2290) % 100)) / 25 - 8}
-                          fontSize="8"
+                          fontSize="18"
                           fill="#c026d3"
                           opacity={0.7}
                         >
@@ -848,7 +848,7 @@ export const DistributedSagas: React.FC = () => {
                         <text
                           x={190 + ((335 - 190) * ((frame - 2310) % 100)) / 25 - 10}
                           y={50 + ((90 - 50) * ((frame - 2310) % 100)) / 25 - 8}
-                          fontSize="8"
+                          fontSize="18"
                           fill="#c026d3"
                           opacity={0.7}
                         >
@@ -859,7 +859,7 @@ export const DistributedSagas: React.FC = () => {
                   </svg>
                 </div>
 
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#10b981'}}>✅ Pros:</strong>
                   <br />
                   • Clear saga logic
@@ -882,7 +882,7 @@ export const DistributedSagas: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -933,7 +933,7 @@ export const DistributedSagas: React.FC = () => {
                   border: '2px solid #64748b',
                 }}
               >
-                <div style={{fontSize: 16, color: '#94a3b8', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                <div style={{fontSize: 24, color: '#94a3b8', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                   Traditional: Store State
                 </div>
                 <div
@@ -941,7 +941,7 @@ export const DistributedSagas: React.FC = () => {
                     backgroundColor: '#0f172a',
                     padding: 15,
                     borderRadius: 8,
-                    fontSize: 13,
+                    fontSize: 20,
                     color: '#cbd5e1',
                     fontFamily: 'monospace',
                   }}
@@ -967,7 +967,7 @@ export const DistributedSagas: React.FC = () => {
                   border: '2px solid #10b981',
                 }}
               >
-                <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                   Event Sourcing: Store Events
                 </div>
                 <div
@@ -975,7 +975,7 @@ export const DistributedSagas: React.FC = () => {
                     backgroundColor: '#0f172a',
                     padding: 15,
                     borderRadius: 8,
-                    fontSize: 12,
+                    fontSize: 20,
                     color: '#cbd5e1',
                     fontFamily: 'monospace',
                   }}
@@ -1004,10 +1004,10 @@ export const DistributedSagas: React.FC = () => {
                 opacity: frame >= 2760 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12}}>
+              <div style={{fontSize: 28, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12}}>
                 🔀 CQRS (Command Query Responsibility Segregation)
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                 <strong style={{color: '#22d3ee'}}>Idea:</strong> Separate models for writes (commands) and reads (queries)
                 <br />
                 <br />
@@ -1036,7 +1036,7 @@ export const DistributedSagas: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
