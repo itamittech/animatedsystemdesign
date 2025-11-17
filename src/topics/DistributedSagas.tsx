@@ -566,7 +566,7 @@ export const DistributedSagas: React.FC = () => {
               Two Saga Coordination Patterns
             </div>
 
-            <div style={{display: 'flex', gap: 30}}>
+            <div style={{display: 'flex', gap: 60}}>
               {/* Choreography */}
               <div
                 style={{
@@ -582,13 +582,13 @@ export const DistributedSagas: React.FC = () => {
                 </div>
 
                 <div style={{position: 'relative', height: 220, marginBottom: 15}}>
-                  <Box text="Order" x={50} y={0} width={100} height={50} color="#10b981" startFrame={1860} fontSize={13} />
-                  <Box text="Payment" x={180} y={0} width={100} height={50} color="#f59e0b" startFrame={1890} fontSize={12} />
-                  <Box text="Inventory" x={310} y={0} width={100} height={50} color="#ec4899" startFrame={1920} fontSize={12} />
+                  <Box text="Order" x={30} y={0} width={95} height={50} color="#10b981" startFrame={1860} fontSize={13} />
+                  <Box text="Payment" x={150} y={0} width={95} height={50} color="#f59e0b" startFrame={1890} fontSize={12} />
+                  <Box text="Inventory" x={270} y={0} width={95} height={50} color="#ec4899" startFrame={1920} fontSize={12} />
 
-                  <Arrow x1={150} y1={50} x2={180} y2={25} color="#22d3ee" startFrame={1950} label="Event" />
-                  <Arrow x1={280} y1={50} x2={310} y2={25} color="#22d3ee" startFrame={1980} label="Event" />
-                  <Arrow x1={310} y1={35} x2={150} y2={60} color="#ef4444" startFrame={2010} label="Fail Event" />
+                  <Arrow x1={125} y1={50} x2={150} y2={25} color="#22d3ee" startFrame={1950} label="Event" />
+                  <Arrow x1={245} y1={50} x2={270} y2={25} color="#22d3ee" startFrame={1980} label="Event" />
+                  <Arrow x1={270} y1={35} x2={125} y2={60} color="#ef4444" startFrame={2010} label="Fail Event" />
 
                   <div
                     style={{
@@ -638,7 +638,7 @@ export const DistributedSagas: React.FC = () => {
                 <div style={{position: 'relative', height: 220, marginBottom: 15}}>
                   <Box
                     text="Orchestrator"
-                    x={150}
+                    x={130}
                     y={0}
                     width={120}
                     height={50}
@@ -647,15 +647,15 @@ export const DistributedSagas: React.FC = () => {
                     fontSize={13}
                   />
 
-                  <Box text="Order" x={0} y={90} width={90} height={45} color="#10b981" startFrame={2130} fontSize={12} />
-                  <Box text="Payment" x={110} y={90} width={90} height={45} color="#f59e0b" startFrame={2160} fontSize={11} />
-                  <Box text="Inventory" x={220} y={90} width={90} height={45} color="#ec4899" startFrame={2190} fontSize={11} />
-                  <Box text="Email" x={330} y={90} width={90} height={45} color="#06b6d4" startFrame={2220} fontSize={12} />
+                  <Box text="Order" x={10} y={90} width={80} height={45} color="#10b981" startFrame={2130} fontSize={11} />
+                  <Box text="Payment" x={105} y={90} width={80} height={45} color="#f59e0b" startFrame={2160} fontSize={11} />
+                  <Box text="Inventory" x={200} y={90} width={80} height={45} color="#ec4899" startFrame={2190} fontSize={11} />
+                  <Box text="Email" x={295} y={90} width={80} height={45} color="#06b6d4" startFrame={2220} fontSize={11} />
 
-                  <Arrow x1={210} y1={50} x2={45} y2={90} color="#22d3ee" startFrame={2250} />
-                  <Arrow x1={210} y1={50} x2={155} y2={90} color="#22d3ee" startFrame={2250} />
-                  <Arrow x1={210} y1={50} x2={265} y2={90} color="#22d3ee" startFrame={2250} />
-                  <Arrow x1={210} y1={50} x2={375} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={50} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={145} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={240} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={335} y2={90} color="#22d3ee" startFrame={2250} />
                 </div>
 
                 <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
