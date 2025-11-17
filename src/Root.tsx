@@ -12,6 +12,7 @@ import {NoSQLDatabases} from './topics/NoSQLDatabases';
 import {DatabaseReplication} from './topics/DatabaseReplication';
 import {DatabaseSharding} from './topics/DatabaseSharding';
 import {DistributedTransactions} from './topics/DistributedTransactions';
+import {CachingFundamentals} from './topics/CachingFundamentals';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -116,6 +117,14 @@ export const RemotionRoot: React.FC = () => {
         id="DistributedTransactions"
         component={DistributedTransactions}
         durationInFrames={3150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="CachingFundamentals"
+        component={CachingFundamentals}
+        durationInFrames={2700}
         fps={30}
         width={1920}
         height={1080}
