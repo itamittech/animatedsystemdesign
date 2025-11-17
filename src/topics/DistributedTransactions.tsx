@@ -240,7 +240,7 @@ export const DistributedTransactions: React.FC = () => {
                   }}
                 >
                   <div style={{fontSize: 24, marginBottom: 8}}>👔</div>
-                  <div style={{fontSize: 18, color: '#a78bfa', fontWeight: 'bold'}}>Coordinator</div>
+                  <div style={{fontSize: 18, color: '#c4b5fd', fontWeight: 'bold'}}>Coordinator</div>
                   <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>Can you commit?</div>
                 </div>
 
@@ -294,7 +294,7 @@ export const DistributedTransactions: React.FC = () => {
                   }}
                 >
                   <div style={{fontSize: 24, marginBottom: 8}}>👔</div>
-                  <div style={{fontSize: 18, color: '#a78bfa', fontWeight: 'bold'}}>Coordinator</div>
+                  <div style={{fontSize: 18, color: '#c4b5fd', fontWeight: 'bold'}}>Coordinator</div>
                   <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>All YES? COMMIT!</div>
                 </div>
 
@@ -511,7 +511,7 @@ export const DistributedTransactions: React.FC = () => {
               width: 1700,
             }}
           >
-            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24}}>
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40}}>
               {/* Choreography */}
               <div
                 style={{
@@ -611,11 +611,11 @@ export const DistributedTransactions: React.FC = () => {
                 opacity: fadeIn(frame, 2370, 15),
               }}
             >
-              <div style={{fontSize: 20, color: '#a78bfa', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+              <div style={{fontSize: 22, color: '#c4b5fd', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                 ⏱️ Key Insight: Eventual Consistency
               </div>
               <div style={{fontSize: 24, color: '#e2e8f0', textAlign: 'center'}}>
-                Sagas embrace <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>eventual consistency</span>. The system may be temporarily inconsistent but will eventually become consistent after all compensations complete.
+                Sagas embrace <span style={{color: '#e9d5ff', fontWeight: 'bold'}}>eventual consistency</span>. The system may be temporarily inconsistent but will eventually become consistent after all compensations complete.
               </div>
             </div>
           </div>
@@ -731,7 +731,7 @@ export const DistributedTransactions: React.FC = () => {
                   💡 Best Practices
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 24, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 18, marginBottom: 8}}>
                       ✓ Idempotency
@@ -781,7 +781,7 @@ export const DistributedTransactions: React.FC = () => {
                   opacity: fadeIn(frame, 3000, 15),
                 }}
               >
-                <div style={{fontSize: 22, color: '#a78bfa', fontWeight: 'bold', textAlign: 'center'}}>
+                <div style={{fontSize: 24, color: '#c4b5fd', fontWeight: 'bold', textAlign: 'center'}}>
                   🎯 Quick Decision Guide
                 </div>
                 <div style={{fontSize: 24, color: '#e2e8f0', marginTop: 12, textAlign: 'center', lineHeight: 2}}>

@@ -454,7 +454,7 @@ export const DatabaseFundamentals: React.FC = () => {
                   opacity: fadeIn(frame, 1440, 20),
                 }}
               >
-                <div style={{fontSize: 34, color: '#a78bfa', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
+                <div style={{fontSize: 34, color: '#c4b5fd', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
                   Normalization vs Denormalization
                 </div>
 

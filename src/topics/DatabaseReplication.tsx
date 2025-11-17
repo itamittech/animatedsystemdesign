@@ -168,7 +168,7 @@ export const DatabaseReplication: React.FC = () => {
                 marginBottom: 24,
               }}
             >
-              <div style={{fontSize: 28, color: '#a78bfa', fontWeight: 'bold', marginBottom: 20, textAlign: 'center'}}>
+              <div style={{fontSize: 28, color: '#c4b5fd', fontWeight: 'bold', marginBottom: 20, textAlign: 'center'}}>
                 How It Works
               </div>
 

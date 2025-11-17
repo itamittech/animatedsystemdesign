@@ -603,7 +603,7 @@ export const NoSQLDatabases: React.FC = () => {
                   padding: 32,
                 }}
               >
-                <div style={{fontSize: 32, color: '#a78bfa', fontWeight: 'bold', marginBottom: 24, textAlign: 'center'}}>
+                <div style={{fontSize: 32, color: '#c4b5fd', fontWeight: 'bold', marginBottom: 24, textAlign: 'center'}}>
                   NoSQL Decision Matrix
                 </div>
 
