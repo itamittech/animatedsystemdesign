@@ -324,7 +324,7 @@ export const ServiceDecomposition: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -484,7 +484,7 @@ export const ServiceDecomposition: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -633,7 +633,7 @@ export const ServiceDecomposition: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -741,7 +741,7 @@ export const ServiceDecomposition: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      left: 20,
+                      right: 30,
                       top: 230,
                       fontSize: 20,
                       color: '#ef4444',
@@ -775,7 +775,7 @@ export const ServiceDecomposition: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      left: 20,
+                      right: 30,
                       top: 80,
                       width: 120,
                       height: 50,
@@ -858,7 +858,7 @@ export const ServiceDecomposition: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      left: 20,
+                      right: 30,
                       top: 150,
                       fontSize: 20,
                       color: '#10b981',
@@ -904,7 +904,7 @@ export const ServiceDecomposition: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',

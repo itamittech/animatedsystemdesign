@@ -345,7 +345,7 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -459,7 +459,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -607,7 +607,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
@@ -721,7 +721,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
             style={{
               position: 'absolute',
               bottom: 20,
-              left: 20,
+              right: 30,
               fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
