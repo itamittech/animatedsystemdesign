@@ -184,6 +184,20 @@ Horizontal partitioning strategies for scaling databases to billions of rows.
 - Cross-shard query challenges: JOINs, aggregations, unique constraints
 - Resharding approaches: Stop writes, dual writes, virtual shards
 
+#### 3.6 Distributed Transactions
+**Duration**: 105 seconds | **Status**: ✅ Complete
+Maintaining data consistency across multiple services and databases.
+
+**Topics Covered**:
+- The distributed transaction problem (e-commerce order example)
+- Two-Phase Commit (2PC): Prepare and commit phases, blocking nature
+- 2PC problems: Blocking, single point of failure, high latency
+- Saga Pattern: Local transactions with compensating transactions
+- Saga implementation: Choreography (event-driven) vs Orchestration (centralized)
+- Eventual consistency and idempotency patterns
+- When to avoid distributed transactions (rethink boundaries, use single DB)
+- Best practices: Timeouts, retries, monitoring, testing failures
+
 ## Getting Started
 
 ### Install Dependencies
@@ -223,11 +237,12 @@ npm run render:graphql             # GraphQL vs REST (90s)
 npm run render:grpc                # gRPC & Protocol Buffers (90s)
 
 # Phase 3: Data Storage & Management
-npm run render:database-fundamentals  # Database Fundamentals (70s)
-npm run render:sql-databases          # SQL Databases & Relational Design (85s)
-npm run render:nosql-databases        # NoSQL Databases (90s)
-npm run render:database-replication   # Database Replication (80s)
-npm run render:database-sharding      # Database Sharding (85s)
+npm run render:database-fundamentals     # Database Fundamentals (70s)
+npm run render:sql-databases             # SQL Databases & Relational Design (85s)
+npm run render:nosql-databases           # NoSQL Databases (90s)
+npm run render:database-replication      # Database Replication (80s)
+npm run render:database-sharding         # Database Sharding (85s)
+npm run render:distributed-transactions  # Distributed Transactions (105s)
 
 # Render all videos sequentially
 npm run render:all
@@ -248,6 +263,7 @@ All rendered videos are saved to the `out/` directory:
 - `out/nosql-databases.mp4`
 - `out/database-replication.mp4`
 - `out/database-sharding.mp4`
+- `out/distributed-transactions.mp4`
 
 ### Advanced Rendering Options
 
@@ -292,18 +308,19 @@ When you run `npm start`, you'll see all compositions in the left panel:
 - NoSQLDatabases
 - DatabaseReplication
 - DatabaseSharding
+- DistributedTransactions
 
 ## Progress Overview
 
-**Completed**: 12/58 topics (21% complete)
+**Completed**: 13/58 topics (22% complete)
 - ✅ Phase 1: Foundational Infrastructure (4/4 complete)
 - ✅ Phase 2: Communication Protocols & APIs (3/3 complete)
-- 🔄 Phase 3: Data Storage & Management (5/6 complete - 83%)
+- ✅ Phase 3: Data Storage & Management (6/6 complete - 100%) 🎉
 
-**Next Up**:
-1. Distributed Transactions (Phase 3.6) - Complete Phase 3!
-2. Caching Fundamentals (Phase 4.1)
-3. Advanced Caching Strategies (Phase 4.2)
+**Next Up - Phase 4: Caching Strategies**:
+1. Caching Fundamentals (Phase 4.1)
+2. Multi-Layer Caching (Phase 4.2)
+3. Distributed Caching (Phase 4.3)
 
 See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
@@ -372,17 +389,17 @@ The project supports sound effects to enhance the learning experience!
 
 This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-**Current Status**: 12/58 topics complete (21%)
+**Current Status**: 13/58 topics complete (22%)
 
 **Phase Progress**:
 - ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
 - ✅ Phase 2: Communication Protocols & APIs (100% - 3/3)
-- 🔄 Phase 3: Data Storage & Management (83% - 5/6)
+- ✅ Phase 3: Data Storage & Management (100% - 6/6) 🎉
 - 📋 Phase 4-14: Planned
 
 **Key Upcoming Topics**:
-- Distributed Transactions (to complete Phase 3!)
-- Caching Strategies
+- Caching Fundamentals (Phase 4.1)
+- Multi-Layer & Distributed Caching
 - Message Queues & Event Streaming
 - Microservices Architecture
 - Security & Authentication
