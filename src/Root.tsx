@@ -39,6 +39,10 @@ import {CircuitBreakerPattern} from './topics/CircuitBreakerPattern';
 import {RetryBackoffStrategies} from './topics/RetryBackoffStrategies';
 import {HealthChecksMonitoring} from './topics/HealthChecksMonitoring';
 import {DisasterRecoveryBackup} from './topics/DisasterRecoveryBackup';
+import {AuthenticationAuthorization} from './topics/AuthenticationAuthorization';
+import {EncryptionSSLTLS} from './topics/EncryptionSSLTLS';
+import {APISecurityBestPractices} from './topics/APISecurityBestPractices';
+import {DDoSProtectionMitigation} from './topics/DDoSProtectionMitigation';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -359,6 +363,38 @@ export const RemotionRoot: React.FC = () => {
         id="DisasterRecoveryBackup"
         component={DisasterRecoveryBackup}
         durationInFrames={2550}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AuthenticationAuthorization"
+        component={AuthenticationAuthorization}
+        durationInFrames={2550}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="EncryptionSSLTLS"
+        component={EncryptionSSLTLS}
+        durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="APISecurityBestPractices"
+        component={APISecurityBestPractices}
+        durationInFrames={2250}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DDoSProtectionMitigation"
+        component={DDoSProtectionMitigation}
+        durationInFrames={2100}
         fps={30}
         width={1920}
         height={1080}
