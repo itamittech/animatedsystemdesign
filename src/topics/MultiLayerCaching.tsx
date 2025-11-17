@@ -25,7 +25,7 @@ export const MultiLayerCaching: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -102,13 +102,13 @@ export const MultiLayerCaching: React.FC = () => {
                   🏔️ The Caching Pyramid
                 </div>
 
-                <div style={{display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'center'}}>
+                <div style={{display: 'flex', flexDirection: 'column', gap: 22, alignItems: 'center'}}>
                   {/* Level 1: Browser */}
                   <div
                     style={{
                       width: '80%',
                       backgroundColor: 'rgba(59, 130, 246, 0.3)',
-                      border: '3px solid #3b82f6',
+                      border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                       borderRadius: 12,
                       padding: 20,
                       textAlign: 'center',
@@ -126,7 +126,7 @@ export const MultiLayerCaching: React.FC = () => {
                     style={{
                       width: '85%',
                       backgroundColor: 'rgba(16, 185, 129, 0.3)',
-                      border: '3px solid #10b981',
+                      border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                       borderRadius: 12,
                       padding: 20,
                       textAlign: 'center',
@@ -144,7 +144,7 @@ export const MultiLayerCaching: React.FC = () => {
                     style={{
                       width: '90%',
                       backgroundColor: 'rgba(245, 158, 11, 0.3)',
-                      border: '3px solid #f59e0b',
+                      border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                       borderRadius: 12,
                       padding: 20,
                       textAlign: 'center',
@@ -227,7 +227,7 @@ export const MultiLayerCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 14,
                   padding: 20,
                   opacity: fadeIn(frame, 600, 15),
@@ -236,7 +236,7 @@ export const MultiLayerCaching: React.FC = () => {
                 <div style={{fontSize: 22, color: '#3b82f6', fontWeight: 'bold', marginBottom: 12}}>
                   ✅ Scenario 1: Browser Cache Hit (Best Case)
                 </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: 22, fontSize: 24, color: '#e2e8f0'}}>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 28}}>👤</div>
                     <div style={{fontSize: 22}}>User</div>
@@ -261,7 +261,7 @@ export const MultiLayerCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 14,
                   padding: 20,
                   opacity: fadeIn(frame, 720, 15),
@@ -270,7 +270,7 @@ export const MultiLayerCaching: React.FC = () => {
                 <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                   ✅ Scenario 2: CDN Cache Hit
                 </div>
-                <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 24, color: '#e2e8f0'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: 20, fontSize: 24, color: '#e2e8f0'}}>
                   <div style={{textAlign: 'center'}}>
                     <div style={{fontSize: 24}}>👤</div>
                     <div style={{fontSize: 20}}>User</div>
@@ -299,7 +299,7 @@ export const MultiLayerCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   borderRadius: 14,
                   padding: 20,
                   opacity: fadeIn(frame, 840, 15),
@@ -554,7 +554,7 @@ export const MultiLayerCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 14,
                   padding: 22,
                   opacity: fadeIn(frame, 1770, 15),
@@ -595,7 +595,7 @@ export const MultiLayerCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 14,
                   padding: 22,
                   opacity: fadeIn(frame, 1920, 15),
@@ -640,7 +640,7 @@ export const MultiLayerCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   borderRadius: 14,
                   padding: 22,
                   opacity: fadeIn(frame, 2070, 15),

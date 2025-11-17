@@ -648,7 +648,7 @@ const AlgorithmCard: React.FC<{
       >
         {description}
       </p>
-      <div style={{display: 'flex', gap: 16, marginBottom: 12}}>
+      <div style={{display: 'flex', gap: 22, marginBottom: 12}}>
         <div style={{flex: 1}}>
           <span style={{color: theme.colors.success, fontSize: 18}}>
             ✓ {pros.join(' • ')}

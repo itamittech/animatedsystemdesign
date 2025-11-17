@@ -259,7 +259,7 @@ export const ServiceDecomposition: React.FC = () => {
             <div
               style={{
                 backgroundColor: '#1e293b',
-                border: '3px solid #ef4444',
+                border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                 borderRadius: 15,
                 padding: 25,
                 width: 840,
@@ -531,7 +531,7 @@ export const ServiceDecomposition: React.FC = () => {
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   opacity: frame >= 1650 ? 1 : 0,
                 }}
               >
@@ -601,7 +601,7 @@ export const ServiceDecomposition: React.FC = () => {
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   opacity: frame >= 1950 ? 1 : 0,
                 }}
               >
@@ -682,7 +682,7 @@ export const ServiceDecomposition: React.FC = () => {
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #ef4444',
+                  border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                 }}
               >
                 <div style={{fontSize: 28, color: '#ef4444', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
@@ -763,7 +763,7 @@ export const ServiceDecomposition: React.FC = () => {
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                 }}
               >
                 <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
