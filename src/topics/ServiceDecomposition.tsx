@@ -417,7 +417,7 @@ export const ServiceDecomposition: React.FC = () => {
                 padding: 20,
                 borderRadius: 12,
                 width: 850,
-                border: '2px solid '#c084fc',
+                border: '2px solid #c084fc',
                 opacity: frame >= 1110 ? 1 : 0,
               }}
             >
