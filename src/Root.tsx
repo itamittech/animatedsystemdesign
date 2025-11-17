@@ -28,6 +28,8 @@ import {MicroservicesResilience} from './topics/MicroservicesResilience';
 import {DistributedSagas} from './topics/DistributedSagas';
 import {ServiceDiscoveryDeployment} from './topics/ServiceDiscoveryDeployment';
 import {MicroservicesInAction} from './topics/MicroservicesInAction';
+import {MessageQueueFundamentals} from './topics/MessageQueueFundamentals';
+import {ApacheKafka} from './topics/ApacheKafka';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -259,6 +261,22 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="MicroservicesInAction"
         component={MicroservicesInAction}
+        durationInFrames={3600}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MessageQueueFundamentals"
+        component={MessageQueueFundamentals}
+        durationInFrames={3600}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ApacheKafka"
+        component={ApacheKafka}
         durationInFrames={3600}
         fps={30}
         width={1920}
