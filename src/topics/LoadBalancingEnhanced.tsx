@@ -207,7 +207,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="junior"
             text="I see! All traffic goes to one server. That's a single point of failure AND a bottleneck!"
             x={200}
-            y={height - 150}
+            y={height - 280}
             startFrame={210}
             maxWidth={600}
           />
@@ -321,7 +321,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Traffic is distributed evenly! If one server fails, the LB routes to healthy servers. No single point of failure."
             x={width - 900}
-            y={height - 150}
+            y={height - 280}
             startFrame={360}
             maxWidth={650}
           />
@@ -688,7 +688,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="junior"
             text="What if users need to stay on the same server? Like for shopping carts?"
             x={200}
-            y={height - 150}
+            y={height - 280}
             startFrame={1130}
             maxWidth={500}
           />
@@ -756,7 +756,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="For global scale, we route users to the nearest datacenter using GeoDNS. Disaster recovery built-in!"
             x={width / 2 - 400}
-            y={height - 150}
+            y={height - 280}
             startFrame={1310}
             maxWidth={800}
           />
@@ -799,9 +799,9 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Character type="junior" x={150} y={height - 200} startFrame={1470} size={80} />
           <Character type="architect" x={width - 300} y={height - 200} startFrame={1470} size={80} />
 
-          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 150} startFrame={1490} maxWidth={450} />
+          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 280} startFrame={1490} maxWidth={450} />
 
-          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 150} startFrame={1510} maxWidth={600} />
+          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 280} startFrame={1510} maxWidth={600} />
 
           <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1530, 20)}}>
             <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great docs']} cons={['Complex config']} useCase="General purpose" />
@@ -836,7 +836,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Load balancers enable sophisticated deployment strategies. Let me show you three critical patterns..."
             x={width / 2 - 450}
-            y={height - 150}
+            y={height - 280}
             startFrame={1760}
             maxWidth={900}
           />
@@ -875,13 +875,13 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <Character type="junior" x={150} y={height - 200} startFrame={1980} size={80} />
 
-          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 150} startFrame={2000} maxWidth={450} />
+          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 280} startFrame={2000} maxWidth={450} />
 
           <Dialogue
             speaker="architect"
             text="No! Terminate SSL at the load balancer. Decrypt once, forward as HTTP internally. Huge performance win!"
             x={width - 900}
-            y={height - 150}
+            y={height - 280}
             startFrame={2030}
             maxWidth={680}
           />
@@ -967,7 +967,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Load balancers add a critical security layer. They can rate limit, block malicious traffic, and protect backends from overload."
             x={width / 2 - 500}
-            y={height - 150}
+            y={height - 280}
             startFrame={2360}
             maxWidth={1000}
           />

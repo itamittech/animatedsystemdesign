@@ -1086,6 +1086,20 @@ export const ApacheKafka: React.FC = () => {
               providing durability, replay capability, and horizontal scalability for distributed systems
             </p>
           </div>
+
+          {/* Credit */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 20,
+              left: 20,
+              fontSize: 22,
+              color: '#64748b',
+              fontFamily: 'monospace',
+            }}
+          >
+            Created by Amit Mishra | Powered by Claude Code
+          </div>
         </>
       )}
     </AbsoluteFill>

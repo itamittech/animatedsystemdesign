@@ -64,7 +64,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="junior"
             text="We covered SQL vs NoSQL. When should I specifically choose SQL databases?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={500}
           />
@@ -297,7 +297,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="junior"
             text="You mentioned indexes earlier. What are the different types?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={930}
             maxWidth={500}
           />
@@ -609,7 +609,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="junior"
             text="What happens when a single SQL database can't handle the load?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2130}
             maxWidth={500}
           />

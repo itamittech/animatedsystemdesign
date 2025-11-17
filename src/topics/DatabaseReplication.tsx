@@ -64,7 +64,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="junior"
             text="How do databases handle failures and scale reads beyond a single server?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={500}
           />
@@ -273,7 +273,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="junior"
             text="Can multiple databases accept writes at the same time?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={930}
             maxWidth={500}
           />
@@ -559,7 +559,7 @@ export const DatabaseReplication: React.FC = () => {
             speaker="junior"
             text="What's replication lag and how do we handle it?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={1830}
             maxWidth={500}
           />

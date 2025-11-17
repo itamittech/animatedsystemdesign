@@ -64,7 +64,7 @@ export const CachingFundamentals: React.FC = () => {
             speaker="junior"
             text="Sarah, everyone talks about caching. What exactly is it and why does it matter?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={520}
           />
@@ -337,7 +337,7 @@ export const CachingFundamentals: React.FC = () => {
             speaker="junior"
             text="What happens when the cache is full and we need to add new data?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={930}
             maxWidth={500}
           />
@@ -637,7 +637,7 @@ export const CachingFundamentals: React.FC = () => {
             speaker="junior"
             text="How do we keep cache data fresh? And what's the stampede problem?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2130}
             maxWidth={500}
           />
