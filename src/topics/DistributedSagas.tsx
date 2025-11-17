@@ -557,7 +557,7 @@ export const DistributedSagas: React.FC = () => {
           <div
             style={{
               position: 'absolute',
-              left: width / 2 - 540,
+              left: width / 2 - 620,
               top: 160,
               opacity: frame >= 1800 ? 1 : 0,
             }}
@@ -566,7 +566,7 @@ export const DistributedSagas: React.FC = () => {
               Two Saga Coordination Patterns
             </div>
 
-            <div style={{display: 'flex', gap: 60}}>
+            <div style={{display: 'flex', gap: 120}}>
               {/* Choreography */}
               <div
                 style={{
