@@ -807,40 +807,187 @@ export const RESTAPIDesign: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: Summary & Next Steps (3300-3750 frames / 110-125s) */}
+      {/* Scene 7: HATEOAS - Hypermedia as the Engine of Application State (3300-3750 frames / 110-125s) */}
       {frame >= 3300 && frame < 3750 && (
         <>
-          <Title text="REST API Best Practices" subtitle="Summary & Key Takeaways" startFrame={3300} />
+          <Title text="HATEOAS" subtitle="Hypermedia as the Engine of Application State" startFrame={3300} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={3330} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={3330} size={95} />
+          <Character type="junior" x={200} y={height - 200} startFrame={3300} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={3300} size={90} />
 
           <Dialogue
             speaker="junior"
-            text="This is so much clearer now! Our APIs will be much better designed."
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={3360}
-            maxWidth={480}
+            text="I've heard of HATEOAS. What is it and why should we use it?"
+            x={220}
+            y={height - 150}
+            startFrame={3330}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
-            text="Perfect! Remember: consistency is key. Document everything, version carefully, and always think from the API consumer's perspective!"
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={3480}
+            text="HATEOAS makes your API self-documenting by including links to related resources in every response!"
+            x={width - 750}
+            y={height - 150}
+            startFrame={3450}
+            maxWidth={640}
+          />
+
+          {/* HATEOAS Example */}
+          {frame >= 3540 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: height * 0.18,
+                left: width * 0.08,
+                right: width * 0.08,
+                opacity: fadeIn(frame, 3540, 20),
+              }}
+            >
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24}}>
+                {/* Without HATEOAS */}
+                <div
+                  style={{
+                    backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                    border: '3px solid #ef4444',
+                    borderRadius: 16,
+                    padding: 24,
+                    opacity: fadeIn(frame, 3570, 15),
+                  }}
+                >
+                  <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
+                    ❌ Without HATEOAS
+                  </div>
+                  <div style={{fontSize: 14, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 16, borderRadius: 10, color: '#e2e8f0'}}>
+                    <div style={{color: '#94a3b8'}}>GET /users/123</div>
+                    <div style={{marginTop: 12}}>{'{'}</div>
+                    <div style={{paddingLeft: 20}}>
+                      <div style={{color: '#60a5fa'}}>"id"</div>: 123,
+                    </div>
+                    <div style={{paddingLeft: 20}}>
+                      <div style={{color: '#60a5fa'}}>"name"</div>: "Alice",
+                    </div>
+                    <div style={{paddingLeft: 20}}>
+                      <div style={{color: '#60a5fa'}}>"email"</div>: "alice@example.com"
+                    </div>
+                    <div>{'}'}</div>
+                    <div style={{marginTop: 16, color: '#fbbf24', fontSize: 13}}>
+                      ⚠️ Client must know all endpoints
+                    </div>
+                  </div>
+                </div>
+
+                {/* With HATEOAS */}
+                <div
+                  style={{
+                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                    border: '3px solid #10b981',
+                    borderRadius: 16,
+                    padding: 24,
+                    opacity: fadeIn(frame, 3630, 15),
+                  }}
+                >
+                  <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
+                    ✓ With HATEOAS
+                  </div>
+                  <div style={{fontSize: 13, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 16, borderRadius: 10, color: '#e2e8f0'}}>
+                    <div style={{color: '#94a3b8'}}>GET /users/123</div>
+                    <div style={{marginTop: 12}}>{'{'}</div>
+                    <div style={{paddingLeft: 20}}>
+                      <div style={{color: '#60a5fa'}}>"id"</div>: 123,
+                    </div>
+                    <div style={{paddingLeft: 20}}>
+                      <div style={{color: '#60a5fa'}}>"name"</div>: "Alice",
+                    </div>
+                    <div style={{paddingLeft: 20}}>
+                      <div style={{color: '#60a5fa'}}>"_links"</div>: {'{'}
+                    </div>
+                    <div style={{paddingLeft: 40}}>
+                      <div style={{color: '#10b981'}}>"self"</div>: "/users/123",
+                    </div>
+                    <div style={{paddingLeft: 40}}>
+                      <div style={{color: '#10b981'}}>"posts"</div>: "/users/123/posts",
+                    </div>
+                    <div style={{paddingLeft: 40}}>
+                      <div style={{color: '#10b981'}}>"followers"</div>: "/users/123/followers"
+                    </div>
+                    <div style={{paddingLeft: 20}}>{'}'}</div>
+                    <div>{'}'}</div>
+                    <div style={{marginTop: 12, color: '#10b981', fontSize: 12}}>
+                      ✓ API guides client through available actions
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Benefits */}
+              <div
+                style={{
+                  marginTop: 24,
+                  backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                  border: '3px solid #3b82f6',
+                  borderRadius: 16,
+                  padding: 24,
+                  opacity: fadeIn(frame, 3690, 15),
+                }}
+              >
+                <div style={{fontSize: 22, color: '#3b82f6', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
+                  💡 HATEOAS Benefits
+                </div>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 15, color: '#e2e8f0'}}>
+                  <div>
+                    <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>🔍 Discoverability</div>
+                    <div style={{fontSize: 14}}>Clients discover available actions dynamically</div>
+                  </div>
+                  <div>
+                    <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>🔧 Evolvability</div>
+                    <div style={{fontSize: 14}}>Server can change URLs without breaking clients</div>
+                  </div>
+                  <div>
+                    <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>📖 Self-Documenting</div>
+                    <div style={{fontSize: 14}}>API tells clients what's possible at each state</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Scene 8: Summary & Next Steps (3750-3900 frames / 125-130s) */}
+      {frame >= 3750 && frame < 3900 && (
+        <>
+          <Title text="REST API Best Practices" subtitle="Summary & Key Takeaways" startFrame={3750} />
+
+          <Character type="junior" x={200} y={height - 200} startFrame={3750} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={3750} size={90} />
+
+          <Dialogue
+            speaker="junior"
+            text="This is so much clearer now! Our APIs will be much better designed."
+            x={220}
+            y={height - 150}
+            startFrame={3780}
             maxWidth={500}
           />
 
+          <Dialogue
+            speaker="architect"
+            text="Perfect! Remember: consistency, HATEOAS for discoverability, and always think from the API consumer's perspective!"
+            x={width - 750}
+            y={height - 150}
+            startFrame={3840}
+            maxWidth={640}
+          />
+
           {/* Summary */}
-          {frame >= 3570 && (
+          {frame >= 3810 && (
             <div style={{
               position: 'absolute',
               top: height * 0.16,
               left: width * 0.10,
               right: width * 0.10,
-              opacity: fadeIn(frame, 3570, 20),
+              opacity: fadeIn(frame, 3810, 20),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -853,17 +1000,16 @@ export const RESTAPIDesign: React.FC = () => {
                 </div>
 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, fontSize: 13}}>
-                  <div style={{opacity: fadeIn(frame, 3600, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 3820, 15)}}>
                     <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>✅ Design Principles</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • Use <span style={{color: '#fbbf24'}}>nouns for URLs</span>, not verbs<br/>
                       • Keep URLs <span style={{color: '#fbbf24'}}>simple and predictable</span><br/>
-                      • Plural nouns: /users not /user<br/>
-                      • Nested resources: /users/123/posts
+                      • Include <span style={{color: '#fbbf24'}}>HATEOAS links</span> for discoverability
                     </div>
                   </div>
 
-                  <div style={{opacity: fadeIn(frame, 3630, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 3840, 15)}}>
                     <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔧 Implementation</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • Use correct <span style={{color: '#fbbf24'}}>HTTP methods</span><br/>
@@ -873,7 +1019,7 @@ export const RESTAPIDesign: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{opacity: fadeIn(frame, 3660, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 3860, 15)}}>
                     <div style={{fontSize: 16, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📚 Documentation</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • Use OpenAPI/Swagger spec<br/>
@@ -883,7 +1029,7 @@ export const RESTAPIDesign: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{opacity: fadeIn(frame, 3690, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 3880, 15)}}>
                     <div style={{fontSize: 16, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🚀 Next Topics</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • GraphQL vs REST<br/>

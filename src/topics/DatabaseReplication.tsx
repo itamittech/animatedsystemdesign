@@ -57,23 +57,23 @@ export const DatabaseReplication: React.FC = () => {
         <>
           <Title text="Database Replication" subtitle="Scaling Reads & Ensuring High Availability" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.50} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.50} startFrame={30} size={110} />
+          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
 
           <Dialogue
             speaker="junior"
             text="How do databases handle failures and scale reads beyond a single server?"
-            x={width * 0.05}
-            y={height * 0.60}
+            x={220}
+            y={height - 150}
             startFrame={60}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="That's where replication comes in! Let's explore how databases copy data across multiple servers."
-            x={width * 0.72 - 320}
-            y={height * 0.60}
+            x={width - 750}
+            y={height - 150}
             startFrame={180}
             maxWidth={640}
           />
@@ -137,11 +137,13 @@ export const DatabaseReplication: React.FC = () => {
             Master-Slave Replication
           </div>
 
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+
           <Dialogue
             speaker="architect"
             text="The most common pattern: One master handles writes, replicas handle reads."
-            x={width * 0.72 - 300}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={480}
             maxWidth={600}
           />
@@ -264,20 +266,23 @@ export const DatabaseReplication: React.FC = () => {
             Master-Master (Multi-Master) Replication
           </div>
 
+          <Character type="junior" x={200} y={height - 200} startFrame={900} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={900} size={90} />
+
           <Dialogue
             speaker="junior"
             text="Can multiple databases accept writes at the same time?"
-            x={width * 0.05}
-            y={height * 0.70}
+            x={220}
+            y={height - 150}
             startFrame={930}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="Yes! Master-Master lets both servers accept writes. But it comes with complexity."
-            x={width * 0.72 - 320}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={1050}
             maxWidth={640}
           />
@@ -404,11 +409,13 @@ export const DatabaseReplication: React.FC = () => {
             Synchronous vs Asynchronous Replication
           </div>
 
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={1350} size={90} />
+
           <Dialogue
             speaker="architect"
             text="This is the critical trade-off: consistency versus performance."
-            x={width * 0.72 - 280}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={1380}
             maxWidth={560}
           />
@@ -545,20 +552,23 @@ export const DatabaseReplication: React.FC = () => {
             Read Replicas & Replication Lag
           </div>
 
+          <Character type="junior" x={200} y={height - 200} startFrame={1800} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={1800} size={90} />
+
           <Dialogue
             speaker="junior"
             text="What's replication lag and how do we handle it?"
-            x={width * 0.05}
-            y={height * 0.70}
+            x={220}
+            y={height - 150}
             startFrame={1830}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="Lag is the delay between master write and replica sync. It's the price of async replication."
-            x={width * 0.72 - 340}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={1950}
             maxWidth={680}
           />
