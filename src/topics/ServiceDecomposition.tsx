@@ -690,33 +690,33 @@ export const ServiceDecomposition: React.FC = () => {
                 </div>
 
                 <div style={{position: 'relative', height: 280}}>
-                  <Box text="Order Service" x={20} y={0} width={150} height={60} color="#10b981" startFrame={2490} fontSize={14} />
+                  <Box text="Order Service" x={10} y={0} width={140} height={60} color="#10b981" startFrame={2490} fontSize={13} />
                   <Box
                     text="Payment Service"
-                    x={200}
+                    x={170}
                     y={0}
-                    width={150}
+                    width={140}
                     height={60}
                     color="#f59e0b"
                     startFrame={2520}
-                    fontSize={13}
+                    fontSize={12}
                   />
                   <Box
                     text="Inventory Service"
-                    x={380}
+                    x={330}
                     y={0}
-                    width={150}
+                    width={140}
                     height={60}
                     color="#ec4899"
                     startFrame={2550}
-                    fontSize={13}
+                    fontSize={12}
                   />
 
                   {/* Shared database */}
                   <div
                     style={{
                       position: 'absolute',
-                      left: 150,
+                      left: 120,
                       top: 110,
                       width: 230,
                       height: 100,
@@ -725,7 +725,7 @@ export const ServiceDecomposition: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: 16,
+                      fontSize: 15,
                       fontWeight: 'bold',
                       color: '#fff',
                       opacity: frame >= 2580 ? 1 : 0,
@@ -734,9 +734,9 @@ export const ServiceDecomposition: React.FC = () => {
                     💾 Shared Database
                   </div>
 
-                  <Arrow x1={95} y1={60} x2={180} y2={110} color="#ef4444" startFrame={2610} />
-                  <Arrow x1={275} y1={60} x2={265} y2={110} color="#ef4444" startFrame={2610} />
-                  <Arrow x1={455} y1={60} x2={350} y2={110} color="#ef4444" startFrame={2610} />
+                  <Arrow x1={80} y1={60} x2={150} y2={110} color="#ef4444" startFrame={2610} />
+                  <Arrow x1={240} y1={60} x2={235} y2={110} color="#ef4444" startFrame={2610} />
+                  <Arrow x1={400} y1={60} x2={320} y2={110} color="#ef4444" startFrame={2610} />
 
                   <div
                     style={{
@@ -771,11 +771,11 @@ export const ServiceDecomposition: React.FC = () => {
                 </div>
 
                 <div style={{position: 'relative', height: 280}}>
-                  <Box text="Order Service" x={20} y={0} width={150} height={60} color="#10b981" startFrame={2490} fontSize={14} />
+                  <Box text="Order Service" x={10} y={0} width={140} height={60} color="#10b981" startFrame={2490} fontSize={13} />
                   <div
                     style={{
                       position: 'absolute',
-                      left: 35,
+                      left: 20,
                       top: 80,
                       width: 120,
                       height: 50,
@@ -791,22 +791,22 @@ export const ServiceDecomposition: React.FC = () => {
                   >
                     Order DB
                   </div>
-                  <Arrow x1={95} y1={60} x2={95} y2={80} color="#10b981" startFrame={2730} />
+                  <Arrow x1={80} y1={60} x2={80} y2={80} color="#10b981" startFrame={2730} />
 
                   <Box
                     text="Payment Service"
-                    x={200}
+                    x={170}
                     y={0}
-                    width={150}
+                    width={140}
                     height={60}
                     color="#f59e0b"
                     startFrame={2520}
-                    fontSize={13}
+                    fontSize={12}
                   />
                   <div
                     style={{
                       position: 'absolute',
-                      left: 215,
+                      left: 180,
                       top: 80,
                       width: 120,
                       height: 50,
@@ -822,22 +822,22 @@ export const ServiceDecomposition: React.FC = () => {
                   >
                     Payment DB
                   </div>
-                  <Arrow x1={275} y1={60} x2={275} y2={80} color="#f59e0b" startFrame={2790} />
+                  <Arrow x1={240} y1={60} x2={240} y2={80} color="#f59e0b" startFrame={2790} />
 
                   <Box
                     text="Inventory Service"
-                    x={380}
+                    x={330}
                     y={0}
-                    width={150}
+                    width={140}
                     height={60}
                     color="#ec4899"
                     startFrame={2550}
-                    fontSize={13}
+                    fontSize={12}
                   />
                   <div
                     style={{
                       position: 'absolute',
-                      left: 395,
+                      left: 340,
                       top: 80,
                       width: 120,
                       height: 50,
@@ -853,7 +853,7 @@ export const ServiceDecomposition: React.FC = () => {
                   >
                     Inventory DB
                   </div>
-                  <Arrow x1={455} y1={60} x2={455} y2={80} color="#ec4899" startFrame={2850} />
+                  <Arrow x1={400} y1={60} x2={400} y2={80} color="#ec4899" startFrame={2850} />
 
                   <div
                     style={{
