@@ -340,9 +340,9 @@ export const ModelContextProtocol: React.FC = () => {
           <div
             style={{
               position: 'absolute',
-              right: 80,
+              right: 60,
               top: 140,
-              width: 500,
+              width: 570,
               opacity: frame >= 900 ? 1 : 0,
             }}
           >
@@ -363,28 +363,28 @@ export const ModelContextProtocol: React.FC = () => {
                 fontSize={16}
               />
 
-              <Arrow x1={130} y1={230} x2={200} y2={230} color="#10b981" startFrame={960} label="MCP" />
+              <Arrow x1={130} y1={230} x2={190} y2={230} color="#10b981" startFrame={960} label="MCP" />
 
               {/* MCP Servers */}
-              <div style={{position: 'absolute', left: 200, top: 0}}>
+              <div style={{position: 'absolute', left: 190, top: 0}}>
                 <Box text="DB Server" x={0} y={0} width={140} height={60} color="#22d3ee" startFrame={990} fontSize={14} />
                 <Box text="File Server" x={0} y={85} width={140} height={60} color="#22d3ee" startFrame={1020} fontSize={14} />
                 <Box text="API Server" x={0} y={170} width={140} height={60} color="#22d3ee" startFrame={1050} fontSize={14} />
                 <Box text="Cloud Server" x={0} y={255} width={140} height={60} color="#22d3ee" startFrame={1080} fontSize={14} />
               </div>
 
-              {/* Resources */}
-              <Arrow x1={340} y1={30} x2={380} y2={30} color="#10b981" startFrame={1110} />
-              <Box text="Database" x={380} y={0} width={120} height={60} color="#0ea5e9" startFrame={1110} fontSize={14} />
+              {/* Arrows and Resources - now properly spaced */}
+              <Arrow x1={330} y1={30} x2={370} y2={30} color="#10b981" startFrame={1110} />
+              <Box text="📦 Database" x={370} y={0} width={140} height={60} color="#0ea5e9" startFrame={1110} fontSize={14} />
 
-              <Arrow x1={340} y1={115} x2={380} y2={115} color="#10b981" startFrame={1140} />
-              <Box text="Files" x={380} y={85} width={120} height={60} color="#0ea5e9" startFrame={1140} fontSize={14} />
+              <Arrow x1={330} y1={115} x2={370} y2={115} color="#10b981" startFrame={1140} />
+              <Box text="📁 Files" x={370} y={85} width={140} height={60} color="#0ea5e9" startFrame={1140} fontSize={14} />
 
-              <Arrow x1={340} y1={200} x2={380} y2={200} color="#10b981" startFrame={1170} />
-              <Box text="APIs" x={380} y={170} width={120} height={60} color="#0ea5e9" startFrame={1170} fontSize={14} />
+              <Arrow x1={330} y1={200} x2={370} y2={200} color="#10b981" startFrame={1170} />
+              <Box text="🌐 APIs" x={370} y={170} width={140} height={60} color="#0ea5e9" startFrame={1170} fontSize={14} />
 
-              <Arrow x1={340} y1={285} x2={380} y2={285} color="#10b981" startFrame={1200} />
-              <Box text="Cloud" x={380} y={255} width={120} height={60} color="#0ea5e9" startFrame={1200} fontSize={14} />
+              <Arrow x1={330} y1={285} x2={370} y2={285} color="#10b981" startFrame={1200} />
+              <Box text="☁️ Cloud" x={370} y={255} width={140} height={60} color="#0ea5e9" startFrame={1200} fontSize={14} />
             </div>
 
             <div
