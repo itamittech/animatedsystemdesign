@@ -34,6 +34,11 @@ import {PublishSubscribePattern} from './topics/PublishSubscribePattern';
 import {HorizontalVerticalScaling} from './topics/HorizontalVerticalScaling';
 import {RateLimitingThrottling} from './topics/RateLimitingThrottling';
 import {AutoScalingStrategies} from './topics/AutoScalingStrategies';
+import {FaultToleranceFundamentals} from './topics/FaultToleranceFundamentals';
+import {CircuitBreakerPattern} from './topics/CircuitBreakerPattern';
+import {RetryBackoffStrategies} from './topics/RetryBackoffStrategies';
+import {HealthChecksMonitoring} from './topics/HealthChecksMonitoring';
+import {DisasterRecoveryBackup} from './topics/DisasterRecoveryBackup';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -314,6 +319,46 @@ export const RemotionRoot: React.FC = () => {
         id="AutoScalingStrategies"
         component={AutoScalingStrategies}
         durationInFrames={2250}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FaultToleranceFundamentals"
+        component={FaultToleranceFundamentals}
+        durationInFrames={2100}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="CircuitBreakerPattern"
+        component={CircuitBreakerPattern}
+        durationInFrames={2250}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="RetryBackoffStrategies"
+        component={RetryBackoffStrategies}
+        durationInFrames={2100}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="HealthChecksMonitoring"
+        component={HealthChecksMonitoring}
+        durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DisasterRecoveryBackup"
+        component={DisasterRecoveryBackup}
+        durationInFrames={2550}
         fps={30}
         width={1920}
         height={1080}
