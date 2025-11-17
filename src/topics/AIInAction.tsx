@@ -240,7 +240,7 @@ export const AIInAction: React.FC = () => {
 
           <Dialogue
             speaker="developer"
-            text="Sarah, we've learned about LLMs, agents, and MCP. But what actually happens when I type 'create a linkedlist implementation in java' in Claude?"
+            text="Sarah, we've learned about LLMs, agents, and MCP. But what actually happens when I type 'create a linkedlist in java and commit it to my repo' in Claude?"
             x={100}
             y={height - 280}
             startFrame={90}
@@ -249,7 +249,7 @@ export const AIInAction: React.FC = () => {
 
           <Dialogue
             speaker="architect"
-            text="Perfect question! Let me show you the ENTIRE journey - from your keystrokes to code on disk. You'll see how every concept we learned works together in real-time. Watch!"
+            text="Perfect question! Let me show you the ENTIRE journey - from your keystrokes to code in your GitHub repo. You'll see how every concept we learned works together in real-time. Watch!"
             x={width - 750}
             y={height - 280}
             startFrame={180}
@@ -441,13 +441,13 @@ export const AIInAction: React.FC = () => {
               </div>
               <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
                 <div style={{opacity: frame >= 1440 ? 1 : 0}}>
-                  💭 "User wants LinkedList in Java"<br/>
+                  💭 "User wants LinkedList in Java + commit to repo"<br/>
                 </div>
                 <div style={{opacity: frame >= 1500 ? 1 : 0}}>
-                  💭 "I need to create a .java file"<br/>
+                  💭 "I need to create code and push to GitHub"<br/>
                 </div>
                 <div style={{opacity: frame >= 1560 ? 1 : 0}}>
-                  💭 "I should use file write tool via MCP"
+                  💭 "I should use GitHub tool via MCP"
                 </div>
               </div>
             </div>
@@ -470,13 +470,13 @@ export const AIInAction: React.FC = () => {
                   📋 Step 1: Generate LinkedList code<br/>
                 </div>
                 <div style={{opacity: frame >= 1710 ? 1 : 0}}>
-                  📋 Step 2: Create file: LinkedList.java<br/>
+                  📋 Step 2: Create LinkedList.java file<br/>
                 </div>
                 <div style={{opacity: frame >= 1770 ? 1 : 0}}>
-                  📋 Step 3: Write code to file using MCP<br/>
+                  📋 Step 3: Commit & push to GitHub via MCP<br/>
                 </div>
                 <div style={{opacity: frame >= 1830 ? 1 : 0}}>
-                  📋 Step 4: Confirm success to user
+                  📋 Step 4: Confirm commit success to user
                 </div>
               </div>
             </div>
@@ -494,7 +494,7 @@ export const AIInAction: React.FC = () => {
                 ✅ DECISION
               </div>
               <div style={{fontSize: 14, color: '#cbd5e1'}}>
-                Tool to use: <strong style={{color: '#22d3ee'}}>write_file()</strong> via MCP Filesystem Server
+                Tool to use: <strong style={{color: '#22d3ee'}}>git_commit_and_push()</strong> via MCP GitHub Server
               </div>
             </div>
           </div>
@@ -563,7 +563,7 @@ export const AIInAction: React.FC = () => {
       {/* Scene 4: MCP Tool Calling (70-95s / 2100-2850 frames) */}
       {frame >= 2100 && frame < 2850 && (
         <>
-          <Title text="Step 3: MCP - Connecting to Filesystem" x={width / 2 - 530} y={50} color="#c084fc" startFrame={2100} />
+          <Title text="Step 3: MCP - Connecting to GitHub" x={width / 2 - 480} y={50} color="#c084fc" startFrame={2100} />
 
           <Character type="architect" x={width - 300} y={height / 2 + 80} startFrame={2130} />
 
@@ -579,79 +579,53 @@ export const AIInAction: React.FC = () => {
               🔌 Model Context Protocol in Action
             </div>
 
-            {/* Step by step flow */}
+            {/* Step by step flow - using absolute positioning */}
             <div style={{position: 'relative', height: 500}}>
               {/* 1. Claude makes tool call */}
-              <div
-                style={{
-                  position: 'relative',
-                  marginBottom: 25,
-                  opacity: frame >= 2160 ? 1 : 0,
-                }}
-              >
+              <div style={{opacity: frame >= 2160 ? 1 : 0}}>
                 <Box text="Claude (LLM)" x={0} y={0} width={180} height={70} color="#7c3aed" startFrame={2160} fontSize={16} />
-                <div style={{position: 'absolute', left: 190, top: 20, fontSize: 14, color: '#cbd5e1', width: 350}}>
-                  Calls: <code style={{color: '#fbbf24'}}>write_file("LinkedList.java", code)</code>
+                <div style={{position: 'absolute', left: 190, top: 20, fontSize: 14, color: '#cbd5e1', width: 380}}>
+                  Calls: <code style={{color: '#fbbf24'}}>git_commit_and_push("LinkedList.java", code, "Add LinkedList")</code>
                 </div>
               </div>
 
-              {/* Arrow */}
-              <div style={{marginTop: 90, marginBottom: 20, opacity: frame >= 2250 ? 1 : 0}}>
-                <Arrow x1={90} y1={0} x2={90} y2={60} color="#22d3ee" startFrame={2250} />
+              {/* Arrow 1 */}
+              <div style={{opacity: frame >= 2250 ? 1 : 0}}>
+                <Arrow x1={90} y1={70} x2={90} y2={130} color="#22d3ee" startFrame={2250} />
               </div>
 
               {/* 2. MCP Client */}
-              <div
-                style={{
-                  position: 'relative',
-                  marginBottom: 25,
-                  marginTop: 70,
-                  opacity: frame >= 2310 ? 1 : 0,
-                }}
-              >
-                <Box text="MCP Client" x={0} y={0} width={180} height={70} color="#0ea5e9" startFrame={2310} fontSize={16} />
-                <div style={{position: 'absolute', left: 190, top: 20, fontSize: 14, color: '#cbd5e1', width: 350}}>
-                  Routes request to MCP Filesystem Server
+              <div style={{opacity: frame >= 2310 ? 1 : 0}}>
+                <Box text="MCP Client" x={0} y={130} width={180} height={70} color="#0ea5e9" startFrame={2310} fontSize={16} />
+                <div style={{position: 'absolute', left: 190, top: 150, fontSize: 14, color: '#cbd5e1', width: 350}}>
+                  Routes request to MCP GitHub Server
                 </div>
               </div>
 
-              {/* Arrow */}
-              <div style={{marginTop: 160, marginBottom: 20, opacity: frame >= 2400 ? 1 : 0}}>
-                <Arrow x1={90} y1={0} x2={90} y2={60} color="#22d3ee" startFrame={2400} />
+              {/* Arrow 2 */}
+              <div style={{opacity: frame >= 2400 ? 1 : 0}}>
+                <Arrow x1={90} y1={200} x2={90} y2={260} color="#22d3ee" startFrame={2400} />
               </div>
 
-              {/* 3. MCP Server */}
-              <div
-                style={{
-                  position: 'relative',
-                  marginBottom: 25,
-                  marginTop: 140,
-                  opacity: frame >= 2460 ? 1 : 0,
-                }}
-              >
-                <Box text="MCP Filesystem" x={0} y={0} width={180} height={70} color="#22d3ee" startFrame={2460} fontSize={15} />
-                <div style={{position: 'absolute', left: 190, top: 15, fontSize: 14, color: '#cbd5e1', width: 350}}>
-                  Authenticates, validates permissions,<br/>
-                  writes file to disk
+              {/* 3. MCP GitHub Server */}
+              <div style={{opacity: frame >= 2460 ? 1 : 0}}>
+                <Box text="MCP GitHub Server" x={0} y={260} width={180} height={70} color="#22d3ee" startFrame={2460} fontSize={14} />
+                <div style={{position: 'absolute', left: 190, top: 275, fontSize: 14, color: '#cbd5e1', width: 350}}>
+                  Authenticates with GitHub API,<br/>
+                  creates commit, pushes to repository
                 </div>
               </div>
 
-              {/* Arrow */}
-              <div style={{marginTop: 230, marginBottom: 20, opacity: frame >= 2550 ? 1 : 0}}>
-                <Arrow x1={90} y1={0} x2={90} y2={60} color="#10b981" startFrame={2550} />
+              {/* Arrow 3 */}
+              <div style={{opacity: frame >= 2550 ? 1 : 0}}>
+                <Arrow x1={90} y1={330} x2={90} y2={390} color="#10b981" startFrame={2550} />
               </div>
 
-              {/* 4. File on Disk */}
-              <div
-                style={{
-                  position: 'relative',
-                  marginTop: 220,
-                  opacity: frame >= 2610 ? 1 : 0,
-                }}
-              >
-                <Box text="💾 LinkedList.java" x={0} y={0} width={200} height={70} color="#10b981" startFrame={2610} fontSize={16} />
-                <div style={{position: 'absolute', left: 210, top: 25, fontSize: 14, color: '#10b981'}}>
-                  ✅ File created on disk!
+              {/* 4. Git Commit */}
+              <div style={{opacity: frame >= 2610 ? 1 : 0}}>
+                <Box text="✅ Git Commit" x={0} y={390} width={200} height={70} color="#10b981" startFrame={2610} fontSize={16} />
+                <div style={{position: 'absolute', left: 210, top: 415, fontSize: 14, color: '#10b981'}}>
+                  Pushed to GitHub repo!
                 </div>
               </div>
             </div>
@@ -676,9 +650,9 @@ export const AIInAction: React.FC = () => {
             </div>
             <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 2}}>
               <strong style={{color: '#10b981'}}>Security:</strong><br/>
-              • Claude never sees your file paths<br/>
-              • MCP Server handles permissions<br/>
-              • Sandboxed execution<br/><br/>
+              • Claude never sees your GitHub tokens<br/>
+              • MCP Server handles authentication<br/>
+              • Secure credential management<br/><br/>
 
               <strong style={{color: '#10b981'}}>Standardization:</strong><br/>
               • Same protocol for all tools<br/>
@@ -686,14 +660,14 @@ export const AIInAction: React.FC = () => {
               • Reusable MCP servers<br/><br/>
 
               <strong style={{color: '#10b981'}}>Composability:</strong><br/>
-              • Combine filesystem + database + APIs<br/>
+              • Combine GitHub + database + APIs<br/>
               • Build complex workflows
             </div>
           </div>
 
           <Dialogue
             speaker="architect"
-            text="MCP is the secure bridge! Claude doesn't directly access your filesystem - the MCP server handles authentication, permissions, and actual I/O. Clean separation of concerns!"
+            text="MCP is the secure bridge! Claude doesn't see your GitHub tokens - the MCP server handles authentication, API calls, and git operations. Clean separation of concerns!"
             x={width - 750}
             y={height - 280}
             startFrame={2700}
@@ -758,15 +732,15 @@ export const AIInAction: React.FC = () => {
               </div>
 
               <div style={{opacity: frame >= 3090 ? 1 : 0, marginTop: 10}}>
-                <strong style={{color: '#fbbf24'}}>3. Agentic AI</strong> → Thinks & Plans → Decides to use write_file tool
+                <strong style={{color: '#fbbf24'}}>3. Agentic AI</strong> → Thinks & Plans → Decides to use git_commit tool
               </div>
 
               <div style={{opacity: frame >= 3150 ? 1 : 0, marginTop: 10}}>
-                <strong style={{color: '#10b981'}}>4. MCP</strong> → Routes to Filesystem Server → Securely writes file
+                <strong style={{color: '#10b981'}}>4. MCP</strong> → Routes to GitHub Server → Commits & pushes code
               </div>
 
               <div style={{opacity: frame >= 3210 ? 1 : 0, marginTop: 10}}>
-                <strong style={{color: '#10b981'}}>5. Result</strong> → LinkedList.java created on disk → User gets confirmation
+                <strong style={{color: '#10b981'}}>5. Result</strong> → LinkedList.java pushed to GitHub → User gets confirmation
               </div>
 
               <div
@@ -783,7 +757,7 @@ export const AIInAction: React.FC = () => {
                   ⏱️ All of this happens in ~2-5 seconds!
                 </div>
                 <div style={{fontSize: 14, color: '#94a3b8'}}>
-                  From your keystrokes → Neural network inference → Agent planning → Tool execution → File on disk
+                  From your keystrokes → Neural network inference → Agent planning → Tool execution → Code in GitHub
                 </div>
               </div>
             </div>
