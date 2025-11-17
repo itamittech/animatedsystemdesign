@@ -73,7 +73,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="architect"
             text="Great question! This is the distributed transaction problem. Let's see it with a real example."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={180}
             maxWidth={640}
           />
@@ -197,7 +197,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="architect"
             text="2PC is the traditional approach. It has a PREPARE phase and a COMMIT phase with a coordinator."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={630}
             maxWidth={680}
           />
@@ -345,7 +345,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="architect"
             text="2PC blocks and can't handle coordinator failures well. Sagas use local transactions with compensations instead!"
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1320}
             maxWidth={700}
           />
@@ -497,7 +497,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="architect"
             text="There are two ways to implement Sagas: Choreography (event-driven) and Orchestration (centralized)."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1980}
             maxWidth={700}
           />
@@ -657,7 +657,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="architect"
             text="Great question! Sometimes the best distributed transaction is the one you don't need. Let's see alternatives."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={2670}
             maxWidth={700}
           />
