@@ -1,6 +1,5 @@
 # Animated System Design
 
-<!-- Test commit after making repo private -->
 Educational system design content with professional animations using Remotion. Designed for experienced architects to explore deep technical concepts through visual storytelling.
 
 ## Project Structure
