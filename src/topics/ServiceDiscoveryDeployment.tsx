@@ -694,14 +694,27 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="Perfect! So in production, I containerize services with Docker, deploy to Kubernetes, and it handles discovery, scaling, and deployments automatically. That's powerful!"
-            x={100}
-            y={height - 280}
-            startFrame={2580}
-            maxWidth={650}
-          />
+          {frame < 2580 && (
+            <Dialogue
+              speaker="architect"
+              text="Now you know how services find each other, stay healthy, and deploy safely. This is the operational foundation for microservices!"
+              x={width - 750}
+              y={height - 280}
+              startFrame={2340}
+              maxWidth={580}
+            />
+          )}
+
+          {frame >= 2580 && (
+            <Dialogue
+              speaker="developer"
+              text="Perfect! Containerize with Docker, deploy to Kubernetes, and it handles discovery, scaling, and deployments automatically. Ready for production!"
+              x={100}
+              y={height - 280}
+              startFrame={2580}
+              maxWidth={650}
+            />
+          )}
 
           {/* Credit */}
           <div

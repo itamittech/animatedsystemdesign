@@ -566,7 +566,7 @@ export const DistributedSagas: React.FC = () => {
               Two Saga Coordination Patterns
             </div>
 
-            <div style={{display: 'flex', gap: 30}}>
+            <div style={{display: 'flex', gap: 60}}>
               {/* Choreography */}
               <div
                 style={{
@@ -582,13 +582,95 @@ export const DistributedSagas: React.FC = () => {
                 </div>
 
                 <div style={{position: 'relative', height: 220, marginBottom: 15}}>
-                  <Box text="Order" x={50} y={0} width={100} height={50} color="#10b981" startFrame={1860} fontSize={13} />
-                  <Box text="Payment" x={180} y={0} width={100} height={50} color="#f59e0b" startFrame={1890} fontSize={12} />
-                  <Box text="Inventory" x={310} y={0} width={100} height={50} color="#ec4899" startFrame={1920} fontSize={12} />
+                  <Box text="Order" x={30} y={0} width={95} height={50} color="#10b981" startFrame={1860} fontSize={13} />
+                  <Box text="Payment" x={150} y={0} width={95} height={50} color="#f59e0b" startFrame={1890} fontSize={12} />
+                  <Box text="Inventory" x={270} y={0} width={95} height={50} color="#ec4899" startFrame={1920} fontSize={12} />
 
-                  <Arrow x1={150} y1={50} x2={180} y2={25} color="#22d3ee" startFrame={1950} label="Event" />
-                  <Arrow x1={280} y1={50} x2={310} y2={25} color="#22d3ee" startFrame={1980} label="Event" />
-                  <Arrow x1={310} y1={35} x2={150} y2={60} color="#ef4444" startFrame={2010} label="Fail Event" />
+                  <Arrow x1={125} y1={50} x2={150} y2={25} color="#22d3ee" startFrame={1950} label="Event" />
+                  <Arrow x1={245} y1={50} x2={270} y2={25} color="#22d3ee" startFrame={1980} label="Event" />
+                  <Arrow x1={270} y1={35} x2={125} y2={60} color="#ef4444" startFrame={2010} label="Fail Event" />
+
+                  {/* Animated events flowing between services */}
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 380, height: 120, pointerEvents: 'none'}}>
+                    <defs>
+                      <filter id="glow-event">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
+                    {/* Event 1: Order→Payment (loops) */}
+                    {frame >= 1950 && (frame - 1950) % 120 < 30 && (
+                      <>
+                        <circle
+                          cx={125 + ((150 - 125) * ((frame - 1950) % 120)) / 30}
+                          cy={50 - ((50 - 25) * ((frame - 1950) % 120)) / 30}
+                          r={4}
+                          fill="#22d3ee"
+                          filter="url(#glow-event)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={125 + ((150 - 125) * ((frame - 1950) % 120)) / 30 - 15}
+                          y={50 - ((50 - 25) * ((frame - 1950) % 120)) / 30 - 10}
+                          fontSize="9"
+                          fill="#22d3ee"
+                          opacity={0.8}
+                        >
+                          OrderCreated
+                        </text>
+                      </>
+                    )}
+
+                    {/* Event 2: Payment→Inventory */}
+                    {frame >= 1980 && (frame - 1980) % 120 < 30 && (
+                      <>
+                        <circle
+                          cx={245 + ((270 - 245) * ((frame - 1980) % 120)) / 30}
+                          cy={50 - ((50 - 25) * ((frame - 1980) % 120)) / 30}
+                          r={4}
+                          fill="#22d3ee"
+                          filter="url(#glow-event)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={245 + ((270 - 245) * ((frame - 1980) % 120)) / 30 - 15}
+                          y={50 - ((50 - 25) * ((frame - 1980) % 120)) / 30 - 10}
+                          fontSize="9"
+                          fill="#22d3ee"
+                          opacity={0.8}
+                        >
+                          PaymentOK
+                        </text>
+                      </>
+                    )}
+
+                    {/* Fail Event: Inventory→Order */}
+                    {frame >= 2010 && (frame - 2010) % 120 < 40 && (
+                      <>
+                        <circle
+                          cx={270 - ((270 - 125) * ((frame - 2010) % 120)) / 40}
+                          cy={35 + ((60 - 35) * ((frame - 2010) % 120)) / 40}
+                          r={4}
+                          fill="#ef4444"
+                          filter="url(#glow-event)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={270 - ((270 - 125) * ((frame - 2010) % 120)) / 40 - 12}
+                          y={35 + ((60 - 35) * ((frame - 2010) % 120)) / 40 - 10}
+                          fontSize="9"
+                          fill="#ef4444"
+                          opacity={0.8}
+                        >
+                          OutOfStock
+                        </text>
+                      </>
+                    )}
+                  </svg>
 
                   <div
                     style={{
@@ -638,7 +720,7 @@ export const DistributedSagas: React.FC = () => {
                 <div style={{position: 'relative', height: 220, marginBottom: 15}}>
                   <Box
                     text="Orchestrator"
-                    x={150}
+                    x={130}
                     y={0}
                     width={120}
                     height={50}
@@ -647,15 +729,134 @@ export const DistributedSagas: React.FC = () => {
                     fontSize={13}
                   />
 
-                  <Box text="Order" x={0} y={90} width={90} height={45} color="#10b981" startFrame={2130} fontSize={12} />
-                  <Box text="Payment" x={110} y={90} width={90} height={45} color="#f59e0b" startFrame={2160} fontSize={11} />
-                  <Box text="Inventory" x={220} y={90} width={90} height={45} color="#ec4899" startFrame={2190} fontSize={11} />
-                  <Box text="Email" x={330} y={90} width={90} height={45} color="#06b6d4" startFrame={2220} fontSize={12} />
+                  <Box text="Order" x={10} y={90} width={80} height={45} color="#10b981" startFrame={2130} fontSize={11} />
+                  <Box text="Payment" x={105} y={90} width={80} height={45} color="#f59e0b" startFrame={2160} fontSize={11} />
+                  <Box text="Inventory" x={200} y={90} width={80} height={45} color="#ec4899" startFrame={2190} fontSize={11} />
+                  <Box text="Email" x={295} y={90} width={80} height={45} color="#06b6d4" startFrame={2220} fontSize={11} />
 
-                  <Arrow x1={210} y1={50} x2={45} y2={90} color="#22d3ee" startFrame={2250} />
-                  <Arrow x1={210} y1={50} x2={155} y2={90} color="#22d3ee" startFrame={2250} />
-                  <Arrow x1={210} y1={50} x2={265} y2={90} color="#22d3ee" startFrame={2250} />
-                  <Arrow x1={210} y1={50} x2={375} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={50} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={145} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={240} y2={90} color="#22d3ee" startFrame={2250} />
+                  <Arrow x1={190} y1={50} x2={335} y2={90} color="#22d3ee" startFrame={2250} />
+
+                  {/* Animated commands from orchestrator */}
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 420, height: 140, pointerEvents: 'none'}}>
+                    <defs>
+                      <filter id="glow-command">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+
+                      {/* Pulsing orchestrator */}
+                      <radialGradient id="orchestrator-glow">
+                        <stop offset="0%" stopColor="#c026d3" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#c026d3" stopOpacity="0" />
+                      </radialGradient>
+                    </defs>
+
+                    {/* Pulsing aura around orchestrator */}
+                    {frame >= 2250 && (
+                      <circle
+                        cx={190}
+                        cy={25}
+                        r={35 + Math.sin((frame - 2250) / 12) * 8}
+                        fill="url(#orchestrator-glow)"
+                        opacity={0.5}
+                      />
+                    )}
+
+                    {/* Commands to each service (staggered) */}
+                    {frame >= 2250 && (frame - 2250) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 - ((190 - 50) * ((frame - 2250) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2250) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 - ((190 - 50) * ((frame - 2250) % 100)) / 25 - 12}
+                          y={50 + ((90 - 50) * ((frame - 2250) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          CreateOrder
+                        </text>
+                      </>
+                    )}
+
+                    {frame >= 2270 && (frame - 2270) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 - ((190 - 145) * ((frame - 2270) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2270) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 - ((190 - 145) * ((frame - 2270) % 100)) / 25 - 10}
+                          y={50 + ((90 - 50) * ((frame - 2270) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          ChargePmt
+                        </text>
+                      </>
+                    )}
+
+                    {frame >= 2290 && (frame - 2290) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 + ((240 - 190) * ((frame - 2290) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2290) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 + ((240 - 190) * ((frame - 2290) % 100)) / 25 - 12}
+                          y={50 + ((90 - 50) * ((frame - 2290) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          ReserveInv
+                        </text>
+                      </>
+                    )}
+
+                    {frame >= 2310 && (frame - 2310) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 + ((335 - 190) * ((frame - 2310) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2310) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 + ((335 - 190) * ((frame - 2310) % 100)) / 25 - 10}
+                          y={50 + ((90 - 50) * ((frame - 2310) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          SendEmail
+                        </text>
+                      </>
+                    )}
+                  </svg>
                 </div>
 
                 <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
