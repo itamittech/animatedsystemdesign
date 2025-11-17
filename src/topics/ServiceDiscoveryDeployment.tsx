@@ -543,7 +543,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                 }}
               >
                 <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>

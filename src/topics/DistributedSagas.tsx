@@ -437,7 +437,7 @@ export const DistributedSagas: React.FC = () => {
                   backgroundColor: '#065f46',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   opacity: frame >= 930 ? 1 : 0,
                 }}
               >
@@ -468,7 +468,7 @@ export const DistributedSagas: React.FC = () => {
                   backgroundColor: '#7f1d1d',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #ef4444',
+                  border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                   opacity: frame >= 1110 ? 1 : 0,
                 }}
               >

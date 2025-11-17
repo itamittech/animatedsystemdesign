@@ -25,7 +25,7 @@ export const SQLDatabases: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -165,7 +165,7 @@ export const SQLDatabases: React.FC = () => {
                   <div
                     style={{
                       backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                      border: '3px solid #3b82f6',
+                      border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                       borderRadius: 16,
                       padding: 24,
                       height: '100%',
@@ -219,7 +219,7 @@ export const SQLDatabases: React.FC = () => {
                   <div
                     style={{
                       backgroundColor: 'rgba(245, 158, 11, 0.2)',
-                      border: '3px solid #f59e0b',
+                      border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                       borderRadius: 16,
                       padding: 24,
                       height: '100%',
@@ -325,7 +325,7 @@ export const SQLDatabases: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 16,
                   padding: 28,
                   marginBottom: 24,
@@ -378,7 +378,7 @@ export const SQLDatabases: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   borderRadius: 16,
                   padding: 28,
                   opacity: fadeIn(frame, 1290, 20),
@@ -476,7 +476,7 @@ export const SQLDatabases: React.FC = () => {
                     <div
                       style={{
                         backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                        border: '3px solid #ef4444',
+                        border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                         borderRadius: 14,
                         padding: 20,
                         opacity: fadeIn(frame, 1640, 15),
@@ -499,7 +499,7 @@ export const SQLDatabases: React.FC = () => {
                     <div
                       style={{
                         backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                        border: '3px solid #f59e0b',
+                        border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                         borderRadius: 14,
                         padding: 20,
                         opacity: fadeIn(frame, 1720, 15),
@@ -522,7 +522,7 @@ export const SQLDatabases: React.FC = () => {
                     <div
                       style={{
                         backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                        border: '3px solid #3b82f6',
+                        border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                         borderRadius: 14,
                         padding: 20,
                         opacity: fadeIn(frame, 1800, 15),
@@ -545,7 +545,7 @@ export const SQLDatabases: React.FC = () => {
                     <div
                       style={{
                         backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                        border: '3px solid #10b981',
+                        border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                         borderRadius: 14,
                         padding: 20,
                         opacity: fadeIn(frame, 1880, 15),
@@ -643,7 +643,7 @@ export const SQLDatabases: React.FC = () => {
                   padding: 32,
                 }}
               >
-                <div style={{fontSize: 32, color: '#c4b5fd', fontWeight: 'bold', marginBottom: 20, textAlign: 'center'}}>
+                <div style={{fontSize: 32, color: '#c4b5fd', textShadow: '0 0 28px rgba(196, 181, 253, 0.7)', fontWeight: 'bold', marginBottom: 20, textAlign: 'center'}}>
                   When You Outgrow a Single SQL Server
                 </div>
 

@@ -25,7 +25,7 @@ export const GraphQLvsREST: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -91,7 +91,7 @@ export const GraphQLvsREST: React.FC = () => {
               padding: 28,
               opacity: fadeIn(frame, 270, 20),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+              <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', textShadow: '0 0 20px rgba(96, 165, 250, 0.5)', marginBottom: 20, textAlign: 'center'}}>
                 The Fundamental Difference
               </div>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 16}}>
@@ -487,7 +487,7 @@ export const GraphQLvsREST: React.FC = () => {
                 {frame >= 2010 && (
                   <div style={{marginTop: 16, opacity: fadeIn(frame, 2010, 15)}}>
                     <div style={{fontSize: 22, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚖️ GraphQL Trade-offs:</div>
-                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 18}}>
+                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 18}}>
                       <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 8, padding: 10, color: '#e2e8f0', lineHeight: 1.8}}>
                         <div style={{color: '#ef4444', fontWeight: 'bold', marginBottom: 6}}>Challenges:</div>
                         <div>• Complex caching (can't use HTTP cache)</div>
@@ -571,7 +571,7 @@ export const GraphQLvsREST: React.FC = () => {
                   GraphQL Ecosystem & Key Concepts
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 20}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22, fontSize: 20}}>
                   {/* Server Tools */}
                   <div style={{opacity: fadeIn(frame, 2550, 15)}}>
                     <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>🖥️ Server-Side</div>

@@ -25,7 +25,7 @@ export const DistributedTransactions: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -105,7 +105,7 @@ export const DistributedTransactions: React.FC = () => {
                   When a customer places an order, we need to update <span style={{color: '#fbbf24', fontWeight: 'bold'}}>multiple services</span>:
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, opacity: fadeIn(frame, 330, 15)}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 22, opacity: fadeIn(frame, 330, 15)}}>
                   <div
                     style={{
                       backgroundColor: 'rgba(59, 130, 246, 0.2)',
@@ -217,7 +217,7 @@ export const DistributedTransactions: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                border: '3px solid #3b82f6',
+                border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 marginBottom: 20,
@@ -232,7 +232,7 @@ export const DistributedTransactions: React.FC = () => {
                 <div
                   style={{
                     backgroundColor: 'rgba(139, 92, 246, 0.3)',
-                    border: '3px solid #8b5cf6',
+                    border: '3px solid transparent', backgroundImage: 'linear-gradient(rgba(15, 23, 42, 1), rgba(15, 23, 42, 1)), linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
                     borderRadius: 12,
                     padding: 20,
                     textAlign: 'center',
@@ -272,7 +272,7 @@ export const DistributedTransactions: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                border: '3px solid #10b981',
+                border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 opacity: fadeIn(frame, 960, 15),
@@ -286,7 +286,7 @@ export const DistributedTransactions: React.FC = () => {
                 <div
                   style={{
                     backgroundColor: 'rgba(139, 92, 246, 0.3)',
-                    border: '3px solid #8b5cf6',
+                    border: '3px solid transparent', backgroundImage: 'linear-gradient(rgba(15, 23, 42, 1), rgba(15, 23, 42, 1)), linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
                     borderRadius: 12,
                     padding: 20,
                     textAlign: 'center',
@@ -364,7 +364,7 @@ export const DistributedTransactions: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                border: '3px solid #ef4444',
+                border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                 borderRadius: 16,
                 padding: 20,
                 marginBottom: 24,
@@ -373,7 +373,7 @@ export const DistributedTransactions: React.FC = () => {
               <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                 ⚠️ 2PC Problems
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 22, fontSize: 24, color: '#e2e8f0'}}>
                 <div>
                   <span style={{color: '#fca5a5', fontWeight: 'bold'}}>🔒 Blocking</span><br/>
                   <span style={{fontSize: 22, color: '#94a3b8'}}>Resources locked until commit/abort</span>
@@ -393,7 +393,7 @@ export const DistributedTransactions: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                border: '3px solid #10b981',
+                border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 opacity: fadeIn(frame, 1530, 15),
@@ -411,7 +411,7 @@ export const DistributedTransactions: React.FC = () => {
               <div
                 style={{
                   display: 'flex',
-                  gap: 12,
+                  gap: 20,
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginTop: 16,
@@ -516,7 +516,7 @@ export const DistributedTransactions: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 2070, 15),
@@ -559,7 +559,7 @@ export const DistributedTransactions: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 2190, 15),
@@ -605,7 +605,7 @@ export const DistributedTransactions: React.FC = () => {
               style={{
                 marginTop: 24,
                 backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                border: '3px solid #8b5cf6',
+                border: '3px solid transparent', backgroundImage: 'linear-gradient(rgba(15, 23, 42, 1), rgba(15, 23, 42, 1)), linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
                 borderRadius: 16,
                 padding: 20,
                 opacity: fadeIn(frame, 2370, 15),
@@ -677,7 +677,7 @@ export const DistributedTransactions: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                  border: '3px solid #ef4444',
+                  border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   marginBottom: 20,
@@ -687,7 +687,7 @@ export const DistributedTransactions: React.FC = () => {
                   🚫 When to Avoid Distributed Transactions
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 22, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#fca5a5', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Rethink Service Boundaries
@@ -721,7 +721,7 @@ export const DistributedTransactions: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 2880, 15),
@@ -775,7 +775,7 @@ export const DistributedTransactions: React.FC = () => {
                 style={{
                   marginTop: 20,
                   backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                  border: '3px solid #8b5cf6',
+                  border: '3px solid transparent', backgroundImage: 'linear-gradient(rgba(15, 23, 42, 1), rgba(15, 23, 42, 1)), linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
                   borderRadius: 16,
                   padding: 20,
                   opacity: fadeIn(frame, 3000, 15),

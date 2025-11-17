@@ -25,7 +25,7 @@ export const DistributedCaching: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -206,7 +206,7 @@ export const DistributedCaching: React.FC = () => {
                   <div
                     style={{
                       backgroundColor: 'rgba(16, 185, 129, 0.3)',
-                      border: '3px solid #10b981',
+                      border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                       borderRadius: 12,
                       padding: 20,
                       marginBottom: 16,
@@ -235,7 +235,7 @@ export const DistributedCaching: React.FC = () => {
                   <div
                     style={{
                       backgroundColor: 'rgba(16, 185, 129, 0.3)',
-                      border: '3px solid #10b981',
+                      border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                       borderRadius: 12,
                       padding: 20,
                       marginBottom: 16,
@@ -264,7 +264,7 @@ export const DistributedCaching: React.FC = () => {
                   <div
                     style={{
                       backgroundColor: 'rgba(16, 185, 129, 0.3)',
-                      border: '3px solid #10b981',
+                      border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                       borderRadius: 12,
                       padding: 20,
                       marginBottom: 16,
@@ -294,7 +294,7 @@ export const DistributedCaching: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                border: '3px solid #f59e0b',
+                border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 opacity: fadeIn(frame, 930, 15),
@@ -487,7 +487,7 @@ export const DistributedCaching: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                border: '3px solid #8b5cf6',
+                border: '3px solid transparent', backgroundImage: 'linear-gradient(rgba(15, 23, 42, 1), rgba(15, 23, 42, 1)), linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
                 borderRadius: 16,
                 padding: 24,
                 opacity: fadeIn(frame, 1710, 15),
@@ -551,7 +551,7 @@ export const DistributedCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 1920, 15),
@@ -586,7 +586,7 @@ export const DistributedCaching: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 2040, 15),

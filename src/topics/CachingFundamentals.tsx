@@ -25,7 +25,7 @@ export const CachingFundamentals: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -190,7 +190,7 @@ export const CachingFundamentals: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                border: '3px solid #10b981',
+                border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 marginBottom: 20,
@@ -236,7 +236,7 @@ export const CachingFundamentals: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                border: '3px solid #f59e0b',
+                border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 opacity: fadeIn(frame, 720, 15),
@@ -246,7 +246,7 @@ export const CachingFundamentals: React.FC = () => {
                 ⚠️ Cache Miss (Slow Path)
               </div>
 
-              <div style={{display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{display: 'flex', gap: 22, alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{textAlign: 'center'}}>
                   <div style={{fontSize: 28, marginBottom: 8}}>👤</div>
                   <div style={{fontSize: 22, color: '#e2e8f0'}}>Client</div>
@@ -364,7 +364,7 @@ export const CachingFundamentals: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                border: '3px solid #10b981',
+                border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 marginBottom: 18,
@@ -399,7 +399,7 @@ export const CachingFundamentals: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                border: '3px solid #3b82f6',
+                border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 marginBottom: 18,
@@ -434,7 +434,7 @@ export const CachingFundamentals: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                border: '3px solid #f59e0b',
+                border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                 borderRadius: 16,
                 padding: 24,
                 opacity: fadeIn(frame, 1350, 15),
@@ -511,7 +511,7 @@ export const CachingFundamentals: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 14,
                   padding: 20,
                   opacity: fadeIn(frame, 1620, 15),
@@ -540,7 +540,7 @@ export const CachingFundamentals: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 14,
                   padding: 20,
                   opacity: fadeIn(frame, 1740, 15),
@@ -569,7 +569,7 @@ export const CachingFundamentals: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   borderRadius: 14,
                   padding: 20,
                   opacity: fadeIn(frame, 1860, 15),
@@ -688,7 +688,7 @@ export const CachingFundamentals: React.FC = () => {
               <div
                 style={{
                   backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                  border: '3px solid #ef4444',
+                  border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 2460, 15),

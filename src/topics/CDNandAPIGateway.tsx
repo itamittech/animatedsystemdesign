@@ -27,7 +27,7 @@ export const CDNandAPIGateway: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -93,7 +93,7 @@ export const CDNandAPIGateway: React.FC = () => {
               padding: 28,
               opacity: fadeIn(frame, 405, 20),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', marginBottom: 16, textAlign: 'center', opacity: fadeIn(frame, 435, 20)}}>
+              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', textShadow: '0 0 20px rgba(239, 68, 68, 0.5)', marginBottom: 16, textAlign: 'center', opacity: fadeIn(frame, 435, 20)}}>
                 The Global Scale Challenge
               </div>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
@@ -182,7 +182,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       height: 90,
                       backgroundColor: theme.colors.server,
                       borderRadius: 12,
-                      border: '3px solid #10b981',
+                      border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -220,7 +220,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 24}}>🌏</div>
                       <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>Tokyo</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>Tokyo</div>
                   </div>
 
                   {/* London */}
@@ -246,7 +246,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 24}}>🌍</div>
                       <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>London</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>London</div>
                   </div>
 
                   {/* Sydney */}
@@ -272,7 +272,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 24}}>🌏</div>
                       <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>Sydney</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>Sydney</div>
                   </div>
 
                   {/* São Paulo */}
@@ -298,7 +298,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 24}}>🌎</div>
                       <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>São Paulo</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>São Paulo</div>
                   </div>
 
                   {/* Connection Arrows from Origin to Edge Servers */}
@@ -1169,7 +1169,7 @@ export const CDNandAPIGateway: React.FC = () => {
                       <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
                       <div style={{fontSize: 18, color: '#e9d5ff'}}>Cache Layer</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#8b5cf6', marginTop: 6}}>Edge Cache</div>
+                    <div style={{fontSize: 22, color: '#a78bfa', marginTop: 6}}>Edge Cache</div>
                   </div>
 
                   {/* API Gateway */}
@@ -1434,11 +1434,11 @@ export const CDNandAPIGateway: React.FC = () => {
                 borderRadius: 16,
                 padding: 18,
               }}>
-                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', textShadow: '0 0 20px rgba(96, 165, 250, 0.5)', marginBottom: 10, textAlign: 'center'}}>
                   Production Request Lifecycle
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                   {/* Flow 1: Static Asset Cache MISS */}
                   <div style={{opacity: fadeIn(frame, 4695, 15)}}>
                     <div style={{fontSize: 20, color: '#ef4444', fontWeight: 'bold', marginBottom: 5}}>

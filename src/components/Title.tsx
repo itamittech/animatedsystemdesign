@@ -11,7 +11,7 @@ interface TitleProps {
 }
 
 /**
- * Reusable Title component for topic headers
+ * Reusable Title component for topic headers with creative gradient styling
  */
 export const Title: React.FC<TitleProps> = ({
   text,
@@ -36,11 +36,15 @@ export const Title: React.FC<TitleProps> = ({
       <h1
         style={{
           margin: 0,
-          color: theme.text.primary,
+          background: 'linear-gradient(135deg, #c084fc 0%, #f9a8d4 50%, #60a5fa 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
           fontSize: theme.typography.title.fontSize,
           fontWeight: theme.typography.title.fontWeight,
           fontFamily: theme.typography.title.fontFamily,
-          textShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
+          textShadow: 'none', // Gradients don't work well with text-shadow
+          filter: 'drop-shadow(0 4px 12px rgba(192, 132, 252, 0.4))',
         }}
       >
         {text}
@@ -53,6 +57,7 @@ export const Title: React.FC<TitleProps> = ({
             fontSize: theme.typography.subheading.fontSize,
             fontWeight: theme.typography.subheading.fontWeight,
             fontFamily: theme.typography.subheading.fontFamily,
+            textShadow: '0 2px 8px rgba(0, 0, 0, 0.5)',
           }}
         >
           {subtitle}

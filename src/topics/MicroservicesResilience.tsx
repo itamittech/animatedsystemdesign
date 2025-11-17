@@ -343,7 +343,7 @@ export const MicroservicesResilience: React.FC = () => {
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 420 ? 1 : 0,
-                  border: '3px solid #ef4444',
+                  border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                   boxShadow: '0 0 20px rgba(239, 68, 68, 0.8)',
                   animation: frame >= 420 && frame < 510 ? 'pulse 1s infinite' : 'none',
                 }}
@@ -483,7 +483,7 @@ export const MicroservicesResilience: React.FC = () => {
                   height: 140,
                   backgroundColor: '#065f46',
                   borderRadius: 12,
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   padding: 15,
                   opacity: frame >= 840 ? 1 : 0,
                   transform: frame >= 990 && frame < 1080 ? 'scale(1.05)' : 'scale(1)',
@@ -517,7 +517,7 @@ export const MicroservicesResilience: React.FC = () => {
                   height: 140,
                   backgroundColor: '#7f1d1d',
                   borderRadius: 12,
-                  border: '3px solid #ef4444',
+                  border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                   padding: 15,
                   opacity: frame >= 960 ? 1 : 0,
                   transform: frame >= 1110 && frame < 1200 ? 'scale(1.05)' : 'scale(1)',
@@ -551,7 +551,7 @@ export const MicroservicesResilience: React.FC = () => {
                   height: 140,
                   backgroundColor: '#78350f',
                   borderRadius: 12,
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   padding: 15,
                   opacity: frame >= 1080 ? 1 : 0,
                   transform: frame >= 1230 && frame < 1320 ? 'scale(1.05)' : 'scale(1)',
@@ -820,7 +820,7 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid #f59e0b',
+                  border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                 }}
               >
                 <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>

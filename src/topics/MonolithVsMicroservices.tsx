@@ -259,7 +259,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                 width: 800,
                 height: 350,
                 backgroundColor: '#1e293b',
-                border: '3px solid #3b82f6',
+                border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                 borderRadius: 15,
                 padding: 25,
               }}
@@ -745,7 +745,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                   backgroundColor: '#1e293b',
                   padding: 25,
                   borderRadius: 12,
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   opacity: frame >= 2100 ? 1 : 0,
                 }}
               >
@@ -774,7 +774,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                   backgroundColor: '#1e293b',
                   padding: 25,
                   borderRadius: 12,
-                  border: '3px solid #10b981',
+                  border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   opacity: frame >= 2190 ? 1 : 0,
                 }}
               >

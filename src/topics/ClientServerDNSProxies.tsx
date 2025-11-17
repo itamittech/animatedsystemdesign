@@ -120,7 +120,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -260,7 +260,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 width: 160,
                 backgroundColor: '#dc2626',
                 borderRadius: 12,
-                border: '3px solid #ef4444',
+                border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                 padding: 16,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                 textAlign: 'center',
@@ -278,7 +278,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 width: 160,
                 backgroundColor: theme.colors.cache,
                 borderRadius: 12,
-                border: '3px solid #f59e0b',
+                border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                 padding: 14,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                 textAlign: 'center',
@@ -297,7 +297,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 width: 160,
                 backgroundColor: theme.colors.success,
                 borderRadius: 12,
-                border: '3px solid #10b981',
+                border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                 padding: 14,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                 textAlign: 'center',
@@ -641,13 +641,13 @@ export const ClientServerDNSProxies: React.FC = () => {
                     TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
                   </div>
 
-                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16}}>
+                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22, marginTop: 16}}>
                     <div style={{opacity: fadeIn(frame, 1360, 15)}}>
-                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 6}}>ECDHE</div>
+                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', textShadow: '0 0 20px rgba(96, 165, 250, 0.5)', marginBottom: 6}}>ECDHE</div>
                       <div style={{fontSize: 22, color: '#94a3b8'}}>Key Exchange<br/>Elliptic Curve Diffie-Hellman</div>
                     </div>
                     <div style={{opacity: fadeIn(frame, 1400, 15)}}>
-                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#10b981', marginBottom: 6}}>RSA</div>
+                      <div style={{fontSize: 24, fontWeight: 'bold', color: '#10b981', textShadow: '0 0 20px rgba(16, 185, 129, 0.5)', marginBottom: 6}}>RSA</div>
                       <div style={{fontSize: 22, color: '#94a3b8'}}>Authentication<br/>Verifies server identity</div>
                     </div>
                     <div style={{opacity: fadeIn(frame, 1440, 15)}}>
@@ -699,7 +699,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   <div style={{
                     flex: 1,
                     backgroundColor: '#dc2626',
-                    border: '3px solid #ef4444',
+                    border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
@@ -721,7 +721,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   <div style={{
                     flex: 1,
                     backgroundColor: theme.colors.cache,
-                    border: '3px solid #f59e0b',
+                    border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
@@ -743,7 +743,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   <div style={{
                     flex: 1,
                     backgroundColor: theme.colors.success,
-                    border: '3px solid #10b981',
+                    border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                     borderRadius: 12,
                     padding: 16,
                     textAlign: 'center',
@@ -966,7 +966,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     <div style={{fontSize: 28}}>🔀</div>
                     <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Forward</div>
                   </div>
-                  <div style={{fontSize: 18, color: '#a78bfa', marginTop: 4}}>Squid :3128</div>
+                  <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>Squid :3128</div>
                   <div style={{fontSize: 18, color: '#94a3b8', marginTop: 2}}>Client-side</div>
                 </div>
 
@@ -977,7 +977,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     height: 80,
                     backgroundColor: theme.colors.cache,
                     borderRadius: 12,
-                    border: '3px solid #f59e0b',
+                    border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -1018,7 +1018,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     height: 90,
                     backgroundColor: theme.colors.server,
                     borderRadius: 12,
-                    border: '3px solid #10b981',
+                    border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',

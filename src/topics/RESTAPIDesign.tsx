@@ -27,7 +27,7 @@ export const RESTAPIDesign: React.FC = () => {
           right: 30,
           display: 'flex',
           alignItems: 'center',
-          gap: 12,
+          gap: 20,
           backgroundColor: 'rgba(0, 0, 0, 0.75)',
           backdropFilter: 'blur(10px)',
           padding: '12px 24px',
@@ -93,7 +93,7 @@ export const RESTAPIDesign: React.FC = () => {
               padding: 28,
               opacity: fadeIn(frame, 270, 20),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+              <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', textShadow: '0 0 20px rgba(96, 165, 250, 0.5)', marginBottom: 20, textAlign: 'center'}}>
                 REST API Design Principles
               </div>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
@@ -107,7 +107,7 @@ export const RESTAPIDesign: React.FC = () => {
                   </div>
                 </div>
                 <div style={{opacity: fadeIn(frame, 300, 20)}}>
-                  <div style={{fontSize: 18, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📦 We'll Cover:</div>
+                  <div style={{fontSize: 22, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>📦 We'll Cover:</div>
                   <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{opacity: fadeIn(frame, 330, 15)}}>• URL structure & naming</div>
                     <div style={{opacity: fadeIn(frame, 360, 15)}}>• HTTP methods (GET, POST, PUT...)</div>
@@ -260,7 +260,7 @@ export const RESTAPIDesign: React.FC = () => {
                   HTTP Methods Cheat Sheet
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 20}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22, fontSize: 20}}>
                   {/* GET */}
                   <div style={{
                     backgroundColor: 'rgba(16, 185, 129, 0.15)',
@@ -430,7 +430,7 @@ export const RESTAPIDesign: React.FC = () => {
                   Essential HTTP Status Codes
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, fontSize: 18}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, fontSize: 18}}>
                   {/* 2xx Success */}
                   <div style={{opacity: fadeIn(frame, 1800, 15)}}>
                     <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>2xx - Success ✅</div>
@@ -750,7 +750,7 @@ export const RESTAPIDesign: React.FC = () => {
                   <div style={{opacity: fadeIn(frame, 3090, 15)}}>
                     <div style={{fontSize: 24, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>↕️ Sorting</div>
                     <div style={{backgroundColor: 'rgba(139, 92, 246, 0.1)', border: '2px solid #8b5cf6', borderRadius: 10, padding: 14}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#a78bfa', lineHeight: 2}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 22, color: '#c4b5fd', lineHeight: 2}}>
                         GET /users?sort=created_at<br/>
                         GET /users?sort=-created_at (desc)<br/>
                         GET /users?sort=name,created_at
@@ -849,7 +849,7 @@ export const RESTAPIDesign: React.FC = () => {
                 <div
                   style={{
                     backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                    border: '3px solid #ef4444',
+                    border: '3px solid #ef4444', boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)',
                     borderRadius: 16,
                     padding: 24,
                     opacity: fadeIn(frame, 3570, 15),
@@ -881,7 +881,7 @@ export const RESTAPIDesign: React.FC = () => {
                 <div
                   style={{
                     backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                    border: '3px solid #10b981',
+                    border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                     borderRadius: 16,
                     padding: 24,
                     opacity: fadeIn(frame, 3630, 15),
@@ -925,7 +925,7 @@ export const RESTAPIDesign: React.FC = () => {
                 style={{
                   marginTop: 24,
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  border: '3px solid #3b82f6',
+                  border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 3690, 15),
@@ -934,7 +934,7 @@ export const RESTAPIDesign: React.FC = () => {
                 <div style={{fontSize: 22, color: '#3b82f6', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
                   💡 HATEOAS Benefits
                 </div>
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 22, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>🔍 Discoverability</div>
                     <div style={{fontSize: 22}}>Clients discover available actions dynamically</div>
