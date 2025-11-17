@@ -150,6 +150,39 @@ Deep dive into SQL databases, internals, and when to use them.
 - Transactions and isolation levels (Read Uncommitted to Serializable)
 - Vertical scaling limits and when to move beyond
 
+#### 3.3 NoSQL Databases
+**Duration**: 90 seconds | **Status**: ✅ Complete
+Comprehensive guide to NoSQL database types and when to use each.
+
+**Topics Covered**:
+- Document stores: MongoDB & DynamoDB (JSON documents, flexible schema)
+- Key-value stores: Redis & Memcached (caching, sessions, sub-ms latency)
+- Column-family: Cassandra & HBase (time-series, IoT, massive writes)
+- Graph databases: Neo4j (relationships, social networks, recommendations)
+- Use case decision matrix for choosing the right NoSQL type
+
+#### 3.4 Database Replication
+**Duration**: 80 seconds | **Status**: ✅ Complete
+Scaling reads and ensuring high availability through database replication.
+
+**Topics Covered**:
+- Master-slave replication (one master, multiple read replicas)
+- Master-master replication (bi-directional, write conflicts)
+- Synchronous vs asynchronous replication trade-offs
+- Read replicas for scaling and geo-distribution
+- Replication lag handling strategies (read your writes, monotonic reads)
+
+#### 3.5 Database Sharding
+**Duration**: 85 seconds | **Status**: ✅ Complete
+Horizontal partitioning strategies for scaling databases to billions of rows.
+
+**Topics Covered**:
+- What is sharding: Horizontal partitioning across multiple databases
+- Shard key strategies: Hash-based, Range-based, Geographic sharding
+- Consistent hashing: Minimizing data movement when adding/removing shards
+- Cross-shard query challenges: JOINs, aggregations, unique constraints
+- Resharding approaches: Stop writes, dual writes, virtual shards
+
 ## Getting Started
 
 ### Install Dependencies
@@ -191,6 +224,9 @@ npm run render:grpc                # gRPC & Protocol Buffers (90s)
 # Phase 3: Data Storage & Management
 npm run render:database-fundamentals  # Database Fundamentals (70s)
 npm run render:sql-databases          # SQL Databases & Relational Design (85s)
+npm run render:nosql-databases        # NoSQL Databases (90s)
+npm run render:database-replication   # Database Replication (80s)
+npm run render:database-sharding      # Database Sharding (85s)
 
 # Render all videos sequentially
 npm run render:all
@@ -208,6 +244,9 @@ All rendered videos are saved to the `out/` directory:
 - `out/grpc-protocol-buffers.mp4`
 - `out/database-fundamentals.mp4`
 - `out/sql-databases.mp4`
+- `out/nosql-databases.mp4`
+- `out/database-replication.mp4`
+- `out/database-sharding.mp4`
 
 ### Advanced Rendering Options
 
@@ -249,18 +288,21 @@ When you run `npm start`, you'll see all compositions in the left panel:
 **Phase 3: Data Storage & Management**
 - DatabaseFundamentals
 - SQLDatabases
+- NoSQLDatabases
+- DatabaseReplication
+- DatabaseSharding
 
 ## Progress Overview
 
-**Completed**: 9/58 topics (16% complete)
+**Completed**: 12/58 topics (21% complete)
 - ✅ Phase 1: Foundational Infrastructure (4/4 complete)
 - ✅ Phase 2: Communication Protocols & APIs (3/3 complete)
-- 🔄 Phase 3: Data Storage & Management (2/6 complete)
+- 🔄 Phase 3: Data Storage & Management (5/6 complete - 83%)
 
 **Next Up**:
-1. NoSQL Databases (Phase 3.3)
-2. Database Replication (Phase 3.4)
-3. Database Sharding (Phase 3.5)
+1. Distributed Transactions (Phase 3.6) - Complete Phase 3!
+2. Caching Fundamentals (Phase 4.1)
+3. Advanced Caching Strategies (Phase 4.2)
 
 See `SYSTEM_DESIGN_CURRICULUM.md` for the complete 58-topic roadmap.
 
@@ -329,18 +371,16 @@ The project supports sound effects to enhance the learning experience!
 
 This project follows a comprehensive 58-topic curriculum across 14 phases. See `SYSTEM_DESIGN_CURRICULUM.md` for the complete roadmap.
 
-**Current Status**: 9/58 topics complete (16%)
+**Current Status**: 12/58 topics complete (21%)
 
 **Phase Progress**:
 - ✅ Phase 1: Foundational Infrastructure (100% - 4/4)
 - ✅ Phase 2: Communication Protocols & APIs (100% - 3/3)
-- 🔄 Phase 3: Data Storage & Management (33% - 2/6)
+- 🔄 Phase 3: Data Storage & Management (83% - 5/6)
 - 📋 Phase 4-14: Planned
 
 **Key Upcoming Topics**:
-- NoSQL Databases (MongoDB, DynamoDB, Cassandra)
-- Database Replication & Sharding
-- Distributed Transactions
+- Distributed Transactions (to complete Phase 3!)
 - Caching Strategies
 - Message Queues & Event Streaming
 - Microservices Architecture

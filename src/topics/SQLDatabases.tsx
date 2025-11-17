@@ -57,14 +57,14 @@ export const SQLDatabases: React.FC = () => {
         <>
           <Title text="SQL Databases & Relational Design" subtitle="PostgreSQL, MySQL & When to Use Them" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="junior" x={width * 0.2} y={height * 0.50} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.50} startFrame={30} size={110} />
 
           <Dialogue
             speaker="junior"
             text="We covered SQL vs NoSQL. When should I specifically choose SQL databases?"
             x={width * 0.05}
-            y={height * 0.73}
+            y={height * 0.60}
             startFrame={60}
             maxWidth={520}
           />
@@ -73,7 +73,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="architect"
             text="Great question! Let's dive deep into SQL databases, how they work, and when they're the right choice."
             x={width * 0.72 - 300}
-            y={height * 0.73}
+            y={height * 0.60}
             startFrame={180}
             maxWidth={600}
           />
@@ -142,7 +142,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="architect"
             text="Both are powerful, but they have different strengths and internals."
             x={width * 0.72 - 280}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={480}
             maxWidth={560}
           />
@@ -292,7 +292,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="junior"
             text="You mentioned indexes earlier. What are the different types?"
             x={width * 0.05}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={930}
             maxWidth={520}
           />
@@ -301,7 +301,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="architect"
             text="Great question! The two main types are B-tree and Hash indexes. Each has specific use cases."
             x={width * 0.72 - 320}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={1050}
             maxWidth={640}
           />
@@ -446,7 +446,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="architect"
             text="Isolation levels control how transactions see each other's changes. It's a trade-off between consistency and performance."
             x={width * 0.72 - 340}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={1530}
             maxWidth={680}
           />
@@ -599,7 +599,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="junior"
             text="What happens when a single SQL database can't handle the load?"
             x={width * 0.05}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={2130}
             maxWidth={520}
           />
@@ -608,7 +608,7 @@ export const SQLDatabases: React.FC = () => {
             speaker="architect"
             text="You hit vertical scaling limits. Then you need read replicas, sharding, or consider NoSQL."
             x={width * 0.72 - 320}
-            y={height * 0.88}
+            y={height * 0.70}
             startFrame={2250}
             maxWidth={640}
           />
