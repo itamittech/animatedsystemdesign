@@ -89,7 +89,7 @@ Combined comprehensive video covering Content Delivery Networks and API Gateway 
 - Production lifecycle examples
 
 #### 1.4 REST API Design Best Practices
-**Duration**: 125 seconds | **Status**: ✅ Complete
+**Duration**: 130 seconds | **Status**: ✅ Complete
 Essential REST API design principles for building intuitive APIs.
 
 **Topics Covered**:
@@ -98,6 +98,7 @@ Essential REST API design principles for building intuitive APIs.
 - Status codes and error handling
 - API versioning strategies
 - Pagination and filtering patterns
+- HATEOAS (Hypermedia as the Engine of Application State)
 
 ### Phase 2: Communication Protocols & APIs ✅ COMPLETE
 
