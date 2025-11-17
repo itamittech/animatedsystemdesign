@@ -22,6 +22,7 @@ import {AgenticAI} from './topics/AgenticAI';
 import {ModelContextProtocol} from './topics/ModelContextProtocol';
 import {AIInAction} from './topics/AIInAction';
 import {MonolithVsMicroservices} from './topics/MonolithVsMicroservices';
+import {ServiceDecomposition} from './topics/ServiceDecomposition';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -206,6 +207,14 @@ export const RemotionRoot: React.FC = () => {
         id="MonolithVsMicroservices"
         component={MonolithVsMicroservices}
         durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ServiceDecomposition"
+        component={ServiceDecomposition}
+        durationInFrames={3000}
         fps={30}
         width={1920}
         height={1080}
