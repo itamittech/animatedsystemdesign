@@ -337,7 +337,7 @@ export const MicroservicesInAction: React.FC = () => {
                   position: 'absolute',
                   left: 870,
                   top: 40,
-                  width={140},
+                  width: 140,
                   height: 80,
                   backgroundColor: '#c026d3',
                   borderRadius: 10,

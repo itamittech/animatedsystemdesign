@@ -652,7 +652,7 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
                   backgroundColor: '#1e293b',
                   padding: 20,
                   borderRadius: 12,
-                  border: '3px solid '#c084fc',
+                  border: '3px solid #c084fc',
                 }}
               >
                 <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
