@@ -412,7 +412,7 @@ export const MicroservicesInAction: React.FC = () => {
           <div
             style={{
               position: 'absolute',
-              left: width / 2 - 520,
+              left: width / 2 - 540,
               top: 160,
               opacity: frame >= 900 ? 1 : 0,
             }}
@@ -421,53 +421,262 @@ export const MicroservicesInAction: React.FC = () => {
               ✅ Complete Order Flow
             </div>
 
-            <div
-              style={{
-                backgroundColor: '#1e293b',
-                padding: 25,
-                borderRadius: 12,
-                border: '2px solid #10b981',
-              }}
-            >
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2.2}}>
-                <div style={{opacity: frame >= 960 ? 1 : 0}}>
-                  <strong style={{color: '#22d3ee'}}>1. User places order</strong> → POST /orders to API Gateway
-                </div>
-
-                <div style={{opacity: frame >= 1050 ? 1 : 0}}>
-                  <strong style={{color: '#10b981'}}>2. Order Service</strong> → Creates order, publishes "OrderCreated"
-                  event
-                </div>
-
-                <div style={{opacity: frame >= 1140 ? 1 : 0}}>
-                  <strong style={{color: '#c084fc'}}>3. Saga Orchestrator</strong> → Starts order saga, coordinates next
-                  steps
-                </div>
-
-                <div style={{opacity: frame >= 1230 ? 1 : 0}}>
-                  <strong style={{color: '#f59e0b'}}>4. Payment Service</strong> → Charges card via circuit breaker
-                  (resilience!)
-                </div>
-
-                <div style={{opacity: frame >= 1320 ? 1 : 0}}>
-                  <strong style={{color: '#ec4899'}}>5. Inventory Service</strong> → Reserves stock, decrements count
-                </div>
-
-                <div style={{opacity: frame >= 1410 ? 1 : 0}}>
-                  <strong style={{color: '#06b6d4'}}>6. Email Service</strong> → Sends confirmation (async via queue)
-                </div>
-
+            {/* Visual Flow Diagram */}
+            <div style={{position: 'relative', height: 250, marginBottom: 20}}>
+              {/* Services */}
+              <div style={{position: 'absolute', left: 0, top: 0, opacity: frame >= 930 ? 1 : 0}}>
                 <div
                   style={{
-                    marginTop: 15,
-                    padding: 15,
-                    backgroundColor: '#065f46',
+                    width: 100,
+                    height: 40,
+                    backgroundColor: '#6366f1',
                     borderRadius: 8,
-                    opacity: frame >= 1500 ? 1 : 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 13,
+                    fontWeight: 'bold',
+                    color: '#fff',
                   }}
                 >
-                  <strong style={{color: '#10b981'}}>✅ Result:</strong> Order complete! User gets confirmation. All services
-                  succeeded, saga commits.
+                  👤 User
+                </div>
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 140,
+                  top: 0,
+                  opacity: frame >= 960 ? 1 : 0,
+                  transform: frame >= 960 && frame < 1050 ? 'scale(1.1)' : 'scale(1)',
+                  transition: 'transform 0.3s',
+                  boxShadow: frame >= 960 && frame < 1050 ? '0 0 20px rgba(34, 211, 238, 0.6)' : 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 110,
+                    height: 40,
+                    backgroundColor: '#0ea5e9',
+                    borderRadius: 8,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                  }}
+                >
+                  Gateway
+                </div>
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 70,
+                  opacity: frame >= 1050 ? 1 : 0,
+                  transform: frame >= 1050 && frame < 1140 ? 'scale(1.1)' : 'scale(1)',
+                  transition: 'transform 0.3s',
+                  boxShadow: frame >= 1050 && frame < 1140 ? '0 0 20px rgba(16, 185, 129, 0.6)' : 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 110,
+                    height: 40,
+                    backgroundColor: '#10b981',
+                    borderRadius: 8,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                  }}
+                >
+                  Order
+                </div>
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 140,
+                  top: 70,
+                  opacity: frame >= 1140 ? 1 : 0,
+                  transform: frame >= 1140 && frame < 1230 ? 'scale(1.1)' : 'scale(1)',
+                  transition: 'transform 0.3s',
+                  boxShadow: frame >= 1140 && frame < 1230 ? '0 0 20px rgba(192, 38, 211, 0.6)' : 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 110,
+                    height: 40,
+                    backgroundColor: '#c026d3',
+                    borderRadius: 8,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 11,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                  }}
+                >
+                  Saga Orch
+                </div>
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 140,
+                  opacity: frame >= 1230 ? 1 : 0,
+                  transform: frame >= 1230 && frame < 1320 ? 'scale(1.1)' : 'scale(1)',
+                  transition: 'transform 0.3s',
+                  boxShadow: frame >= 1230 && frame < 1320 ? '0 0 20px rgba(245, 158, 11, 0.6)' : 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 110,
+                    height: 40,
+                    backgroundColor: '#f59e0b',
+                    borderRadius: 8,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                  }}
+                >
+                  Payment
+                </div>
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 140,
+                  top: 140,
+                  opacity: frame >= 1320 ? 1 : 0,
+                  transform: frame >= 1320 && frame < 1410 ? 'scale(1.1)' : 'scale(1)',
+                  transition: 'transform 0.3s',
+                  boxShadow: frame >= 1320 && frame < 1410 ? '0 0 20px rgba(236, 72, 153, 0.6)' : 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 110,
+                    height: 40,
+                    backgroundColor: '#ec4899',
+                    borderRadius: 8,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                  }}
+                >
+                  Inventory
+                </div>
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 210,
+                  opacity: frame >= 1410 ? 1 : 0,
+                  transform: frame >= 1410 && frame < 1500 ? 'scale(1.1)' : 'scale(1)',
+                  transition: 'transform 0.3s',
+                  boxShadow: frame >= 1410 && frame < 1500 ? '0 0 20px rgba(6, 182, 212, 0.6)' : 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 110,
+                    height: 40,
+                    backgroundColor: '#06b6d4',
+                    borderRadius: 8,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                  }}
+                >
+                  Email
+                </div>
+              </div>
+
+              {/* Animated Arrows */}
+              <svg style={{position: 'absolute', left: 0, top: 0, width: 300, height: 250, pointerEvents: 'none'}}>
+                <defs>
+                  <marker id="arrow-flow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <polygon points="0 0, 8 4, 0 8" fill="#22d3ee" />
+                  </marker>
+                </defs>
+
+                {frame >= 960 && (
+                  <line x1="100" y1="20" x2="140" y2="20" stroke="#22d3ee" strokeWidth="2" markerEnd="url(#arrow-flow)" />
+                )}
+                {frame >= 1050 && (
+                  <line x1="195" y1="40" x2="55" y2="70" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-flow)" />
+                )}
+                {frame >= 1140 && (
+                  <line x1="110" y1="90" x2="140" y2="90" stroke="#c026d3" strokeWidth="2" markerEnd="url(#arrow-flow)" />
+                )}
+                {frame >= 1230 && (
+                  <line x1="195" y1="110" x2="55" y2="140" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-flow)" />
+                )}
+                {frame >= 1320 && (
+                  <line x1="110" y1="160" x2="140" y2="160" stroke="#ec4899" strokeWidth="2" markerEnd="url(#arrow-flow)" />
+                )}
+                {frame >= 1410 && (
+                  <line x1="195" y1="180" x2="55" y2="210" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#arrow-flow)" />
+                )}
+              </svg>
+
+              {/* Step Labels */}
+              <div style={{position: 'absolute', left: 300, top: 0, width: 700}}>
+                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 2.5}}>
+                  <div style={{opacity: frame >= 960 ? 1 : 0}}>
+                    <strong style={{color: '#22d3ee'}}>1.</strong> POST /orders
+                  </div>
+                  <div style={{opacity: frame >= 1050 ? 1 : 0}}>
+                    <strong style={{color: '#10b981'}}>2.</strong> Order created → event published
+                  </div>
+                  <div style={{opacity: frame >= 1140 ? 1 : 0}}>
+                    <strong style={{color: '#c084fc'}}>3.</strong> Saga coordinates transaction
+                  </div>
+                  <div style={{opacity: frame >= 1230 ? 1 : 0}}>
+                    <strong style={{color: '#f59e0b'}}>4.</strong> Charge card (circuit breaker)
+                  </div>
+                  <div style={{opacity: frame >= 1320 ? 1 : 0}}>
+                    <strong style={{color: '#ec4899'}}>5.</strong> Reserve stock
+                  </div>
+                  <div style={{opacity: frame >= 1410 ? 1 : 0}}>
+                    <strong style={{color: '#06b6d4'}}>6.</strong> Send confirmation (async)
+                  </div>
+                  <div
+                    style={{
+                      marginTop: 10,
+                      padding: 10,
+                      backgroundColor: '#065f46',
+                      borderRadius: 8,
+                      opacity: frame >= 1500 ? 1 : 0,
+                    }}
+                  >
+                    <strong style={{color: '#10b981'}}>✅ Order Complete!</strong>
+                  </div>
                 </div>
               </div>
             </div>
