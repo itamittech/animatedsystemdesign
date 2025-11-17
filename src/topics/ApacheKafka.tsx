@@ -27,7 +27,7 @@ export const ApacheKafka: React.FC = () => {
   const scene5End = 3600; // 105-120s
 
   return (
-    <AbsoluteFill style={{backgroundColor: theme.background}}>
+    <AbsoluteFill style={{backgroundColor: theme.background.primary}}>
       {/* Scene 1: Introduction - What is Kafka? */}
       {frame < scene1End && (
         <>
