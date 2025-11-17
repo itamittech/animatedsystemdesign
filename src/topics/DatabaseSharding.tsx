@@ -57,23 +57,23 @@ export const DatabaseSharding: React.FC = () => {
         <>
           <Title text="Database Sharding" subtitle="Horizontal Partitioning for Massive Scale" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.50} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.50} startFrame={30} size={110} />
+          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
 
           <Dialogue
             speaker="junior"
             text="When replication isn't enough, how do we scale databases to billions of rows?"
-            x={width * 0.05}
-            y={height * 0.60}
+            x={220}
+            y={height - 150}
             startFrame={60}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="That's where sharding comes in! We split data horizontally across multiple databases."
-            x={width * 0.72 - 320}
-            y={height * 0.60}
+            x={width - 750}
+            y={height - 150}
             startFrame={180}
             maxWidth={640}
           />
@@ -166,20 +166,23 @@ export const DatabaseSharding: React.FC = () => {
             Shard Key Strategies
           </div>
 
+          <Character type="junior" x={200} y={height - 200} startFrame={450} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+
           <Dialogue
             speaker="junior"
             text="How do we decide which data goes to which shard?"
-            x={width * 0.05}
-            y={height * 0.70}
+            x={220}
+            y={height - 150}
             startFrame={480}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="The shard key is critical! Let's look at three common strategies: Hash, Range, and Geographic."
-            x={width * 0.72 - 340}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={600}
             maxWidth={680}
           />
@@ -325,11 +328,13 @@ export const DatabaseSharding: React.FC = () => {
             Consistent Hashing ⭕
           </div>
 
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={1050} size={90} />
+
           <Dialogue
             speaker="architect"
             text="What if you need to add or remove shards? Consistent hashing minimizes data movement!"
-            x={width * 0.72 - 340}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={1080}
             maxWidth={680}
           />
@@ -438,20 +443,23 @@ export const DatabaseSharding: React.FC = () => {
             Cross-Shard Queries Challenge
           </div>
 
+          <Character type="junior" x={200} y={height - 200} startFrame={1500} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={1500} size={90} />
+
           <Dialogue
             speaker="junior"
             text="What if I need to query across multiple shards?"
-            x={width * 0.05}
-            y={height * 0.70}
+            x={220}
+            y={height - 150}
             startFrame={1530}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="That's the biggest challenge of sharding! You lose simple JOINs and aggregations."
-            x={width * 0.72 - 340}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={1650}
             maxWidth={680}
           />
@@ -565,20 +573,23 @@ export const DatabaseSharding: React.FC = () => {
             Resharding Strategies
           </div>
 
+          <Character type="junior" x={200} y={height - 200} startFrame={2100} size={90} />
+          <Character type="architect" x={width - 350} y={height - 200} startFrame={2100} size={90} />
+
           <Dialogue
             speaker="junior"
             text="What if a shard gets too big or we need to rebalance?"
-            x={width * 0.05}
-            y={height * 0.70}
+            x={220}
+            y={height - 150}
             startFrame={2130}
-            maxWidth={520}
+            maxWidth={500}
           />
 
           <Dialogue
             speaker="architect"
             text="Resharding is expensive but sometimes necessary. Let's look at strategies to minimize pain."
-            x={width * 0.72 - 340}
-            y={height * 0.70}
+            x={width - 750}
+            y={height - 150}
             startFrame={2250}
             maxWidth={680}
           />
