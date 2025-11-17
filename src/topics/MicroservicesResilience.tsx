@@ -276,13 +276,57 @@ export const MicroservicesResilience: React.FC = () => {
               {/* User */}
               <Box text="👤 User" x={0} y={120} width={120} height={60} color="#6366f1" startFrame={330} fontSize={16} />
 
-              {/* API Gateway */}
-              <Box text="API Gateway" x={170} y={120} width={140} height={60} color="#0ea5e9" startFrame={360} fontSize={14} />
+              {/* API Gateway - turns red when it fails */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 170,
+                  top: 120,
+                  width: 140,
+                  height: 60,
+                  backgroundColor: frame >= 570 ? '#7f1d1d' : '#0ea5e9',
+                  borderRadius: 8,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  color: '#fff',
+                  opacity: frame >= 360 ? 1 : 0,
+                  transform: `scale(${frame >= 360 ? 1 : 0})`,
+                  border: frame >= 570 ? '3px solid #ef4444' : 'none',
+                  boxShadow: frame >= 570 ? '0 0 20px rgba(239, 68, 68, 0.6)' : 'none',
+                }}
+              >
+                {frame >= 570 ? '💥 Gateway' : 'API Gateway'}
+              </div>
 
-              {/* Order Service */}
-              <Box text="Order Service" x={370} y={120} width={150} height={60} color="#10b981" startFrame={390} fontSize={14} />
+              {/* Order Service - turns red when it fails */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 370,
+                  top: 120,
+                  width: 150,
+                  height: 60,
+                  backgroundColor: frame >= 540 ? '#7f1d1d' : '#10b981',
+                  borderRadius: 8,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  color: '#fff',
+                  opacity: frame >= 390 ? 1 : 0,
+                  transform: `scale(${frame >= 390 ? 1 : 0})`,
+                  border: frame >= 540 ? '3px solid #ef4444' : 'none',
+                  boxShadow: frame >= 540 ? '0 0 20px rgba(239, 68, 68, 0.6)' : 'none',
+                }}
+              >
+                {frame >= 540 ? '💥 Order' : 'Order Service'}
+              </div>
 
-              {/* Payment Service - failing */}
+              {/* Payment Service - failing first */}
               <div
                 style={{
                   position: 'absolute',
@@ -299,10 +343,54 @@ export const MicroservicesResilience: React.FC = () => {
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 420 ? 1 : 0,
+                  border: '3px solid #ef4444',
+                  boxShadow: '0 0 20px rgba(239, 68, 68, 0.8)',
+                  animation: frame >= 420 && frame < 510 ? 'pulse 1s infinite' : 'none',
                 }}
               >
                 💔 Payment DOWN
               </div>
+
+              {/* Cascade effect indicators */}
+              {frame >= 510 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 600,
+                    top: 90,
+                    fontSize: 20,
+                    opacity: Math.sin((frame - 510) / 10) * 0.5 + 0.5,
+                  }}
+                >
+                  ⚠️
+                </div>
+              )}
+              {frame >= 540 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 420,
+                    top: 90,
+                    fontSize: 20,
+                    opacity: Math.sin((frame - 540) / 10) * 0.5 + 0.5,
+                  }}
+                >
+                  ⚠️
+                </div>
+              )}
+              {frame >= 570 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 220,
+                    top: 90,
+                    fontSize: 20,
+                    opacity: Math.sin((frame - 570) / 10) * 0.5 + 0.5,
+                  }}
+                >
+                  ⚠️
+                </div>
+              )}
 
               <Arrow x1={120} y1={150} x2={170} y2={150} color="#22d3ee" startFrame={450} label="Request" />
               <Arrow x1={310} y1={150} x2={370} y2={150} color="#22d3ee" startFrame={480} label="Call" />
@@ -398,6 +486,9 @@ export const MicroservicesResilience: React.FC = () => {
                   border: '3px solid #10b981',
                   padding: 15,
                   opacity: frame >= 840 ? 1 : 0,
+                  transform: frame >= 990 && frame < 1080 ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'transform 0.3s ease',
+                  boxShadow: frame >= 990 && frame < 1080 ? '0 0 30px rgba(16, 185, 129, 0.5)' : 'none',
                 }}
               >
                 <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
@@ -429,6 +520,9 @@ export const MicroservicesResilience: React.FC = () => {
                   border: '3px solid #ef4444',
                   padding: 15,
                   opacity: frame >= 960 ? 1 : 0,
+                  transform: frame >= 1110 && frame < 1200 ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'transform 0.3s ease',
+                  boxShadow: frame >= 1110 && frame < 1200 ? '0 0 30px rgba(239, 68, 68, 0.5)' : 'none',
                 }}
               >
                 <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
@@ -460,6 +554,9 @@ export const MicroservicesResilience: React.FC = () => {
                   border: '3px solid #f59e0b',
                   padding: 15,
                   opacity: frame >= 1080 ? 1 : 0,
+                  transform: frame >= 1230 && frame < 1320 ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'transform 0.3s ease',
+                  boxShadow: frame >= 1230 && frame < 1320 ? '0 0 30px rgba(245, 158, 11, 0.5)' : 'none',
                 }}
               >
                 <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>
@@ -477,6 +574,114 @@ export const MicroservicesResilience: React.FC = () => {
                   <span style={{fontSize: 11}}>Example: Try 3 requests</span>
                 </div>
               </div>
+
+              {/* Animated Arrow: CLOSED -> OPEN */}
+              {frame >= 990 && (
+                <svg style={{position: 'absolute', left: 0, top: 0, width: 1040, height: 200, pointerEvents: 'none'}}>
+                  <defs>
+                    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" />
+                    </marker>
+                    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" />
+                    </marker>
+                    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
+                    </marker>
+                  </defs>
+
+                  {/* CLOSED -> OPEN (failures exceed threshold) */}
+                  <line
+                    x1="300"
+                    y1="70"
+                    x2="370"
+                    y2="70"
+                    stroke="#ef4444"
+                    strokeWidth="3"
+                    markerEnd="url(#arrowhead-red)"
+                    opacity={frame >= 990 && frame < 1350 ? 1 : 0.3}
+                    strokeDasharray={frame >= 990 && frame < 1350 ? "none" : "5,5"}
+                  />
+                  <text
+                    x="335"
+                    y="60"
+                    textAnchor="middle"
+                    fill="#ef4444"
+                    fontSize="11"
+                    fontWeight="bold"
+                    opacity={frame >= 990 ? 1 : 0}
+                  >
+                    Failures!
+                  </text>
+
+                  {/* OPEN -> HALF-OPEN (timeout) */}
+                  <line
+                    x1="670"
+                    y1="70"
+                    x2="740"
+                    y2="70"
+                    stroke="#f59e0b"
+                    strokeWidth="3"
+                    markerEnd="url(#arrowhead-orange)"
+                    opacity={frame >= 1110 && frame < 1350 ? 1 : 0.3}
+                    strokeDasharray={frame >= 1110 && frame < 1350 ? "none" : "5,5"}
+                  />
+                  <text
+                    x="705"
+                    y="60"
+                    textAnchor="middle"
+                    fill="#f59e0b"
+                    fontSize="11"
+                    fontWeight="bold"
+                    opacity={frame >= 1110 ? 1 : 0}
+                  >
+                    Timeout
+                  </text>
+
+                  {/* HALF-OPEN -> CLOSED (success) */}
+                  <path
+                    d="M 890 140 Q 890 200, 150 200 Q 150 180, 150 140"
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="3"
+                    markerEnd="url(#arrowhead-green)"
+                    opacity={frame >= 1230 && frame < 1350 ? 1 : 0.3}
+                    strokeDasharray={frame >= 1230 && frame < 1350 ? "none" : "5,5"}
+                  />
+                  <text
+                    x="520"
+                    y="215"
+                    textAnchor="middle"
+                    fill="#10b981"
+                    fontSize="11"
+                    fontWeight="bold"
+                    opacity={frame >= 1230 ? 1 : 0}
+                  >
+                    Success!
+                  </text>
+
+                  {/* HALF-OPEN -> OPEN (failure) */}
+                  <path
+                    d="M 740 10 Q 555 -30, 370 10"
+                    fill="none"
+                    stroke="#ef4444"
+                    strokeWidth="2"
+                    markerEnd="url(#arrowhead-red)"
+                    opacity={frame >= 1230 ? 0.4 : 0}
+                    strokeDasharray="5,5"
+                  />
+                  <text
+                    x="555"
+                    y="-10"
+                    textAnchor="middle"
+                    fill="#ef4444"
+                    fontSize="10"
+                    opacity={frame >= 1230 ? 0.6 : 0}
+                  >
+                    Fail again
+                  </text>
+                </svg>
+              )}
 
               {/* State Transitions */}
               <Arrow x1={300} y1={70} x2={370} y2={70} color="#ef4444" startFrame={1140} label="Failures" />
