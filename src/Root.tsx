@@ -43,6 +43,8 @@ import {AuthenticationAuthorization} from './topics/AuthenticationAuthorization'
 import {EncryptionSSLTLS} from './topics/EncryptionSSLTLS';
 import {APISecurityBestPractices} from './topics/APISecurityBestPractices';
 import {DDoSProtectionMitigation} from './topics/DDoSProtectionMitigation';
+import {FullTextSearch} from './topics/FullTextSearch';
+import {SearchOptimization} from './topics/SearchOptimization';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -395,6 +397,22 @@ export const RemotionRoot: React.FC = () => {
         id="DDoSProtectionMitigation"
         component={DDoSProtectionMitigation}
         durationInFrames={2100}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FullTextSearch"
+        component={FullTextSearch}
+        durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SearchOptimization"
+        component={SearchOptimization}
+        durationInFrames={2250}
         fps={30}
         width={1920}
         height={1080}
