@@ -729,7 +729,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Hit rate (target 80%+)<br/>
                       • Eviction rate (low is good)<br/>
-                      • Replication lag (< 1s)<br/>
+                      • Replication lag (&lt; 1s)<br/>
                       • CPU, memory, network saturation
                     </div>
                   </div>
