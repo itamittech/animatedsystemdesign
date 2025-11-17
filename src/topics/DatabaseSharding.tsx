@@ -73,7 +73,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="architect"
             text="That's where sharding comes in! We split data horizontally across multiple databases."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={180}
             maxWidth={640}
           />
@@ -182,7 +182,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="architect"
             text="The shard key is critical! Let's look at three common strategies: Hash, Range, and Geographic."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={600}
             maxWidth={680}
           />
@@ -334,7 +334,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="architect"
             text="What if you need to add or remove shards? Consistent hashing minimizes data movement!"
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1080}
             maxWidth={680}
           />
@@ -459,7 +459,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="architect"
             text="That's the biggest challenge of sharding! You lose simple JOINs and aggregations."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={1650}
             maxWidth={680}
           />
@@ -589,7 +589,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="architect"
             text="Resharding is expensive but sometimes necessary. Let's look at strategies to minimize pain."
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={2250}
             maxWidth={680}
           />
