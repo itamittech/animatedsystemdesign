@@ -64,7 +64,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="junior"
             text="NoSQL isn't just one thing, right? What are the different types?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={500}
           />
@@ -319,7 +319,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="junior"
             text="What about caching and high-scale writes?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={930}
             maxWidth={500}
           />
@@ -569,7 +569,7 @@ export const NoSQLDatabases: React.FC = () => {
             speaker="junior"
             text="How do I pick the right NoSQL type for my project?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2130}
             maxWidth={500}
           />

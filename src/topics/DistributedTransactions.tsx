@@ -64,7 +64,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="junior"
             text="With sharded databases and microservices, how do we ensure data consistency across multiple systems?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={520}
           />
@@ -336,7 +336,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="junior"
             text="What's wrong with 2PC? It sounds perfect!"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={1230}
             maxWidth={500}
           />
@@ -648,7 +648,7 @@ export const DistributedTransactions: React.FC = () => {
             speaker="junior"
             text="When should we avoid distributed transactions altogether?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2580}
             maxWidth={500}
           />

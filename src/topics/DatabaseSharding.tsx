@@ -64,7 +64,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="junior"
             text="When replication isn't enough, how do we scale databases to billions of rows?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={500}
           />
@@ -173,7 +173,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="junior"
             text="How do we decide which data goes to which shard?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={480}
             maxWidth={500}
           />
@@ -450,7 +450,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="junior"
             text="What if I need to query across multiple shards?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={1530}
             maxWidth={500}
           />
@@ -580,7 +580,7 @@ export const DatabaseSharding: React.FC = () => {
             speaker="junior"
             text="What if a shard gets too big or we need to rebalance?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2130}
             maxWidth={500}
           />

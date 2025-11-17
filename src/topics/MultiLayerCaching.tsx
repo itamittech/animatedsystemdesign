@@ -64,7 +64,7 @@ export const MultiLayerCaching: React.FC = () => {
             speaker="junior"
             text="Sarah, I understand single caches, but how do we cache at scale across an entire architecture?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={520}
           />
@@ -395,7 +395,7 @@ export const MultiLayerCaching: React.FC = () => {
             speaker="junior"
             text="How does the application layer decide what to cache?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={1080}
             maxWidth={500}
           />
@@ -721,7 +721,7 @@ export const MultiLayerCaching: React.FC = () => {
             speaker="junior"
             text="This is complex! Any guidelines for getting it right?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2430}
             maxWidth={500}
           />

@@ -819,7 +819,7 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="junior"
             text="I've heard of HATEOAS. What is it and why should we use it?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={3330}
             maxWidth={500}
           />
@@ -828,7 +828,7 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="architect"
             text="HATEOAS makes your API self-documenting by including links to related resources in every response!"
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={3450}
             maxWidth={640}
           />
@@ -966,7 +966,7 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="junior"
             text="This is so much clearer now! Our APIs will be much better designed."
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={3780}
             maxWidth={500}
           />
@@ -975,7 +975,7 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="architect"
             text="Perfect! Remember: consistency, HATEOAS for discoverability, and always think from the API consumer's perspective!"
             x={width - 750}
-            y={height - 150}
+            y={height - 280}
             startFrame={3840}
             maxWidth={640}
           />

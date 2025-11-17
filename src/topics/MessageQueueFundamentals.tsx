@@ -66,7 +66,7 @@ export const MessageQueueFundamentals: React.FC = () => {
             speaker="junior"
             text="When services need to talk asynchronously, how do we handle that? Just fire HTTP requests and forget?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={520}
           />
@@ -415,7 +415,7 @@ export const MessageQueueFundamentals: React.FC = () => {
             speaker="junior"
             text="I hear about queues, topics, and streams. What's the difference?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={1230}
             maxWidth={500}
           />
@@ -807,7 +807,7 @@ export const MessageQueueFundamentals: React.FC = () => {
             speaker="junior"
             text="This is powerful! When should I use message queues vs direct calls?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={3030}
             maxWidth={500}
           />

@@ -64,7 +64,7 @@ export const DistributedCaching: React.FC = () => {
             speaker="junior"
             text="What happens when a single Redis server isn't enough? How do we scale caching horizontally?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={60}
             maxWidth={520}
           />
@@ -358,7 +358,7 @@ export const DistributedCaching: React.FC = () => {
             speaker="junior"
             text="What happens if a master node fails?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={1110}
             maxWidth={500}
           />
@@ -660,7 +660,7 @@ export const DistributedCaching: React.FC = () => {
             speaker="junior"
             text="This is powerful but complex! How do we run this reliably in production?"
             x={220}
-            y={height - 150}
+            y={height - 280}
             startFrame={2430}
             maxWidth={500}
           />
