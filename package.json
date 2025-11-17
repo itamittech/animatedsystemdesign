@@ -21,7 +21,12 @@
     "render:caching-fundamentals": "node studio.js render src/index.ts CachingFundamentals out/caching-fundamentals.mp4",
     "render:multi-layer-caching": "node studio.js render src/index.ts MultiLayerCaching out/multi-layer-caching.mp4",
     "render:distributed-caching": "node studio.js render src/index.ts DistributedCaching out/distributed-caching.mp4",
-    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc && npm run render:database-fundamentals && npm run render:sql-databases && npm run render:nosql-databases && npm run render:database-replication && npm run render:database-sharding && npm run render:distributed-transactions && npm run render:caching-fundamentals && npm run render:multi-layer-caching && npm run render:distributed-caching",
+    "render:ai-ml-basics": "node studio.js render src/index.ts AIMLBasics out/ai-ml-basics.mp4",
+    "render:neural-networks": "node studio.js render src/index.ts NeuralNetworks out/neural-networks.mp4",
+    "render:large-language-models": "node studio.js render src/index.ts LargeLanguageModels out/large-language-models.mp4",
+    "render:agentic-ai": "node studio.js render src/index.ts AgenticAI out/agentic-ai.mp4",
+    "render:model-context-protocol": "node studio.js render src/index.ts ModelContextProtocol out/model-context-protocol.mp4",
+    "render:all": "npm run render:fundamentals && npm run render:loadbalancing-basic && npm run render:loadbalancing && npm run render:cdn-api-gateway && npm run render:rest-api && npm run render:graphql && npm run render:grpc && npm run render:database-fundamentals && npm run render:sql-databases && npm run render:nosql-databases && npm run render:database-replication && npm run render:database-sharding && npm run render:distributed-transactions && npm run render:caching-fundamentals && npm run render:multi-layer-caching && npm run render:distributed-caching && npm run render:ai-ml-basics && npm run render:neural-networks && npm run render:large-language-models && npm run render:agentic-ai && npm run render:model-context-protocol",
     "upgrade": "node studio.js upgrade",
     "test": "echo \"No tests yet\""
   },
