@@ -877,14 +877,27 @@ export const ServiceDecomposition: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="But what if Order Service needs customer email from User Service? Without a shared database, how do services share data?"
-            x={100}
-            y={height - 280}
-            startFrame={2910}
-            maxWidth={650}
-          />
+          {frame < 2910 && (
+            <Dialogue
+              speaker="developer"
+              text="But what if Order Service needs customer email from User Service? Without a shared database, how do services share data?"
+              x={100}
+              y={height - 280}
+              startFrame={2730}
+              maxWidth={650}
+            />
+          )}
+
+          {frame >= 2910 && (
+            <Dialogue
+              speaker="architect"
+              text="Excellent question! Services communicate via APIs and events. That's exactly what we'll cover next in Microservices Communication patterns!"
+              x={width - 750}
+              y={height - 280}
+              startFrame={2910}
+              maxWidth={580}
+            />
+          )}
 
           {/* Credit */}
           <div
