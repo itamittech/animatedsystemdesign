@@ -590,6 +590,88 @@ export const DistributedSagas: React.FC = () => {
                   <Arrow x1={245} y1={50} x2={270} y2={25} color="#22d3ee" startFrame={1980} label="Event" />
                   <Arrow x1={270} y1={35} x2={125} y2={60} color="#ef4444" startFrame={2010} label="Fail Event" />
 
+                  {/* Animated events flowing between services */}
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 380, height: 120, pointerEvents: 'none'}}>
+                    <defs>
+                      <filter id="glow-event">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
+                    {/* Event 1: Order→Payment (loops) */}
+                    {frame >= 1950 && (frame - 1950) % 120 < 30 && (
+                      <>
+                        <circle
+                          cx={125 + ((150 - 125) * ((frame - 1950) % 120)) / 30}
+                          cy={50 - ((50 - 25) * ((frame - 1950) % 120)) / 30}
+                          r={4}
+                          fill="#22d3ee"
+                          filter="url(#glow-event)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={125 + ((150 - 125) * ((frame - 1950) % 120)) / 30 - 15}
+                          y={50 - ((50 - 25) * ((frame - 1950) % 120)) / 30 - 10}
+                          fontSize="9"
+                          fill="#22d3ee"
+                          opacity={0.8}
+                        >
+                          OrderCreated
+                        </text>
+                      </>
+                    )}
+
+                    {/* Event 2: Payment→Inventory */}
+                    {frame >= 1980 && (frame - 1980) % 120 < 30 && (
+                      <>
+                        <circle
+                          cx={245 + ((270 - 245) * ((frame - 1980) % 120)) / 30}
+                          cy={50 - ((50 - 25) * ((frame - 1980) % 120)) / 30}
+                          r={4}
+                          fill="#22d3ee"
+                          filter="url(#glow-event)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={245 + ((270 - 245) * ((frame - 1980) % 120)) / 30 - 15}
+                          y={50 - ((50 - 25) * ((frame - 1980) % 120)) / 30 - 10}
+                          fontSize="9"
+                          fill="#22d3ee"
+                          opacity={0.8}
+                        >
+                          PaymentOK
+                        </text>
+                      </>
+                    )}
+
+                    {/* Fail Event: Inventory→Order */}
+                    {frame >= 2010 && (frame - 2010) % 120 < 40 && (
+                      <>
+                        <circle
+                          cx={270 - ((270 - 125) * ((frame - 2010) % 120)) / 40}
+                          cy={35 + ((60 - 35) * ((frame - 2010) % 120)) / 40}
+                          r={4}
+                          fill="#ef4444"
+                          filter="url(#glow-event)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={270 - ((270 - 125) * ((frame - 2010) % 120)) / 40 - 12}
+                          y={35 + ((60 - 35) * ((frame - 2010) % 120)) / 40 - 10}
+                          fontSize="9"
+                          fill="#ef4444"
+                          opacity={0.8}
+                        >
+                          OutOfStock
+                        </text>
+                      </>
+                    )}
+                  </svg>
+
                   <div
                     style={{
                       position: 'absolute',
@@ -656,6 +738,125 @@ export const DistributedSagas: React.FC = () => {
                   <Arrow x1={190} y1={50} x2={145} y2={90} color="#22d3ee" startFrame={2250} />
                   <Arrow x1={190} y1={50} x2={240} y2={90} color="#22d3ee" startFrame={2250} />
                   <Arrow x1={190} y1={50} x2={335} y2={90} color="#22d3ee" startFrame={2250} />
+
+                  {/* Animated commands from orchestrator */}
+                  <svg style={{position: 'absolute', left: 0, top: 0, width: 420, height: 140, pointerEvents: 'none'}}>
+                    <defs>
+                      <filter id="glow-command">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+
+                      {/* Pulsing orchestrator */}
+                      <radialGradient id="orchestrator-glow">
+                        <stop offset="0%" stopColor="#c026d3" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#c026d3" stopOpacity="0" />
+                      </radialGradient>
+                    </defs>
+
+                    {/* Pulsing aura around orchestrator */}
+                    {frame >= 2250 && (
+                      <circle
+                        cx={190}
+                        cy={25}
+                        r={35 + Math.sin((frame - 2250) / 12) * 8}
+                        fill="url(#orchestrator-glow)"
+                        opacity={0.5}
+                      />
+                    )}
+
+                    {/* Commands to each service (staggered) */}
+                    {frame >= 2250 && (frame - 2250) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 - ((190 - 50) * ((frame - 2250) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2250) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 - ((190 - 50) * ((frame - 2250) % 100)) / 25 - 12}
+                          y={50 + ((90 - 50) * ((frame - 2250) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          CreateOrder
+                        </text>
+                      </>
+                    )}
+
+                    {frame >= 2270 && (frame - 2270) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 - ((190 - 145) * ((frame - 2270) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2270) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 - ((190 - 145) * ((frame - 2270) % 100)) / 25 - 10}
+                          y={50 + ((90 - 50) * ((frame - 2270) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          ChargePmt
+                        </text>
+                      </>
+                    )}
+
+                    {frame >= 2290 && (frame - 2290) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 + ((240 - 190) * ((frame - 2290) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2290) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 + ((240 - 190) * ((frame - 2290) % 100)) / 25 - 12}
+                          y={50 + ((90 - 50) * ((frame - 2290) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          ReserveInv
+                        </text>
+                      </>
+                    )}
+
+                    {frame >= 2310 && (frame - 2310) % 100 < 25 && (
+                      <>
+                        <circle
+                          cx={190 + ((335 - 190) * ((frame - 2310) % 100)) / 25}
+                          cy={50 + ((90 - 50) * ((frame - 2310) % 100)) / 25}
+                          r={4}
+                          fill="#c026d3"
+                          filter="url(#glow-command)"
+                          opacity={0.9}
+                        />
+                        <text
+                          x={190 + ((335 - 190) * ((frame - 2310) % 100)) / 25 - 10}
+                          y={50 + ((90 - 50) * ((frame - 2310) % 100)) / 25 - 8}
+                          fontSize="8"
+                          fill="#c026d3"
+                          opacity={0.7}
+                        >
+                          SendEmail
+                        </text>
+                      </>
+                    )}
+                  </svg>
                 </div>
 
                 <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
