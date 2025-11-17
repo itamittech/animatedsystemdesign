@@ -72,7 +72,7 @@ export const theme = {
     verySlow: 1.0,
   },
 
-  // Font settings
+  // Font settings - Enhanced for better readability
   typography: {
     title: {
       fontSize: 72,
@@ -80,26 +80,31 @@ export const theme = {
       fontFamily: 'Inter, sans-serif',
     },
     heading: {
-      fontSize: 48,
+      fontSize: 52,
       fontWeight: '600' as const,
       fontFamily: 'Inter, sans-serif',
     },
     subheading: {
-      fontSize: 36,
+      fontSize: 40,
       fontWeight: '500' as const,
       fontFamily: 'Inter, sans-serif',
     },
     body: {
-      fontSize: 28,
+      fontSize: 32,
       fontWeight: 'normal' as const,
       fontFamily: 'Inter, sans-serif',
     },
     code: {
-      fontSize: 24,
+      fontSize: 28,
       fontWeight: 'normal' as const,
       fontFamily: 'JetBrains Mono, monospace',
     },
     label: {
+      fontSize: 24,
+      fontWeight: '500' as const,
+      fontFamily: 'Inter, sans-serif',
+    },
+    smallLabel: {
       fontSize: 20,
       fontWeight: '500' as const,
       fontFamily: 'Inter, sans-serif',

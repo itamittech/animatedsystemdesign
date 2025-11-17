@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2,
             top: (y1 + y2) / 2 - 20,
             color,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             opacity: animation,
           }}
@@ -262,7 +262,7 @@ export const ModelContextProtocol: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -307,23 +307,23 @@ export const ModelContextProtocol: React.FC = () => {
               />
 
               {/* Messy arrows to different resources */}
-              <Box text="Database" x={0} y={0} width={120} height={60} color="#0ea5e9" startFrame={600} fontSize={14} />
+              <Box text="Database" x={0} y={0} width={120} height={60} color="#0ea5e9" startFrame={600} fontSize={22} />
               <Arrow x1={60} y1={60} x2={220} y2={180} color="#ef4444" startFrame={630} label="Custom" />
 
-              <Box text="Files" x={380} y={0} width={120} height={60} color="#0ea5e9" startFrame={660} fontSize={14} />
+              <Box text="Files" x={380} y={0} width={120} height={60} color="#0ea5e9" startFrame={660} fontSize={22} />
               <Arrow x1={440} y1={60} x2={280} y2={180} color="#ef4444" startFrame={690} label="Custom" />
 
-              <Box text="APIs" x={0} y={390} width={120} height={60} color="#0ea5e9" startFrame={720} fontSize={14} />
+              <Box text="APIs" x={0} y={390} width={120} height={60} color="#0ea5e9" startFrame={720} fontSize={22} />
               <Arrow x1={60} y1={390} x2={220} y2={280} color="#ef4444" startFrame={750} label="Custom" />
 
-              <Box text="Cloud" x={380} y={390} width={120} height={60} color="#0ea5e9" startFrame={780} fontSize={14} />
+              <Box text="Cloud" x={380} y={390} width={120} height={60} color="#0ea5e9" startFrame={780} fontSize={22} />
               <Arrow x1={440} y1={390} x2={280} y2={280} color="#ef4444" startFrame={810} label="Custom" />
             </div>
 
             <div
               style={{
                 marginTop: 10,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#ef4444',
                 lineHeight: 1.9,
                 opacity: frame >= 840 ? 1 : 0,
@@ -360,37 +360,37 @@ export const ModelContextProtocol: React.FC = () => {
                 height={80}
                 color="#7c3aed"
                 startFrame={930}
-                fontSize={16}
+                fontSize={24}
               />
 
               <Arrow x1={130} y1={230} x2={190} y2={230} color="#10b981" startFrame={960} label="MCP" />
 
               {/* MCP Servers */}
               <div style={{position: 'absolute', left: 190, top: 0}}>
-                <Box text="DB Server" x={0} y={0} width={140} height={60} color="#22d3ee" startFrame={990} fontSize={14} />
-                <Box text="File Server" x={0} y={85} width={140} height={60} color="#22d3ee" startFrame={1020} fontSize={14} />
-                <Box text="API Server" x={0} y={170} width={140} height={60} color="#22d3ee" startFrame={1050} fontSize={14} />
-                <Box text="Cloud Server" x={0} y={255} width={140} height={60} color="#22d3ee" startFrame={1080} fontSize={14} />
+                <Box text="DB Server" x={0} y={0} width={140} height={60} color="#22d3ee" startFrame={990} fontSize={22} />
+                <Box text="File Server" x={0} y={85} width={140} height={60} color="#22d3ee" startFrame={1020} fontSize={22} />
+                <Box text="API Server" x={0} y={170} width={140} height={60} color="#22d3ee" startFrame={1050} fontSize={22} />
+                <Box text="Cloud Server" x={0} y={255} width={140} height={60} color="#22d3ee" startFrame={1080} fontSize={22} />
               </div>
 
               {/* Arrows and Resources - now properly spaced */}
               <Arrow x1={330} y1={30} x2={370} y2={30} color="#10b981" startFrame={1110} />
-              <Box text="📦 Database" x={370} y={0} width={140} height={60} color="#0ea5e9" startFrame={1110} fontSize={14} />
+              <Box text="📦 Database" x={370} y={0} width={140} height={60} color="#0ea5e9" startFrame={1110} fontSize={22} />
 
               <Arrow x1={330} y1={115} x2={370} y2={115} color="#10b981" startFrame={1140} />
-              <Box text="📁 Files" x={370} y={85} width={140} height={60} color="#0ea5e9" startFrame={1140} fontSize={14} />
+              <Box text="📁 Files" x={370} y={85} width={140} height={60} color="#0ea5e9" startFrame={1140} fontSize={22} />
 
               <Arrow x1={330} y1={200} x2={370} y2={200} color="#10b981" startFrame={1170} />
-              <Box text="🌐 APIs" x={370} y={170} width={140} height={60} color="#0ea5e9" startFrame={1170} fontSize={14} />
+              <Box text="🌐 APIs" x={370} y={170} width={140} height={60} color="#0ea5e9" startFrame={1170} fontSize={22} />
 
               <Arrow x1={330} y1={285} x2={370} y2={285} color="#10b981" startFrame={1200} />
-              <Box text="☁️ Cloud" x={370} y={255} width={140} height={60} color="#0ea5e9" startFrame={1200} fontSize={14} />
+              <Box text="☁️ Cloud" x={370} y={255} width={140} height={60} color="#0ea5e9" startFrame={1200} fontSize={22} />
             </div>
 
             <div
               style={{
                 marginTop: 10,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#10b981',
                 lineHeight: 1.9,
                 opacity: frame >= 1230 ? 1 : 0,
@@ -418,7 +418,7 @@ export const ModelContextProtocol: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -458,10 +458,10 @@ export const ModelContextProtocol: React.FC = () => {
                 opacity: frame >= 1080 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                 1️⃣ MCP Client (LLM Application)
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 • Claude Desktop, ChatGPT, custom apps<br />
                 • Sends requests to MCP servers<br />
                 • Receives data & tool responses
@@ -479,10 +479,10 @@ export const ModelContextProtocol: React.FC = () => {
                 opacity: frame >= 1200 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#22d3ee', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#22d3ee', fontWeight: 'bold', marginBottom: 10}}>
                 2️⃣ MCP Server (Middle Layer)
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 • Exposes resources, tools, prompts<br />
                 • Handles authentication & security<br />
                 • Translates between LLM and data source<br />
@@ -500,10 +500,10 @@ export const ModelContextProtocol: React.FC = () => {
                 opacity: frame >= 1320 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                 3️⃣ Resources (Data Sources)
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 • Databases (PostgreSQL, MongoDB)<br />
                 • File systems (local, S3, Google Drive)<br />
                 • APIs (REST, GraphQL)<br />
@@ -526,10 +526,10 @@ export const ModelContextProtocol: React.FC = () => {
               opacity: frame >= 1440 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15}}>
+            <div style={{fontSize: 28, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15}}>
               📝 Example Flow
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2}}>
               <div style={{opacity: frame >= 1470 ? 1 : 0}}>
                 <strong style={{color: '#7c3aed'}}>User:</strong> "List my recent commits"<br /><br />
               </div>
@@ -566,7 +566,7 @@ export const ModelContextProtocol: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -602,7 +602,7 @@ export const ModelContextProtocol: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 25,
                 borderRadius: 12,
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -653,7 +653,7 @@ export const ModelContextProtocol: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 25,
                 borderRadius: 12,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -683,7 +683,7 @@ export const ModelContextProtocol: React.FC = () => {
                 Access docs, sheets, files
               </div>
 
-              <div style={{marginTop: 20, fontSize: 13, color: '#22d3ee', fontStyle: 'italic'}}>
+              <div style={{marginTop: 20, fontSize: 20, color: '#22d3ee', fontStyle: 'italic'}}>
                 + Hundreds more from the community!<br />
                 Check modelcontextprotocol.io
               </div>
@@ -705,7 +705,7 @@ export const ModelContextProtocol: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -730,7 +730,7 @@ export const ModelContextProtocol: React.FC = () => {
               left: width / 2 - 500,
               top: 180,
               width: 1000,
-              fontSize: 18,
+              fontSize: 28,
               color: '#cbd5e1',
             }}
           >
@@ -768,7 +768,7 @@ export const ModelContextProtocol: React.FC = () => {
                 Security, portability, composability, growing ecosystem
               </div>
 
-              <div style={{marginTop: 25, fontSize: 16, color: '#22d3ee', fontStyle: 'italic'}}>
+              <div style={{marginTop: 25, fontSize: 24, color: '#22d3ee', fontStyle: 'italic'}}>
                 🎉 You now understand AI foundations! Ready to build intelligent systems?
               </div>
             </div>
@@ -798,7 +798,7 @@ export const ModelContextProtocol: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

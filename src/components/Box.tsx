@@ -98,7 +98,7 @@ export const Box: React.FC<BoxProps> = ({
           textAnchor="middle"
           dominantBaseline="middle"
           fill={theme.text.muted}
-          fontSize={16}
+          fontSize={20}
           fontFamily={theme.typography.label.fontFamily}
         >
           {subLabel}

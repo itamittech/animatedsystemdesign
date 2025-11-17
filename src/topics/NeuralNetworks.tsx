@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -194,7 +194,7 @@ const Circle: React.FC<{
             position: 'absolute',
             left: x - 15,
             top: y - 8,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             color: '#ffffff',
             opacity: fadeIn,
@@ -263,7 +263,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2,
             top: (y1 + y2) / 2 - 20,
             color,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             opacity: animation,
           }}
@@ -313,7 +313,7 @@ export const NeuralNetworks: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -347,7 +347,7 @@ export const NeuralNetworks: React.FC = () => {
             <Circle x={100} y={200} radius={30} color="#0ea5e9" startFrame={560} label="x₂" />
             <Circle x={100} y={300} radius={30} color="#0ea5e9" startFrame={580} label="x₃" />
 
-            <div style={{position: 'absolute', left: -20, top: 190, fontSize: 16, color: '#22d3ee'}}>
+            <div style={{position: 'absolute', left: -20, top: 190, fontSize: 24, color: '#22d3ee'}}>
               {frame >= 600 && 'Inputs'}
             </div>
 
@@ -363,7 +363,7 @@ export const NeuralNetworks: React.FC = () => {
             {/* Neuron */}
             <Circle x={320} y={200} radius={50} color="#7c3aed" startFrame={690} label="Σ" />
 
-            <div style={{position: 'absolute', left: 280, top: 265, fontSize: 14, color: '#c084fc'}}>
+            <div style={{position: 'absolute', left: 280, top: 265, fontSize: 22, color: '#c084fc'}}>
               {frame >= 720 && 'Sum & Activate'}
             </div>
 
@@ -371,7 +371,7 @@ export const NeuralNetworks: React.FC = () => {
             <Arrow x1={370} y1={200} x2={480} y2={200} color="#10b981" startFrame={750} />
             <Circle x={520} y={200} radius={30} color="#10b981" startFrame={780} label="y" />
 
-            <div style={{position: 'absolute', left: 530, top: 190, fontSize: 16, color: '#10b981'}}>
+            <div style={{position: 'absolute', left: 530, top: 190, fontSize: 24, color: '#10b981'}}>
               {frame >= 810 && 'Output'}
             </div>
 
@@ -381,7 +381,7 @@ export const NeuralNetworks: React.FC = () => {
                 position: 'absolute',
                 left: 0,
                 top: 380,
-                fontSize: 16,
+                fontSize: 24,
                 color: '#cbd5e1',
                 backgroundColor: '#1e293b',
                 padding: 20,
@@ -391,10 +391,10 @@ export const NeuralNetworks: React.FC = () => {
               }}
             >
               <div style={{color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>The Math:</div>
-              <code style={{fontSize: 15, color: '#22d3ee'}}>
+              <code style={{fontSize: 24, color: '#22d3ee'}}>
                 y = activation(w₁×x₁ + w₂×x₂ + w₃×x₃ + bias)
               </code>
-              <div style={{marginTop: 15, fontSize: 14, lineHeight: 1.8}}>
+              <div style={{marginTop: 15, fontSize: 22, lineHeight: 1.8}}>
                 • Multiply inputs by <strong style={{color: '#fbbf24'}}>weights</strong> (importance)<br />
                 • Sum them up, add <strong style={{color: '#fbbf24'}}>bias</strong><br />
                 • Apply <strong style={{color: '#10b981'}}>activation function</strong> (e.g., sigmoid, ReLU)
@@ -416,10 +416,10 @@ export const NeuralNetworks: React.FC = () => {
               opacity: frame >= 900 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
+            <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
               Example: Email Spam Neuron
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
               <strong style={{color: '#0ea5e9'}}>Inputs:</strong><br />
               x₁ = suspicious words count<br />
               x₂ = all caps percentage<br />
@@ -448,7 +448,7 @@ export const NeuralNetworks: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -475,7 +475,7 @@ export const NeuralNetworks: React.FC = () => {
           >
             {/* Input Layer */}
             <div style={{position: 'absolute', left: 0, top: 0}}>
-              <div style={{fontSize: 16, color: '#22d3ee', fontWeight: 'bold', marginBottom: 15}}>
+              <div style={{fontSize: 24, color: '#22d3ee', fontWeight: 'bold', marginBottom: 15}}>
                 Input Layer
               </div>
               <Circle x={40} y={50} radius={25} color="#0ea5e9" startFrame={1140} />
@@ -486,7 +486,7 @@ export const NeuralNetworks: React.FC = () => {
 
             {/* Hidden Layer 1 */}
             <div style={{position: 'absolute', left: 220, top: 0}}>
-              <div style={{fontSize: 16, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
+              <div style={{fontSize: 24, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
                 Hidden Layer 1
               </div>
               <Circle x={40} y={30} radius={25} color="#7c3aed" startFrame={1230} />
@@ -498,7 +498,7 @@ export const NeuralNetworks: React.FC = () => {
 
             {/* Hidden Layer 2 */}
             <div style={{position: 'absolute', left: 440, top: 0}}>
-              <div style={{fontSize: 16, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
+              <div style={{fontSize: 24, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
                 Hidden Layer 2
               </div>
               <Circle x={40} y={50} radius={25} color="#7c3aed" startFrame={1330} />
@@ -509,7 +509,7 @@ export const NeuralNetworks: React.FC = () => {
 
             {/* Output Layer */}
             <div style={{position: 'absolute', left: 660, top: 0}}>
-              <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 15}}>
+              <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 15}}>
                 Output Layer
               </div>
               <Circle x={40} y={120} radius={25} color="#10b981" startFrame={1420} />
@@ -545,7 +545,7 @@ export const NeuralNetworks: React.FC = () => {
             <div style={{fontSize: 20, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15}}>
               Why "Deep" Learning?
             </div>
-            <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.9}}>
+            <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.9}}>
               <strong style={{color: '#c084fc'}}>Deep = Many Layers</strong><br /><br />
 
               Each layer learns different abstractions:<br /><br />
@@ -576,7 +576,7 @@ export const NeuralNetworks: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -608,14 +608,14 @@ export const NeuralNetworks: React.FC = () => {
             </div>
 
             <Box text="Training Data" x={0} y={0} width={180} height={70} color="#0ea5e9" startFrame={1830} fontSize={18} />
-            <div style={{fontSize: 13, color: '#94a3b8', marginTop: 5, marginLeft: 10}}>
+            <div style={{fontSize: 20, color: '#94a3b8', marginTop: 5, marginLeft: 10}}>
               Millions of labeled examples
             </div>
 
             <Arrow x1={180} y1={35} x2={240} y2={35} color="#ffffff" startFrame={1860} label="Feed" />
 
             <Box text="Neural Network" x={240} y={0} width={200} height={70} color="#7c3aed" startFrame={1860} fontSize={18} />
-            <div style={{fontSize: 13, color: '#94a3b8', marginTop: 5, marginLeft: 250}}>
+            <div style={{fontSize: 20, color: '#94a3b8', marginTop: 5, marginLeft: 250}}>
               Random weights initially
             </div>
 
@@ -625,7 +625,7 @@ export const NeuralNetworks: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 20,
                 borderRadius: 8,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#cbd5e1',
                 lineHeight: 1.9,
                 opacity: frame >= 1920 ? 1 : 0,
@@ -660,14 +660,14 @@ export const NeuralNetworks: React.FC = () => {
             </div>
 
             <Box text="New Input" x={0} y={0} width={140} height={70} color="#0ea5e9" startFrame={2070} fontSize={18} />
-            <div style={{fontSize: 13, color: '#94a3b8', marginTop: 5, marginLeft: 10}}>
+            <div style={{fontSize: 20, color: '#94a3b8', marginTop: 5, marginLeft: 10}}>
               Never seen before
             </div>
 
             <Arrow x1={140} y1={35} x2={200} y2={35} color="#ffffff" startFrame={2100} label="Feed" />
 
             <Box text="Trained Model" x={200} y={0} width={180} height={70} color="#7c3aed" startFrame={2100} fontSize={18} />
-            <div style={{fontSize: 13, color: '#94a3b8', marginTop: 5, marginLeft: 210}}>
+            <div style={{fontSize: 20, color: '#94a3b8', marginTop: 5, marginLeft: 210}}>
               Fixed weights
             </div>
 
@@ -681,7 +681,7 @@ export const NeuralNetworks: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 20,
                 borderRadius: 8,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#cbd5e1',
                 lineHeight: 1.9,
                 opacity: frame >= 2160 ? 1 : 0,
@@ -715,7 +715,7 @@ export const NeuralNetworks: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -740,7 +740,7 @@ export const NeuralNetworks: React.FC = () => {
               left: width / 2 - 450,
               top: 180,
               width: 900,
-              fontSize: 18,
+              fontSize: 28,
               color: '#cbd5e1',
             }}
           >
@@ -778,7 +778,7 @@ export const NeuralNetworks: React.FC = () => {
                 Fast, cheap prediction using trained model
               </div>
 
-              <div style={{marginTop: 25, fontSize: 16, color: '#22d3ee', fontStyle: 'italic'}}>
+              <div style={{marginTop: 25, fontSize: 24, color: '#22d3ee', fontStyle: 'italic'}}>
                 🎯 Next: Large Language Models (LLMs) - Deep Learning for text at massive scale!
               </div>
             </div>
@@ -808,7 +808,7 @@ export const NeuralNetworks: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

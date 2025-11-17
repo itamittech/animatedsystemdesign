@@ -36,7 +36,7 @@ export const CachingFundamentals: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const CachingFundamentals: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(6, 182, 212, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -113,7 +113,7 @@ export const CachingFundamentals: React.FC = () => {
                     <div style={{fontSize: 22, color: '#ef4444', fontWeight: 'bold', marginBottom: 12}}>
                       ❌ Without Cache
                     </div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       Every request hits the database<br/>
                       💾 Database query: <span style={{color: '#fbbf24'}}>100ms</span><br/>
                       📊 Network overhead: <span style={{color: '#fbbf24'}}>20ms</span><br/>
@@ -132,7 +132,7 @@ export const CachingFundamentals: React.FC = () => {
                     <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                       ✅ With Cache
                     </div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       Frequently accessed data in memory<br/>
                       ⚡ Cache lookup: <span style={{color: '#10b981'}}>1ms</span><br/>
                       🚀 In-memory access: <span style={{color: '#10b981'}}>instant</span><br/>
@@ -203,7 +203,7 @@ export const CachingFundamentals: React.FC = () => {
               <div style={{display: 'flex', gap: 20, alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{textAlign: 'center'}}>
                   <div style={{fontSize: 32, marginBottom: 8}}>👤</div>
-                  <div style={{fontSize: 16, color: '#e2e8f0'}}>Client</div>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>Client</div>
                 </div>
 
                 <div style={{fontSize: 28, color: '#10b981'}}>→</div>
@@ -219,15 +219,15 @@ export const CachingFundamentals: React.FC = () => {
                 >
                   <div style={{fontSize: 24, marginBottom: 8}}>⚡</div>
                   <div style={{fontSize: 18, color: '#06b6d4', fontWeight: 'bold'}}>Cache</div>
-                  <div style={{fontSize: 14, color: '#10b981', marginTop: 8}}>Data found! ✓</div>
+                  <div style={{fontSize: 22, color: '#10b981', marginTop: 8}}>Data found! ✓</div>
                 </div>
 
                 <div style={{fontSize: 28, color: '#10b981'}}>→</div>
 
                 <div style={{textAlign: 'center'}}>
                   <div style={{fontSize: 32, marginBottom: 8}}>👤</div>
-                  <div style={{fontSize: 16, color: '#e2e8f0'}}>Client</div>
-                  <div style={{fontSize: 14, color: '#10b981', marginTop: 4}}>1ms response</div>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>Client</div>
+                  <div style={{fontSize: 22, color: '#10b981', marginTop: 4}}>1ms response</div>
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@ export const CachingFundamentals: React.FC = () => {
               <div style={{display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{textAlign: 'center'}}>
                   <div style={{fontSize: 28, marginBottom: 8}}>👤</div>
-                  <div style={{fontSize: 14, color: '#e2e8f0'}}>Client</div>
+                  <div style={{fontSize: 22, color: '#e2e8f0'}}>Client</div>
                 </div>
 
                 <div style={{fontSize: 24, color: '#f59e0b'}}>→</div>
@@ -264,8 +264,8 @@ export const CachingFundamentals: React.FC = () => {
                   }}
                 >
                   <div style={{fontSize: 20, marginBottom: 6}}>⚡</div>
-                  <div style={{fontSize: 16, color: '#06b6d4', fontWeight: 'bold'}}>Cache</div>
-                  <div style={{fontSize: 13, color: '#f59e0b', marginTop: 6}}>Not found ✗</div>
+                  <div style={{fontSize: 24, color: '#06b6d4', fontWeight: 'bold'}}>Cache</div>
+                  <div style={{fontSize: 20, color: '#f59e0b', marginTop: 6}}>Not found ✗</div>
                 </div>
 
                 <div style={{fontSize: 24, color: '#f59e0b'}}>→</div>
@@ -280,8 +280,8 @@ export const CachingFundamentals: React.FC = () => {
                   }}
                 >
                   <div style={{fontSize: 20, marginBottom: 6}}>💾</div>
-                  <div style={{fontSize: 16, color: '#ec4899', fontWeight: 'bold'}}>Database</div>
-                  <div style={{fontSize: 13, color: '#cbd5e1', marginTop: 6}}>Fetch data</div>
+                  <div style={{fontSize: 24, color: '#ec4899', fontWeight: 'bold'}}>Database</div>
+                  <div style={{fontSize: 20, color: '#cbd5e1', marginTop: 6}}>Fetch data</div>
                 </div>
 
                 <div style={{fontSize: 24, color: '#10b981'}}>→</div>
@@ -295,15 +295,15 @@ export const CachingFundamentals: React.FC = () => {
                     textAlign: 'center',
                   }}
                 >
-                  <div style={{fontSize: 16, color: '#06b6d4', fontWeight: 'bold'}}>Store in cache</div>
+                  <div style={{fontSize: 24, color: '#06b6d4', fontWeight: 'bold'}}>Store in cache</div>
                 </div>
 
                 <div style={{fontSize: 24, color: '#10b981'}}>→</div>
 
                 <div style={{textAlign: 'center'}}>
                   <div style={{fontSize: 28, marginBottom: 6}}>👤</div>
-                  <div style={{fontSize: 14, color: '#e2e8f0'}}>Client</div>
-                  <div style={{fontSize: 13, color: '#fbbf24', marginTop: 4}}>100ms response</div>
+                  <div style={{fontSize: 22, color: '#e2e8f0'}}>Client</div>
+                  <div style={{fontSize: 20, color: '#fbbf24', marginTop: 4}}>100ms response</div>
                 </div>
               </div>
             </div>
@@ -385,7 +385,7 @@ export const CachingFundamentals: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{flex: 1, fontSize: 14, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                <div style={{flex: 1, fontSize: 22, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                   <div style={{color: '#10b981'}}>// Cache state</div>
                   <div style={{color: '#e2e8f0', marginTop: 8}}>Cache: [A(5m ago), B(2m ago), C(1m ago)]</div>
                   <div style={{color: '#fbbf24', marginTop: 12}}>// New item D arrives, cache full</div>
@@ -420,7 +420,7 @@ export const CachingFundamentals: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{flex: 1, fontSize: 14, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                <div style={{flex: 1, fontSize: 22, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                   <div style={{color: '#3b82f6'}}>// Access counts</div>
                   <div style={{color: '#e2e8f0', marginTop: 8}}>A: 100 hits, B: 50 hits, C: 10 hits</div>
                   <div style={{color: '#fbbf24', marginTop: 12}}>// New item D arrives</div>
@@ -454,7 +454,7 @@ export const CachingFundamentals: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{flex: 1, fontSize: 14, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
+                <div style={{flex: 1, fontSize: 22, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                   <div style={{color: '#f59e0b'}}>// Insertion order</div>
                   <div style={{color: '#e2e8f0', marginTop: 8}}>Queue: [A (first), B, C (last)]</div>
                   <div style={{color: '#fbbf24', marginTop: 12}}>// New item D arrives</div>
@@ -521,18 +521,18 @@ export const CachingFundamentals: React.FC = () => {
                   Write-Through ✍️
                 </div>
 
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
                   Write to cache AND database simultaneously
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.7}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.7}}>
                   <div style={{color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>✓ Pros:</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Cache always consistent</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• No data loss risk</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Cache always consistent</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• No data loss risk</div>
 
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 12, marginBottom: 8}}>✗ Cons:</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Slower writes (2 ops)</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Higher latency</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Slower writes (2 ops)</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Higher latency</div>
                 </div>
               </div>
 
@@ -550,18 +550,18 @@ export const CachingFundamentals: React.FC = () => {
                   Write-Back ⚡
                 </div>
 
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
                   Write to cache only, sync to DB later
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.7}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.7}}>
                   <div style={{color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>✓ Pros:</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Fast writes</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Batching possible</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Fast writes</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Batching possible</div>
 
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 12, marginBottom: 8}}>✗ Cons:</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Data loss if crash</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Complex sync logic</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Data loss if crash</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Complex sync logic</div>
                 </div>
               </div>
 
@@ -579,18 +579,18 @@ export const CachingFundamentals: React.FC = () => {
                   Write-Around 🔄
                 </div>
 
-                <div style={{fontSize: 15, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8, marginBottom: 16}}>
                   Write to DB only, skip cache
                 </div>
 
-                <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.7}}>
+                <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.7}}>
                   <div style={{color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>✓ Pros:</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Avoid cache pollution</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Good for rare writes</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Avoid cache pollution</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Good for rare writes</div>
 
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 12, marginBottom: 8}}>✗ Cons:</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Cache miss on read</div>
-                  <div style={{fontSize: 13, marginLeft: 12}}>• Inconsistency window</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Cache miss on read</div>
+                  <div style={{fontSize: 20, marginLeft: 12}}>• Inconsistency window</div>
                 </div>
               </div>
             </div>
@@ -676,7 +676,7 @@ export const CachingFundamentals: React.FC = () => {
                   ⏱️ TTL (Time-to-Live)
                 </div>
 
-                <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 2}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2}}>
                   <div>• <span style={{color: '#22d3ee', fontWeight: 'bold'}}>What:</span> Each cache entry has an expiration time</div>
                   <div>• <span style={{color: '#22d3ee', fontWeight: 'bold'}}>Example:</span> Cache user session for 30 minutes</div>
                   <div>• <span style={{color: '#22d3ee', fontWeight: 'bold'}}>Benefit:</span> Automatic cleanup, always fresh-ish data</div>
@@ -698,7 +698,7 @@ export const CachingFundamentals: React.FC = () => {
                   🐘 Cache Stampede Problem
                 </div>
 
-                <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2, marginBottom: 16}}>
                   Popular cache key expires → 1000 requests simultaneously hit the database!
                 </div>
 
@@ -707,7 +707,7 @@ export const CachingFundamentals: React.FC = () => {
                     <div style={{fontSize: 18, color: '#fca5a5', fontWeight: 'bold', marginBottom: 12}}>
                       The Problem:
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       1. Cache key expires<br/>
                       2. First request: cache miss → query DB<br/>
                       3. Next 999 requests arrive before cache update<br/>
@@ -720,7 +720,7 @@ export const CachingFundamentals: React.FC = () => {
                     <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                       Solutions:
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       ✓ <span style={{color: '#34d399'}}>Locking:</span> Only first request fetches<br/>
                       ✓ <span style={{color: '#34d399'}}>Probabilistic early expiration</span><br/>
                       ✓ <span style={{color: '#34d399'}}>Background refresh</span> before expiry<br/>

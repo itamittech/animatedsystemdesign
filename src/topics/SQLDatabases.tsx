@@ -36,7 +36,7 @@ export const SQLDatabases: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const SQLDatabases: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(59, 130, 246, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -99,19 +99,19 @@ export const SQLDatabases: React.FC = () => {
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                 <div style={{opacity: fadeIn(frame, 300, 15)}}>
                   ✓ <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Data Integrity Critical</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>Banking, finance, e-commerce orders</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Banking, finance, e-commerce orders</span>
                 </div>
                 <div style={{opacity: fadeIn(frame, 330, 15)}}>
                   ✓ <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Complex Relationships</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>JOINs across multiple tables</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>JOINs across multiple tables</span>
                 </div>
                 <div style={{opacity: fadeIn(frame, 360, 15)}}>
                   ✓ <span style={{color: '#60a5fa', fontWeight: 'bold'}}>ACID Guarantees Needed</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>Transactions must be reliable</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Transactions must be reliable</span>
                 </div>
                 <div style={{opacity: fadeIn(frame, 390, 15)}}>
                   ✓ <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Rich Query Capabilities</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>Aggregations, analytics, reporting</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Aggregations, analytics, reporting</span>
                 </div>
               </div>
             </div>
@@ -179,33 +179,33 @@ export const SQLDatabases: React.FC = () => {
                       <div style={{marginBottom: 12}}>
                         <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Architecture:</span>
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Process-based (fork per connection)
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • MVCC for concurrency
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • WAL (Write-Ahead Logging)
                       </div>
 
                       <div style={{marginTop: 20, marginBottom: 12}}>
                         <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Strengths:</span>
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Advanced features (JSON, arrays, CTEs)
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Full ACID compliance
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Extensible (custom types, functions)
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Better for complex queries
                       </div>
 
-                      <div style={{marginTop: 20, fontSize: 15, color: '#10b981', fontWeight: 'bold'}}>
+                      <div style={{marginTop: 20, fontSize: 24, color: '#10b981', fontWeight: 'bold'}}>
                         ✓ Best for: Analytics, complex apps
                       </div>
                     </div>
@@ -233,33 +233,33 @@ export const SQLDatabases: React.FC = () => {
                       <div style={{marginBottom: 12}}>
                         <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Architecture:</span>
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Thread-based (lighter weight)
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Pluggable storage engines
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • InnoDB (default, ACID)
                       </div>
 
                       <div style={{marginTop: 20, marginBottom: 12}}>
                         <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Strengths:</span>
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Faster for simple queries
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Lower memory footprint
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Easier replication setup
                       </div>
-                      <div style={{fontSize: 16, marginLeft: 16}}>
+                      <div style={{fontSize: 24, marginLeft: 16}}>
                         • Better for read-heavy workloads
                       </div>
 
-                      <div style={{marginTop: 20, fontSize: 15, color: '#10b981', fontWeight: 'bold'}}>
+                      <div style={{marginTop: 20, fontSize: 24, color: '#10b981', fontWeight: 'bold'}}>
                         ✓ Best for: Web apps, read-heavy
                       </div>
                     </div>
@@ -339,7 +339,7 @@ export const SQLDatabases: React.FC = () => {
 
                 <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                   <div style={{flex: 1}}>
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{marginBottom: 10}}>
                         <span style={{color: '#34d399', fontWeight: 'bold'}}>How it works:</span> Balanced tree structure
                       </div>
@@ -355,7 +355,7 @@ export const SQLDatabases: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 15, color: '#94a3b8'}}>
+                  <div style={{flex: 1, fontSize: 24, color: '#94a3b8'}}>
                     <div style={{fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                       <div style={{color: '#10b981', fontWeight: 'bold'}}>-- B-tree example</div>
                       <div style={{color: '#e2e8f0', marginTop: 8}}>CREATE INDEX idx_created_at</div>
@@ -391,7 +391,7 @@ export const SQLDatabases: React.FC = () => {
 
                 <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                   <div style={{flex: 1}}>
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{marginBottom: 10}}>
                         <span style={{color: '#fbbf24', fontWeight: 'bold'}}>How it works:</span> Hash table lookup
                       </div>
@@ -407,7 +407,7 @@ export const SQLDatabases: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 15, color: '#94a3b8'}}>
+                  <div style={{flex: 1, fontSize: 24, color: '#94a3b8'}}>
                     <div style={{fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                       <div style={{color: '#f59e0b', fontWeight: 'bold'}}>-- Hash index example</div>
                       <div style={{color: '#e2e8f0', marginTop: 8}}>CREATE INDEX idx_user_id</div>
@@ -485,7 +485,7 @@ export const SQLDatabases: React.FC = () => {
                       <div style={{fontSize: 26, color: '#ef4444', fontWeight: 'bold', marginBottom: 8}}>
                         Read Uncommitted
                       </div>
-                      <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.6}}>
+                      <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.6}}>
                         • <span style={{color: '#fca5a5'}}>Lowest isolation</span><br/>
                         • Reads uncommitted changes (dirty reads)<br/>
                         • Fastest, but risky<br/>
@@ -508,7 +508,7 @@ export const SQLDatabases: React.FC = () => {
                       <div style={{fontSize: 26, color: '#f59e0b', fontWeight: 'bold', marginBottom: 8}}>
                         Read Committed (Default)
                       </div>
-                      <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.6}}>
+                      <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.6}}>
                         • Only reads committed data<br/>
                         • No dirty reads<br/>
                         • Good balance<br/>
@@ -531,7 +531,7 @@ export const SQLDatabases: React.FC = () => {
                       <div style={{fontSize: 26, color: '#3b82f6', fontWeight: 'bold', marginBottom: 8}}>
                         Repeatable Read
                       </div>
-                      <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.6}}>
+                      <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.6}}>
                         • Same data throughout transaction<br/>
                         • Prevents non-repeatable reads<br/>
                         • MySQL InnoDB default<br/>
@@ -554,7 +554,7 @@ export const SQLDatabases: React.FC = () => {
                       <div style={{fontSize: 26, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>
                         Serializable
                       </div>
-                      <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.6}}>
+                      <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.6}}>
                         • <span style={{color: '#34d399'}}>Highest isolation</span><br/>
                         • Transactions execute serially<br/>
                         • Complete consistency<br/>
@@ -650,28 +650,28 @@ export const SQLDatabases: React.FC = () => {
                 <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                   <div style={{opacity: fadeIn(frame, 2370, 15)}}>
                     <span style={{fontSize: 28}}>1️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Optimize First</span>
-                    <div style={{fontSize: 17, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Add indexes, query optimization, connection pooling
                     </div>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2410, 15), marginTop: 12}}>
                     <span style={{fontSize: 28}}>2️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Vertical Scaling</span>
-                    <div style={{fontSize: 17, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Bigger server (more CPU, RAM, SSD) - <span style={{color: '#f59e0b'}}>Has limits!</span>
                     </div>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2450, 15), marginTop: 12}}>
                     <span style={{fontSize: 28}}>3️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Read Replicas</span>
-                    <div style={{fontSize: 17, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Scale reads horizontally (master → replicas)
                     </div>
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 2490, 15), marginTop: 12}}>
                     <span style={{fontSize: 28}}>4️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Sharding or NoSQL</span>
-                    <div style={{fontSize: 17, marginLeft: 40, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Split data across databases or switch to NoSQL
                     </div>
                   </div>

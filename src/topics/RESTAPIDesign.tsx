@@ -38,7 +38,7 @@ export const RESTAPIDesign: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -49,8 +49,8 @@ export const RESTAPIDesign: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -99,7 +99,7 @@ export const RESTAPIDesign: React.FC = () => {
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
                 <div style={{opacity: fadeIn(frame, 300, 20)}}>
                   <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>✅ Core Principles:</div>
-                  <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{opacity: fadeIn(frame, 330, 15)}}>• <span style={{color: '#fbbf24'}}>Resource-based</span> URLs</div>
                     <div style={{opacity: fadeIn(frame, 360, 15)}}>• <span style={{color: '#fbbf24'}}>HTTP methods</span> as verbs</div>
                     <div style={{opacity: fadeIn(frame, 390, 15)}}>• <span style={{color: '#fbbf24'}}>Stateless</span> communication</div>
@@ -108,7 +108,7 @@ export const RESTAPIDesign: React.FC = () => {
                 </div>
                 <div style={{opacity: fadeIn(frame, 300, 20)}}>
                   <div style={{fontSize: 18, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📦 We'll Cover:</div>
-                  <div style={{fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{opacity: fadeIn(frame, 330, 15)}}>• URL structure & naming</div>
                     <div style={{opacity: fadeIn(frame, 360, 15)}}>• HTTP methods (GET, POST, PUT...)</div>
                     <div style={{opacity: fadeIn(frame, 390, 15)}}>• Status codes & error handling</div>
@@ -172,7 +172,7 @@ export const RESTAPIDesign: React.FC = () => {
                     <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8}}>
                       <span>❌</span> Bad (Action-based)
                     </div>
-                    <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 10, padding: 14, fontFamily: 'monospace', fontSize: 13, lineHeight: 2.2}}>
+                    <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 10, padding: 14, fontFamily: 'monospace', fontSize: 20, lineHeight: 2.2}}>
                       <div style={{color: '#fca5a5', opacity: fadeIn(frame, 780, 15)}}>GET /getUsers</div>
                       <div style={{color: '#fca5a5', opacity: fadeIn(frame, 810, 15)}}>POST /createUser</div>
                       <div style={{color: '#fca5a5', opacity: fadeIn(frame, 840, 15)}}>POST /updateUser/123</div>
@@ -185,7 +185,7 @@ export const RESTAPIDesign: React.FC = () => {
                     <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8}}>
                       <span>✅</span> Good (Resource-based)
                     </div>
-                    <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, fontFamily: 'monospace', fontSize: 13, lineHeight: 2.2}}>
+                    <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, fontFamily: 'monospace', fontSize: 20, lineHeight: 2.2}}>
                       <div style={{color: '#6ee7b7', opacity: fadeIn(frame, 780, 15)}}>GET /users</div>
                       <div style={{color: '#6ee7b7', opacity: fadeIn(frame, 810, 15)}}>POST /users</div>
                       <div style={{color: '#6ee7b7', opacity: fadeIn(frame, 840, 15)}}>PUT /users/123</div>
@@ -204,7 +204,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 900, 15),
                   }}>
-                    <div style={{fontSize: 14, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
+                    <div style={{fontSize: 22, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
                       <span style={{color: '#a78bfa', fontWeight: 'bold'}}>Best Practices:</span> Use plural nouns (/users not /user), lowercase, hyphens for multi-word (user-profiles), avoid file extensions
                     </div>
                   </div>
@@ -260,7 +260,7 @@ export const RESTAPIDesign: React.FC = () => {
                   HTTP Methods Cheat Sheet
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 12}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 20}}>
                   {/* GET */}
                   <div style={{
                     backgroundColor: 'rgba(16, 185, 129, 0.15)',
@@ -269,7 +269,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 1200, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>GET - Read Resource</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>GET - Read Resource</div>
                     <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{fontFamily: 'monospace', color: '#6ee7b7', marginBottom: 6}}>GET /users/123</div>
                       <div>• Retrieve data, no side effects</div>
@@ -286,7 +286,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 1230, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold', marginBottom: 8}}>POST - Create Resource</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold', marginBottom: 8}}>POST - Create Resource</div>
                     <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{fontFamily: 'monospace', color: '#93c5fd', marginBottom: 6}}>POST /users</div>
                       <div>• Create new resource</div>
@@ -303,7 +303,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 1260, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#f59e0b', fontWeight: 'bold', marginBottom: 8}}>PUT - Replace Resource</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 8}}>PUT - Replace Resource</div>
                     <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{fontFamily: 'monospace', color: '#fbbf24', marginBottom: 6}}>PUT /users/123</div>
                       <div>• Full replacement</div>
@@ -320,7 +320,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 1290, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 8}}>PATCH - Partial Update</div>
+                    <div style={{fontSize: 24, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 8}}>PATCH - Partial Update</div>
                     <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{fontFamily: 'monospace', color: '#a78bfa', marginBottom: 6}}>PATCH /users/123</div>
                       <div>• Partial modification</div>
@@ -337,7 +337,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 1320, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#ef4444', fontWeight: 'bold', marginBottom: 8}}>DELETE - Remove Resource</div>
+                    <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 8}}>DELETE - Remove Resource</div>
                     <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{fontFamily: 'monospace', color: '#fca5a5', marginBottom: 6}}>DELETE /users/123</div>
                       <div>• Remove resource</div>
@@ -354,7 +354,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 1350, 15),
                   }}>
-                    <div style={{fontSize: 16, color: '#06b6d4', fontWeight: 'bold', marginBottom: 8}}>OPTIONS - Get Methods</div>
+                    <div style={{fontSize: 24, color: '#06b6d4', fontWeight: 'bold', marginBottom: 8}}>OPTIONS - Get Methods</div>
                     <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{fontFamily: 'monospace', color: '#67e8f9', marginBottom: 6}}>OPTIONS /users</div>
                       <div>• Discover allowed methods</div>
@@ -374,7 +374,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 12,
                     opacity: fadeIn(frame, 1380, 15),
                   }}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>💡 Idempotent:</span> Multiple identical requests have the same effect as a single request (GET, PUT, DELETE, PATCH are idempotent; POST is NOT)
                     </div>
                   </div>
@@ -430,10 +430,10 @@ export const RESTAPIDesign: React.FC = () => {
                   Essential HTTP Status Codes
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, fontSize: 11}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, fontSize: 18}}>
                   {/* 2xx Success */}
                   <div style={{opacity: fadeIn(frame, 1800, 15)}}>
-                    <div style={{fontSize: 15, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>2xx - Success ✅</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>2xx - Success ✅</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 8, padding: 10, lineHeight: 1.9}}>
                       <div style={{color: '#e2e8f0'}}>
                         <div><span style={{color: '#10b981', fontWeight: 'bold'}}>200</span> OK - Request succeeded</div>
@@ -445,7 +445,7 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* 3xx Redirection */}
                   <div style={{opacity: fadeIn(frame, 1830, 15)}}>
-                    <div style={{fontSize: 15, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>3xx - Redirection ↪️</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>3xx - Redirection ↪️</div>
                     <div style={{backgroundColor: 'rgba(59, 130, 246, 0.1)', border: '2px solid #3b82f6', borderRadius: 8, padding: 10, lineHeight: 1.9}}>
                       <div style={{color: '#e2e8f0'}}>
                         <div><span style={{color: '#3b82f6', fontWeight: 'bold'}}>301</span> Moved Permanently</div>
@@ -457,7 +457,7 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* 4xx Client Errors */}
                   <div style={{opacity: fadeIn(frame, 1860, 15)}}>
-                    <div style={{fontSize: 15, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>4xx - Client Error 🚫</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>4xx - Client Error 🚫</div>
                     <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 8, padding: 10, lineHeight: 1.9}}>
                       <div style={{color: '#e2e8f0'}}>
                         <div><span style={{color: '#f59e0b', fontWeight: 'bold'}}>400</span> Bad Request</div>
@@ -473,7 +473,7 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* 5xx Server Errors */}
                   <div style={{opacity: fadeIn(frame, 1890, 15)}}>
-                    <div style={{fontSize: 15, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>5xx - Server Error 💥</div>
+                    <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>5xx - Server Error 💥</div>
                     <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 8, padding: 10, lineHeight: 1.9}}>
                       <div style={{color: '#e2e8f0'}}>
                         <div><span style={{color: '#ef4444', fontWeight: 'bold'}}>500</span> Internal Server Error</div>
@@ -486,9 +486,9 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* Error Response Format */}
                   <div style={{gridColumn: '2 / 4', opacity: fadeIn(frame, 1920, 15)}}>
-                    <div style={{fontSize: 15, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>Error Response Format 📋</div>
+                    <div style={{fontSize: 24, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>Error Response Format 📋</div>
                     <div style={{backgroundColor: 'rgba(139, 92, 246, 0.1)', border: '2px solid #8b5cf6', borderRadius: 8, padding: 10}}>
-                      <pre style={{fontFamily: 'monospace', fontSize: 11, color: '#e2e8f0', margin: 0, lineHeight: 1.7}}>
+                      <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#e2e8f0', margin: 0, lineHeight: 1.7}}>
 {`{
   "error": {
     "code": "VALIDATION_ERROR",
@@ -514,7 +514,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 11,
                     opacity: fadeIn(frame, 1950, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Pro Tip:</span> Always return meaningful error messages with error codes, field-level validation details, and a timestamp. Never expose stack traces in production!
                     </div>
                   </div>
@@ -570,12 +570,12 @@ export const RESTAPIDesign: React.FC = () => {
                   API Versioning Strategies
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 18, fontSize: 12}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 18, fontSize: 20}}>
                   {/* URI Versioning */}
                   <div style={{opacity: fadeIn(frame, 2400, 15)}}>
-                    <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>1️⃣ URI Versioning</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>1️⃣ URI Versioning</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, lineHeight: 2}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 11, color: '#6ee7b7', marginBottom: 10}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#6ee7b7', marginBottom: 10}}>
                         /v1/users<br/>
                         /v2/users
                       </div>
@@ -593,9 +593,9 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* Header Versioning */}
                   <div style={{opacity: fadeIn(frame, 2430, 15)}}>
-                    <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>2️⃣ Header Versioning</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>2️⃣ Header Versioning</div>
                     <div style={{backgroundColor: 'rgba(59, 130, 246, 0.1)', border: '2px solid #3b82f6', borderRadius: 10, padding: 14, lineHeight: 2}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 11, color: '#93c5fd', marginBottom: 10}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#93c5fd', marginBottom: 10}}>
                         GET /users<br/>
                         X-API-Version: 2
                       </div>
@@ -613,9 +613,9 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* Content Negotiation */}
                   <div style={{opacity: fadeIn(frame, 2460, 15)}}>
-                    <div style={{fontSize: 16, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>3️⃣ Accept Header</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>3️⃣ Accept Header</div>
                     <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 10, padding: 14, lineHeight: 2}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 10, color: '#fbbf24', marginBottom: 10}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#fbbf24', marginBottom: 10}}>
                         GET /users<br/>
                         Accept: application/<br/>
                         vnd.myapi.v2+json
@@ -643,7 +643,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 14,
                     opacity: fadeIn(frame, 2490, 15),
                   }}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
                       <span style={{color: '#a78bfa', fontWeight: 'bold'}}>💡 Recommendation:</span> URI versioning (/v1/users) for simplicity. Use semantic versioning (v1, v2) for major breaking changes only. Support N-1 versions.
                     </div>
                   </div>
@@ -702,13 +702,13 @@ export const RESTAPIDesign: React.FC = () => {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
                   {/* Offset-based Pagination */}
                   <div style={{opacity: fadeIn(frame, 3000, 15)}}>
-                    <div style={{fontSize: 15, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>📄 Offset Pagination</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>📄 Offset Pagination</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 11, color: '#6ee7b7', lineHeight: 2, marginBottom: 8}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#6ee7b7', lineHeight: 2, marginBottom: 8}}>
                         GET /users?page=2&limit=20<br/>
                         GET /users?offset=40&limit=20
                       </div>
-                      <div style={{fontSize: 11, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                         <div><span style={{color: '#10b981'}}>✅</span> Simple to implement</div>
                         <div><span style={{color: '#10b981'}}>✅</span> Jump to any page</div>
                         <div><span style={{color: '#ef4444'}}>❌</span> Slow for large offsets</div>
@@ -719,13 +719,13 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* Cursor-based Pagination */}
                   <div style={{opacity: fadeIn(frame, 3030, 15)}}>
-                    <div style={{fontSize: 15, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔗 Cursor Pagination</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔗 Cursor Pagination</div>
                     <div style={{backgroundColor: 'rgba(59, 130, 246, 0.1)', border: '2px solid #3b82f6', borderRadius: 10, padding: 14}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 11, color: '#93c5fd', lineHeight: 2, marginBottom: 8}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#93c5fd', lineHeight: 2, marginBottom: 8}}>
                         GET /users?cursor=eyJpZCI6MTAwfQ<br/>
                         &limit=20
                       </div>
-                      <div style={{fontSize: 11, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                         <div><span style={{color: '#10b981'}}>✅</span> Fast for large datasets</div>
                         <div><span style={{color: '#10b981'}}>✅</span> Stable with changes</div>
                         <div><span style={{color: '#ef4444'}}>❌</span> Can't jump to page</div>
@@ -736,9 +736,9 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* Filtering */}
                   <div style={{opacity: fadeIn(frame, 3060, 15)}}>
-                    <div style={{fontSize: 15, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🔍 Filtering</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🔍 Filtering</div>
                     <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 10, padding: 14}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 11, color: '#fbbf24', lineHeight: 2}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#fbbf24', lineHeight: 2}}>
                         GET /users?status=active<br/>
                         GET /users?role=admin&verified=true<br/>
                         GET /users?created_after=2024-01-01
@@ -748,9 +748,9 @@ export const RESTAPIDesign: React.FC = () => {
 
                   {/* Sorting */}
                   <div style={{opacity: fadeIn(frame, 3090, 15)}}>
-                    <div style={{fontSize: 15, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>↕️ Sorting</div>
+                    <div style={{fontSize: 24, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>↕️ Sorting</div>
                     <div style={{backgroundColor: 'rgba(139, 92, 246, 0.1)', border: '2px solid #8b5cf6', borderRadius: 10, padding: 14}}>
-                      <div style={{fontFamily: 'monospace', fontSize: 11, color: '#a78bfa', lineHeight: 2}}>
+                      <div style={{fontFamily: 'monospace', fontSize: 18, color: '#a78bfa', lineHeight: 2}}>
                         GET /users?sort=created_at<br/>
                         GET /users?sort=-created_at (desc)<br/>
                         GET /users?sort=name,created_at
@@ -762,9 +762,9 @@ export const RESTAPIDesign: React.FC = () => {
                 {/* Response Format */}
                 {frame >= 3120 && (
                   <div style={{marginTop: 16, opacity: fadeIn(frame, 3120, 15)}}>
-                    <div style={{fontSize: 15, color: '#06b6d4', fontWeight: 'bold', marginBottom: 10}}>📦 Pagination Response Format</div>
+                    <div style={{fontSize: 24, color: '#06b6d4', fontWeight: 'bold', marginBottom: 10}}>📦 Pagination Response Format</div>
                     <div style={{backgroundColor: 'rgba(6, 182, 212, 0.1)', border: '2px solid #06b6d4', borderRadius: 10, padding: 14}}>
-                      <pre style={{fontFamily: 'monospace', fontSize: 11, color: '#e2e8f0', margin: 0, lineHeight: 1.6}}>
+                      <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#e2e8f0', margin: 0, lineHeight: 1.6}}>
 {`{
   "data": [ /* array of items */ ],
   "pagination": {
@@ -796,7 +796,7 @@ export const RESTAPIDesign: React.FC = () => {
                     padding: 12,
                     opacity: fadeIn(frame, 3150, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Best Practice:</span> Set max limit (e.g., 100), default to 20. Return total count, page links. Use cursor pagination for feeds/infinite scroll.
                     </div>
                   </div>
@@ -858,7 +858,7 @@ export const RESTAPIDesign: React.FC = () => {
                   <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
                     ❌ Without HATEOAS
                   </div>
-                  <div style={{fontSize: 14, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 16, borderRadius: 10, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 22, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 16, borderRadius: 10, color: '#e2e8f0'}}>
                     <div style={{color: '#94a3b8'}}>GET /users/123</div>
                     <div style={{marginTop: 12}}>{'{'}</div>
                     <div style={{paddingLeft: 20}}>
@@ -871,7 +871,7 @@ export const RESTAPIDesign: React.FC = () => {
                       <div style={{color: '#60a5fa'}}>"email"</div>: "alice@example.com"
                     </div>
                     <div>{'}'}</div>
-                    <div style={{marginTop: 16, color: '#fbbf24', fontSize: 13}}>
+                    <div style={{marginTop: 16, color: '#fbbf24', fontSize: 20}}>
                       ⚠️ Client must know all endpoints
                     </div>
                   </div>
@@ -890,7 +890,7 @@ export const RESTAPIDesign: React.FC = () => {
                   <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
                     ✓ With HATEOAS
                   </div>
-                  <div style={{fontSize: 13, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 16, borderRadius: 10, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 20, fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 16, borderRadius: 10, color: '#e2e8f0'}}>
                     <div style={{color: '#94a3b8'}}>GET /users/123</div>
                     <div style={{marginTop: 12}}>{'{'}</div>
                     <div style={{paddingLeft: 20}}>
@@ -913,7 +913,7 @@ export const RESTAPIDesign: React.FC = () => {
                     </div>
                     <div style={{paddingLeft: 20}}>{'}'}</div>
                     <div>{'}'}</div>
-                    <div style={{marginTop: 12, color: '#10b981', fontSize: 12}}>
+                    <div style={{marginTop: 12, color: '#10b981', fontSize: 20}}>
                       ✓ API guides client through available actions
                     </div>
                   </div>
@@ -934,18 +934,18 @@ export const RESTAPIDesign: React.FC = () => {
                 <div style={{fontSize: 22, color: '#3b82f6', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
                   💡 HATEOAS Benefits
                 </div>
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 15, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>🔍 Discoverability</div>
-                    <div style={{fontSize: 14}}>Clients discover available actions dynamically</div>
+                    <div style={{fontSize: 22}}>Clients discover available actions dynamically</div>
                   </div>
                   <div>
                     <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>🔧 Evolvability</div>
-                    <div style={{fontSize: 14}}>Server can change URLs without breaking clients</div>
+                    <div style={{fontSize: 22}}>Server can change URLs without breaking clients</div>
                   </div>
                   <div>
                     <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>📖 Self-Documenting</div>
-                    <div style={{fontSize: 14}}>API tells clients what's possible at each state</div>
+                    <div style={{fontSize: 22}}>API tells clients what's possible at each state</div>
                   </div>
                 </div>
               </div>
@@ -999,9 +999,9 @@ export const RESTAPIDesign: React.FC = () => {
                   🎯 Key Takeaways
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, fontSize: 13}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, fontSize: 20}}>
                   <div style={{opacity: fadeIn(frame, 3820, 15)}}>
-                    <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>✅ Design Principles</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>✅ Design Principles</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • Use <span style={{color: '#fbbf24'}}>nouns for URLs</span>, not verbs<br/>
                       • Keep URLs <span style={{color: '#fbbf24'}}>simple and predictable</span><br/>
@@ -1010,7 +1010,7 @@ export const RESTAPIDesign: React.FC = () => {
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 3840, 15)}}>
-                    <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔧 Implementation</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔧 Implementation</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • Use correct <span style={{color: '#fbbf24'}}>HTTP methods</span><br/>
                       • Return proper <span style={{color: '#fbbf24'}}>status codes</span><br/>
@@ -1020,7 +1020,7 @@ export const RESTAPIDesign: React.FC = () => {
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 3860, 15)}}>
-                    <div style={{fontSize: 16, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📚 Documentation</div>
+                    <div style={{fontSize: 24, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📚 Documentation</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • Use OpenAPI/Swagger spec<br/>
                       • Include request/response examples<br/>
@@ -1030,7 +1030,7 @@ export const RESTAPIDesign: React.FC = () => {
                   </div>
 
                   <div style={{opacity: fadeIn(frame, 3880, 15)}}>
-                    <div style={{fontSize: 16, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🚀 Next Topics</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🚀 Next Topics</div>
                     <div style={{color: '#e2e8f0', lineHeight: 2}}>
                       • GraphQL vs REST<br/>
                       • gRPC & Protocol Buffers<br/>

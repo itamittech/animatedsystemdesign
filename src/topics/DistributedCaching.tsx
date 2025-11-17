@@ -36,7 +36,7 @@ export const DistributedCaching: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const DistributedCaching: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(6, 182, 212, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -113,7 +113,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{fontSize: 22, color: '#ef4444', fontWeight: 'bold', marginBottom: 12}}>
                       ⚠️ Problems
                     </div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       💾 <span style={{fontWeight: 'bold'}}>Memory limit:</span> Single server RAM cap<br/>
                       🔥 <span style={{fontWeight: 'bold'}}>Throughput:</span> CPU/network bottleneck<br/>
                       💥 <span style={{fontWeight: 'bold'}}>Single point of failure:</span> Server down = cache down<br/>
@@ -132,7 +132,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                       ✅ Distributed Solution
                     </div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       ⚡ <span style={{fontWeight: 'bold'}}>Horizontal scaling:</span> Add more nodes<br/>
                       🔄 <span style={{fontWeight: 'bold'}}>Load distribution:</span> Spread requests<br/>
                       🛡️ <span style={{fontWeight: 'bold'}}>High availability:</span> Replica failover<br/>
@@ -213,8 +213,8 @@ export const DistributedCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 20, color: '#34d399', fontWeight: 'bold'}}>Master 1</div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 8}}>Slots: 0-5460</div>
-                    <div style={{fontSize: 13, color: '#94a3b8'}}>(33% of data)</div>
+                    <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>Slots: 0-5460</div>
+                    <div style={{fontSize: 20, color: '#94a3b8'}}>(33% of data)</div>
                   </div>
                   <div style={{fontSize: 24, color: '#06b6d4', marginBottom: 8}}>↓</div>
                   <div
@@ -225,8 +225,8 @@ export const DistributedCaching: React.FC = () => {
                       padding: 16,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#60a5fa'}}>Replica 1</div>
-                    <div style={{fontSize: 12, color: '#94a3b8', marginTop: 4}}>Sync from M1</div>
+                    <div style={{fontSize: 24, color: '#60a5fa'}}>Replica 1</div>
+                    <div style={{fontSize: 20, color: '#94a3b8', marginTop: 4}}>Sync from M1</div>
                   </div>
                 </div>
 
@@ -242,8 +242,8 @@ export const DistributedCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 20, color: '#34d399', fontWeight: 'bold'}}>Master 2</div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 8}}>Slots: 5461-10922</div>
-                    <div style={{fontSize: 13, color: '#94a3b8'}}>(33% of data)</div>
+                    <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>Slots: 5461-10922</div>
+                    <div style={{fontSize: 20, color: '#94a3b8'}}>(33% of data)</div>
                   </div>
                   <div style={{fontSize: 24, color: '#06b6d4', marginBottom: 8}}>↓</div>
                   <div
@@ -254,8 +254,8 @@ export const DistributedCaching: React.FC = () => {
                       padding: 16,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#60a5fa'}}>Replica 2</div>
-                    <div style={{fontSize: 12, color: '#94a3b8', marginTop: 4}}>Sync from M2</div>
+                    <div style={{fontSize: 24, color: '#60a5fa'}}>Replica 2</div>
+                    <div style={{fontSize: 20, color: '#94a3b8', marginTop: 4}}>Sync from M2</div>
                   </div>
                 </div>
 
@@ -271,8 +271,8 @@ export const DistributedCaching: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 20, color: '#34d399', fontWeight: 'bold'}}>Master 3</div>
-                    <div style={{fontSize: 14, color: '#cbd5e1', marginTop: 8}}>Slots: 10923-16383</div>
-                    <div style={{fontSize: 13, color: '#94a3b8'}}>(33% of data)</div>
+                    <div style={{fontSize: 22, color: '#cbd5e1', marginTop: 8}}>Slots: 10923-16383</div>
+                    <div style={{fontSize: 20, color: '#94a3b8'}}>(33% of data)</div>
                   </div>
                   <div style={{fontSize: 24, color: '#06b6d4', marginBottom: 8}}>↓</div>
                   <div
@@ -283,8 +283,8 @@ export const DistributedCaching: React.FC = () => {
                       padding: 16,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#60a5fa'}}>Replica 3</div>
-                    <div style={{fontSize: 12, color: '#94a3b8', marginTop: 4}}>Sync from M3</div>
+                    <div style={{fontSize: 24, color: '#60a5fa'}}>Replica 3</div>
+                    <div style={{fontSize: 20, color: '#94a3b8', marginTop: 4}}>Sync from M3</div>
                   </div>
                 </div>
               </div>
@@ -304,7 +304,7 @@ export const DistributedCaching: React.FC = () => {
                 🎯 Hash Slot Sharding (16,384 slots total)
               </div>
               <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
-                <div style={{flex: 1, fontSize: 16, color: '#e2e8f0', lineHeight: 1.9}}>
+                <div style={{flex: 1, fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
                   <div><span style={{color: '#fbbf24', fontWeight: 'bold'}}>Key routing:</span> CRC16(key) % 16384 = slot</div>
                   <div><span style={{color: '#fbbf24', fontWeight: 'bold'}}>Data distribution:</span> Each master owns slot range</div>
                   <div><span style={{color: '#fbbf24', fontWeight: 'bold'}}>Client smart:</span> Knows which node has which slots</div>
@@ -317,7 +317,7 @@ export const DistributedCaching: React.FC = () => {
                     borderRadius: 10,
                     padding: 20,
                     fontFamily: 'monospace',
-                    fontSize: 14,
+                    fontSize: 22,
                   }}
                 >
                   <div style={{color: '#f59e0b'}}>// Example</div>
@@ -420,7 +420,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{fontSize: 28, marginTop: 8}}>💥</div>
                   </div>
                   <div style={{fontSize: 20, color: '#ef4444'}}>→</div>
-                  <div style={{fontSize: 16, color: '#e2e8f0', flex: 1}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', flex: 1}}>
                     Master 2 crashes. Replica 2 detects via heartbeat timeout (~1-2 seconds)
                   </div>
                 </div>
@@ -448,7 +448,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{fontSize: 28, marginTop: 8}}>🗳️</div>
                   </div>
                   <div style={{fontSize: 20, color: '#f59e0b'}}>→</div>
-                  <div style={{fontSize: 16, color: '#e2e8f0', flex: 1}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', flex: 1}}>
                     Cluster nodes vote. Replica with most recent data wins (Raft-like consensus)
                   </div>
                 </div>
@@ -476,7 +476,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{fontSize: 28, marginTop: 8}}>👑</div>
                   </div>
                   <div style={{fontSize: 20, color: '#10b981'}}>→</div>
-                  <div style={{fontSize: 16, color: '#e2e8f0', flex: 1}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', flex: 1}}>
                     Replica 2 becomes new Master 2. Takes over slots 5461-10922. Cluster updates routing
                   </div>
                 </div>
@@ -496,7 +496,7 @@ export const DistributedCaching: React.FC = () => {
               <div style={{fontSize: 24, color: '#a78bfa', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
                 ⚠️ Consistency Trade-off
               </div>
-              <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 2}}>
+              <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2}}>
                 <div>• Redis uses <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>asynchronous replication</span> by default (performance over consistency)</div>
                 <div>• During failover, writes to old master after it failed but before promotion = <span style={{color: '#ef4444'}}>lost</span></div>
                 <div>• Use <span style={{color: '#10b981', fontWeight: 'bold'}}>WAIT command</span> for synchronous writes (slower but safer)</div>
@@ -561,24 +561,24 @@ export const DistributedCaching: React.FC = () => {
                   Memcached (Client-Side Sharding)
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.9, marginBottom: 20}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9, marginBottom: 20}}>
                   <div style={{color: '#60a5fa', fontWeight: 'bold', marginBottom: 12}}>Architecture:</div>
                   <div>• No cluster mode, just independent nodes</div>
                   <div>• Client does consistent hashing</div>
                   <div>• Simple, fast, stateless servers</div>
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                   <div style={{color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>✓ Best For:</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Simple key-value caching</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Session storage</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Pure cache (data loss OK)</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Multi-threaded workloads</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Simple key-value caching</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Session storage</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Pure cache (data loss OK)</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Multi-threaded workloads</div>
 
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 12, marginBottom: 8}}>✗ Limitations:</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• No persistence</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• No replication (manual)</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Only strings (no data structures)</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• No persistence</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• No replication (manual)</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Only strings (no data structures)</div>
                 </div>
               </div>
 
@@ -596,24 +596,24 @@ export const DistributedCaching: React.FC = () => {
                   Redis Cluster (Built-in Sharding)
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.9, marginBottom: 20}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9, marginBottom: 20}}>
                   <div style={{color: '#34d399', fontWeight: 'bold', marginBottom: 12}}>Architecture:</div>
                   <div>• Built-in cluster mode with slots</div>
                   <div>• Automatic failover & replication</div>
                   <div>• Rich data structures</div>
                 </div>
 
-                <div style={{fontSize: 16, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                   <div style={{color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>✓ Best For:</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Complex data (lists, sets, sorted sets)</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Pub/sub messaging</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Persistence needed</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• High availability critical</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Complex data (lists, sets, sorted sets)</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Pub/sub messaging</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Persistence needed</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• High availability critical</div>
 
                   <div style={{color: '#ef4444', fontWeight: 'bold', marginTop: 12, marginBottom: 8}}>✗ Limitations:</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Single-threaded per core</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• More complex setup</div>
-                  <div style={{fontSize: 15, marginLeft: 12}}>• Higher memory overhead</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Single-threaded per core</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• More complex setup</div>
+                  <div style={{fontSize: 24, marginLeft: 12}}>• Higher memory overhead</div>
                 </div>
               </div>
             </div>
@@ -622,7 +622,7 @@ export const DistributedCaching: React.FC = () => {
               style={{
                 marginTop: 24,
                 textAlign: 'center',
-                fontSize: 19,
+                fontSize: 24,
                 color: '#fbbf24',
                 fontWeight: 'bold',
                 opacity: fadeIn(frame, 2220, 15),
@@ -697,12 +697,12 @@ export const DistributedCaching: React.FC = () => {
                   🏆 Distributed Caching in Production
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, fontSize: 17, color: '#e2e8f0'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, fontSize: 24, color: '#e2e8f0'}}>
                   <div>
                     <div style={{color: '#22d3ee', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       1️⃣ Plan Your Capacity
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Calculate memory needs: data size × replication factor<br/>
                       • Add 30% overhead for fragmentation<br/>
                       • Min 3 masters for cluster quorum<br/>
@@ -714,7 +714,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{color: '#22d3ee', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       2️⃣ Connection Pooling
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Use connection pools in app layer<br/>
                       • Reuse connections, avoid per-request<br/>
                       • Set reasonable timeouts (50-100ms)<br/>
@@ -726,7 +726,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{color: '#22d3ee', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       3️⃣ Monitor Everything
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Hit rate (target 80%+)<br/>
                       • Eviction rate (low is good)<br/>
                       • Replication lag (&lt; 1s)<br/>
@@ -738,7 +738,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{color: '#22d3ee', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       4️⃣ Hot Key Detection
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Identify keys with &gt;10K req/sec<br/>
                       • Use local cache for hot keys<br/>
                       • Or replicate hot data to multiple slots<br/>
@@ -750,7 +750,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{color: '#22d3ee', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       5️⃣ Gradual Rollouts
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Never upgrade entire cluster at once<br/>
                       • Rolling restart: one replica → master → next<br/>
                       • Test resharding in staging first<br/>
@@ -762,7 +762,7 @@ export const DistributedCaching: React.FC = () => {
                     <div style={{color: '#22d3ee', fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>
                       6️⃣ Data Expiration Strategy
                     </div>
-                    <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.8}}>
                       • Always set TTLs (avoid indefinite growth)<br/>
                       • Use LRU eviction when memory full<br/>
                       • Separate namespaces for different TTLs<br/>
@@ -783,7 +783,7 @@ export const DistributedCaching: React.FC = () => {
                   <div style={{fontSize: 22, color: '#34d399', fontWeight: 'bold', marginBottom: 10}}>
                     🎯 Key Takeaway
                   </div>
-                  <div style={{fontSize: 17, color: '#e2e8f0'}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0'}}>
                     Distributed caching = Horizontal scale + High availability<br/>
                     But: More complexity, eventual consistency, operational overhead
                   </div>

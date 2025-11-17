@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -215,7 +215,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2 - 30,
             top: (y1 + y2) / 2 - 25,
             color,
-            fontSize: 11,
+            fontSize: 18,
             fontWeight: 'bold',
             opacity: animation,
             backgroundColor: '#0f172a',
@@ -293,18 +293,18 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
                   opacity: frame >= 330 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>
+                <div style={{fontSize: 28, fontWeight: 'bold', color: '#fff'}}>
                   Service Registry
                 </div>
-                <div style={{fontSize: 11, color: '#e9d5ff', marginTop: 8}}>
+                <div style={{fontSize: 18, color: '#e9d5ff', marginTop: 8}}>
                   (Consul, Eureka, etcd)
                 </div>
               </div>
 
               {/* Services */}
-              <Box text="Payment 1" x={0} y={170} width={120} height={50} color="#f59e0b" startFrame={390} fontSize={13} />
-              <Box text="Payment 2" x={140} y={170} width={120} height={50} color="#f59e0b" startFrame={420} fontSize={13} />
-              <Box text="Order 1" x={820} y={170} width={120} height={50} color="#10b981" startFrame={450} fontSize={13} />
+              <Box text="Payment 1" x={0} y={170} width={120} height={50} color="#f59e0b" startFrame={390} fontSize={20} />
+              <Box text="Payment 2" x={140} y={170} width={120} height={50} color="#f59e0b" startFrame={420} fontSize={20} />
+              <Box text="Order 1" x={820} y={170} width={120} height={50} color="#10b981" startFrame={450} fontSize={20} />
 
               {/* Registration arrows */}
               <Arrow x1={60} y1={170} x2={450} y2={120} color="#22d3ee" startFrame={480} label="Register" />
@@ -327,7 +327,7 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
                   opacity: frame >= 630 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2}}>
                   <strong style={{color: '#22d3ee'}}>1. Register:</strong> Payment instances register with registry (IP,
                   port, health endpoint)
                   <br />
@@ -346,7 +346,7 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -399,7 +399,7 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
                   border: '2px solid #10b981',
                 }}
               >
-                <div style={{fontSize: 16, color: '#cbd5e1', lineHeight: 2}}>
+                <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 2}}>
                   <div style={{opacity: frame >= 930 ? 1 : 0}}>
                     <strong style={{color: '#22d3ee'}}>t=0s:</strong> Payment Service starts, registers with registry
                   </div>
@@ -435,12 +435,12 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
                   opacity: frame >= 1230 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 14, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
+                <div style={{fontSize: 22, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
                   💻 Health Check Endpoint
                 </div>
                 <pre
                   style={{
-                    fontSize: 12,
+                    fontSize: 20,
                     color: '#cbd5e1',
                     lineHeight: 1.6,
                     margin: 0,
@@ -460,7 +460,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -510,10 +510,10 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
                   border: '3px solid #0ea5e9',
                 }}
               >
-                <div style={{fontSize: 18, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                   🔵🟢 Blue-Green
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>How:</strong>
                   <br />
                   • Run two identical environments
@@ -546,10 +546,10 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
                   border: '3px solid #f59e0b',
                 }}
               >
-                <div style={{fontSize: 18, color: '#f59e0b', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                   🐤 Canary Release
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>How:</strong>
                   <br />
                   • Deploy to small % of users (5%)
@@ -583,10 +583,10 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
                 opacity: frame >= 1800 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
+              <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                 🔄 Rolling Deployment (Most Common)
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.9}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.9}}>
                 <strong style={{color: '#22d3ee'}}>How it works:</strong> Replace instances one by one or in small batches
                 <br />
                 <br />
@@ -608,7 +608,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -656,7 +656,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
                 border: '3px solid #6366f1',
               }}
             >
-              <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 2.2}}>
+              <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 2.2}}>
                 <div style={{opacity: frame >= 2340 ? 1 : 0}}>
                   <strong style={{color: '#22d3ee'}}>• Service Discovery:</strong> Built-in DNS, service names
                 </div>
@@ -688,7 +688,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
                 opacity: frame >= 2580 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 14, color: '#10b981', fontWeight: 'bold', textAlign: 'center'}}>
+              <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', textAlign: 'center'}}>
                 💡 K8s is the operating system for microservices - abstracting away infrastructure complexity!
               </div>
             </div>
@@ -722,7 +722,7 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

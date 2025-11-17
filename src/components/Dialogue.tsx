@@ -76,7 +76,7 @@ export const Dialogue: React.FC<DialogueProps> = ({
         <div
           style={{
             color: bubbleColor,
-            fontSize: 16,
+            fontSize: 20,
             fontWeight: 'bold',
             fontFamily: theme.typography.label.fontFamily,
             marginBottom: 8,
@@ -91,7 +91,7 @@ export const Dialogue: React.FC<DialogueProps> = ({
         <div
           style={{
             color: theme.text.primary,
-            fontSize: 24,
+            fontSize: theme.typography.body.fontSize,
             lineHeight: 1.6,
             fontFamily: theme.typography.body.fontFamily,
           }}

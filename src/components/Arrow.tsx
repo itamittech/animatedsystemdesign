@@ -90,10 +90,10 @@ export const Arrow: React.FC<ArrowProps> = ({
         <>
           {/* Label background */}
           <rect
-            x={labelX - (label.length * 6)}
-            y={labelY - 10}
-            width={label.length * 12}
-            height={20}
+            x={labelX - (label.length * 8)}
+            y={labelY - 12}
+            width={label.length * 16}
+            height={28}
             rx={4}
             fill={theme.background.card}
             opacity={0.95}
@@ -105,7 +105,7 @@ export const Arrow: React.FC<ArrowProps> = ({
             textAnchor="middle"
             dominantBaseline="middle"
             fill={theme.text.secondary}
-            fontSize={14}
+            fontSize={20}
             fontFamily={theme.typography.label.fontFamily}
           >
             {label}

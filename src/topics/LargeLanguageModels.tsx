@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2,
             top: (y1 + y2) / 2 - 20,
             color,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             opacity: animation,
           }}
@@ -262,7 +262,7 @@ export const LargeLanguageModels: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -293,7 +293,7 @@ export const LargeLanguageModels: React.FC = () => {
 
             {/* Small Model */}
             <div style={{opacity: frame >= 570 ? 1 : 0}}>
-              <div style={{fontSize: 18, color: '#22d3ee', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#22d3ee', fontWeight: 'bold', marginBottom: 10}}>
                 Small Model (BERT-Base)
               </div>
               <div
@@ -305,7 +305,7 @@ export const LargeLanguageModels: React.FC = () => {
                   marginBottom: 8,
                 }}
               />
-              <div style={{fontSize: 14, color: '#cbd5e1', marginBottom: 30}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', marginBottom: 30}}>
                 110M parameters<br />
                 Training: days on GPUs
               </div>
@@ -313,7 +313,7 @@ export const LargeLanguageModels: React.FC = () => {
 
             {/* Medium Model */}
             <div style={{opacity: frame >= 660 ? 1 : 0}}>
-              <div style={{fontSize: 18, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
                 Medium Model (GPT-2)
               </div>
               <div
@@ -325,7 +325,7 @@ export const LargeLanguageModels: React.FC = () => {
                   marginBottom: 8,
                 }}
               />
-              <div style={{fontSize: 14, color: '#cbd5e1', marginBottom: 30}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', marginBottom: 30}}>
                 1.5B parameters<br />
                 Training: weeks on GPU clusters
               </div>
@@ -333,7 +333,7 @@ export const LargeLanguageModels: React.FC = () => {
 
             {/* Large Model */}
             <div style={{opacity: frame >= 750 ? 1 : 0}}>
-              <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                 Large Model (GPT-4, Claude)
               </div>
               <div
@@ -346,7 +346,7 @@ export const LargeLanguageModels: React.FC = () => {
                   background: 'linear-gradient(90deg, #7c3aed, #c084fc)',
                 }}
               />
-              <div style={{fontSize: 14, color: '#cbd5e1', marginBottom: 30}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', marginBottom: 30}}>
                 100B - 1T+ parameters 🤯<br />
                 Training: months on thousands of GPUs
               </div>
@@ -363,10 +363,10 @@ export const LargeLanguageModels: React.FC = () => {
                 opacity: frame >= 870 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 12}}>
+              <div style={{fontSize: 28, color: '#fbbf24', fontWeight: 'bold', marginBottom: 12}}>
                 📚 Training Data Scale
               </div>
-              <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.9}}>
+              <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.9}}>
                 • Books, articles, websites, code repositories<br />
                 • Trillions of tokens (words/subwords)<br />
                 • CommonCrawl (web), Wikipedia, GitHub, research papers<br />
@@ -392,7 +392,7 @@ export const LargeLanguageModels: React.FC = () => {
             <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 15}}>
               Why Scale Matters
             </div>
-            <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.9}}>
+            <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.9}}>
               <strong style={{color: '#c084fc'}}>Emergent Abilities:</strong><br /><br />
 
               As models get larger, they gain new capabilities:<br /><br />
@@ -425,7 +425,7 @@ export const LargeLanguageModels: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -456,17 +456,17 @@ export const LargeLanguageModels: React.FC = () => {
 
             {/* Input text */}
             <div style={{opacity: frame >= 1200 ? 1 : 0}}>
-              <div style={{fontSize: 16, color: '#22d3ee', marginBottom: 15}}>
+              <div style={{fontSize: 24, color: '#22d3ee', marginBottom: 15}}>
                 Input: <strong>"The cat sat on the mat"</strong>
               </div>
 
               <div style={{position: 'relative', height: 60, marginBottom: 40}}>
-                <Box text="The" x={0} y={0} width={80} height={60} color="#0ea5e9" startFrame={1230} fontSize={16} />
-                <Box text="cat" x={95} y={0} width={80} height={60} color="#0ea5e9" startFrame={1250} fontSize={16} />
-                <Box text="sat" x={190} y={0} width={80} height={60} color="#0ea5e9" startFrame={1270} fontSize={16} />
-                <Box text="on" x={285} y={0} width={80} height={60} color="#0ea5e9" startFrame={1290} fontSize={16} />
-                <Box text="the" x={380} y={0} width={80} height={60} color="#0ea5e9" startFrame={1310} fontSize={16} />
-                <Box text="mat" x={475} y={0} width={80} height={60} color="#0ea5e9" startFrame={1330} fontSize={16} />
+                <Box text="The" x={0} y={0} width={80} height={60} color="#0ea5e9" startFrame={1230} fontSize={24} />
+                <Box text="cat" x={95} y={0} width={80} height={60} color="#0ea5e9" startFrame={1250} fontSize={24} />
+                <Box text="sat" x={190} y={0} width={80} height={60} color="#0ea5e9" startFrame={1270} fontSize={24} />
+                <Box text="on" x={285} y={0} width={80} height={60} color="#0ea5e9" startFrame={1290} fontSize={24} />
+                <Box text="the" x={380} y={0} width={80} height={60} color="#0ea5e9" startFrame={1310} fontSize={24} />
+                <Box text="mat" x={475} y={0} width={80} height={60} color="#0ea5e9" startFrame={1330} fontSize={24} />
               </div>
             </div>
 
@@ -482,10 +482,10 @@ export const LargeLanguageModels: React.FC = () => {
                 opacity: frame >= 1380 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
+              <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
                 🎯 Self-Attention: Words Look at Each Other
               </div>
-              <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 1.9}}>
+              <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 1.9}}>
                 When processing "cat":<br />
                 • <strong>"The"</strong> → low attention (article, not important)<br />
                 • <strong>"cat"</strong> → high attention (self reference)<br />
@@ -500,7 +500,7 @@ export const LargeLanguageModels: React.FC = () => {
             <div
               style={{
                 marginTop: 25,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#cbd5e1',
                 lineHeight: 1.8,
                 opacity: frame >= 1500 ? 1 : 0,
@@ -528,23 +528,23 @@ export const LargeLanguageModels: React.FC = () => {
             <div style={{fontSize: 20, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15}}>
               🏗️ Full Architecture
             </div>
-            <div style={{fontSize: 15, color: '#cbd5e1', lineHeight: 2}}>
+            <div style={{fontSize: 24, color: '#cbd5e1', lineHeight: 2}}>
               <div style={{position: 'relative', marginBottom: 12}}>
-                <Box text="Input Text" x={0} y={0} width={380} height={50} color="#0ea5e9" startFrame={1620} fontSize={16} />
+                <Box text="Input Text" x={0} y={0} width={380} height={50} color="#0ea5e9" startFrame={1620} fontSize={24} />
               </div>
               <div style={{position: 'relative', marginTop: 60, marginBottom: 12}}>
-                <Box text="Embeddings" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1650} fontSize={16} />
-                <div style={{fontSize: 13, color: '#94a3b8', marginTop: 55}}>Convert to numbers</div>
+                <Box text="Embeddings" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1650} fontSize={24} />
+                <div style={{fontSize: 20, color: '#94a3b8', marginTop: 55}}>Convert to numbers</div>
               </div>
               <div style={{position: 'relative', marginTop: 70, marginBottom: 12}}>
-                <Box text="Multi-Head Attention" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1680} fontSize={16} />
-                <div style={{fontSize: 13, color: '#94a3b8', marginTop: 55}}>×96 layers (GPT-3)</div>
+                <Box text="Multi-Head Attention" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1680} fontSize={24} />
+                <div style={{fontSize: 20, color: '#94a3b8', marginTop: 55}}>×96 layers (GPT-3)</div>
               </div>
               <div style={{position: 'relative', marginTop: 70, marginBottom: 12}}>
-                <Box text="Feed-Forward Network" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1710} fontSize={16} />
+                <Box text="Feed-Forward Network" x={0} y={0} width={380} height={50} color="#7c3aed" startFrame={1710} fontSize={24} />
               </div>
               <div style={{position: 'relative', marginTop: 60}}>
-                <Box text="Output (Next Token)" x={0} y={0} width={380} height={50} color="#10b981" startFrame={1740} fontSize={16} />
+                <Box text="Output (Next Token)" x={0} y={0} width={380} height={50} color="#10b981" startFrame={1740} fontSize={24} />
               </div>
             </div>
           </div>
@@ -564,7 +564,7 @@ export const LargeLanguageModels: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -600,7 +600,7 @@ export const LargeLanguageModels: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 25,
                 borderRadius: 12,
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -651,7 +651,7 @@ export const LargeLanguageModels: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 25,
                 borderRadius: 12,
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -698,7 +698,7 @@ export const LargeLanguageModels: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -723,7 +723,7 @@ export const LargeLanguageModels: React.FC = () => {
               left: width / 2 - 500,
               top: 180,
               width: 1000,
-              fontSize: 18,
+              fontSize: 28,
               color: '#cbd5e1',
             }}
           >
@@ -761,7 +761,7 @@ export const LargeLanguageModels: React.FC = () => {
                 Hallucinations, knowledge cutoff, context windows, cost
               </div>
 
-              <div style={{marginTop: 25, fontSize: 16, color: '#22d3ee', fontStyle: 'italic'}}>
+              <div style={{marginTop: 25, fontSize: 24, color: '#22d3ee', fontStyle: 'italic'}}>
                 🎯 Next: Agentic AI - Making LLMs take action with tools and decision-making!
               </div>
             </div>
@@ -791,7 +791,7 @@ export const LargeLanguageModels: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

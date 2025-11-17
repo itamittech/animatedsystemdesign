@@ -36,7 +36,7 @@ export const GraphQLvsREST: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const GraphQLvsREST: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -97,9 +97,9 @@ export const GraphQLvsREST: React.FC = () => {
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 16}}>
                 <div style={{opacity: fadeIn(frame, 300, 20)}}>
                   <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>REST 🔄</div>
-                  <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 12, padding: 18, fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 12, padding: 18, fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{fontWeight: 'bold', color: '#10b981', marginBottom: 8}}>Multiple endpoints:</div>
-                    <div style={{fontFamily: 'monospace', fontSize: 12, color: '#6ee7b7', lineHeight: 2}}>
+                    <div style={{fontFamily: 'monospace', fontSize: 20, color: '#6ee7b7', lineHeight: 2}}>
                       GET /users/123<br/>
                       GET /users/123/posts<br/>
                       GET /posts/456/comments
@@ -113,9 +113,9 @@ export const GraphQLvsREST: React.FC = () => {
 
                 <div style={{opacity: fadeIn(frame, 330, 20)}}>
                   <div style={{fontSize: 20, color: '#e94b8b', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>GraphQL 📊</div>
-                  <div style={{backgroundColor: 'rgba(233, 75, 139, 0.1)', border: '2px solid #e94b8b', borderRadius: 12, padding: 18, fontSize: 14, color: '#e2e8f0', lineHeight: 1.9}}>
+                  <div style={{backgroundColor: 'rgba(233, 75, 139, 0.1)', border: '2px solid #e94b8b', borderRadius: 12, padding: 18, fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
                     <div style={{fontWeight: 'bold', color: '#e94b8b', marginBottom: 8}}>Single endpoint:</div>
-                    <div style={{fontFamily: 'monospace', fontSize: 12, color: '#f9a8d4', lineHeight: 2}}>
+                    <div style={{fontFamily: 'monospace', fontSize: 20, color: '#f9a8d4', lineHeight: 2}}>
                       POST /graphql
                     </div>
                     <div style={{marginTop: 12}}>
@@ -135,7 +135,7 @@ export const GraphQLvsREST: React.FC = () => {
                   padding: 14,
                   opacity: fadeIn(frame, 360, 15),
                 }}>
-                  <div style={{fontSize: 14, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
+                  <div style={{fontSize: 22, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
                     <span style={{color: '#a78bfa', fontWeight: 'bold'}}>Key Insight:</span> REST = server decides data shape. GraphQL = client decides data shape.
                   </div>
                 </div>
@@ -192,15 +192,15 @@ export const GraphQLvsREST: React.FC = () => {
 
                 {/* Over-fetching Example */}
                 <div style={{marginBottom: 18, opacity: fadeIn(frame, 750, 15)}}>
-                  <div style={{fontSize: 16, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>❌ Problem 1: Over-Fetching</div>
+                  <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>❌ Problem 1: Over-Fetching</div>
                   <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 10, padding: 16}}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', marginBottom: 10}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', marginBottom: 10}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Need:</span> Just user name and email for a list
                     </div>
                     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
                       <div>
-                        <div style={{fontSize: 12, color: '#94a3b8', marginBottom: 6}}>REST Response:</div>
-                        <pre style={{fontFamily: 'monospace', fontSize: 10, color: '#fca5a5', margin: 0, lineHeight: 1.6}}>
+                        <div style={{fontSize: 20, color: '#94a3b8', marginBottom: 6}}>REST Response:</div>
+                        <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#fca5a5', margin: 0, lineHeight: 1.6}}>
 {`{
   "id": 123,
   "name": "Alice",
@@ -214,7 +214,7 @@ export const GraphQLvsREST: React.FC = () => {
 }`}
                         </pre>
                       </div>
-                      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, color: '#e2e8f0'}}>
+                      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, color: '#e2e8f0'}}>
                         <div style={{textAlign: 'center', lineHeight: 1.8}}>
                           <div style={{fontSize: 48, marginBottom: 8}}>📦</div>
                           <div><span style={{color: '#ef4444', fontWeight: 'bold'}}>Wasted bandwidth!</span></div>
@@ -228,12 +228,12 @@ export const GraphQLvsREST: React.FC = () => {
 
                 {/* Under-fetching Example */}
                 <div style={{opacity: fadeIn(frame, 810, 15)}}>
-                  <div style={{fontSize: 16, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>❌ Problem 2: Under-Fetching (N+1)</div>
+                  <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>❌ Problem 2: Under-Fetching (N+1)</div>
                   <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 10, padding: 16}}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', marginBottom: 10}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', marginBottom: 10}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Need:</span> User + their posts + authors of each post
                     </div>
-                    <div style={{fontFamily: 'monospace', fontSize: 11, color: '#fbbf24', lineHeight: 2}}>
+                    <div style={{fontFamily: 'monospace', fontSize: 18, color: '#fbbf24', lineHeight: 2}}>
                       GET /users/123          → User data<br/>
                       GET /users/123/posts    → Post IDs<br/>
                       GET /posts/1            → Post 1 + author ID<br/>
@@ -242,7 +242,7 @@ export const GraphQLvsREST: React.FC = () => {
                       GET /users/789          → Author of Post 2<br/>
                       ... (repeats for N posts)
                     </div>
-                    <div style={{marginTop: 10, fontSize: 13, color: '#e2e8f0', textAlign: 'center'}}>
+                    <div style={{marginTop: 10, fontSize: 20, color: '#e2e8f0', textAlign: 'center'}}>
                       <span style={{color: '#f59e0b', fontWeight: 'bold'}}>1 + N requests</span> instead of 1! 🐌
                     </div>
                   </div>
@@ -257,7 +257,7 @@ export const GraphQLvsREST: React.FC = () => {
                     padding: 12,
                     opacity: fadeIn(frame, 870, 15),
                   }}>
-                    <div style={{fontSize: 13, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>The Problem:</span> REST endpoints have fixed structures. Can't customize per request.
                     </div>
                   </div>
@@ -316,9 +316,9 @@ export const GraphQLvsREST: React.FC = () => {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
                   {/* Query */}
                   <div style={{opacity: fadeIn(frame, 1350, 15)}}>
-                    <div style={{fontSize: 14, color: '#e94b8b', fontWeight: 'bold', marginBottom: 10}}>Query (What you ask for):</div>
+                    <div style={{fontSize: 22, color: '#e94b8b', fontWeight: 'bold', marginBottom: 10}}>Query (What you ask for):</div>
                     <div style={{backgroundColor: 'rgba(233, 75, 139, 0.1)', border: '2px solid #e94b8b', borderRadius: 10, padding: 14}}>
-                      <pre style={{fontFamily: 'monospace', fontSize: 11, color: '#f9a8d4', margin: 0, lineHeight: 1.7}}>
+                      <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#f9a8d4', margin: 0, lineHeight: 1.7}}>
 {`query {
   user(id: 123) {
     name
@@ -337,9 +337,9 @@ export const GraphQLvsREST: React.FC = () => {
 
                   {/* Response */}
                   <div style={{opacity: fadeIn(frame, 1380, 15)}}>
-                    <div style={{fontSize: 14, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>Response (Exactly that!):</div>
+                    <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>Response (Exactly that!):</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14}}>
-                      <pre style={{fontFamily: 'monospace', fontSize: 11, color: '#6ee7b7', margin: 0, lineHeight: 1.7}}>
+                      <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#6ee7b7', margin: 0, lineHeight: 1.7}}>
 {`{
   "user": {
     "name": "Alice",
@@ -365,18 +365,18 @@ export const GraphQLvsREST: React.FC = () => {
                     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12}}>
                       <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 8, padding: 12, textAlign: 'center'}}>
                         <div style={{fontSize: 24, marginBottom: 6}}>✅</div>
-                        <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 4}}>No Over-fetching</div>
-                        <div style={{fontSize: 11, color: '#e2e8f0'}}>Only requested fields</div>
+                        <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 4}}>No Over-fetching</div>
+                        <div style={{fontSize: 18, color: '#e2e8f0'}}>Only requested fields</div>
                       </div>
                       <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 8, padding: 12, textAlign: 'center'}}>
                         <div style={{fontSize: 24, marginBottom: 6}}>🎯</div>
-                        <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 4}}>No Under-fetching</div>
-                        <div style={{fontSize: 11, color: '#e2e8f0'}}>Nested data in 1 request</div>
+                        <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 4}}>No Under-fetching</div>
+                        <div style={{fontSize: 18, color: '#e2e8f0'}}>Nested data in 1 request</div>
                       </div>
                       <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 8, padding: 12, textAlign: 'center'}}>
                         <div style={{fontSize: 24, marginBottom: 6}}>⚡</div>
-                        <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 4}}>Better Performance</div>
-                        <div style={{fontSize: 11, color: '#e2e8f0'}}>Fewer network calls</div>
+                        <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 4}}>Better Performance</div>
+                        <div style={{fontSize: 18, color: '#e2e8f0'}}>Fewer network calls</div>
                       </div>
                     </div>
                   </div>
@@ -391,7 +391,7 @@ export const GraphQLvsREST: React.FC = () => {
                     padding: 12,
                     opacity: fadeIn(frame, 1440, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#a78bfa', fontWeight: 'bold'}}>Schema:</span> GraphQL requires a typed schema defining all possible queries. Type safety built-in!
                     </div>
                   </div>
@@ -450,34 +450,34 @@ export const GraphQLvsREST: React.FC = () => {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18}}>
                   {/* Use GraphQL */}
                   <div style={{opacity: fadeIn(frame, 1950, 15)}}>
-                    <div style={{fontSize: 16, color: '#e94b8b', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                    <div style={{fontSize: 24, color: '#e94b8b', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                       ✅ Use GraphQL When:
                     </div>
-                    <div style={{backgroundColor: 'rgba(233, 75, 139, 0.1)', border: '2px solid #e94b8b', borderRadius: 10, padding: 16, fontSize: 12, color: '#e2e8f0', lineHeight: 2}}>
+                    <div style={{backgroundColor: 'rgba(233, 75, 139, 0.1)', border: '2px solid #e94b8b', borderRadius: 10, padding: 16, fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                       <div>• <span style={{color: '#e94b8b', fontWeight: 'bold'}}>Mobile apps</span> - Bandwidth matters</div>
                       <div>• <span style={{color: '#e94b8b', fontWeight: 'bold'}}>Complex UIs</span> - Nested data needs</div>
                       <div>• <span style={{color: '#e94b8b', fontWeight: 'bold'}}>Multiple clients</span> - Different data needs</div>
                       <div>• <span style={{color: '#e94b8b', fontWeight: 'bold'}}>Rapid iteration</span> - Frontend changes often</div>
                       <div>• <span style={{color: '#e94b8b', fontWeight: 'bold'}}>Real-time apps</span> - Subscriptions needed</div>
                     </div>
-                    <div style={{marginTop: 12, fontSize: 11, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{marginTop: 12, fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                       <span style={{color: '#e94b8b', fontWeight: 'bold'}}>Examples:</span> Facebook, GitHub, Shopify, Netflix mobile
                     </div>
                   </div>
 
                   {/* Use REST */}
                   <div style={{opacity: fadeIn(frame, 1980, 15)}}>
-                    <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
                       ✅ Use REST When:
                     </div>
-                    <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 16, fontSize: 12, color: '#e2e8f0', lineHeight: 2}}>
+                    <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 16, fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Simple CRUD</span> - Basic operations</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Caching important</span> - HTTP cache works</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>File uploads</span> - Simpler with REST</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Public APIs</span> - Easier to document</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Team unfamiliar</span> - Lower learning curve</div>
                     </div>
-                    <div style={{marginTop: 12, fontSize: 11, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{marginTop: 12, fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                       <span style={{color: '#10b981', fontWeight: 'bold'}}>Examples:</span> Stripe, Twilio, AWS, most public APIs
                     </div>
                   </div>
@@ -486,8 +486,8 @@ export const GraphQLvsREST: React.FC = () => {
                 {/* Trade-offs */}
                 {frame >= 2010 && (
                   <div style={{marginTop: 16, opacity: fadeIn(frame, 2010, 15)}}>
-                    <div style={{fontSize: 14, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚖️ GraphQL Trade-offs:</div>
-                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 11}}>
+                    <div style={{fontSize: 22, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚖️ GraphQL Trade-offs:</div>
+                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, fontSize: 18}}>
                       <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 8, padding: 10, color: '#e2e8f0', lineHeight: 1.8}}>
                         <div style={{color: '#ef4444', fontWeight: 'bold', marginBottom: 6}}>Challenges:</div>
                         <div>• Complex caching (can't use HTTP cache)</div>
@@ -515,7 +515,7 @@ export const GraphQLvsREST: React.FC = () => {
                     padding: 11,
                     opacity: fadeIn(frame, 2040, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Hybrid Approach:</span> Many companies use both! REST for simple endpoints, GraphQL for complex client needs.
                     </div>
                   </div>
@@ -571,34 +571,34 @@ export const GraphQLvsREST: React.FC = () => {
                   GraphQL Ecosystem & Key Concepts
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 12}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 20}}>
                   {/* Server Tools */}
                   <div style={{opacity: fadeIn(frame, 2550, 15)}}>
-                    <div style={{fontSize: 14, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>🖥️ Server-Side</div>
+                    <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>🖥️ Server-Side</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, lineHeight: 2, color: '#e2e8f0'}}>
                       <div><span style={{color: '#10b981', fontWeight: 'bold'}}>Apollo Server</span> - Node.js server</div>
                       <div><span style={{color: '#10b981', fontWeight: 'bold'}}>GraphQL Yoga</span> - Flexible server</div>
                       <div><span style={{color: '#10b981', fontWeight: 'bold'}}>Hasura</span> - Instant GraphQL APIs</div>
                       <div><span style={{color: '#10b981', fontWeight: 'bold'}}>Prisma</span> - Database toolkit</div>
-                      <div style={{marginTop: 8, fontSize: 11, color: '#94a3b8'}}>Define schema, write resolvers</div>
+                      <div style={{marginTop: 8, fontSize: 18, color: '#94a3b8'}}>Define schema, write resolvers</div>
                     </div>
                   </div>
 
                   {/* Client Tools */}
                   <div style={{opacity: fadeIn(frame, 2580, 15)}}>
-                    <div style={{fontSize: 14, color: '#e94b8b', fontWeight: 'bold', marginBottom: 10}}>📱 Client-Side</div>
+                    <div style={{fontSize: 22, color: '#e94b8b', fontWeight: 'bold', marginBottom: 10}}>📱 Client-Side</div>
                     <div style={{backgroundColor: 'rgba(233, 75, 139, 0.1)', border: '2px solid #e94b8b', borderRadius: 10, padding: 14, lineHeight: 2, color: '#e2e8f0'}}>
                       <div><span style={{color: '#e94b8b', fontWeight: 'bold'}}>Apollo Client</span> - React integration</div>
                       <div><span style={{color: '#e94b8b', fontWeight: 'bold'}}>Relay</span> - Facebook's client</div>
                       <div><span style={{color: '#e94b8b', fontWeight: 'bold'}}>URQL</span> - Lightweight alternative</div>
                       <div><span style={{color: '#e94b8b', fontWeight: 'bold'}}>GraphQL Codegen</span> - Type safety</div>
-                      <div style={{marginTop: 8, fontSize: 11, color: '#94a3b8'}}>Smart caching, automatic updates</div>
+                      <div style={{marginTop: 8, fontSize: 18, color: '#94a3b8'}}>Smart caching, automatic updates</div>
                     </div>
                   </div>
 
                   {/* Key Features */}
                   <div style={{opacity: fadeIn(frame, 2610, 15)}}>
-                    <div style={{fontSize: 14, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚡ Key Features</div>
+                    <div style={{fontSize: 22, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚡ Key Features</div>
                     <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 10, padding: 14, lineHeight: 2, color: '#e2e8f0'}}>
                       <div>• <span style={{color: '#f59e0b', fontWeight: 'bold'}}>Subscriptions</span> - Real-time updates</div>
                       <div>• <span style={{color: '#f59e0b', fontWeight: 'bold'}}>Mutations</span> - Write operations</div>
@@ -610,7 +610,7 @@ export const GraphQLvsREST: React.FC = () => {
 
                   {/* Best Practices */}
                   <div style={{opacity: fadeIn(frame, 2640, 15)}}>
-                    <div style={{fontSize: 14, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📚 Best Practices</div>
+                    <div style={{fontSize: 22, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>📚 Best Practices</div>
                     <div style={{backgroundColor: 'rgba(139, 92, 246, 0.1)', border: '2px solid #8b5cf6', borderRadius: 10, padding: 14, lineHeight: 2, color: '#e2e8f0'}}>
                       <div>• Use DataLoader for N+1 problem</div>
                       <div>• Implement query depth limiting</div>
@@ -630,7 +630,7 @@ export const GraphQLvsREST: React.FC = () => {
                     padding: 11,
                     opacity: fadeIn(frame, 2670, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Next Topic:</span> gRPC & Protocol Buffers - When you need even faster performance than GraphQL!
                     </div>
                   </div>

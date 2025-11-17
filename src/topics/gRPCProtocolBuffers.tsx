@@ -38,7 +38,7 @@ export const gRPCProtocolBuffers: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -49,8 +49,8 @@ export const gRPCProtocolBuffers: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -96,7 +96,7 @@ export const gRPCProtocolBuffers: React.FC = () => {
               <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
                 gRPC vs REST/GraphQL
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, marginTop: 16, fontSize: 13}}>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, marginTop: 16, fontSize: 20}}>
                 <div style={{opacity: fadeIn(frame, 300, 20)}}>
                   <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>REST 📄</div>
                   <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 12, padding: 16, color: '#e2e8f0', lineHeight: 2}}>
@@ -140,7 +140,7 @@ export const gRPCProtocolBuffers: React.FC = () => {
                   padding: 14,
                   opacity: fadeIn(frame, 390, 15),
                 }}>
-                  <div style={{fontSize: 14, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
+                  <div style={{fontSize: 22, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.7}}>
                     <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Performance:</span> gRPC is 5-10x faster than REST/JSON for microservices. Perfect for internal service-to-service communication!
                   </div>
                 </div>
@@ -198,9 +198,9 @@ export const gRPCProtocolBuffers: React.FC = () => {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18}}>
                   {/* Protobuf Schema */}
                   <div style={{opacity: fadeIn(frame, 750, 15)}}>
-                    <div style={{fontSize: 15, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>Protocol Buffer Schema (.proto)</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>Protocol Buffer Schema (.proto)</div>
                     <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 10, padding: 14}}>
-                      <pre style={{fontFamily: 'monospace', fontSize: 11, color: '#fbbf24', margin: 0, lineHeight: 1.7}}>
+                      <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#fbbf24', margin: 0, lineHeight: 1.7}}>
 {`message User {
   int32 id = 1;
   string name = 2;
@@ -215,7 +215,7 @@ message Post {
 }`}
                       </pre>
                     </div>
-                    <div style={{marginTop: 10, fontSize: 11, color: '#e2e8f0'}}>
+                    <div style={{marginTop: 10, fontSize: 18, color: '#e2e8f0'}}>
                       • Strongly typed<br/>
                       • Code generation<br/>
                       • Field numbers for compatibility
@@ -224,9 +224,9 @@ message Post {
 
                   {/* JSON Equivalent */}
                   <div style={{opacity: fadeIn(frame, 780, 15)}}>
-                    <div style={{fontSize: 15, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>JSON Equivalent</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>JSON Equivalent</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14}}>
-                      <pre style={{fontFamily: 'monospace', fontSize: 11, color: '#6ee7b7', margin: 0, lineHeight: 1.7}}>
+                      <pre style={{fontFamily: 'monospace', fontSize: 18, color: '#6ee7b7', margin: 0, lineHeight: 1.7}}>
 {`{
   "id": 123,
   "name": "Alice",
@@ -241,7 +241,7 @@ message Post {
 }`}
                       </pre>
                     </div>
-                    <div style={{marginTop: 10, fontSize: 11, color: '#e2e8f0'}}>
+                    <div style={{marginTop: 10, fontSize: 18, color: '#e2e8f0'}}>
                       • Text-based<br/>
                       • Human-readable<br/>
                       • No schema enforcement
@@ -260,14 +260,14 @@ message Post {
                   }}>
                     <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 10, padding: 14, textAlign: 'center'}}>
                       <div style={{fontSize: 32, marginBottom: 8}}>📦</div>
-                      <div style={{fontSize: 12, color: '#ef4444', fontWeight: 'bold', marginBottom: 6}}>JSON Size</div>
+                      <div style={{fontSize: 20, color: '#ef4444', fontWeight: 'bold', marginBottom: 6}}>JSON Size</div>
                       <div style={{fontSize: 20, color: '#e2e8f0', fontWeight: 'bold'}}>150 bytes</div>
                     </div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, textAlign: 'center'}}>
                       <div style={{fontSize: 32, marginBottom: 8}}>📦</div>
-                      <div style={{fontSize: 12, color: '#10b981', fontWeight: 'bold', marginBottom: 6}}>Protobuf Size</div>
+                      <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 6}}>Protobuf Size</div>
                       <div style={{fontSize: 20, color: '#e2e8f0', fontWeight: 'bold'}}>~15 bytes</div>
-                      <div style={{fontSize: 11, color: '#10b981', marginTop: 4}}>90% smaller! ⚡</div>
+                      <div style={{fontSize: 18, color: '#10b981', marginTop: 4}}>90% smaller! ⚡</div>
                     </div>
                   </div>
                 )}
@@ -281,7 +281,7 @@ message Post {
                     padding: 12,
                     opacity: fadeIn(frame, 840, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Why Smaller?</span> Binary encoding, no field names (uses numbers), optimized integers, no whitespace. Faster to serialize & transmit!
                     </div>
                   </div>
@@ -337,18 +337,18 @@ message Post {
                   4 Types of gRPC Communication
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 12}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 20}}>
                   {/* Unary */}
                   <div style={{opacity: fadeIn(frame, 1350, 15)}}>
-                    <div style={{fontSize: 15, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>1️⃣ Unary RPC</div>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>1️⃣ Unary RPC</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14}}>
                       <div style={{textAlign: 'center', marginBottom: 10}}>
                         <div style={{fontSize: 28}}>📤 ➡️ 📥</div>
-                        <div style={{fontSize: 11, color: '#6ee7b7', marginTop: 6}}>Single request → Single response</div>
+                        <div style={{fontSize: 18, color: '#6ee7b7', marginTop: 6}}>Single request → Single response</div>
                       </div>
                       <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                         <div><span style={{color: '#10b981', fontWeight: 'bold'}}>Use case:</span> Get user by ID</div>
-                        <div style={{fontFamily: 'monospace', fontSize: 10, color: '#6ee7b7', marginTop: 6}}>
+                        <div style={{fontFamily: 'monospace', fontSize: 18, color: '#6ee7b7', marginTop: 6}}>
                           rpc GetUser(UserRequest)<br/>
                           &nbsp;&nbsp;returns (UserResponse);
                         </div>
@@ -358,15 +358,15 @@ message Post {
 
                   {/* Server Streaming */}
                   <div style={{opacity: fadeIn(frame, 1380, 15)}}>
-                    <div style={{fontSize: 15, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>2️⃣ Server Streaming</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>2️⃣ Server Streaming</div>
                     <div style={{backgroundColor: 'rgba(59, 130, 246, 0.1)', border: '2px solid #3b82f6', borderRadius: 10, padding: 14}}>
                       <div style={{textAlign: 'center', marginBottom: 10}}>
                         <div style={{fontSize: 28}}>📤 ➡️ 📥📥📥</div>
-                        <div style={{fontSize: 11, color: '#93c5fd', marginTop: 6}}>Single request → Stream responses</div>
+                        <div style={{fontSize: 18, color: '#93c5fd', marginTop: 6}}>Single request → Stream responses</div>
                       </div>
                       <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                         <div><span style={{color: '#3b82f6', fontWeight: 'bold'}}>Use case:</span> Live stock prices</div>
-                        <div style={{fontFamily: 'monospace', fontSize: 10, color: '#93c5fd', marginTop: 6}}>
+                        <div style={{fontFamily: 'monospace', fontSize: 18, color: '#93c5fd', marginTop: 6}}>
                           rpc StreamPrices(StockRequest)<br/>
                           &nbsp;&nbsp;returns (stream Price);
                         </div>
@@ -376,15 +376,15 @@ message Post {
 
                   {/* Client Streaming */}
                   <div style={{opacity: fadeIn(frame, 1410, 15)}}>
-                    <div style={{fontSize: 15, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>3️⃣ Client Streaming</div>
+                    <div style={{fontSize: 24, color: '#8b5cf6', fontWeight: 'bold', marginBottom: 10}}>3️⃣ Client Streaming</div>
                     <div style={{backgroundColor: 'rgba(139, 92, 246, 0.1)', border: '2px solid #8b5cf6', borderRadius: 10, padding: 14}}>
                       <div style={{textAlign: 'center', marginBottom: 10}}>
                         <div style={{fontSize: 28}}>📤📤📤 ➡️ 📥</div>
-                        <div style={{fontSize: 11, color: '#a78bfa', marginTop: 6}}>Stream requests → Single response</div>
+                        <div style={{fontSize: 18, color: '#a78bfa', marginTop: 6}}>Stream requests → Single response</div>
                       </div>
                       <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                         <div><span style={{color: '#8b5cf6', fontWeight: 'bold'}}>Use case:</span> Upload file chunks</div>
-                        <div style={{fontFamily: 'monospace', fontSize: 10, color: '#a78bfa', marginTop: 6}}>
+                        <div style={{fontFamily: 'monospace', fontSize: 18, color: '#a78bfa', marginTop: 6}}>
                           rpc UploadFile(stream Chunk)<br/>
                           &nbsp;&nbsp;returns (UploadStatus);
                         </div>
@@ -394,15 +394,15 @@ message Post {
 
                   {/* Bidirectional Streaming */}
                   <div style={{opacity: fadeIn(frame, 1440, 15)}}>
-                    <div style={{fontSize: 15, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>4️⃣ Bidirectional Streaming</div>
+                    <div style={{fontSize: 24, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>4️⃣ Bidirectional Streaming</div>
                     <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 10, padding: 14}}>
                       <div style={{textAlign: 'center', marginBottom: 10}}>
                         <div style={{fontSize: 28}}>📤📤 ⇄ 📥📥</div>
-                        <div style={{fontSize: 11, color: '#fbbf24', marginTop: 6}}>Stream both ways simultaneously</div>
+                        <div style={{fontSize: 18, color: '#fbbf24', marginTop: 6}}>Stream both ways simultaneously</div>
                       </div>
                       <div style={{color: '#e2e8f0', lineHeight: 1.8}}>
                         <div><span style={{color: '#f59e0b', fontWeight: 'bold'}}>Use case:</span> Chat, real-time gaming</div>
-                        <div style={{fontFamily: 'monospace', fontSize: 10, color: '#fbbf24', marginTop: 6}}>
+                        <div style={{fontFamily: 'monospace', fontSize: 18, color: '#fbbf24', marginTop: 6}}>
                           rpc Chat(stream Message)<br/>
                           &nbsp;&nbsp;returns (stream Message);
                         </div>
@@ -420,7 +420,7 @@ message Post {
                     padding: 11,
                     opacity: fadeIn(frame, 1470, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#a78bfa', fontWeight: 'bold'}}>HTTP/2 Magic:</span> Multiplexing allows multiple streams over single connection. No head-of-line blocking!
                     </div>
                   </div>
@@ -479,8 +479,8 @@ message Post {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
                   {/* Perfect For */}
                   <div style={{opacity: fadeIn(frame, 1950, 15)}}>
-                    <div style={{fontSize: 15, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>✅ Perfect For gRPC:</div>
-                    <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, fontSize: 12, color: '#e2e8f0', lineHeight: 2}}>
+                    <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>✅ Perfect For gRPC:</div>
+                    <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Microservices</span> - Service-to-service</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Real-time apps</span> - Streaming needed</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Mobile backends</span> - Battery/bandwidth</div>
@@ -488,15 +488,15 @@ message Post {
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>High throughput</span> - Millions of RPCs</div>
                       <div>• <span style={{color: '#10b981', fontWeight: 'bold'}}>Polyglot systems</span> - Multi-language</div>
                     </div>
-                    <div style={{marginTop: 10, fontSize: 11, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{marginTop: 10, fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                       <span style={{color: '#10b981', fontWeight: 'bold'}}>Examples:</span> Netflix, Uber, Dropbox microservices
                     </div>
                   </div>
 
                   {/* Avoid For */}
                   <div style={{opacity: fadeIn(frame, 1980, 15)}}>
-                    <div style={{fontSize: 15, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>❌ Avoid gRPC For:</div>
-                    <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 10, padding: 14, fontSize: 12, color: '#e2e8f0', lineHeight: 2}}>
+                    <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>❌ Avoid gRPC For:</div>
+                    <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 10, padding: 14, fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
                       <div>• <span style={{color: '#ef4444', fontWeight: 'bold'}}>Web browsers</span> - Limited support</div>
                       <div>• <span style={{color: '#ef4444', fontWeight: 'bold'}}>Public APIs</span> - REST is standard</div>
                       <div>• <span style={{color: '#ef4444', fontWeight: 'bold'}}>Simple CRUD</span> - Overkill</div>
@@ -504,7 +504,7 @@ message Post {
                       <div>• <span style={{color: '#ef4444', fontWeight: 'bold'}}>Caching needs</span> - HTTP cache works better</div>
                       <div>• <span style={{color: '#ef4444', fontWeight: 'bold'}}>File downloads</span> - REST is simpler</div>
                     </div>
-                    <div style={{marginTop: 10, fontSize: 11, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{marginTop: 10, fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                       <span style={{color: '#ef4444', fontWeight: 'bold'}}>Use REST instead:</span> Public APIs, third-party integration
                     </div>
                   </div>
@@ -513,20 +513,20 @@ message Post {
                 {/* Performance Comparison */}
                 {frame >= 2010 && (
                   <div style={{marginTop: 16, opacity: fadeIn(frame, 2010, 15)}}>
-                    <div style={{fontSize: 14, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚡ Performance Benchmarks:</div>
-                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, fontSize: 11, textAlign: 'center'}}>
+                    <div style={{fontSize: 22, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>⚡ Performance Benchmarks:</div>
+                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, fontSize: 18, textAlign: 'center'}}>
                       <div style={{backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 8, padding: 10}}>
-                        <div style={{fontSize: 16, fontWeight: 'bold', color: '#ef4444'}}>REST/JSON</div>
+                        <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444'}}>REST/JSON</div>
                         <div style={{color: '#e2e8f0', marginTop: 6}}>Latency: 100ms</div>
                         <div style={{color: '#e2e8f0'}}>Size: 1000 bytes</div>
                       </div>
                       <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 8, padding: 10}}>
-                        <div style={{fontSize: 16, fontWeight: 'bold', color: '#f59e0b'}}>GraphQL/JSON</div>
+                        <div style={{fontSize: 24, fontWeight: 'bold', color: '#f59e0b'}}>GraphQL/JSON</div>
                         <div style={{color: '#e2e8f0', marginTop: 6}}>Latency: 80ms</div>
                         <div style={{color: '#e2e8f0'}}>Size: 800 bytes</div>
                       </div>
                       <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 8, padding: 10}}>
-                        <div style={{fontSize: 16, fontWeight: 'bold', color: '#10b981'}}>gRPC/Protobuf</div>
+                        <div style={{fontSize: 24, fontWeight: 'bold', color: '#10b981'}}>gRPC/Protobuf</div>
                         <div style={{color: '#10b981', marginTop: 6}}>Latency: ~10ms ⚡</div>
                         <div style={{color: '#10b981'}}>Size: ~100 bytes 🎯</div>
                       </div>
@@ -543,7 +543,7 @@ message Post {
                     padding: 11,
                     opacity: fadeIn(frame, 2040, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#60a5fa', fontWeight: 'bold'}}>Hybrid Approach:</span> gRPC for internal services, REST/GraphQL for public APIs. Use gRPC-Web for browsers if needed.
                     </div>
                   </div>
@@ -599,15 +599,15 @@ message Post {
                   gRPC Ecosystem & Quick Start
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 12}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 20}}>
                   {/* Languages */}
                   <div style={{opacity: fadeIn(frame, 2550, 15)}}>
-                    <div style={{fontSize: 14, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>🌍 Language Support</div>
+                    <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>🌍 Language Support</div>
                     <div style={{backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '2px solid #10b981', borderRadius: 10, padding: 14, lineHeight: 2, color: '#e2e8f0'}}>
                       <div>• C++, Java, Python, Go</div>
                       <div>• Node.js, C#, Ruby, PHP</div>
                       <div>• Dart, Kotlin, Objective-C</div>
-                      <div style={{marginTop: 8, fontSize: 11, color: '#10b981'}}>
+                      <div style={{marginTop: 8, fontSize: 18, color: '#10b981'}}>
                         Official protoc compiler generates client/server code
                       </div>
                     </div>
@@ -615,7 +615,7 @@ message Post {
 
                   {/* Tools */}
                   <div style={{opacity: fadeIn(frame, 2580, 15)}}>
-                    <div style={{fontSize: 14, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔧 Essential Tools</div>
+                    <div style={{fontSize: 22, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>🔧 Essential Tools</div>
                     <div style={{backgroundColor: 'rgba(59, 130, 246, 0.1)', border: '2px solid #3b82f6', borderRadius: 10, padding: 14, lineHeight: 2, color: '#e2e8f0'}}>
                       <div>• <span style={{color: '#3b82f6', fontWeight: 'bold'}}>protoc</span> - Proto compiler</div>
                       <div>• <span style={{color: '#3b82f6', fontWeight: 'bold'}}>grpcurl</span> - CLI debugging</div>
@@ -627,22 +627,22 @@ message Post {
 
                   {/* Quick Start */}
                   <div style={{gridColumn: '1 / -1', opacity: fadeIn(frame, 2610, 15)}}>
-                    <div style={{fontSize: 14, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🚀 Quick Start (3 Steps)</div>
+                    <div style={{fontSize: 22, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>🚀 Quick Start (3 Steps)</div>
                     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12}}>
                       <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 8, padding: 12, textAlign: 'center'}}>
                         <div style={{fontSize: 24, marginBottom: 6}}>1️⃣</div>
-                        <div style={{fontSize: 11, color: '#fbbf24', fontWeight: 'bold', marginBottom: 6}}>Define Schema</div>
-                        <div style={{fontSize: 10, color: '#e2e8f0'}}>Write .proto file with messages & services</div>
+                        <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 6}}>Define Schema</div>
+                        <div style={{fontSize: 18, color: '#e2e8f0'}}>Write .proto file with messages & services</div>
                       </div>
                       <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 8, padding: 12, textAlign: 'center'}}>
                         <div style={{fontSize: 24, marginBottom: 6}}>2️⃣</div>
-                        <div style={{fontSize: 11, color: '#fbbf24', fontWeight: 'bold', marginBottom: 6}}>Generate Code</div>
-                        <div style={{fontSize: 10, color: '#e2e8f0'}}>Run protoc to create client/server stubs</div>
+                        <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 6}}>Generate Code</div>
+                        <div style={{fontSize: 18, color: '#e2e8f0'}}>Run protoc to create client/server stubs</div>
                       </div>
                       <div style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 8, padding: 12, textAlign: 'center'}}>
                         <div style={{fontSize: 24, marginBottom: 6}}>3️⃣</div>
-                        <div style={{fontSize: 11, color: '#fbbf24', fontWeight: 'bold', marginBottom: 6}}>Implement</div>
-                        <div style={{fontSize: 10, color: '#e2e8f0'}}>Write business logic in your language</div>
+                        <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 6}}>Implement</div>
+                        <div style={{fontSize: 18, color: '#e2e8f0'}}>Write business logic in your language</div>
                       </div>
                     </div>
                   </div>
@@ -657,7 +657,7 @@ message Post {
                     padding: 11,
                     opacity: fadeIn(frame, 2640, 15),
                   }}>
-                    <div style={{fontSize: 12, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#a78bfa', fontWeight: 'bold'}}>🎉 Phase 2 Complete!</span> You now understand REST, GraphQL, and gRPC. Next: Database fundamentals & scaling strategies!
                     </div>
                   </div>

@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -265,7 +265,7 @@ export const ServiceDecomposition: React.FC = () => {
                 width: 840,
               }}
             >
-              <div style={{fontSize: 16, color: '#cbd5e1', marginBottom: 20}}>
+              <div style={{fontSize: 24, color: '#cbd5e1', marginBottom: 20}}>
                 Splitting by technical layers (Frontend, Backend, Database) creates services that are tightly coupled and
                 can't work independently.
               </div>
@@ -280,7 +280,7 @@ export const ServiceDecomposition: React.FC = () => {
                   height={80}
                   color="#7c3aed"
                   startFrame={360}
-                  fontSize={16}
+                  fontSize={24}
                 />
                 <Box
                   text="Logic Service"
@@ -290,9 +290,9 @@ export const ServiceDecomposition: React.FC = () => {
                   height={80}
                   color="#0ea5e9"
                   startFrame={420}
-                  fontSize={16}
+                  fontSize={24}
                 />
-                <Box text="Data Service" x={590} y={0} width={200} height={80} color="#10b981" startFrame={480} fontSize={16} />
+                <Box text="Data Service" x={590} y={0} width={200} height={80} color="#10b981" startFrame={480} fontSize={24} />
 
                 {/* Arrows showing tight coupling */}
                 <Arrow x1={150} y1={80} x2={420} y2={80} color="#ef4444" startFrame={540} />
@@ -305,7 +305,7 @@ export const ServiceDecomposition: React.FC = () => {
                     position: 'absolute',
                     left: 50,
                     top: 140,
-                    fontSize: 14,
+                    fontSize: 22,
                     color: '#ef4444',
                     fontWeight: 'bold',
                     opacity: frame >= 600 ? 1 : 0,
@@ -325,7 +325,7 @@ export const ServiceDecomposition: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -375,10 +375,10 @@ export const ServiceDecomposition: React.FC = () => {
                 opacity: frame >= 870 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                 1. Bounded Context
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 A boundary within which a domain model is valid. Example: "Order" means different things in Order Management
                 (order details, status) vs Shipping (delivery address, tracking).
                 <br />
@@ -399,10 +399,10 @@ export const ServiceDecomposition: React.FC = () => {
                 opacity: frame >= 990 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
                 2. Aggregates
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 A cluster of domain objects treated as a single unit. Example: Order (root) + Order Items + Shipping Address.
                 <br />
                 <br />
@@ -421,10 +421,10 @@ export const ServiceDecomposition: React.FC = () => {
                 opacity: frame >= 1110 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                 3. Ubiquitous Language
               </div>
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
                 Common vocabulary shared by developers and domain experts within a bounded context. Same terms in code,
                 conversations, and documentation.
                 <br />
@@ -448,10 +448,10 @@ export const ServiceDecomposition: React.FC = () => {
               opacity: frame >= 1230 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 16, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+            <div style={{fontSize: 24, color: '#fbbf24', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
               Example: "Product" in Different Contexts
             </div>
-            <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 2}}>
+            <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 2}}>
               <strong style={{color: '#10b981'}}>Catalog Context:</strong>
               <br />
               • Name, description, images
@@ -485,7 +485,7 @@ export const ServiceDecomposition: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -535,10 +535,10 @@ export const ServiceDecomposition: React.FC = () => {
                   opacity: frame >= 1650 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   1. By Business Capability
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>What it does:</strong>
                   <br />
                   Align services with business functions
@@ -572,10 +572,10 @@ export const ServiceDecomposition: React.FC = () => {
                   opacity: frame >= 1800 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   2. By Subdomain (DDD)
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>What it does:</strong>
                   <br />
                   Separate core, supporting, and generic subdomains
@@ -605,10 +605,10 @@ export const ServiceDecomposition: React.FC = () => {
                   opacity: frame >= 1950 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 18, color: '#f59e0b', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   3. By Transaction
                 </div>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                   <strong style={{color: '#22d3ee'}}>What it does:</strong>
                   <br />
                   Group data that changes together
@@ -634,7 +634,7 @@ export const ServiceDecomposition: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -685,12 +685,12 @@ export const ServiceDecomposition: React.FC = () => {
                   border: '3px solid #ef4444',
                 }}
               >
-                <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#ef4444', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   ❌ Anti-Pattern: Shared Database
                 </div>
 
                 <div style={{position: 'relative', height: 280}}>
-                  <Box text="Order Service" x={10} y={0} width={140} height={60} color="#10b981" startFrame={2490} fontSize={13} />
+                  <Box text="Order Service" x={10} y={0} width={140} height={60} color="#10b981" startFrame={2490} fontSize={20} />
                   <Box
                     text="Payment Service"
                     x={170}
@@ -699,7 +699,7 @@ export const ServiceDecomposition: React.FC = () => {
                     height={60}
                     color="#f59e0b"
                     startFrame={2520}
-                    fontSize={12}
+                    fontSize={20}
                   />
                   <Box
                     text="Inventory Service"
@@ -709,7 +709,7 @@ export const ServiceDecomposition: React.FC = () => {
                     height={60}
                     color="#ec4899"
                     startFrame={2550}
-                    fontSize={12}
+                    fontSize={20}
                   />
 
                   {/* Shared database */}
@@ -725,7 +725,7 @@ export const ServiceDecomposition: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: 15,
+                      fontSize: 24,
                       fontWeight: 'bold',
                       color: '#fff',
                       opacity: frame >= 2580 ? 1 : 0,
@@ -743,7 +743,7 @@ export const ServiceDecomposition: React.FC = () => {
                       position: 'absolute',
                       left: 20,
                       top: 230,
-                      fontSize: 12,
+                      fontSize: 20,
                       color: '#ef4444',
                       opacity: frame >= 2640 ? 1 : 0,
                     }}
@@ -766,12 +766,12 @@ export const ServiceDecomposition: React.FC = () => {
                   border: '3px solid #10b981',
                 }}
               >
-                <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
+                <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   ✅ Database Per Service
                 </div>
 
                 <div style={{position: 'relative', height: 280}}>
-                  <Box text="Order Service" x={10} y={0} width={140} height={60} color="#10b981" startFrame={2490} fontSize={13} />
+                  <Box text="Order Service" x={10} y={0} width={140} height={60} color="#10b981" startFrame={2490} fontSize={20} />
                   <div
                     style={{
                       position: 'absolute',
@@ -784,7 +784,7 @@ export const ServiceDecomposition: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: 12,
+                      fontSize: 20,
                       color: '#fff',
                       opacity: frame >= 2700 ? 1 : 0,
                     }}
@@ -801,7 +801,7 @@ export const ServiceDecomposition: React.FC = () => {
                     height={60}
                     color="#f59e0b"
                     startFrame={2520}
-                    fontSize={12}
+                    fontSize={20}
                   />
                   <div
                     style={{
@@ -815,7 +815,7 @@ export const ServiceDecomposition: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: 12,
+                      fontSize: 20,
                       color: '#fff',
                       opacity: frame >= 2760 ? 1 : 0,
                     }}
@@ -832,7 +832,7 @@ export const ServiceDecomposition: React.FC = () => {
                     height={60}
                     color="#ec4899"
                     startFrame={2550}
-                    fontSize={12}
+                    fontSize={20}
                   />
                   <div
                     style={{
@@ -846,7 +846,7 @@ export const ServiceDecomposition: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: 12,
+                      fontSize: 20,
                       color: '#fff',
                       opacity: frame >= 2820 ? 1 : 0,
                     }}
@@ -860,7 +860,7 @@ export const ServiceDecomposition: React.FC = () => {
                       position: 'absolute',
                       left: 20,
                       top: 150,
-                      fontSize: 12,
+                      fontSize: 20,
                       color: '#10b981',
                       opacity: frame >= 2880 ? 1 : 0,
                     }}
@@ -905,7 +905,7 @@ export const ServiceDecomposition: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

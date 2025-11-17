@@ -36,7 +36,7 @@ export const DatabaseReplication: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const DatabaseReplication: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(167, 139, 250, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -96,21 +96,21 @@ export const DatabaseReplication: React.FC = () => {
               <div style={{fontSize: 32, fontWeight: 'bold', color: '#a78bfa', marginBottom: 20, textAlign: 'center'}}>
                 Why Replicate Databases? 🔄
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                 <div style={{opacity: fadeIn(frame, 300, 15), textAlign: 'center'}}>
                   <div style={{fontSize: 48, marginBottom: 10}}>📈</div>
                   <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Scalability</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>Handle more read traffic</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Handle more read traffic</span>
                 </div>
                 <div style={{opacity: fadeIn(frame, 340, 15), textAlign: 'center'}}>
                   <div style={{fontSize: 48, marginBottom: 10}}>🛡️</div>
                   <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>High Availability</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>Survive server failures</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Survive server failures</span>
                 </div>
                 <div style={{opacity: fadeIn(frame, 380, 15), textAlign: 'center'}}>
                   <div style={{fontSize: 48, marginBottom: 10}}>🌍</div>
                   <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Geo-Distribution</span><br/>
-                  <span style={{fontSize: 16, color: '#94a3b8'}}>Reduce latency globally</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Reduce latency globally</span>
                 </div>
               </div>
             </div>
@@ -193,7 +193,7 @@ export const DatabaseReplication: React.FC = () => {
                   }}
                 >
                   <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold'}}>🟢 MASTER</div>
-                  <div style={{fontSize: 15, color: '#e2e8f0', marginTop: 8}}>Writes ✍️</div>
+                  <div style={{fontSize: 24, color: '#e2e8f0', marginTop: 8}}>Writes ✍️</div>
                 </div>
 
                 {/* Arrow to Slaves */}
@@ -209,8 +209,8 @@ export const DatabaseReplication: React.FC = () => {
                       padding: 16,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold'}}>🔵 Replica 1</div>
-                    <div style={{fontSize: 13, color: '#e2e8f0'}}>Reads 📖</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold'}}>🔵 Replica 1</div>
+                    <div style={{fontSize: 20, color: '#e2e8f0'}}>Reads 📖</div>
                   </div>
                   <div
                     style={{
@@ -220,8 +220,8 @@ export const DatabaseReplication: React.FC = () => {
                       padding: 16,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold'}}>🔵 Replica 2</div>
-                    <div style={{fontSize: 13, color: '#e2e8f0'}}>Reads 📖</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold'}}>🔵 Replica 2</div>
+                    <div style={{fontSize: 20, color: '#e2e8f0'}}>Reads 📖</div>
                   </div>
                   <div
                     style={{
@@ -231,13 +231,13 @@ export const DatabaseReplication: React.FC = () => {
                       padding: 16,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#3b82f6', fontWeight: 'bold'}}>🔵 Replica 3</div>
-                    <div style={{fontSize: 13, color: '#e2e8f0'}}>Reads 📖</div>
+                    <div style={{fontSize: 24, color: '#3b82f6', fontWeight: 'bold'}}>🔵 Replica 3</div>
+                    <div style={{fontSize: 20, color: '#e2e8f0'}}>Reads 📖</div>
                   </div>
                 </div>
               </div>
 
-              <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.8}}>
+              <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                 <div>✓ <span style={{color: '#10b981', fontWeight: 'bold'}}>Master:</span> Accepts all writes, propagates changes to replicas</div>
                 <div>✓ <span style={{color: '#3b82f6', fontWeight: 'bold'}}>Replicas:</span> Read-only copies, automatically sync from master</div>
                 <div>✓ <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Failover:</span> If master dies, promote a replica to master</div>
@@ -323,7 +323,7 @@ export const DatabaseReplication: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold'}}>🟢 Master 1</div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', marginTop: 10}}>Writes & Reads</div>
+                    <div style={{fontSize: 24, color: '#e2e8f0', marginTop: 10}}>Writes & Reads</div>
                   </div>
 
                   <div style={{fontSize: 40, color: '#fbbf24'}}>⇄</div>
@@ -338,11 +338,11 @@ export const DatabaseReplication: React.FC = () => {
                     }}
                   >
                     <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold'}}>🟢 Master 2</div>
-                    <div style={{fontSize: 16, color: '#e2e8f0', marginTop: 10}}>Writes & Reads</div>
+                    <div style={{fontSize: 24, color: '#e2e8f0', marginTop: 10}}>Writes & Reads</div>
                   </div>
                 </div>
 
-                <div style={{fontSize: 15, color: '#94a3b8', textAlign: 'center', marginTop: 20}}>
+                <div style={{fontSize: 24, color: '#94a3b8', textAlign: 'center', marginTop: 20}}>
                   Bi-directional replication
                 </div>
               </div>
@@ -360,7 +360,7 @@ export const DatabaseReplication: React.FC = () => {
                   <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                     ✓ Benefits
                   </div>
-                  <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                     • No single point of failure<br/>
                     • Write to closest master (low latency)<br/>
                     • Both can serve traffic
@@ -378,7 +378,7 @@ export const DatabaseReplication: React.FC = () => {
                   <div style={{fontSize: 22, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>
                     ⚠️ Challenges
                   </div>
-                  <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                  <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                     • Write conflicts (same row updated)<br/>
                     • Need conflict resolution logic<br/>
                     • More complex to manage
@@ -466,7 +466,7 @@ export const DatabaseReplication: React.FC = () => {
                     padding: 16,
                     backgroundColor: 'rgba(15, 23, 42, 0.9)',
                     borderRadius: 10,
-                    fontSize: 14,
+                    fontSize: 22,
                     fontFamily: 'monospace',
                     color: '#e2e8f0',
                   }}
@@ -515,7 +515,7 @@ export const DatabaseReplication: React.FC = () => {
                     padding: 16,
                     backgroundColor: 'rgba(15, 23, 42, 0.9)',
                     borderRadius: 10,
-                    fontSize: 14,
+                    fontSize: 22,
                     fontFamily: 'monospace',
                     color: '#e2e8f0',
                   }}
@@ -624,30 +624,30 @@ export const DatabaseReplication: React.FC = () => {
                   💡 Handling Replication Lag
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, fontSize: 17, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                   <div>
-                    <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 19, marginBottom: 8}}>
+                    <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Read Your Writes
                     </div>
-                    <div style={{fontSize: 15, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, color: '#94a3b8'}}>
                       After write, read from master for that user
                     </div>
                   </div>
 
                   <div>
-                    <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 19, marginBottom: 8}}>
+                    <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Monotonic Reads
                     </div>
-                    <div style={{fontSize: 15, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, color: '#94a3b8'}}>
                       Always read from same replica for a session
                     </div>
                   </div>
 
                   <div>
-                    <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 19, marginBottom: 8}}>
+                    <div style={{color: '#34d399', fontWeight: 'bold', fontSize: 24, marginBottom: 8}}>
                       Accept Lag
                     </div>
-                    <div style={{fontSize: 15, color: '#94a3b8'}}>
+                    <div style={{fontSize: 24, color: '#94a3b8'}}>
                       For non-critical data (view counts, analytics)
                     </div>
                   </div>
@@ -657,7 +657,7 @@ export const DatabaseReplication: React.FC = () => {
                   style={{
                     marginTop: 24,
                     textAlign: 'center',
-                    fontSize: 19,
+                    fontSize: 24,
                     color: '#fbbf24',
                     fontWeight: 'bold',
                   }}

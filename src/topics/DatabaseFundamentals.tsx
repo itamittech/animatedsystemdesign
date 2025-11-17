@@ -36,7 +36,7 @@ export const DatabaseFundamentals: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <div style={{fontSize: 16, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
         <div style={{
           fontSize: 20,
           fontWeight: 'bold',
@@ -47,8 +47,8 @@ export const DatabaseFundamentals: React.FC = () => {
           Amit Mishra
         </div>
         <div style={{width: 2, height: 20, backgroundColor: 'rgba(236, 72, 153, 0.3)'}} />
-        <div style={{fontSize: 14, color: '#64748b', fontStyle: 'italic'}}>
-          <span style={{fontSize: 16}}>⚡</span> Powered by Claude Code
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
         </div>
       </div>
 
@@ -170,7 +170,7 @@ export const DatabaseFundamentals: React.FC = () => {
                       All-or-nothing: Either the entire transaction succeeds or fails completely
                     </div>
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
+                  <div style={{fontSize: 24, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
                     Example: Bank transfer<br/>
                     • Debit $100 from Alice<br/>
                     • Credit $100 to Bob<br/>
@@ -201,7 +201,7 @@ export const DatabaseFundamentals: React.FC = () => {
                       Data must satisfy all validation rules and constraints
                     </div>
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
+                  <div style={{fontSize: 24, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
                     Examples:<br/>
                     • Foreign key constraints<br/>
                     • Unique email addresses<br/>
@@ -232,7 +232,7 @@ export const DatabaseFundamentals: React.FC = () => {
                       Concurrent transactions don't interfere with each other
                     </div>
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
+                  <div style={{fontSize: 24, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
                     Isolation Levels:<br/>
                     • Read Committed<br/>
                     • Repeatable Read<br/>
@@ -263,7 +263,7 @@ export const DatabaseFundamentals: React.FC = () => {
                       Committed data survives system crashes (persisted to disk)
                     </div>
                   </div>
-                  <div style={{fontSize: 15, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
+                  <div style={{fontSize: 24, color: '#94a3b8', fontFamily: 'monospace', flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', padding: 16, borderRadius: 8}}>
                     Mechanisms:<br/>
                     • Write-ahead logging (WAL)<br/>
                     • Replicated storage<br/>
@@ -340,7 +340,7 @@ export const DatabaseFundamentals: React.FC = () => {
                       SQL (Relational)
                     </div>
 
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{marginBottom: 14}}>
                         <span style={{color: '#3b82f6', fontWeight: 'bold'}}>✓ Use when:</span>
                       </div>
@@ -351,10 +351,10 @@ export const DatabaseFundamentals: React.FC = () => {
                       <div>• Schema stability</div>
                     </div>
 
-                    <div style={{marginTop: 24, fontSize: 17, color: '#94a3b8'}}>
+                    <div style={{marginTop: 24, fontSize: 24, color: '#94a3b8'}}>
                       <div style={{fontWeight: 'bold', color: '#60a5fa', marginBottom: 10}}>Examples:</div>
                       <div>PostgreSQL, MySQL, Oracle</div>
-                      <div style={{marginTop: 12, fontFamily: 'monospace', fontSize: 15, color: '#cbd5e1'}}>
+                      <div style={{marginTop: 12, fontFamily: 'monospace', fontSize: 24, color: '#cbd5e1'}}>
                         <span style={{color: '#10b981'}}>Use cases:</span><br/>
                         Banking, E-commerce,<br/>
                         ERP systems, Analytics
@@ -377,7 +377,7 @@ export const DatabaseFundamentals: React.FC = () => {
                       NoSQL (Non-Relational)
                     </div>
 
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{marginBottom: 14}}>
                         <span style={{color: '#f59e0b', fontWeight: 'bold'}}>✓ Use when:</span>
                       </div>
@@ -388,10 +388,10 @@ export const DatabaseFundamentals: React.FC = () => {
                       <div>• Schema flexibility</div>
                     </div>
 
-                    <div style={{marginTop: 24, fontSize: 17, color: '#94a3b8'}}>
+                    <div style={{marginTop: 24, fontSize: 24, color: '#94a3b8'}}>
                       <div style={{fontWeight: 'bold', color: '#fbbf24', marginBottom: 10}}>Examples:</div>
                       <div>MongoDB, DynamoDB, Cassandra</div>
-                      <div style={{marginTop: 12, fontFamily: 'monospace', fontSize: 15, color: '#cbd5e1'}}>
+                      <div style={{marginTop: 12, fontFamily: 'monospace', fontSize: 24, color: '#cbd5e1'}}>
                         <span style={{color: '#10b981'}}>Use cases:</span><br/>
                         Social media, IoT,<br/>
                         Real-time analytics, Logs
@@ -463,13 +463,13 @@ export const DatabaseFundamentals: React.FC = () => {
                     <div style={{fontSize: 24, color: '#c4b5fd', marginBottom: 10, fontWeight: 'bold'}}>
                       ✓ Normalization
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                       • Split data into multiple tables
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                       • Eliminate duplication
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                       • Slower reads (JOINs needed)
                     </div>
                     <div style={{fontSize: 18, color: '#10b981', marginTop: 10, fontWeight: 'bold'}}>
@@ -481,13 +481,13 @@ export const DatabaseFundamentals: React.FC = () => {
                     <div style={{fontSize: 24, color: '#fbbf24', marginBottom: 10, fontWeight: 'bold'}}>
                       ✓ Denormalization
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                       • Duplicate data for speed
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                       • Single-table queries
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0', lineHeight: 1.7}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.7}}>
                       • Faster reads (no JOINs)
                     </div>
                     <div style={{fontSize: 18, color: '#10b981', marginTop: 10, fontWeight: 'bold'}}>
@@ -515,7 +515,7 @@ export const DatabaseFundamentals: React.FC = () => {
 
                 <div style={{display: 'flex', gap: 32, alignItems: 'center'}}>
                   <div style={{flex: 1}}>
-                    <div style={{fontSize: 19, color: '#e2e8f0', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.8}}>
                       <div style={{marginBottom: 10}}>
                         <span style={{color: '#5eead4', fontWeight: 'bold'}}>What:</span> Data structure (B-tree) for fast lookups
                       </div>
@@ -528,7 +528,7 @@ export const DatabaseFundamentals: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{flex: 1, fontSize: 15, color: '#94a3b8'}}>
+                  <div style={{flex: 1, fontSize: 24, color: '#94a3b8'}}>
                     <div style={{fontFamily: 'monospace', backgroundColor: 'rgba(15, 23, 42, 0.9)', padding: 20, borderRadius: 10}}>
                       <div style={{color: '#ef4444'}}>-- Without index: Full scan</div>
                       <div style={{color: '#e2e8f0', marginTop: 4}}>SELECT * FROM users</div>
@@ -618,7 +618,7 @@ export const DatabaseFundamentals: React.FC = () => {
                     <div style={{fontSize: 30, color: '#3b82f6', fontWeight: 'bold', marginBottom: 10}}>
                       Consistency
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0'}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0'}}>
                       All nodes see the same data at the same time
                     </div>
                   </div>
@@ -638,7 +638,7 @@ export const DatabaseFundamentals: React.FC = () => {
                     <div style={{fontSize: 30, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
                       Availability
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0'}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0'}}>
                       Every request gets a response (success/failure)
                     </div>
                   </div>
@@ -658,7 +658,7 @@ export const DatabaseFundamentals: React.FC = () => {
                     <div style={{fontSize: 30, color: '#f59e0b', fontWeight: 'bold', marginBottom: 10}}>
                       Partition Tolerance
                     </div>
-                    <div style={{fontSize: 17, color: '#e2e8f0'}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0'}}>
                       System works despite network failures
                     </div>
                   </div>
@@ -678,15 +678,15 @@ export const DatabaseFundamentals: React.FC = () => {
               >
                 <div>
                   <span style={{color: '#3b82f6', fontWeight: 'bold', fontSize: 22}}>CP Systems</span><br/>
-                  <span style={{fontSize: 17, color: '#94a3b8'}}>PostgreSQL, MongoDB</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>PostgreSQL, MongoDB</span>
                 </div>
                 <div>
                   <span style={{color: '#10b981', fontWeight: 'bold', fontSize: 22}}>AP Systems</span><br/>
-                  <span style={{fontSize: 17, color: '#94a3b8'}}>Cassandra, DynamoDB</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Cassandra, DynamoDB</span>
                 </div>
                 <div>
                   <span style={{color: '#f59e0b', fontWeight: 'bold', fontSize: 22}}>CA Systems</span><br/>
-                  <span style={{fontSize: 17, color: '#94a3b8'}}>Traditional RDBMS (single node)</span>
+                  <span style={{fontSize: 24, color: '#94a3b8'}}>Traditional RDBMS (single node)</span>
                 </div>
               </div>
             </div>

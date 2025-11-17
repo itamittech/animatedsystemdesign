@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -279,8 +279,8 @@ export const MonolithVsMicroservices: React.FC = () => {
                       marginBottom: 8,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#fff', fontWeight: 'bold'}}>👤 User Management</div>
-                    <div style={{fontSize: 12, color: '#e9d5ff', marginTop: 5}}>Auth, Profiles, Sessions</div>
+                    <div style={{fontSize: 24, color: '#fff', fontWeight: 'bold'}}>👤 User Management</div>
+                    <div style={{fontSize: 20, color: '#e9d5ff', marginTop: 5}}>Auth, Profiles, Sessions</div>
                   </div>
                 </div>
 
@@ -294,8 +294,8 @@ export const MonolithVsMicroservices: React.FC = () => {
                       marginBottom: 8,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#fff', fontWeight: 'bold'}}>📦 Product Catalog</div>
-                    <div style={{fontSize: 12, color: '#e0f2fe', marginTop: 5}}>Listings, Search, Categories</div>
+                    <div style={{fontSize: 24, color: '#fff', fontWeight: 'bold'}}>📦 Product Catalog</div>
+                    <div style={{fontSize: 20, color: '#e0f2fe', marginTop: 5}}>Listings, Search, Categories</div>
                   </div>
                 </div>
 
@@ -309,8 +309,8 @@ export const MonolithVsMicroservices: React.FC = () => {
                       marginBottom: 8,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#fff', fontWeight: 'bold'}}>🛒 Order Management</div>
-                    <div style={{fontSize: 12, color: '#d1fae5', marginTop: 5}}>Cart, Checkout, Orders</div>
+                    <div style={{fontSize: 24, color: '#fff', fontWeight: 'bold'}}>🛒 Order Management</div>
+                    <div style={{fontSize: 20, color: '#d1fae5', marginTop: 5}}>Cart, Checkout, Orders</div>
                   </div>
                 </div>
 
@@ -324,8 +324,8 @@ export const MonolithVsMicroservices: React.FC = () => {
                       marginBottom: 8,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#fff', fontWeight: 'bold'}}>💳 Payment Processing</div>
-                    <div style={{fontSize: 12, color: '#fef3c7', marginTop: 5}}>Payments, Refunds, Billing</div>
+                    <div style={{fontSize: 24, color: '#fff', fontWeight: 'bold'}}>💳 Payment Processing</div>
+                    <div style={{fontSize: 20, color: '#fef3c7', marginTop: 5}}>Payments, Refunds, Billing</div>
                   </div>
                 </div>
 
@@ -338,8 +338,8 @@ export const MonolithVsMicroservices: React.FC = () => {
                       borderRadius: 10,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#fff', fontWeight: 'bold'}}>📊 Inventory</div>
-                    <div style={{fontSize: 12, color: '#fce7f3', marginTop: 5}}>Stock, Warehouses, Tracking</div>
+                    <div style={{fontSize: 24, color: '#fff', fontWeight: 'bold'}}>📊 Inventory</div>
+                    <div style={{fontSize: 20, color: '#fce7f3', marginTop: 5}}>Stock, Warehouses, Tracking</div>
                   </div>
                 </div>
 
@@ -352,8 +352,8 @@ export const MonolithVsMicroservices: React.FC = () => {
                       borderRadius: 10,
                     }}
                   >
-                    <div style={{fontSize: 16, color: '#fff', fontWeight: 'bold'}}>📧 Notifications</div>
-                    <div style={{fontSize: 12, color: '#cffafe', marginTop: 5}}>Email, SMS, Push Alerts</div>
+                    <div style={{fontSize: 24, color: '#fff', fontWeight: 'bold'}}>📧 Notifications</div>
+                    <div style={{fontSize: 20, color: '#cffafe', marginTop: 5}}>Email, SMS, Push Alerts</div>
                   </div>
                 </div>
               </div>
@@ -363,7 +363,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                 style={{
                   marginTop: 20,
                   textAlign: 'center',
-                  fontSize: 14,
+                  fontSize: 22,
                   color: '#94a3b8',
                   opacity: frame >= 690 ? 1 : 0,
                 }}
@@ -379,7 +379,7 @@ export const MonolithVsMicroservices: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -428,10 +428,10 @@ export const MonolithVsMicroservices: React.FC = () => {
                 opacity: frame >= 870 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#fca5a5', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#fca5a5', fontWeight: 'bold', marginBottom: 10}}>
                 1. All-or-Nothing Scaling
               </div>
-              <div style={{fontSize: 14, color: '#fecaca', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#fecaca', lineHeight: 1.8}}>
                 Payment service gets 10x traffic on Black Friday? You must scale the ENTIRE monolith, not just payments.
                 Expensive and wasteful.
               </div>
@@ -448,10 +448,10 @@ export const MonolithVsMicroservices: React.FC = () => {
                 opacity: frame >= 960 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
                 2. Risky Deployments
               </div>
-              <div style={{fontSize: 14, color: '#fde68a', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#fde68a', lineHeight: 1.8}}>
                 Fix a bug in notifications? Deploy the whole app. One bad line of code can take down EVERYTHING. High risk,
                 slow releases.
               </div>
@@ -468,10 +468,10 @@ export const MonolithVsMicroservices: React.FC = () => {
                 opacity: frame >= 1050 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 10}}>
                 3. Team Bottlenecks
               </div>
-              <div style={{fontSize: 14, color: '#e9d5ff', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#e9d5ff', lineHeight: 1.8}}>
                 50 developers working on the same codebase. Merge conflicts, code review delays, stepping on each other's toes.
                 Productivity drops.
               </div>
@@ -487,10 +487,10 @@ export const MonolithVsMicroservices: React.FC = () => {
                 opacity: frame >= 1140 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 18, color: '#5eead4', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 28, color: '#5eead4', fontWeight: 'bold', marginBottom: 10}}>
                 4. Technology Lock-in
               </div>
-              <div style={{fontSize: 14, color: '#ccfbf1', lineHeight: 1.8}}>
+              <div style={{fontSize: 22, color: '#ccfbf1', lineHeight: 1.8}}>
                 Chose Java 10 years ago? Stuck with it. Can't use Python for ML features or Go for high-performance services.
                 One stack for everything.
               </div>
@@ -503,7 +503,7 @@ export const MonolithVsMicroservices: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -553,9 +553,9 @@ export const MonolithVsMicroservices: React.FC = () => {
                 height={90}
                 color="#7c3aed"
                 startFrame={1530}
-                fontSize={14}
+                fontSize={22}
               />
-              <div style={{position: 'absolute', left: 10, top: 95, fontSize: 11, color: '#94a3b8', opacity: frame >= 1560 ? 1 : 0}}>
+              <div style={{position: 'absolute', left: 10, top: 95, fontSize: 18, color: '#94a3b8', opacity: frame >= 1560 ? 1 : 0}}>
                 💾 User DB
               </div>
 
@@ -567,9 +567,9 @@ export const MonolithVsMicroservices: React.FC = () => {
                 height={90}
                 color="#0ea5e9"
                 startFrame={1560}
-                fontSize={14}
+                fontSize={22}
               />
-              <div style={{position: 'absolute', left: 210, top: 95, fontSize: 11, color: '#94a3b8', opacity: frame >= 1590 ? 1 : 0}}>
+              <div style={{position: 'absolute', left: 210, top: 95, fontSize: 18, color: '#94a3b8', opacity: frame >= 1590 ? 1 : 0}}>
                 💾 Product DB
               </div>
 
@@ -581,9 +581,9 @@ export const MonolithVsMicroservices: React.FC = () => {
                 height={90}
                 color="#10b981"
                 startFrame={1590}
-                fontSize={14}
+                fontSize={22}
               />
-              <div style={{position: 'absolute', left: 410, top: 95, fontSize: 11, color: '#94a3b8', opacity: frame >= 1620 ? 1 : 0}}>
+              <div style={{position: 'absolute', left: 410, top: 95, fontSize: 18, color: '#94a3b8', opacity: frame >= 1620 ? 1 : 0}}>
                 💾 Order DB
               </div>
 
@@ -596,9 +596,9 @@ export const MonolithVsMicroservices: React.FC = () => {
                 height={90}
                 color="#f59e0b"
                 startFrame={1620}
-                fontSize={14}
+                fontSize={22}
               />
-              <div style={{position: 'absolute', left: 10, top: 245, fontSize: 11, color: '#94a3b8', opacity: frame >= 1650 ? 1 : 0}}>
+              <div style={{position: 'absolute', left: 10, top: 245, fontSize: 18, color: '#94a3b8', opacity: frame >= 1650 ? 1 : 0}}>
                 💾 Payment DB
               </div>
 
@@ -610,9 +610,9 @@ export const MonolithVsMicroservices: React.FC = () => {
                 height={90}
                 color="#ec4899"
                 startFrame={1650}
-                fontSize={13}
+                fontSize={20}
               />
-              <div style={{position: 'absolute', left: 210, top: 245, fontSize: 11, color: '#94a3b8', opacity: frame >= 1680 ? 1 : 0}}>
+              <div style={{position: 'absolute', left: 210, top: 245, fontSize: 18, color: '#94a3b8', opacity: frame >= 1680 ? 1 : 0}}>
                 💾 Inventory DB
               </div>
 
@@ -624,9 +624,9 @@ export const MonolithVsMicroservices: React.FC = () => {
                 height={90}
                 color="#06b6d4"
                 startFrame={1680}
-                fontSize={13}
+                fontSize={20}
               />
-              <div style={{position: 'absolute', left: 410, top: 245, fontSize: 11, color: '#94a3b8', opacity: frame >= 1710 ? 1 : 0}}>
+              <div style={{position: 'absolute', left: 410, top: 245, fontSize: 18, color: '#94a3b8', opacity: frame >= 1710 ? 1 : 0}}>
                 💾 Notification DB
               </div>
 
@@ -655,7 +655,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                     position: 'absolute',
                     left: 230,
                     top: 420,
-                    fontSize: 14,
+                    fontSize: 22,
                     color: '#10b981',
                     fontWeight: 'bold',
                   }}
@@ -680,10 +680,10 @@ export const MonolithVsMicroservices: React.FC = () => {
               opacity: frame >= 1830 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 15}}>
+            <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 15}}>
               ✅ Benefits
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2}}>
               <div style={{opacity: frame >= 1860 ? 1 : 0}}>
                 • <strong>Independent scaling</strong><br />
               </div>
@@ -705,7 +705,7 @@ export const MonolithVsMicroservices: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -752,7 +752,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                 <div style={{fontSize: 20, color: '#3b82f6', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   🏛️ Start with Monolith
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2}}>
                   <strong style={{color: '#22d3ee'}}>When:</strong><br />
                   • Team {'<'} 10 people<br />
                   • MVP / Early stage<br />
@@ -781,7 +781,7 @@ export const MonolithVsMicroservices: React.FC = () => {
                 <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 15, textAlign: 'center'}}>
                   🎯 Move to Microservices
                 </div>
-                <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2}}>
                   <strong style={{color: '#22d3ee'}}>When:</strong><br />
                   • Team {'>'} 20 people<br />
                   • Scaling bottlenecks<br />
@@ -830,7 +830,7 @@ export const MonolithVsMicroservices: React.FC = () => {
               opacity: frame >= 2580 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 16, color: '#c084fc', fontWeight: 'bold', textAlign: 'center'}}>
+            <div style={{fontSize: 24, color: '#c084fc', fontWeight: 'bold', textAlign: 'center'}}>
               💡 Pro Tip: You can also do "Modular Monolith" - organized like microservices but deployed as one. Best of both
               worlds for medium scale!
             </div>
@@ -842,7 +842,7 @@ export const MonolithVsMicroservices: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2 - 20,
             top: (y1 + y2) / 2 - 25,
             color,
-            fontSize: 10,
+            fontSize: 18,
             fontWeight: 'bold',
             opacity: animation,
             backgroundColor: '#0f172a',
@@ -274,17 +274,17 @@ export const MicroservicesInAction: React.FC = () => {
 
             <div style={{position: 'relative', height: 330}}>
               {/* User */}
-              <Box text="👤 User" x={0} y={20} width={100} height={50} color="#6366f1" startFrame={360} fontSize={15} />
+              <Box text="👤 User" x={0} y={20} width={100} height={50} color="#6366f1" startFrame={360} fontSize={24} />
 
               {/* API Gateway */}
-              <Box text="API Gateway" x={150} y={20} width={130} height={50} color="#0ea5e9" startFrame={390} fontSize={13} />
+              <Box text="API Gateway" x={150} y={20} width={130} height={50} color="#0ea5e9" startFrame={390} fontSize={20} />
 
               {/* Microservices */}
               <div style={{opacity: frame >= 420 ? 1 : 0}}>
-                <Box text="Order" x={340} y={0} width={100} height={45} color="#10b981" startFrame={420} fontSize={13} />
-                <Box text="Payment" x={340} y={55} width={100} height={45} color="#f59e0b" startFrame={450} fontSize={12} />
-                <Box text="Inventory" x={340} y={110} width={100} height={45} color="#ec4899" startFrame={480} fontSize={12} />
-                <Box text="Email" x={340} y={165} width={100} height={45} color="#06b6d4" startFrame={510} fontSize={13} />
+                <Box text="Order" x={340} y={0} width={100} height={45} color="#10b981" startFrame={420} fontSize={20} />
+                <Box text="Payment" x={340} y={55} width={100} height={45} color="#f59e0b" startFrame={450} fontSize={20} />
+                <Box text="Inventory" x={340} y={110} width={100} height={45} color="#ec4899" startFrame={480} fontSize={20} />
+                <Box text="Email" x={340} y={165} width={100} height={45} color="#06b6d4" startFrame={510} fontSize={20} />
               </div>
 
               {/* Service Registry */}
@@ -300,7 +300,7 @@ export const MicroservicesInAction: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 13,
+                  fontSize: 20,
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 540 ? 1 : 0,
@@ -322,7 +322,7 @@ export const MicroservicesInAction: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 13,
+                  fontSize: 20,
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 570 ? 1 : 0,
@@ -344,7 +344,7 @@ export const MicroservicesInAction: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 13,
+                  fontSize: 20,
                   fontWeight: 'bold',
                   color: '#fff',
                   opacity: frame >= 600 ? 1 : 0,
@@ -366,7 +366,7 @@ export const MicroservicesInAction: React.FC = () => {
                   opacity: frame >= 630 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 14, color: '#cbd5e1', textAlign: 'center'}}>
+                <div style={{fontSize: 22, color: '#cbd5e1', textAlign: 'center'}}>
                   <strong style={{color: '#22d3ee'}}>User → API Gateway → Microservices</strong> working together via{' '}
                   <strong style={{color: '#c084fc'}}>Service Discovery</strong>,{' '}
                   <strong style={{color: '#fbbf24'}}>Async Messages</strong>, and{' '}
@@ -382,7 +382,7 @@ export const MicroservicesInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -434,7 +434,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 13,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -463,7 +463,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 12,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -492,7 +492,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 12,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -521,7 +521,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 11,
+                    fontSize: 18,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -550,7 +550,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 12,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -579,7 +579,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 12,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -608,7 +608,7 @@ export const MicroservicesInAction: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 12,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     color: '#fff',
                   }}
@@ -647,7 +647,7 @@ export const MicroservicesInAction: React.FC = () => {
 
               {/* Step Labels */}
               <div style={{position: 'absolute', left: 300, top: 0, width: 700}}>
-                <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 2.5}}>
+                <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 2.5}}>
                   <div style={{opacity: frame >= 960 ? 1 : 0}}>
                     <strong style={{color: '#22d3ee'}}>1.</strong> POST /orders
                   </div>
@@ -692,10 +692,10 @@ export const MicroservicesInAction: React.FC = () => {
                 opacity: frame >= 1590 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 15, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
+              <div style={{fontSize: 24, color: '#0ea5e9', fontWeight: 'bold', marginBottom: 10}}>
                 🎯 Patterns in Action
               </div>
-              <div style={{fontSize: 13, color: '#cbd5e1', lineHeight: 1.9}}>
+              <div style={{fontSize: 20, color: '#cbd5e1', lineHeight: 1.9}}>
                 • <strong>Service Discovery:</strong> Services find each other via registry
                 <br />
                 • <strong>API Gateway:</strong> Single entry point for user
@@ -714,7 +714,7 @@ export const MicroservicesInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -761,7 +761,7 @@ export const MicroservicesInAction: React.FC = () => {
                 border: '2px solid #ef4444',
               }}
             >
-              <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2.2}}>
+              <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2.2}}>
                 <div style={{opacity: frame >= 2010 ? 1 : 0}}>
                   <strong style={{color: '#10b981'}}>✅ T1: Order created</strong> → order_id: 12345
                 </div>
@@ -819,10 +819,10 @@ export const MicroservicesInAction: React.FC = () => {
                 opacity: frame >= 2550 ? 1 : 0,
               }}
             >
-              <div style={{fontSize: 14, color: '#c084fc', fontWeight: 'bold', marginBottom: 8}}>
+              <div style={{fontSize: 22, color: '#c084fc', fontWeight: 'bold', marginBottom: 8}}>
                 🛡️ Resilience Patterns Protected Us
               </div>
-              <div style={{fontSize: 13, color: '#cbd5e1'}}>
+              <div style={{fontSize: 20, color: '#cbd5e1'}}>
                 Circuit breaker prevented cascade failure. Saga ensured data consistency. Compensating transactions rolled back
                 gracefully!
               </div>
@@ -835,7 +835,7 @@ export const MicroservicesInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -873,7 +873,7 @@ export const MicroservicesInAction: React.FC = () => {
                 borderRadius: 12,
                 border: '3px solid #7c3aed',
                 lineHeight: 2.3,
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
               }}
             >
@@ -911,10 +911,10 @@ export const MicroservicesInAction: React.FC = () => {
                   opacity: frame >= 3330 ? 1 : 0,
                 }}
               >
-                <div style={{fontSize: 16, color: '#10b981', fontWeight: 'bold', textAlign: 'center'}}>
+                <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', textAlign: 'center'}}>
                   💡 Microservices = Trade Complexity for Scalability
                 </div>
-                <div style={{fontSize: 13, color: '#94a3b8', textAlign: 'center', marginTop: 8}}>
+                <div style={{fontSize: 20, color: '#94a3b8', textAlign: 'center', marginTop: 8}}>
                   More moving parts, but independent scaling, deployment, and team autonomy
                 </div>
               </div>
@@ -945,7 +945,7 @@ export const MicroservicesInAction: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}

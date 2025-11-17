@@ -97,7 +97,7 @@ const Dialogue: React.FC<{
         color: 'white',
         padding: '20px',
         borderRadius: '10px',
-        fontSize: 18,
+        fontSize: 28,
         lineHeight: 1.6,
         transform: `translateX(${translateX}px)`,
         opacity: slideIn,
@@ -121,7 +121,7 @@ const Box: React.FC<{
   startFrame: number;
   fontSize?: number;
   textColor?: string;
-}> = ({text, x, y, width, height, color, startFrame, fontSize = 16, textColor = '#ffffff'}) => {
+}> = ({text, x, y, width, height, color, startFrame, fontSize = 24, textColor = '#ffffff'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -212,7 +212,7 @@ const Arrow: React.FC<{
             left: (x1 + x2) / 2,
             top: (y1 + y2) / 2 - 20,
             color,
-            fontSize: 14,
+            fontSize: 22,
             fontWeight: 'bold',
             opacity: animation,
           }}
@@ -262,7 +262,7 @@ export const AgenticAI: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -299,7 +299,7 @@ export const AgenticAI: React.FC = () => {
                 padding: 25,
                 borderRadius: 12,
                 border: '2px solid #64748b',
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -318,7 +318,7 @@ export const AgenticAI: React.FC = () => {
                 <strong>Chatbot:</strong> "Please paste your code and I'll review it."
               </div>
 
-              <div style={{color: '#ef4444', fontSize: 14, fontStyle: 'italic'}}>
+              <div style={{color: '#ef4444', fontSize: 22, fontStyle: 'italic'}}>
                 ❌ Can only respond with text<br />
                 ❌ Can't take action<br />
                 ❌ Can't access external data
@@ -346,7 +346,7 @@ export const AgenticAI: React.FC = () => {
                 padding: 25,
                 borderRadius: 12,
                 border: '2px solid #10b981',
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -371,7 +371,7 @@ export const AgenticAI: React.FC = () => {
                 "Found 3 issues: undefined variable on line 42..."
               </div>
 
-              <div style={{color: '#10b981', fontSize: 14, fontStyle: 'italic'}}>
+              <div style={{color: '#10b981', fontSize: 22, fontStyle: 'italic'}}>
                 ✅ Uses tools to get data<br />
                 ✅ Takes actions autonomously<br />
                 ✅ Solves problems end-to-end
@@ -394,7 +394,7 @@ export const AgenticAI: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -441,7 +441,7 @@ export const AgenticAI: React.FC = () => {
                   position: 'absolute',
                   left: 145,
                   top: 85,
-                  fontSize: 14,
+                  fontSize: 22,
                   color: '#cbd5e1',
                   width: 310,
                   textAlign: 'center',
@@ -469,7 +469,7 @@ export const AgenticAI: React.FC = () => {
                   position: 'absolute',
                   right: -60,
                   top: 210,
-                  fontSize: 14,
+                  fontSize: 22,
                   color: '#cbd5e1',
                   width: 200,
                   opacity: frame >= 1260 ? 1 : 0,
@@ -496,7 +496,7 @@ export const AgenticAI: React.FC = () => {
                   position: 'absolute',
                   left: 145,
                   top: 435,
-                  fontSize: 14,
+                  fontSize: 22,
                   color: '#cbd5e1',
                   width: 310,
                   textAlign: 'center',
@@ -524,7 +524,7 @@ export const AgenticAI: React.FC = () => {
                   position: 'absolute',
                   left: -80,
                   top: 210,
-                  fontSize: 14,
+                  fontSize: 22,
                   color: '#cbd5e1',
                   width: 200,
                   opacity: frame >= 1440 ? 1 : 0,
@@ -551,10 +551,10 @@ export const AgenticAI: React.FC = () => {
               opacity: frame >= 1530 ? 1 : 0,
             }}
           >
-            <div style={{fontSize: 18, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
+            <div style={{fontSize: 28, color: '#c084fc', fontWeight: 'bold', marginBottom: 15}}>
               📝 Example: "Research competitors"
             </div>
-            <div style={{fontSize: 14, color: '#cbd5e1', lineHeight: 2}}>
+            <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 2}}>
               <div style={{opacity: frame >= 1560 ? 1 : 0}}>
                 <strong style={{color: '#7c3aed'}}>1. THINK:</strong><br />
                 "I need to search web, extract info, summarize"<br /><br />
@@ -592,7 +592,7 @@ export const AgenticAI: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -628,14 +628,14 @@ export const AgenticAI: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 25,
                 borderRadius: 12,
-                fontSize: 14,
+                fontSize: 22,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
             >
               <div style={{opacity: frame >= 1890 ? 1 : 0, marginBottom: 20}}>
                 <strong style={{color: '#22d3ee'}}>1. Tool Definition:</strong><br />
-                <code style={{fontSize: 12, color: '#fbbf24'}}>
+                <code style={{fontSize: 20, color: '#fbbf24'}}>
                   {`{
   "name": "web_search",
   "description": "Search the web",
@@ -653,7 +653,7 @@ export const AgenticAI: React.FC = () => {
 
               <div style={{opacity: frame >= 2070 ? 1 : 0, marginBottom: 20}}>
                 <strong style={{color: '#22d3ee'}}>3. System Executes Tool:</strong><br />
-                <code style={{fontSize: 12, color: '#10b981'}}>
+                <code style={{fontSize: 20, color: '#10b981'}}>
                   web_search("latest AI trends")
                 </code>
               </div>
@@ -686,7 +686,7 @@ export const AgenticAI: React.FC = () => {
                 backgroundColor: '#1e293b',
                 padding: 25,
                 borderRadius: 12,
-                fontSize: 15,
+                fontSize: 24,
                 color: '#cbd5e1',
                 lineHeight: 2,
               }}
@@ -694,25 +694,25 @@ export const AgenticAI: React.FC = () => {
               <div style={{marginBottom: 15}}>
                 <strong style={{color: '#c084fc'}}>💻 Code Assistants:</strong><br />
                 Read files, write code, run tests, debug<br />
-                <span style={{fontSize: 13, color: '#94a3b8'}}>Ex: Claude Code, GitHub Copilot Workspace</span>
+                <span style={{fontSize: 20, color: '#94a3b8'}}>Ex: Claude Code, GitHub Copilot Workspace</span>
               </div>
 
               <div style={{marginBottom: 15}}>
                 <strong style={{color: '#c084fc'}}>🔬 Research Agents:</strong><br />
                 Search web, read papers, synthesize info<br />
-                <span style={{fontSize: 13, color: '#94a3b8'}}>Ex: Perplexity, GPT Researcher</span>
+                <span style={{fontSize: 20, color: '#94a3b8'}}>Ex: Perplexity, GPT Researcher</span>
               </div>
 
               <div style={{marginBottom: 15}}>
                 <strong style={{color: '#c084fc'}}>🤝 Customer Support:</strong><br />
                 Check orders, update tickets, escalate issues<br />
-                <span style={{fontSize: 13, color: '#94a3b8'}}>Ex: Intercom AI, Zendesk bots</span>
+                <span style={{fontSize: 20, color: '#94a3b8'}}>Ex: Intercom AI, Zendesk bots</span>
               </div>
 
               <div>
                 <strong style={{color: '#c084fc'}}>⚙️ Workflow Automation:</strong><br />
                 Trigger APIs, process data, send notifications<br />
-                <span style={{fontSize: 13, color: '#94a3b8'}}>Ex: Zapier AI, n8n with LLMs</span>
+                <span style={{fontSize: 20, color: '#94a3b8'}}>Ex: Zapier AI, n8n with LLMs</span>
               </div>
             </div>
           </div>
@@ -732,7 +732,7 @@ export const AgenticAI: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
@@ -757,7 +757,7 @@ export const AgenticAI: React.FC = () => {
               left: width / 2 - 500,
               top: 180,
               width: 1000,
-              fontSize: 18,
+              fontSize: 28,
               color: '#cbd5e1',
             }}
           >
@@ -795,7 +795,7 @@ export const AgenticAI: React.FC = () => {
                 Code assistants, research, support, automation
               </div>
 
-              <div style={{marginTop: 25, fontSize: 16, color: '#22d3ee', fontStyle: 'italic'}}>
+              <div style={{marginTop: 25, fontSize: 24, color: '#22d3ee', fontStyle: 'italic'}}>
                 🎯 Next: Model Context Protocol (MCP) - The standard for connecting AI to your data & tools!
               </div>
             </div>
@@ -825,7 +825,7 @@ export const AgenticAI: React.FC = () => {
               position: 'absolute',
               bottom: 20,
               left: 20,
-              fontSize: 14,
+              fontSize: 22,
               color: '#64748b',
               fontFamily: 'monospace',
             }}
