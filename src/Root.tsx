@@ -32,6 +32,8 @@ import {MessageQueueFundamentals} from './topics/MessageQueueFundamentals';
 import {ApacheKafka} from './topics/ApacheKafka';
 import {PublishSubscribePattern} from './topics/PublishSubscribePattern';
 import {HorizontalVerticalScaling} from './topics/HorizontalVerticalScaling';
+import {RateLimitingThrottling} from './topics/RateLimitingThrottling';
+import {AutoScalingStrategies} from './topics/AutoScalingStrategies';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -296,6 +298,22 @@ export const RemotionRoot: React.FC = () => {
         id="HorizontalVerticalScaling"
         component={HorizontalVerticalScaling}
         durationInFrames={1950}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="RateLimitingThrottling"
+        component={RateLimitingThrottling}
+        durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AutoScalingStrategies"
+        component={AutoScalingStrategies}
+        durationInFrames={2250}
         fps={30}
         width={1920}
         height={1080}
