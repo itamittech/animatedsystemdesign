@@ -21,6 +21,10 @@ import {LargeLanguageModels} from './topics/LargeLanguageModels';
 import {AgenticAI} from './topics/AgenticAI';
 import {ModelContextProtocol} from './topics/ModelContextProtocol';
 import {AIInAction} from './topics/AIInAction';
+import {MonolithVsMicroservices} from './topics/MonolithVsMicroservices';
+import {ServiceDecomposition} from './topics/ServiceDecomposition';
+import {MicroservicesCommunication} from './topics/MicroservicesCommunication';
+import {MicroservicesResilience} from './topics/MicroservicesResilience';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -197,6 +201,38 @@ export const RemotionRoot: React.FC = () => {
         id="AIInAction"
         component={AIInAction}
         durationInFrames={3600}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MonolithVsMicroservices"
+        component={MonolithVsMicroservices}
+        durationInFrames={2700}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ServiceDecomposition"
+        component={ServiceDecomposition}
+        durationInFrames={3000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MicroservicesCommunication"
+        component={MicroservicesCommunication}
+        durationInFrames={3000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MicroservicesResilience"
+        component={MicroservicesResilience}
+        durationInFrames={2700}
         fps={30}
         width={1920}
         height={1080}
