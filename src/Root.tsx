@@ -43,6 +43,11 @@ import {AuthenticationAuthorization} from './topics/AuthenticationAuthorization'
 import {EncryptionSSLTLS} from './topics/EncryptionSSLTLS';
 import {APISecurityBestPractices} from './topics/APISecurityBestPractices';
 import {DDoSProtectionMitigation} from './topics/DDoSProtectionMitigation';
+import {FullTextSearch} from './topics/FullTextSearch';
+import {SearchOptimization} from './topics/SearchOptimization';
+import {WebSocketRealTimeCommunication} from './topics/WebSocketRealTimeCommunication';
+import {LiveStreamingArchitecture} from './topics/LiveStreamingArchitecture';
+import {NotificationSystems} from './topics/NotificationSystems';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -395,6 +400,46 @@ export const RemotionRoot: React.FC = () => {
         id="DDoSProtectionMitigation"
         component={DDoSProtectionMitigation}
         durationInFrames={2100}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FullTextSearch"
+        component={FullTextSearch}
+        durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SearchOptimization"
+        component={SearchOptimization}
+        durationInFrames={2250}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="WebSocketRealTimeCommunication"
+        component={WebSocketRealTimeCommunication}
+        durationInFrames={2400}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="LiveStreamingArchitecture"
+        component={LiveStreamingArchitecture}
+        durationInFrames={2550}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="NotificationSystems"
+        component={NotificationSystems}
+        durationInFrames={2250}
         fps={30}
         width={1920}
         height={1080}
