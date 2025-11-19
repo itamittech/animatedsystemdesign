@@ -31,10 +31,14 @@ export const APISecurityBestPractices: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="API Security Best Practices" subtitle="Protecting Your APIs from Attacks" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="Our API is public-facing. What are the biggest security risks we need to protect against?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Great timing! OWASP publishes the API Security Top 10. Let me show you the most critical vulnerabilities!" x={width - 750} y={height - 280} startFrame={240} />
+          {frame < 330 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+              <Dialogue speaker="junior" text="Our API is public-facing. What are the biggest security risks we need to protect against?" x={width * 0.10} y={height * 0.64} startFrame={60} />
+              <Dialogue speaker="architect" text="Great timing! OWASP publishes the API Security Top 10. Let me show you the most critical vulnerabilities!" x={width * 0.60} y={height * 0.64} startFrame={240} />
+            </>
+          )}
 
           <div style={{position: 'absolute', top: 340, left: width / 2 - 850, width: 1700, opacity: fadeIn(frame, 390, 30)}}>
             <h2 style={{fontSize: 32, fontWeight: 700, color: '#ef4444', marginBottom: 24, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center', textShadow: '0 0 24px rgba(239, 68, 68, 0.6)'}}>🚨 OWASP API Security Top 10 (2023)</h2>
@@ -114,8 +118,12 @@ export const APISecurityBestPractices: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 330} />
-          <Dialogue speaker="junior" text="Always use parameterized queries and validate ALL inputs! No exceptions!" x={100} y={height - 280} startFrame={scene1End + 360} />
+          {frame >= scene1End + 300 && frame < scene1End + 450 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 300} />
+              <Dialogue speaker="junior" text="Always use parameterized queries and validate ALL inputs! No exceptions!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 330} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -197,8 +205,12 @@ export const APISecurityBestPractices: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 240} />
-          <Dialogue speaker="architect" text="CORS controls access, CSRF prevents forged requests, XSS is prevented by escaping output. All critical!" x={width - 750} y={height - 280} startFrame={scene2End + 270} />
+          {frame >= scene2End + 210 && frame < scene2End + 420 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 210} />
+              <Dialogue speaker="architect" text="CORS controls access, CSRF prevents forged requests, XSS is prevented by escaping output. All critical!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 240} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -254,8 +266,12 @@ export const APISecurityBestPractices: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 300} />
-          <Dialogue speaker="junior" text="Rate limiting prevents abuse, and security headers add multiple layers of defense. Defense in depth!" x={100} y={height - 280} startFrame={scene3End + 330} />
+          {frame >= scene3End + 270 && frame < scene3End + 450 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 270} />
+              <Dialogue speaker="junior" text="Rate limiting prevents abuse, and security headers add multiple layers of defense. Defense in depth!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 300} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

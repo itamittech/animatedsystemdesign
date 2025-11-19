@@ -31,10 +31,10 @@ export const SearchOptimization: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="Search Optimization" subtitle="Advanced Search Techniques" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="Users misspell words all the time. How do we handle 'iPohne' instead of 'iPhone'?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Fuzzy matching! We calculate edit distance and tolerate typos. Let me show you the algorithms!" x={width - 750} y={height - 280} startFrame={240} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+          <Dialogue speaker="junior" text="Users misspell words all the time. How do we handle 'iPohne' instead of 'iPhone'?" x={width * 0.10} y={height * 0.64} startFrame={90} />
+          <Dialogue speaker="architect" text="Fuzzy matching! We calculate edit distance and tolerate typos. Let me show you the algorithms!" x={width * 0.60} y={height * 0.64} startFrame={240} />
 
           <div style={{position: 'absolute', top: 340, left: width / 2 - 850, width: 1700, opacity: fadeIn(frame, 390, 30)}}>
             <h2 style={{fontSize: 32, fontWeight: 700, color: '#8b5cf6', marginBottom: 24, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center', textShadow: '0 0 24px rgba(139, 92, 246, 0.6)'}}>🎯 Fuzzy Matching & Typo Tolerance</h2>
@@ -208,8 +208,8 @@ export const SearchOptimization: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 300} />
-          <Dialogue speaker="junior" text="Trie data structure for prefix matching! O(k) complexity makes autocomplete instant!" x={100} y={height - 280} startFrame={scene1End + 330} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 300} />
+          <Dialogue speaker="junior" text="Trie data structure for prefix matching! O(k) complexity makes autocomplete instant!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 330} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -317,8 +317,8 @@ export const SearchOptimization: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 300} />
-          <Dialogue speaker="architect" text="Facets let users drill down, geo-search finds nearby results. Both critical for modern search!" x={width - 750} y={height - 280} startFrame={scene2End + 330} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 300} />
+          <Dialogue speaker="architect" text="Facets let users drill down, geo-search finds nearby results. Both critical for modern search!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 330} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -417,8 +417,8 @@ export const SearchOptimization: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 270} />
-          <Dialogue speaker="junior" text="BM25 for relevance, field boosting for importance, LTR for personalization. Search is complex!" x={100} y={height - 280} startFrame={scene3End + 300} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 270} />
+          <Dialogue speaker="junior" text="BM25 for relevance, field boosting for importance, LTR for personalization. Search is complex!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 300} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

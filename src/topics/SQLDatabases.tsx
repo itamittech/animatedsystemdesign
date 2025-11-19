@@ -57,14 +57,14 @@ export const SQLDatabases: React.FC = () => {
         <>
           <Title text="SQL Databases & Relational Design" subtitle="PostgreSQL, MySQL & When to Use Them" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={30} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={30} size={90} />
 
           <Dialogue
             speaker="junior"
             text="We covered SQL vs NoSQL. When should I specifically choose SQL databases?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={60}
             maxWidth={500}
           />
@@ -72,8 +72,8 @@ export const SQLDatabases: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! Let's dive deep into SQL databases, how they work, and when they're the right choice."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -138,13 +138,13 @@ export const SQLDatabases: React.FC = () => {
             PostgreSQL vs MySQL: Under the Hood
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={450} size={90} />
 
           <Dialogue
             speaker="architect"
             text="Both are powerful, but they have different strengths and internals."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={480}
             maxWidth={580}
           />
@@ -290,14 +290,14 @@ export const SQLDatabases: React.FC = () => {
             Indexing Strategies: B-tree vs Hash
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={900} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={900} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={900} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={900} size={90} />
 
           <Dialogue
             speaker="junior"
             text="You mentioned indexes earlier. What are the different types?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={930}
             maxWidth={500}
           />
@@ -305,8 +305,8 @@ export const SQLDatabases: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! The two main types are B-tree and Hash indexes. Each has specific use cases."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1050}
             maxWidth={640}
           />
@@ -447,13 +447,13 @@ export const SQLDatabases: React.FC = () => {
             Transactions & Isolation Levels
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1500} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={1500} size={90} />
 
           <Dialogue
             speaker="architect"
             text="Isolation levels control how transactions see each other's changes. It's a trade-off between consistency and performance."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1530}
             maxWidth={680}
           />
@@ -602,14 +602,14 @@ export const SQLDatabases: React.FC = () => {
             Vertical Scaling Limits
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={2100} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2100} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={2100} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={2100} size={90} />
 
           <Dialogue
             speaker="junior"
             text="What happens when a single SQL database can't handle the load?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={2130}
             maxWidth={500}
           />
@@ -617,8 +617,8 @@ export const SQLDatabases: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="You hit vertical scaling limits. Then you need read replicas, sharding, or consider NoSQL."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2250}
             maxWidth={640}
           />

@@ -57,26 +57,31 @@ export const DatabaseFundamentals: React.FC = () => {
         <>
           <Title text="Database Fundamentals" subtitle="The Core Concepts Every Engineer Must Know" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.50} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.50} startFrame={30} size={110} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 270 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="Sarah, databases are everywhere. What fundamentals do I need to master?"
-            x={width * 0.05}
-            y={height * 0.60}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Sarah, databases are everywhere. What fundamentals do I need to master?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! Let's cover the 5 core concepts that apply to all databases."
-            x={width * 0.72 - 280}
-            y={height * 0.60}
-            startFrame={180}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! Let's cover the 5 core concepts that apply to all databases."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* Key Topics Preview */}
           {frame >= 270 && (
@@ -127,38 +132,46 @@ export const DatabaseFundamentals: React.FC = () => {
             ACID Properties 🔒
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="ACID ensures data reliability in transactional databases. Every transaction must follow these guarantees."
-            x={width * 0.72 - 320}
-            y={height * 0.70}
-            startFrame={480}
-            maxWidth={640}
-          />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 610 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={460} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={460} size={95} />
+
+              <Dialogue
+                speaker="architect"
+                text="ACID ensures data reliability in transactional databases. Every transaction must follow these guarantees."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={480}
+                maxWidth={640}
+              />
+            </>
+          )}
 
           {/* ACID Cards */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 180,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 1600,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 18,
-            }}
-          >
-            {/* Atomicity */}
-            {frame >= 520 && (
+          {frame >= 620 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 180,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 1600,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 18,
+              }}
+            >
+              {/* Atomicity */}
               <div
                 style={{
                   backgroundColor: 'rgba(236, 72, 153, 0.15)',
                   border: '3px solid #ec4899',
                   borderRadius: 14,
                   padding: 20,
-                  opacity: fadeIn(frame, 520, 20),
-                  transform: `scale(${pulse(frame, 520)})`,
+                  opacity: fadeIn(frame, 620, 20),
+                  transform: `scale(${pulse(frame, 620)})`,
                 }}
               >
                 <div style={{display: 'flex', gap: 20}}>
@@ -181,15 +194,15 @@ export const DatabaseFundamentals: React.FC = () => {
             )}
 
             {/* Consistency */}
-            {frame >= 600 && (
+            {frame >= 700 && (
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
                   border: '3px solid #3b82f6', boxShadow: '0 0 16px rgba(59, 130, 246, 0.3)',
                   borderRadius: 14,
                   padding: 20,
-                  opacity: fadeIn(frame, 600, 20),
-                  transform: `scale(${pulse(frame, 600)})`,
+                  opacity: fadeIn(frame, 700, 20),
+                  transform: `scale(${pulse(frame, 700)})`,
                 }}
               >
                 <div style={{display: 'flex', gap: 20}}>
@@ -212,15 +225,15 @@ export const DatabaseFundamentals: React.FC = () => {
             )}
 
             {/* Isolation */}
-            {frame >= 680 && (
+            {frame >= 780 && (
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
                   border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
                   borderRadius: 14,
                   padding: 20,
-                  opacity: fadeIn(frame, 680, 20),
-                  transform: `scale(${pulse(frame, 680)})`,
+                  opacity: fadeIn(frame, 780, 20),
+                  transform: `scale(${pulse(frame, 780)})`,
                 }}
               >
                 <div style={{display: 'flex', gap: 20}}>
@@ -243,15 +256,15 @@ export const DatabaseFundamentals: React.FC = () => {
             )}
 
             {/* Durability */}
-            {frame >= 760 && (
+            {frame >= 860 && (
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
                   border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
                   borderRadius: 14,
                   padding: 20,
-                  opacity: fadeIn(frame, 760, 20),
-                  transform: `scale(${pulse(frame, 760)})`,
+                  opacity: fadeIn(frame, 860, 20),
+                  transform: `scale(${pulse(frame, 860)})`,
                 }}
               >
                 <div style={{display: 'flex', gap: 20}}>
@@ -272,7 +285,8 @@ export const DatabaseFundamentals: React.FC = () => {
                 </div>
               </div>
             )}
-          </div>
+            </div>
+          )}
         </>
       )}
 
@@ -295,23 +309,31 @@ export const DatabaseFundamentals: React.FC = () => {
             SQL vs NoSQL: When to Use Each?
           </div>
 
-          <Dialogue
-            speaker="junior"
-            text="How do I choose between SQL and NoSQL databases?"
-            x={width * 0.05}
-            y={height * 0.70}
-            startFrame={930}
-            maxWidth={520}
-          />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1140 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={910} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={910} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="It depends on your data structure, scale, and consistency requirements. Let's compare!"
-            x={width * 0.72 - 300}
-            y={height * 0.70}
-            startFrame={1050}
-            maxWidth={600}
-          />
+              <Dialogue
+                speaker="junior"
+                text="How do I choose between SQL and NoSQL databases?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={930}
+                maxWidth={520}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="It depends on your data structure, scale, and consistency requirements. Let's compare!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1050}
+                maxWidth={600}
+              />
+            </>
+          )}
 
           {/* Comparison Table */}
           {frame >= 1140 && (
@@ -424,14 +446,22 @@ export const DatabaseFundamentals: React.FC = () => {
             Data Modeling & Performance
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="Two key concepts: how you structure data and how you query it efficiently."
-            x={width * 0.72 - 320}
-            y={height * 0.70}
-            startFrame={1380}
-            maxWidth={640}
-          />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1470 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1360} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1360} size={95} />
+
+              <Dialogue
+                speaker="architect"
+                text="Two key concepts: how you structure data and how you query it efficiently."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1380}
+                maxWidth={640}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -443,7 +473,7 @@ export const DatabaseFundamentals: React.FC = () => {
             }}
           >
             {/* Normalization vs Denormalization */}
-            {frame >= 1440 && (
+            {frame >= 1480 && (
               <div
                 style={{
                   backgroundColor: 'rgba(167, 139, 250, 0.15)',
@@ -451,7 +481,7 @@ export const DatabaseFundamentals: React.FC = () => {
                   borderRadius: 16,
                   padding: 28,
                   marginBottom: 24,
-                  opacity: fadeIn(frame, 1440, 20),
+                  opacity: fadeIn(frame, 1480, 20),
                 }}
               >
                 <div style={{fontSize: 34, color: '#c4b5fd', textShadow: '0 0 30px rgba(196, 181, 253, 0.7)', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
@@ -499,14 +529,14 @@ export const DatabaseFundamentals: React.FC = () => {
             )}
 
             {/* Indexes */}
-            {frame >= 1560 && (
+            {frame >= 1600 && (
               <div
                 style={{
                   backgroundColor: 'rgba(20, 184, 166, 0.15)',
                   border: '3px solid #14b8a6',
                   borderRadius: 16,
                   padding: 28,
-                  opacity: fadeIn(frame, 1560, 20),
+                  opacity: fadeIn(frame, 1600, 20),
                 }}
               >
                 <div style={{fontSize: 34, color: '#14b8a6', fontWeight: 'bold', marginBottom: 16, textAlign: 'center'}}>
@@ -567,23 +597,31 @@ export const DatabaseFundamentals: React.FC = () => {
             CAP Theorem: The Impossible Triangle
           </div>
 
-          <Dialogue
-            speaker="junior"
-            text="What about distributed databases? Any trade-offs?"
-            x={width * 0.05}
-            y={height * 0.70}
-            startFrame={1830}
-            maxWidth={520}
-          />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2040 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1810} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1810} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="The CAP theorem says you can only pick 2 out of 3 guarantees during network partitions!"
-            x={width * 0.72 - 320}
-            y={height * 0.70}
-            startFrame={1950}
-            maxWidth={640}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What about distributed databases? Any trade-offs?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1830}
+                maxWidth={520}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="The CAP theorem says you can only pick 2 out of 3 guarantees during network partitions!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1950}
+                maxWidth={640}
+              />
+            </>
+          )}
 
           {frame >= 2040 && (
             <div

@@ -57,26 +57,31 @@ export const GraphQLvsREST: React.FC = () => {
         <>
           <Title text="GraphQL vs REST" subtitle="Choosing the Right API Architecture" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 270 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="I keep hearing about GraphQL. When should I use it instead of REST?"
-            x={width * 0.05}
-            y={height * 0.73}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="I keep hearing about GraphQL. When should I use it instead of REST?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! GraphQL solves specific problems REST has. Let's compare them and see when each shines."
-            x={width * 0.72 - 280}
-            y={height * 0.73}
-            startFrame={180}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! GraphQL solves specific problems REST has. Let's compare them and see when each shines."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* The Core Difference */}
           {frame >= 270 && (
@@ -150,26 +155,31 @@ export const GraphQLvsREST: React.FC = () => {
         <>
           <Title text="The Fetching Problem" subtitle="Over-fetching & Under-fetching" startFrame={450} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={480} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={480} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 720 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={480} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={480} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What exactly are over-fetching and under-fetching?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={510}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What exactly are over-fetching and under-fetching?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={510}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="REST's biggest pain points! Over-fetching = getting too much data. Under-fetching = making multiple requests. Let me show you."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={630}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="REST's biggest pain points! Over-fetching = getting too much data. Under-fetching = making multiple requests. Let me show you."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={630}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* Problem Examples */}
           {frame >= 720 && (
@@ -273,26 +283,31 @@ export const GraphQLvsREST: React.FC = () => {
         <>
           <Title text="GraphQL Solution" subtitle="Query Exactly What You Need" startFrame={1050} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1080} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1080} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1320 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1080} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1080} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="So GraphQL solves both problems? How does it work?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={1110}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="So GraphQL solves both problems? How does it work?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1110}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Exactly! GraphQL uses a query language where you specify exactly what you want. One request, perfect data shape!"
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={1230}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Exactly! GraphQL uses a query language where you specify exactly what you want. One request, perfect data shape!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1230}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* GraphQL Query Example */}
           {frame >= 1320 && (
@@ -407,26 +422,31 @@ export const GraphQLvsREST: React.FC = () => {
         <>
           <Title text="When to Use Each" subtitle="Making the Right Choice" startFrame={1650} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1680} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1680} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1920 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1680} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1680} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Should I always use GraphQL then? What are the downsides?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={1710}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Should I always use GraphQL then? What are the downsides?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1710}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Good thinking! GraphQL isn't always better. Both have their place. Let me break down when to use each."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={1830}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Good thinking! GraphQL isn't always better. Both have their place. Let me break down when to use each."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1830}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* Decision Matrix */}
           {frame >= 1920 && (
@@ -531,26 +551,31 @@ export const GraphQLvsREST: React.FC = () => {
         <>
           <Title text="GraphQL Ecosystem" subtitle="Tools & Best Practices" startFrame={2250} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={2280} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={2280} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2520 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2280} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2280} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="This makes sense! What tools should I use to get started with GraphQL?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={2310}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="This makes sense! What tools should I use to get started with GraphQL?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2310}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! Apollo and Relay are the main ecosystems. Let me show you the key tools and patterns."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={2430}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! Apollo and Relay are the main ecosystems. Let me show you the key tools and patterns."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2430}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* Ecosystem Overview */}
           {frame >= 2520 && (

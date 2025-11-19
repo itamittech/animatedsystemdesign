@@ -31,10 +31,10 @@ export const DDoSProtectionMitigation: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="DDoS Protection & Mitigation" subtitle="Defending Against Distributed Attacks" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="What if someone floods our servers with millions of fake requests? How do we defend against that?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="That's a DDoS attack! Distributed Denial of Service. There are three main types based on OSI layers. Let me explain!" x={width - 750} y={height - 280} startFrame={240} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+          <Dialogue speaker="junior" text="What if someone floods our servers with millions of fake requests? How do we defend against that?" x={width * 0.10} y={height * 0.64} startFrame={90} />
+          <Dialogue speaker="architect" text="That's a DDoS attack! Distributed Denial of Service. There are three main types based on OSI layers. Let me explain!" x={width * 0.60} y={height * 0.64} startFrame={240} />
 
           <div style={{position: 'absolute', top: 350, left: width / 2 - 850, width: 1700, opacity: fadeIn(frame, 390, 30)}}>
             <h2 style={{fontSize: 32, fontWeight: 700, color: '#ef4444', marginBottom: 24, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center', textShadow: '0 0 24px rgba(239, 68, 68, 0.6)'}}>💥 DDoS Attack Types</h2>
@@ -144,8 +144,8 @@ export const DDoSProtectionMitigation: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 300} />
-          <Dialogue speaker="junior" text="Monitor traffic patterns, watch for spikes, and look for bot signatures. Detection is the first step!" x={100} y={height - 280} startFrame={scene1End + 330} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 300} />
+          <Dialogue speaker="junior" text="Monitor traffic patterns, watch for spikes, and look for bot signatures. Detection is the first step!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 330} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -227,8 +227,8 @@ export const DDoSProtectionMitigation: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 270} />
-          <Dialogue speaker="architect" text="Combine multiple layers: CDN, WAF, rate limiting, and traffic scrubbing for comprehensive defense!" x={width - 750} y={height - 280} startFrame={scene2End + 300} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 270} />
+          <Dialogue speaker="architect" text="Combine multiple layers: CDN, WAF, rate limiting, and traffic scrubbing for comprehensive defense!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 300} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -279,8 +279,8 @@ export const DDoSProtectionMitigation: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 300} />
-          <Dialogue speaker="junior" text="DDoS is serious! Use professional services, have a plan, and test defenses before you need them!" x={100} y={height - 280} startFrame={scene3End + 330} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 300} />
+          <Dialogue speaker="junior" text="DDoS is serious! Use professional services, have a plan, and test defenses before you need them!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 330} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

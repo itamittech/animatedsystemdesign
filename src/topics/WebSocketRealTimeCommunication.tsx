@@ -31,10 +31,10 @@ export const WebSocketRealTimeCommunication: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="WebSocket & Real-Time Communication" subtitle="Bidirectional, Low-Latency Messaging" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="For a chat app, polling every second generates tons of empty requests. There must be a better way!" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="WebSockets! Persistent, bidirectional connection. Server can push data instantly. Let's compare approaches!" x={width - 750} y={height - 280} startFrame={240} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+          <Dialogue speaker="junior" text="For a chat app, polling every second generates tons of empty requests. There must be a better way!" x={width * 0.10} y={height * 0.64} startFrame={90} />
+          <Dialogue speaker="architect" text="WebSockets! Persistent, bidirectional connection. Server can push data instantly. Let's compare approaches!" x={width * 0.60} y={height * 0.64} startFrame={240} />
 
           <div style={{position: 'absolute', top: 340, left: width / 2 - 820, width: 1640, opacity: fadeIn(frame, 390, 30)}}>
             <div style={{display: 'flex', gap: 30, marginBottom: 30}}>
@@ -219,8 +219,8 @@ export const WebSocketRealTimeCommunication: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 300} />
-          <Dialogue speaker="junior" text="HTTP upgrade handshake, then lightweight frames. Full-duplex with tiny overhead!" x={100} y={height - 280} startFrame={scene1End + 330} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 300} />
+          <Dialogue speaker="junior" text="HTTP upgrade handshake, then lightweight frames. Full-duplex with tiny overhead!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 330} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -303,8 +303,8 @@ export const WebSocketRealTimeCommunication: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 300} />
-          <Dialogue speaker="architect" text="Choose based on needs: SSE for simple push, WebSocket for bidirectional, Long Polling as fallback!" x={width - 750} y={height - 280} startFrame={scene2End + 330} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 300} />
+          <Dialogue speaker="architect" text="Choose based on needs: SSE for simple push, WebSocket for bidirectional, Long Polling as fallback!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 330} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -410,8 +410,8 @@ export const WebSocketRealTimeCommunication: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 270} />
-          <Dialogue speaker="junior" text="Sticky sessions for routing, Redis Pub/Sub for broadcast. Scale horizontally with multiple servers!" x={100} y={height - 280} startFrame={scene3End + 300} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 270} />
+          <Dialogue speaker="junior" text="Sticky sessions for routing, Redis Pub/Sub for broadcast. Scale horizontally with multiple servers!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 300} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

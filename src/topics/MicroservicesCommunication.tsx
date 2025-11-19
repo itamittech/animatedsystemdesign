@@ -238,14 +238,14 @@ export const MicroservicesCommunication: React.FC = () => {
         <>
           <Title text="Microservices Communication" x={width / 2 - 500} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={30} />
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={60} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={30} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="architect"
             text="Without a shared database, services communicate via APIs. Two main patterns: Synchronous (request-response) and Asynchronous (events/messages)."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={580}
           />
@@ -516,13 +516,13 @@ export const MicroservicesCommunication: React.FC = () => {
         <>
           <Title text="API Gateway Pattern" x={width / 2 - 370} y={50} color="#c084fc" startFrame={900} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={930} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={930} />
 
           <Dialogue
             speaker="developer"
             text="With 10 microservices, the mobile app needs to call all of them separately? That's a lot of network calls!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={960}
             maxWidth={650}
           />
@@ -646,13 +646,13 @@ export const MicroservicesCommunication: React.FC = () => {
         <>
           <Title text="Backend for Frontend (BFF)" x={width / 2 - 480} y={50} color="#c084fc" startFrame={1650} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={1680} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={1680} />
 
           <Dialogue
             speaker="architect"
             text="When mobile needs different data than web (smaller payloads, different fields), use BFF pattern - one API gateway per client type."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1710}
             maxWidth={580}
           />
@@ -784,15 +784,15 @@ export const MicroservicesCommunication: React.FC = () => {
         <>
           <Title text="Service Mesh" x={width / 2 - 230} y={50} color="#c084fc" startFrame={2250} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2280} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2310} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2280} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2310} />
 
           {frame < 2460 && (
             <Dialogue
               speaker="developer"
               text="How do I handle retries, timeouts, circuit breakers for all these service-to-service calls? Seems like a lot of code!"
-              x={100}
-              y={height - 280}
+              x={width * 0.10}
+              y={height * 0.64}
               startFrame={2340}
               maxWidth={650}
             />
@@ -802,8 +802,8 @@ export const MicroservicesCommunication: React.FC = () => {
             <Dialogue
               speaker="architect"
               text="Service Mesh! Infrastructure layer that handles all network concerns transparently using sidecar proxies. No code changes needed!"
-              x={width - 750}
-              y={height - 280}
+              x={width * 0.60}
+              y={height * 0.64}
               startFrame={2460}
               maxWidth={580}
             />
@@ -813,8 +813,8 @@ export const MicroservicesCommunication: React.FC = () => {
             <Dialogue
               speaker="developer"
               text="This is great! We've covered communication patterns, but what happens when services fail? How do we build resilient systems?"
-              x={100}
-              y={height - 280}
+              x={width * 0.10}
+              y={height * 0.64}
               startFrame={2910}
               maxWidth={650}
             />

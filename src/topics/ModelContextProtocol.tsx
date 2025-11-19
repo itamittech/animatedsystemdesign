@@ -235,14 +235,14 @@ export const ModelContextProtocol: React.FC = () => {
         <>
           <Title text="Model Context Protocol (MCP)" x={width / 2 - 460} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="Sarah, if every LLM needs custom integrations for every tool and data source, that sounds like a mess! Is there a standard way to connect AI agents to external resources?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -250,8 +250,8 @@ export const ModelContextProtocol: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="That's exactly the problem MCP solves! Model Context Protocol is like REST APIs for AI - a standard interface for LLMs to securely connect to any data source or tool. Let me show you!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -277,7 +277,7 @@ export const ModelContextProtocol: React.FC = () => {
         <>
           <Title text="The Integration Problem" x={width / 2 - 370} y={50} color="#c084fc" startFrame={480} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 50} startFrame={510} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 50} startFrame={510} />
 
           {/* Without MCP - Spaghetti */}
           <div
@@ -406,8 +406,8 @@ export const ModelContextProtocol: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="MCP is the missing layer! Instead of N×M integrations (every LLM to every resource), you build once and it works everywhere. Think microservices for AI!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={900}
             maxWidth={580}
           />
@@ -433,7 +433,7 @@ export const ModelContextProtocol: React.FC = () => {
         <>
           <Title text="MCP Architecture" x={width / 2 - 280} y={50} color="#c084fc" startFrame={1020} />
 
-          <Character type="developer" x={200} y={height / 2 + 80} startFrame={1050} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 80} startFrame={1050} />
 
           {/* Architecture diagram */}
           <div
@@ -554,8 +554,8 @@ export const ModelContextProtocol: React.FC = () => {
           <Dialogue
             speaker="developer"
             text="So MCP servers are like API gateways for AI? They handle the messy details (auth, rate limits, format conversion) and give LLMs a clean interface?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1530}
             maxWidth={650}
           />
@@ -581,7 +581,7 @@ export const ModelContextProtocol: React.FC = () => {
         <>
           <Title text="Why MCP Matters" x={width / 2 - 250} y={50} color="#c084fc" startFrame={1680} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={1710} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 50} startFrame={1710} />
 
           {/* Key Benefits */}
           <div
@@ -693,8 +693,8 @@ export const ModelContextProtocol: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="MCP is enabling an ecosystem! Instead of every company building custom integrations, we're building a marketplace of reusable, secure connectors. It's the Docker of AI integrations!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2130}
             maxWidth={580}
           />
@@ -720,8 +720,8 @@ export const ModelContextProtocol: React.FC = () => {
         <>
           <Title text="Key Takeaways" x={width / 2 - 220} y={50} color="#c084fc" startFrame={2280} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2310} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2340} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2310} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2340} />
 
           {/* Takeaways */}
           <div
@@ -777,8 +777,8 @@ export const ModelContextProtocol: React.FC = () => {
           <Dialogue
             speaker="developer"
             text="This makes total sense! MCP is standardizing how AI connects to the world, just like HTTP standardized web communication. I can see why this is the future!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={2430}
             maxWidth={650}
           />
@@ -786,8 +786,8 @@ export const ModelContextProtocol: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Exactly! You've now learned the full AI stack: ML basics, neural networks, LLMs, agents, and MCP. You're ready to architect AI-powered systems like a pro. Go build something amazing!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2550}
             maxWidth={580}
           />

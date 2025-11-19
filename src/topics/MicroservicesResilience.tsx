@@ -238,14 +238,14 @@ export const MicroservicesResilience: React.FC = () => {
         <>
           <Title text="Resilience & Fault Tolerance" x={width / 2 - 500} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="If Payment Service goes down, won't the Order Service fail too when it tries to call it? One failure cascades!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -253,8 +253,8 @@ export const MicroservicesResilience: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Exactly! That's cascade failure - microservices' biggest risk. We use resilience patterns to prevent it. Let me show you."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -448,13 +448,13 @@ export const MicroservicesResilience: React.FC = () => {
         <>
           <Title text="Circuit Breaker Pattern" x={width / 2 - 400} y={50} color="#c084fc" startFrame={660} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={690} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={690} />
 
           <Dialogue
             speaker="architect"
             text="Circuit Breaker stops calling a failing service, fails fast, and gives it time to recover. Like an electrical circuit breaker!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={720}
             maxWidth={580}
           />
@@ -751,13 +751,13 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
         <>
           <Title text="More Resilience Patterns" x={width / 2 - 430} y={50} color="#c084fc" startFrame={1410} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1440} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1440} />
 
           <Dialogue
             speaker="developer"
             text="Circuit Breaker is great! Are there other patterns to make microservices more resilient?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1470}
             maxWidth={650}
           />
@@ -928,14 +928,14 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
         <>
           <Title text="Fallback & Graceful Degradation" x={width / 2 - 540} y={50} color="#c084fc" startFrame={2100} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2130} />
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2160} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2130} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2160} />
 
           <Dialogue
             speaker="architect"
             text="When a service fails, provide a fallback response instead of total failure. Degrade gracefully - it's better than complete downtime!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2190}
             maxWidth={580}
           />
@@ -1036,8 +1036,8 @@ public PaymentResponse paymentFallback(Order order, Exception ex) {
           <Dialogue
             speaker="developer"
             text="So we plan for failure, handle it gracefully, and keep the system running even when parts fail. Resilience is about surviving failures, not preventing them!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={2580}
             maxWidth={650}
           />

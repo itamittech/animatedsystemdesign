@@ -57,29 +57,34 @@ export const DatabaseSharding: React.FC = () => {
         <>
           <Title text="Database Sharding" subtitle="Horizontal Partitioning for Massive Scale" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 270 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="When replication isn't enough, how do we scale databases to billions of rows?"
-            x={220}
-            y={height - 280}
-            startFrame={60}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="When replication isn't enough, how do we scale databases to billions of rows?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's where sharding comes in! We split data horizontally across multiple databases."
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={640}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's where sharding comes in! We split data horizontally across multiple databases."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={640}
+              />
+            </>
+          )}
 
           {/* What is Sharding */}
-          {frame >= 270 && (
+          {frame >= 280 && (
             <div
               style={{
                 position: 'absolute',
@@ -90,7 +95,7 @@ export const DatabaseSharding: React.FC = () => {
                 border: '3px solid rgba(20, 184, 166, 0.5)',
                 borderRadius: 16,
                 padding: 28,
-                opacity: fadeIn(frame, 270, 20),
+                opacity: fadeIn(frame, 280, 20),
               }}
             >
               <div style={{fontSize: 32, fontWeight: 'bold', color: '#14b8a6', marginBottom: 20, textAlign: 'center'}}>
@@ -166,26 +171,31 @@ export const DatabaseSharding: React.FC = () => {
             Shard Key Strategies
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={450} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 690 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={460} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={460} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="How do we decide which data goes to which shard?"
-            x={220}
-            y={height - 280}
-            startFrame={480}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="How do we decide which data goes to which shard?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={480}
+                maxWidth={450}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="The shard key is critical! Let's look at three common strategies: Hash, Range, and Geographic."
-            x={width - 750}
-            y={height - 280}
-            startFrame={600}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="The shard key is critical! Let's look at three common strategies: Hash, Range, and Geographic."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={600}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -197,7 +207,7 @@ export const DatabaseSharding: React.FC = () => {
             }}
           >
             {/* Hash-Based Sharding */}
-            {frame >= 690 && (
+            {frame >= 700 && (
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
@@ -205,8 +215,8 @@ export const DatabaseSharding: React.FC = () => {
                   borderRadius: 16,
                   padding: 24,
                   marginBottom: 20,
-                  opacity: fadeIn(frame, 690, 20),
-                  transform: `scale(${pulse(frame, 690)})`,
+                  opacity: fadeIn(frame, 700, 20),
+                  transform: `scale(${pulse(frame, 60)})`,
                 }}
               >
                 <div style={{fontSize: 28, color: '#f59e0b', fontWeight: 'bold', marginBottom: 12}}>
@@ -243,7 +253,7 @@ export const DatabaseSharding: React.FC = () => {
                   padding: 24,
                   marginBottom: 20,
                   opacity: fadeIn(frame, 800, 20),
-                  transform: `scale(${pulse(frame, 800)})`,
+                  transform: `scale(${pulse(frame, 60)})`,
                 }}
               >
                 <div style={{fontSize: 28, color: '#3b82f6', fontWeight: 'bold', marginBottom: 12}}>
@@ -279,7 +289,7 @@ export const DatabaseSharding: React.FC = () => {
                   borderRadius: 16,
                   padding: 24,
                   opacity: fadeIn(frame, 910, 20),
-                  transform: `scale(${pulse(frame, 910)})`,
+                  transform: `scale(${pulse(frame, 60)})`,
                 }}
               >
                 <div style={{fontSize: 28, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
@@ -328,27 +338,33 @@ export const DatabaseSharding: React.FC = () => {
             Consistent Hashing ⭕
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1050} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1170 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1060} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="What if you need to add or remove shards? Consistent hashing minimizes data movement!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={1080}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="What if you need to add or remove shards? Consistent hashing minimizes data movement!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1080}
+                maxWidth={540}
+              />
+            </>
+          )}
 
-          <div
-            style={{
-              position: 'absolute',
-              top: 160,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 1600,
-              opacity: fadeIn(frame, 1170, 20),
-            }}
-          >
+          {frame >= 1180 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 160,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 1600,
+                opacity: fadeIn(frame, 1180, 20),
+              }}
+            >
             {/* The Problem */}
             <div
               style={{
@@ -420,7 +436,8 @@ export const DatabaseSharding: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          )}
         </>
       )}
 
@@ -443,37 +460,43 @@ export const DatabaseSharding: React.FC = () => {
             Cross-Shard Queries Challenge
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={1500} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1500} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1740 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1510} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1510} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What if I need to query across multiple shards?"
-            x={220}
-            y={height - 280}
-            startFrame={1530}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What if I need to query across multiple shards?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1530}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's the biggest challenge of sharding! You lose simple JOINs and aggregations."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1650}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's the biggest challenge of sharding! You lose simple JOINs and aggregations."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1650}
+                maxWidth={540}
+              />
+            </>
+          )}
 
-          <div
-            style={{
-              position: 'absolute',
-              top: 170,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 1700,
-              opacity: fadeIn(frame, 1740, 20),
-            }}
-          >
+          {frame >= 1750 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 170,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 1700,
+                opacity: fadeIn(frame, 1750, 20),
+              }}
+            >
             {/* The Challenge */}
             <div
               style={{
@@ -550,7 +573,8 @@ export const DatabaseSharding: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          )}
         </>
       )}
 
@@ -573,28 +597,33 @@ export const DatabaseSharding: React.FC = () => {
             Resharding Strategies
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={2100} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2100} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2340 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2110} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2110} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What if a shard gets too big or we need to rebalance?"
-            x={220}
-            y={height - 280}
-            startFrame={2130}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What if a shard gets too big or we need to rebalance?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2130}
+                maxWidth={460}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Resharding is expensive but sometimes necessary. Let's look at strategies to minimize pain."
-            x={width - 750}
-            y={height - 280}
-            startFrame={2250}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Resharding is expensive but sometimes necessary. Let's look at strategies to minimize pain."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2250}
+                maxWidth={540}
+              />
+            </>
+          )}
 
-          {frame >= 2340 && (
+          {frame >= 2350 && (
             <div
               style={{
                 position: 'absolute',
@@ -602,7 +631,7 @@ export const DatabaseSharding: React.FC = () => {
                 left: '50%',
                 transform: 'translateX(-50%)',
                 width: 1600,
-                opacity: fadeIn(frame, 2340, 20),
+                opacity: fadeIn(frame, 2350, 20),
               }}
             >
               <div
@@ -618,21 +647,21 @@ export const DatabaseSharding: React.FC = () => {
                 </div>
 
                 <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2.2}}>
-                  <div style={{opacity: fadeIn(frame, 2370, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 2380, 15)}}>
                     <span style={{fontSize: 28}}>1️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Stop Writes</span> (Downtime)
                     <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Freeze DB, copy data, switch over - simple but requires maintenance window
                     </div>
                   </div>
 
-                  <div style={{opacity: fadeIn(frame, 2420, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 2430, 15)}}>
                     <span style={{fontSize: 28}}>2️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Dual Writes</span> (Online)
                     <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Write to old & new shards, migrate in background, cutover - zero downtime
                     </div>
                   </div>
 
-                  <div style={{opacity: fadeIn(frame, 2470, 15)}}>
+                  <div style={{opacity: fadeIn(frame, 2480, 15)}}>
                     <span style={{fontSize: 28}}>3️⃣</span> <span style={{color: '#c4b5fd', fontWeight: 'bold'}}>Virtual Shards</span> (Plan Ahead)
                     <div style={{fontSize: 24, marginLeft: 40, color: '#94a3b8'}}>
                       Create 1000 logical shards mapped to 10 physical - just remap, no data move

@@ -57,14 +57,14 @@ export const MultiLayerCaching: React.FC = () => {
         <>
           <Title text="Multi-Layer Caching" subtitle="Building Performance Through Strategic Cache Layers" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={30} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={30} size={90} />
 
           <Dialogue
             speaker="junior"
             text="Sarah, I understand single caches, but how do we cache at scale across an entire architecture?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={60}
             maxWidth={520}
           />
@@ -72,8 +72,8 @@ export const MultiLayerCaching: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="We use multiple cache layers! Each layer gets closer to the user and faster. Let me show you the pyramid."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={700}
           />
@@ -200,13 +200,13 @@ export const MultiLayerCaching: React.FC = () => {
             Request Flow: Cache Hit at Each Layer
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={450} size={90} />
 
           <Dialogue
             speaker="architect"
             text="A request tries each layer from fastest to slowest. First hit wins! Let's trace a user profile request."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={480}
             maxWidth={720}
           />
@@ -388,14 +388,14 @@ export const MultiLayerCaching: React.FC = () => {
             Cache-Aside Pattern (Lazy Loading)
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={1050} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1050} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={1050} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={1050} size={90} />
 
           <Dialogue
             speaker="junior"
             text="How does the application layer decide what to cache?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={1080}
             maxWidth={500}
           />
@@ -403,8 +403,8 @@ export const MultiLayerCaching: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Cache-Aside is the most common pattern. The app checks cache first, then loads from DB on miss and stores it."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1170}
             maxWidth={720}
           />
@@ -529,13 +529,13 @@ export const MultiLayerCaching: React.FC = () => {
             Cache Invalidation Strategies
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1650} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={1650} size={90} />
 
           <Dialogue
             speaker="architect"
             text="The hardest problem: keeping caches in sync! There are three main approaches depending on your consistency needs."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1680}
             maxWidth={720}
           />
@@ -714,14 +714,14 @@ export const MultiLayerCaching: React.FC = () => {
             Multi-Layer Caching Best Practices
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={2400} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2400} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={2400} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={2400} size={90} />
 
           <Dialogue
             speaker="junior"
             text="This is complex! Any guidelines for getting it right?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={2430}
             maxWidth={500}
           />
@@ -729,8 +729,8 @@ export const MultiLayerCaching: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Absolutely! Here are the golden rules for production multi-layer caching."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2520}
             maxWidth={680}
           />

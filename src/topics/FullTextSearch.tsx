@@ -28,13 +28,54 @@ export const FullTextSearch: React.FC = () => {
 
   return (
     <AbsoluteFill style={{backgroundColor: theme.background.primary}}>
+      {/* Credit Bookmark */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          right: 30,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backdropFilter: 'blur(10px)',
+          padding: '12px 24px',
+          borderRadius: 30,
+          border: '2px solid rgba(96, 165, 250, 0.4)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+          opacity: fadeIn(frame, 30, 20),
+          zIndex: 1000,
+        }}
+      >
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{
+          fontSize: 20,
+          fontWeight: 'bold',
+          background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}>
+          Amit Mishra
+        </div>
+        <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
+        </div>
+      </div>
+
       {frame < scene1End && (
         <>
           <Title text="Full-Text Search" subtitle="How Search Engines Work" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="How does Google search billions of pages in milliseconds? Database LIKE queries are way too slow!" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Exactly! Search engines use INVERTED INDEXES, not database scans. Let me show you the difference!" x={width - 750} y={height - 280} startFrame={240} />
+
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 330 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
+              <Dialogue speaker="junior" text="How does Google search billions of pages in milliseconds? Database LIKE queries are way too slow!" x={width * 0.10} y={height * 0.64} startFrame={90} maxWidth={500} />
+              <Dialogue speaker="architect" text="Exactly! Search engines use INVERTED INDEXES, not database scans. Let me show you the difference!" x={width * 0.60} y={height * 0.64} startFrame={240} maxWidth={520} />
+            </>
+          )}
 
           <div style={{position: 'absolute', top: 340, left: width / 2 - 820, width: 1640, opacity: fadeIn(frame, 390, 30)}}>
             <div style={{display: 'flex', gap: 40, marginBottom: 30}}>
@@ -90,8 +131,6 @@ export const FullTextSearch: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}
 
@@ -167,10 +206,13 @@ export const FullTextSearch: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 390} />
-          <Dialogue speaker="junior" text="So we flip the index! Instead of document → words, we index word → documents. Genius!" x={100} y={height - 280} startFrame={scene1End + 420} />
-
-          <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < scene1End + 510 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene1End + 390} size={95} />
+              <Dialogue speaker="junior" text="So we flip the index! Instead of document → words, we index word → documents. Genius!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 420} maxWidth={480} />
+            </>
+          )}
         </>
       )}
 
@@ -261,10 +303,13 @@ export const FullTextSearch: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 330} />
-          <Dialogue speaker="architect" text="Process text first (stem, tokenize), then rank results by TF-IDF. Rare words score higher!" x={width - 750} y={height - 280} startFrame={scene2End + 360} />
-
-          <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < scene2End + 450 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={scene2End + 330} size={95} />
+              <Dialogue speaker="architect" text="Process text first (stem, tokenize), then rank results by TF-IDF. Rare words score higher!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 360} maxWidth={500} />
+            </>
+          )}
         </>
       )}
 
@@ -340,10 +385,13 @@ export const FullTextSearch: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 330} />
-          <Dialogue speaker="junior" text="Elasticsearch for full-text search, databases for exact lookups. Each tool for the right job!" x={100} y={height - 280} startFrame={scene3End + 360} />
-
-          <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < scene3End + 450 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene3End + 330} size={95} />
+              <Dialogue speaker="junior" text="Elasticsearch for full-text search, databases for exact lookups. Each tool for the right job!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 360} maxWidth={480} />
+            </>
+          )}
         </>
       )}
     </AbsoluteFill>

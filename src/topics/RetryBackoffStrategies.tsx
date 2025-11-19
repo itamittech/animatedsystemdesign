@@ -31,10 +31,10 @@ export const RetryBackoffStrategies: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="Retry & Backoff Strategies" subtitle="Handling Transient Failures" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="A network blip caused a request to fail. Should I retry immediately?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Yes, but WAIT before retrying! Exponential backoff prevents hammering a recovering service." x={width - 750} y={height - 280} startFrame={240} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+          <Dialogue speaker="junior" text="A network blip caused a request to fail. Should I retry immediately?" x={width * 0.10} y={height * 0.64} startFrame={90} />
+          <Dialogue speaker="architect" text="Yes, but WAIT before retrying! Exponential backoff prevents hammering a recovering service." x={width * 0.60} y={height * 0.64} startFrame={240} />
           <div style={{position: 'absolute', top: 360, left: width / 2 - 700, width: 1400, opacity: fadeIn(frame, 390, 30)}}>
             <h2 style={{fontSize: 32, fontWeight: 700, color: '#60a5fa', marginBottom: 24, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center'}}>🔄 Transient Failures (Retry Them!)</h2>
             <div style={{display: 'flex', flexWrap: 'wrap', gap: 20}}>
@@ -72,8 +72,8 @@ export const RetryBackoffStrategies: React.FC = () => {
               </div>
             </div>
           </div>
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene1End + 300} />
-          <Dialogue speaker="architect" text="Jitter prevents synchronized retries. Imagine 1000 clients retrying at exact same second - chaos!" x={width - 750} y={height - 280} startFrame={scene1End + 330} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene1End + 300} />
+          <Dialogue speaker="architect" text="Jitter prevents synchronized retries. Imagine 1000 clients retrying at exact same second - chaos!" x={width * 0.60} y={height * 0.64} startFrame={scene1End + 330} />
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}
@@ -108,8 +108,8 @@ export const RetryBackoffStrategies: React.FC = () => {
               </div>
             </div>
           </div>
-          <Character type="junior" x={200} y={height - 200} startFrame={scene2End + 300} />
-          <Dialogue speaker="junior" text="So I need to make sure retrying won't cause duplicate charges or data corruption!" x={100} y={height - 280} startFrame={scene2End + 330} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene2End + 300} />
+          <Dialogue speaker="junior" text="So I need to make sure retrying won't cause duplicate charges or data corruption!" x={width * 0.10} y={height * 0.64} startFrame={scene2End + 330} />
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}
@@ -136,8 +136,8 @@ export const RetryBackoffStrategies: React.FC = () => {
               <p style={{fontSize: 24, color: '#e9d5ff', fontFamily: theme.typography.body.fontFamily, textAlign: 'center', margin: 0, lineHeight: 1.6, fontWeight: 600}}>💡 <strong style={{color: '#c4b5fd'}}>Best Practice:</strong> Retry 2-3 times with exponential backoff + jitter. Log failures for investigation.</p>
             </div>
           </div>
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene3End + 270} />
-          <Dialogue speaker="architect" text="Smart retries = resilience. Dumb retries = making problems worse!" x={width - 750} y={height - 280} startFrame={scene3End + 300} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene3End + 270} />
+          <Dialogue speaker="architect" text="Smart retries = resilience. Dumb retries = making problems worse!" x={width * 0.60} y={height * 0.64} startFrame={scene3End + 300} />
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}

@@ -31,10 +31,16 @@ export const AuthenticationAuthorization: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="Authentication & Authorization" subtitle="Who You Are vs What You Can Do" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="What's the difference between authentication and authorization? I always confuse them!" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Authentication proves WHO you are (login). Authorization determines WHAT you can do (permissions). Both are critical for security!" x={width - 750} y={height - 280} startFrame={240} />
+
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 330 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} />
+              <Dialogue speaker="junior" text="What's the difference between authentication and authorization? I always confuse them!" x={width * 0.10} y={height * 0.64} startFrame={90} />
+              <Dialogue speaker="architect" text="Authentication proves WHO you are (login). Authorization determines WHAT you can do (permissions). Both are critical for security!" x={width * 0.60} y={height * 0.64} startFrame={240} />
+            </>
+          )}
 
           <div style={{position: 'absolute', top: 350, left: width / 2 - 820, width: 1640, opacity: fadeIn(frame, 390, 30)}}>
             <div style={{display: 'flex', gap: 40}}>
@@ -175,8 +181,13 @@ export const AuthenticationAuthorization: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 390} />
-          <Dialogue speaker="junior" text="JWT is stateless and scales better, but sessions are easier to revoke. Got it!" x={100} y={height - 280} startFrame={scene1End + 420} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1110 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene1End + 390} />
+              <Dialogue speaker="junior" text="JWT is stateless and scales better, but sessions are easier to revoke. Got it!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 420} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -221,8 +232,13 @@ export const AuthenticationAuthorization: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 330} />
-          <Dialogue speaker="architect" text="OAuth lets users login with existing accounts. Use Authorization Code flow for web apps!" x={width - 750} y={height - 280} startFrame={scene2End + 360} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1740 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={scene2End + 330} />
+              <Dialogue speaker="architect" text="OAuth lets users login with existing accounts. Use Authorization Code flow for web apps!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 360} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -266,8 +282,13 @@ export const AuthenticationAuthorization: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 330} />
-          <Dialogue speaker="junior" text="Security is hard! Hash passwords, use HTTPS, expire tokens, and enable MFA. No shortcuts!" x={100} y={height - 280} startFrame={scene3End + 360} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2400 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene3End + 330} />
+              <Dialogue speaker="junior" text="Security is hard! Hash passwords, use HTTPS, expire tokens, and enable MFA. No shortcuts!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 360} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

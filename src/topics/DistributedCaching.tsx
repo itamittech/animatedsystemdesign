@@ -57,26 +57,31 @@ export const DistributedCaching: React.FC = () => {
         <>
           <Title text="Distributed Caching" subtitle="Scaling Cache Beyond a Single Server" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 270 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="What happens when a single Redis server isn't enough? How do we scale caching horizontally?"
-            x={220}
-            y={height - 280}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What happens when a single Redis server isn't enough? How do we scale caching horizontally?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="We go distributed! Multiple cache servers working together to handle massive scale. Let's see why and how."
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="We go distributed! Multiple cache servers working together to handle massive scale. Let's see why and how."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           {/* The Problem */}
           {frame >= 270 && (
@@ -165,16 +170,21 @@ export const DistributedCaching: React.FC = () => {
             Redis Cluster Architecture
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={480} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 600 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={480} size={90} />
 
-          <Dialogue
-            speaker="architect"
-            text="Redis Cluster uses hash slots for sharding and master-replica for high availability. Let me show you the architecture."
-            x={width - 750}
-            y={height - 280}
-            startFrame={510}
-            maxWidth={720}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Redis Cluster uses hash slots for sharding and master-replica for high availability. Let me show you the architecture."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={510}
+                maxWidth={720}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -351,26 +361,31 @@ export const DistributedCaching: React.FC = () => {
             High Availability & Failover
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={1080} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1080} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1290 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1080} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1080} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="What happens if a master node fails?"
-            x={220}
-            y={height - 280}
-            startFrame={1110}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What happens if a master node fails?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1110}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Automatic failover! Replicas detect the failure and one gets promoted to master. The cluster stays online."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1200}
-            maxWidth={720}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Automatic failover! Replicas detect the failure and one gets promoted to master. The cluster stays online."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1200}
+                maxWidth={720}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -526,16 +541,21 @@ export const DistributedCaching: React.FC = () => {
             Memcached vs Redis Cluster
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1800} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1920 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1800} size={90} />
 
-          <Dialogue
-            speaker="architect"
-            text="Memcached and Redis have different distributed approaches. Let me show you when to use each."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1830}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Memcached and Redis have different distributed approaches. Let me show you when to use each."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1830}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -653,26 +673,31 @@ export const DistributedCaching: React.FC = () => {
             Production Best Practices
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={2400} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2400} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2640 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2400} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2400} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="This is powerful but complex! How do we run this reliably in production?"
-            x={220}
-            y={height - 280}
-            startFrame={2430}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="This is powerful but complex! How do we run this reliably in production?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2430}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! Here are the battle-tested practices for running distributed caches at scale."
-            x={width - 750}
-            y={height - 280}
-            startFrame={2550}
-            maxWidth={720}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! Here are the battle-tested practices for running distributed caches at scale."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2550}
+                maxWidth={720}
+              />
+            </>
+          )}
 
           {frame >= 2640 && (
             <div

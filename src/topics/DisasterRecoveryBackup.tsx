@@ -26,10 +26,10 @@ export const DisasterRecoveryBackup: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="Disaster Recovery & Backup" subtitle="Planning for the Worst" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="What if our entire datacenter goes offline? Or we accidentally delete the production database?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="That's why we need DR planning! Define RTO and RPO, maintain backups, and test recovery procedures regularly." x={width - 750} y={height - 280} startFrame={240} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+          <Dialogue speaker="junior" text="What if our entire datacenter goes offline? Or we accidentally delete the production database?" x={width * 0.10} y={height * 0.64} startFrame={90} />
+          <Dialogue speaker="architect" text="That's why we need DR planning! Define RTO and RPO, maintain backups, and test recovery procedures regularly." x={width * 0.60} y={height * 0.64} startFrame={240} />
           <div style={{position: 'absolute', top: 360, left: width / 2 - 700, width: 1400, opacity: fadeIn(frame, 390, 30)}}>
             <div style={{display: 'flex', gap: 40, justifyContent: 'center'}}>
               {[{icon: '⏱️', title: 'RTO', full: 'Recovery Time Objective', desc: 'How long can we be down?', example: 'RTO = 1 hour'}, {icon: '📊', title: 'RPO', full: 'Recovery Point Objective', desc: 'How much data can we lose?', example: 'RPO = 15 minutes'}].map((metric, i) => (
@@ -71,8 +71,8 @@ export const DisasterRecoveryBackup: React.FC = () => {
               </div>
             </div>
           </div>
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 240} />
-          <Dialogue speaker="junior" text="So full backup weekly, incremental daily! And always test restores!" x={100} y={height - 280} startFrame={scene1End + 270} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 240} />
+          <Dialogue speaker="junior" text="So full backup weekly, incremental daily! And always test restores!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 270} />
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}
@@ -100,8 +100,8 @@ export const DisasterRecoveryBackup: React.FC = () => {
               </div>
             </div>
           </div>
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 240} />
-          <Dialogue speaker="architect" text="Choose based on business requirements. Financial services need hot standby. Internal tools can use cold." x={width - 750} y={height - 280} startFrame={scene2End + 270} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 240} />
+          <Dialogue speaker="architect" text="Choose based on business requirements. Financial services need hot standby. Internal tools can use cold." x={width * 0.60} y={height * 0.64} startFrame={scene2End + 270} />
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}
@@ -122,8 +122,8 @@ export const DisasterRecoveryBackup: React.FC = () => {
               <p style={{fontSize: 26, color: '#d1fae5', fontFamily: theme.typography.body.fontFamily, textAlign: 'center', margin: 0, lineHeight: 1.6, fontWeight: 600}}>💡 <strong style={{color: '#6ee7b7'}}>The DR plan you don't test is the one that will fail.</strong><br />Practice recovery until it's boring!</p>
             </div>
           </div>
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 270} />
-          <Dialogue speaker="junior" text="Test, test, test! Because when disaster strikes, there's no time to figure it out!" x={100} y={height - 280} startFrame={scene3End + 300} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 270} />
+          <Dialogue speaker="junior" text="Test, test, test! Because when disaster strikes, there's no time to figure it out!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 300} />
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
       )}

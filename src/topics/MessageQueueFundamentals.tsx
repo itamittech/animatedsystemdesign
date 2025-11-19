@@ -59,14 +59,14 @@ export const MessageQueueFundamentals: React.FC = () => {
         <>
           <Title text="Message Queue Fundamentals" subtitle="Asynchronous Communication at Scale" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={30} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={30} size={90} />
 
           <Dialogue
             speaker="junior"
             text="When services need to talk asynchronously, how do we handle that? Just fire HTTP requests and forget?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={60}
             maxWidth={520}
           />
@@ -74,8 +74,8 @@ export const MessageQueueFundamentals: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="That's where message queues come in! They're the backbone of async communication. Let's explore why we need them."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={640}
           />
@@ -203,13 +203,13 @@ export const MessageQueueFundamentals: React.FC = () => {
             What is a Message Queue?
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={600} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={600} size={90} />
 
           <Dialogue
             speaker="architect"
             text="A message queue is like a post office. Producers send messages, and consumers receive them - but they don't need to be online at the same time!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={630}
             maxWidth={700}
           />
@@ -408,14 +408,14 @@ export const MessageQueueFundamentals: React.FC = () => {
             Queue vs Topic vs Stream
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={1200} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1200} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={1200} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={1200} size={90} />
 
           <Dialogue
             speaker="junior"
             text="I hear about queues, topics, and streams. What's the difference?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={1230}
             maxWidth={500}
           />
@@ -423,8 +423,8 @@ export const MessageQueueFundamentals: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! They're different messaging patterns. Let me show you the three main types."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1320}
             maxWidth={700}
           />
@@ -622,13 +622,13 @@ export const MessageQueueFundamentals: React.FC = () => {
             Push vs Pull & Delivery Guarantees
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2100} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={2100} size={90} />
 
           <Dialogue
             speaker="architect"
             text="Two more critical concepts: how messages are delivered (push vs pull) and delivery guarantees!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2130}
             maxWidth={700}
           />
@@ -800,14 +800,14 @@ export const MessageQueueFundamentals: React.FC = () => {
             When to Use Message Queues
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={3000} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={3000} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={3000} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={3000} size={90} />
 
           <Dialogue
             speaker="junior"
             text="This is powerful! When should I use message queues vs direct calls?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={3030}
             maxWidth={500}
           />
@@ -815,8 +815,8 @@ export const MessageQueueFundamentals: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Use message queues when you need decoupling, async processing, or load smoothing. Let me show you the decision tree!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={3120}
             maxWidth={700}
           />

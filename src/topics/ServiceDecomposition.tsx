@@ -222,14 +222,14 @@ export const ServiceDecomposition: React.FC = () => {
         <>
           <Title text="Service Decomposition Patterns" x={width / 2 - 520} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="Okay, I'm convinced we need microservices. But how do I actually split up our monolith? Where do I draw the service boundaries?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -237,8 +237,8 @@ export const ServiceDecomposition: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! Random splitting leads to chaos. We use Domain-Driven Design principles to find natural boundaries. Let me show you the strategies."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -340,13 +340,13 @@ export const ServiceDecomposition: React.FC = () => {
         <>
           <Title text="Domain-Driven Design (DDD)" x={width / 2 - 450} y={50} color="#c084fc" startFrame={750} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={780} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={780} />
 
           <Dialogue
             speaker="architect"
             text="DDD gives us a systematic way to find boundaries. The key concept is 'Bounded Context' - a clear boundary within which a domain model exists."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={810}
             maxWidth={580}
           />
@@ -500,13 +500,13 @@ export const ServiceDecomposition: React.FC = () => {
         <>
           <Title text="Decomposition Strategies" x={width / 2 - 430} y={50} color="#c084fc" startFrame={1500} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1530} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1530} />
 
           <Dialogue
             speaker="developer"
             text="So I look for bounded contexts in my domain. What specific strategies help me identify them?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1560}
             maxWidth={650}
           />
@@ -649,14 +649,14 @@ export const ServiceDecomposition: React.FC = () => {
         <>
           <Title text="Database Per Service Pattern" x={width / 2 - 480} y={50} color="#c084fc" startFrame={2250} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2280} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2310} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2280} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2310} />
 
           <Dialogue
             speaker="architect"
             text="Critical rule: Each microservice MUST have its own database. No shared databases! This ensures true independence and loose coupling."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2340}
             maxWidth={580}
           />
@@ -881,8 +881,8 @@ export const ServiceDecomposition: React.FC = () => {
             <Dialogue
               speaker="developer"
               text="But what if Order Service needs customer email from User Service? Without a shared database, how do services share data?"
-              x={100}
-              y={height - 280}
+              x={width * 0.10}
+              y={height * 0.64}
               startFrame={2730}
               maxWidth={650}
             />
@@ -892,8 +892,8 @@ export const ServiceDecomposition: React.FC = () => {
             <Dialogue
               speaker="architect"
               text="Excellent question! Services communicate via APIs and events. That's exactly what we'll cover next in Microservices Communication patterns!"
-              x={width - 750}
-              y={height - 280}
+              x={width * 0.60}
+              y={height * 0.64}
               startFrame={2910}
               maxWidth={580}
             />

@@ -34,22 +34,22 @@ export const RateLimitingThrottling: React.FC = () => {
         <>
           <Title text="Rate Limiting & Throttling" subtitle="Protecting Your APIs from Overload" />
 
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
 
           <Dialogue
             speaker="junior"
             text="A user is hammering our API with thousands of requests per second! How do we stop this?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
           />
 
           <Dialogue
             speaker="architect"
             text="Rate limiting! We control how many requests a client can make in a time window. It protects against abuse and ensures fair usage for everyone."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={240}
           />
 
@@ -258,13 +258,13 @@ export const RateLimitingThrottling: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 240} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 240} />
 
           <Dialogue
             speaker="junior"
             text="Token bucket allows bursts, leaky bucket smooths them out. Got it!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene1End + 270}
           />
 
@@ -420,13 +420,13 @@ export const RateLimitingThrottling: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 300} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 300} />
 
           <Dialogue
             speaker="architect"
             text="Fixed window is simple but has burst issues. Sliding window is smoother but needs more memory to track timestamps."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={scene2End + 330}
           />
 
@@ -558,13 +558,13 @@ export const RateLimitingThrottling: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 270} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 270} />
 
           <Dialogue
             speaker="junior"
             text="So we use Redis to keep track across all servers. Smart! This prevents abuse while keeping the API usable."
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene3End + 300}
           />
 

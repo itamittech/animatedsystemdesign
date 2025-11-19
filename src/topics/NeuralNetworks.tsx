@@ -286,14 +286,14 @@ export const NeuralNetworks: React.FC = () => {
         <>
           <Title text="Neural Networks & Deep Learning" x={width / 2 - 500} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="Sarah, you mentioned Deep Learning uses neural networks. But what exactly is a neural network? Is it like... simulating a brain?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -301,8 +301,8 @@ export const NeuralNetworks: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! Neural networks are loosely inspired by brain neurons, but they're really just mathematical functions. Let me show you how they work - from a single neuron to deep networks!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -328,7 +328,7 @@ export const NeuralNetworks: React.FC = () => {
         <>
           <Title text="The Building Block: A Neuron" x={width / 2 - 380} y={50} color="#c084fc" startFrame={480} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 50} startFrame={510} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 50} startFrame={510} />
 
           {/* Neuron visualization */}
           <div
@@ -436,8 +436,8 @@ export const NeuralNetworks: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="One neuron is simple - it's just weighted inputs, sum, and activation. But magic happens when we stack thousands of these together in layers!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={960}
             maxWidth={580}
           />
@@ -463,7 +463,7 @@ export const NeuralNetworks: React.FC = () => {
         <>
           <Title text="Stacking Neurons: Deep Networks" x={width / 2 - 450} y={50} color="#c084fc" startFrame={1080} />
 
-          <Character type="developer" x={200} y={height / 2 + 80} startFrame={1110} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 80} startFrame={1110} />
 
           {/* Multi-layer network visualization */}
           <div
@@ -564,8 +564,8 @@ export const NeuralNetworks: React.FC = () => {
           <Dialogue
             speaker="developer"
             text="So each layer builds on the previous one, learning increasingly complex patterns? That's brilliant! But how does the network actually 'learn' the right weights?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1560}
             maxWidth={650}
           />
@@ -591,7 +591,7 @@ export const NeuralNetworks: React.FC = () => {
         <>
           <Title text="Training vs Inference" x={width / 2 - 330} y={50} color="#c084fc" startFrame={1740} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={1770} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 50} startFrame={1770} />
 
           {/* Training Phase */}
           <div
@@ -703,8 +703,8 @@ export const NeuralNetworks: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Training is expensive and slow - we're teaching the network. Inference is fast and cheap - we're just using what it learned. In production, you only do inference!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2190}
             maxWidth={580}
           />
@@ -730,8 +730,8 @@ export const NeuralNetworks: React.FC = () => {
         <>
           <Title text="Key Takeaways" x={width / 2 - 220} y={50} color="#c084fc" startFrame={2340} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2370} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2400} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2370} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2400} />
 
           {/* Takeaways */}
           <div
@@ -787,8 +787,8 @@ export const NeuralNetworks: React.FC = () => {
           <Dialogue
             speaker="developer"
             text="Neural networks make sense now! They're just layers of math that learn patterns. Training is the hard part, but once trained, inference is fast!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={2490}
             maxWidth={650}
           />
@@ -796,8 +796,8 @@ export const NeuralNetworks: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Exactly! And now you'll understand why LLMs like GPT and Claude are so powerful - they're just really deep neural networks trained on massive amounts of text. Ready to dive in?"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2610}
             maxWidth={580}
           />

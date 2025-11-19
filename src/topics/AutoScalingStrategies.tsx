@@ -34,22 +34,22 @@ export const AutoScalingStrategies: React.FC = () => {
         <>
           <Title text="Auto-Scaling Strategies" subtitle="Dynamic Infrastructure Management" />
 
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
 
           <Dialogue
             speaker="junior"
             text="Traffic spikes during business hours. Should I manually add servers every morning and remove them at night?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
           />
 
           <Dialogue
             speaker="architect"
             text="No way! Use auto-scaling! The system automatically adds or removes servers based on demand. Let me show you how it works."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={240}
           />
 
@@ -280,13 +280,13 @@ export const AutoScalingStrategies: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene1End + 240} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene1End + 240} />
 
           <Dialogue
             speaker="architect"
             text="Reactive waits for high CPU then scales. Predictive uses ML to scale before the traffic spike!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={scene1End + 270}
           />
 
@@ -422,13 +422,13 @@ export const AutoScalingStrategies: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene2End + 300} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene2End + 300} />
 
           <Dialogue
             speaker="junior"
             text="Cooldown prevents scaling up and down too quickly. Smart!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene2End + 330}
           />
 
@@ -546,13 +546,13 @@ export const AutoScalingStrategies: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene3End + 210} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene3End + 210} />
 
           <Dialogue
             speaker="architect"
             text="Remember: Scale out aggressively, scale in conservatively. Better to have extra capacity than unhappy users!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={scene3End + 240}
           />
 

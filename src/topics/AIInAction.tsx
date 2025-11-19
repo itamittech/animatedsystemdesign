@@ -235,26 +235,30 @@ export const AIInAction: React.FC = () => {
         <>
           <Title text="AI in Action: End-to-End Example" x={width / 2 - 500} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          {frame < 270 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={30} />
 
-          <Dialogue
-            speaker="developer"
-            text="Sarah, we've learned about LLMs, agents, and MCP. But what actually happens when I type 'create a linkedlist in java and commit it to my repo' in Claude?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-            maxWidth={650}
-          />
+              <Dialogue
+                speaker="developer"
+                text="Sarah, we've learned about LLMs, agents, and MCP. But what actually happens when I type 'create a linkedlist in java and commit it to my repo' in Claude?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={650}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Perfect question! Let me show you the ENTIRE journey - from your keystrokes to code in your GitHub repo. You'll see how every concept we learned works together in real-time. Watch!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Perfect question! Let me show you the ENTIRE journey - from your keystrokes to code in your GitHub repo. You'll see how every concept we learned works together in real-time. Watch!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* User Input Visualization */}
           <div
@@ -314,7 +318,20 @@ export const AIInAction: React.FC = () => {
         <>
           <Title text="Step 1: LLM Understanding" x={width / 2 - 370} y={50} color="#c084fc" startFrame={600} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={630} />
+          {frame < 1230 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={630} />
+
+              <Dialogue
+                speaker="architect"
+                text="The LLM tokenizes your input, runs it through 96 transformer layers with self-attention, and understands: 'User wants a Java LinkedList implementation.' Now comes the agent part!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1140}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Tokenization */}
           <div
@@ -382,14 +399,6 @@ export const AIInAction: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="The LLM tokenizes your input, runs it through 96 transformer layers with self-attention, and understands: 'User wants a Java LinkedList implementation.' Now comes the agent part!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={1140}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div
@@ -412,7 +421,20 @@ export const AIInAction: React.FC = () => {
         <>
           <Title text="Step 2: Agentic AI - Think & Plan" x={width / 2 - 450} y={50} color="#c084fc" startFrame={1350} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1380} />
+          {frame < 2010 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1380} />
+
+              <Dialogue
+                speaker="developer"
+                text="So the agent thinks through the problem, plans the steps, generates the code, and decides to use a file-writing tool. That's the 'agentic' part - autonomous decision making!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1920}
+                maxWidth={650}
+              />
+            </>
+          )}
 
           {/* The Agent Loop */}
           <div
@@ -535,14 +557,6 @@ export const AIInAction: React.FC = () => {
             </pre>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="So the agent thinks through the problem, plans the steps, generates the code, and decides to use a file-writing tool. That's the 'agentic' part - autonomous decision making!"
-            x={100}
-            y={height - 280}
-            startFrame={1920}
-            maxWidth={650}
-          />
 
           {/* Credit */}
           <div
@@ -565,7 +579,20 @@ export const AIInAction: React.FC = () => {
         <>
           <Title text="Step 3: MCP - Connecting to GitHub" x={width / 2 - 480} y={50} color="#c084fc" startFrame={2100} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 80} startFrame={2130} />
+          {frame < 2790 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 + 80} startFrame={2130} />
+
+              <Dialogue
+                speaker="architect"
+                text="MCP is the secure bridge! Claude doesn't see your GitHub tokens - the MCP server handles authentication, API calls, and git operations. Clean separation of concerns!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2700}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* MCP Flow */}
           <div
@@ -665,14 +692,6 @@ export const AIInAction: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="MCP is the secure bridge! Claude doesn't see your GitHub tokens - the MCP server handles authentication, API calls, and git operations. Clean separation of concerns!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2700}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div
@@ -695,8 +714,30 @@ export const AIInAction: React.FC = () => {
         <>
           <Title text="The Complete Picture" x={width / 2 - 300} y={50} color="#c084fc" startFrame={2850} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2880} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2910} />
+          {frame < 3510 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2880} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2880} />
+
+              <Dialogue
+                speaker="developer"
+                text="Wow! Every concept we learned - LLMs, deep learning, agents, tool calling, MCP - they all work together seamlessly. This is what modern AI looks like in production!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={3300}
+                maxWidth={650}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Exactly! You now understand the full AI stack. From theory to practice. You're ready to build and architect AI-powered systems. Go create something amazing!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={3420}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Complete Flow Diagram */}
           <div
@@ -763,23 +804,6 @@ export const AIInAction: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="Wow! Every concept we learned - LLMs, deep learning, agents, tool calling, MCP - they all work together seamlessly. This is what modern AI looks like in production!"
-            x={100}
-            y={height - 280}
-            startFrame={3300}
-            maxWidth={650}
-          />
-
-          <Dialogue
-            speaker="architect"
-            text="Exactly! You now understand the full AI stack. From theory to practice. You're ready to build and architect AI-powered systems. Go create something amazing!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={3420}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div

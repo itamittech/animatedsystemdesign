@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {theme} from '../design-system/theme';
 import {Title} from '../components/Title';
 import {Character} from '../components/Character';
@@ -18,8 +18,7 @@ import {fadeIn, slideIn} from '../design-system/animations';
 
 export const HorizontalVerticalScaling: React.FC = () => {
   const frame = useCurrentFrame();
-  const width = 1920;
-  const height = 1080;
+  const {width, height} = useVideoConfig();
 
   // Scene timing
   const scene1End = 540;  // 0-18s
@@ -34,37 +33,65 @@ export const HorizontalVerticalScaling: React.FC = () => {
         <>
           <Title text="Horizontal vs Vertical Scaling" subtitle="Two Approaches to Handle Growth" />
 
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 330 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="Our app is getting slow with more users! How do we handle the increased load?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Our app is getting slow with more users! How do we handle the increased load?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={90}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Two main strategies: Scale UP (bigger machine) or Scale OUT (more machines). Let me show you the difference!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={240}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Two main strategies: Scale UP (bigger machine) or Scale OUT (more machines). Let me show you the difference!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={240}
+                maxWidth={540}
+              />
+            </>
+          )}
 
-          {/* Credit */}
+          {/* Credit Bookmark */}
           <div
             style={{
               position: 'absolute',
               bottom: 20,
               right: 30,
-              fontSize: 22,
-              color: '#64748b',
-              fontFamily: 'monospace',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+              backdropFilter: 'blur(10px)',
+              padding: '12px 24px',
+              borderRadius: 30,
+              border: '2px solid rgba(96, 165, 250, 0.4)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+              opacity: fadeIn(frame, 30, 20),
+              zIndex: 1000,
             }}
           >
-            Created by Amit Mishra | Powered by Claude Code
+            <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+            <div style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
+              Amit Mishra
+            </div>
+            <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+            <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+              <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
+            </div>
           </div>
         </>
       )}
@@ -290,28 +317,55 @@ export const HorizontalVerticalScaling: React.FC = () => {
             </defs>
           </svg>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 300} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 960 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene1End + 300} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="So vertical is like upgrading my laptop, and horizontal is like buying more laptops to share the work?"
-            x={100}
-            y={height - 280}
-            startFrame={scene1End + 330}
-          />
+              <Dialogue
+                speaker="junior"
+                text="So vertical is like upgrading my laptop, and horizontal is like buying more laptops to share the work?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={scene1End + 330}
+                maxWidth={480}
+              />
+            </>
+          )}
 
-          {/* Credit */}
+          {/* Credit Bookmark */}
           <div
             style={{
               position: 'absolute',
               bottom: 20,
               right: 30,
-              fontSize: 22,
-              color: '#64748b',
-              fontFamily: 'monospace',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+              backdropFilter: 'blur(10px)',
+              padding: '12px 24px',
+              borderRadius: 30,
+              border: '2px solid rgba(96, 165, 250, 0.4)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+              opacity: fadeIn(frame, 30, 20),
+              zIndex: 1000,
             }}
           >
-            Created by Amit Mishra | Powered by Claude Code
+            <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+            <div style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
+              Amit Mishra
+            </div>
+            <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+            <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+              <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
+            </div>
           </div>
         </>
       )}
@@ -515,28 +569,55 @@ export const HorizontalVerticalScaling: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 270} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1470 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={scene2End + 270} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="Exactly! Vertical is easier but hits limits. Horizontal is more complex but scales infinitely!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={scene2End + 300}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Exactly! Vertical is easier but hits limits. Horizontal is more complex but scales infinitely!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={scene2End + 300}
+                maxWidth={540}
+              />
+            </>
+          )}
 
-          {/* Credit */}
+          {/* Credit Bookmark */}
           <div
             style={{
               position: 'absolute',
               bottom: 20,
               right: 30,
-              fontSize: 22,
-              color: '#64748b',
-              fontFamily: 'monospace',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+              backdropFilter: 'blur(10px)',
+              padding: '12px 24px',
+              borderRadius: 30,
+              border: '2px solid rgba(96, 165, 250, 0.4)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+              opacity: fadeIn(frame, 30, 20),
+              zIndex: 1000,
             }}
           >
-            Created by Amit Mishra | Powered by Claude Code
+            <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+            <div style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
+              Amit Mishra
+            </div>
+            <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+            <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+              <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
+            </div>
           </div>
         </>
       )}
@@ -678,28 +759,55 @@ export const HorizontalVerticalScaling: React.FC = () => {
             </p>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 300} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1920 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene3End + 300} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Got it! Vertical is the easy start, horizontal is for serious scale. Makes sense!"
-            x={100}
-            y={height - 280}
-            startFrame={scene3End + 330}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Got it! Vertical is the easy start, horizontal is for serious scale. Makes sense!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={scene3End + 330}
+                maxWidth={480}
+              />
+            </>
+          )}
 
-          {/* Credit */}
+          {/* Credit Bookmark */}
           <div
             style={{
               position: 'absolute',
               bottom: 20,
               right: 30,
-              fontSize: 22,
-              color: '#64748b',
-              fontFamily: 'monospace',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+              backdropFilter: 'blur(10px)',
+              padding: '12px 24px',
+              borderRadius: 30,
+              border: '2px solid rgba(96, 165, 250, 0.4)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+              opacity: fadeIn(frame, 30, 20),
+              zIndex: 1000,
             }}
           >
-            Created by Amit Mishra | Powered by Claude Code
+            <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+            <div style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
+              Amit Mishra
+            </div>
+            <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+            <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+              <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
+            </div>
           </div>
         </>
       )}

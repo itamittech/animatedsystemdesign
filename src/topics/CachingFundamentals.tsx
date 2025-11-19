@@ -57,26 +57,31 @@ export const CachingFundamentals: React.FC = () => {
         <>
           <Title text="Caching Fundamentals" subtitle="Speed Up Your Applications with Smart Data Storage" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 280 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="Sarah, everyone talks about caching. What exactly is it and why does it matter?"
-            x={220}
-            y={height - 280}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Sarah, everyone talks about caching. What exactly is it and why does it matter?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Caching is storing frequently accessed data in faster storage. It's the difference between 1ms and 100ms response times!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Caching is storing frequently accessed data in faster storage. It's the difference between 1ms and 100ms response times!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={680}
+              />
+            </>
+          )}
 
           {/* The Problem - Without Cache */}
           {frame >= 270 && (
@@ -165,16 +170,21 @@ export const CachingFundamentals: React.FC = () => {
             Cache Hit vs Cache Miss
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 580 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={450} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="Understanding cache hits and misses is crucial. A hit means data is in cache, a miss means we fetch from the database."
-            x={width - 750}
-            y={height - 280}
-            startFrame={480}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Understanding cache hits and misses is crucial. A hit means data is in cache, a miss means we fetch from the database."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={480}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -330,26 +340,31 @@ export const CachingFundamentals: React.FC = () => {
             Cache Eviction Policies
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={900} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={900} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1120 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={900} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={900} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What happens when the cache is full and we need to add new data?"
-            x={220}
-            y={height - 280}
-            startFrame={930}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What happens when the cache is full and we need to add new data?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={930}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="We need eviction policies! They decide what to remove. Let's look at the three most common strategies."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1020}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="We need eviction policies! They decide what to remove. Let's look at the three most common strategies."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1020}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -486,16 +501,21 @@ export const CachingFundamentals: React.FC = () => {
             Cache Write Strategies
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1500} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1630 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1500} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="When data changes, how do we update the cache? There are three main strategies with different trade-offs."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1530}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="When data changes, how do we update the cache? There are three main strategies with different trade-offs."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1530}
+                maxWidth={680}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -630,26 +650,31 @@ export const CachingFundamentals: React.FC = () => {
             TTL & Cache Stampede Problem
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={2100} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2100} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2320 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2100} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2100} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="How do we keep cache data fresh? And what's the stampede problem?"
-            x={220}
-            y={height - 280}
-            startFrame={2130}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="How do we keep cache data fresh? And what's the stampede problem?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2130}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great questions! TTL expires old data, but when many requests hit an expired key simultaneously, we get a stampede."
-            x={width - 750}
-            y={height - 280}
-            startFrame={2220}
-            maxWidth={720}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great questions! TTL expires old data, but when many requests hit an expired key simultaneously, we get a stampede."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2220}
+                maxWidth={720}
+              />
+            </>
+          )}
 
           {frame >= 2310 && (
             <div
