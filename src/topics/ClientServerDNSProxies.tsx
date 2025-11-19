@@ -918,175 +918,176 @@ export const ClientServerDNSProxies: React.FC = () => {
             maxWidth={540}
           />
 
-          {/* Proxy Flow Diagram - MOVED LOWER */}
+          {/* Proxy Flow Diagram - Simplified horizontal layout */}
           {frame >= 2130 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.28,
-              left: width * 0.05,
-              right: width * 0.05,
+              top: height * 0.30,
+              left: 0,
+              width: '100%',
               opacity: fadeIn(frame, 2130, 15),
             }}>
-              {/* Components in a row */}
-              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative'}}>
-                {/* Client */}
-                <div style={{textAlign: 'center'}}>
-                  <div style={{
-                    width: 100,
-                    height: 90,
-                    backgroundColor: theme.colors.client,
-                    borderRadius: 12,
-                    border: '3px solid #60a5fa',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                  }}>
-                    <div style={{fontSize: 32}}>💻</div>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Client</div>
-                  </div>
-                </div>
+              {/* Define exact positions for perfect alignment */}
+              {(() => {
+                const centerY = 50; // Vertical center for all boxes
+                const boxWidth = 110;
+                const boxHeight = 100;
+                const gap = 150; // Gap between boxes
+                const startX = 200; // Starting X position
 
-                {/* Forward Proxy */}
-                <div style={{textAlign: 'center', opacity: fadeIn(frame, 2160, 15)}}>
-                  <div style={{
-                    width: 100,
-                    height: 90,
-                    backgroundColor: '#8b5cf6',
-                    borderRadius: 12,
-                    border: '3px solid #a78bfa',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 60)})`,
-                  }}>
-                    <div style={{fontSize: 28}}>🔀</div>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Forward</div>
-                  </div>
-                  <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>Squid :3128</div>
-                  <div style={{fontSize: 18, color: '#94a3b8', marginTop: 2}}>Client-side</div>
-                </div>
+                // Calculate positions for each box
+                const positions = [
+                  { x: startX, label: 'Client', icon: '💻', color: theme.colors.client, borderColor: '#60a5fa' },
+                  { x: startX + boxWidth + gap, label: 'Forward\nProxy', icon: '🔀', color: '#8b5cf6', borderColor: '#a78bfa', subtitle: 'Squid :3128', opacity: fadeIn(frame, 2160, 15) },
+                  { x: startX + (boxWidth + gap) * 2, label: 'DNS', icon: '🌐', color: theme.colors.cache, borderColor: '#f59e0b' },
+                  { x: startX + (boxWidth + gap) * 3, label: 'Reverse\nProxy', icon: '🔀', color: theme.colors.loadBalancer, borderColor: '#60a5fa', subtitle: 'NGINX :443', opacity: fadeIn(frame, 2200, 15) },
+                  { x: startX + (boxWidth + gap) * 4, label: 'App\nServer', icon: '🖥️', color: theme.colors.server, borderColor: '#10b981' },
+                ];
 
-                {/* DNS */}
-                <div style={{textAlign: 'center'}}>
-                  <div style={{
-                    width: 90,
-                    height: 80,
-                    backgroundColor: theme.colors.cache,
-                    borderRadius: 12,
-                    border: '3px solid #f59e0b', boxShadow: '0 0 16px rgba(245, 158, 11, 0.3)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                  }}>
-                    <div style={{fontSize: 28}}>🌐</div>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>DNS</div>
-                  </div>
-                </div>
+                return (
+                  <>
+                    {/* Render all boxes */}
+                    {positions.map((pos, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          position: 'absolute',
+                          left: pos.x,
+                          top: centerY - boxHeight / 2,
+                          width: boxWidth,
+                          height: boxHeight,
+                          backgroundColor: pos.color,
+                          borderRadius: 12,
+                          border: `3px solid ${pos.borderColor}`,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                          opacity: pos.opacity || 1,
+                          transform: i === 1 || i === 3 ? `scale(${pulse(frame, 60)})` : 'scale(1)',
+                        }}
+                      >
+                        <div style={{ fontSize: 36, marginBottom: 4 }}>{pos.icon}</div>
+                        <div style={{ fontSize: 18, fontWeight: 'bold', color: '#fff', textAlign: 'center', lineHeight: 1.2, whiteSpace: 'pre-line' }}>
+                          {pos.label}
+                        </div>
+                        {pos.subtitle && (
+                          <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', marginTop: 4 }}>
+                            {pos.subtitle}
+                          </div>
+                        )}
+                      </div>
+                    ))}
 
-                {/* Reverse Proxy */}
-                <div style={{textAlign: 'center', opacity: fadeIn(frame, 2200, 15)}}>
-                  <div style={{
-                    width: 100,
-                    height: 90,
-                    backgroundColor: theme.colors.loadBalancer,
-                    borderRadius: 12,
-                    border: '3px solid #60a5fa',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                    transform: `scale(${pulse(frame, 60)})`,
-                  }}>
-                    <div style={{fontSize: 28}}>🔀</div>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Reverse</div>
-                  </div>
-                  <div style={{fontSize: 18, color: '#60a5fa', marginTop: 4}}>NGINX :443</div>
-                  <div style={{fontSize: 18, color: '#94a3b8', marginTop: 2}}>Server-side</div>
-                </div>
+                    {/* Connecting lines and flowing dots */}
+                    {frame >= 2180 && (
+                      <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
+                        <defs>
+                          <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
+                          </marker>
+                        </defs>
+                        {/* Draw lines connecting boxes */}
+                        {positions.slice(0, -1).map((pos, i) => {
+                          const x1 = pos.x + boxWidth;
+                          const y1 = centerY;
+                          const x2 = positions[i + 1].x;
+                          const y2 = centerY;
 
-                {/* App Server */}
-                <div style={{textAlign: 'center'}}>
-                  <div style={{
-                    width: 100,
-                    height: 90,
-                    backgroundColor: theme.colors.server,
-                    borderRadius: 12,
-                    border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-                  }}>
-                    <div style={{fontSize: 28}}>🖥️</div>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>App</div>
-                  </div>
-                </div>
-              </div>
+                          return (
+                            <line
+                              key={i}
+                              x1={x1}
+                              y1={y1}
+                              x2={x2}
+                              y2={y2}
+                              stroke="#60a5fa"
+                              strokeWidth="4"
+                              opacity="0.7"
+                              markerEnd="url(#arrowhead)"
+                            />
+                          );
+                        })}
+                      </svg>
+                    )}
 
-              {/* STATIC LINES (always visible after frame 2180) - Properly aligned with box edges */}
-              {frame >= 2180 && (
-                <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                  <defs>
-                    <marker id="arrowhead-client" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                      <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
-                    </marker>
-                    <marker id="arrowhead-dns" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                      <polygon points="0 0, 10 3, 0 6" fill="#fbbf24" />
-                    </marker>
-                    <marker id="arrowhead-reverse" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                      <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
-                    </marker>
-                    <marker id="arrowhead-app" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                      <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
-                    </marker>
-                  </defs>
-                  {/* Line 1: Client → Forward Proxy */}
-                  <line x1={150} y1={45} x2={507} y2={45} stroke="#60a5fa" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-client)" />
-                  {/* Line 2: Forward Proxy → DNS */}
-                  <line x1={607} y1={40} x2={870} y2={40} stroke="#fbbf24" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-dns)" />
-                  {/* Line 3: DNS → Reverse Proxy */}
-                  <line x1={960} y1={45} x2={1284} y2={45} stroke="#60a5fa" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-reverse)" />
-                  {/* Line 4: Reverse Proxy → App */}
-                  <line x1={1384} y1={45} x2={1688} y2={45} stroke="#10b981" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-app)" />
-                </svg>
-              )}
+                    {/* Single flowing dot animation from start to end */}
+                    {frame >= 2180 && frame < 2180 + 120 && (
+                      <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
+                        <defs>
+                          <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                              <feMergeNode in="coloredBlur"/>
+                              <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                          </filter>
+                        </defs>
+                        {(() => {
+                          const progress = interpolate(
+                            frame - 2180,
+                            [0, 120],
+                            [0, 1],
+                            { extrapolateRight: 'clamp' }
+                          );
 
-              {/* FLOWING DOT ANIMATION - Aligned with new line coordinates */}
-              <FlowingDot x1={150} y1={45} x2={507} y2={45} startFrame={2180} duration={30} color="#60a5fa" />
-              <FlowingDot x1={607} y1={40} x2={870} y2={40} startFrame={2210} duration={30} color="#fbbf24" />
-              <FlowingDot x1={960} y1={45} x2={1284} y2={45} startFrame={2240} duration={30} color="#60a5fa" />
-              <FlowingDot x1={1384} y1={45} x2={1688} y2={45} startFrame={2270} duration={30} color="#10b981" />
+                          const totalDistance = positions[positions.length - 1].x + boxWidth / 2 - (positions[0].x + boxWidth / 2);
+                          const currentX = positions[0].x + boxWidth / 2 + totalDistance * progress;
 
-              {/* Explanation below - LARGER FONT, MORE TIME TO READ */}
+                          return (
+                            <>
+                              <circle
+                                cx={currentX}
+                                cy={centerY}
+                                r="8"
+                                fill="#60a5fa"
+                                filter="url(#glow)"
+                              >
+                                <animate attributeName="r" values="8;10;8" dur="0.6s" repeatCount="indefinite" />
+                              </circle>
+                              <circle
+                                cx={currentX}
+                                cy={centerY}
+                                r="16"
+                                fill="#60a5fa"
+                                opacity="0.3"
+                              />
+                            </>
+                          );
+                        })()}
+                      </svg>
+                    )}
+                  </>
+                );
+              })()}
+
+              {/* Explanation below */}
               {frame >= 2180 && (
                 <div style={{
-                  marginTop: 140,
+                  position: 'absolute',
+                  top: 180,
+                  left: 200,
+                  right: 200,
                   display: 'flex',
-                  gap: 20,
-                  opacity: fadeIn(frame, 2180, 15),
+                  gap: 30,
+                  opacity: fadeIn(frame, 2200, 15),
                 }}>
                   <div style={{
                     flex: 1,
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     border: '3px solid rgba(139, 92, 246, 0.5)',
                     borderRadius: 12,
-                    padding: 20,
+                    padding: 24,
                   }}>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#a78bfa', marginBottom: 10}}>
-                      Forward Proxy
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: '#a78bfa', marginBottom: 12, textShadow: '0 0 15px rgba(139, 92, 246, 0.5)'}}>
+                      Forward Proxy (Client-Side)
                     </div>
-                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
-                      • Caches requests<br/>
-                      • Filters content<br/>
-                      • Corporate networks
+                    <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
+                      • Sits between client and internet<br/>
+                      • Caches frequently requested content<br/>
+                      • Filters/blocks websites<br/>
+                      • Used in corporate networks
                     </div>
                   </div>
                   <div style={{
@@ -1094,15 +1095,16 @@ export const ClientServerDNSProxies: React.FC = () => {
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     border: '3px solid rgba(96, 165, 250, 0.5)',
                     borderRadius: 12,
-                    padding: 20,
+                    padding: 24,
                   }}>
-                    <div style={{fontSize: 20, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 10}}>
-                      Reverse Proxy
+                    <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 12, textShadow: '0 0 15px rgba(96, 165, 250, 0.5)'}}>
+                      Reverse Proxy (Server-Side)
                     </div>
-                    <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
-                      • TLS termination<br/>
-                      • Load balancing<br/>
-                      • Protects servers
+                    <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.9}}>
+                      • Sits in front of web servers<br/>
+                      • TLS termination & load balancing<br/>
+                      • Protects backend servers<br/>
+                      • CDN edge servers
                     </div>
                   </div>
                 </div>
