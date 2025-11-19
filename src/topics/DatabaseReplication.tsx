@@ -255,6 +255,7 @@ export const DatabaseReplication: React.FC = () => {
               </div>
             </div>
           </div>
+          )}
         </>
       )}
 
