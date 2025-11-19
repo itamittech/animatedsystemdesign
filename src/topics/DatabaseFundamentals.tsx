@@ -191,10 +191,9 @@ export const DatabaseFundamentals: React.FC = () => {
                   </div>
                 </div>
               </div>
-            )}
 
-            {/* Consistency */}
-            {frame >= 700 && (
+              {/* Consistency */}
+              {frame >= 700 && (
               <div
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
@@ -222,10 +221,10 @@ export const DatabaseFundamentals: React.FC = () => {
                   </div>
                 </div>
               </div>
-            )}
+              )}
 
-            {/* Isolation */}
-            {frame >= 780 && (
+              {/* Isolation */}
+              {frame >= 780 && (
               <div
                 style={{
                   backgroundColor: 'rgba(245, 158, 11, 0.15)',
@@ -253,10 +252,10 @@ export const DatabaseFundamentals: React.FC = () => {
                   </div>
                 </div>
               </div>
-            )}
+              )}
 
-            {/* Durability */}
-            {frame >= 860 && (
+              {/* Durability */}
+              {frame >= 860 && (
               <div
                 style={{
                   backgroundColor: 'rgba(16, 185, 129, 0.15)',
@@ -284,7 +283,7 @@ export const DatabaseFundamentals: React.FC = () => {
                   </div>
                 </div>
               </div>
-            )}
+              )}
             </div>
           )}
         </>
