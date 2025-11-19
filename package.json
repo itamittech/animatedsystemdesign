@@ -7,6 +7,7 @@
     "render": "node studio.js render src/index.ts ClientServerDNSProxies out/client-server-dns-proxies.mp4",
     "render:fundamentals": "node studio.js render src/index.ts ClientServerDNSProxies out/client-server-dns-proxies.mp4",
     "render:vertical-sample": "node studio.js render src/index.ts ClientServerDNSProxiesVerticalSample out/dns-proxies-vertical-sample.mp4",
+    "render:vertical": "node studio.js render src/index.ts ClientServerDNSProxiesVertical out/dns-proxies-vertical.mp4",
     "render:loadbalancing-basic": "node studio.js render src/index.ts LoadBalancingBasics out/load-balancing-basic.mp4",
     "render:loadbalancing": "node studio.js render src/index.ts LoadBalancingEnhanced out/load-balancing-enhanced.mp4",
     "render:cdn-api-gateway": "node studio.js render src/index.ts CDNandAPIGateway out/cdn-api-gateway.mp4",
