@@ -9,6 +9,7 @@ interface DialogueProps {
   x: number;
   y: number;
   startFrame?: number;
+  endFrame?: number;
   maxWidth?: number;
 }
 
@@ -21,10 +22,25 @@ export const Dialogue: React.FC<DialogueProps> = ({
   x,
   y,
   startFrame = 0,
+  endFrame,
   maxWidth = 600,
 }) => {
   const frame = useCurrentFrame();
-  const opacity = fadeIn(frame, startFrame, 15);
+
+  // Don't render if past endFrame
+  if (endFrame && frame > endFrame) {
+    return null;
+  }
+
+  // Calculate opacity with fade in and fade out
+  let opacity = fadeIn(frame, startFrame, 15);
+
+  // Fade out in the last 15 frames before endFrame
+  if (endFrame && frame >= endFrame - 15) {
+    const fadeOutProgress = (endFrame - frame) / 15;
+    opacity = Math.min(opacity, fadeOutProgress);
+  }
+
   const slideStyle = slideIn(
     frame,
     startFrame,
