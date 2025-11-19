@@ -114,7 +114,7 @@ export const DisasterRecoveryBackup: React.FC = () => {
               <h2 style={{fontSize: 32, fontWeight: 700, color: '#ef4444', marginBottom: 24, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center', textShadow: '0 0 24px rgba(239, 68, 68, 0.6)'}}>🧪 Test Your DR Plan!</h2>
               <div style={{display: 'flex', flexWrap: 'wrap', gap: 20}}>
                 {['🔥 Schedule regular DR drills (quarterly)', '⏱️ Measure actual RTO/RPO (not assumptions)', '📝 Document runbooks with step-by-step recovery', '👥 Train team on recovery procedures', '🔄 Automate recovery where possible', '📊 Post-mortem after every incident'].map((practice, i) => (
-                  <div key={i} style={{width: 670, padding: '18px 24px', background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1))', border: '2px solid #ef4444', borderRadius: 12, fontSize: 22, color: '#fecaca', fontFamily: theme.typography.body.fontFamily, opacity: fadeIn(frame, scene3End + 60 + i * 12, 15), boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)}}>{practice}</div>
+                  <div key={i} style={{width: 670, padding: '18px 24px', background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1))', border: '2px solid #ef4444', borderRadius: 12, fontSize: 22, color: '#fecaca', fontFamily: theme.typography.body.fontFamily, opacity: fadeIn(frame, scene3End + 60 + i * 12, 15), boxShadow: '0 0 16px rgba(239, 68, 68, 0.3)'}}>{practice}</div>
                 ))}
               </div>
             </div>
