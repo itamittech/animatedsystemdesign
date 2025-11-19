@@ -34,24 +34,31 @@ export const FaultToleranceFundamentals: React.FC = () => {
         <>
           <Title text="Fault Tolerance Fundamentals" subtitle="Building Resilient Systems" />
 
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 330 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="Our database server crashed and took down the entire application! How do we prevent this?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Our database server crashed and took down the entire application! How do we prevent this?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={90}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's a single point of failure! Let me teach you fault tolerance - designing systems that continue working even when components fail."
-            x={width - 750}
-            y={height - 280}
-            startFrame={240}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's a single point of failure! Let me teach you fault tolerance - designing systems that continue working even when components fail."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={240}
+                maxWidth={520}
+              />
+            </>
+          )}
 
           {/* Common Failures */}
           <div
@@ -299,14 +306,15 @@ export const FaultToleranceFundamentals: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 300} />
+          <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene1End + 300} size={95} />
 
           <Dialogue
             speaker="junior"
             text="So we duplicate critical components! If one fails, others take over. Smart!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene1End + 330}
+            maxWidth={480}
           />
 
           {/* Credit */}
@@ -423,14 +431,15 @@ export const FaultToleranceFundamentals: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 300} />
+          <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={scene2End + 300} size={95} />
 
           <Dialogue
             speaker="architect"
             text="Detect failures fast, then gracefully degrade. Users get reduced functionality rather than error pages!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={scene2End + 330}
+            maxWidth={540}
           />
 
           {/* Credit */}
@@ -567,14 +576,15 @@ export const FaultToleranceFundamentals: React.FC = () => {
             </p>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 300} />
+          <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={scene3End + 300} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Intentionally break things in prod?! That's bold! But I see why - find problems before users do!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene3End + 330}
+            maxWidth={500}
           />
 
           {/* Credit */}

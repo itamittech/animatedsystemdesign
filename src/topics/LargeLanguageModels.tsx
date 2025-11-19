@@ -235,26 +235,30 @@ export const LargeLanguageModels: React.FC = () => {
         <>
           <Title text="Large Language Models (LLMs)" x={width / 2 - 480} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          {frame < 270 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
-          <Dialogue
-            speaker="developer"
-            text="Sarah, everyone's talking about LLMs - ChatGPT, Claude, GPT-4... What makes them 'Large'? And why are they so powerful compared to regular neural networks?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-            maxWidth={650}
-          />
+              <Dialogue
+                speaker="developer"
+                text="Sarah, everyone's talking about LLMs - ChatGPT, Claude, GPT-4... What makes them 'Large'? And why are they so powerful compared to regular neural networks?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={90}
+                maxWidth={650}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! 'Large' refers to scale - billions of parameters, trained on trillions of words. They're deep neural networks specifically designed for language. Let me break down what makes them special!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! 'Large' refers to scale - billions of parameters, trained on trillions of words. They're deep neural networks specifically designed for language. Let me break down what makes them special!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Credit */}
           <div
@@ -277,7 +281,9 @@ export const LargeLanguageModels: React.FC = () => {
         <>
           <Title text="What Makes Them 'Large'?" x={width / 2 - 380} y={50} color="#c084fc" startFrame={510} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 50} startFrame={540} />
+          {frame < 1110 && (
+            <Character type="architect" x={width * 0.75} y={height / 2 + 50} startFrame={540} />
+          )}
 
           {/* Scale comparison */}
           <div
@@ -410,14 +416,16 @@ export const LargeLanguageModels: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="Scale unlocks capabilities we didn't expect. It's not just 'bigger is better' - there are qualitative leaps when you hit certain parameter counts. GPT-4 can reason in ways GPT-2 never could!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={1020}
-            maxWidth={580}
-          />
+          {frame < 1110 && (
+            <Dialogue
+              speaker="architect"
+              text="Scale unlocks capabilities we didn't expect. It's not just 'bigger is better' - there are qualitative leaps when you hit certain parameter counts. GPT-4 can reason in ways GPT-2 never could!"
+              x={width * 0.60}
+              y={height * 0.64}
+              startFrame={1020}
+              maxWidth={580}
+            />
+          )}
 
           {/* Credit */}
           <div
@@ -440,7 +448,9 @@ export const LargeLanguageModels: React.FC = () => {
         <>
           <Title text="The Transformer Architecture" x={width / 2 - 430} y={50} color="#c084fc" startFrame={1140} />
 
-          <Character type="developer" x={200} y={height / 2 - 30} startFrame={1170} />
+          {frame < 1740 && (
+            <Character type="developer" x={width * 0.25} y={height / 2 - 30} startFrame={1170} />
+          )}
 
           {/* Simplified Transformer */}
           <div
@@ -549,14 +559,16 @@ export const LargeLanguageModels: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="So attention lets the model understand relationships between words, and stacking many layers lets it build deep understanding. That's brilliant!"
-            x={100}
-            y={height - 280}
-            startFrame={1650}
-            maxWidth={650}
-          />
+          {frame < 1740 && (
+            <Dialogue
+              speaker="developer"
+              text="So attention lets the model understand relationships between words, and stacking many layers lets it build deep understanding. That's brilliant!"
+              x={width * 0.10}
+              y={height * 0.64}
+              startFrame={1650}
+              maxWidth={650}
+            />
+          )}
 
           {/* Credit */}
           <div
@@ -579,7 +591,9 @@ export const LargeLanguageModels: React.FC = () => {
         <>
           <Title text="Capabilities & Limitations" x={width / 2 - 400} y={50} color="#c084fc" startFrame={1800} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={1830} />
+          {frame < 2430 && (
+            <Character type="architect" x={width * 0.75} y={height / 2 - 50} startFrame={1830} />
+          )}
 
           {/* Capabilities */}
           <div
@@ -683,14 +697,16 @@ export const LargeLanguageModels: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="LLMs are incredibly powerful, but they're not magic. Understand their limitations - always verify critical info, use tools for math/facts, and remember they're frozen in time at training!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2340}
-            maxWidth={580}
-          />
+          {frame < 2430 && (
+            <Dialogue
+              speaker="architect"
+              text="LLMs are incredibly powerful, but they're not magic. Understand their limitations - always verify critical info, use tools for math/facts, and remember they're frozen in time at training!"
+              x={width * 0.60}
+              y={height * 0.64}
+              startFrame={2340}
+              maxWidth={580}
+            />
+          )}
 
           {/* Credit */}
           <div
@@ -713,8 +729,12 @@ export const LargeLanguageModels: React.FC = () => {
         <>
           <Title text="Key Takeaways" x={width / 2 - 220} y={50} color="#c084fc" startFrame={2520} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2550} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2580} />
+          {frame < 2880 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2550} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2580} />
+            </>
+          )}
 
           {/* Takeaways */}
           <div
@@ -767,23 +787,27 @@ export const LargeLanguageModels: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="LLMs are just deep neural networks trained at massive scale. The attention mechanism is key, but we need to be aware of their limitations!"
-            x={100}
-            y={height - 280}
-            startFrame={2670}
-            maxWidth={650}
-          />
+          {frame < 2880 && (
+            <>
+              <Dialogue
+                speaker="developer"
+                text="LLMs are just deep neural networks trained at massive scale. The attention mechanism is key, but we need to be aware of their limitations!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2670}
+                maxWidth={650}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Exactly! And here's where it gets exciting - LLMs alone are passive. But what if we give them tools to act? That's Agentic AI, and we'll cover that next. Ready?"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2790}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Exactly! And here's where it gets exciting - LLMs alone are passive. But what if we give them tools to act? That's Agentic AI, and we'll cover that next. Ready?"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2790}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Credit */}
           <div

@@ -219,14 +219,14 @@ export const MonolithVsMicroservices: React.FC = () => {
         <>
           <Title text="Monolith vs Microservices" x={width / 2 - 450} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="Sarah, I keep hearing about microservices. Our e-commerce app is currently a monolith. Should we break it up?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -234,8 +234,8 @@ export const MonolithVsMicroservices: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! Let's understand both architectures first. A monolith isn't bad - it depends on your needs. Let me show you the evolution."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -394,13 +394,13 @@ export const MonolithVsMicroservices: React.FC = () => {
         <>
           <Title text="The Monolith Challenge" x={width / 2 - 380} y={50} color="#c084fc" startFrame={750} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={780} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={780} />
 
           <Dialogue
             speaker="architect"
             text="Monoliths work great for startups and small teams. But at scale, you hit some challenges. Let me show you the pain points."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={810}
             maxWidth={580}
           />
@@ -518,13 +518,13 @@ export const MonolithVsMicroservices: React.FC = () => {
         <>
           <Title text="Enter Microservices" x={width / 2 - 330} y={50} color="#c084fc" startFrame={1350} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1380} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1380} />
 
           <Dialogue
             speaker="developer"
             text="So microservices split the monolith into smaller, independent services that can scale and deploy separately?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1410}
             maxWidth={650}
           />
@@ -720,8 +720,8 @@ export const MonolithVsMicroservices: React.FC = () => {
         <>
           <Title text="When to Use Each?" x={width / 2 - 330} y={50} color="#c084fc" startFrame={1950} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={1980} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2010} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={1980} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2010} />
 
           {/* Decision Matrix */}
           <div
@@ -801,8 +801,8 @@ export const MonolithVsMicroservices: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Start simple with a monolith. As you grow and hit scaling issues, decompose strategically. Netflix started as a monolith, so did Amazon. Don't prematurely optimize!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2280}
             maxWidth={580}
           />
@@ -810,8 +810,8 @@ export const MonolithVsMicroservices: React.FC = () => {
           <Dialogue
             speaker="developer"
             text="Makes sense! Build what you need now, not what you might need later. When the pain of scaling the monolith exceeds the complexity of microservices, that's when we migrate."
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={2430}
             maxWidth={650}
           />

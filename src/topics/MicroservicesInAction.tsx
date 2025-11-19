@@ -238,14 +238,14 @@ export const MicroservicesInAction: React.FC = () => {
         <>
           <Title text="Microservices in Action: End-to-End" x={width / 2 - 600} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="Let's see everything we learned in action! Can you walk me through a real order from start to finish?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -253,8 +253,8 @@ export const MicroservicesInAction: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Perfect! I'll show you a complete e-commerce order. You'll see decomposition, communication, resilience, sagas, and deployment - all working together!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -397,13 +397,13 @@ export const MicroservicesInAction: React.FC = () => {
         <>
           <Title text="Happy Path: Order Success" x={width / 2 - 400} y={50} color="#c084fc" startFrame={750} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={780} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={780} />
 
           <Dialogue
             speaker="architect"
             text="Watch the complete flow. Each service is independent, but they coordinate perfectly through async messages and saga orchestration."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={810}
             maxWidth={580}
           />
@@ -729,13 +729,13 @@ export const MicroservicesInAction: React.FC = () => {
         <>
           <Title text="Failure Path: Saga Compensation" x={width / 2 - 510} y={50} color="#c084fc" startFrame={1800} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1830} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1830} />
 
           <Dialogue
             speaker="developer"
             text="What if Inventory Service fails? We've already charged the customer!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1860}
             maxWidth={650}
           />
@@ -850,8 +850,8 @@ export const MicroservicesInAction: React.FC = () => {
         <>
           <Title text="The Complete Microservices Picture" x={width / 2 - 560} y={50} color="#c084fc" startFrame={2700} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2730} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2760} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2730} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2760} />
 
           {/* Complete Summary */}
           <div
@@ -924,8 +924,8 @@ export const MicroservicesInAction: React.FC = () => {
           <Dialogue
             speaker="developer"
             text="Incredible! From monolith to fully orchestrated microservices. I understand decomposition, communication, resilience, sagas, and deployment. Ready to architect microservices!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={3390}
             maxWidth={650}
           />
@@ -933,8 +933,8 @@ export const MicroservicesInAction: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Exactly! You've mastered the entire stack. Start simple, decompose strategically, apply these patterns, and you'll build scalable, resilient systems. Go build something amazing!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={3480}
             maxWidth={580}
           />

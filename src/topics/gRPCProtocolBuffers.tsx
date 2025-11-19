@@ -59,26 +59,30 @@ export const gRPCProtocolBuffers: React.FC = () => {
         <>
           <Title text="gRPC & Protocol Buffers" subtitle="High-Performance RPC for Microservices" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          {frame < 240 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="REST and GraphQL are great, but I heard gRPC is way faster. What makes it so special?"
-            x={width * 0.05}
-            y={height * 0.73}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="REST and GraphQL are great, but I heard gRPC is way faster. What makes it so special?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="gRPC is Google's Remote Procedure Call framework. It uses Protocol Buffers and HTTP/2 for blazing fast microservice communication!"
-            x={width * 0.72 - 280}
-            y={height * 0.73}
-            startFrame={180}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="gRPC is Google's Remote Procedure Call framework. It uses Protocol Buffers and HTTP/2 for blazing fast microservice communication!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={150}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* Key Differences */}
           {frame >= 270 && (
@@ -155,26 +159,30 @@ export const gRPCProtocolBuffers: React.FC = () => {
         <>
           <Title text="Protocol Buffers" subtitle="Binary Serialization Format" startFrame={450} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={480} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={480} size={95} />
+          {frame < 690 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={480} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={480} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What are Protocol Buffers? How are they different from JSON?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={510}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What are Protocol Buffers? How are they different from JSON?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={510}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Protobuf is Google's binary serialization format. It's strongly typed, compact, and blazing fast to serialize/deserialize!"
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={630}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Protobuf is Google's binary serialization format. It's strongly typed, compact, and blazing fast to serialize/deserialize!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={600}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* Protobuf vs JSON Comparison */}
           {frame >= 720 && (
@@ -297,26 +305,30 @@ message Post {
         <>
           <Title text="HTTP/2 & Streaming" subtitle="4 Types of Communication" startFrame={1050} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1080} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1080} size={95} />
+          {frame < 1290 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1080} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1080} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="You mentioned streaming. What streaming types does gRPC support?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={1110}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="You mentioned streaming. What streaming types does gRPC support?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1110}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="gRPC supports 4 types: Unary, Server Streaming, Client Streaming, and Bidirectional! All thanks to HTTP/2 multiplexing."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={1230}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="gRPC supports 4 types: Unary, Server Streaming, Client Streaming, and Bidirectional! All thanks to HTTP/2 multiplexing."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1200}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* 4 Streaming Types */}
           {frame >= 1320 && (
@@ -436,26 +448,30 @@ message Post {
         <>
           <Title text="When to Use gRPC" subtitle="Best Use Cases & Trade-offs" startFrame={1650} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1680} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1680} size={95} />
+          {frame < 1890 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1680} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1680} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Should I use gRPC for everything then? When is REST/GraphQL better?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={1710}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Should I use gRPC for everything then? When is REST/GraphQL better?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1710}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! gRPC shines for internal microservices but has limitations for browsers and public APIs."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={1830}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! gRPC shines for internal microservices but has limitations for browsers and public APIs."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1800}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* Use Cases */}
           {frame >= 1920 && (
@@ -559,26 +575,30 @@ message Post {
         <>
           <Title text="gRPC Ecosystem" subtitle="Tools & Getting Started" startFrame={2250} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={2280} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={2280} size={95} />
+          {frame < 2490 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2280} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2280} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="This is awesome! How do I get started with gRPC in my projects?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={2310}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="This is awesome! How do I get started with gRPC in my projects?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2310}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Easy! Define your .proto file, generate code, and start coding. gRPC supports 10+ languages out of the box!"
-            x={width * 0.78 - 280}
-            y={height * 0.74}
-            startFrame={2430}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Easy! Define your .proto file, generate code, and start coding. gRPC supports 10+ languages out of the box!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2400}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* Tools & Summary */}
           {frame >= 2520 && (

@@ -235,26 +235,30 @@ export const AgenticAI: React.FC = () => {
         <>
           <Title text="Agentic AI & Tool Use" x={width / 2 - 380} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          {frame < 270 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={30} />
 
-          <Dialogue
-            speaker="developer"
-            text="Sarah, LLMs are great for chat, but they just talk. How do we make them actually DO things? Like write code, search the web, or automate tasks?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-            maxWidth={650}
-          />
+              <Dialogue
+                speaker="developer"
+                text="Sarah, LLMs are great for chat, but they just talk. How do we make them actually DO things? Like write code, search the web, or automate tasks?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={650}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's where Agentic AI comes in! We give LLMs access to tools and let them decide when to use them. They become agents that can think, plan, act, and learn from results. Let me show you!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's where Agentic AI comes in! We give LLMs access to tools and let them decide when to use them. They become agents that can think, plan, act, and learn from results. Let me show you!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Credit */}
           <div
@@ -277,7 +281,20 @@ export const AgenticAI: React.FC = () => {
         <>
           <Title text="Chatbot vs Agent" x={width / 2 - 280} y={50} color="#c084fc" startFrame={480} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 50} startFrame={510} />
+          {frame < 930 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 + 50} startFrame={510} />
+
+              <Dialogue
+                speaker="architect"
+                text="See the difference? Agents aren't just smart - they're capable. They decide which tools to use and can complete multi-step tasks without constant guidance!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={840}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Chatbot (Passive) */}
           <div
@@ -379,14 +396,6 @@ export const AgenticAI: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="See the difference? Agents aren't just smart - they're capable. They decide which tools to use and can complete multi-step tasks without constant guidance!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={960}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div
@@ -409,7 +418,20 @@ export const AgenticAI: React.FC = () => {
         <>
           <Title text="The Agent Loop: Think-Act-Observe" x={width / 2 - 500} y={50} color="#c084fc" startFrame={1080} />
 
-          <Character type="developer" x={200} y={height / 2 + 80} startFrame={1110} />
+          {frame < 1590 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 + 80} startFrame={1110} />
+
+              <Dialogue
+                speaker="developer"
+                text="So agents can loop through this cycle autonomously, using results to inform next steps? That's like a self-driving research assistant!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1500}
+                maxWidth={650}
+              />
+            </>
+          )}
 
           {/* Agent Loop Diagram */}
           <div
@@ -577,14 +599,6 @@ export const AgenticAI: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="So agents can loop through this cycle autonomously, using results to inform next steps? That's like a self-driving research assistant!"
-            x={100}
-            y={height - 280}
-            startFrame={1620}
-            maxWidth={650}
-          />
 
           {/* Credit */}
           <div
@@ -607,7 +621,20 @@ export const AgenticAI: React.FC = () => {
         <>
           <Title text="Tool Calling in Action" x={width / 2 - 350} y={50} color="#c084fc" startFrame={1800} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={1830} />
+          {frame < 2250 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 - 50} startFrame={1830} />
+
+              <Dialogue
+                speaker="architect"
+                text="Tool calling transforms LLMs from passive assistants to active agents. They become part of your automation layer, integrating with APIs, databases, and external services!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2160}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* How Tool Calling Works */}
           <div
@@ -717,14 +744,6 @@ export const AgenticAI: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="Tool calling transforms LLMs from passive assistants to active agents. They become part of your automation layer, integrating with APIs, databases, and external services!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2280}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div
@@ -747,8 +766,30 @@ export const AgenticAI: React.FC = () => {
         <>
           <Title text="Key Takeaways" x={width / 2 - 220} y={50} color="#c084fc" startFrame={2460} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2490} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2520} />
+          {frame < 2820 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2490} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2490} />
+
+              <Dialogue
+                speaker="developer"
+                text="Agents are LLMs with superpowers! Give them tools and they can automate complex workflows. This is the future of software!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2580}
+                maxWidth={650}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Exactly! And to make tool integration seamless and secure, there's a new standard called MCP. It's like REST APIs for AI agents. Let's explore it next!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2730}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Takeaways */}
           <div
@@ -801,23 +842,6 @@ export const AgenticAI: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="Agents are LLMs with superpowers! Give them tools and they can automate complex workflows. This is the future of software!"
-            x={100}
-            y={height - 280}
-            startFrame={2610}
-            maxWidth={650}
-          />
-
-          <Dialogue
-            speaker="architect"
-            text="Exactly! And to make tool integration seamless and secure, there's a new standard called MCP. It's like REST APIs for AI agents. Let's explore it next!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2730}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div

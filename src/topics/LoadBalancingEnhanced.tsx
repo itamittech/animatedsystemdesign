@@ -92,8 +92,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
         <>
           <Title text="Load Balancing" subtitle="A Conversation" startFrame={0} />
 
-          <Character type="junior" x={200} y={300} startFrame={20} />
-          <Character type="architect" x={width - 400} y={300} startFrame={25} />
+          <Character type="junior" x={width * 0.25} y={300} startFrame={20} />
+          <Character type="architect" x={width * 0.75} y={300} startFrame={25} />
 
           <Dialogue
             speaker="junior"
@@ -107,7 +107,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question, Alex! We need to scale horizontally with multiple servers and a load balancer. Let me show you..."
-            x={width - 950}
+            x={width * 0.60}
             y={480}
             startFrame={80}
             maxWidth={520}
@@ -125,7 +125,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             y={50}
           />
 
-          <Character type="junior" x={150} y={height - 200} startFrame={120} size={80} />
+          <Character type="junior" x={150} y={height * 0.64} startFrame={120} size={80} />
 
           <svg width={width} height={height}>
             {/* Multiple clients */}
@@ -207,7 +207,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="junior"
             text="I see! All traffic goes to one server. That's a single point of failure AND a bottleneck!"
             x={200}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={210}
             maxWidth={600}
           />
@@ -224,7 +224,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             y={50}
           />
 
-          <Character type="architect" x={width - 300} y={height - 200} startFrame={270} size={80} />
+          <Character type="architect" x={width * 0.10} y={height - 200} startFrame={270} size={80} />
 
           <svg width={width} height={height}>
             {/* Clients */}
@@ -320,8 +320,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Traffic is distributed evenly! If one server fails, the LB routes to healthy servers. No single point of failure."
-            x={width - 900}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={360}
             maxWidth={650}
           />
@@ -339,13 +339,13 @@ export const LoadBalancingEnhanced: React.FC = () => {
           />
 
           <Character type="junior" x={150} y={height - 200} startFrame={450} size={80} />
-          <Character type="architect" x={width - 300} y={height - 200} startFrame={450} size={80} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={450} size={80} />
 
           <Dialogue
             speaker="junior"
             text="How does the load balancer decide which server gets each request?"
             x={200}
-            y={height - 380}
+            y={height * 0.64}
             startFrame={470}
             maxWidth={500}
           />
@@ -353,8 +353,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Great question! There are several algorithms. Let me show you the main ones..."
-            x={width - 850}
-            y={height - 250}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={500}
             maxWidth={520}
           />
@@ -414,7 +414,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="For senior architects: L4 (TCP/UDP) is fast but dumb. L7 (HTTP) is smart but slower - can route based on URLs, headers, cookies!"
             x={width / 2 - 400}
-            y={height - 380}
+            y={height * 0.64}
             startFrame={720}
             maxWidth={800}
           />
@@ -515,7 +515,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="junior"
             text="What happens when a server crashes?"
             x={200}
-            y={height - 350}
+            y={height * 0.64}
             startFrame={980}
             maxWidth={450}
           />
@@ -664,8 +664,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="The LB detects failures via health checks (HTTP probes, TCP checks). Failed servers are removed from rotation automatically. No manual intervention needed!"
-            x={width - 950}
-            y={height - 200}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1020}
             maxWidth={700}
           />
@@ -688,7 +688,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="junior"
             text="What if users need to stay on the same server? Like for shopping carts?"
             x={200}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={1130}
             maxWidth={500}
           />
@@ -733,8 +733,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Sticky sessions! Use cookies or IP hash. Same user → same server. Great for stateful apps, but reduces load distribution and failover options."
-            x={width - 950}
-            y={height - 200}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1230}
             maxWidth={700}
           />
@@ -756,7 +756,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="For global scale, we route users to the nearest datacenter using GeoDNS. Disaster recovery built-in!"
             x={width / 2 - 400}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={1310}
             maxWidth={800}
           />
@@ -797,11 +797,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Title text="Real-World Load Balancers" subtitle="Choosing the right tool for your needs" startFrame={1470} y={50} />
 
           <Character type="junior" x={150} y={height - 200} startFrame={1470} size={80} />
-          <Character type="architect" x={width - 300} y={height - 200} startFrame={1470} size={80} />
+          <Character type="architect" x={width * 0.60} y={height - 200} startFrame={1470} size={80} />
 
-          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height - 280} startFrame={1490} maxWidth={450} />
+          <Dialogue speaker="junior" text="Which load balancer should we actually use?" x={200} y={height * 0.64} startFrame={1490} maxWidth={450} />
 
-          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width - 850} y={height - 280} startFrame={1510} maxWidth={600} />
+          <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width * 0.60} y={height * 0.64} startFrame={1510} maxWidth={600} />
 
           <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1530, 20)}}>
             <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great docs']} cons={['Complex config']} useCase="General purpose" />
@@ -836,7 +836,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Load balancers enable sophisticated deployment strategies. Let me show you three critical patterns..."
             x={width / 2 - 450}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={1760}
             maxWidth={900}
           />
@@ -875,13 +875,13 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <Character type="junior" x={150} y={height - 200} startFrame={1980} size={80} />
 
-          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height - 280} startFrame={2000} maxWidth={450} />
+          <Dialogue speaker="junior" text="Do we need SSL on every backend server?" x={200} y={height * 0.64} startFrame={2000} maxWidth={450} />
 
           <Dialogue
             speaker="architect"
             text="No! Terminate SSL at the load balancer. Decrypt once, forward as HTTP internally. Huge performance win!"
-            x={width - 900}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2030}
             maxWidth={680}
           />
@@ -917,15 +917,15 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <Title text="WebSocket Load Balancing" subtitle="Long-lived connections require special handling" startFrame={2160} y={50} />
 
           <Character type="junior" x={150} y={height - 200} startFrame={2160} size={80} />
-          <Character type="architect" x={width - 300} y={height - 200} startFrame={2160} size={80} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={2160} size={80} />
 
-          <Dialogue speaker="junior" text="What about WebSockets for our real-time chat?" x={200} y={height - 180} startFrame={2180} maxWidth={500} />
+          <Dialogue speaker="junior" text="What about WebSockets for our real-time chat?" x={200} y={height * 0.64} startFrame={2180} maxWidth={500} />
 
           <Dialogue
             speaker="architect"
             text="Good catch! WebSockets are persistent. You MUST use sticky sessions or consistent hashing."
-            x={width - 900}
-            y={height - 180}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2210}
             maxWidth={680}
           />
@@ -967,7 +967,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             speaker="architect"
             text="Load balancers add a critical security layer. They can rate limit, block malicious traffic, and protect backends from overload."
             x={width / 2 - 500}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={2360}
             maxWidth={1000}
           />

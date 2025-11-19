@@ -238,26 +238,31 @@ export const DistributedSagas: React.FC = () => {
         <>
           <Title text="Distributed Transactions & Sagas" x={width / 2 - 550} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          {/* Characters and dialogues hide together at frame 270 (90 frames after last dialogue at 180) */}
+          {frame < 270 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
-          <Dialogue
-            speaker="developer"
-            text="In a monolith, I use database transactions for consistency. How do I ensure an order is either fully created OR fully rolled back when it spans Order, Payment, and Inventory services?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-            maxWidth={650}
-          />
+              <Dialogue
+                speaker="developer"
+                text="In a monolith, I use database transactions for consistency. How do I ensure an order is either fully created OR fully rolled back when it spans Order, Payment, and Inventory services?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={90}
+                maxWidth={650}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="The distributed transaction problem! Each service has its own database, so traditional ACID transactions don't work. We use Sagas instead."
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="The distributed transaction problem! Each service has its own database, so traditional ACID transactions don't work. We use Sagas instead."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* The Problem Visualization */}
           <div
@@ -402,16 +407,21 @@ export const DistributedSagas: React.FC = () => {
         <>
           <Title text="The Saga Pattern" x={width / 2 - 300} y={50} color="#c084fc" startFrame={750} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={780} />
+          {/* Character and dialogue hide together at frame 900 (90 frames after dialogue at 810) */}
+          {frame < 900 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={780} />
 
-          <Dialogue
-            speaker="architect"
-            text="A Saga is a sequence of local transactions. If one fails, we run compensating transactions to undo previous steps. It's eventual consistency!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={810}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="A Saga is a sequence of local transactions. If one fails, we run compensating transactions to undo previous steps. It's eventual consistency!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={810}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Saga Flow */}
           <div
@@ -542,16 +552,21 @@ export const DistributedSagas: React.FC = () => {
         <>
           <Title text="Saga Coordination: Two Patterns" x={width / 2 - 520} y={50} color="#c084fc" startFrame={1650} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1680} />
+          {/* Character and dialogue hide together at frame 1800 (90 frames after dialogue at 1710) */}
+          {frame < 1800 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1680} />
 
-          <Dialogue
-            speaker="developer"
-            text="Who coordinates the saga? Who decides when to run compensations?"
-            x={100}
-            y={height - 280}
-            startFrame={1710}
-            maxWidth={650}
-          />
+              <Dialogue
+                speaker="developer"
+                text="Who coordinates the saga? Who decides when to run compensations?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1710}
+                maxWidth={650}
+              />
+            </>
+          )}
 
           {/* Two Patterns */}
           <div
@@ -897,17 +912,22 @@ export const DistributedSagas: React.FC = () => {
         <>
           <Title text="Event Sourcing & CQRS" x={width / 2 - 420} y={50} color="#c084fc" startFrame={2400} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2430} />
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2460} />
+          {/* Characters and dialogue hide together at frame 2580 (90 frames after dialogue at 2490) */}
+          {frame < 2580 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2430} />
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2460} />
 
-          <Dialogue
-            speaker="architect"
-            text="Sagas work great with Event Sourcing. Instead of storing current state, store all events that happened. You can rebuild state and have perfect audit trail!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2490}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Sagas work great with Event Sourcing. Instead of storing current state, store all events that happened. You can rebuild state and have perfect audit trail!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2490}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Event Sourcing */}
           <div
@@ -1021,14 +1041,21 @@ export const DistributedSagas: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="Got it! Sagas handle distributed transactions with compensations. Event Sourcing gives us the event history. CQRS separates reads from writes. These patterns work together!"
-            x={100}
-            y={height - 280}
-            startFrame={2850}
-            maxWidth={650}
-          />
+          {/* Developer responds after content is shown */}
+          {frame >= 2850 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2850} />
+
+              <Dialogue
+                speaker="developer"
+                text="Got it! Sagas handle distributed transactions with compensations. Event Sourcing gives us the event history. CQRS separates reads from writes. These patterns work together!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2850}
+                maxWidth={650}
+              />
+            </>
+          )}
 
           {/* Credit */}
           <div

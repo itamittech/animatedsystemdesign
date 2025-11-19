@@ -1,8 +1,10 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {theme} from '../design-system/theme';
 import {Title} from '../components/Title';
-import {fadeIn, slideIn} from '../design-system/animations';
+import {Character} from '../components/Character';
+import {Dialogue} from '../components/Dialogue';
+import {fadeIn, slideIn, pulse} from '../design-system/animations';
 
 /**
  * Apache Kafka & Event Streaming
@@ -17,7 +19,7 @@ import {fadeIn, slideIn} from '../design-system/animations';
 
 export const ApacheKafka: React.FC = () => {
   const frame = useCurrentFrame();
-  const {width, height} = {width: 1920, height: 1080};
+  const {width, height} = useVideoConfig();
 
   // Scene timing
   const scene1End = 600;  // 0-20s
@@ -28,10 +30,71 @@ export const ApacheKafka: React.FC = () => {
 
   return (
     <AbsoluteFill style={{backgroundColor: theme.background.primary}}>
+      {/* Credit Bookmark */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          right: 30,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backdropFilter: 'blur(10px)',
+          padding: '12px 24px',
+          borderRadius: 30,
+          border: '2px solid rgba(96, 165, 250, 0.4)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+          opacity: fadeIn(frame, 30, 20),
+          zIndex: 1000,
+        }}
+      >
+        <div style={{fontSize: 24, color: '#94a3b8', fontWeight: '500'}}>Created by</div>
+        <div style={{
+          fontSize: 20,
+          fontWeight: 'bold',
+          background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}>
+          Amit Mishra
+        </div>
+        <div style={{width: 2, height: 20, backgroundColor: 'rgba(96, 165, 250, 0.3)'}} />
+        <div style={{fontSize: 22, color: '#64748b', fontStyle: 'italic'}}>
+          <span style={{fontSize: 24}}>⚡</span> Powered by Claude Code
+        </div>
+      </div>
+
       {/* Scene 1: Introduction - What is Kafka? */}
       {frame < scene1End && (
         <>
           <Title text="Apache Kafka" subtitle="High-Throughput Event Streaming Platform" />
+
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 180 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
+
+              <Dialogue
+                speaker="junior"
+                text="I keep hearing about Kafka for handling events. What makes it different from regular message queues?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={500}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Great question! Unlike traditional queues that delete messages after consumption, Kafka is a distributed commit log that keeps events for replay. Let me show you the key challenges it solves..."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={90}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* Problem Statement */}
           <div
@@ -133,6 +196,32 @@ export const ApacheKafka: React.FC = () => {
       {frame >= scene1End && frame < scene2End && (
         <>
           <Title text="Kafka Architecture" subtitle="Topics, Partitions & Brokers" />
+
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 750 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={610} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={610} size={95} />
+
+              <Dialogue
+                speaker="junior"
+                text="So how does Kafka actually organize all these events? What's the internal structure?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={630}
+                maxWidth={480}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Kafka organizes events into Topics, which are split into Partitions across Brokers. Let me show you the architecture..."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={660}
+                maxWidth={520}
+              />
+            </>
+          )}
 
           {/* Architecture Diagram */}
           <svg
@@ -494,6 +583,32 @@ export const ApacheKafka: React.FC = () => {
         <>
           <Title text="Consumer Groups" subtitle="Parallel Processing & Load Balancing" />
 
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1650 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1510} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1510} size={95} />
+
+              <Dialogue
+                speaker="junior"
+                text="How do multiple consumers work together? Can they read the same events in parallel?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1530}
+                maxWidth={470}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Excellent question! Consumer Groups allow parallel processing. Each partition goes to one consumer in the group, enabling true horizontal scaling..."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1560}
+                maxWidth={540}
+              />
+            </>
+          )}
+
           <svg
             viewBox={`0 0 ${width} ${height}`}
             style={{
@@ -727,6 +842,32 @@ export const ApacheKafka: React.FC = () => {
         <>
           <Title text="Delivery Guarantees" subtitle="Reliability & Durability in Kafka" />
 
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2550 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2410} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2410} size={95} />
+
+              <Dialogue
+                speaker="junior"
+                text="What guarantees does Kafka provide for message delivery? How reliable is it?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2430}
+                maxWidth={460}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Kafka offers three delivery guarantees - at-most-once, at-least-once, and exactly-once. Each has trade-offs. Let me break them down..."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2460}
+                maxWidth={540}
+              />
+            </>
+          )}
+
           {/* Three Guarantee Types */}
           <div
             style={{
@@ -926,6 +1067,32 @@ export const ApacheKafka: React.FC = () => {
         <>
           <Title text="When to Use Kafka" subtitle="Ideal Use Cases & Architecture Patterns" />
 
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 3300 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={3160} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={3160} size={95} />
+
+              <Dialogue
+                speaker="junior"
+                text="This all sounds powerful! When should I actually use Kafka versus other solutions?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={3180}
+                maxWidth={480}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Great question! Kafka excels at high-throughput event streaming. Let me show you the ideal use cases and when NOT to use it..."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={3210}
+                maxWidth={540}
+              />
+            </>
+          )}
+
           {/* Use Cases Grid */}
           <div
             style={{
@@ -1085,20 +1252,6 @@ export const ApacheKafka: React.FC = () => {
               💡 <strong style={{color: '#c4b5fd'}}>Kafka excels</strong> at high-throughput event streaming,
               providing durability, replay capability, and horizontal scalability for distributed systems
             </p>
-          </div>
-
-          {/* Credit */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 20,
-              right: 30,
-              fontSize: 22,
-              color: '#64748b',
-              fontFamily: 'monospace',
-            }}
-          >
-            Created by Amit Mishra | Powered by Claude Code
           </div>
         </>
       )}

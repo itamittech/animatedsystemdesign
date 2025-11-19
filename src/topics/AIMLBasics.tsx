@@ -235,26 +235,30 @@ export const AIMLBasics: React.FC = () => {
         <>
           <Title text="AI & Machine Learning Basics" x={width / 2 - 400} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          {frame < 270 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={30} />
 
-          <Dialogue
-            speaker="developer"
-            text="Sarah, AI is everywhere now! But I'm confused - what's the difference between AI, Machine Learning, and Deep Learning? Are they the same thing?"
-            x={100}
-            y={height - 280}
-            startFrame={90}
-            maxWidth={650}
-          />
+              <Dialogue
+                speaker="developer"
+                text="Sarah, AI is everywhere now! But I'm confused - what's the difference between AI, Machine Learning, and Deep Learning? Are they the same thing?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={650}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! They're related but different. Think of them as nested concepts - AI is the biggest umbrella, ML is a subset of AI, and Deep Learning is a subset of ML. Let me show you the hierarchy!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={580}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! They're related but different. Think of them as nested concepts - AI is the biggest umbrella, ML is a subset of AI, and Deep Learning is a subset of ML. Let me show you the hierarchy!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Credit */}
           <div
@@ -277,7 +281,20 @@ export const AIMLBasics: React.FC = () => {
         <>
           <Title text="The AI Hierarchy" x={width / 2 - 250} y={50} color="#c084fc" startFrame={450} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={480} />
+          {frame < 870 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 - 50} startFrame={480} />
+
+              <Dialogue
+                speaker="architect"
+                text="See the pattern? Each layer is more specialized. AI is the goal, ML is the approach, and Deep Learning is the powerful technique that's driving today's AI revolution!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={780}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Nested boxes showing hierarchy - FIXED LAYOUT */}
           {/* Outer AI box */}
@@ -353,14 +370,6 @@ export const AIMLBasics: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="See the pattern? Each layer is more specialized. AI is the goal, ML is the approach, and Deep Learning is the powerful technique that's driving today's AI revolution!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={780}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div
@@ -383,7 +392,20 @@ export const AIMLBasics: React.FC = () => {
         <>
           <Title text="Traditional vs ML Programming" x={width / 2 - 450} y={50} color="#c084fc" startFrame={990} />
 
-          <Character type="developer" x={200} y={height / 2 - 50} startFrame={1020} />
+          {frame < 1470 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 50} startFrame={1020} />
+
+              <Dialogue
+                speaker="developer"
+                text="Ah! So instead of writing explicit rules, we let the machine figure out the patterns from examples. That's why it's called 'learning'!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1380}
+                maxWidth={650}
+              />
+            </>
+          )}
 
           {/* Traditional Programming */}
           <div
@@ -449,14 +471,6 @@ export const AIMLBasics: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="Ah! So instead of writing explicit rules, we let the machine figure out the patterns from examples. That's why it's called 'learning'!"
-            x={100}
-            y={height - 280}
-            startFrame={1380}
-            maxWidth={650}
-          />
 
           {/* Credit */}
           <div
@@ -479,7 +493,20 @@ export const AIMLBasics: React.FC = () => {
         <>
           <Title text="AI in Modern Systems" x={width / 2 - 350} y={50} color="#c084fc" startFrame={1530} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 50} startFrame={1560} />
+          {frame < 1950 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height / 2 - 50} startFrame={1560} />
+
+              <Dialogue
+                speaker="architect"
+                text="AI isn't magic - it's a component in your system architecture. You apply the same engineering principles: latency, scaling, monitoring. The difference is the service is a trained model, not hand-coded logic!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1860}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Use cases - FIXED to not use flexbox with absolute positioned boxes */}
           <div
@@ -604,14 +631,6 @@ export const AIMLBasics: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="architect"
-            text="AI isn't magic - it's a component in your system architecture. You apply the same engineering principles: latency, scaling, monitoring. The difference is the service is a trained model, not hand-coded logic!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={1860}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div
@@ -634,8 +653,30 @@ export const AIMLBasics: React.FC = () => {
         <>
           <Title text="Key Takeaways" x={width / 2 - 220} y={50} color="#c084fc" startFrame={2070} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2100} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2130} />
+          {frame < 2430 && (
+            <>
+              <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2100} />
+              <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2100} />
+
+              <Dialogue
+                speaker="developer"
+                text="This makes so much sense! AI isn't some mysterious black box - it's data-driven software that learns patterns. And we treat it like any distributed service."
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2220}
+                maxWidth={650}
+              />
+
+              <Dialogue
+                speaker="architect"
+                text="Exactly! Now you're thinking like a modern systems architect. In our next video, we'll explore how neural networks actually work under the hood. Ready?"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2340}
+                maxWidth={580}
+              />
+            </>
+          )}
 
           {/* Takeaways */}
           <div
@@ -688,23 +729,6 @@ export const AIMLBasics: React.FC = () => {
             </div>
           </div>
 
-          <Dialogue
-            speaker="developer"
-            text="This makes so much sense! AI isn't some mysterious black box - it's data-driven software that learns patterns. And we treat it like any distributed service."
-            x={100}
-            y={height - 280}
-            startFrame={2220}
-            maxWidth={650}
-          />
-
-          <Dialogue
-            speaker="architect"
-            text="Exactly! Now you're thinking like a modern systems architect. In our next video, we'll explore how neural networks actually work under the hood. Ready?"
-            x={width - 750}
-            y={height - 280}
-            startFrame={2340}
-            maxWidth={580}
-          />
 
           {/* Credit */}
           <div

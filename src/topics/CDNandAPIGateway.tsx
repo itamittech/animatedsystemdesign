@@ -59,26 +59,31 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="CDN & API Gateway" subtitle="Global Content Delivery & Intelligent API Management" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 315 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.62} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.62} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="We covered how browsers talk to servers. But how do massive platforms like Netflix serve millions of users globally so fast?"
-            x={width * 0.05}
-            y={height * 0.73}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="We covered how browsers talk to servers. But how do massive platforms like Netflix serve millions of users globally so fast?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! That's where CDNs and API Gateways come in. They're the secret sauce behind global-scale applications!"
-            x={width * 0.72 - 280}
-            y={height * 0.73}
-            startFrame={180}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! That's where CDNs and API Gateways come in. They're the secret sauce behind global-scale applications!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* The Problem Visualization */}
           {frame >= 405 && (
@@ -126,26 +131,31 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="Content Delivery Network (CDN)" subtitle="Bringing Content Closer to Users" startFrame={675} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={685} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={685} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 960 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.64} startFrame={685} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={685} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="How does a CDN actually make things faster? What's the magic?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={705}
-            maxWidth={450}
-          />
+              <Dialogue
+                speaker="junior"
+                text="How does a CDN actually make things faster? What's the magic?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={705}
+                maxWidth={450}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Simple! Instead of one server, you have hundreds of edge servers worldwide. Content gets cached near users."
-            x={width * 0.78 - 300}
-            y={height * 0.74}
-            startFrame={825}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Simple! Instead of one server, you have hundreds of edge servers worldwide. Content gets cached near users."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={825}
+                maxWidth={520}
+              />
+            </>
+          )}
 
           {/* CDN Network Visualization */}
           {frame >= 1050 && (
@@ -466,26 +476,31 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="CDN Caching Strategy" subtitle="Cache Hit vs Cache Miss" startFrame={1800} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1810} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1810} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2115 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.64} startFrame={1810} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1810} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Okay, so content is stored at edge servers. But how does the CDN know what to cache and for how long?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={1830}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Okay, so content is stored at edge servers. But how does the CDN know what to cache and for how long?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1830}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! It's all about cache control headers, TTL (Time To Live), and smart cache invalidation strategies."
-            x={width * 0.78 - 300}
-            y={height * 0.74}
-            startFrame={1950}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! It's all about cache control headers, TTL (Time To Live), and smart cache invalidation strategies."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1950}
+                maxWidth={520}
+              />
+            </>
+          )}
 
           {/* Cache Hit vs Miss Visualization */}
           {frame >= 2205 && (
@@ -605,26 +620,31 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="API Gateway" subtitle="The Smart Router for Your APIs" startFrame={2700} />
 
-          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={2710} size={95} />
-          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2710} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 3015 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.64} startFrame={2710} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2710} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="We've got the CDN handling static content. What about API calls and backend services?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={2730}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="We've got the CDN handling static content. What about API calls and backend services?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2730}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's where API Gateway shines! It's a single entry point that routes, secures, and manages all your API traffic."
-            x={width * 0.75 - 280}
-            y={height * 0.74}
-            startFrame={2850}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's where API Gateway shines! It's a single entry point that routes, secures, and manages all your API traffic."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2850}
+                maxWidth={520}
+              />
+            </>
+          )}
 
           {/* API Gateway Architecture */}
           {frame >= 3105 && (
@@ -926,26 +946,31 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="API Gateway Features" subtitle="Security, Rate Limiting & More" startFrame={3375} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={3385} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={3385} size={95} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 3690 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.64} startFrame={3385} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={3385} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What specific features does an API Gateway provide? It sounds like it does a lot!"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={3405}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What specific features does an API Gateway provide? It sounds like it does a lot!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={3405}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Absolutely! It handles authentication, rate limiting, request transformation, load balancing, and monitoring. Let me show you!"
-            x={width * 0.78 - 300}
-            y={height * 0.74}
-            startFrame={3525}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Absolutely! It handles authentication, rate limiting, request transformation, load balancing, and monitoring. Let me show you!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={3525}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* Features Grid */}
           {frame >= 3780 && (
@@ -1077,26 +1102,31 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={4275} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.66} startFrame={4285} size={90} />
-          <Character type="architect" x={width * 0.78} y={height * 0.66} startFrame={4285} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 4560 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.66} startFrame={4285} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.66} startFrame={4285} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="Walk me through a real production scenario - what happens from first request to cached response?"
-            x={width * 0.05}
-            y={height * 0.76}
-            startFrame={4305}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Walk me through a real production scenario - what happens from first request to cached response?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={4305}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Perfect! Let me show you the complete lifecycle: cache miss, API gateway routing, and then cache hit. This is how Netflix and Amazon actually work!"
-            x={width * 0.78 - 300}
-            y={height * 0.76}
-            startFrame={4425}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Perfect! Let me show you the complete lifecycle: cache miss, API gateway routing, and then cache hit. This is how Netflix and Amazon actually work!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={4425}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* Detailed Flow Diagram with complete lifecycle - SIMPLIFIED LAYOUT */}
           {frame >= 4650 && (
@@ -1540,8 +1570,13 @@ export const CDNandAPIGateway: React.FC = () => {
         <>
           <Title text="Real-World Impact" subtitle="Industry Examples & What's Next" startFrame={4950} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.65} startFrame={4960} size={100} />
-          <Character type="architect" x={width * 0.72} y={height * 0.65} startFrame={4960} size={100} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 5100 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.65} startFrame={4960} size={100} />
+              <Character type="architect" x={width * 0.75} y={height * 0.65} startFrame={4960} size={100} />
+            </>
+          )}
 
           {/* Real-World Examples */}
           {frame >= 4995 && (
@@ -1596,14 +1631,16 @@ export const CDNandAPIGateway: React.FC = () => {
             </div>
           )}
 
-          <Dialogue
-            speaker="junior"
-            text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
-            x={width * 0.05}
-            y={height * 0.75}
-            startFrame={5010}
-            maxWidth={500}
-          />
+          {frame < 5100 && (
+            <Dialogue
+              speaker="junior"
+              text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
+              x={width * 0.10}
+              y={height * 0.64}
+              startFrame={5010}
+              maxWidth={500}
+            />
+          )}
         </>
       )}
 

@@ -31,10 +31,10 @@ export const NotificationSystems: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="Notification Systems" subtitle="Multi-Channel Communication at Scale" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="How do apps send notifications to millions of users across push, email, SMS, and in-app?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Multi-channel notification system! Different channels for different urgency. Let me show you!" x={width - 750} y={height - 280} startFrame={240} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+          <Dialogue speaker="junior" text="How do apps send notifications to millions of users across push, email, SMS, and in-app?" x={width * 0.10} y={height * 0.64} startFrame={90} />
+          <Dialogue speaker="architect" text="Multi-channel notification system! Different channels for different urgency. Let me show you!" x={width * 0.60} y={height * 0.64} startFrame={240} />
 
           <div style={{position: 'absolute', top: 340, left: width / 2 - 850, width: 1700, opacity: fadeIn(frame, 390, 30)}}>
             <h2 style={{fontSize: 32, fontWeight: 700, color: '#8b5cf6', marginBottom: 24, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center', textShadow: '0 0 24px rgba(139, 92, 246, 0.6)'}}>📬 Notification Channels</h2>
@@ -223,8 +223,8 @@ export const NotificationSystems: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 390} />
-          <Dialogue speaker="junior" text="Server sends to FCM/APNS gateway, they route to devices. Platform handles delivery!" x={100} y={height - 280} startFrame={scene1End + 420} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 390} />
+          <Dialogue speaker="junior" text="Server sends to FCM/APNS gateway, they route to devices. Platform handles delivery!" x={width * 0.10} y={height * 0.64} startFrame={scene1End + 420} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -299,8 +299,8 @@ export const NotificationSystems: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 360} />
-          <Dialogue speaker="architect" text="Email for volume, SMS for critical. Both need deliverability work and cost management!" x={width - 750} y={height - 280} startFrame={scene2End + 390} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 360} />
+          <Dialogue speaker="architect" text="Email for volume, SMS for critical. Both need deliverability work and cost management!" x={width * 0.60} y={height * 0.64} startFrame={scene2End + 390} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -380,8 +380,8 @@ export const NotificationSystems: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 330} />
-          <Dialogue speaker="junior" text="User preferences, queue-based delivery with retries, idempotency, and analytics. Complete system!" x={100} y={height - 280} startFrame={scene3End + 360} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 330} />
+          <Dialogue speaker="junior" text="User preferences, queue-based delivery with retries, idempotency, and analytics. Complete system!" x={width * 0.10} y={height * 0.64} startFrame={scene3End + 360} />
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

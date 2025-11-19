@@ -57,26 +57,31 @@ export const DistributedTransactions: React.FC = () => {
         <>
           <Title text="Distributed Transactions" subtitle="Maintaining Consistency Across Multiple Services" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 270 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="With sharded databases and microservices, how do we ensure data consistency across multiple systems?"
-            x={220}
-            y={height - 280}
-            startFrame={60}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="junior"
+                text="With sharded databases and microservices, how do we ensure data consistency across multiple systems?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={520}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! This is the distributed transaction problem. Let's see it with a real example."
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={640}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! This is the distributed transaction problem. Let's see it with a real example."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={640}
+              />
+            </>
+          )}
 
           {/* The Problem - E-commerce Order Example */}
           {frame >= 270 && (
@@ -191,16 +196,21 @@ export const DistributedTransactions: React.FC = () => {
             Two-Phase Commit (2PC)
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={600} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 720 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={600} size={90} />
 
-          <Dialogue
-            speaker="architect"
-            text="2PC is the traditional approach. It has a PREPARE phase and a COMMIT phase with a coordinator."
-            x={width - 750}
-            y={height - 280}
-            startFrame={630}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="2PC is the traditional approach. It has a PREPARE phase and a COMMIT phase with a coordinator."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={630}
+                maxWidth={680}
+              />
+            </>
+          )}
 
           {/* 2PC Diagram */}
           <div
@@ -329,26 +339,31 @@ export const DistributedTransactions: React.FC = () => {
             Saga Pattern - Modern Alternative
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={1200} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1200} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1410 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1200} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1200} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="What's wrong with 2PC? It sounds perfect!"
-            x={220}
-            y={height - 280}
-            startFrame={1230}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What's wrong with 2PC? It sounds perfect!"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1230}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="2PC blocks and can't handle coordinator failures well. Sagas use local transactions with compensations instead!"
-            x={width - 750}
-            y={height - 280}
-            startFrame={1320}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="2PC blocks and can't handle coordinator failures well. Sagas use local transactions with compensations instead!"
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1320}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -491,16 +506,21 @@ export const DistributedTransactions: React.FC = () => {
             Saga Implementation Patterns
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1950} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2070 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1950} size={90} />
 
-          <Dialogue
-            speaker="architect"
-            text="There are two ways to implement Sagas: Choreography (event-driven) and Orchestration (centralized)."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1980}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="There are two ways to implement Sagas: Choreography (event-driven) and Orchestration (centralized)."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1980}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           <div
             style={{
@@ -641,26 +661,31 @@ export const DistributedTransactions: React.FC = () => {
             When to Avoid & Best Practices
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={2550} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={2550} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2760 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2550} size={90} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2550} size={90} />
 
-          <Dialogue
-            speaker="junior"
-            text="When should we avoid distributed transactions altogether?"
-            x={220}
-            y={height - 280}
-            startFrame={2580}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="When should we avoid distributed transactions altogether?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={2580}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! Sometimes the best distributed transaction is the one you don't need. Let's see alternatives."
-            x={width - 750}
-            y={height - 280}
-            startFrame={2670}
-            maxWidth={700}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! Sometimes the best distributed transaction is the one you don't need. Let's see alternatives."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={2670}
+                maxWidth={700}
+              />
+            </>
+          )}
 
           {frame >= 2760 && (
             <div

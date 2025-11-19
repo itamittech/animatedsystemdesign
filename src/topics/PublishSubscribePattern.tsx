@@ -34,22 +34,22 @@ export const PublishSubscribePattern: React.FC = () => {
         <>
           <Title text="Publish-Subscribe Pattern" subtitle="Decoupled Event Distribution" />
 
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
+          <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
 
           <Dialogue
             speaker="junior"
             text="We learned about message queues and Kafka. What's a publish-subscribe pattern, and how is it different?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
           />
 
           <Dialogue
             speaker="architect"
             text="Pub-Sub decouples publishers from subscribers. Publishers send messages to topics without knowing who subscribes. It's perfect for broadcasting events to multiple consumers!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={240}
           />
 
@@ -329,13 +329,13 @@ export const PublishSubscribePattern: React.FC = () => {
             </defs>
           </svg>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene1End + 90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene1End + 90} />
 
           <Dialogue
             speaker="junior"
             text="So in Pub-Sub, all subscribers get the same message? That's different from queues where only one consumer gets it!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene1End + 120}
           />
 
@@ -524,13 +524,13 @@ export const PublishSubscribePattern: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene2End + 240} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene2End + 240} />
 
           <Dialogue
             speaker="architect"
             text="Topic-based is simpler - subscribe to 'orders'. Content-based is powerful - subscribe to orders WHERE amount > $1000!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={scene2End + 270}
           />
 
@@ -706,13 +706,13 @@ export const PublishSubscribePattern: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene3End + 240} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene3End + 240} />
 
           <Dialogue
             speaker="junior"
             text="Perfect! So use Pub-Sub when I need to broadcast the same event to multiple independent consumers. Got it!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={scene3End + 270}
           />
 

@@ -241,14 +241,14 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
         <>
           <Title text="Service Discovery & Deployment" x={width / 2 - 560} y={50} color="#c084fc" startFrame={0} />
 
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={30} />
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={60} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={60} />
 
           <Dialogue
             speaker="developer"
             text="With microservices auto-scaling and restarting, how does Order Service find Payment Service? IPs keep changing!"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={90}
             maxWidth={650}
           />
@@ -256,8 +256,8 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="That's the Service Discovery problem! Services register themselves in a registry, and other services query it to find them dynamically."
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={580}
           />
@@ -361,13 +361,13 @@ export const ServiceDiscoveryDeployment: React.FC = () => {
         <>
           <Title text="Health Checks & Self-Healing" x={width / 2 - 480} y={50} color="#c084fc" startFrame={750} />
 
-          <Character type="architect" x={width - 300} y={height / 2 + 100} startFrame={780} />
+          <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={780} />
 
           <Dialogue
             speaker="architect"
             text="Services send heartbeats to prove they're healthy. If heartbeats stop, the registry removes them. Automatic self-healing!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={810}
             maxWidth={580}
           />
@@ -475,13 +475,13 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
         <>
           <Title text="Deployment Strategies" x={width / 2 - 400} y={50} color="#c084fc" startFrame={1350} />
 
-          <Character type="developer" x={200} y={height / 2 + 100} startFrame={1380} />
+          <Character type="developer" x={width * 0.25} y={height / 2 + 100} startFrame={1380} />
 
           <Dialogue
             speaker="developer"
             text="How do I deploy new versions without downtime? Just replace all instances?"
-            x={100}
-            y={height - 280}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1410}
             maxWidth={650}
           />
@@ -623,14 +623,14 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
         <>
           <Title text="Container Orchestration" x={width / 2 - 420} y={50} color="#c084fc" startFrame={2100} />
 
-          <Character type="architect" x={width - 300} y={height / 2 - 100} startFrame={2130} />
-          <Character type="developer" x={200} y={height / 2 - 100} startFrame={2160} />
+          <Character type="architect" x={width * 0.75} y={height / 2 - 100} startFrame={2130} />
+          <Character type="developer" x={width * 0.25} y={height / 2 - 100} startFrame={2160} />
 
           <Dialogue
             speaker="architect"
             text="All this - service discovery, health checks, deployments - is handled automatically by Kubernetes. It's become the standard for microservices!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2190}
             maxWidth={580}
           />
@@ -698,8 +698,8 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
             <Dialogue
               speaker="architect"
               text="Now you know how services find each other, stay healthy, and deploy safely. This is the operational foundation for microservices!"
-              x={width - 750}
-              y={height - 280}
+              x={width * 0.60}
+              y={height * 0.64}
               startFrame={2340}
               maxWidth={580}
             />
@@ -709,8 +709,8 @@ Response: { "status": "UP", "database": "UP", "cache": "UP" }`}
             <Dialogue
               speaker="developer"
               text="Perfect! Containerize with Docker, deploy to Kubernetes, and it handles discovery, scaling, and deployments automatically. Ready for production!"
-              x={100}
-              y={height - 280}
+              x={width * 0.10}
+              y={height * 0.64}
               startFrame={2580}
               maxWidth={650}
             />

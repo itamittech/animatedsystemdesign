@@ -59,14 +59,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="REST API Design" subtitle="Building Intuitive & Scalable APIs" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="junior" x={width * 0.25} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.75} y={height * 0.62} startFrame={30} size={110} />
 
           <Dialogue
             speaker="junior"
             text="We've built our infrastructure. Now how do we design APIs that are easy to use and maintain?"
-            x={width * 0.05}
-            y={height * 0.73}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={60}
             maxWidth={520}
           />
@@ -74,8 +74,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="REST API design is an art! Follow these principles and your APIs will be intuitive, scalable, and loved by developers."
-            x={width * 0.72 - 280}
-            y={height * 0.73}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={180}
             maxWidth={540}
           />
@@ -126,14 +126,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="Resource-Based URLs" subtitle="Nouns, Not Verbs" startFrame={450} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={480} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={480} size={95} />
+          <Character type="junior" x={width * 0.60} y={height * 0.64} startFrame={480} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={480} size={95} />
 
           <Dialogue
             speaker="junior"
             text="Should API endpoints include actions like /getUser or /createProduct?"
-            x={width * 0.05}
-            y={height * 0.74}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={510}
             maxWidth={480}
           />
@@ -141,8 +141,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Never! URLs should represent resources (nouns), not actions (verbs). HTTP methods are your verbs!"
-            x={width * 0.78 - 280}
-            y={height * 0.74}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={630}
             maxWidth={500}
           />
@@ -220,14 +220,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="HTTP Methods" subtitle="The Right Tool for the Job" startFrame={900} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={930} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={930} size={95} />
+          <Character type="junior" x={width * 0.60} y={height * 0.64} startFrame={930} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={930} size={95} />
 
           <Dialogue
             speaker="junior"
             text="What's the difference between PUT and PATCH? When do I use each method?"
-            x={width * 0.05}
-            y={height * 0.74}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={960}
             maxWidth={480}
           />
@@ -235,8 +235,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Each HTTP method has a specific purpose and semantics. Let's break them down with real examples!"
-            x={width * 0.78 - 280}
-            y={height * 0.74}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1080}
             maxWidth={500}
           />
@@ -390,14 +390,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="HTTP Status Codes" subtitle="Communicate Success & Errors Clearly" startFrame={1500} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={1530} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={1530} size={95} />
+          <Character type="junior" x={width * 0.60} y={height * 0.64} startFrame={1530} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1530} size={95} />
 
           <Dialogue
             speaker="junior"
             text="I've seen APIs return 200 OK even for errors. What status codes should we actually use?"
-            x={width * 0.05}
-            y={height * 0.74}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={1560}
             maxWidth={480}
           />
@@ -405,8 +405,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="That's terrible! Status codes are critical for API consumers. Use the right codes for the right situations."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={1680}
             maxWidth={500}
           />
@@ -530,14 +530,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="API Versioning" subtitle="Managing Breaking Changes" startFrame={2100} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={2130} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={2130} size={95} />
+          <Character type="junior" x={width * 0.60} y={height * 0.64} startFrame={2130} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2130} size={95} />
 
           <Dialogue
             speaker="junior"
             text="How do we update our API without breaking existing clients?"
-            x={width * 0.05}
-            y={height * 0.74}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={2160}
             maxWidth={480}
           />
@@ -545,8 +545,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="API versioning! There are three common strategies, each with trade-offs. Let's compare them."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2280}
             maxWidth={500}
           />
@@ -659,14 +659,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="Pagination & Filtering" subtitle="Handling Large Datasets" startFrame={2700} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={2730} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={2730} size={95} />
+          <Character type="junior" x={width * 0.60} y={height * 0.64} startFrame={2730} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={2730} size={95} />
 
           <Dialogue
             speaker="junior"
             text="What if /users returns 10 million records? How do we handle that efficiently?"
-            x={width * 0.05}
-            y={height * 0.74}
+            x={width * 0.10}
+            y={height * 0.64}
             startFrame={2760}
             maxWidth={480}
           />
@@ -674,8 +674,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Never return all records! Use pagination, filtering, and sorting. Let me show you the best patterns."
-            x={width * 0.78 - 280}
-            y={height * 0.74}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={2880}
             maxWidth={500}
           />
@@ -812,14 +812,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="HATEOAS" subtitle="Hypermedia as the Engine of Application State" startFrame={3300} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={3300} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={3300} size={90} />
+          <Character type="junior" x={width * 0.60} y={height - 200} startFrame={3300} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={3300} size={90} />
 
           <Dialogue
             speaker="junior"
             text="I've heard of HATEOAS. What is it and why should we use it?"
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={3330}
             maxWidth={500}
           />
@@ -827,8 +827,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="HATEOAS makes your API self-documenting by including links to related resources in every response!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={3450}
             maxWidth={640}
           />
@@ -959,14 +959,14 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="REST API Best Practices" subtitle="Summary & Key Takeaways" startFrame={3750} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={3750} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={3750} size={90} />
+          <Character type="junior" x={width * 0.25} y={height - 200} startFrame={3750} size={90} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={3750} size={90} />
 
           <Dialogue
             speaker="junior"
             text="This is so much clearer now! Our APIs will be much better designed."
             x={220}
-            y={height - 280}
+            y={height * 0.64}
             startFrame={3780}
             maxWidth={500}
           />
@@ -974,8 +974,8 @@ export const RESTAPIDesign: React.FC = () => {
           <Dialogue
             speaker="architect"
             text="Perfect! Remember: consistency, HATEOAS for discoverability, and always think from the API consumer's perspective!"
-            x={width - 750}
-            y={height - 280}
+            x={width * 0.60}
+            y={height * 0.64}
             startFrame={3840}
             maxWidth={640}
           />

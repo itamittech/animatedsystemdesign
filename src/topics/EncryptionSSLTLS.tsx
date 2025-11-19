@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {theme} from '../design-system/theme';
 import {Title} from '../components/Title';
 import {Character} from '../components/Character';
@@ -18,8 +18,7 @@ import {fadeIn} from '../design-system/animations';
 
 export const EncryptionSSLTLS: React.FC = () => {
   const frame = useCurrentFrame();
-  const width = 1920;
-  const height = 1080;
+  const {width, height} = useVideoConfig();
 
   const scene1End = 600;
   const scene2End = 1200;
@@ -31,10 +30,16 @@ export const EncryptionSSLTLS: React.FC = () => {
       {frame < scene1End && (
         <>
           <Title text="Encryption & SSL/TLS" subtitle="Protecting Data in Transit & At Rest" />
-          <Character type="junior" x={200} y={height / 2 + 100} startFrame={30} />
-          <Character type="architect" x={width - 400} y={height / 2 + 100} startFrame={30} />
-          <Dialogue speaker="junior" text="How does HTTPS actually encrypt my data? And what's the difference between encryption methods?" x={100} y={height - 280} startFrame={90} />
-          <Dialogue speaker="architect" text="Great question! There are two main types: symmetric (same key) and asymmetric (public/private keys). HTTPS uses BOTH!" x={width - 750} y={height - 280} startFrame={240} />
+
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 330 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height / 2 + 100} startFrame={30} />
+              <Character type="architect" x={width * 0.75} y={height / 2 + 100} startFrame={30} />
+              <Dialogue speaker="junior" text="How does HTTPS actually encrypt my data? And what's the difference between encryption methods?" x={width * 0.10} y={height * 0.64} startFrame={90} maxWidth={500} />
+              <Dialogue speaker="architect" text="Great question! There are two main types: symmetric (same key) and asymmetric (public/private keys). HTTPS uses BOTH!" x={width * 0.60} y={height * 0.64} startFrame={240} maxWidth={520} />
+            </>
+          )}
 
           <div style={{position: 'absolute', top: 350, left: width / 2 - 820, width: 1640, opacity: fadeIn(frame, 390, 30)}}>
             <div style={{display: 'flex', gap: 40}}>
@@ -166,8 +171,13 @@ export const EncryptionSSLTLS: React.FC = () => {
             </svg>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene1End + 360} />
-          <Dialogue speaker="architect" text="Asymmetric encryption establishes trust, then switches to fast symmetric encryption for actual data!" x={width - 750} y={height - 280} startFrame={scene1End + 390} />
+          {/* Characters and dialogues - hidden when content fully visible */}
+          {frame < 1080 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene1End + 360} />
+              <Dialogue speaker="architect" text="Asymmetric encryption establishes trust, then switches to fast symmetric encryption for actual data!" x={width * 0.60} y={height * 0.64} startFrame={scene1End + 390} maxWidth={540} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -251,8 +261,13 @@ export const EncryptionSSLTLS: React.FC = () => {
             </div>
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={scene2End + 360} />
-          <Dialogue speaker="junior" text="So the chain of trust goes: Root CA → Intermediate CA → Server Certificate. Browser verifies each link!" x={100} y={height - 280} startFrame={scene2End + 390} />
+          {/* Characters and dialogues - hidden when content fully visible */}
+          {frame < 1680 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height - 200} startFrame={scene2End + 360} />
+              <Dialogue speaker="junior" text="So the chain of trust goes: Root CA → Intermediate CA → Server Certificate. Browser verifies each link!" x={width * 0.10} y={height * 0.64} startFrame={scene2End + 390} maxWidth={500} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>
@@ -308,8 +323,13 @@ export const EncryptionSSLTLS: React.FC = () => {
             </div>
           </div>
 
-          <Character type="architect" x={width - 400} y={height - 200} startFrame={scene3End + 330} />
-          <Dialogue speaker="architect" text="Always use modern encryption! TLS 1.3, AES-256, rotate keys, and encrypt both in transit and at rest!" x={width - 750} y={height - 280} startFrame={scene3End + 360} />
+          {/* Characters and dialogues - hidden when content fully visible */}
+          {frame < 2280 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height - 200} startFrame={scene3End + 330} />
+              <Dialogue speaker="architect" text="Always use modern encryption! TLS 1.3, AES-256, rotate keys, and encrypt both in transit and at rest!" x={width * 0.60} y={height * 0.64} startFrame={scene3End + 360} maxWidth={540} />
+            </>
+          )}
 
           <div style={{position: 'absolute', bottom: 20, right: 30, fontSize: 22, color: '#64748b', fontFamily: 'monospace'}}>Created by Amit Mishra | Powered by Claude Code</div>
         </>

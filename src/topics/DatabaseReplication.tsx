@@ -57,29 +57,34 @@ export const DatabaseReplication: React.FC = () => {
         <>
           <Title text="Database Replication" subtitle="Scaling Reads & Ensuring High Availability" startFrame={0} />
 
-          <Character type="junior" x={200} y={height - 200} startFrame={30} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={30} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 270 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="How do databases handle failures and scale reads beyond a single server?"
-            x={220}
-            y={height - 280}
-            startFrame={60}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="How do databases handle failures and scale reads beyond a single server?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={60}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's where replication comes in! Let's explore how databases copy data across multiple servers."
-            x={width - 750}
-            y={height - 280}
-            startFrame={180}
-            maxWidth={640}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's where replication comes in! Let's explore how databases copy data across multiple servers."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={180}
+                maxWidth={640}
+              />
+            </>
+          )}
 
           {/* Why Replication */}
-          {frame >= 270 && (
+          {frame >= 280 && (
             <div
               style={{
                 position: 'absolute',
@@ -90,7 +95,7 @@ export const DatabaseReplication: React.FC = () => {
                 border: '3px solid rgba(167, 139, 250, 0.5)',
                 borderRadius: 16,
                 padding: 28,
-                opacity: fadeIn(frame, 270, 20),
+                opacity: fadeIn(frame, 280, 20),
               }}
             >
               <div style={{fontSize: 32, fontWeight: 'bold', color: '#a78bfa', marginBottom: 20, textAlign: 'center'}}>
@@ -137,27 +142,33 @@ export const DatabaseReplication: React.FC = () => {
             Master-Slave Replication
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={450} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 570 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={460} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="The most common pattern: One master handles writes, replicas handle reads."
-            x={width - 750}
-            y={height - 280}
-            startFrame={480}
-            maxWidth={600}
-          />
+              <Dialogue
+                speaker="architect"
+                text="The most common pattern: One master handles writes, replicas handle reads."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={480}
+                maxWidth={600}
+              />
+            </>
+          )}
 
-          <div
-            style={{
-              position: 'absolute',
-              top: 160,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 1600,
-              opacity: fadeIn(frame, 540, 20),
-            }}
-          >
+          {frame >= 580 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 160,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 1600,
+                opacity: fadeIn(frame, 580, 20),
+              }}
+            >
             {/* Architecture Diagram */}
             <div
               style={{
@@ -266,37 +277,43 @@ export const DatabaseReplication: React.FC = () => {
             Master-Master (Multi-Master) Replication
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={900} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={900} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1140 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={910} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={910} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Can multiple databases accept writes at the same time?"
-            x={220}
-            y={height - 280}
-            startFrame={930}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Can multiple databases accept writes at the same time?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={930}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Yes! Master-Master lets both servers accept writes. But it comes with complexity."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1050}
-            maxWidth={640}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Yes! Master-Master lets both servers accept writes. But it comes with complexity."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1050}
+                maxWidth={640}
+              />
+            </>
+          )}
 
-          <div
-            style={{
-              position: 'absolute',
-              top: 170,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 1600,
-              opacity: fadeIn(frame, 1140, 20),
-            }}
-          >
+          {frame >= 1150 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 170,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 1600,
+                opacity: fadeIn(frame, 1150, 20),
+              }}
+            >
             <div style={{display: 'flex', gap: 30}}>
               {/* Diagram */}
               <div
@@ -409,27 +426,33 @@ export const DatabaseReplication: React.FC = () => {
             Synchronous vs Asynchronous Replication
           </div>
 
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1350} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 1470 && (
+            <>
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1360} size={95} />
 
-          <Dialogue
-            speaker="architect"
-            text="This is the critical trade-off: consistency versus performance."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1380}
-            maxWidth={560}
-          />
+              <Dialogue
+                speaker="architect"
+                text="This is the critical trade-off: consistency versus performance."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1380}
+                maxWidth={560}
+              />
+            </>
+          )}
 
-          <div
-            style={{
-              position: 'absolute',
-              top: 160,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 1700,
-              opacity: fadeIn(frame, 1460, 20),
-            }}
-          >
+          {frame >= 1480 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 160,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 1700,
+                opacity: fadeIn(frame, 1480, 20),
+              }}
+            >
             <div style={{display: 'flex', gap: 30}}>
               {/* Synchronous */}
               <div
@@ -552,28 +575,33 @@ export const DatabaseReplication: React.FC = () => {
             Read Replicas & Replication Lag
           </div>
 
-          <Character type="junior" x={200} y={height - 200} startFrame={1800} size={90} />
-          <Character type="architect" x={width - 350} y={height - 200} startFrame={1800} size={90} />
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 2040 && (
+            <>
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1810} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1810} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="What's replication lag and how do we handle it?"
-            x={220}
-            y={height - 280}
-            startFrame={1830}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="What's replication lag and how do we handle it?"
+                x={width * 0.10}
+                y={height * 0.64}
+                startFrame={1830}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Lag is the delay between master write and replica sync. It's the price of async replication."
-            x={width - 750}
-            y={height - 280}
-            startFrame={1950}
-            maxWidth={680}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Lag is the delay between master write and replica sync. It's the price of async replication."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={1950}
+                maxWidth={680}
+              />
+            </>
+          )}
 
-          {frame >= 2040 && (
+          {frame >= 2050 && (
             <div
               style={{
                 position: 'absolute',
@@ -581,7 +609,7 @@ export const DatabaseReplication: React.FC = () => {
                 left: '50%',
                 transform: 'translateX(-50%)',
                 width: 1600,
-                opacity: fadeIn(frame, 2040, 20),
+                opacity: fadeIn(frame, 2050, 20),
               }}
             >
               {/* Replication Lag Explained */}
