@@ -153,7 +153,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="How the Internet Really Works" subtitle="A Journey from google.com to Your Screen" startFrame={0} />
 
           <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.62} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.56} startFrame={30} size={110} />
 
           <Dialogue
             speaker="junior"
@@ -168,7 +168,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Great question! Let's trace this journey together. First, computers don't understand 'google.com' - they only speak in IP addresses."
             x={width * 0.72 - 280}
-            y={height * 0.73}
+            y={height * 0.67}
             startFrame={150}
             maxWidth={520}
           />
@@ -187,17 +187,17 @@ export const ClientServerDNSProxies: React.FC = () => {
               opacity: fadeIn(frame, 240, 20),
               transform: `scale(${pulse(frame, 60)})`,
             }}>
-              <div style={{fontSize: 26, fontWeight: 'bold', color: theme.colors.client, marginBottom: 16, textAlign: 'center'}}>
+              <div style={{fontSize: 28, fontWeight: 'bold', color: theme.colors.client, marginBottom: 16, textAlign: 'center', textShadow: '0 0 20px rgba(96, 165, 250, 0.6)', letterSpacing: '1px'}}>
                 💻 IP Address: The Computer's Address
               </div>
               <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 2, textAlign: 'center'}}>
-                <div style={{fontSize: 32, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12}}>
+                <div style={{fontSize: 36, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12, textShadow: '0 0 30px rgba(251, 191, 36, 0.7)', letterSpacing: '2px'}}>
                   142.250.185.46
                 </div>
                 <div style={{fontSize: 24, color: '#94a3b8'}}>
                   Every device on the internet has a unique IP address.<br/>
-                  IPv4 uses 32 bits (4.3 billion addresses - now exhausted!)<br/>
-                  <span style={{color: '#10b981', fontWeight: 'bold'}}>IPv6 uses 128 bits</span> - solving the shortage problem
+                  <span style={{fontWeight: 'bold', color: '#60a5fa'}}>IPv4</span> uses 32 bits (4.3 billion addresses - now exhausted!)<br/>
+                  <span style={{color: '#10b981', fontWeight: 'bold', textShadow: '0 0 15px rgba(16, 185, 129, 0.6)'}}>IPv6 uses 128 bits</span> - solving the shortage problem
                 </div>
               </div>
             </div>
@@ -211,7 +211,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="DNS: The Internet's Phone Book" subtitle="How Domain Names Become IP Addresses" startFrame={450} />
 
           <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.64} startFrame={460} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.58} startFrame={460} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -226,7 +226,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="That's where DNS comes in! It's a hierarchy of servers. Let me show you step by step..."
             x={width * 0.78 - 300}
-            y={height * 0.74}
+            y={height * 0.68}
             startFrame={570}
             maxWidth={500}
           />
@@ -248,8 +248,8 @@ export const ClientServerDNSProxies: React.FC = () => {
                 textAlign: 'center',
               }}>
                 <div style={{fontSize: 42}}>💻</div>
-                <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.client, marginTop: 6}}>Your Browser</div>
-                <div style={{fontSize: 20, color: '#94a3b8', marginTop: 4}}>google.com?</div>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.client, marginTop: 6, textShadow: '0 0 15px rgba(96, 165, 250, 0.5)'}}>Your Browser</div>
+                <div style={{fontSize: 20, color: '#94a3b8', marginTop: 4, fontStyle: 'italic'}}>google.com?</div>
               </div>
 
               {/* Root DNS */}
@@ -460,7 +460,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               speaker="architect"
               text="See? Four steps: Browser→Root→TLD→Authoritative→Back to Browser with the IP!"
               x={width * 0.78 - 300}
-              y={height * 0.74}
+              y={height * 0.68}
               startFrame={990}
               maxWidth={500}
             />
@@ -474,7 +474,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Making It Secure with TLS" subtitle="Encryption, Certificates & Cryptography" startFrame={1080} />
 
           <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={95} />
-          <Character type="architect" x={width * 0.75} y={height * 0.64} startFrame={1090} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.58} startFrame={1090} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -489,7 +489,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Excellent question! TLS has three jobs: verify identity, negotiate encryption, and secure data. Let me show you the handshake first..."
             x={width * 0.75 - 320}
-            y={height * 0.74}
+            y={height * 0.68}
             startFrame={1140}
             maxWidth={540}
           />
@@ -509,7 +509,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 borderRadius: 16,
                 padding: 24,
               }}>
-                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center', textShadow: '0 0 20px rgba(96, 165, 250, 0.6)', letterSpacing: '1.5px'}}>
                   TLS Handshake: The Security Dance 🔐
                 </div>
 
@@ -637,7 +637,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   marginTop: 16,
                   opacity: fadeIn(frame, 1320, 20),
                 }}>
-                  <div style={{fontSize: 18, fontWeight: 'bold', color: '#fbbf24', marginBottom: 12, textAlign: 'center'}}>
+                  <div style={{fontSize: 20, fontWeight: 'bold', background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: 12, textAlign: 'center', letterSpacing: '1px'}}>
                     TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
                   </div>
 
@@ -685,7 +685,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 borderRadius: 16,
                 padding: 24,
               }}>
-                <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.success, marginBottom: 16, textAlign: 'center'}}>
+                <div style={{fontSize: 26, fontWeight: 'bold', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: 16, textAlign: 'center', letterSpacing: '1px'}}>
                   Step 2: Certificate Authority Chain
                 </div>
 
@@ -874,7 +874,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                 textAlign: 'center',
               }}>
                 <div style={{fontSize: 42, marginBottom: 12}}>🔒</div>
-                <div style={{fontSize: 26, color: '#10b981', fontWeight: 'bold', marginBottom: 14}}>
+                <div style={{fontSize: 28, background: 'linear-gradient(135deg, #10b981 0%, #34d399 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 'bold', marginBottom: 14, letterSpacing: '1px', textShadow: '0 0 30px rgba(16, 185, 129, 0.4)'}}>
                   Secure Tunnel Established!
                 </div>
                 <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 1.9}}>
@@ -898,7 +898,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={2040} />
 
           <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={2050} size={95} />
-          <Character type="architect" x={width * 0.77} y={height * 0.66} startFrame={2050} size={95} />
+          <Character type="architect" x={width * 0.77} y={height * 0.60} startFrame={2050} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -913,7 +913,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
             x={width * 0.77 - 320}
-            y={height * 0.76}
+            y={height * 0.70}
             startFrame={2160}
             maxWidth={540}
           />
@@ -1031,25 +1031,39 @@ export const ClientServerDNSProxies: React.FC = () => {
                 </div>
               </div>
 
-              {/* STATIC LINES (always visible after frame 1880) */}
+              {/* STATIC LINES (always visible after frame 2180) - Properly aligned with box edges */}
               {frame >= 2180 && (
                 <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
+                  <defs>
+                    <marker id="arrowhead-client" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
+                    </marker>
+                    <marker id="arrowhead-dns" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#fbbf24" />
+                    </marker>
+                    <marker id="arrowhead-reverse" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
+                    </marker>
+                    <marker id="arrowhead-app" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
+                    </marker>
+                  </defs>
                   {/* Line 1: Client → Forward Proxy */}
-                  <line x1={110} y1={45} x2={width * 0.235} y2={45} stroke="#60a5fa" strokeWidth="2" opacity="0.4" />
+                  <line x1={150} y1={45} x2={507} y2={45} stroke="#60a5fa" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-client)" />
                   {/* Line 2: Forward Proxy → DNS */}
-                  <line x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} stroke="#fbbf24" strokeWidth="2" opacity="0.4" />
+                  <line x1={607} y1={40} x2={870} y2={40} stroke="#fbbf24" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-dns)" />
                   {/* Line 3: DNS → Reverse Proxy */}
-                  <line x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} stroke="#60a5fa" strokeWidth="2" opacity="0.4" />
+                  <line x1={960} y1={45} x2={1284} y2={45} stroke="#60a5fa" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-reverse)" />
                   {/* Line 4: Reverse Proxy → App */}
-                  <line x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} stroke="#10b981" strokeWidth="2" opacity="0.4" />
+                  <line x1={1384} y1={45} x2={1688} y2={45} stroke="#10b981" strokeWidth="3" opacity="0.6" markerEnd="url(#arrowhead-app)" />
                 </svg>
               )}
 
-              {/* FLOWING DOT ANIMATION */}
-              <FlowingDot x1={110} y1={45} x2={width * 0.235} y2={45} startFrame={2180} duration={30} color="#60a5fa" />
-              <FlowingDot x1={width * 0.335} y1={40} x2={width * 0.425} y2={40} startFrame={2210} duration={30} color="#fbbf24" />
-              <FlowingDot x1={width * 0.515} y1={45} x2={width * 0.645} y2={45} startFrame={2240} duration={30} color="#60a5fa" />
-              <FlowingDot x1={width * 0.745} y1={45} x2={width * 0.855} y2={45} startFrame={2270} duration={30} color="#10b981" />
+              {/* FLOWING DOT ANIMATION - Aligned with new line coordinates */}
+              <FlowingDot x1={150} y1={45} x2={507} y2={45} startFrame={2180} duration={30} color="#60a5fa" />
+              <FlowingDot x1={607} y1={40} x2={870} y2={40} startFrame={2210} duration={30} color="#fbbf24" />
+              <FlowingDot x1={960} y1={45} x2={1284} y2={45} startFrame={2240} duration={30} color="#60a5fa" />
+              <FlowingDot x1={1384} y1={45} x2={1688} y2={45} startFrame={2270} duration={30} color="#10b981" />
 
               {/* Explanation below - LARGER FONT, MORE TIME TO READ */}
               {frame >= 2180 && (
@@ -1104,7 +1118,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2460} />
 
           <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2470} size={95} />
-          <Character type="architect" x={width * 0.79} y={height * 0.68} startFrame={2470} size={95} />
+          <Character type="architect" x={width * 0.79} y={height * 0.62} startFrame={2470} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -1119,7 +1133,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Perfect! Let me walk you through the complete journey with timing..."
             x={width * 0.79 - 340}
-            y={height * 0.78}
+            y={height * 0.72}
             startFrame={2580}
             maxWidth={560}
           />
@@ -1137,7 +1151,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               padding: 26,
               opacity: fadeIn(frame, 2670, 15),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
+              <div style={{fontSize: 26, fontWeight: 'bold', background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: 20, textAlign: 'center', letterSpacing: '1px'}}>
                 When You Press Enter on google.com...
               </div>
               <div style={{fontSize: 24, color: '#e2e8f0', lineHeight: 2.5}}>
@@ -1185,7 +1199,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={3060} />
 
           <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={3070} size={95} />
-          <Character type="architect" x={width * 0.76} y={height * 0.68} startFrame={3070} size={95} />
+          <Character type="architect" x={width * 0.76} y={height * 0.62} startFrame={3070} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -1200,7 +1214,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Here are the key principles that scale to billions of requests..."
             x={width * 0.76 - 340}
-            y={height * 0.78}
+            y={height * 0.72}
             startFrame={3160}
             maxWidth={560}
           />
@@ -1289,8 +1303,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: What's Next (3240-3300 frames / 108-110s) */}
-      {frame >= 3240 && frame < 3300 && (
+      {/* Scene 7: What's Next (3240-3420 frames / 108-114s) */}
+      {frame >= 3240 && frame < 3420 && (
         <>
           <div style={{
             position: 'absolute',
@@ -1322,7 +1336,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             text="Now let's learn about distributing traffic across multiple servers for high availability!"
             x={width * 0.62 - 180}
             y={height * 0.64}
-            startFrame={3300}
+            startFrame={3310}
             maxWidth={500}
           />
 
@@ -1337,8 +1351,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             padding: '20px 36px',
             borderRadius: 14,
             border: '3px solid rgba(96, 165, 250, 0.5)',
-            opacity: fadeIn(frame, 3320, 20),
+            opacity: fadeIn(frame, 3350, 20),
             textAlign: 'center',
+            textShadow: '0 0 20px rgba(96, 165, 250, 0.5)',
           }}>
             Next Up: Load Balancing & CDNs 🚀
           </div>
@@ -1350,7 +1365,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             fontSize: 24,
             color: '#94a3b8',
             textAlign: 'center',
-            opacity: fadeIn(frame, 3340, 15),
+            opacity: fadeIn(frame, 3380, 15),
           }}>
             Phase 1: Foundational Infrastructure - Topic 1 of 4 ✅
           </div>
