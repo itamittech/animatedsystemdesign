@@ -152,28 +152,31 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="How the Internet Really Works" subtitle="A Journey from google.com to Your Screen" startFrame={0} />
 
-          <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.54} startFrame={30} size={110} />
+          {/* Characters and dialogues - hide when content appears */}
+          {frame < 240 && (
+            <>
+              <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.72} y={height * 0.54} startFrame={30} size={110} />
 
-          <Dialogue
-            speaker="junior"
-            text="When I type 'google.com' and press Enter, what actually happens? How does my browser know where to go?"
-            x={width * 0.05}
-            y={height * 0.73}
-            startFrame={60}
-            endFrame={230}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="junior"
+                text="When I type 'google.com' and press Enter, what actually happens? How does my browser know where to go?"
+                x={width * 0.05}
+                y={height * 0.73}
+                startFrame={60}
+                maxWidth={500}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Great question! Let's trace this journey together. First, computers don't understand 'google.com' - they only speak in IP addresses."
-            x={width * 0.72 - 280}
-            y={height * 0.65}
-            startFrame={150}
-            endFrame={230}
-            maxWidth={520}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Great question! Let's trace this journey together. First, computers don't understand 'google.com' - they only speak in IP addresses."
+                x={width * 0.72 - 280}
+                y={height * 0.65}
+                startFrame={150}
+                maxWidth={520}
+              />
+            </>
+          )}
 
           {/* Show IP Address concept */}
           {frame >= 240 && (
@@ -212,28 +215,31 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="DNS: The Internet's Phone Book" subtitle="How Domain Names Become IP Addresses" startFrame={450} />
 
-          <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.56} startFrame={460} size={95} />
+          {/* Characters and dialogues - hide when DNS hierarchy appears */}
+          {frame < 650 && (
+            <>
+              <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
+              <Character type="architect" x={width * 0.78} y={height * 0.56} startFrame={460} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Okay, so I typed 'google.com' but computers need IP addresses. How does that conversion happen?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={480}
-            endFrame={640}
-            maxWidth={450}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Okay, so I typed 'google.com' but computers need IP addresses. How does that conversion happen?"
+                x={width * 0.05}
+                y={height * 0.74}
+                startFrame={480}
+                maxWidth={450}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="That's where DNS comes in! It's a hierarchy of servers. Let me show you step by step..."
-            x={width * 0.78 - 300}
-            y={height * 0.66}
-            startFrame={570}
-            endFrame={640}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="That's where DNS comes in! It's a hierarchy of servers. Let me show you step by step..."
+                x={width * 0.78 - 300}
+                y={height * 0.66}
+                startFrame={570}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           {/* DNS Hierarchy WITH GUIDED FLOW */}
           {frame >= 650 && (
@@ -475,28 +481,31 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Making It Secure with TLS" subtitle="Encryption, Certificates & Cryptography" startFrame={1080} />
 
-          <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={95} />
-          <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={1090} size={95} />
+          {/* Characters and dialogues - hide when TLS content appears */}
+          {frame < 1140 && (
+            <>
+              <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={1090} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Got it! DNS found the IP. But how do we know we're really talking to Google and not a hacker?"
-            x={width * 0.05}
-            y={height * 0.74}
-            startFrame={1110}
-            endFrame={1130}
-            maxWidth={480}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Got it! DNS found the IP. But how do we know we're really talking to Google and not a hacker?"
+                x={width * 0.05}
+                y={height * 0.74}
+                startFrame={1110}
+                maxWidth={480}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Excellent question! TLS has three jobs: verify identity, negotiate encryption, and secure data. Let me show you the handshake first..."
-            x={width * 0.75 - 320}
-            y={height * 0.58}
-            startFrame={1140}
-            endFrame={1310}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Excellent question! TLS has three jobs: verify identity, negotiate encryption, and secure data. Let me show you the handshake first..."
+                x={width * 0.75 - 320}
+                y={height * 0.58}
+                startFrame={1140}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* PART 0: TLS Handshake Visual Flow (1140-1320) - Extended for readability */}
           {frame >= 1140 && frame < 1320 && (
@@ -901,28 +910,31 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={2160} />
 
-          <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={2170} size={95} />
-          <Character type="architect" x={width * 0.77} y={height * 0.50} startFrame={2170} size={95} />
+          {/* Characters and dialogues - hide when proxy diagram appears */}
+          {frame < 2320 && (
+            <>
+              <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={2170} size={95} />
+              <Character type="architect" x={width * 0.77} y={height * 0.50} startFrame={2170} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="This seems like a lot of work! Is there a way to make it faster?"
-            x={width * 0.05}
-            y={height * 0.76}
-            startFrame={2190}
-            endFrame={2240}
-            maxWidth={460}
-          />
+              <Dialogue
+                speaker="junior"
+                text="This seems like a lot of work! Is there a way to make it faster?"
+                x={width * 0.05}
+                y={height * 0.76}
+                startFrame={2190}
+                maxWidth={460}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
-            x={width * 0.77 - 320}
-            y={height * 0.60}
-            startFrame={2280}
-            endFrame={2310}
-            maxWidth={540}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
+                x={width * 0.77 - 320}
+                y={height * 0.60}
+                startFrame={2280}
+                maxWidth={540}
+              />
+            </>
+          )}
 
           {/* Proxy Flow Diagram - Simplified horizontal layout */}
           {frame >= 2250 && (
@@ -1129,28 +1141,31 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2580} />
 
-          <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2590} size={95} />
-          <Character type="architect" x={width * 0.79} y={height * 0.52} startFrame={2590} size={95} />
+          {/* Characters and dialogues - hide when complete timeline appears */}
+          {frame < 2790 && (
+            <>
+              <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2590} size={95} />
+              <Character type="architect" x={width * 0.79} y={height * 0.52} startFrame={2590} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="Can we see how all these pieces - DNS, TLS, proxies - work together in one flow?"
-            x={width * 0.05}
-            y={height * 0.78}
-            startFrame={2610}
-            endFrame={2780}
-            maxWidth={440}
-          />
+              <Dialogue
+                speaker="junior"
+                text="Can we see how all these pieces - DNS, TLS, proxies - work together in one flow?"
+                x={width * 0.05}
+                y={height * 0.78}
+                startFrame={2610}
+                maxWidth={440}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Perfect! Let me walk you through the complete journey with timing..."
-            x={width * 0.79 - 340}
-            y={height * 0.62}
-            startFrame={2700}
-            endFrame={2780}
-            maxWidth={560}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Perfect! Let me walk you through the complete journey with timing..."
+                x={width * 0.79 - 340}
+                y={height * 0.62}
+                startFrame={2700}
+                maxWidth={560}
+              />
+            </>
+          )}
 
           {/* Complete timeline - MOVED LOWER */}
           {frame >= 2790 && (
@@ -1212,28 +1227,31 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={3180} />
 
-          <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={3190} size={95} />
-          <Character type="architect" x={width * 0.76} y={height * 0.52} startFrame={3190} size={95} />
+          {/* Characters and dialogues - hide when best practices appear */}
+          {frame < 3300 && (
+            <>
+              <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={3190} size={95} />
+              <Character type="architect" x={width * 0.76} y={height * 0.52} startFrame={3190} size={95} />
 
-          <Dialogue
-            speaker="junior"
-            text="This is amazing! What do I need to remember for real production systems?"
-            x={width * 0.05}
-            y={height * 0.78}
-            startFrame={3210}
-            endFrame={3290}
-            maxWidth={470}
-          />
+              <Dialogue
+                speaker="junior"
+                text="This is amazing! What do I need to remember for real production systems?"
+                x={width * 0.05}
+                y={height * 0.78}
+                startFrame={3210}
+                maxWidth={470}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Here are the key principles that scale to billions of requests..."
-            x={width * 0.76 - 340}
-            y={height * 0.62}
-            startFrame={3280}
-            endFrame={3290}
-            maxWidth={560}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Here are the key principles that scale to billions of requests..."
+                x={width * 0.76 - 340}
+                y={height * 0.62}
+                startFrame={3280}
+                maxWidth={560}
+              />
+            </>
+          )}
 
           {/* Best practices cards */}
           {frame >= 3300 && (
@@ -1335,28 +1353,31 @@ export const ClientServerDNSProxies: React.FC = () => {
             You've Mastered the Fundamentals! 🎉
           </div>
 
-          <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={3380} size={120} />
-          <Character type="architect" x={width * 0.62} y={height * 0.42} startFrame={3380} size={120} />
+          {/* Characters and dialogues - hide when next topic badge appears */}
+          {frame < 3470 && (
+            <>
+              <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={3380} size={120} />
+              <Character type="architect" x={width * 0.62} y={height * 0.42} startFrame={3380} size={120} />
 
-          <Dialogue
-            speaker="junior"
-            text="This makes so much sense now! What's next?"
-            x={width * 0.32 - 240}
-            y={height * 0.64}
-            startFrame={3400}
-            endFrame={3460}
-            maxWidth={460}
-          />
+              <Dialogue
+                speaker="junior"
+                text="This makes so much sense now! What's next?"
+                x={width * 0.32 - 240}
+                y={height * 0.64}
+                startFrame={3400}
+                maxWidth={460}
+              />
 
-          <Dialogue
-            speaker="architect"
-            text="Now let's learn about distributing traffic across multiple servers for high availability!"
-            x={width * 0.62 - 180}
-            y={height * 0.52}
-            startFrame={3430}
-            endFrame={3460}
-            maxWidth={500}
-          />
+              <Dialogue
+                speaker="architect"
+                text="Now let's learn about distributing traffic across multiple servers for high availability!"
+                x={width * 0.62 - 180}
+                y={height * 0.52}
+                startFrame={3430}
+                maxWidth={500}
+              />
+            </>
+          )}
 
           <div style={{
             position: 'absolute',
