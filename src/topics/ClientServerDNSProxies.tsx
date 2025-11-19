@@ -153,7 +153,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="How the Internet Really Works" subtitle="A Journey from google.com to Your Screen" startFrame={0} />
 
           <Character type="junior" x={width * 0.2} y={height * 0.62} startFrame={30} size={110} />
-          <Character type="architect" x={width * 0.72} y={height * 0.48} startFrame={30} size={110} />
+          <Character type="architect" x={width * 0.72} y={height * 0.54} startFrame={30} size={110} />
 
           <Dialogue
             speaker="junior"
@@ -161,6 +161,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.05}
             y={height * 0.73}
             startFrame={60}
+            endFrame={230}
             maxWidth={500}
           />
 
@@ -168,8 +169,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Great question! Let's trace this journey together. First, computers don't understand 'google.com' - they only speak in IP addresses."
             x={width * 0.72 - 280}
-            y={height * 0.58}
+            y={height * 0.65}
             startFrame={150}
+            endFrame={230}
             maxWidth={520}
           />
 
@@ -211,7 +213,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="DNS: The Internet's Phone Book" subtitle="How Domain Names Become IP Addresses" startFrame={450} />
 
           <Character type="junior" x={width * 0.15} y={height * 0.64} startFrame={460} size={95} />
-          <Character type="architect" x={width * 0.78} y={height * 0.50} startFrame={460} size={95} />
+          <Character type="architect" x={width * 0.78} y={height * 0.56} startFrame={460} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -219,6 +221,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.05}
             y={height * 0.74}
             startFrame={480}
+            endFrame={640}
             maxWidth={450}
           />
 
@@ -226,8 +229,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="That's where DNS comes in! It's a hierarchy of servers. Let me show you step by step..."
             x={width * 0.78 - 300}
-            y={height * 0.58}
+            y={height * 0.66}
             startFrame={570}
+            endFrame={640}
             maxWidth={500}
           />
 
@@ -455,16 +459,14 @@ export const ClientServerDNSProxies: React.FC = () => {
           )}
 
           {/* Developer explains the flow */}
-          {frame >= 990 && (
-            <Dialogue
-              speaker="architect"
-              text="See? Four steps: Browser→Root→TLD→Authoritative→Back to Browser with the IP!"
-              x={width * 0.78 - 300}
-              y={height * 0.58}
-              startFrame={990}
-              maxWidth={500}
-            />
-          )}
+          <Dialogue
+            speaker="architect"
+            text="See? Four steps: Browser→Root→TLD→Authoritative→Back to Browser with the IP!"
+            x={width * 0.78 - 300}
+            y={height * 0.66}
+            startFrame={990}
+            maxWidth={500}
+          />
         </>
       )}
 
@@ -474,7 +476,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Making It Secure with TLS" subtitle="Encryption, Certificates & Cryptography" startFrame={1080} />
 
           <Character type="junior" x={width * 0.18} y={height * 0.64} startFrame={1090} size={95} />
-          <Character type="architect" x={width * 0.75} y={height * 0.42} startFrame={1090} size={95} />
+          <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={1090} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -482,6 +484,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.05}
             y={height * 0.74}
             startFrame={1110}
+            endFrame={1130}
             maxWidth={480}
           />
 
@@ -489,8 +492,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Excellent question! TLS has three jobs: verify identity, negotiate encryption, and secure data. Let me show you the handshake first..."
             x={width * 0.75 - 320}
-            y={height * 0.50}
+            y={height * 0.58}
             startFrame={1140}
+            endFrame={1310}
             maxWidth={540}
           />
 
@@ -898,7 +902,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={2160} />
 
           <Character type="junior" x={width * 0.16} y={height * 0.66} startFrame={2170} size={95} />
-          <Character type="architect" x={width * 0.77} y={height * 0.44} startFrame={2170} size={95} />
+          <Character type="architect" x={width * 0.77} y={height * 0.50} startFrame={2170} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -906,6 +910,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.05}
             y={height * 0.76}
             startFrame={2190}
+            endFrame={2240}
             maxWidth={460}
           />
 
@@ -913,8 +918,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
             x={width * 0.77 - 320}
-            y={height * 0.52}
+            y={height * 0.60}
             startFrame={2280}
+            endFrame={2310}
             maxWidth={540}
           />
 
@@ -1124,7 +1130,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2580} />
 
           <Character type="junior" x={width * 0.14} y={height * 0.68} startFrame={2590} size={95} />
-          <Character type="architect" x={width * 0.79} y={height * 0.46} startFrame={2590} size={95} />
+          <Character type="architect" x={width * 0.79} y={height * 0.52} startFrame={2590} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -1132,6 +1138,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.05}
             y={height * 0.78}
             startFrame={2610}
+            endFrame={2780}
             maxWidth={440}
           />
 
@@ -1139,8 +1146,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Perfect! Let me walk you through the complete journey with timing..."
             x={width * 0.79 - 340}
-            y={height * 0.54}
+            y={height * 0.62}
             startFrame={2700}
+            endFrame={2780}
             maxWidth={560}
           />
 
@@ -1205,7 +1213,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={3180} />
 
           <Character type="junior" x={width * 0.17} y={height * 0.68} startFrame={3190} size={95} />
-          <Character type="architect" x={width * 0.76} y={height * 0.46} startFrame={3190} size={95} />
+          <Character type="architect" x={width * 0.76} y={height * 0.52} startFrame={3190} size={95} />
 
           <Dialogue
             speaker="junior"
@@ -1213,6 +1221,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.05}
             y={height * 0.78}
             startFrame={3210}
+            endFrame={3290}
             maxWidth={470}
           />
 
@@ -1220,8 +1229,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Here are the key principles that scale to billions of requests..."
             x={width * 0.76 - 340}
-            y={height * 0.54}
+            y={height * 0.62}
             startFrame={3280}
+            endFrame={3290}
             maxWidth={560}
           />
 
@@ -1326,7 +1336,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           </div>
 
           <Character type="junior" x={width * 0.32} y={height * 0.52} startFrame={3380} size={120} />
-          <Character type="architect" x={width * 0.62} y={height * 0.38} startFrame={3380} size={120} />
+          <Character type="architect" x={width * 0.62} y={height * 0.42} startFrame={3380} size={120} />
 
           <Dialogue
             speaker="junior"
@@ -1334,6 +1344,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             x={width * 0.32 - 240}
             y={height * 0.64}
             startFrame={3400}
+            endFrame={3460}
             maxWidth={460}
           />
 
@@ -1341,8 +1352,9 @@ export const ClientServerDNSProxies: React.FC = () => {
             speaker="architect"
             text="Now let's learn about distributing traffic across multiple servers for high availability!"
             x={width * 0.62 - 180}
-            y={height * 0.48}
+            y={height * 0.52}
             startFrame={3430}
+            endFrame={3460}
             maxWidth={500}
           />
 
