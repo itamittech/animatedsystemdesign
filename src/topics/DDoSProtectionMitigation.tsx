@@ -221,7 +221,7 @@ export const DDoSProtectionMitigation: React.FC = () => {
             <div style={{padding: 24, background: 'rgba(239, 68, 68, 0.15)', border: '3px solid #ef4444', borderRadius: 14, opacity: fadeIn(frame, scene2End + 210, 25)}>
               <h3 style={{fontSize: 26, fontWeight: 700, color: '#fca5a5', marginBottom: 12, fontFamily: theme.typography.heading.fontFamily, textAlign: 'center'}}>⚡ SYN Flood Defense: SYN Cookies</h3>
               <div style={{fontSize: 20, color: '#fecaca', fontFamily: theme.typography.body.fontFamily, textAlign: 'center', lineHeight: 1.7}}>
-                Don't allocate resources until full 3-way handshake completes<br />
+                Do not allocate resources until full 3-way handshake completes<br />
                 Encode connection state in sequence number → Stateless defense!
               </div>
             </div>

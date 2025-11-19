@@ -479,7 +479,7 @@ export const AutoScalingStrategies: React.FC = () => {
               {[
                 '🎯 Design stateless apps (store session in Redis/DB)',
                 '⚡ Fast startup time (optimize container image)',
-                '🔄 Health checks (don't route to unhealthy instances)',
+                '🔄 Health checks (do not route to unhealthy instances)',
                 '📊 Monitor scaling events and costs',
                 '🧪 Test scaling policies under load',
                 '⏰ Scale out faster than scale in (better UX)',
