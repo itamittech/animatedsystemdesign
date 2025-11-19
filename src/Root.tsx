@@ -2,6 +2,7 @@ import {Composition} from 'remotion';
 import {ClientServerDNSProxies} from './topics/ClientServerDNSProxies';
 import {ClientServerDNSProxiesVerticalSample} from './topics/ClientServerDNSProxiesVerticalSample';
 import {ClientServerDNSProxiesVertical} from './topics/ClientServerDNSProxiesVertical';
+import {ClientServerDNSProxiesSquare} from './topics/ClientServerDNSProxiesSquare';
 import {LoadBalancingBasics} from './topics/LoadBalancingBasics';
 import {LoadBalancingEnhanced} from './topics/LoadBalancingEnhanced';
 import {CDNandAPIGateway} from './topics/CDNandAPIGateway';
@@ -77,6 +78,14 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1080}
         height={1920}
+      />
+      <Composition
+        id="ClientServerDNSProxiesSquare"
+        component={ClientServerDNSProxiesSquare}
+        durationInFrames={4080}
+        fps={30}
+        width={1080}
+        height={1080}
       />
       <Composition
         id="LoadBalancingBasics"
