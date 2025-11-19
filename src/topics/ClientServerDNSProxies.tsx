@@ -152,17 +152,17 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="How the Internet Really Works" subtitle="A Journey from google.com to Your Screen" startFrame={0} />
 
-          {/* Characters and dialogues centered - disappear before content appears */}
+          {/* Characters and dialogues - centered and spread for readability */}
           {frame < 230 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.50} startFrame={30} size={110} />
-              <Character type="architect" x={width * 0.65} y={height * 0.50} startFrame={30} size={110} />
+              <Character type="junior" x={width * 0.25} y={height * 0.48} startFrame={30} size={110} />
+              <Character type="architect" x={width * 0.75} y={height * 0.48} startFrame={30} size={110} />
 
               <Dialogue
                 speaker="junior"
                 text="When I type 'google.com' and press Enter, what actually happens? How does my browser know where to go?"
-                x={width * 0.20}
-                y={height * 0.68}
+                x={width * 0.10}
+                y={height * 0.64}
                 startFrame={60}
                 maxWidth={500}
               />
@@ -170,8 +170,8 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="Great question! Let's trace this journey together. First, computers don't understand 'google.com' - they only speak in IP addresses."
-                x={width * 0.50}
-                y={height * 0.68}
+                x={width * 0.60}
+                y={height * 0.64}
                 startFrame={150}
                 maxWidth={520}
               />
@@ -215,17 +215,17 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="DNS: The Internet's Phone Book" subtitle="How Domain Names Become IP Addresses" startFrame={450} />
 
-          {/* Characters and dialogues centered - disappear before DNS hierarchy appears */}
+          {/* Characters and dialogues - centered and spread for readability */}
           {frame < 640 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.52} startFrame={460} size={95} />
-              <Character type="architect" x={width * 0.65} y={height * 0.52} startFrame={460} size={95} />
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={460} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={460} size={95} />
 
               <Dialogue
                 speaker="junior"
                 text="Okay, so I typed 'google.com' but computers need IP addresses. How does that conversion happen?"
-                x={width * 0.20}
-                y={height * 0.68}
+                x={width * 0.10}
+                y={height * 0.64}
                 startFrame={480}
                 maxWidth={450}
               />
@@ -233,8 +233,8 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="That's where DNS comes in! It's a hierarchy of servers. Let me show you step by step..."
-                x={width * 0.50}
-                y={height * 0.68}
+                x={width * 0.60}
+                y={height * 0.64}
                 startFrame={570}
                 maxWidth={500}
               />
@@ -481,17 +481,17 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Making It Secure with TLS" subtitle="Encryption, Certificates & Cryptography" startFrame={1080} />
 
-          {/* Characters and dialogues centered - disappear before TLS content appears */}
-          {frame < 1130 && (
+          {/* Characters and dialogues - centered and spread, EXTENDED TIME for reading */}
+          {frame < 1230 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.52} startFrame={1090} size={95} />
-              <Character type="architect" x={width * 0.65} y={height * 0.52} startFrame={1090} size={95} />
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={1090} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={1090} size={95} />
 
               <Dialogue
                 speaker="junior"
                 text="Got it! DNS found the IP. But how do we know we're really talking to Google and not a hacker?"
-                x={width * 0.20}
-                y={height * 0.68}
+                x={width * 0.10}
+                y={height * 0.64}
                 startFrame={1110}
                 maxWidth={480}
               />
@@ -499,22 +499,22 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="Excellent question! TLS has three jobs: verify identity, negotiate encryption, and secure data. Let me show you the handshake first..."
-                x={width * 0.50}
-                y={height * 0.68}
+                x={width * 0.60}
+                y={height * 0.64}
                 startFrame={1140}
                 maxWidth={540}
               />
             </>
           )}
 
-          {/* PART 0: TLS Handshake Visual Flow (1140-1320) - Extended for readability */}
-          {frame >= 1140 && frame < 1320 && (
+          {/* PART 0: TLS Handshake Visual Flow (1240-1400) - Extended for readability */}
+          {frame >= 1240 && frame < 1400 && (
             <div style={{
               position: 'absolute',
               top: height * 0.22,
               left: width * 0.1,
               right: width * 0.1,
-              opacity: fadeIn(frame, 1140, 15),
+              opacity: fadeIn(frame, 1240, 15),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -536,14 +536,14 @@ export const ClientServerDNSProxies: React.FC = () => {
 
                   {/* Handshake Steps */}
                   <div style={{flex: 2, padding: '0 20px'}}>
-                    {frame >= 1160 && (
+                    {frame >= 1260 && (
                       <div style={{
                         backgroundColor: 'rgba(96, 165, 250, 0.15)',
                         border: '2px solid rgba(96, 165, 250, 0.4)',
                         borderRadius: 10,
                         padding: 12,
                         marginBottom: 10,
-                        opacity: fadeIn(frame, 1160, 10),
+                        opacity: fadeIn(frame, 1260, 10),
                       }}>
                         <div style={{fontSize: 22, color: '#60a5fa', fontWeight: 'bold', marginBottom: 4}}>
                           1. ClientHello →
@@ -554,14 +554,14 @@ export const ClientServerDNSProxies: React.FC = () => {
                       </div>
                     )}
 
-                    {frame >= 1180 && (
+                    {frame >= 1280 && (
                       <div style={{
                         backgroundColor: 'rgba(16, 185, 129, 0.15)',
                         border: '2px solid rgba(16, 185, 129, 0.4)',
                         borderRadius: 10,
                         padding: 12,
                         marginBottom: 10,
-                        opacity: fadeIn(frame, 1180, 10),
+                        opacity: fadeIn(frame, 1280, 10),
                       }}>
                         <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 4, textAlign: 'right'}}>
                           ← 2. ServerHello + Certificate
@@ -572,14 +572,14 @@ export const ClientServerDNSProxies: React.FC = () => {
                       </div>
                     )}
 
-                    {frame >= 1200 && (
+                    {frame >= 1300 && (
                       <div style={{
                         backgroundColor: 'rgba(139, 92, 246, 0.15)',
                         border: '2px solid rgba(139, 92, 246, 0.4)',
                         borderRadius: 10,
                         padding: 12,
                         marginBottom: 10,
-                        opacity: fadeIn(frame, 1200, 10),
+                        opacity: fadeIn(frame, 1300, 10),
                       }}>
                         <div style={{fontSize: 22, color: '#a78bfa', fontWeight: 'bold', marginBottom: 4}}>
                           3. Key Exchange →
@@ -590,13 +590,13 @@ export const ClientServerDNSProxies: React.FC = () => {
                       </div>
                     )}
 
-                    {frame >= 1220 && (
+                    {frame >= 1320 && (
                       <div style={{
                         backgroundColor: 'rgba(245, 158, 11, 0.15)',
                         border: '2px solid rgba(245, 158, 11, 0.4)',
                         borderRadius: 10,
                         padding: 12,
-                        opacity: fadeIn(frame, 1220, 10),
+                        opacity: fadeIn(frame, 1320, 10),
                       }}>
                         <div style={{fontSize: 22, color: '#fbbf24', fontWeight: 'bold', marginBottom: 4, textAlign: 'center'}}>
                           4. ✓ Both send "Finished" (encrypted)
@@ -910,17 +910,17 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Proxies: The Smart Helpers" subtitle="Forward vs Reverse Proxies" startFrame={2160} />
 
-          {/* Characters and dialogues centered - disappear before proxy diagram appears */}
-          {frame < 2240 && (
+          {/* Characters and dialogues - centered and spread, EXTENDED TIME for reading */}
+          {frame < 2370 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.52} startFrame={2170} size={95} />
-              <Character type="architect" x={width * 0.65} y={height * 0.52} startFrame={2170} size={95} />
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2170} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2170} size={95} />
 
               <Dialogue
                 speaker="junior"
                 text="This seems like a lot of work! Is there a way to make it faster?"
-                x={width * 0.20}
-                y={height * 0.68}
+                x={width * 0.10}
+                y={height * 0.64}
                 startFrame={2190}
                 maxWidth={460}
               />
@@ -928,8 +928,8 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="Absolutely! Proxies act as smart helpers. Watch how requests flow through them..."
-                x={width * 0.50}
-                y={height * 0.68}
+                x={width * 0.60}
+                y={height * 0.64}
                 startFrame={2280}
                 maxWidth={540}
               />
@@ -937,14 +937,14 @@ export const ClientServerDNSProxies: React.FC = () => {
           )}
 
           {/* Proxy Flow Diagram - Simplified horizontal layout */}
-          {frame >= 2250 && (
+          {frame >= 2380 && (
             <div style={{
               position: 'absolute',
               top: height * 0.24,
               left: 0,
               width: '100%',
               height: 300,
-              opacity: fadeIn(frame, 2250, 15),
+              opacity: fadeIn(frame, 2380, 15),
             }}>
               {/* Define exact positions for perfect alignment */}
               {(() => {
@@ -1032,7 +1032,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                     )}
 
                     {/* Single flowing dot animation from start to end - loops continuously */}
-                    {frame >= 2300 && (
+                    {frame >= 2430 && (
                       <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 2 }}>
                         <defs>
                           <filter id="glow">
@@ -1046,7 +1046,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                         {(() => {
                           // Loop the animation every 150 frames
                           const loopDuration = 150;
-                          const frameInLoop = (frame - 2300) % loopDuration;
+                          const frameInLoop = (frame - 2430) % loopDuration;
                           const progress = interpolate(
                             frameInLoop,
                             [0, loopDuration],
@@ -1085,7 +1085,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               })()}
 
               {/* Explanation below */}
-              {frame >= 2300 && (
+              {frame >= 2430 && (
                 <div style={{
                   position: 'absolute',
                   top: 180,
@@ -1093,7 +1093,7 @@ export const ClientServerDNSProxies: React.FC = () => {
                   right: 200,
                   display: 'flex',
                   gap: 30,
-                  opacity: fadeIn(frame, 2320, 15),
+                  opacity: fadeIn(frame, 2450, 15),
                 }}>
                   <div style={{
                     flex: 1,
@@ -1141,17 +1141,17 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Putting It All Together" subtitle="The Complete Request Journey" startFrame={2580} />
 
-          {/* Characters and dialogues centered - disappear before timeline appears */}
+          {/* Characters and dialogues - centered and spread for readability */}
           {frame < 2780 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.52} startFrame={2590} size={95} />
-              <Character type="architect" x={width * 0.65} y={height * 0.52} startFrame={2590} size={95} />
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={2590} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={2590} size={95} />
 
               <Dialogue
                 speaker="junior"
                 text="Can we see how all these pieces - DNS, TLS, proxies - work together in one flow?"
-                x={width * 0.20}
-                y={height * 0.68}
+                x={width * 0.10}
+                y={height * 0.64}
                 startFrame={2610}
                 maxWidth={440}
               />
@@ -1159,8 +1159,8 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="Perfect! Let me walk you through the complete journey with timing..."
-                x={width * 0.50}
-                y={height * 0.68}
+                x={width * 0.60}
+                y={height * 0.64}
                 startFrame={2700}
                 maxWidth={560}
               />
@@ -1227,17 +1227,17 @@ export const ClientServerDNSProxies: React.FC = () => {
         <>
           <Title text="Production Best Practices" subtitle="What Architects Need to Know" startFrame={3180} />
 
-          {/* Characters and dialogues centered - disappear before best practices appear */}
-          {frame < 3290 && (
+          {/* Characters and dialogues - centered and spread, EXTENDED TIME for reading */}
+          {frame < 3370 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.52} startFrame={3190} size={95} />
-              <Character type="architect" x={width * 0.65} y={height * 0.52} startFrame={3190} size={95} />
+              <Character type="junior" x={width * 0.25} y={height * 0.50} startFrame={3190} size={95} />
+              <Character type="architect" x={width * 0.75} y={height * 0.50} startFrame={3190} size={95} />
 
               <Dialogue
                 speaker="junior"
                 text="This is amazing! What do I need to remember for real production systems?"
-                x={width * 0.20}
-                y={height * 0.68}
+                x={width * 0.10}
+                y={height * 0.64}
                 startFrame={3210}
                 maxWidth={470}
               />
@@ -1245,8 +1245,8 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="Here are the key principles that scale to billions of requests..."
-                x={width * 0.50}
-                y={height * 0.68}
+                x={width * 0.60}
+                y={height * 0.64}
                 startFrame={3280}
                 maxWidth={560}
               />
@@ -1254,7 +1254,7 @@ export const ClientServerDNSProxies: React.FC = () => {
           )}
 
           {/* Best practices cards */}
-          {frame >= 3300 && (
+          {frame >= 3380 && (
             <div style={{
               position: 'absolute',
               top: height * 0.26,
@@ -1263,7 +1263,7 @@ export const ClientServerDNSProxies: React.FC = () => {
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: 18,
-              opacity: fadeIn(frame, 3300, 15),
+              opacity: fadeIn(frame, 3380, 15),
             }}>
               <div style={{
                 backgroundColor: 'rgba(30, 41, 59, 0.95)',
@@ -1337,8 +1337,8 @@ export const ClientServerDNSProxies: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: What's Next (3360-3540 frames / 112-118s) */}
-      {frame >= 3360 && frame < 3540 && (
+      {/* Scene 7: What's Next (3360-3600 frames / 112-120s) */}
+      {frame >= 3360 && frame < 3600 && (
         <>
           <div style={{
             position: 'absolute',
@@ -1353,17 +1353,17 @@ export const ClientServerDNSProxies: React.FC = () => {
             You've Mastered the Fundamentals! 🎉
           </div>
 
-          {/* Characters and dialogues centered - disappear before next topic badge appears */}
-          {frame < 3460 && (
+          {/* Characters and dialogues - centered and spread for readability */}
+          {frame < 3520 && (
             <>
-              <Character type="junior" x={width * 0.35} y={height * 0.48} startFrame={3380} size={120} />
-              <Character type="architect" x={width * 0.65} y={height * 0.48} startFrame={3380} size={120} />
+              <Character type="junior" x={width * 0.25} y={height * 0.46} startFrame={3380} size={120} />
+              <Character type="architect" x={width * 0.75} y={height * 0.46} startFrame={3380} size={120} />
 
               <Dialogue
                 speaker="junior"
                 text="This makes so much sense now! What's next?"
-                x={width * 0.20}
-                y={height * 0.66}
+                x={width * 0.10}
+                y={height * 0.62}
                 startFrame={3400}
                 maxWidth={460}
               />
@@ -1371,8 +1371,8 @@ export const ClientServerDNSProxies: React.FC = () => {
               <Dialogue
                 speaker="architect"
                 text="Now let's learn about distributing traffic across multiple servers for high availability!"
-                x={width * 0.50}
-                y={height * 0.66}
+                x={width * 0.60}
+                y={height * 0.62}
                 startFrame={3430}
                 maxWidth={500}
               />
@@ -1390,7 +1390,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             padding: '20px 36px',
             borderRadius: 14,
             border: '3px solid rgba(96, 165, 250, 0.5)',
-            opacity: fadeIn(frame, 3470, 20),
+            opacity: fadeIn(frame, 3530, 20),
             textAlign: 'center',
             textShadow: '0 0 20px rgba(96, 165, 250, 0.5)',
           }}>
@@ -1404,7 +1404,7 @@ export const ClientServerDNSProxies: React.FC = () => {
             fontSize: 24,
             color: '#94a3b8',
             textAlign: 'center',
-            opacity: fadeIn(frame, 3500, 15),
+            opacity: fadeIn(frame, 3560, 15),
           }}>
             Phase 1: Foundational Infrastructure - Topic 1 of 4 ✅
           </div>
