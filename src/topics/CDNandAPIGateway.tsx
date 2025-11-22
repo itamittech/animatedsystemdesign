@@ -324,45 +324,45 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* Origin (center: width*0.5, 165) to Tokyo (center: width-120, 55) */}
+                    {/* Origin (center: width*0.5, 165) to Tokyo (center: width-120, 55) - offset to avoid overlap */}
                     <Arrow
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={width - 120}
-                      y2={55}
+                      x1={width * 0.50 + 50}
+                      y1={155}
+                      x2={width - 160}
+                      y2={65}
                       color={theme.colors.cdn}
                       startFrame={1215}
                       dashed={true}
                     />
 
-                    {/* Origin to London (center: 140, 95) */}
+                    {/* Origin to London (center: 140, 95) - offset to avoid overlap */}
                     <Arrow
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={140}
-                      y2={95}
+                      x1={width * 0.50 - 50}
+                      y1={155}
+                      x2={180}
+                      y2={105}
                       color={theme.colors.cdn}
                       startFrame={1275}
                       dashed={true}
                     />
 
-                    {/* Origin to Sydney (center: width-160, 225) */}
+                    {/* Origin to Sydney (center: width-160, 225) - offset to avoid overlap */}
                     <Arrow
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={width - 160}
-                      y2={225}
+                      x1={width * 0.50 + 50}
+                      y1={175}
+                      x2={width - 200}
+                      y2={215}
                       color={theme.colors.cdn}
                       startFrame={1335}
                       dashed={true}
                     />
 
-                    {/* Origin to São Paulo (center: 180, 205) */}
+                    {/* Origin to São Paulo (center: 180, 205) - offset to avoid overlap */}
                     <Arrow
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={180}
-                      y2={205}
+                      x1={width * 0.50 - 50}
+                      y1={175}
+                      x2={220}
+                      y2={195}
                       color={theme.colors.cdn}
                       startFrame={1395}
                       dashed={true}
@@ -370,19 +370,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Animated data flow particles - Origin to Tokyo */}
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={width - 120}
-                      y2={55}
+                      x1={width * 0.50 + 50}
+                      y1={155}
+                      x2={width - 160}
+                      y2={65}
                       startFrame={1230}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={width - 120}
-                      y2={55}
+                      x1={width * 0.50 + 50}
+                      y1={155}
+                      x2={width - 160}
+                      y2={65}
                       startFrame={1275}
                       duration={60}
                       color={theme.colors.cdn}
@@ -390,19 +390,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Origin to London */}
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={140}
-                      y2={95}
+                      x1={width * 0.50 - 50}
+                      y1={155}
+                      x2={180}
+                      y2={105}
                       startFrame={1290}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={140}
-                      y2={95}
+                      x1={width * 0.50 - 50}
+                      y1={155}
+                      x2={180}
+                      y2={105}
                       startFrame={1335}
                       duration={60}
                       color={theme.colors.cdn}
@@ -410,19 +410,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Origin to Sydney */}
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={width - 160}
-                      y2={225}
+                      x1={width * 0.50 + 50}
+                      y1={175}
+                      x2={width - 200}
+                      y2={215}
                       startFrame={1350}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={width - 160}
-                      y2={225}
+                      x1={width * 0.50 + 50}
+                      y1={175}
+                      x2={width - 200}
+                      y2={215}
                       startFrame={1395}
                       duration={60}
                       color={theme.colors.cdn}
@@ -430,19 +430,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Origin to São Paulo */}
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={180}
-                      y2={205}
+                      x1={width * 0.50 - 50}
+                      y1={175}
+                      x2={220}
+                      y2={195}
                       startFrame={1410}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50}
-                      y1={165}
-                      x2={180}
-                      y2={205}
+                      x1={width * 0.50 - 50}
+                      y1={175}
+                      x2={220}
+                      y2={195}
                       startFrame={1455}
                       duration={60}
                       color={theme.colors.cdn}
@@ -806,32 +806,32 @@ export const CDNandAPIGateway: React.FC = () => {
                       label="API Request"
                     />
 
-                    {/* Gateway to User Service (center: width-142.5, 55) */}
+                    {/* Gateway to User Service - offset to avoid overlap */}
                     <Arrow
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 142.5}
-                      y2={55}
+                      x2={width - 185}
+                      y2={75}
                       color={theme.colors.backend}
                       startFrame={3240}
                     />
 
-                    {/* Gateway to Order Service (center: width-102.5, 155) */}
+                    {/* Gateway to Order Service - offset to avoid overlap */}
                     <Arrow
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 102.5}
+                      x2={width - 145}
                       y2={155}
                       color={theme.colors.eventStream}
                       startFrame={3270}
                     />
 
-                    {/* Gateway to Payment Service (center: width-152.5, 255) */}
+                    {/* Gateway to Payment Service - offset to avoid overlap */}
                     <Arrow
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 152.5}
-                      y2={255}
+                      x2={width - 195}
+                      y2={235}
                       color={theme.colors.cdn}
                       startFrame={3300}
                     />
@@ -869,8 +869,8 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 142.5}
-                      y2={55}
+                      x2={width - 185}
+                      y2={75}
                       startFrame={3255}
                       duration={53}
                       color={theme.colors.backend}
@@ -878,8 +878,8 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 142.5}
-                      y2={55}
+                      x2={width - 185}
+                      y2={75}
                       startFrame={3285}
                       duration={53}
                       color={theme.colors.backend}
@@ -887,8 +887,8 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 142.5}
-                      y2={55}
+                      x2={width - 185}
+                      y2={75}
                       startFrame={3315}
                       duration={53}
                       color={theme.colors.backend}
@@ -898,7 +898,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 102.5}
+                      x2={width - 145}
                       y2={155}
                       startFrame={3285}
                       duration={53}
@@ -907,7 +907,7 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 102.5}
+                      x2={width - 145}
                       y2={155}
                       startFrame={3315}
                       duration={53}
@@ -918,8 +918,8 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 152.5}
-                      y2={255}
+                      x2={width - 195}
+                      y2={235}
                       startFrame={3315}
                       duration={53}
                       color={theme.colors.cdn}
@@ -927,8 +927,8 @@ export const CDNandAPIGateway: React.FC = () => {
                     <DataFlowParticle
                       x1={width * 0.50 + 70}
                       y1={160}
-                      x2={width - 152.5}
-                      y2={255}
+                      x2={width - 195}
+                      y2={235}
                       startFrame={3345}
                       duration={53}
                       color={theme.colors.cdn}
