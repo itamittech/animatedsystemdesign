@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
 import {theme} from '../design-system/theme';
 import {Box} from '../components/Box';
 import {Arrow} from '../components/Arrow';
@@ -19,39 +19,38 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const {width, height} = useVideoConfig();
 
   // Define Scene Timings (in frames)
-  // Previous duration: 2580
+  // Previous duration: 3480
   const sceneDurations = {
-    intro: 120,
+    intro: 240, // Increased from 120 (+4s) for slower reading
     singleServer: 150,
     basicLB: 180,
-    algorithms: 360, // Increased from 240 (+4s)
-    l4vsL7: 420, // Increased from 270 (+5s)
+    algorithms: 360,
+    l4vsL7: 420,
     healthChecks: 150,
-    stickySessions: 300, // Increased from 180 (+4s)
-    globalLB: 300, // Increased from 180 (+4s)
-    tools: 420, // Increased from 270 (+5s)
-    deployment: 360, // Increased from 240 (+4s)
+    stickySessions: 300,
+    globalLB: 300,
+    tools: 420,
+    deployment: 540, // Increased from 360 (+6s) for carousel effect
     ssl: 180,
     websockets: 180,
-    rateLimiting: 360, // Increased from 240 (+4s)
+    rateLimiting: 360,
   };
 
   // Calculate start frames
   const starts = {
     intro: 0,
-    singleServer: 120,
-    basicLB: 120 + 150, // 270
-    algorithms: 270 + 180, // 450
-    l4vsL7: 450 + 360, // 810
-    healthChecks: 810 + 420, // 1230
-    stickySessions: 1230 + 150, // 1380
-    globalLB: 1380 + 300, // 1680
-    tools: 1680 + 300, // 1980
-    deployment: 1980 + 420, // 2400
-    ssl: 2400 + 360, // 2760
-    websockets: 2760 + 180, // 2940
-    rateLimiting: 2940 + 180, // 3120
-    end: 3120 + 360, // 3480
+    singleServer: sceneDurations.intro,
+    basicLB: sceneDurations.intro + sceneDurations.singleServer,
+    algorithms: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB,
+    l4vsL7: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms,
+    healthChecks: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7,
+    stickySessions: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks,
+    globalLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions,
+    tools: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB,
+    deployment: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools,
+    ssl: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment,
+    websockets: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl,
+    rateLimiting: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets,
   };
 
   // --- Scene 2 Calculations (Single Server) ---
@@ -169,20 +168,20 @@ export const LoadBalancingEnhanced: React.FC = () => {
         </div>
       </div>
 
-      {/* Scene 1: Introduction - The Problem */}
+      {/* Scene 1: Introduction - The Problem (SLOWED DOWN) */}
       {frame < starts.singleServer && (
         <>
           <Title text="Load Balancing" subtitle="A Conversation" startFrame={0} />
 
-          <Character type="junior" x={width * 0.25} y={300} startFrame={20} />
-          <Character type="architect" x={width * 0.75} y={300} startFrame={25} />
+          <Character type="junior" x={width * 0.25} y={300} startFrame={30} />
+          <Character type="architect" x={width * 0.75} y={300} startFrame={40} />
 
           <Dialogue
             speaker="junior"
             text="Sarah, our single server keeps crashing when we get traffic spikes. What should we do?"
             x={350}
             y={320}
-            startFrame={50}
+            startFrame={60}
             maxWidth={500}
           />
 
@@ -191,7 +190,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             text="Great question, Alex! We need to scale horizontally with multiple servers and a load balancer. Let me show you..."
             x={width * 0.60}
             y={480}
-            startFrame={80}
+            startFrame={150}
             maxWidth={520}
           />
         </>
@@ -816,49 +815,152 @@ export const LoadBalancingEnhanced: React.FC = () => {
         </>
       )}
 
-      {/* Scene 10: Deployment Patterns */}
+      {/* Scene 10: Deployment Patterns (CAROUSEL EFFECT) */}
       {frame >= starts.deployment && frame < starts.ssl && (
         <>
           <Title text="Advanced Deployment Patterns" subtitle="Canary, Blue-Green, A/B Testing" startFrame={starts.deployment} y={50} />
 
-          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={starts.deployment} size={80} />
+          {/* Intro Phase - Character & Dialogue */}
+          {frame < starts.deployment + 100 && (
+            <>
+              <div style={{opacity: interpolate(frame, [starts.deployment + 90, starts.deployment + 100], [1, 0])}}>
+                <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={starts.deployment} size={80} />
+                <Dialogue
+                  speaker="architect"
+                  text="Load balancers enable sophisticated deployment strategies. Let me show you three critical patterns..."
+                  x={width / 2 - 450}
+                  y={height * 0.64}
+                  startFrame={starts.deployment + 20}
+                  maxWidth={900}
+                />
+              </div>
+            </>
+          )}
 
-          <Dialogue
-            speaker="architect"
-            text="Load balancers enable sophisticated deployment strategies. Let me show you three critical patterns..."
-            x={width / 2 - 450}
-            y={height * 0.64}
-            startFrame={starts.deployment + 20}
-            maxWidth={900}
-          />
+          {/* Carousel Container - Centered */}
+          <div style={{
+            position: 'absolute',
+            top: 250,
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column'
+          }}>
 
-          {/* Cards Grid */}
-          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 180, width: '100%'}}>
-            <div style={{opacity: fadeIn(frame, starts.deployment + 50, 20)}}>
-              <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% to new version', 'Monitor metrics/errors', 'Gradual increase if healthy', 'Instant rollback']} color={theme.colors.warning} width={500} />
-            </div>
+            {/* Phase 1: Canary Deployment (Frames 100 - 240) */}
+            {frame >= starts.deployment + 100 && frame < starts.deployment + 240 && (
+              <div style={{
+                opacity: interpolate(frame,
+                  [starts.deployment + 100, starts.deployment + 120, starts.deployment + 220, starts.deployment + 240],
+                  [0, 1, 1, 0]
+                ),
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}>
+                <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% to new version', 'Monitor metrics/errors', 'Gradual increase if healthy', 'Instant rollback']} color={theme.colors.warning} width={600} />
 
-            <div style={{opacity: fadeIn(frame, starts.deployment + 90, 20)}}>
-              <InfoCard title="🔵🟢 Blue-Green" points={['Two identical environments', 'Switch traffic instantly', 'Easy rollback', '2x infrastructure needed']} color={theme.colors.info} width={500} />
-            </div>
+                <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
+                   <svg width={1000} height={300}>
+                      <Box x={100} y={100} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 100} />
+                      <Box x={400} y={80} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🎯" subLabel="Traffic splitting" startFrame={starts.deployment + 100} />
+                      <Box x={750} y={50} width={180} height={90} color={theme.colors.server} label="v1.0 (90%)" icon="🖥️" startFrame={starts.deployment + 100} />
+                      <Box x={750} y={170} width={180} height={90} color={theme.colors.success} label="v2.0 (10%)" icon="✨" startFrame={starts.deployment + 100} />
 
-            <div style={{opacity: fadeIn(frame, starts.deployment + 130, 20)}}>
-              <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.messageQueue} width={500} />
-            </div>
+                      <Arrow x1={220} y1={140} x2={400} y2={140} color={theme.colors.client} startFrame={starts.deployment + 110} />
+                      <Arrow x1={600} y1={120} x2={750} y2={95} color={theme.colors.loadBalancer} label="90%" startFrame={starts.deployment + 120} />
+                      <Arrow x1={600} y1={160} x2={750} y2={215} color={theme.colors.loadBalancer} label="10%" startFrame={starts.deployment + 125} />
+
+                      <DataFlowStream x1={220} y1={140} x2={750} y2={95} startFrame={starts.deployment + 130} color={theme.colors.server} particleCount={4} />
+                      <DataFlowStream x1={220} y1={140} x2={750} y2={215} startFrame={starts.deployment + 135} color={theme.colors.success} particleCount={1} />
+                   </svg>
+                </div>
+              </div>
+            )}
+
+            {/* Phase 2: Blue-Green Deployment (Frames 240 - 380) */}
+            {frame >= starts.deployment + 240 && frame < starts.deployment + 380 && (
+              <div style={{
+                opacity: interpolate(frame,
+                  [starts.deployment + 240, starts.deployment + 260, starts.deployment + 360, starts.deployment + 380],
+                  [0, 1, 1, 0]
+                ),
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}>
+                <InfoCard title="🔵🟢 Blue-Green Deployment" points={['Two identical environments', 'Switch traffic instantly (100%)', 'Easy rollback to previous env', '2x infrastructure cost']} color={theme.colors.info} width={600} />
+
+                <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
+                   <svg width={1000} height={300}>
+                      <Box x={100} y={100} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 240} />
+                      <Box x={400} y={80} width={200} height={120} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔀" subLabel="Immediate Switch" startFrame={starts.deployment + 240} />
+
+                      {/* Blue Env */}
+                      <rect x={730} y={30} width={220} height={100} fill="rgba(59, 130, 246, 0.1)" stroke={theme.colors.info} strokeWidth={2} rx={10} />
+                      <Box x={750} y={40} width={180} height={80} color={theme.colors.info} label="Blue (Live)" icon="🔷" startFrame={starts.deployment + 240} />
+
+                      {/* Green Env */}
+                      <rect x={730} y={160} width={220} height={100} fill="rgba(16, 185, 129, 0.1)" stroke={theme.colors.success} strokeWidth={2} rx={10} />
+                      <Box x={750} y={170} width={180} height={80} color={theme.colors.success} label="Green (Idle)" icon="🟢" startFrame={starts.deployment + 240} />
+
+                      <Arrow x1={220} y1={140} x2={400} y2={140} color={theme.colors.client} startFrame={starts.deployment + 250} />
+
+                      {/* Switch animation */}
+                      {frame < starts.deployment + 310 ? (
+                         <>
+                            <Arrow x1={600} y1={140} x2={750} y2={80} color={theme.colors.info} label="100% Traffic" startFrame={starts.deployment + 260} />
+                            <DataFlowStream x1={220} y1={140} x2={750} y2={80} startFrame={starts.deployment + 270} color={theme.colors.info} particleCount={5} />
+                         </>
+                      ) : (
+                         <>
+                            <Arrow x1={600} y1={140} x2={750} y2={210} color={theme.colors.success} label="SWITCHED! 100%" startFrame={starts.deployment + 310} />
+                            <DataFlowStream x1={220} y1={140} x2={750} y2={210} startFrame={starts.deployment + 310} color={theme.colors.success} particleCount={5} />
+                         </>
+                      )}
+                   </svg>
+                </div>
+              </div>
+            )}
+
+            {/* Phase 3: A/B Testing (Frames 380 - 520) */}
+            {frame >= starts.deployment + 380 && (
+              <div style={{
+                opacity: interpolate(frame,
+                  [starts.deployment + 380, starts.deployment + 400],
+                  [0, 1]
+                ),
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}>
+                <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort (e.g. ID)', 'Test specific features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.messageQueue} width={600} />
+
+                <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
+                   <svg width={1000} height={300}>
+                      <Box x={80} y={50} width={140} height={80} color={theme.colors.client} label="Group A" icon="👤" subLabel="ID ends 0-4" startFrame={starts.deployment + 380} />
+                      <Box x={80} y={170} width={140} height={80} color={theme.colors.client} label="Group B" icon="👤" subLabel="ID ends 5-9" startFrame={starts.deployment + 380} />
+
+                      <Box x={400} y={110} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🧠" subLabel="Header Routing" startFrame={starts.deployment + 380} />
+
+                      <Box x={750} y={50} width={200} height={90} color={theme.colors.server} label="Feature A" icon="🅰️" subLabel="Original" startFrame={starts.deployment + 380} />
+                      <Box x={750} y={170} width={200} height={90} color={theme.colors.messageQueue} label="Feature B" icon="🅱️" subLabel="New Design" startFrame={starts.deployment + 380} />
+
+                      {/* Group A to Feature A */}
+                      <Arrow x1={220} y1={90} x2={400} y2={130} color={theme.colors.client} startFrame={starts.deployment + 390} />
+                      <Arrow x1={600} y1={130} x2={750} y2={95} color={theme.colors.server} label="Route A" startFrame={starts.deployment + 400} />
+                      <DataFlowStream x1={220} y1={90} x2={750} y2={95} startFrame={starts.deployment + 410} color={theme.colors.server} particleCount={2} />
+
+                      {/* Group B to Feature B */}
+                      <Arrow x1={220} y1={210} x2={400} y2={170} color={theme.colors.client} startFrame={starts.deployment + 395} />
+                      <Arrow x1={600} y1={170} x2={750} y2={215} color={theme.colors.messageQueue} label="Route B" startFrame={starts.deployment + 405} />
+                      <DataFlowStream x1={220} y1={210} x2={750} y2={215} startFrame={starts.deployment + 415} color={theme.colors.messageQueue} particleCount={2} />
+                   </svg>
+                </div>
+              </div>
+            )}
           </div>
-
-          <svg width={width} height={height}>
-            <Box x={200} y={600} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 160} />
-            <Box x={600} y={580} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🎯" subLabel="Traffic splitting" startFrame={starts.deployment + 170} />
-            <Box x={1100} y={550} width={180} height={90} color={theme.colors.server} label="v1.0 (90%)" icon="🖥️" startFrame={starts.deployment + 180} />
-            <Box x={1100} y={670} width={180} height={90} color={theme.colors.success} label="v2.0 (10%)" icon="✨" startFrame={starts.deployment + 185} />
-
-            <Arrow x1={320} y1={640} x2={600} y2={640} color={theme.colors.client} startFrame={starts.deployment + 190} />
-            <Arrow x1={800} y1={620} x2={1100} y2={595} color={theme.colors.loadBalancer} label="90%" startFrame={starts.deployment + 200} />
-            <Arrow x1={800} y1={660} x2={1100} y2={715} color={theme.colors.loadBalancer} label="10%" startFrame={starts.deployment + 205} />
-            <DataFlowStream x1={320} y1={640} x2={1100} y2={595} startFrame={starts.deployment + 210} color={theme.colors.server} particleCount={4} />
-            <DataFlowStream x1={320} y1={640} x2={1100} y2={715} startFrame={starts.deployment + 215} color={theme.colors.success} particleCount={1} />
-          </svg>
         </>
       )}
 
