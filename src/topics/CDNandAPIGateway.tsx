@@ -1154,7 +1154,10 @@ export const CDNandAPIGateway: React.FC = () => {
       {/* Scene 6: CDN + API Gateway Together (4275-4950 frames / 142.5-165s) */}
       {frame >= 4275 && frame < 4950 && (
         <>
-          <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={4275} />
+          {/* Only show title before the detailed diagram appears to save space */}
+          {frame < 4650 && (
+            <Title text="CDN + API Gateway: Complete Flow" subtitle="Cache Miss → API Call → Cache Hit Lifecycle" startFrame={4275} />
+          )}
 
           {/* Characters and dialogues - centered and spread for readability */}
           {frame < 4560 && (
@@ -1186,7 +1189,7 @@ export const CDNandAPIGateway: React.FC = () => {
           {frame >= 4650 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.14,
+              top: 50, // Moved up from height * 0.14 to save space
               left: width * 0.05,
               right: width * 0.05,
               opacity: fadeIn(frame, 4650, 20),
@@ -1509,15 +1512,15 @@ export const CDNandAPIGateway: React.FC = () => {
           {frame >= 4650 && (
             <div style={{
               position: 'absolute',
-              top: height * 0.52,
+              top: 540, // Moved up from height * 0.52 to avoid overlap.
               left: width * 0.04,
               right: width * 0.04,
               opacity: fadeIn(frame, 4650, 20),
             }}>
               <div style={{
                 background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
-                border: '1px solid rgba(96, 165, 250, 0.3)',
-                borderRadius: 20,
+                border: '1px solid rgba(96, 165, 250, 0.5)',
+                borderRadius: 16,
                 padding: 24,
                 boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
@@ -1668,11 +1671,11 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 {frame >= 5235 && (
                   <div style={{
-                    marginTop: 24,
-                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                    border: '1px solid #8b5cf6',
-                    borderRadius: 16,
-                    padding: 20,
+                    marginTop: 18,
+                    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                    border: '2px solid #8b5cf6',
+                    borderRadius: 12,
+                    padding: 18,
                     opacity: fadeIn(frame, 5235, 20),
                   }}>
                     <div style={{fontSize: 20, fontWeight: 'bold', color: '#a78bfa', textAlign: 'center', marginBottom: 10}}>
@@ -1691,7 +1694,7 @@ export const CDNandAPIGateway: React.FC = () => {
           {frame < 5100 && (
             <Dialogue
               speaker="junior"
-              text="This is brilliant! So the CDN handles the speed, and the Gateway manages the complexity. A perfect team!"
+              text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
               x={width * 0.10}
               y={height * 0.64}
               startFrame={5010}
