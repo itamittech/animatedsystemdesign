@@ -18,10 +18,55 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
+  // --- Scene 2 Calculations (Single Server) ---
+  const s2StartY = 250;
+  const s2SpacingX = 120;
+  const s2StartX = (width - (5 * 100 + 4 * 20)) / 2 - 200; // Centered-ish
+  const s2ServerX = width - 400;
+  const s2ServerY = 400;
+  const s2ServerCenterY = s2ServerY + 75; // Height 150/2
+
+  // --- Scene 3 Calculations (Basic Load Balancing) ---
+  const s3ClientX = 200;
+  const s3ClientStartY = 250;
+  const s3ClientGap = 150;
+  const s3LbX = width / 2 - 120; // Center
+  const s3LbY = 400;
+  const s3LbCenterY = s3LbY + 70; // Height 140/2
+  const s3ServerX = width - 350;
+  const s3ServerStartY = 250;
+
+  // --- Scene 6 Calculations (Health Checks) ---
+  const s6LbX = 450;
+  const s6LbY = 400;
+  const s6LbCenterY = s6LbY + 70;
+  const s6ServerX = 1100;
+  const s6ServerStartY = 250;
+  const s6ServerGap = 160;
+
+  // --- Scene 7 Calculations (Sticky Sessions) ---
+  const s7UserX = 250;
+  const s7UserY = 350;
+  const s7LbX = 650;
+  const s7LbY = 380;
+  const s7ServerX = 1250;
+  const s7ServerStartY = 250;
+  const s7ServerGap = 150;
+
+  // --- Scene 8 Calculations (Global LB) ---
+  const s8RegionX = 150;
+  const s8RegionStartY = 220;
+  const s8RegionGap = 140;
+  const s8LbX = 600;
+  const s8LbY = 350;
+  const s8DcX = 1300;
+  const s8DcStartY = 220;
+
   return (
     <AbsoluteFill
       style={{
         backgroundColor: theme.background.primary,
+        fontFamily: '"Inter", sans-serif',
       }}
     >
       {/* Credit Bookmark - Always visible at bottom */}
@@ -33,13 +78,14 @@ export const LoadBalancingEnhanced: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           gap: 20,
-          backgroundColor: 'rgba(0, 0, 0, 0.75)',
-          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(15, 23, 42, 0.8)',
+          backdropFilter: 'blur(12px)',
           padding: '12px 24px',
           borderRadius: 30,
-          border: '2px solid rgba(96, 165, 250, 0.4)',
+          border: '1px solid rgba(96, 165, 250, 0.3)',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
           opacity: fadeIn(frame, 30, 20),
+          zIndex: 1000,
         }}
       >
         <div
@@ -125,15 +171,15 @@ export const LoadBalancingEnhanced: React.FC = () => {
             y={50}
           />
 
-          <Character type="junior" x={150} y={height * 0.64} startFrame={120} size={80} />
+          <Character type="junior" x={100} y={height * 0.64} startFrame={120} size={80} />
 
           <svg width={width} height={height}>
             {/* Multiple clients */}
             {[0, 1, 2, 3, 4].map((i) => (
               <Box
                 key={i}
-                x={150 + i * 120}
-                y={250}
+                x={s2StartX + i * s2SpacingX}
+                y={s2StartY}
                 width={100}
                 height={80}
                 color={theme.colors.client}
@@ -145,8 +191,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
             {/* Single overloaded server */}
             <Box
-              x={850}
-              y={400}
+              x={s2ServerX}
+              y={s2ServerY}
               width={220}
               height={150}
               color={theme.colors.error}
@@ -160,18 +206,18 @@ export const LoadBalancingEnhanced: React.FC = () => {
             {[0, 1, 2, 3, 4].map((i) => (
               <React.Fragment key={`arrow-${i}`}>
                 <Arrow
-                  x1={200 + i * 120}
-                  y1={330}
-                  x2={900}
-                  y2={400}
+                  x1={s2StartX + i * s2SpacingX + 50}
+                  y1={s2StartY + 80}
+                  x2={s2ServerX}
+                  y2={s2ServerCenterY}
                   color={theme.colors.error}
                   startFrame={170 + i * 3}
                 />
                 <DataFlowStream
-                  x1={200 + i * 120}
-                  y1={330}
-                  x2={900}
-                  y2={400}
+                  x1={s2StartX + i * s2SpacingX + 50}
+                  y1={s2StartY + 80}
+                  x2={s2ServerX}
+                  y2={s2ServerCenterY}
                   startFrame={180 + i * 5}
                   color={theme.colors.error}
                   particleCount={3}
@@ -182,21 +228,22 @@ export const LoadBalancingEnhanced: React.FC = () => {
             {/* Warning icon */}
             <g opacity={fadeIn(frame, 200, 20)}>
               <circle
-                cx={960}
-                cy={350}
+                cx={s2ServerX + 110}
+                cy={s2ServerY - 30}
                 r={30}
                 fill={theme.colors.warning}
-                opacity={0.3}
+                opacity={0.8}
                 style={{
                   transform: `scale(${pulse(frame - 200, 20)})`,
-                  transformOrigin: '960px 350px',
+                  transformOrigin: `${s2ServerX + 110}px ${s2ServerY - 30}px`,
                 }}
               />
               <text
-                x={960}
-                y={360}
+                x={s2ServerX + 110}
+                y={s2ServerY - 20}
                 textAnchor="middle"
-                fontSize={40}
+                fontSize={30}
+                dominantBaseline="middle"
               >
                 ⚠️
               </text>
@@ -231,8 +278,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
             {[0, 1, 2].map((i) => (
               <Box
                 key={i}
-                x={150}
-                y={250 + i * 150}
+                x={s3ClientX}
+                y={s3ClientStartY + i * s3ClientGap}
                 width={120}
                 height={90}
                 color={theme.colors.client}
@@ -244,8 +291,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
             {/* Load Balancer */}
             <Box
-              x={500}
-              y={400}
+              x={s3LbX}
+              y={s3LbY}
               width={240}
               height={140}
               color={theme.colors.loadBalancer}
@@ -259,8 +306,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
             {[0, 1, 2].map((i) => (
               <Box
                 key={i}
-                x={1100}
-                y={250 + i * 150}
+                x={s3ServerX}
+                y={s3ServerStartY + i * s3ClientGap}
                 width={180}
                 height={110}
                 color={theme.colors.success}
@@ -275,18 +322,18 @@ export const LoadBalancingEnhanced: React.FC = () => {
             {[0, 1, 2].map((i) => (
               <React.Fragment key={`client-lb-${i}`}>
                 <Arrow
-                  x1={270}
-                  y1={295 + i * 150}
-                  x2={500}
-                  y2={470}
+                  x1={s3ClientX + 120}
+                  y1={s3ClientStartY + i * s3ClientGap + 45}
+                  x2={s3LbX}
+                  y2={s3LbCenterY}
                   color={theme.colors.client}
                   startFrame={340 + i * 5}
                 />
                 <DataFlowStream
-                  x1={270}
-                  y1={295 + i * 150}
-                  x2={500}
-                  y2={470}
+                  x1={s3ClientX + 120}
+                  y1={s3ClientStartY + i * s3ClientGap + 45}
+                  x2={s3LbX}
+                  y2={s3LbCenterY}
                   startFrame={350 + i * 10}
                   color={theme.colors.client}
                 />
@@ -297,19 +344,19 @@ export const LoadBalancingEnhanced: React.FC = () => {
             {[0, 1, 2].map((i) => (
               <React.Fragment key={`lb-server-${i}`}>
                 <Arrow
-                  x1={740}
-                  y1={470}
-                  x2={1100}
-                  y2={305 + i * 150}
+                  x1={s3LbX + 240}
+                  y1={s3LbCenterY}
+                  x2={s3ServerX}
+                  y2={s3ServerStartY + i * s3ClientGap + 55}
                   color={theme.colors.loadBalancer}
                   label="33%"
                   startFrame={370 + i * 5}
                 />
                 <DataFlowStream
-                  x1={740}
-                  y1={470}
-                  x2={1100}
-                  y2={305 + i * 150}
+                  x1={s3LbX + 240}
+                  y1={s3LbCenterY}
+                  x2={s3ServerX}
+                  y2={s3ServerStartY + i * s3ClientGap + 55}
                   startFrame={380 + i * 10}
                   color={theme.colors.success}
                 />
@@ -359,8 +406,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
             maxWidth={520}
           />
 
-          {/* Algorithm Cards */}
-          <div style={{position: 'absolute', left: 150, top: 200, opacity: fadeIn(frame, 530, 20)}}>
+          {/* Algorithm Cards - Grid Layout */}
+          <div style={{position: 'absolute', left: width * 0.1, top: 200, opacity: fadeIn(frame, 530, 20)}}>
             <AlgorithmCard
               title="Round Robin"
               icon="🔄"
@@ -369,7 +416,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             />
           </div>
 
-          <div style={{position: 'absolute', left: 550, top: 200, opacity: fadeIn(frame, 550, 20)}}>
+          <div style={{position: 'absolute', left: width * 0.3, top: 200, opacity: fadeIn(frame, 550, 20)}}>
             <AlgorithmCard
               title="Least Connections"
               icon="📊"
@@ -378,7 +425,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             />
           </div>
 
-          <div style={{position: 'absolute', left: 950, top: 200, opacity: fadeIn(frame, 570, 20)}}>
+          <div style={{position: 'absolute', left: width * 0.5, top: 200, opacity: fadeIn(frame, 570, 20)}}>
             <AlgorithmCard
               title="IP Hash"
               icon="🔑"
@@ -387,7 +434,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
             />
           </div>
 
-          <div style={{position: 'absolute', left: 1350, top: 200, opacity: fadeIn(frame, 590, 20)}}>
+          <div style={{position: 'absolute', left: width * 0.7, top: 200, opacity: fadeIn(frame, 590, 20)}}>
             <AlgorithmCard
               title="Weighted"
               icon="⚖️"
@@ -419,78 +466,75 @@ export const LoadBalancingEnhanced: React.FC = () => {
             maxWidth={800}
           />
 
-          {/* L4 vs L7 Comparison */}
+          {/* L4 vs L7 Comparison - Centered and Styled */}
           <div
             style={{
-              position: 'absolute',
-              left: 100,
-              top: 200,
-              width: 800,
-              opacity: fadeIn(frame, 750, 20),
+              display: 'flex',
+              justifyContent: 'center',
+              gap: 40,
+              marginTop: 200,
+              width: '100%',
             }}
           >
             <div
               style={{
-                backgroundColor: theme.background.card,
+                width: 600,
+                background: 'linear-gradient(145deg, rgba(37, 43, 74, 0.95), rgba(26, 31, 58, 0.95))',
                 padding: 30,
-                borderRadius: theme.borderRadius.lg,
-                border: `3px solid ${theme.colors.network}`,
+                borderRadius: 20,
+                border: `2px solid ${theme.colors.network}`,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                opacity: fadeIn(frame, 750, 20),
               }}
             >
               <h3
                 style={{
                   margin: 0,
                   color: theme.text.primary,
-                  fontSize: 40,
+                  fontSize: 36,
                   marginBottom: 20,
+                  textAlign: 'center',
                 }}
               >
                 🔌 Layer 4 (Transport)
               </h3>
               <div style={{color: theme.text.secondary, fontSize: 22, lineHeight: 1.8}}>
-                <div>✅ <strong>Fast</strong> - Low latency, high throughput</div>
-                <div>✅ <strong>Protocol agnostic</strong> - Works with any TCP/UDP</div>
-                <div>❌ <strong>No content awareness</strong> - Can't see HTTP data</div>
-                <div style={{marginTop: 15, color: theme.colors.info}}>
-                  <strong>Use for:</strong> Databases, game servers, extreme performance needs
+                <div style={{marginBottom: 8}}>✅ <strong>Fast</strong> - Low latency, high throughput</div>
+                <div style={{marginBottom: 8}}>✅ <strong>Protocol agnostic</strong> - Works with any TCP/UDP</div>
+                <div style={{marginBottom: 12}}>❌ <strong>No content awareness</strong> - Can't see HTTP data</div>
+                <div style={{marginTop: 15, color: theme.colors.info, backgroundColor: 'rgba(59, 130, 246, 0.1)', padding: 10, borderRadius: 8}}>
+                  <strong>Use for:</strong> Databases, game servers, extreme performance
                 </div>
               </div>
             </div>
-          </div>
 
-          <div
-            style={{
-              position: 'absolute',
-              left: 1000,
-              top: 200,
-              width: 800,
-              opacity: fadeIn(frame, 840, 20),
-            }}
-          >
             <div
               style={{
-                backgroundColor: theme.background.card,
+                width: 600,
+                background: 'linear-gradient(145deg, rgba(37, 43, 74, 0.95), rgba(26, 31, 58, 0.95))',
                 padding: 30,
-                borderRadius: theme.borderRadius.lg,
-                border: `3px solid ${theme.colors.frontend}`,
+                borderRadius: 20,
+                border: `2px solid ${theme.colors.frontend}`,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                opacity: fadeIn(frame, 840, 20),
               }}
             >
               <h3
                 style={{
                   margin: 0,
                   color: theme.text.primary,
-                  fontSize: 40,
+                  fontSize: 36,
                   marginBottom: 20,
+                  textAlign: 'center',
                 }}
               >
                 🌐 Layer 7 (Application)
               </h3>
               <div style={{color: theme.text.secondary, fontSize: 22, lineHeight: 1.8}}>
-                <div>✅ <strong>Smart routing</strong> - URL, headers, cookies</div>
-                <div>✅ <strong>SSL termination</strong> - Decrypt once at LB</div>
-                <div>✅ <strong>WAF integration</strong> - Security filtering</div>
-                <div>❌ <strong>Higher latency</strong> - Must parse HTTP</div>
-                <div style={{marginTop: 15, color: theme.colors.info}}>
+                <div style={{marginBottom: 8}}>✅ <strong>Smart routing</strong> - URL, headers, cookies</div>
+                <div style={{marginBottom: 8}}>✅ <strong>SSL termination</strong> - Decrypt once at LB</div>
+                <div style={{marginBottom: 12}}>✅ <strong>WAF integration</strong> - Security filtering</div>
+                <div style={{marginTop: 15, color: theme.colors.info, backgroundColor: 'rgba(59, 130, 246, 0.1)', padding: 10, borderRadius: 8}}>
                   <strong>Use for:</strong> Microservices, A/B testing, canary deployments
                 </div>
               </div>
@@ -523,8 +567,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <svg width={width} height={height}>
             {/* Load Balancer */}
             <Box
-              x={450}
-              y={400}
+              x={s6LbX}
+              y={s6LbY}
               width={240}
               height={140}
               color={theme.colors.loadBalancer}
@@ -534,125 +578,33 @@ export const LoadBalancingEnhanced: React.FC = () => {
               startFrame={970}
             />
 
-            {/* Server 1 - Healthy */}
-            <Box
-              x={1000}
-              y={250}
-              width={200}
-              height={120}
-              color={theme.colors.success}
-              label="Server 1"
-              icon="✅"
-              subLabel="Healthy"
-              startFrame={990}
-            />
-
-            {/* Server 2 - FAILED */}
-            <Box
-              x={1000}
-              y={410}
-              width={200}
-              height={120}
-              color={theme.colors.error}
-              label="Server 2"
-              icon="❌"
-              subLabel="FAILED!"
-              startFrame={995}
-            />
-
-            {/* Server 3 - Healthy */}
-            <Box
-              x={1000}
-              y={570}
-              width={200}
-              height={120}
-              color={theme.colors.success}
-              label="Server 3"
-              icon="✅"
-              subLabel="Healthy"
-              startFrame={1000}
-            />
+            {/* Servers */}
+            <Box x={s6ServerX} y={s6ServerStartY} width={200} height={120} color={theme.colors.success} label="Server 1" icon="✅" subLabel="Healthy" startFrame={990} />
+            <Box x={s6ServerX} y={s6ServerStartY + s6ServerGap} width={200} height={120} color={theme.colors.error} label="Server 2" icon="❌" subLabel="FAILED!" startFrame={995} />
+            <Box x={s6ServerX} y={s6ServerStartY + s6ServerGap * 2} width={200} height={120} color={theme.colors.success} label="Server 3" icon="✅" subLabel="Healthy" startFrame={1000} />
 
             {/* Health check probes */}
-            <Arrow
-              x1={690}
-              y1={470}
-              x2={1000}
-              y2={300}
-              color={theme.colors.success}
-              label="HTTP 200 OK"
-              startFrame={1010}
-              dashed
-            />
-            <Arrow
-              x1={690}
-              y1={470}
-              x2={1000}
-              y2={470}
-              color={theme.colors.error}
-              label="Timeout!"
-              startFrame={1015}
-              dashed
-            />
-            <Arrow
-              x1={690}
-              y1={470}
-              x2={1000}
-              y2={620}
-              color={theme.colors.success}
-              label="HTTP 200 OK"
-              startFrame={1020}
-              dashed
-            />
+            <Arrow x1={s6LbX + 240} y1={s6LbCenterY} x2={s6ServerX} y2={s6ServerStartY + 60} color={theme.colors.success} label="HTTP 200 OK" startFrame={1010} dashed />
+            <Arrow x1={s6LbX + 240} y1={s6LbCenterY} x2={s6ServerX} y2={s6ServerStartY + s6ServerGap + 60} color={theme.colors.error} label="Timeout!" startFrame={1015} dashed />
+            <Arrow x1={s6LbX + 240} y1={s6LbCenterY} x2={s6ServerX} y2={s6ServerStartY + s6ServerGap * 2 + 60} color={theme.colors.success} label="HTTP 200 OK" startFrame={1020} dashed />
 
             {/* Traffic only to healthy servers */}
             <g opacity={fadeIn(frame, 1025, 10)}>
-              <Arrow
-                x1={300}
-                y1={470}
-                x2={450}
-                y2={470}
-                color={theme.colors.client}
-                label="User Traffic"
-                startFrame={1025}
-              />
-              <DataFlowStream
-                x1={300}
-                y1={470}
-                x2={450}
-                y2={470}
-                startFrame={1030}
-                color={theme.colors.client}
-              />
+              <Arrow x1={300} y1={s6LbCenterY} x2={s6LbX} y2={s6LbCenterY} color={theme.colors.client} label="User Traffic" startFrame={1025} />
+              <DataFlowStream x1={300} y1={s6LbCenterY} x2={s6LbX} y2={s6LbCenterY} startFrame={1030} color={theme.colors.client} />
             </g>
 
             {/* Routes around failed server */}
-            <Arrow
-              x1={690}
-              y1={450}
-              x2={1000}
-              y2={290}
-              color={theme.colors.loadBalancer}
-              label="50%"
-              startFrame={1030}
-            />
-            <Arrow
-              x1={690}
-              y1={490}
-              x2={1000}
-              y2={610}
-              color={theme.colors.loadBalancer}
-              label="50%"
-              startFrame={1035}
-            />
+            <Arrow x1={s6LbX + 240} y1={s6LbCenterY - 20} x2={s6ServerX} y2={s6ServerStartY + 60} color={theme.colors.loadBalancer} label="50%" startFrame={1030} />
+            <Arrow x1={s6LbX + 240} y1={s6LbCenterY + 20} x2={s6ServerX} y2={s6ServerStartY + s6ServerGap * 2 + 60} color={theme.colors.loadBalancer} label="50%" startFrame={1035} />
 
             {/* Show it skips failed server with X */}
             {frame > 1030 && (
               <line
-                x1={690}
-                y1={470}
-                x2={1000}
-                y2={470}
+                x1={s6LbX + 240}
+                y1={s6LbCenterY}
+                x2={s6ServerX}
+                y2={s6ServerStartY + s6ServerGap + 60}
                 stroke={theme.colors.error}
                 strokeWidth={4}
                 strokeDasharray="8,4"
@@ -695,8 +647,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <svg width={width} height={height}>
             <Box
-              x={200}
-              y={300}
+              x={s7UserX}
+              y={s7UserY}
               width={140}
               height={100}
               color={theme.colors.client}
@@ -707,8 +659,8 @@ export const LoadBalancingEnhanced: React.FC = () => {
             />
 
             <Box
-              x={600}
-              y={380}
+              x={s7LbX}
+              y={s7LbY}
               width={260}
               height={140}
               color={theme.colors.loadBalancer}
@@ -718,15 +670,15 @@ export const LoadBalancingEnhanced: React.FC = () => {
               startFrame={1170}
             />
 
-            <Box x={1200} y={250} width={180} height={110} color={theme.colors.server} label="Server 1" icon="🖥️" startFrame={1180} />
-            <Box x={1200} y={400} width={180} height={110} color={theme.colors.success} label="Server 2" icon="🖥️" subLabel="User's Server ⭐" startFrame={1185} />
-            <Box x={1200} y={550} width={180} height={110} color={theme.colors.server} label="Server 3" icon="🖥️" startFrame={1190} />
+            <Box x={s7ServerX} y={s7ServerStartY} width={180} height={110} color={theme.colors.server} label="Server 1" icon="🖥️" startFrame={1180} />
+            <Box x={s7ServerX} y={s7ServerStartY + s7ServerGap} width={180} height={110} color={theme.colors.success} label="Server 2" icon="🖥️" subLabel="User's Server ⭐" startFrame={1185} />
+            <Box x={s7ServerX} y={s7ServerStartY + s7ServerGap * 2} width={180} height={110} color={theme.colors.server} label="Server 3" icon="🖥️" startFrame={1190} />
 
-            <Arrow x1={340} y1={350} x2={600} y2={430} color={theme.colors.client} label="Cookie: server=2" startFrame={1200} />
-            <Arrow x1={860} y1={450} x2={1200} y2={455} color={theme.colors.loadBalancer} label="Always to Server 2" startFrame={1210} />
+            <Arrow x1={s7UserX + 140} y1={s7UserY + 50} x2={s7LbX} y2={s7LbY + 70} color={theme.colors.client} label="Cookie: server=2" startFrame={1200} />
+            <Arrow x1={s7LbX + 260} y1={s7LbY + 70} x2={s7ServerX} y2={s7ServerStartY + s7ServerGap + 55} color={theme.colors.loadBalancer} label="Always to Server 2" startFrame={1210} />
 
             {[0, 1, 2].map((i) => (
-              <DataFlowStream key={i} x1={340} y1={350} x2={1200} y2={455} startFrame={1010 + i * 20} color={theme.colors.success} particleCount={2} />
+              <DataFlowStream key={i} x1={s7UserX + 140} y1={s7UserY + 50} x2={s7ServerX} y2={s7ServerStartY + s7ServerGap + 55} startFrame={1010 + i * 20} color={theme.colors.success} particleCount={2} />
             ))}
           </svg>
 
@@ -762,30 +714,31 @@ export const LoadBalancingEnhanced: React.FC = () => {
           />
 
           <svg width={width} height={height}>
-            <Box x={100} y={200} width={140} height={90} color={theme.colors.client} label="🌍 Europe" icon="👥" startFrame={1330} />
-            <Box x={100} y={330} width={140} height={90} color={theme.colors.client} label="🌎 Americas" icon="👥" startFrame={1335} />
-            <Box x={100} y={460} width={140} height={90} color={theme.colors.client} label="🌏 Asia" icon="👥" startFrame={1340} />
+            <Box x={s8RegionX} y={s8RegionStartY} width={140} height={90} color={theme.colors.client} label="🌍 Europe" icon="👥" startFrame={1330} />
+            <Box x={s8RegionX} y={s8RegionStartY + s8RegionGap} width={140} height={90} color={theme.colors.client} label="🌎 Americas" icon="👥" startFrame={1335} />
+            <Box x={s8RegionX} y={s8RegionStartY + s8RegionGap * 2} width={140} height={90} color={theme.colors.client} label="🌏 Asia" icon="👥" startFrame={1340} />
 
-            <Box x={500} y={330} width={280} height={150} color={theme.colors.network} label="Global Load Balancer" icon="🌐" subLabel="GeoDNS Routing" startFrame={1350} />
+            <Box x={s8LbX} y={s8LbY} width={280} height={150} color={theme.colors.network} label="Global Load Balancer" icon="🌐" subLabel="GeoDNS Routing" startFrame={1350} />
 
-            <Box x={1200} y={200} width={200} height={90} color={theme.colors.success} label="EU Datacenter" icon="🏢" subLabel="Frankfurt" startFrame={1360} />
-            <Box x={1200} y={330} width={200} height={90} color={theme.colors.success} label="US Datacenter" icon="🏢" subLabel="Virginia" startFrame={1365} />
-            <Box x={1200} y={460} width={200} height={90} color={theme.colors.success} label="APAC Datacenter" icon="🏢" subLabel="Singapore" startFrame={1370} />
+            <Box x={s8DcX} y={s8DcStartY} width={200} height={90} color={theme.colors.success} label="EU Datacenter" icon="🏢" subLabel="Frankfurt" startFrame={1360} />
+            <Box x={s8DcX} y={s8DcStartY + s8RegionGap} width={200} height={90} color={theme.colors.success} label="US Datacenter" icon="🏢" subLabel="Virginia" startFrame={1365} />
+            <Box x={s8DcX} y={s8DcStartY + s8RegionGap * 2} width={200} height={90} color={theme.colors.success} label="APAC Datacenter" icon="🏢" subLabel="Singapore" startFrame={1370} />
 
-            <Arrow x1={240} y1={245} x2={500} y2={370} color={theme.colors.client} startFrame={1380} />
-            <Arrow x1={780} y1={370} x2={1200} y2={245} color={theme.colors.network} label="Lowest latency" startFrame={1390} />
-            <DataFlowStream x1={240} y1={245} x2={1200} y2={245} startFrame={1395} color={theme.colors.success} />
+            {/* Arrows routing to nearest DC */}
+            <Arrow x1={s8RegionX + 140} y1={s8RegionStartY + 45} x2={s8LbX} y2={s8LbY + 40} color={theme.colors.client} startFrame={1380} />
+            <Arrow x1={s8LbX + 280} y1={s8LbY + 40} x2={s8DcX} y2={s8DcStartY + 45} color={theme.colors.network} label="Lowest latency" startFrame={1390} />
+            <DataFlowStream x1={s8RegionX + 140} y1={s8RegionStartY + 45} x2={s8DcX} y2={s8DcStartY + 45} startFrame={1395} color={theme.colors.success} />
 
-            <Arrow x1={240} y1={375} x2={500} y2={395} color={theme.colors.client} startFrame={1382} />
-            <Arrow x1={780} y1={395} x2={1200} y2={375} color={theme.colors.network} startFrame={1392} />
-            <DataFlowStream x1={240} y1={375} x2={1200} y2={375} startFrame={1400} color={theme.colors.success} />
+            <Arrow x1={s8RegionX + 140} y1={s8RegionStartY + s8RegionGap + 45} x2={s8LbX} y2={s8LbY + 75} color={theme.colors.client} startFrame={1382} />
+            <Arrow x1={s8LbX + 280} y1={s8LbY + 75} x2={s8DcX} y2={s8DcStartY + s8RegionGap + 45} color={theme.colors.network} startFrame={1392} />
+            <DataFlowStream x1={s8RegionX + 140} y1={s8RegionStartY + s8RegionGap + 45} x2={s8DcX} y2={s8DcStartY + s8RegionGap + 45} startFrame={1400} color={theme.colors.success} />
 
-            <Arrow x1={240} y1={505} x2={500} y2={420} color={theme.colors.client} startFrame={1384} />
-            <Arrow x1={780} y1={420} x2={1200} y2={505} color={theme.colors.network} startFrame={1394} />
-            <DataFlowStream x1={240} y1={505} x2={1200} y2={505} startFrame={1405} color={theme.colors.success} />
+            <Arrow x1={s8RegionX + 140} y1={s8RegionStartY + s8RegionGap * 2 + 45} x2={s8LbX} y2={s8LbY + 110} color={theme.colors.client} startFrame={1384} />
+            <Arrow x1={s8LbX + 280} y1={s8LbY + 110} x2={s8DcX} y2={s8DcStartY + s8RegionGap * 2 + 45} color={theme.colors.network} startFrame={1394} />
+            <DataFlowStream x1={s8RegionX + 140} y1={s8RegionStartY + s8RegionGap * 2 + 45} x2={s8DcX} y2={s8DcStartY + s8RegionGap * 2 + 45} startFrame={1405} color={theme.colors.success} />
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 600, opacity: fadeIn(frame, 1410, 20)}}>
+          <div style={{position: 'absolute', left: 100, top: 650, opacity: fadeIn(frame, 1410, 20)}}>
             <InfoCard title="GSLB Benefits" points={['Reduced latency (users hit nearest DC)', 'Automatic failover between regions', 'Compliance (data residency)', 'DDoS mitigation at edge']} color={theme.colors.network} />
           </div>
         </>
@@ -803,23 +756,25 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <Dialogue speaker="architect" text="Depends on your needs! Let me break down the popular options..." x={width * 0.60} y={height * 0.64} startFrame={1510} maxWidth={600} />
 
-          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1530, 20)}}>
-            <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great docs']} cons={['Complex config']} useCase="General purpose" />
+          <div style={{display: 'flex', justifyContent: 'center', gap: 20, width: '100%', marginTop: 180}}>
+            <div style={{opacity: fadeIn(frame, 1530, 20)}}>
+              <ToolCard name="NGINX" icon="🟢" type="Software LB" pros={['Fast L7 proxy', 'Great docs']} cons={['Complex config']} useCase="General purpose" />
+            </div>
+
+            <div style={{opacity: fadeIn(frame, 1545, 20)}}>
+              <ToolCard name="HAProxy" icon="🔵" type="Software LB" pros={['Ultra reliable', 'Advanced features']} cons={['Steep curve']} useCase="High-traffic" />
+            </div>
+
+            <div style={{opacity: fadeIn(frame, 1560, 20)}}>
+              <ToolCard name="Envoy" icon="🟣" type="Service Mesh" pros={['Modern', 'Observability']} cons={['Complex setup']} useCase="Kubernetes" />
+            </div>
+
+            <div style={{opacity: fadeIn(frame, 1575, 20)}}>
+              <ToolCard name="AWS ALB" icon="🟠" type="Managed" pros={['Fully managed', 'Auto-scaling']} cons={['Vendor lock-in']} useCase="AWS apps" />
+            </div>
           </div>
 
-          <div style={{position: 'absolute', left: 530, top: 180, opacity: fadeIn(frame, 1545, 20)}}>
-            <ToolCard name="HAProxy" icon="🔵" type="Software LB" pros={['Ultra reliable', 'Advanced features']} cons={['Steep curve']} useCase="High-traffic" />
-          </div>
-
-          <div style={{position: 'absolute', left: 960, top: 180, opacity: fadeIn(frame, 1560, 20)}}>
-            <ToolCard name="Envoy" icon="🟣" type="Service Mesh" pros={['Modern', 'Observability']} cons={['Complex setup']} useCase="Kubernetes" />
-          </div>
-
-          <div style={{position: 'absolute', left: 1390, top: 180, opacity: fadeIn(frame, 1575, 20)}}>
-            <ToolCard name="AWS ALB" icon="🟠" type="Managed" pros={['Fully managed', 'Auto-scaling']} cons={['Vendor lock-in']} useCase="AWS apps" />
-          </div>
-
-          <div style={{position: 'absolute', left: 100, top: 480, opacity: fadeIn(frame, 1590, 20)}}>
+          <div style={{position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: 620, opacity: fadeIn(frame, 1590, 20)}}>
             <InfoCard title="Decision Framework" points={['On-prem → NGINX or HAProxy', 'Cloud → Managed LBs (ALB, Azure LB)', 'Kubernetes → Ingress (NGINX, Envoy)', 'Global → GSLB (Route53, Cloudflare)']} color={theme.colors.info} />
           </div>
         </>
@@ -841,16 +796,19 @@ export const LoadBalancingEnhanced: React.FC = () => {
             maxWidth={900}
           />
 
-          <div style={{position: 'absolute', left: 100, top: 180, opacity: fadeIn(frame, 1790, 20)}}>
-            <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% to new version', 'Monitor metrics/errors', 'Gradual increase if healthy', 'Instant rollback']} color={theme.colors.warning} />
-          </div>
+          {/* Cards Grid */}
+          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 180, width: '100%'}}>
+            <div style={{opacity: fadeIn(frame, 1790, 20)}}>
+              <InfoCard title="🐤 Canary Deployment" points={['Route 5-10% to new version', 'Monitor metrics/errors', 'Gradual increase if healthy', 'Instant rollback']} color={theme.colors.warning} width={500} />
+            </div>
 
-          <div style={{position: 'absolute', left: 750, top: 180, opacity: fadeIn(frame, 1820, 20)}}>
-            <InfoCard title="🔵🟢 Blue-Green" points={['Two identical environments', 'Switch traffic instantly', 'Easy rollback', '2x infrastructure needed']} color={theme.colors.info} />
-          </div>
+            <div style={{opacity: fadeIn(frame, 1820, 20)}}>
+              <InfoCard title="🔵🟢 Blue-Green" points={['Two identical environments', 'Switch traffic instantly', 'Easy rollback', '2x infrastructure needed']} color={theme.colors.info} width={500} />
+            </div>
 
-          <div style={{position: 'absolute', left: 1400, top: 180, opacity: fadeIn(frame, 1850, 20)}}>
-            <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.messageQueue} />
+            <div style={{opacity: fadeIn(frame, 1850, 20)}}>
+              <InfoCard title="🅰️🅱️ A/B Testing" points={['Split by user cohort', 'Test features/UX', 'Data-driven decisions', 'Analytics integration']} color={theme.colors.messageQueue} width={500} />
+            </div>
           </div>
 
           <svg width={width} height={height}>
@@ -887,20 +845,20 @@ export const LoadBalancingEnhanced: React.FC = () => {
           />
 
           <svg width={width} height={height}>
-            <Box x={100} y={350} width={140} height={100} color={theme.colors.client} label="Client" icon="👤" startFrame={2060} />
-            <Box x={500} y={330} width={260} height={140} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔐" subLabel="SSL Termination" startFrame={2070} />
+            <Box x={200} y={350} width={140} height={100} color={theme.colors.client} label="Client" icon="👤" startFrame={2060} />
+            <Box x={600} y={330} width={260} height={140} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔐" subLabel="SSL Termination" startFrame={2070} />
 
             {[0, 1, 2].map((i) => (
               <Box key={i} x={1100} y={250 + i * 130} width={180} height={100} color={theme.colors.server} label={`Server ${i + 1}`} icon="🖥️" subLabel="HTTP only" startFrame={1780 + i * 5} />
             ))}
 
-            <Arrow x1={240} y1={400} x2={500} y2={400} color={theme.colors.success} label="HTTPS 🔒" startFrame={2100} />
-            <DataFlowStream x1={240} y1={400} x2={500} y2={400} startFrame={2105} color={theme.colors.success} />
+            <Arrow x1={340} y1={400} x2={600} y2={400} color={theme.colors.success} label="HTTPS 🔒" startFrame={2100} />
+            <DataFlowStream x1={340} y1={400} x2={600} y2={400} startFrame={2105} color={theme.colors.success} />
 
             {[0, 1, 2].map((i) => (
               <React.Fragment key={i}>
-                <Arrow x1={760} y1={400} x2={1100} y2={300 + i * 130} color={theme.colors.server} label="HTTP" startFrame={1815 + i * 5} dashed />
-                <DataFlowStream x1={760} y1={400} x2={1100} y2={300 + i * 130} startFrame={1825 + i * 10} color={theme.colors.server} particleCount={2} />
+                <Arrow x1={860} y1={400} x2={1100} y2={300 + i * 130} color={theme.colors.server} label="HTTP" startFrame={1815 + i * 5} dashed />
+                <DataFlowStream x1={860} y1={400} x2={1100} y2={300 + i * 130} startFrame={1825 + i * 10} color={theme.colors.server} particleCount={2} />
               </React.Fragment>
             ))}
           </svg>
@@ -998,28 +956,30 @@ export const LoadBalancingEnhanced: React.FC = () => {
             <DataFlowStream x1={800} y1={370} x2={1100} y2={370} startFrame={2475} color={theme.colors.success} particleCount={3} />
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 590, opacity: fadeIn(frame, 2490, 20)}}>
-            <InfoCard title="Rate Limiting Strategies" points={['Per-IP limits (100 req/min)', 'Token bucket algorithm', 'WAF rules (SQL/XSS)', 'Challenge bad actors']} color={theme.colors.loadBalancer} />
+          <div style={{position: 'absolute', left: 100, top: 620, opacity: fadeIn(frame, 2490, 20)}}>
+            <InfoCard title="Rate Limiting Strategies" points={['Per-IP limits (100 req/min)', 'Token bucket algorithm', 'WAF rules (SQL/XSS)', 'Challenge bad actors']} color={theme.colors.loadBalancer} width={600} />
           </div>
 
-          <div style={{position: 'absolute', right: 50, top: 590, opacity: fadeIn(frame, 2510, 20)}}>
-            <InfoCard title="Circuit Breaker" points={['Monitor backend health', 'Auto-stop to failing servers', 'Exponential backoff', 'Graceful degradation']} color={theme.colors.info} />
+          <div style={{position: 'absolute', right: 50, top: 620, opacity: fadeIn(frame, 2510, 20)}}>
+            <InfoCard title="Circuit Breaker" points={['Monitor backend health', 'Auto-stop to failing servers', 'Exponential backoff', 'Graceful degradation']} color={theme.colors.info} width={600} />
           </div>
 
           {frame > 2540 && (
             <div
               style={{
                 position: 'absolute',
-                left: width / 2 - 300,
+                left: width / 2 - 350,
                 top: 900,
+                width: 700,
                 opacity: fadeIn(frame, 2540, 20),
-                backgroundColor: theme.background.highlight,
-                padding: 24,
-                borderRadius: 16,
-                border: `4px solid ${theme.colors.success}`,
+                background: 'linear-gradient(145deg, rgba(16, 185, 129, 0.2), rgba(6, 95, 70, 0.2))',
+                padding: 32,
+                borderRadius: 24,
+                border: `2px solid ${theme.colors.success}`,
+                boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
               }}
             >
-              <h2 style={{margin: 0, color: theme.colors.success, fontSize: 42, textAlign: 'center'}}>🎉 You've Mastered Load Balancing!</h2>
+              <h2 style={{margin: 0, color: theme.colors.success, fontSize: 42, textAlign: 'center', fontWeight: 'bold'}}>🎉 You've Mastered Load Balancing!</h2>
               <p style={{margin: '16px 0 0 0', color: theme.text.primary, fontSize: 24, textAlign: 'center'}}>From basics to production-ready architectures</p>
             </div>
           )}
@@ -1041,13 +1001,13 @@ const AlgorithmCard: React.FC<{
   return (
     <div
       style={{
-        backgroundColor: theme.background.card,
+        background: 'linear-gradient(145deg, rgba(37, 43, 74, 0.95), rgba(26, 31, 58, 0.95))',
         padding: 20,
-        borderRadius: theme.borderRadius.lg,
-        width: 340,
+        borderRadius: 20,
+        width: 320,
         height: 180,
-        border: `3px solid ${color}`,
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
+        border: `2px solid ${color}`,
+        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -1087,39 +1047,45 @@ const InfoCard: React.FC<{
   title: string;
   points: string[];
   color: string;
-}> = ({title, points, color}) => {
+  width?: number;
+}> = ({title, points, color, width = 580}) => {
   return (
     <div
       style={{
-        backgroundColor: theme.background.card,
-        padding: 20,
-        borderRadius: theme.borderRadius.lg,
-        width: 580,
-        border: `3px solid ${color}`,
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
+        background: 'linear-gradient(145deg, rgba(37, 43, 74, 0.95), rgba(26, 31, 58, 0.95))',
+        padding: 24,
+        borderRadius: 20,
+        width,
+        border: `2px solid ${color}`,
+        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
       }}
     >
       <h3
         style={{
           margin: 0,
-          marginBottom: 12,
+          marginBottom: 16,
           color: theme.text.primary,
           fontSize: 28,
           fontWeight: 'bold',
+          borderBottom: `2px solid ${color}30`,
+          paddingBottom: 8,
         }}
       >
         {title}
       </h3>
-      <div style={{display: 'flex', flexDirection: 'column', gap: 6}}>
+      <div style={{display: 'flex', flexDirection: 'column', gap: 8}}>
         {points.map((point, i) => (
           <div
             key={i}
             style={{
               color: theme.text.secondary,
-              fontSize: 18,
-              lineHeight: 1.4,
+              fontSize: 20,
+              lineHeight: 1.5,
+              display: 'flex',
+              alignItems: 'flex-start',
             }}
           >
+            <span style={{color, marginRight: 8, fontWeight: 'bold'}}>•</span>
             {point}
           </div>
         ))}
@@ -1142,20 +1108,20 @@ const ToolCard: React.FC<{
   return (
     <div
       style={{
-        backgroundColor: theme.background.card,
-        padding: 16,
-        borderRadius: theme.borderRadius.lg,
-        width: 380,
-        border: `3px solid ${theme.colors.network}`,
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
+        background: 'linear-gradient(145deg, rgba(37, 43, 74, 0.95), rgba(26, 31, 58, 0.95))',
+        padding: 20,
+        borderRadius: 20,
+        width: 360,
+        border: `2px solid ${theme.colors.network}`,
+        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
       }}
     >
-      <div style={{fontSize: 36, marginBottom: 6, textAlign: 'center'}}>{icon}</div>
+      <div style={{fontSize: 42, marginBottom: 8, textAlign: 'center'}}>{icon}</div>
       <h4
         style={{
           margin: 0,
           color: theme.text.primary,
-          fontSize: 24,
+          fontSize: 28,
           fontWeight: 'bold',
           textAlign: 'center',
           marginBottom: 4,
@@ -1166,36 +1132,42 @@ const ToolCard: React.FC<{
       <div
         style={{
           color: theme.text.muted,
-          fontSize: 22,
+          fontSize: 20,
           textAlign: 'center',
-          marginBottom: 10,
+          marginBottom: 16,
+          textTransform: 'uppercase',
+          letterSpacing: '1px',
+          fontWeight: 500,
         }}
       >
         {type}
       </div>
-      <div style={{fontSize: 24, lineHeight: 1.5, color: theme.text.secondary}}>
-        <div style={{marginBottom: 6}}>
+      <div style={{fontSize: 20, lineHeight: 1.6, color: theme.text.secondary}}>
+        <div style={{marginBottom: 10}}>
           {pros.map((p, i) => (
-            <div key={i}>✓ {p}</div>
+            <div key={i} style={{display: 'flex', alignItems: 'center', gap: 8}}>
+              <span style={{color: theme.colors.success}}>✓</span> {p}
+            </div>
           ))}
         </div>
-        <div style={{marginBottom: 6}}>
+        <div style={{marginBottom: 16}}>
           {cons.map((c, i) => (
-            <div key={i} style={{color: theme.colors.warning}}>
-              ⚠ {c}
+            <div key={i} style={{display: 'flex', alignItems: 'center', gap: 8}}>
+              <span style={{color: theme.colors.error}}>⚠</span> {c}
             </div>
           ))}
         </div>
         <div
           style={{
-            marginTop: 10,
-            padding: 6,
-            backgroundColor: theme.background.highlight,
-            borderRadius: 6,
-            fontSize: 20,
+            padding: 10,
+            background: 'rgba(96, 165, 250, 0.1)',
+            borderRadius: 10,
+            fontSize: 18,
+            textAlign: 'center',
+            border: `1px solid ${theme.colors.network}40`,
           }}
         >
-          <strong>Best for:</strong> {useCase}
+          <strong style={{color: theme.colors.network}}>Best for:</strong> {useCase}
         </div>
       </div>
     </div>
