@@ -1,4 +1,5 @@
 import {Composition} from 'remotion';
+import {loadFont} from '@remotion/google-fonts/Inter';
 import {ClientServerDNSProxies} from './topics/ClientServerDNSProxies';
 import {ClientServerDNSProxiesVerticalSample} from './topics/ClientServerDNSProxiesVerticalSample';
 import {ClientServerDNSProxiesVertical} from './topics/ClientServerDNSProxiesVertical';
@@ -51,6 +52,8 @@ import {SearchOptimization} from './topics/SearchOptimization';
 import {WebSocketRealTimeCommunication} from './topics/WebSocketRealTimeCommunication';
 import {LiveStreamingArchitecture} from './topics/LiveStreamingArchitecture';
 import {NotificationSystems} from './topics/NotificationSystems';
+
+const {fontFamily} = loadFont();
 
 export const RemotionRoot: React.FC = () => {
   return (
