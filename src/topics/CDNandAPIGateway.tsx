@@ -17,8 +17,58 @@ export const CDNandAPIGateway: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
+  // Scene 2 Calculations
+  const s2ContainerWidth = width * 0.9;
+  const s2OriginX = s2ContainerWidth * 0.5;
+  const s2OriginY = 165;
+  // Tokyo: right: 80, width: 80. Left = CW - 160. Center = CW - 120.
+  const s2TokyoX = s2ContainerWidth - 120;
+  const s2TokyoY = 55;
+  // London: left: 100, width: 80. Center = 140.
+  const s2LondonX = 140;
+  const s2LondonY = 95;
+  // Sydney: right: 120, width: 80. Left = CW - 200. Center = CW - 160.
+  const s2SydneyX = s2ContainerWidth - 160;
+  const s2SydneyY = 225;
+  // São Paulo: left: 140, width: 80. Center = 180.
+  const s2SaoPauloX = 180;
+  const s2SaoPauloY = 205;
+
+  // Scene 4 Calculations
+  const s4ContainerWidth = width * 0.84;
+  const s4GatewayX = s4ContainerWidth * 0.5;
+  const s4GatewayY = 160;
+  // Client: left: 50. Let's assume center around 90 (icon width approx 80).
+  // Actually, looking at previous code, Arrow started at 74.
+  const s4ClientX = 74;
+  const s4ClientY = 154;
+  // User Service: right: 100, width: 85. Left = CW - 185. Center = CW - 142.5.
+  const s4UserX = s4ContainerWidth - 142.5;
+  const s4UserY = 55; // Top 20 + 35
+  // Order Service: right: 60, width: 85. Left = CW - 145. Center = CW - 102.5.
+  const s4OrderX = s4ContainerWidth - 102.5;
+  const s4OrderY = 155; // Top 120 + 35
+  // Payment Service: right: 110, width: 85. Left = CW - 195. Center = CW - 152.5.
+  const s4PaymentX = s4ContainerWidth - 152.5;
+  const s4PaymentY = 235; // Bottom 10 -> Top 220 + 35 (Container height 300)
+
+  // Scene 6 Calculations
+  const s6ContainerWidth = width * 0.9;
+  // User: left 60, width 100. Center = 110.
+  const s6UserX = 110;
+  const s6UserY = 140;
+  // CDN: left width * 0.30.
+  const s6CdnX = width * 0.30;
+  const s6CdnY = 140;
+  // Gateway: left width * 0.55.
+  const s6GatewayX = width * 0.55;
+  const s6GatewayY = 140;
+  // Services: right 80, width 120. Left = CW - 200. Center = CW - 140.
+  const s6ServicesX = s6ContainerWidth - 140;
+  const s6ServicesY = 140;
+
   return (
-    <AbsoluteFill style={{backgroundColor: theme.background.primary}}>
+    <AbsoluteFill style={{backgroundColor: theme.background.primary, fontFamily: '"Inter", sans-serif'}}>
       {/* Credit Bookmark */}
       <div
         style={{
@@ -28,11 +78,11 @@ export const CDNandAPIGateway: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           gap: 20,
-          backgroundColor: 'rgba(0, 0, 0, 0.75)',
-          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(15, 23, 42, 0.8)',
+          backdropFilter: 'blur(12px)',
           padding: '12px 24px',
           borderRadius: 30,
-          border: '2px solid rgba(96, 165, 250, 0.4)',
+          border: '1px solid rgba(96, 165, 250, 0.3)',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
           opacity: fadeIn(frame, 30, 20),
           zIndex: 1000,
@@ -92,31 +142,32 @@ export const CDNandAPIGateway: React.FC = () => {
               top: height * 0.24,
               left: width * 0.15,
               right: width * 0.15,
-              backgroundColor: 'rgba(30, 41, 59, 0.95)',
-              border: '3px solid rgba(239, 68, 68, 0.5)',
-              borderRadius: 16,
-              padding: 28,
+              background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+              border: '1px solid rgba(239, 68, 68, 0.5)',
+              borderRadius: 20,
+              padding: 32,
+              boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               opacity: fadeIn(frame, 405, 20),
             }}>
-              <div style={{fontSize: 24, fontWeight: 'bold', color: '#ef4444', textShadow: '0 0 20px rgba(239, 68, 68, 0.5)', marginBottom: 16, textAlign: 'center', opacity: fadeIn(frame, 435, 20)}}>
+              <div style={{fontSize: 28, fontWeight: 'bold', color: '#ef4444', textShadow: '0 0 20px rgba(239, 68, 68, 0.4)', marginBottom: 24, textAlign: 'center', opacity: fadeIn(frame, 435, 20)}}>
                 The Global Scale Challenge
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 16}}>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginTop: 16}}>
                 <div style={{opacity: fadeIn(frame, 495, 20)}}>
-                  <div style={{fontSize: 18, color: '#60a5fa', fontWeight: 'bold', marginBottom: 8}}>😰 Without CDN/Gateway:</div>
-                  <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
-                    <div style={{opacity: fadeIn(frame, 540, 15)}}>• User in Tokyo → Server in US (~150ms latency)</div>
-                    <div style={{opacity: fadeIn(frame, 570, 15)}}>• Every request hits origin server</div>
-                    <div style={{opacity: fadeIn(frame, 600, 15)}}>• No caching, no load distribution</div>
+                  <div style={{fontSize: 20, color: '#60a5fa', fontWeight: 'bold', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '1px'}}>😰 Without CDN/Gateway</div>
+                  <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{opacity: fadeIn(frame, 540, 15), marginBottom: 8}}>• User in Tokyo → Server in US (~150ms latency)</div>
+                    <div style={{opacity: fadeIn(frame, 570, 15), marginBottom: 8}}>• Every request hits origin server</div>
+                    <div style={{opacity: fadeIn(frame, 600, 15), marginBottom: 8}}>• No caching, no load distribution</div>
                     <div style={{opacity: fadeIn(frame, 630, 15)}}>• Server overload, slow response</div>
                   </div>
                 </div>
                 <div style={{opacity: fadeIn(frame, 495, 20)}}>
-                  <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>🚀 With CDN/Gateway:</div>
-                  <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 1.8}}>
-                    <div style={{opacity: fadeIn(frame, 540, 15)}}>• User in Tokyo → Edge server in Tokyo (~5ms)</div>
-                    <div style={{opacity: fadeIn(frame, 570, 15)}}>• Static content served from cache</div>
-                    <div style={{opacity: fadeIn(frame, 600, 15)}}>• API Gateway routes smartly</div>
+                  <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '1px'}}>🚀 With CDN/Gateway</div>
+                  <div style={{fontSize: 22, color: '#cbd5e1', lineHeight: 1.8}}>
+                    <div style={{opacity: fadeIn(frame, 540, 15), marginBottom: 8}}>• User in Tokyo → Edge server in Tokyo (~5ms)</div>
+                    <div style={{opacity: fadeIn(frame, 570, 15), marginBottom: 8}}>• Static content served from cache</div>
+                    <div style={{opacity: fadeIn(frame, 600, 15), marginBottom: 8}}>• API Gateway routes smartly</div>
                     <div style={{opacity: fadeIn(frame, 630, 15)}}>• Fast, scalable, resilient</div>
                   </div>
                 </div>
@@ -167,12 +218,13 @@ export const CDNandAPIGateway: React.FC = () => {
               opacity: fadeIn(frame, 1050, 20),
             }}>
               <div style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                border: '3px solid rgba(96, 165, 250, 0.5)',
-                borderRadius: 16,
-                padding: 24,
+                background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+                border: '1px solid rgba(96, 165, 250, 0.3)',
+                borderRadius: 20,
+                padding: 30,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
-                <div style={{fontSize: 22, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 20, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: theme.colors.loadBalancer, marginBottom: 24, textAlign: 'center', letterSpacing: '1px'}}>
                   CDN Global Network Architecture
                 </div>
 
@@ -186,24 +238,25 @@ export const CDNandAPIGateway: React.FC = () => {
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1110, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 100,
                       height: 90,
-                      backgroundColor: theme.colors.server,
+                      background: 'linear-gradient(145deg, #10b981, #059669)',
                       borderRadius: 12,
-                      border: '3px solid #10b981', boxShadow: '0 0 16px rgba(16, 185, 129, 0.3)',
+                      border: '1px solid #34d399',
+                      boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
                       <div style={{fontSize: 32}}>🏢</div>
-                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Origin</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>Origin</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#10b981', marginTop: 6}}>US East</div>
+                    <div style={{fontSize: 18, color: '#34d399', marginTop: 8, fontWeight: '500'}}>US East</div>
                   </div>
 
                   {/* Edge Servers */}
@@ -214,23 +267,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     right: 80,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1200, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 80,
                       height: 70,
-                      backgroundColor: '#8b5cf6',
-                      borderRadius: 10,
-                      border: '2px solid #a78bfa',
+                      background: 'linear-gradient(145deg, #8b5cf6, #7c3aed)',
+                      borderRadius: 12,
+                      border: '1px solid #a78bfa',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.4)',
                     }}>
                       <div style={{fontSize: 24}}>🌏</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>Tokyo</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 6, fontWeight: '500'}}>Tokyo</div>
                   </div>
 
                   {/* London */}
@@ -240,23 +294,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: 100,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1260, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 80,
                       height: 70,
-                      backgroundColor: '#8b5cf6',
-                      borderRadius: 10,
-                      border: '2px solid #a78bfa',
+                      background: 'linear-gradient(145deg, #8b5cf6, #7c3aed)',
+                      borderRadius: 12,
+                      border: '1px solid #a78bfa',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.4)',
                     }}>
                       <div style={{fontSize: 24}}>🌍</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>London</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 6, fontWeight: '500'}}>London</div>
                   </div>
 
                   {/* Sydney */}
@@ -266,23 +321,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     right: 120,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1320, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 80,
                       height: 70,
-                      backgroundColor: '#8b5cf6',
-                      borderRadius: 10,
-                      border: '2px solid #a78bfa',
+                      background: 'linear-gradient(145deg, #8b5cf6, #7c3aed)',
+                      borderRadius: 12,
+                      border: '1px solid #a78bfa',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.4)',
                     }}>
                       <div style={{fontSize: 24}}>🌏</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>Sydney</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 6, fontWeight: '500'}}>Sydney</div>
                   </div>
 
                   {/* São Paulo */}
@@ -292,28 +348,28 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: 140,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 1380, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 80,
                       height: 70,
-                      backgroundColor: '#8b5cf6',
-                      borderRadius: 10,
-                      border: '2px solid #a78bfa',
+                      background: 'linear-gradient(145deg, #8b5cf6, #7c3aed)',
+                      borderRadius: 12,
+                      border: '1px solid #a78bfa',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.4)',
                     }}>
                       <div style={{fontSize: 24}}>🌎</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Edge</div>
+                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>Edge</div>
                     </div>
-                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 4}}>São Paulo</div>
+                    <div style={{fontSize: 22, color: '#c4b5fd', marginTop: 6, fontWeight: '500'}}>São Paulo</div>
                   </div>
 
                   {/* Connection Arrows from Origin to Edge Servers */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                    {/* SVG Filter for glow effect */}
                     <defs>
                       <filter id="glow-cdn-network">
                         <feGaussianBlur stdDeviation="3" result="coloredBlur" />
@@ -324,45 +380,45 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* Origin (center: width*0.5, 165) to Tokyo (center: width-120, 55) - offset to avoid overlap */}
+                    {/* Origin to Tokyo */}
                     <Arrow
-                      x1={width * 0.50 + 50}
-                      y1={155}
-                      x2={width - 160}
-                      y2={65}
+                      x1={s2OriginX + 50}
+                      y1={s2OriginY - 10}
+                      x2={s2TokyoX - 40}
+                      y2={s2TokyoY + 10}
                       color={theme.colors.cdn}
                       startFrame={1215}
                       dashed={true}
                     />
 
-                    {/* Origin to London (center: 140, 95) - offset to avoid overlap */}
+                    {/* Origin to London */}
                     <Arrow
-                      x1={width * 0.50 - 50}
-                      y1={155}
-                      x2={180}
-                      y2={105}
+                      x1={s2OriginX - 50}
+                      y1={s2OriginY - 10}
+                      x2={s2LondonX + 40}
+                      y2={s2LondonY + 10}
                       color={theme.colors.cdn}
                       startFrame={1275}
                       dashed={true}
                     />
 
-                    {/* Origin to Sydney (center: width-160, 225) - offset to avoid overlap */}
+                    {/* Origin to Sydney */}
                     <Arrow
-                      x1={width * 0.50 + 50}
-                      y1={175}
-                      x2={width - 200}
-                      y2={215}
+                      x1={s2OriginX + 50}
+                      y1={s2OriginY + 10}
+                      x2={s2SydneyX - 40}
+                      y2={s2SydneyY - 10}
                       color={theme.colors.cdn}
                       startFrame={1335}
                       dashed={true}
                     />
 
-                    {/* Origin to São Paulo (center: 180, 205) - offset to avoid overlap */}
+                    {/* Origin to São Paulo */}
                     <Arrow
-                      x1={width * 0.50 - 50}
-                      y1={175}
-                      x2={220}
-                      y2={195}
+                      x1={s2OriginX - 50}
+                      y1={s2OriginY + 10}
+                      x2={s2SaoPauloX + 40}
+                      y2={s2SaoPauloY - 10}
                       color={theme.colors.cdn}
                       startFrame={1395}
                       dashed={true}
@@ -370,19 +426,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Animated data flow particles - Origin to Tokyo */}
                     <DataFlowParticle
-                      x1={width * 0.50 + 50}
-                      y1={155}
-                      x2={width - 160}
-                      y2={65}
+                      x1={s2OriginX + 50}
+                      y1={s2OriginY - 10}
+                      x2={s2TokyoX - 40}
+                      y2={s2TokyoY + 10}
                       startFrame={1230}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 + 50}
-                      y1={155}
-                      x2={width - 160}
-                      y2={65}
+                      x1={s2OriginX + 50}
+                      y1={s2OriginY - 10}
+                      x2={s2TokyoX - 40}
+                      y2={s2TokyoY + 10}
                       startFrame={1275}
                       duration={60}
                       color={theme.colors.cdn}
@@ -390,19 +446,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Origin to London */}
                     <DataFlowParticle
-                      x1={width * 0.50 - 50}
-                      y1={155}
-                      x2={180}
-                      y2={105}
+                      x1={s2OriginX - 50}
+                      y1={s2OriginY - 10}
+                      x2={s2LondonX + 40}
+                      y2={s2LondonY + 10}
                       startFrame={1290}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 - 50}
-                      y1={155}
-                      x2={180}
-                      y2={105}
+                      x1={s2OriginX - 50}
+                      y1={s2OriginY - 10}
+                      x2={s2LondonX + 40}
+                      y2={s2LondonY + 10}
                       startFrame={1335}
                       duration={60}
                       color={theme.colors.cdn}
@@ -410,19 +466,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Origin to Sydney */}
                     <DataFlowParticle
-                      x1={width * 0.50 + 50}
-                      y1={175}
-                      x2={width - 200}
-                      y2={215}
+                      x1={s2OriginX + 50}
+                      y1={s2OriginY + 10}
+                      x2={s2SydneyX - 40}
+                      y2={s2SydneyY - 10}
                       startFrame={1350}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 + 50}
-                      y1={175}
-                      x2={width - 200}
-                      y2={215}
+                      x1={s2OriginX + 50}
+                      y1={s2OriginY + 10}
+                      x2={s2SydneyX - 40}
+                      y2={s2SydneyY - 10}
                       startFrame={1395}
                       duration={60}
                       color={theme.colors.cdn}
@@ -430,19 +486,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Origin to São Paulo */}
                     <DataFlowParticle
-                      x1={width * 0.50 - 50}
-                      y1={175}
-                      x2={220}
-                      y2={195}
+                      x1={s2OriginX - 50}
+                      y1={s2OriginY + 10}
+                      x2={s2SaoPauloX + 40}
+                      y2={s2SaoPauloY - 10}
                       startFrame={1410}
                       duration={60}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 - 50}
-                      y1={175}
-                      x2={220}
-                      y2={195}
+                      x1={s2OriginX - 50}
+                      y1={s2OriginY + 10}
+                      x2={s2SaoPauloX + 40}
+                      y2={s2SaoPauloY - 10}
                       startFrame={1455}
                       duration={60}
                       color={theme.colors.cdn}
@@ -452,11 +508,11 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 {frame >= 1470 && (
                   <div style={{
-                    marginTop: 20,
-                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
-                    border: '2px solid rgba(96, 165, 250, 0.3)',
-                    borderRadius: 10,
-                    padding: 16,
+                    marginTop: 24,
+                    background: 'linear-gradient(90deg, rgba(96, 165, 250, 0.1), rgba(96, 165, 250, 0.05))',
+                    border: '1px solid rgba(96, 165, 250, 0.3)',
+                    borderRadius: 12,
+                    padding: 20,
                     opacity: fadeIn(frame, 1470, 15),
                   }}>
                     <div style={{fontSize: 24, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
@@ -512,34 +568,35 @@ export const CDNandAPIGateway: React.FC = () => {
               opacity: fadeIn(frame, 2205, 20),
             }}>
               <div style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                border: '3px solid rgba(96, 165, 250, 0.5)',
-                borderRadius: 16,
-                padding: 24,
+                background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+                border: '1px solid rgba(96, 165, 250, 0.3)',
+                borderRadius: 20,
+                padding: 32,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
-                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                <div style={{fontSize: 26, fontWeight: 'bold', color: '#60a5fa', marginBottom: 24, textAlign: 'center'}}>
                   How CDN Caching Works
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24}}>
                   {/* Cache HIT */}
                   <div style={{opacity: fadeIn(frame, 2265, 20)}}>
                     <div style={{
-                      backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                      border: '2px solid #10b981',
-                      borderRadius: 12,
-                      padding: 16,
+                      background: 'rgba(16, 185, 129, 0.1)',
+                      border: '1px solid #10b981',
+                      borderRadius: 16,
+                      padding: 24,
                     }}>
-                      <div style={{fontSize: 18, color: '#10b981', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                      <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 16, textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.5px'}}>
                         ✅ Cache HIT (~5ms)
                       </div>
                       <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
-                        1. User requests <span style={{color: '#fbbf24'}}>/logo.png</span><br/>
+                        1. User requests <span style={{color: '#fbbf24', fontWeight: '600'}}>/logo.png</span><br/>
                         2. Edge server checks cache<br/>
                         3. <span style={{color: '#10b981', fontWeight: 'bold'}}>File found!</span> Serve immediately<br/>
                         4. No origin server hit needed
                       </div>
-                      <div style={{fontSize: 18, color: '#10b981', marginTop: 10, textAlign: 'center'}}>
+                      <div style={{fontSize: 18, color: '#10b981', marginTop: 16, textAlign: 'center', fontWeight: '500'}}>
                         90-95% of requests are cache hits
                       </div>
                     </div>
@@ -548,21 +605,21 @@ export const CDNandAPIGateway: React.FC = () => {
                   {/* Cache MISS */}
                   <div style={{opacity: fadeIn(frame, 2355, 20)}}>
                     <div style={{
-                      backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                      border: '2px solid #ef4444',
-                      borderRadius: 12,
-                      padding: 16,
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid #ef4444',
+                      borderRadius: 16,
+                      padding: 24,
                     }}>
-                      <div style={{fontSize: 18, color: '#ef4444', fontWeight: 'bold', marginBottom: 12, textAlign: 'center'}}>
+                      <div style={{fontSize: 22, color: '#ef4444', fontWeight: 'bold', marginBottom: 16, textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.5px'}}>
                         ❌ Cache MISS (~85ms)
                       </div>
                       <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 2}}>
-                        1. User requests <span style={{color: '#fbbf24'}}>/new-video.mp4</span><br/>
+                        1. User requests <span style={{color: '#fbbf24', fontWeight: '600'}}>/new-video.mp4</span><br/>
                         2. Edge server checks cache<br/>
                         3. <span style={{color: '#ef4444', fontWeight: 'bold'}}>Not found!</span> Fetch from origin<br/>
                         4. Cache at edge + serve to user
                       </div>
-                      <div style={{fontSize: 18, color: '#ef4444', marginTop: 10, textAlign: 'center'}}>
+                      <div style={{fontSize: 18, color: '#ef4444', marginTop: 16, textAlign: 'center', fontWeight: '500'}}>
                         First request or expired cache
                       </div>
                     </div>
@@ -572,21 +629,21 @@ export const CDNandAPIGateway: React.FC = () => {
                 {/* TTL Explanation */}
                 {frame >= 2445 && (
                   <div style={{
-                    marginTop: 20,
-                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                    border: '2px solid #8b5cf6',
-                    borderRadius: 12,
-                    padding: 16,
+                    marginTop: 24,
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    border: '1px solid #8b5cf6',
+                    borderRadius: 16,
+                    padding: 20,
                     opacity: fadeIn(frame, 2445, 20),
                   }}>
-                    <div style={{fontSize: 24, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+                    <div style={{fontSize: 24, color: '#a78bfa', fontWeight: 'bold', marginBottom: 12}}>
                       ⏰ Cache Control Headers
                     </div>
                     <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
-                      • <span style={{color: '#fbbf24'}}>Static assets</span> (images, CSS, JS): <span style={{color: '#10b981'}}>Cache-Control: max-age=31536000</span> (1 year)<br/>
-                      • <span style={{color: '#fbbf24'}}>HTML pages</span>: <span style={{color: '#10b981'}}>Cache-Control: max-age=3600</span> (1 hour)<br/>
-                      • <span style={{color: '#fbbf24'}}>API responses</span>: <span style={{color: '#10b981'}}>Cache-Control: max-age=60, must-revalidate</span> (1 minute)<br/>
-                      • <span style={{color: '#fbbf24'}}>Dynamic content</span>: <span style={{color: '#ef4444'}}>Cache-Control: no-cache, no-store</span> (never cache)
+                      • <span style={{color: '#fbbf24', fontWeight: '600'}}>Static assets</span> (images, CSS): <span style={{color: '#10b981'}}>max-age=31536000</span> (1 year)<br/>
+                      • <span style={{color: '#fbbf24', fontWeight: '600'}}>HTML pages</span>: <span style={{color: '#10b981'}}>max-age=3600</span> (1 hour)<br/>
+                      • <span style={{color: '#fbbf24', fontWeight: '600'}}>API responses</span>: <span style={{color: '#10b981'}}>max-age=60, must-revalidate</span> (1 min)<br/>
+                      • <span style={{color: '#fbbf24', fontWeight: '600'}}>Dynamic</span>: <span style={{color: '#ef4444'}}>no-cache, no-store</span> (never cache)
                     </div>
                   </div>
                 )}
@@ -594,11 +651,11 @@ export const CDNandAPIGateway: React.FC = () => {
                 {/* Cache Invalidation */}
                 {frame >= 2550 && (
                   <div style={{
-                    marginTop: 16,
-                    backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                    border: '2px solid #f59e0b',
-                    borderRadius: 12,
-                    padding: 14,
+                    marginTop: 20,
+                    background: 'rgba(245, 158, 11, 0.1)',
+                    border: '1px solid #f59e0b',
+                    borderRadius: 16,
+                    padding: 18,
                     opacity: fadeIn(frame, 2550, 20),
                   }}>
                     <div style={{fontSize: 22, color: '#fbbf24', fontWeight: 'bold', marginBottom: 8, textAlign: 'center'}}>
@@ -628,7 +685,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
               <Dialogue
                 speaker="junior"
-                text="We've got the CDN handling static content. What about API calls and backend services?"
+                text="We've got the CDN handling static content. But what about dynamic API calls and backend services?"
                 x={width * 0.10}
                 y={height * 0.64}
                 startFrame={2730}
@@ -656,12 +713,13 @@ export const CDNandAPIGateway: React.FC = () => {
               opacity: fadeIn(frame, 3105, 20),
             }}>
               <div style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                border: '3px solid rgba(96, 165, 250, 0.5)',
-                borderRadius: 16,
-                padding: 24,
+                background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+                border: '1px solid rgba(96, 165, 250, 0.3)',
+                borderRadius: 20,
+                padding: 30,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
-                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 24, textAlign: 'center', letterSpacing: '1px'}}>
                   API Gateway: Single Entry Point
                 </div>
 
@@ -673,9 +731,10 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: 50,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3150, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{fontSize: 48}}>📱</div>
-                    <div style={{fontSize: 20, color: theme.colors.client, marginTop: 6}}>Client</div>
+                    <div style={{fontSize: 20, color: theme.colors.client, marginTop: 6, fontWeight: '600'}}>Client</div>
                   </div>
 
                   {/* API Gateway */}
@@ -686,23 +745,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3195, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 140,
                       height: 120,
-                      backgroundColor: '#f59e0b',
-                      borderRadius: 12,
-                      border: '3px solid #fbbf24',
+                      background: 'linear-gradient(145deg, #f59e0b, #d97706)',
+                      borderRadius: 16,
+                      border: '1px solid #fbbf24',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.4)',
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
                       <div style={{fontSize: 36}}>🚪</div>
-                      <div style={{fontSize: 22, fontWeight: 'bold', color: '#fff', marginTop: 6}}>API Gateway</div>
-                      <div style={{fontSize: 18, color: '#1e293b', marginTop: 4}}>Route • Secure • Transform</div>
+                      <div style={{fontSize: 22, fontWeight: 'bold', color: '#fff', marginTop: 6, textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>API Gateway</div>
+                      <div style={{fontSize: 16, color: '#fff', marginTop: 4, opacity: 0.9}}>Route • Secure</div>
                     </div>
                   </div>
 
@@ -714,21 +774,22 @@ export const CDNandAPIGateway: React.FC = () => {
                     right: 100,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3240, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 85,
                       height: 70,
-                      backgroundColor: '#10b981',
-                      borderRadius: 10,
-                      border: '2px solid #34d399',
+                      background: 'linear-gradient(145deg, #10b981, #059669)',
+                      borderRadius: 12,
+                      border: '1px solid #34d399',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 20}}>👤</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>User Service</div>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 4}}>User</div>
                     </div>
                   </div>
 
@@ -739,21 +800,22 @@ export const CDNandAPIGateway: React.FC = () => {
                     right: 60,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3270, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 85,
                       height: 70,
-                      backgroundColor: '#8b5cf6',
-                      borderRadius: 10,
-                      border: '2px solid #a78bfa',
+                      background: 'linear-gradient(145deg, #8b5cf6, #7c3aed)',
+                      borderRadius: 12,
+                      border: '1px solid #a78bfa',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 20}}>🛒</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Order Service</div>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 4}}>Order</div>
                     </div>
                   </div>
 
@@ -764,27 +826,27 @@ export const CDNandAPIGateway: React.FC = () => {
                     right: 110,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 3300, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 85,
                       height: 70,
-                      backgroundColor: '#06b6d4',
-                      borderRadius: 10,
-                      border: '2px solid #22d3ee',
+                      background: 'linear-gradient(145deg, #06b6d4, #0891b2)',
+                      borderRadius: 12,
+                      border: '1px solid #22d3ee',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 20}}>💳</div>
-                      <div style={{fontSize: 18, fontWeight: 'bold', color: '#fff'}}>Payment Service</div>
+                      <div style={{fontSize: 16, fontWeight: 'bold', color: '#fff', marginTop: 4}}>Payment</div>
                     </div>
                   </div>
 
                   {/* Connection Arrows - Properly aligned to component centers */}
                   <svg style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                    {/* SVG Filter for glow effect */}
                     <defs>
                       <filter id="glow-api-gateway">
                         <feGaussianBlur stdDeviation="3" result="coloredBlur" />
@@ -795,71 +857,71 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* Client (center: 74, 154) to Gateway (center: width*0.5, 160) */}
+                    {/* Client to Gateway */}
                     <Arrow
-                      x1={74}
-                      y1={154}
-                      x2={width * 0.50 - 70}
-                      y2={160}
+                      x1={s4ClientX}
+                      y1={s4ClientY}
+                      x2={s4GatewayX - 70}
+                      y2={s4GatewayY}
                       color={theme.colors.client}
                       startFrame={3165}
                       label="API Request"
                     />
 
-                    {/* Gateway to User Service - offset to avoid overlap */}
+                    {/* Gateway to User Service */}
                     <Arrow
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 185}
-                      y2={75}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4UserX - 42.5}
+                      y2={s4UserY + 20}
                       color={theme.colors.backend}
                       startFrame={3240}
                     />
 
-                    {/* Gateway to Order Service - offset to avoid overlap */}
+                    {/* Gateway to Order Service */}
                     <Arrow
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 145}
-                      y2={155}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4OrderX - 42.5}
+                      y2={s4OrderY}
                       color={theme.colors.eventStream}
                       startFrame={3270}
                     />
 
-                    {/* Gateway to Payment Service - offset to avoid overlap */}
+                    {/* Gateway to Payment Service */}
                     <Arrow
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 195}
-                      y2={235}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4PaymentX - 42.5}
+                      y2={s4PaymentY - 20}
                       color={theme.colors.cdn}
                       startFrame={3300}
                     />
 
                     {/* Animated data flow particles - Client to Gateway */}
                     <DataFlowParticle
-                      x1={74}
-                      y1={154}
-                      x2={width * 0.50 - 70}
-                      y2={160}
+                      x1={s4ClientX}
+                      y1={s4ClientY}
+                      x2={s4GatewayX - 70}
+                      y2={s4GatewayY}
                       startFrame={3172}
                       duration={60}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
-                      x1={74}
-                      y1={154}
-                      x2={width * 0.50 - 70}
-                      y2={160}
+                      x1={s4ClientX}
+                      y1={s4ClientY}
+                      x2={s4GatewayX - 70}
+                      y2={s4GatewayY}
                       startFrame={3202}
                       duration={60}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
-                      x1={74}
-                      y1={154}
-                      x2={width * 0.50 - 70}
-                      y2={160}
+                      x1={s4ClientX}
+                      y1={s4ClientY}
+                      x2={s4GatewayX - 70}
+                      y2={s4GatewayY}
                       startFrame={3232}
                       duration={60}
                       color={theme.colors.client}
@@ -867,48 +929,39 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Gateway to User Service */}
                     <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 185}
-                      y2={75}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4UserX - 42.5}
+                      y2={s4UserY + 20}
                       startFrame={3255}
                       duration={53}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 185}
-                      y2={75}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4UserX - 42.5}
+                      y2={s4UserY + 20}
                       startFrame={3285}
-                      duration={53}
-                      color={theme.colors.backend}
-                    />
-                    <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 185}
-                      y2={75}
-                      startFrame={3315}
                       duration={53}
                       color={theme.colors.backend}
                     />
 
                     {/* Gateway to Order Service */}
                     <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 145}
-                      y2={155}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4OrderX - 42.5}
+                      y2={s4OrderY}
                       startFrame={3285}
                       duration={53}
                       color={theme.colors.eventStream}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 145}
-                      y2={155}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4OrderX - 42.5}
+                      y2={s4OrderY}
                       startFrame={3315}
                       duration={53}
                       color={theme.colors.eventStream}
@@ -916,19 +969,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Gateway to Payment Service */}
                     <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 195}
-                      y2={235}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4PaymentX - 42.5}
+                      y2={s4PaymentY - 20}
                       startFrame={3315}
                       duration={53}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.50 + 70}
-                      y1={160}
-                      x2={width - 195}
-                      y2={235}
+                      x1={s4GatewayX + 70}
+                      y1={s4GatewayY}
+                      x2={s4PaymentX - 42.5}
+                      y2={s4PaymentY - 20}
                       startFrame={3345}
                       duration={53}
                       color={theme.colors.cdn}
@@ -954,7 +1007,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
               <Dialogue
                 speaker="junior"
-                text="What specific features does an API Gateway provide? It sounds like it does a lot!"
+                text="What specific features does an API Gateway provide? Is it just for routing?"
                 x={width * 0.10}
                 y={height * 0.64}
                 startFrame={3405}
@@ -963,7 +1016,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
               <Dialogue
                 speaker="architect"
-                text="Absolutely! It handles authentication, rate limiting, request transformation, load balancing, and monitoring. Let me show you!"
+                text="No way! It's a powerhouse. It handles authentication, rate limiting, data transformation, load balancing, and monitoring."
                 x={width * 0.60}
                 y={height * 0.64}
                 startFrame={3525}
@@ -982,29 +1035,30 @@ export const CDNandAPIGateway: React.FC = () => {
               opacity: fadeIn(frame, 3780, 20),
             }}>
               <div style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                border: '3px solid rgba(96, 165, 250, 0.5)',
-                borderRadius: 16,
-                padding: 24,
+                background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+                border: '1px solid rgba(96, 165, 250, 0.3)',
+                borderRadius: 20,
+                padding: 30,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
-                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', marginBottom: 24, textAlign: 'center', letterSpacing: '1px'}}>
                   Core API Gateway Features
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20}}>
                   {/* Authentication */}
                   {frame >= 3840 && (
                     <div style={{
-                      backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                      border: '2px solid #10b981',
-                      borderRadius: 12,
-                      padding: 16,
+                      background: 'rgba(16, 185, 129, 0.1)',
+                      border: '1px solid #10b981',
+                      borderRadius: 16,
+                      padding: 20,
                       opacity: fadeIn(frame, 3840, 20),
                     }}>
-                      <div style={{fontSize: 24, color: '#10b981', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 22, color: '#10b981', fontWeight: 'bold', marginBottom: 12}}>
                         🔐 Authentication & Authorization
                       </div>
-                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                         • Verify JWT tokens<br/>
                         • OAuth 2.0 / API keys<br/>
                         • Reject unauthorized requests<br/>
@@ -1016,16 +1070,16 @@ export const CDNandAPIGateway: React.FC = () => {
                   {/* Rate Limiting */}
                   {frame >= 3930 && (
                     <div style={{
-                      backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                      border: '2px solid #ef4444',
-                      borderRadius: 12,
-                      padding: 16,
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid #ef4444',
+                      borderRadius: 16,
+                      padding: 20,
                       opacity: fadeIn(frame, 3930, 20),
                     }}>
-                      <div style={{fontSize: 24, color: '#ef4444', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 22, color: '#ef4444', fontWeight: 'bold', marginBottom: 12}}>
                         ⏱️ Rate Limiting
                       </div>
-                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                         • Limit: 100 requests/minute per user<br/>
                         • Prevent DDoS attacks<br/>
                         • Fair usage policies<br/>
@@ -1037,16 +1091,16 @@ export const CDNandAPIGateway: React.FC = () => {
                   {/* Request Transformation */}
                   {frame >= 4020 && (
                     <div style={{
-                      backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                      border: '2px solid #8b5cf6',
-                      borderRadius: 12,
-                      padding: 16,
+                      background: 'rgba(139, 92, 246, 0.1)',
+                      border: '1px solid #8b5cf6',
+                      borderRadius: 16,
+                      padding: 20,
                       opacity: fadeIn(frame, 4020, 20),
                     }}>
-                      <div style={{fontSize: 24, color: '#a78bfa', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 22, color: '#a78bfa', fontWeight: 'bold', marginBottom: 12}}>
                         🔄 Request/Response Transformation
                       </div>
-                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                         • Convert XML ↔ JSON<br/>
                         • Add/remove headers<br/>
                         • Aggregate multiple API calls<br/>
@@ -1058,16 +1112,16 @@ export const CDNandAPIGateway: React.FC = () => {
                   {/* Load Balancing & Monitoring */}
                   {frame >= 4110 && (
                     <div style={{
-                      backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                      border: '2px solid #f59e0b',
-                      borderRadius: 12,
-                      padding: 16,
+                      background: 'rgba(245, 158, 11, 0.1)',
+                      border: '1px solid #f59e0b',
+                      borderRadius: 16,
+                      padding: 20,
                       opacity: fadeIn(frame, 4110, 20),
                     }}>
-                      <div style={{fontSize: 24, color: '#fbbf24', fontWeight: 'bold', marginBottom: 10}}>
+                      <div style={{fontSize: 22, color: '#fbbf24', fontWeight: 'bold', marginBottom: 12}}>
                         ⚖️ Load Balancing & Monitoring
                       </div>
-                      <div style={{fontSize: 20, color: '#e2e8f0', lineHeight: 1.8}}>
+                      <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7}}>
                         • Distribute requests across servers<br/>
                         • Health checks & circuit breakers<br/>
                         • Logging, metrics, tracing<br/>
@@ -1079,14 +1133,14 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 {frame >= 4200 && (
                   <div style={{
-                    marginTop: 16,
-                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
-                    border: '2px solid rgba(96, 165, 250, 0.3)',
-                    borderRadius: 10,
-                    padding: 14,
+                    marginTop: 24,
+                    background: 'linear-gradient(90deg, rgba(96, 165, 250, 0.1), rgba(96, 165, 250, 0.05))',
+                    border: '1px solid rgba(96, 165, 250, 0.3)',
+                    borderRadius: 12,
+                    padding: 16,
                     opacity: fadeIn(frame, 4200, 20),
                   }}>
-                    <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
+                    <div style={{fontSize: 18, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.6}}>
                       <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Popular Gateways:</span> AWS API Gateway, Kong, NGINX, Apigee, Azure API Management
                     </div>
                   </div>
@@ -1110,7 +1164,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
               <Dialogue
                 speaker="junior"
-                text="Walk me through a real production scenario - what happens from first request to cached response?"
+                text="Walk me through a real production scenario. What exactly happens from the first request to a cached response?"
                 x={width * 0.10}
                 y={height * 0.64}
                 startFrame={4305}
@@ -1119,7 +1173,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
               <Dialogue
                 speaker="architect"
-                text="Perfect! Let me show you the complete lifecycle: cache miss, API gateway routing, and then cache hit. This is how Netflix and Amazon actually work!"
+                text="Sure! Let's trace the lifecycle: cache miss, API gateway routing, and then cache hit. This is the standard flow for modern apps."
                 x={width * 0.60}
                 y={height * 0.64}
                 startFrame={4425}
@@ -1138,12 +1192,13 @@ export const CDNandAPIGateway: React.FC = () => {
               opacity: fadeIn(frame, 4650, 20),
             }}>
               <div style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                border: '3px solid rgba(96, 165, 250, 0.5)',
-                borderRadius: 16,
-                padding: 20,
+                background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+                border: '1px solid rgba(96, 165, 250, 0.3)',
+                borderRadius: 20,
+                padding: 24,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
-                <div style={{fontSize: 20, fontWeight: 'bold', color: '#60a5fa', marginBottom: 16, textAlign: 'center'}}>
+                <div style={{fontSize: 22, fontWeight: 'bold', color: '#60a5fa', marginBottom: 20, textAlign: 'center', letterSpacing: '1px'}}>
                   Complete Request Flow: User → CDN → API Gateway → Backend
                 </div>
 
@@ -1155,23 +1210,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     left: 60,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 4680, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 100,
                       height: 80,
-                      backgroundColor: theme.colors.client,
-                      borderRadius: 10,
-                      border: '3px solid #93c5fd',
+                      background: 'linear-gradient(145deg, #60a5fa, #3b82f6)',
+                      borderRadius: 12,
+                      border: '1px solid #93c5fd',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 32}}>👤</div>
-                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>User</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>User</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#60a5fa', marginTop: 6}}>Tokyo</div>
+                    <div style={{fontSize: 18, color: '#60a5fa', marginTop: 6, fontWeight: '500'}}>Tokyo</div>
                   </div>
 
                   {/* CDN Edge Server */}
@@ -1182,24 +1238,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
                     opacity: fadeIn(frame, 4710, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 120,
                       height: 90,
-                      backgroundColor: '#8b5cf6',
-                      borderRadius: 10,
-                      border: '3px solid #a78bfa',
+                      background: 'linear-gradient(145deg, #8b5cf6, #7c3aed)',
+                      borderRadius: 12,
+                      border: '1px solid #a78bfa',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 32}}>🌏</div>
-                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>CDN Edge</div>
-                      <div style={{fontSize: 18, color: '#e9d5ff'}}>Cache Layer</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>CDN Edge</div>
                     </div>
-                    <div style={{fontSize: 22, color: '#a78bfa', marginTop: 6}}>Edge Cache</div>
+                    <div style={{fontSize: 18, color: '#a78bfa', marginTop: 6, fontWeight: '500'}}>Edge Cache</div>
                   </div>
 
                   {/* API Gateway */}
@@ -1210,25 +1266,25 @@ export const CDNandAPIGateway: React.FC = () => {
                     transform: 'translateX(-50%)',
                     textAlign: 'center',
                     opacity: fadeIn(frame, 4740, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 140,
                       height: 100,
-                      backgroundColor: '#f59e0b',
-                      borderRadius: 10,
-                      border: '3px solid #fbbf24',
+                      background: 'linear-gradient(145deg, #f59e0b, #d97706)',
+                      borderRadius: 12,
+                      border: '1px solid #fbbf24',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                       transform: `scale(${pulse(frame, 60)})`,
                     }}>
                       <div style={{fontSize: 36}}>🚪</div>
-                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>API Gateway</div>
-                      <div style={{fontSize: 18, color: '#1e293b'}}>Auth • Route</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>API Gateway</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#f59e0b', marginTop: 6}}>Smart Router</div>
+                    <div style={{fontSize: 18, color: '#f59e0b', marginTop: 6, fontWeight: '500'}}>Smart Router</div>
                   </div>
 
                   {/* Backend Services */}
@@ -1238,24 +1294,24 @@ export const CDNandAPIGateway: React.FC = () => {
                     right: 80,
                     textAlign: 'center',
                     opacity: fadeIn(frame, 4770, 20),
+                    zIndex: 10,
                   }}>
                     <div style={{
                       width: 120,
                       height: 90,
-                      backgroundColor: '#10b981',
-                      borderRadius: 10,
-                      border: '3px solid #34d399',
+                      background: 'linear-gradient(145deg, #10b981, #059669)',
+                      borderRadius: 12,
+                      border: '1px solid #34d399',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 6px 12px rgba(0,0,0,0.3)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
                     }}>
                       <div style={{fontSize: 32}}>⚙️</div>
-                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>Services</div>
-                      <div style={{fontSize: 18, color: '#d1fae5'}}>API Logic</div>
+                      <div style={{fontSize: 20, fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>Services</div>
                     </div>
-                    <div style={{fontSize: 18, color: '#10b981', marginTop: 6}}>Backend</div>
+                    <div style={{fontSize: 18, color: '#10b981', marginTop: 6, fontWeight: '500'}}>Backend</div>
                   </div>
 
                   {/* Connection Arrows - Properly aligned to component centers */}
@@ -1270,34 +1326,34 @@ export const CDNandAPIGateway: React.FC = () => {
                       </filter>
                     </defs>
 
-                    {/* User (center: 110, 140) to CDN (center: width*0.30, 140) */}
+                    {/* User to CDN */}
                     <Arrow
-                      x1={110}
-                      y1={140}
-                      x2={width * 0.30 - 60}
-                      y2={140}
+                      x1={s6UserX + 50}
+                      y1={s6UserY}
+                      x2={s6CdnX - 60}
+                      y2={s6CdnY}
                       color={theme.colors.client}
                       startFrame={4717}
                       label="Request"
                     />
 
-                    {/* CDN (center: width*0.30, 140) to Gateway (center: width*0.55, 140) */}
+                    {/* CDN to Gateway */}
                     <Arrow
-                      x1={width * 0.30 + 60}
-                      y1={140}
-                      x2={width * 0.55 - 70}
-                      y2={140}
+                      x1={s6CdnX + 60}
+                      y1={s6CdnY}
+                      x2={s6GatewayX - 70}
+                      y2={s6GatewayY}
                       color={theme.colors.eventStream}
                       startFrame={4747}
                       label="API Call"
                     />
 
-                    {/* Gateway (center: width*0.55, 140) to Services (center: width-140, 140) */}
+                    {/* Gateway to Services */}
                     <Arrow
-                      x1={width * 0.55 + 70}
-                      y1={140}
-                      x2={width - 140 - 60}
-                      y2={140}
+                      x1={s6GatewayX + 70}
+                      y1={s6GatewayY}
+                      x2={s6ServicesX - 60}
+                      y2={s6ServicesY}
                       color={theme.colors.backend}
                       startFrame={4777}
                       label="Route"
@@ -1305,10 +1361,10 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Response flow back - Services to Gateway */}
                     <Arrow
-                      x1={width - 140 - 60}
-                      y1={160}
-                      x2={width * 0.55 + 70}
-                      y2={160}
+                      x1={s6ServicesX - 60}
+                      y1={s6ServicesY + 20}
+                      x2={s6GatewayX + 70}
+                      y2={s6GatewayY + 20}
                       color={theme.colors.success}
                       startFrame={4807}
                       dashed={true}
@@ -1316,10 +1372,10 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Gateway to CDN (caching) */}
                     <Arrow
-                      x1={width * 0.55 - 70}
-                      y1={160}
-                      x2={width * 0.30 + 60}
-                      y2={160}
+                      x1={s6GatewayX - 70}
+                      y1={s6GatewayY + 20}
+                      x2={s6CdnX + 60}
+                      y2={s6CdnY + 20}
                       color={theme.colors.cdn}
                       startFrame={4830}
                       label="Cache!"
@@ -1327,19 +1383,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Data flow particles - User to CDN */}
                     <DataFlowParticle
-                      x1={110}
-                      y1={140}
-                      x2={width * 0.30 - 60}
-                      y2={140}
+                      x1={s6UserX + 50}
+                      y1={s6UserY}
+                      x2={s6CdnX - 60}
+                      y2={s6CdnY}
                       startFrame={4725}
                       duration={45}
                       color={theme.colors.client}
                     />
                     <DataFlowParticle
-                      x1={110}
-                      y1={140}
-                      x2={width * 0.30 - 60}
-                      y2={140}
+                      x1={s6UserX + 50}
+                      y1={s6UserY}
+                      x2={s6CdnX - 60}
+                      y2={s6CdnY}
                       startFrame={4755}
                       duration={45}
                       color={theme.colors.client}
@@ -1347,19 +1403,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* CDN to Gateway */}
                     <DataFlowParticle
-                      x1={width * 0.30 + 60}
-                      y1={140}
-                      x2={width * 0.55 - 70}
-                      y2={140}
+                      x1={s6CdnX + 60}
+                      y1={s6CdnY}
+                      x2={s6GatewayX - 70}
+                      y2={s6GatewayY}
                       startFrame={4755}
                       duration={45}
                       color={theme.colors.eventStream}
                     />
                     <DataFlowParticle
-                      x1={width * 0.30 + 60}
-                      y1={140}
-                      x2={width * 0.55 - 70}
-                      y2={140}
+                      x1={s6CdnX + 60}
+                      y1={s6CdnY}
+                      x2={s6GatewayX - 70}
+                      y2={s6GatewayY}
                       startFrame={4785}
                       duration={45}
                       color={theme.colors.eventStream}
@@ -1367,19 +1423,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Gateway to Services */}
                     <DataFlowParticle
-                      x1={width * 0.55 + 70}
-                      y1={140}
-                      x2={width - 140 - 60}
-                      y2={140}
+                      x1={s6GatewayX + 70}
+                      y1={s6GatewayY}
+                      x2={s6ServicesX - 60}
+                      y2={s6ServicesY}
                       startFrame={4785}
                       duration={45}
                       color={theme.colors.backend}
                     />
                     <DataFlowParticle
-                      x1={width * 0.55 + 70}
-                      y1={140}
-                      x2={width - 140 - 60}
-                      y2={140}
+                      x1={s6GatewayX + 70}
+                      y1={s6GatewayY}
+                      x2={s6ServicesX - 60}
+                      y2={s6ServicesY}
                       startFrame={4815}
                       duration={45}
                       color={theme.colors.backend}
@@ -1387,19 +1443,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Response - Services to Gateway */}
                     <DataFlowParticle
-                      x1={width - 140 - 60}
-                      y1={160}
-                      x2={width * 0.55 + 70}
-                      y2={160}
+                      x1={s6ServicesX - 60}
+                      y1={s6ServicesY + 20}
+                      x2={s6GatewayX + 70}
+                      y2={s6GatewayY + 20}
                       startFrame={4815}
                       duration={45}
                       color={theme.colors.success}
                     />
                     <DataFlowParticle
-                      x1={width - 140 - 60}
-                      y1={160}
-                      x2={width * 0.55 + 70}
-                      y2={160}
+                      x1={s6ServicesX - 60}
+                      y1={s6ServicesY + 20}
+                      x2={s6GatewayX + 70}
+                      y2={s6GatewayY + 20}
                       startFrame={4845}
                       duration={45}
                       color={theme.colors.success}
@@ -1407,19 +1463,19 @@ export const CDNandAPIGateway: React.FC = () => {
 
                     {/* Caching - Gateway to CDN */}
                     <DataFlowParticle
-                      x1={width * 0.55 - 70}
-                      y1={160}
-                      x2={width * 0.30 + 60}
-                      y2={160}
+                      x1={s6GatewayX - 70}
+                      y1={s6GatewayY + 20}
+                      x2={s6CdnX + 60}
+                      y2={s6CdnY + 20}
                       startFrame={4837}
                       duration={45}
                       color={theme.colors.cdn}
                     />
                     <DataFlowParticle
-                      x1={width * 0.55 - 70}
-                      y1={160}
-                      x2={width * 0.30 + 60}
-                      y2={160}
+                      x1={s6GatewayX - 70}
+                      y1={s6GatewayY + 20}
+                      x2={s6CdnX + 60}
+                      y2={s6CdnY + 20}
                       startFrame={4867}
                       duration={45}
                       color={theme.colors.cdn}
@@ -1430,11 +1486,11 @@ export const CDNandAPIGateway: React.FC = () => {
                 {/* Flow explanation */}
                 {frame >= 4860 && (
                   <div style={{
-                    marginTop: 16,
-                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                    border: '2px solid #8b5cf6',
-                    borderRadius: 10,
-                    padding: 14,
+                    marginTop: 24,
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    border: '1px solid #8b5cf6',
+                    borderRadius: 12,
+                    padding: 20,
                     opacity: fadeIn(frame, 4860, 15),
                   }}>
                     <div style={{fontSize: 20, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.9}}>
@@ -1459,19 +1515,20 @@ export const CDNandAPIGateway: React.FC = () => {
               opacity: fadeIn(frame, 4650, 20),
             }}>
               <div style={{
-                backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                border: '3px solid rgba(96, 165, 250, 0.5)',
-                borderRadius: 16,
-                padding: 18,
+                background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95))',
+                border: '1px solid rgba(96, 165, 250, 0.3)',
+                borderRadius: 20,
+                padding: 24,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
               }}>
-                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', textShadow: '0 0 20px rgba(96, 165, 250, 0.5)', marginBottom: 10, textAlign: 'center'}}>
+                <div style={{fontSize: 24, fontWeight: 'bold', color: '#60a5fa', textShadow: '0 0 20px rgba(96, 165, 250, 0.5)', marginBottom: 16, textAlign: 'center', letterSpacing: '1px'}}>
                   Production Request Lifecycle
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, fontSize: 18, color: '#e2e8f0', lineHeight: 1.8}}>
                   {/* Flow 1: Static Asset Cache MISS */}
                   <div style={{opacity: fadeIn(frame, 4695, 15)}}>
-                    <div style={{fontSize: 20, color: '#ef4444', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#ef4444', fontWeight: 'bold', marginBottom: 8}}>
                       📦 Static Asset - Cache MISS (~85ms)
                     </div>
                     <div>
@@ -1486,7 +1543,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* Flow 2: API Request Through Gateway */}
                   <div style={{opacity: fadeIn(frame, 4747, 15)}}>
-                    <div style={{fontSize: 20, color: '#f59e0b', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#f59e0b', fontWeight: 'bold', marginBottom: 8}}>
                       🚪 API via Gateway - First Call (~50ms)
                     </div>
                     <div>
@@ -1502,7 +1559,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* Flow 3: Static Asset Cache HIT */}
                   <div style={{opacity: fadeIn(frame, 4800, 15)}}>
-                    <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>
                       ⚡ Static Asset - Cache HIT (~5ms)
                     </div>
                     <div>
@@ -1517,7 +1574,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
                   {/* Flow 4: API Cache HIT */}
                   <div style={{opacity: fadeIn(frame, 4852, 15)}}>
-                    <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 5}}>
+                    <div style={{fontSize: 20, color: '#10b981', fontWeight: 'bold', marginBottom: 8}}>
                       🚀 API via CDN - Cache HIT (~8ms)
                     </div>
                     <div>
@@ -1535,17 +1592,17 @@ export const CDNandAPIGateway: React.FC = () => {
                 {/* Production Considerations */}
                 {frame >= 4905 && (
                   <div style={{
-                    marginTop: 12,
+                    marginTop: 16,
                     backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                    border: '2px solid #8b5cf6',
-                    borderRadius: 10,
-                    padding: 12,
+                    border: '1px solid #8b5cf6',
+                    borderRadius: 12,
+                    padding: 16,
                     opacity: fadeIn(frame, 4905, 15),
                   }}>
-                    <div style={{fontSize: 20, color: '#a78bfa', fontWeight: 'bold', marginBottom: 6, textAlign: 'center'}}>
+                    <div style={{fontSize: 20, color: '#a78bfa', fontWeight: 'bold', marginBottom: 8, textAlign: 'center'}}>
                       🏗️ Production Patterns
                     </div>
-                    <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8}}>
+                    <div style={{fontSize: 18, color: '#e2e8f0', lineHeight: 1.7, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12}}>
                       <div>
                         • <span style={{color: '#fbbf24'}}>Cache Strategy:</span> GET requests cached, POST/PUT bypass<br/>
                         • <span style={{color: '#fbbf24'}}>Invalidation:</span> Purge API cache on data mutation<br/>
@@ -1599,29 +1656,29 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 2.2}}>
                   <div style={{opacity: fadeIn(frame, 5055, 15)}}>
-                    <span style={{fontSize: 20}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Cloudflare CDN + Zuul API Gateway → Serves 200M+ users globally
+                    <span style={{fontSize: 24}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Cloudflare CDN + Zuul API Gateway → Serves 200M+ users globally
                   </div>
                   <div style={{opacity: fadeIn(frame, 5115, 15)}}>
-                    <span style={{fontSize: 20}}>🛒</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Amazon:</span> CloudFront CDN + Custom Gateway → 99.99% availability
+                    <span style={{fontSize: 24}}>🛒</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Amazon:</span> CloudFront CDN + Custom Gateway → 99.99% availability
                   </div>
                   <div style={{opacity: fadeIn(frame, 5175, 15)}}>
-                    <span style={{fontSize: 20}}>🎵</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Spotify:</span> Fastly CDN + Kong Gateway → Handles billions of API requests/day
+                    <span style={{fontSize: 24}}>🎵</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Spotify:</span> Fastly CDN + Kong Gateway → Handles billions of API requests/day
                   </div>
                 </div>
 
                 {frame >= 5235 && (
                   <div style={{
-                    marginTop: 18,
-                    backgroundColor: 'rgba(139, 92, 246, 0.2)',
-                    border: '2px solid #8b5cf6',
-                    borderRadius: 12,
-                    padding: 18,
+                    marginTop: 24,
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    border: '1px solid #8b5cf6',
+                    borderRadius: 16,
+                    padding: 20,
                     opacity: fadeIn(frame, 5235, 20),
                   }}>
-                    <div style={{fontSize: 18, fontWeight: 'bold', color: '#a78bfa', textAlign: 'center', marginBottom: 10}}>
+                    <div style={{fontSize: 20, fontWeight: 'bold', color: '#a78bfa', textAlign: 'center', marginBottom: 10}}>
                       🚀 What's Next?
                     </div>
-                    <div style={{fontSize: 22, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
+                    <div style={{fontSize: 24, color: '#e2e8f0', textAlign: 'center', lineHeight: 1.8}}>
                       Next up: <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Database Scaling & Caching</span><br/>
                       Learn about sharding, replication, Redis, and more!
                     </div>
@@ -1634,7 +1691,7 @@ export const CDNandAPIGateway: React.FC = () => {
           {frame < 5100 && (
             <Dialogue
               speaker="junior"
-              text="This makes so much sense now! CDN for speed, Gateway for smart API management. Perfect combination!"
+              text="This is brilliant! So the CDN handles the speed, and the Gateway manages the complexity. A perfect team!"
               x={width * 0.10}
               y={height * 0.64}
               startFrame={5010}
