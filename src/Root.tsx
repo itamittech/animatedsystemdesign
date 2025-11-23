@@ -6,6 +6,7 @@ import {ClientServerDNSProxiesVertical} from './topics/ClientServerDNSProxiesVer
 import {ClientServerDNSProxiesSquare} from './topics/ClientServerDNSProxiesSquare';
 import {LoadBalancingBasics} from './topics/LoadBalancingBasics';
 import {LoadBalancingEnhanced} from './topics/LoadBalancingEnhanced';
+import {ConsistentHashingCAP} from './topics/ConsistentHashingCAP';
 import {CDNandAPIGateway} from './topics/CDNandAPIGateway';
 import {RESTAPIDesign} from './topics/RESTAPIDesign';
 import {GraphQLvsREST} from './topics/GraphQLvsREST';
@@ -102,6 +103,14 @@ export const RemotionRoot: React.FC = () => {
         id="LoadBalancingEnhanced"
         component={LoadBalancingEnhanced}
         durationInFrames={3780}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ConsistentHashingCAP"
+        component={ConsistentHashingCAP}
+        durationInFrames={3600}
         fps={30}
         width={1920}
         height={1080}
