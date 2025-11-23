@@ -335,62 +335,97 @@ export const ConsistentHashingCAP: React.FC = () => {
            {/* The Ring Visualization */}
            <div style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)'}}>
               <svg width={800} height={800} viewBox="0 0 800 800">
-                 {/* Ring */}
-                 <circle cx={400} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
+                 {/* Ownership Zones (Arcs) */}
+                 {/* S1 Zone (0-90) */}
+                 <path d="M 500 400 L 800 400 A 300 300 0 0 1 500 700 Z" fill={theme.colors.server} opacity={0.2} />
+
+                 {/* S2 Zone (90-180) */}
+                 <path d="M 500 400 L 500 700 A 300 300 0 0 1 200 400 Z" fill={theme.colors.accent} opacity={0.2} />
+
+                 {/* S3 Zone (180-270) */}
+                 <path d="M 500 400 L 200 400 A 300 300 0 0 1 500 100 Z" fill={theme.colors.loadBalancer} opacity={0.2} />
+
+                 {/* S0 Zone (270-0) */}
+                 <path d="M 500 400 L 500 100 A 300 300 0 0 1 800 400 Z" fill={theme.colors.database} opacity={0.2} />
+
+                 {/* Ring Outline */}
+                 <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Servers on Ring */}
-                 {[0, 90, 180, 270].map((deg, i) => {
-                    const rad = (deg - 90) * (Math.PI / 180);
-                    const x = 400 + 300 * Math.cos(rad);
-                    const y = 400 + 300 * Math.sin(rad);
-                    return (
-                       <g key={i}>
-                          <circle cx={x} cy={y} r={30} fill={theme.colors.server} stroke="white" strokeWidth={3} />
-                          <text x={x} y={y} dy={5} textAnchor="middle" fill="white" fontWeight="bold">S{i}</text>
-                       </g>
-                    )
-                 })}
+                 {/* S0 (0 deg -> right) */}
+                 <g transform="translate(800, 400)">
+                    <circle r={30} fill={theme.colors.database} stroke="white" strokeWidth={3} />
+                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S0</text>
+                 </g>
+                 {/* S1 (90 deg -> bottom) */}
+                 <g transform="translate(500, 700)">
+                    <circle r={30} fill={theme.colors.server} stroke="white" strokeWidth={3} />
+                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S1</text>
+                 </g>
+                 {/* S2 (180 deg -> left) */}
+                 <g transform="translate(200, 400)">
+                    <circle r={30} fill={theme.colors.accent} stroke="white" strokeWidth={3} />
+                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S2</text>
+                 </g>
+                 {/* S3 (270 deg -> top) */}
+                 <g transform="translate(500, 100)">
+                    <circle r={30} fill={theme.colors.loadBalancer} stroke="white" strokeWidth={3} />
+                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S3</text>
+                 </g>
 
-                 {/* Animated Key Mapping */}
-                 {/* Example 1: Key at 45° -> S1 at 90° */}
+                 {/* Animated Key Mapping: K1 (45 deg) -> S1 */}
                  {frame > starts.consistentHashing + 100 && (
                     <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 120, starts.consistentHashing + 380, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
-                        <circle cx={400 + 300 * Math.cos((45-90)*Math.PI/180)} cy={400 + 300 * Math.sin((45-90)*Math.PI/180)} r={15} fill={theme.colors.client} />
-                        <text x={400 + 300 * Math.cos((45-90)*Math.PI/180)} y={400 + 300 * Math.sin((45-90)*Math.PI/180)} dy={-20} textAnchor="middle" fill="white" fontSize={24}>K1 (45°)</text>
+                        {/* Key Position: 45 deg (Bottom Right) */}
+                        <circle cx={500 + 300 * Math.cos(45 * Math.PI/180)} cy={400 + 300 * Math.sin(45 * Math.PI/180)} r={15} fill={theme.colors.client} />
+                        <text x={500 + 340 * Math.cos(45 * Math.PI/180)} y={400 + 340 * Math.sin(45 * Math.PI/180)} textAnchor="middle" fill="white" fontSize={24}>K1</text>
 
-                        {/* Searching Arc */}
-                        <path d="M 400 100 A 300 300 0 0 1 700 400" fill="none" stroke={theme.colors.dataFlow} strokeWidth={2} strokeDasharray="5,5" opacity={0.5} />
+                        {/* Probe Animation (Arc) */}
+                        {(() => {
+                           const progress = interpolate(frame, [starts.consistentHashing + 120, starts.consistentHashing + 200], [0, 1], {extrapolateRight: 'clamp'});
+                           const endAngle = 45 + progress * 45; // 45 to 90
+                           const x = 500 + 300 * Math.cos(endAngle * Math.PI/180);
+                           const y = 400 + 300 * Math.sin(endAngle * Math.PI/180);
+                           return (
+                              <path d={`M ${500 + 300 * Math.cos(45*Math.PI/180)} ${400 + 300 * Math.sin(45*Math.PI/180)} A 300 300 0 0 1 ${x} ${y}`} stroke={theme.colors.success} strokeWidth={6} fill="none" />
+                           )
+                        })()}
 
-                        {/* Arrow to S1 */}
-                        <path d={`M ${400 + 300 * Math.cos((45-90)*Math.PI/180)} ${400 + 300 * Math.sin((45-90)*Math.PI/180)} L ${700} ${400}`} stroke={theme.colors.success} strokeWidth={4} markerEnd="url(#arrowhead)" />
-
-                        <text x={550} y={250} textAnchor="middle" fill={theme.colors.success} fontSize={28} fontWeight="bold">Maps to S1 (90°)</text>
+                        <text x={650} y={650} textAnchor="middle" fill={theme.colors.success} fontSize={28} fontWeight="bold">S1 Zone</text>
                     </g>
                  )}
 
-                 {/* Example 2: Key at 200° -> S3 at 270° */}
+                 {/* Example 2: K2 (200 deg) -> S3 (270 deg) */}
                  {frame > starts.consistentHashing + 400 && (
                     <g opacity={interpolate(frame, [starts.consistentHashing + 400, starts.consistentHashing + 420, starts.consistentHashing + 680, starts.consistentHashing + 700], [0, 1, 1, 0] as any)}>
-                        <circle cx={400 + 300 * Math.cos((200-90)*Math.PI/180)} cy={400 + 300 * Math.sin((200-90)*Math.PI/180)} r={15} fill={theme.colors.client} />
-                        <text x={400 + 300 * Math.cos((200-90)*Math.PI/180)} y={400 + 300 * Math.sin((200-90)*Math.PI/180)} dy={-20} textAnchor="middle" fill="white" fontSize={24}>K2 (200°)</text>
+                        <circle cx={500 + 300 * Math.cos(200 * Math.PI/180)} cy={400 + 300 * Math.sin(200 * Math.PI/180)} r={15} fill={theme.colors.client} />
+                        <text x={500 + 340 * Math.cos(200 * Math.PI/180)} y={400 + 340 * Math.sin(200 * Math.PI/180)} textAnchor="middle" fill="white" fontSize={24}>K2</text>
 
-                        <path d={`M ${400 + 300 * Math.cos((200-90)*Math.PI/180)} ${400 + 300 * Math.sin((200-90)*Math.PI/180)} L ${400} ${700}`} stroke={theme.colors.success} strokeWidth={4} />
-                         <text x={300} y={600} textAnchor="middle" fill={theme.colors.success} fontSize={28} fontWeight="bold">Maps to S3 (270°)</text>
+                        {(() => {
+                           const progress = interpolate(frame, [starts.consistentHashing + 420, starts.consistentHashing + 500], [0, 1], {extrapolateRight: 'clamp'});
+                           const endAngle = 200 + progress * 70; // 200 to 270
+                           const x = 500 + 300 * Math.cos(endAngle * Math.PI/180);
+                           const y = 400 + 300 * Math.sin(endAngle * Math.PI/180);
+                           return (
+                              <path d={`M ${500 + 300 * Math.cos(200*Math.PI/180)} ${400 + 300 * Math.sin(200*Math.PI/180)} A 300 300 0 0 1 ${x} ${y}`} stroke={theme.colors.success} strokeWidth={6} fill="none" />
+                           )
+                        })()}
+                         <text x={350} y={200} textAnchor="middle" fill={theme.colors.success} fontSize={28} fontWeight="bold">S3 Zone</text>
                     </g>
                  )}
 
-                 {/* Add New Server S4 at 45 degrees */}
+                 {/* Add S4 at 45 deg */}
                  {frame > starts.consistentHashing + 700 && (
                     <g opacity={fadeIn(frame, starts.consistentHashing + 700, 20)}>
-                       <circle cx={400 + 300 * Math.cos((45-90)*Math.PI/180)} cy={400 + 300 * Math.sin((45-90)*Math.PI/180)} r={30} fill={theme.colors.accent} stroke="white" strokeWidth={3} />
-                       <text x={400 + 300 * Math.cos((45-90)*Math.PI/180)} y={400 + 300 * Math.sin((45-90)*Math.PI/180)} dy={5} textAnchor="middle" fill="white" fontWeight="bold">S4</text>
+                       <circle cx={500 + 300 * Math.cos(45 * Math.PI/180)} cy={400 + 300 * Math.sin(45 * Math.PI/180)} r={30} fill={theme.colors.warning} stroke="white" strokeWidth={3} />
+                       <text x={500 + 300 * Math.cos(45 * Math.PI/180)} y={400 + 300 * Math.sin(45 * Math.PI/180)} dy={5} textAnchor="middle" fill="white" fontWeight="bold">S4</text>
 
-                       <text x={400} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={24} fontWeight="bold">
-                          Adding S4 (45°)...<br/>Only K1 moves from S1 to S4!
+                       {/* New Zone highlight: 0 to 45 */}
+                       <path d={`M 500 400 L ${500+300} 400 A 300 300 0 0 1 ${500 + 300*Math.cos(45*Math.PI/180)} ${400 + 300*Math.sin(45*Math.PI/180)} Z`} fill={theme.colors.warning} opacity={0.3} />
+
+                       <text x={500} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={24} fontWeight="bold">
+                          S4 takes 0-45°.<br/>Only K1 moves!
                        </text>
-
-                       {/* Arrow from K1 to S4 */}
-                       <path d={`M ${400 + 300 * Math.cos((30-90)*Math.PI/180)} ${400 + 300 * Math.sin((30-90)*Math.PI/180)} L ${400 + 300 * Math.cos((45-90)*Math.PI/180)} ${400 + 300 * Math.sin((45-90)*Math.PI/180)}`} stroke={theme.colors.warning} strokeWidth={3} strokeDasharray="5,5" />
                     </g>
                  )}
               </svg>
@@ -415,40 +450,55 @@ export const ConsistentHashingCAP: React.FC = () => {
              x={width - 550} y={300} startFrame={starts.virtualNodes + 60} maxWidth={500}
            />
 
-           <div style={{position: 'absolute', top: 500, width: '100%', textAlign: 'center'}}>
-              <svg width={width} height={400}>
-                 {/* Linear representation of the ring for clarity */}
-                 <line x1={100} y1={200} x2={width-100} y2={200} stroke={theme.text.muted} strokeWidth={4} />
+           <div style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)'}}>
+              <svg width={1000} height={800} viewBox="0 0 1000 800">
+                 <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
-                 {/* Uneven Nodes */}
-                 {frame < starts.virtualNodes + 150 && (
+                 {/* Phase 1: Uneven Ring (0-150 frames) */}
+                 {frame < starts.virtualNodes + 200 && (
                     <>
-                       <circle cx={200} cy={200} r={20} fill={theme.colors.server} /> <text x={200} y={240} textAnchor="middle" fill="white">S1</text>
-                       <circle cx={300} cy={200} r={20} fill={theme.colors.server} /> <text x={300} y={240} textAnchor="middle" fill="white">S2</text>
-                       {/* Huge gap */}
-                       <circle cx={800} cy={200} r={20} fill={theme.colors.server} /> <text x={800} y={240} textAnchor="middle" fill="white">S3</text>
+                       {/* S1 at 0 deg */}
+                       <circle cx={800} cy={400} r={25} fill={theme.colors.server} stroke="white" strokeWidth={2} />
+                       <text x={840} y={400} fill="white">S1</text>
 
-                       <rect x={300} y={180} width={500} height={40} fill={theme.colors.error} opacity={0.3} />
-                       <text x={550} y={150} textAnchor="middle" fill={theme.colors.error} fontSize={24}>HOT SHARD (S3 overload)</text>
+                       {/* S2 at 20 deg */}
+                       <circle cx={500 + 300 * Math.cos(20*Math.PI/180)} cy={400 + 300 * Math.sin(20*Math.PI/180)} r={25} fill={theme.colors.accent} stroke="white" strokeWidth={2} />
+                       <text x={500 + 340 * Math.cos(20*Math.PI/180)} y={400 + 340 * Math.sin(20*Math.PI/180)} fill="white">S2</text>
+
+                       {/* S3 at 180 deg */}
+                       <circle cx={200} cy={400} r={25} fill={theme.colors.loadBalancer} stroke="white" strokeWidth={2} />
+                       <text x={160} y={400} fill="white">S3</text>
+
+                       {/* Hot Zone (20 to 180) */}
+                       <path d={`M 500 400 L ${500 + 300*Math.cos(20*Math.PI/180)} ${400 + 300*Math.sin(20*Math.PI/180)} A 300 300 0 0 1 200 400 Z`} fill={theme.colors.error} opacity={0.3} />
+                       <text x={500} y={600} textAnchor="middle" fill={theme.colors.error} fontSize={30} fontWeight="bold">HOT ZONE! (S3)</text>
                     </>
                  )}
 
-                 {/* Virtual Nodes */}
-                 {frame >= starts.virtualNodes + 150 && (
+                 {/* Phase 2: Virtual Nodes (200+ frames) */}
+                 {frame >= starts.virtualNodes + 200 && (
                     <>
-                       {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => {
-                          const x = 150 + i * 150;
-                          const serverId = (i % 3) + 1;
+                       <text x={500} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={32} fontWeight="bold" opacity={fadeIn(frame, starts.virtualNodes + 200, 20)}>
+                          Virtual Nodes Balance The Ring
+                       </text>
+
+                       {/* Generate fake virtual nodes */}
+                       {[0, 40, 80, 120, 160, 200, 240, 280, 320].map((angle, i) => {
+                          const offset = (i % 3) * 15; // Slight random offset visually
+                          const finalAngle = angle + offset;
+                          const rad = finalAngle * Math.PI / 180;
+                          const x = 500 + 300 * Math.cos(rad);
+                          const y = 400 + 300 * Math.sin(rad);
+                          const type = i % 3; // 0=S1, 1=S2, 2=S3
+                          const color = type === 0 ? theme.colors.server : type === 1 ? theme.colors.accent : theme.colors.loadBalancer;
+
                           return (
-                             <g key={i} opacity={fadeIn(frame, starts.virtualNodes + 150 + i*10, 10)}>
-                                <circle cx={x} cy={200} r={15} fill={serverId === 1 ? theme.colors.server : serverId === 2 ? theme.colors.accent : theme.colors.loadBalancer} />
-                                <text x={x} y={240} textAnchor="middle" fill="white" fontSize={14}>S{serverId}</text>
+                             <g key={i} opacity={fadeIn(frame, starts.virtualNodes + 200 + i*10, 10)}>
+                                <circle cx={x} cy={y} r={15} fill={color} stroke="white" strokeWidth={1} />
+                                {/* Draw small arcs? Too complex. Just showing distribution is enough. */}
                              </g>
                           )
                        })}
-                       <text x={width/2} y={100} textAnchor="middle" fill={theme.colors.success} fontSize={32} fontWeight="bold">
-                          Uniform Distribution via Virtual Nodes
-                       </text>
                     </>
                  )}
               </svg>
