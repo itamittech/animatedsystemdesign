@@ -352,10 +352,10 @@ export const ConsistentHashingCAP: React.FC = () => {
                  <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Servers on Ring */}
-                 {/* S0 (0 deg -> right) */}
+                 {/* S0 (0 deg -> right) - Improved visibility */}
                  <g transform="translate(800, 400)">
                     <circle r={30} fill={theme.colors.database} stroke="white" strokeWidth={3} />
-                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S0</text>
+                    <text x={40} y={5} textAnchor="start" fill="white" fontWeight="bold" fontSize={24} style={{textShadow: '0 2px 4px black'}}>S0</text>
                  </g>
                  {/* S1 (90 deg -> bottom) */}
                  <g transform="translate(500, 700)">
@@ -424,8 +424,16 @@ export const ConsistentHashingCAP: React.FC = () => {
                        <path d={`M 500 400 L ${500+300} 400 A 300 300 0 0 1 ${500 + 300*Math.cos(45*Math.PI/180)} ${400 + 300*Math.sin(45*Math.PI/180)} Z`} fill={theme.colors.warning} opacity={0.3} />
 
                        <text x={500} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={24} fontWeight="bold">
-                          S4 takes 0-45°.<br/>Only K1 moves!
+                          S4 takes 0-45°.<br/>Only K1 moves to S4!
                        </text>
+
+                       {/* Arrow from K1 to S4 explicitly */}
+                       <path
+                          d={`M ${500 + 300 * Math.cos(45*Math.PI/180) - 30} ${400 + 300 * Math.sin(45*Math.PI/180) + 30} L ${500 + 300 * Math.cos(45*Math.PI/180)} ${400 + 300 * Math.sin(45*Math.PI/180)}`}
+                          stroke={theme.colors.client}
+                          strokeWidth={4}
+                          markerEnd="url(#arrowhead)"
+                       />
                     </g>
                  )}
               </svg>
@@ -455,23 +463,24 @@ export const ConsistentHashingCAP: React.FC = () => {
                  <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Phase 1: Uneven Ring (0-150 frames) */}
+                 {/* Updated to match Dialogue: S0 and S4 close to each other */}
                  {frame < starts.virtualNodes + 200 && (
                     <>
-                       {/* S1 at 0 deg */}
-                       <circle cx={800} cy={400} r={25} fill={theme.colors.server} stroke="white" strokeWidth={2} />
-                       <text x={840} y={400} fill="white">S1</text>
+                       {/* S0 at 0 deg */}
+                       <circle cx={800} cy={400} r={25} fill={theme.colors.database} stroke="white" strokeWidth={2} />
+                       <text x={840} y={400} fill="white" fontWeight="bold" fontSize={24}>S0</text>
 
-                       {/* S2 at 20 deg */}
-                       <circle cx={500 + 300 * Math.cos(20*Math.PI/180)} cy={400 + 300 * Math.sin(20*Math.PI/180)} r={25} fill={theme.colors.accent} stroke="white" strokeWidth={2} />
-                       <text x={500 + 340 * Math.cos(20*Math.PI/180)} y={400 + 340 * Math.sin(20*Math.PI/180)} fill="white">S2</text>
+                       {/* S4 at 20 deg */}
+                       <circle cx={500 + 300 * Math.cos(20*Math.PI/180)} cy={400 + 300 * Math.sin(20*Math.PI/180)} r={25} fill={theme.colors.warning} stroke="white" strokeWidth={2} />
+                       <text x={500 + 340 * Math.cos(20*Math.PI/180)} y={400 + 340 * Math.sin(20*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S4</text>
 
-                       {/* S3 at 180 deg */}
-                       <circle cx={200} cy={400} r={25} fill={theme.colors.loadBalancer} stroke="white" strokeWidth={2} />
-                       <text x={160} y={400} fill="white">S3</text>
+                       {/* S1, S2 spaced out */}
+                       <circle cx={200} cy={400} r={25} fill={theme.colors.server} stroke="white" strokeWidth={2} />
+                       <text x={160} y={400} fill="white">S1</text>
 
-                       {/* Hot Zone (20 to 180) */}
+                       {/* Hot Zone (20 to 180) - S1 gets huge load because it follows S4 */}
                        <path d={`M 500 400 L ${500 + 300*Math.cos(20*Math.PI/180)} ${400 + 300*Math.sin(20*Math.PI/180)} A 300 300 0 0 1 200 400 Z`} fill={theme.colors.error} opacity={0.3} />
-                       <text x={500} y={600} textAnchor="middle" fill={theme.colors.error} fontSize={30} fontWeight="bold">HOT ZONE! (S3)</text>
+                       <text x={500} y={600} textAnchor="middle" fill={theme.colors.error} fontSize={30} fontWeight="bold">HOT ZONE! (S1)</text>
                     </>
                  )}
 
