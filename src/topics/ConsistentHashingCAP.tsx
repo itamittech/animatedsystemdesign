@@ -136,7 +136,7 @@ export const ConsistentHashingCAP: React.FC = () => {
                 <path
                   d="M 400 100 L 700 500 L 100 500 Z"
                   fill="none"
-                  stroke={theme.colors.text.secondary}
+                  stroke={theme.text.secondary}
                   strokeWidth={4}
                   opacity={fadeIn(frame, starts.capTheorem + 50, 30)}
                 />
@@ -163,15 +163,15 @@ export const ConsistentHashingCAP: React.FC = () => {
                 </g>
 
                 {/* Edges - CA */}
-                <text x={250} y={280} fill={theme.colors.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 200, 20)}>
+                <text x={250} y={280} fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 200, 20)}>
                    CA: Traditional RDBMS
                 </text>
                 {/* Edges - CP */}
-                <text x={550} y={280} fill={theme.colors.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 220, 20)}>
+                <text x={550} y={280} fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 220, 20)}>
                    CP: Banking / Redis
                 </text>
                 {/* Edges - AP */}
-                <text x={400} y={550} textAnchor="middle" fill={theme.colors.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 240, 20)}>
+                <text x={400} y={550} textAnchor="middle" fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 240, 20)}>
                    AP: Cassandra / Dynamo
                 </text>
              </svg>
@@ -350,7 +350,7 @@ export const ConsistentHashingCAP: React.FC = () => {
            <div style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)'}}>
               <svg width={800} height={800} viewBox="0 0 800 800">
                  {/* Ring */}
-                 <circle cx={400} cy={400} r={300} fill="none" stroke={theme.colors.text.muted} strokeWidth={4} strokeDasharray="10,10" />
+                 <circle cx={400} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Servers on Ring (0, 90, 180, 270 degrees) */}
                  {[0, 90, 180, 270].map((deg, i) => {
@@ -436,7 +436,7 @@ export const ConsistentHashingCAP: React.FC = () => {
            <div style={{position: 'absolute', top: 500, width: '100%', textAlign: 'center'}}>
               <svg width={width} height={400}>
                  {/* Linear representation of the ring for clarity */}
-                 <line x1={100} y1={200} x2={width-100} y2={200} stroke={theme.colors.text.muted} strokeWidth={4} />
+                 <line x1={100} y1={200} x2={width-100} y2={200} stroke={theme.text.muted} strokeWidth={4} />
 
                  {/* Uneven Nodes */}
                  {frame < starts.virtualNodes + 150 && (
