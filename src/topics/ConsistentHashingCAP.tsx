@@ -352,10 +352,11 @@ export const ConsistentHashingCAP: React.FC = () => {
                  <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Servers on Ring */}
-                 {/* S0 (0 deg -> right) - Improved visibility */}
+                 {/* S0 (0 deg -> right) - Moved OUTSIDE ring with box for visibility */}
                  <g transform="translate(800, 400)">
                     <circle r={30} fill={theme.colors.database} stroke="white" strokeWidth={3} />
-                    <text x={40} y={5} textAnchor="start" fill="white" fontWeight="bold" fontSize={24} style={{textShadow: '0 2px 4px black'}}>S0</text>
+                    <rect x={35} y={-15} width={50} height={30} fill={theme.background.card} rx={4} opacity={0.8} />
+                    <text x={60} y={5} textAnchor="middle" fill="white" fontWeight="bold" fontSize={24} style={{textShadow: '0 2px 4px black'}}>S0</text>
                  </g>
                  {/* S1 (90 deg -> bottom) */}
                  <g transform="translate(500, 700)">
@@ -424,7 +425,7 @@ export const ConsistentHashingCAP: React.FC = () => {
                        <path d={`M 500 400 L ${500+300} 400 A 300 300 0 0 1 ${500 + 300*Math.cos(45*Math.PI/180)} ${400 + 300*Math.sin(45*Math.PI/180)} Z`} fill={theme.colors.warning} opacity={0.3} />
 
                        <text x={500} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={24} fontWeight="bold">
-                          S4 takes 0-45°.<br/>Only K1 moves to S4!
+                          S4 takes 0-45°.<br/>S4 takes K1 from S1!
                        </text>
 
                        {/* Arrow from K1 (30 deg) to S4 (45 deg) explicitly */}
@@ -496,6 +497,14 @@ export const ConsistentHashingCAP: React.FC = () => {
                           Virtual Nodes Balance The Ring
                        </text>
 
+                       {/* Load Balance Bar Chart (Approximate) */}
+                       <g opacity={fadeIn(frame, starts.virtualNodes + 400, 20)}>
+                          <text x={500} y={600} textAnchor="middle" fill="white" fontSize={20}>Load Distribution</text>
+                          <rect x={350} y={620} width={100} height={20} fill={theme.colors.server} /> <text x={400} y={635} textAnchor="middle" fill="black" fontSize={14}>S1: 33%</text>
+                          <rect x={450} y={620} width={100} height={20} fill={theme.colors.accent} /> <text x={500} y={635} textAnchor="middle" fill="black" fontSize={14}>S2: 33%</text>
+                          <rect x={550} y={620} width={100} height={20} fill={theme.colors.loadBalancer} /> <text x={600} y={635} textAnchor="middle" fill="black" fontSize={14}>S3: 33%</text>
+                       </g>
+
                        {/* Generate fake virtual nodes */}
                        {[0, 40, 80, 120, 160, 200, 240, 280, 320].map((angle, i) => {
                           const offset = (i % 3) * 15; // Slight random offset visually
@@ -505,11 +514,22 @@ export const ConsistentHashingCAP: React.FC = () => {
                           const y = 400 + 300 * Math.sin(rad);
                           const type = i % 3; // 0=S1, 1=S2, 2=S3
                           const color = type === 0 ? theme.colors.server : type === 1 ? theme.colors.accent : theme.colors.loadBalancer;
+                          const name = type === 0 ? 'S1' : type === 1 ? 'S2' : 'S3';
 
                           return (
                              <g key={i} opacity={fadeIn(frame, starts.virtualNodes + 200 + i*10, 10)}>
                                 <circle cx={x} cy={y} r={15} fill={color} stroke="white" strokeWidth={1} />
-                                {/* Draw small arcs? Too complex. Just showing distribution is enough. */}
+                                {/* Label the virtual node with name (Small) */}
+                                <text
+                                   x={500 + 340 * Math.cos(rad)}
+                                   y={400 + 340 * Math.sin(rad)}
+                                   textAnchor="middle"
+                                   dy={5}
+                                   fill="white"
+                                   fontSize={16}
+                                >
+                                   {name}
+                                </text>
                              </g>
                           )
                        })}
