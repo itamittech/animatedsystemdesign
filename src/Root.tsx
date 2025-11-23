@@ -110,7 +110,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="ConsistentHashingCAP"
         component={ConsistentHashingCAP}
-        durationInFrames={5400}
+        durationInFrames={4700}
         fps={30}
         width={1920}
         height={1080}

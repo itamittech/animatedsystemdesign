@@ -373,21 +373,21 @@ export const ConsistentHashingCAP: React.FC = () => {
                     <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S3</text>
                  </g>
 
-                 {/* Animated Key Mapping: K1 (45 deg) -> S1 */}
+                 {/* Animated Key Mapping: K1 (30 deg) -> S1 (0-90 range) */}
                  {frame > starts.consistentHashing + 100 && (
                     <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 120, starts.consistentHashing + 380, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
-                        {/* Key Position: 45 deg (Bottom Right) */}
-                        <circle cx={500 + 300 * Math.cos(45 * Math.PI/180)} cy={400 + 300 * Math.sin(45 * Math.PI/180)} r={15} fill={theme.colors.client} />
-                        <text x={500 + 340 * Math.cos(45 * Math.PI/180)} y={400 + 340 * Math.sin(45 * Math.PI/180)} textAnchor="middle" fill="white" fontSize={24}>K1</text>
+                        {/* Key Position: 30 deg (Changed from 45 to be clearly < 45 later) */}
+                        <circle cx={500 + 300 * Math.cos(30 * Math.PI/180)} cy={400 + 300 * Math.sin(30 * Math.PI/180)} r={15} fill={theme.colors.client} />
+                        <text x={500 + 340 * Math.cos(30 * Math.PI/180)} y={400 + 340 * Math.sin(30 * Math.PI/180)} textAnchor="middle" fill="white" fontSize={24}>K1</text>
 
-                        {/* Probe Animation (Arc) */}
+                        {/* Probe Animation (Arc 30 to 90) */}
                         {(() => {
                            const progress = interpolate(frame, [starts.consistentHashing + 120, starts.consistentHashing + 200], [0, 1], {extrapolateRight: 'clamp'});
-                           const endAngle = 45 + progress * 45; // 45 to 90
+                           const endAngle = 30 + progress * 60; // 30 to 90
                            const x = 500 + 300 * Math.cos(endAngle * Math.PI/180);
                            const y = 400 + 300 * Math.sin(endAngle * Math.PI/180);
                            return (
-                              <path d={`M ${500 + 300 * Math.cos(45*Math.PI/180)} ${400 + 300 * Math.sin(45*Math.PI/180)} A 300 300 0 0 1 ${x} ${y}`} stroke={theme.colors.success} strokeWidth={6} fill="none" />
+                              <path d={`M ${500 + 300 * Math.cos(30*Math.PI/180)} ${400 + 300 * Math.sin(30*Math.PI/180)} A 300 300 0 0 1 ${x} ${y}`} stroke={theme.colors.success} strokeWidth={6} fill="none" />
                            )
                         })()}
 
@@ -427,11 +427,12 @@ export const ConsistentHashingCAP: React.FC = () => {
                           S4 takes 0-45°.<br/>Only K1 moves to S4!
                        </text>
 
-                       {/* Arrow from K1 to S4 explicitly */}
+                       {/* Arrow from K1 (30 deg) to S4 (45 deg) explicitly */}
                        <path
-                          d={`M ${500 + 300 * Math.cos(45*Math.PI/180) - 30} ${400 + 300 * Math.sin(45*Math.PI/180) + 30} L ${500 + 300 * Math.cos(45*Math.PI/180)} ${400 + 300 * Math.sin(45*Math.PI/180)}`}
+                          d={`M ${500 + 300 * Math.cos(30*Math.PI/180)} ${400 + 300 * Math.sin(30*Math.PI/180)} Q ${500 + 320 * Math.cos(37*Math.PI/180)} ${400 + 320 * Math.sin(37*Math.PI/180)} ${500 + 300 * Math.cos(45*Math.PI/180)} ${400 + 300 * Math.sin(45*Math.PI/180)}`}
                           stroke={theme.colors.client}
                           strokeWidth={4}
+                          fill="none"
                           markerEnd="url(#arrowhead)"
                        />
                     </g>
@@ -463,23 +464,27 @@ export const ConsistentHashingCAP: React.FC = () => {
                  <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Phase 1: Uneven Ring (0-150 frames) */}
-                 {/* Updated to match Dialogue: S0 and S4 close to each other */}
+                 {/* Updated to match Dialogue: S0 and S4 close to each other (0 and 15) */}
                  {frame < starts.virtualNodes + 200 && (
                     <>
                        {/* S0 at 0 deg */}
                        <circle cx={800} cy={400} r={25} fill={theme.colors.database} stroke="white" strokeWidth={2} />
                        <text x={840} y={400} fill="white" fontWeight="bold" fontSize={24}>S0</text>
 
-                       {/* S4 at 20 deg */}
-                       <circle cx={500 + 300 * Math.cos(20*Math.PI/180)} cy={400 + 300 * Math.sin(20*Math.PI/180)} r={25} fill={theme.colors.warning} stroke="white" strokeWidth={2} />
-                       <text x={500 + 340 * Math.cos(20*Math.PI/180)} y={400 + 340 * Math.sin(20*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S4</text>
+                       {/* S4 at 15 deg (Very Close) */}
+                       <circle cx={500 + 300 * Math.cos(15*Math.PI/180)} cy={400 + 300 * Math.sin(15*Math.PI/180)} r={25} fill={theme.colors.warning} stroke="white" strokeWidth={2} />
+                       <text x={500 + 340 * Math.cos(15*Math.PI/180)} y={400 + 340 * Math.sin(15*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S4</text>
 
-                       {/* S1, S2 spaced out */}
-                       <circle cx={200} cy={400} r={25} fill={theme.colors.server} stroke="white" strokeWidth={2} />
-                       <text x={160} y={400} fill="white">S1</text>
+                       {/* S1 at 150 deg (Huge gap from 15 to 150) */}
+                       <circle cx={500 + 300 * Math.cos(150*Math.PI/180)} cy={400 + 300 * Math.sin(150*Math.PI/180)} r={25} fill={theme.colors.server} stroke="white" strokeWidth={2} />
+                       <text x={500 + 340 * Math.cos(150*Math.PI/180)} y={400 + 340 * Math.sin(150*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S1</text>
 
-                       {/* Hot Zone (20 to 180) - S1 gets huge load because it follows S4 */}
-                       <path d={`M 500 400 L ${500 + 300*Math.cos(20*Math.PI/180)} ${400 + 300*Math.sin(20*Math.PI/180)} A 300 300 0 0 1 200 400 Z`} fill={theme.colors.error} opacity={0.3} />
+                       {/* S2 at 240 deg */}
+                       <circle cx={500 + 300 * Math.cos(240*Math.PI/180)} cy={400 + 300 * Math.sin(240*Math.PI/180)} r={25} fill={theme.colors.accent} stroke="white" strokeWidth={2} />
+                       <text x={500 + 340 * Math.cos(240*Math.PI/180)} y={400 + 340 * Math.sin(240*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S2</text>
+
+                       {/* Hot Zone (15 to 150) - S1 gets huge load because it follows S4 */}
+                       <path d={`M 500 400 L ${500 + 300*Math.cos(15*Math.PI/180)} ${400 + 300*Math.sin(15*Math.PI/180)} A 300 300 0 0 1 ${500 + 300*Math.cos(150*Math.PI/180)} ${400 + 300*Math.sin(150*Math.PI/180)} Z`} fill={theme.colors.error} opacity={0.3} />
                        <text x={500} y={600} textAnchor="middle" fill={theme.colors.error} fontSize={30} fontWeight="bold">HOT ZONE! (S1)</text>
                     </>
                  )}
