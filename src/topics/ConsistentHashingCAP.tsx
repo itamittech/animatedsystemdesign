@@ -17,16 +17,16 @@ export const ConsistentHashingCAP: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Scene Durations (increased for better pacing)
+  // Scene Durations (adjusted for better pacing - neither too fast nor too slow)
   const sceneDurations = {
     intro: 300,
-    capTheorem: 900, // Increased from 600 (+10s)
-    cpVsAp: 450, // Increased from 300 (+5s)
+    capTheorem: 750, // Reduced from 900, up from 600
+    cpVsAp: 400,
     transition: 300,
-    moduloHashing: 500, // Increased from 400 (+3.3s)
-    consistentHashing: 1250, // Increased from 800 (+15s) for better explanation
-    virtualNodes: 900, // Increased from 600 (+10s)
-    conclusion: 450, // Increased from 300 (+5s)
+    moduloHashing: 450,
+    consistentHashing: 1000, // Reduced from 1250
+    virtualNodes: 750, // Reduced from 900
+    conclusion: 400,
   };
 
   const starts = {
@@ -129,37 +129,37 @@ export const ConsistentHashingCAP: React.FC = () => {
             maxWidth={600}
           />
 
-          {/* CAP Triangle Diagram - Shifted Up and Viewbox adjusted */}
+          {/* CAP Triangle Diagram - Fixed clipping by widening width and centering content */}
           <div style={{position: 'absolute', left: '50%', top: '40%', transform: 'translate(-50%, -50%)'}}>
-             <svg width={800} height={700} viewBox="0 0 800 700">
-                {/* Triangle - Moved slightly higher */}
+             <svg width={1000} height={700} viewBox="0 0 1000 700">
+                {/* Triangle */}
                 <path
-                  d="M 400 100 L 700 450 L 100 450 Z"
+                  d="M 500 100 L 800 450 L 200 450 Z"
                   fill="none"
                   stroke={theme.text.secondary}
                   strokeWidth={4}
                   opacity={fadeIn(frame, starts.capTheorem + 50, 30)}
                 />
 
-                {/* C Node */}
+                {/* C Node (Top Center) */}
                 <g opacity={fadeIn(frame, starts.capTheorem + 80, 20)}>
-                   <circle cx={400} cy={100} r={80} fill={theme.colors.database} />
-                   <text x={400} y={100} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Consistency</text>
-                   <text x={400} y={140} textAnchor="middle" fill="white" fontSize={16}>(Every read hits most recent write)</text>
+                   <circle cx={500} cy={100} r={80} fill={theme.colors.database} />
+                   <text x={500} y={100} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Consistency</text>
+                   <text x={500} y={140} textAnchor="middle" fill="white" fontSize={16}>(Every read hits most recent write)</text>
                 </g>
 
-                {/* A Node - Moved up */}
+                {/* A Node (Bottom Left) - Moved inward to prevent text clipping */}
                 <g opacity={fadeIn(frame, starts.capTheorem + 120, 20)}>
-                   <circle cx={100} cy={450} r={80} fill={theme.colors.server} />
-                   <text x={100} y={450} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Availability</text>
-                   <text x={100} y={490} textAnchor="middle" fill="white" fontSize={16}>(Every request gets a response)</text>
+                   <circle cx={200} cy={450} r={80} fill={theme.colors.server} />
+                   <text x={200} y={450} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Availability</text>
+                   <text x={200} y={490} textAnchor="middle" fill="white" fontSize={16}>(Every request gets a response)</text>
                 </g>
 
-                {/* P Node - Moved up */}
+                {/* P Node (Bottom Right) - Moved inward */}
                 <g opacity={fadeIn(frame, starts.capTheorem + 160, 20)}>
-                   <circle cx={700} cy={450} r={80} fill={theme.colors.network} />
-                   <text x={700} y={450} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Partition Tol.</text>
-                   <text x={700} y={490} textAnchor="middle" fill="white" fontSize={16}>(System works despite network drops)</text>
+                   <circle cx={800} cy={450} r={80} fill={theme.colors.network} />
+                   <text x={800} y={450} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Partition Tol.</text>
+                   <text x={800} y={490} textAnchor="middle" fill="white" fontSize={16}>(System works despite network drops)</text>
                 </g>
 
                 {/* Edges - CA */}
@@ -354,7 +354,7 @@ export const ConsistentHashingCAP: React.FC = () => {
                  {/* Animated Key Mapping */}
                  {/* Example 1: Key at 45° -> S1 at 90° */}
                  {frame > starts.consistentHashing + 100 && (
-                    <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
+                    <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 120, starts.consistentHashing + 380, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
                         <circle cx={400 + 300 * Math.cos((45-90)*Math.PI/180)} cy={400 + 300 * Math.sin((45-90)*Math.PI/180)} r={15} fill={theme.colors.client} />
                         <text x={400 + 300 * Math.cos((45-90)*Math.PI/180)} y={400 + 300 * Math.sin((45-90)*Math.PI/180)} dy={-20} textAnchor="middle" fill="white" fontSize={24}>K1 (45°)</text>
 
@@ -370,7 +370,7 @@ export const ConsistentHashingCAP: React.FC = () => {
 
                  {/* Example 2: Key at 200° -> S3 at 270° */}
                  {frame > starts.consistentHashing + 400 && (
-                    <g opacity={interpolate(frame, [starts.consistentHashing + 400, starts.consistentHashing + 700], [0, 1, 1, 0] as any)}>
+                    <g opacity={interpolate(frame, [starts.consistentHashing + 400, starts.consistentHashing + 420, starts.consistentHashing + 680, starts.consistentHashing + 700], [0, 1, 1, 0] as any)}>
                         <circle cx={400 + 300 * Math.cos((200-90)*Math.PI/180)} cy={400 + 300 * Math.sin((200-90)*Math.PI/180)} r={15} fill={theme.colors.client} />
                         <text x={400 + 300 * Math.cos((200-90)*Math.PI/180)} y={400 + 300 * Math.sin((200-90)*Math.PI/180)} dy={-20} textAnchor="middle" fill="white" fontSize={24}>K2 (200°)</text>
 
