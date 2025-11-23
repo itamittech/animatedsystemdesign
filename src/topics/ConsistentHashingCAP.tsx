@@ -17,28 +17,28 @@ export const ConsistentHashingCAP: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Scene Durations (approximate based on plan)
+  // Scene Durations (increased for better pacing)
   const sceneDurations = {
     intro: 300,
-    capTheorem: 600,
-    cpVsAp: 300,
+    capTheorem: 900, // Increased from 600 (+10s)
+    cpVsAp: 450, // Increased from 300 (+5s)
     transition: 300,
-    moduloHashing: 400,
-    consistentHashing: 800,
-    virtualNodes: 600,
-    conclusion: 300,
+    moduloHashing: 500, // Increased from 400 (+3.3s)
+    consistentHashing: 1250, // Increased from 800 (+15s) for better explanation
+    virtualNodes: 900, // Increased from 600 (+10s)
+    conclusion: 450, // Increased from 300 (+5s)
   };
 
   const starts = {
     intro: 0,
-    capTheorem: 300,
-    cpVsAp: 900,
-    transition: 1200,
-    moduloHashing: 1500,
-    consistentHashing: 1900,
-    virtualNodes: 2700,
-    conclusion: 3300,
-    end: 3600,
+    capTheorem: sceneDurations.intro,
+    cpVsAp: sceneDurations.intro + sceneDurations.capTheorem,
+    transition: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp,
+    moduloHashing: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition,
+    consistentHashing: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing,
+    virtualNodes: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing + sceneDurations.consistentHashing,
+    conclusion: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing + sceneDurations.consistentHashing + sceneDurations.virtualNodes,
+    end: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing + sceneDurations.consistentHashing + sceneDurations.virtualNodes + sceneDurations.conclusion,
   };
 
   return (
@@ -113,7 +113,7 @@ export const ConsistentHashingCAP: React.FC = () => {
         </>
       )}
 
-      {/* Scene 2: CAP Theorem */}
+      {/* Scene 2: CAP Theorem (Layout fixed to prevent clipping) */}
       {frame >= starts.capTheorem && frame < starts.cpVsAp && (
         <>
           <Title text="The CAP Theorem" subtitle="Pick any two (but really, it's complicated)" startFrame={starts.capTheorem} y={50} />
@@ -129,12 +129,12 @@ export const ConsistentHashingCAP: React.FC = () => {
             maxWidth={600}
           />
 
-          {/* CAP Triangle Diagram */}
+          {/* CAP Triangle Diagram - Shifted Up and Viewbox adjusted */}
           <div style={{position: 'absolute', left: '50%', top: '40%', transform: 'translate(-50%, -50%)'}}>
-             <svg width={800} height={600}>
-                {/* Triangle */}
+             <svg width={800} height={700} viewBox="0 0 800 700">
+                {/* Triangle - Moved slightly higher */}
                 <path
-                  d="M 400 100 L 700 500 L 100 500 Z"
+                  d="M 400 100 L 700 450 L 100 450 Z"
                   fill="none"
                   stroke={theme.text.secondary}
                   strokeWidth={4}
@@ -148,29 +148,29 @@ export const ConsistentHashingCAP: React.FC = () => {
                    <text x={400} y={140} textAnchor="middle" fill="white" fontSize={16}>(Every read hits most recent write)</text>
                 </g>
 
-                {/* A Node */}
+                {/* A Node - Moved up */}
                 <g opacity={fadeIn(frame, starts.capTheorem + 120, 20)}>
-                   <circle cx={100} cy={500} r={80} fill={theme.colors.server} />
-                   <text x={100} y={500} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Availability</text>
-                   <text x={100} y={540} textAnchor="middle" fill="white" fontSize={16}>(Every request gets a response)</text>
+                   <circle cx={100} cy={450} r={80} fill={theme.colors.server} />
+                   <text x={100} y={450} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Availability</text>
+                   <text x={100} y={490} textAnchor="middle" fill="white" fontSize={16}>(Every request gets a response)</text>
                 </g>
 
-                {/* P Node */}
+                {/* P Node - Moved up */}
                 <g opacity={fadeIn(frame, starts.capTheorem + 160, 20)}>
-                   <circle cx={700} cy={500} r={80} fill={theme.colors.network} />
-                   <text x={700} y={500} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Partition Tol.</text>
-                   <text x={700} y={540} textAnchor="middle" fill="white" fontSize={16}>(System works despite network drops)</text>
+                   <circle cx={700} cy={450} r={80} fill={theme.colors.network} />
+                   <text x={700} y={450} textAnchor="middle" dy={5} fill="white" fontSize={32} fontWeight="bold">Partition Tol.</text>
+                   <text x={700} y={490} textAnchor="middle" fill="white" fontSize={16}>(System works despite network drops)</text>
                 </g>
 
                 {/* Edges - CA */}
-                <text x={250} y={280} fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 200, 20)}>
+                <text x={250} y={260} fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 200, 20)}>
                    CA: Traditional RDBMS
                 </text>
                 {/* Edges - CP */}
-                <text x={550} y={280} fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 220, 20)}>
+                <text x={550} y={260} fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 220, 20)}>
                    CP: Banking / Redis
                 </text>
-                {/* Edges - AP */}
+                {/* Edges - AP - Lowered slightly to not hit the triangle bottom edge */}
                 <text x={400} y={550} textAnchor="middle" fill={theme.text.accent} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.capTheorem + 240, 20)}>
                    AP: Cassandra / Dynamo
                 </text>
@@ -281,25 +281,11 @@ export const ConsistentHashingCAP: React.FC = () => {
 
               {/* Keys mapping */}
               {[0, 1, 2, 3, 4, 5, 6, 7].map(k => {
-                  // Logic: With 4 servers (N=4) -> Map to k % 4
-                  // With 3 servers (N=3) -> Map to k % 3
                   const initialTarget = k % 4;
-                  const crashedTarget = k % 3; // S2 crashed, so we have S0, S1, S3 (remapped 0,1,2 logic roughly)
-                  // Actually standard modulo would shift everything if N changes to 3.
-                  // 4 % 4 = 0. 4 % 3 = 1. MOVES.
-                  // 5 % 4 = 1. 5 % 3 = 2. MOVES.
-
+                  const targetIdx = frame > starts.moduloHashing + 200 ? (k % 3) : (k % 4);
                   const isMoving = frame > starts.moduloHashing + 200 && (k % 4) !== (k % 3);
 
-                  // Calculate X based on target
-                  const targetIdx = frame > starts.moduloHashing + 200 ? (k % 3) : (k % 4);
-                  // If S2 crashed (index 2), then S3 becomes index 2 in the array of [S0, S1, S3]?
-                  // Let's simplify visually.
-                  // N=4: S0, S1, S2, S3.
-                  // N=3: S0, S1, S3 (logically index 0, 1, 2 for modulo?)
-                  // This confusing remapping IS the problem.
-
-                  const finalX = 300 + (targetIdx > 1 ? targetIdx + 1 : targetIdx) * 350; // Skip the gap of S2 roughly
+                  const finalX = 300 + (targetIdx > 1 ? targetIdx + 1 : targetIdx) * 350;
                   const startX = 300 + (k % 4) * 350;
 
                   return (
@@ -334,7 +320,7 @@ export const ConsistentHashingCAP: React.FC = () => {
         </>
       )}
 
-      {/* Scene 6: Consistent Hashing (The Ring) */}
+      {/* Scene 6: Consistent Hashing (The Ring) - Enhanced Explanation */}
       {frame >= starts.consistentHashing && frame < starts.virtualNodes && (
         <>
            <Title text="The Solution: Consistent Hashing" subtitle="Minimizing data movement" startFrame={starts.consistentHashing} y={50} />
@@ -352,7 +338,7 @@ export const ConsistentHashingCAP: React.FC = () => {
                  {/* Ring */}
                  <circle cx={400} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
-                 {/* Servers on Ring (0, 90, 180, 270 degrees) */}
+                 {/* Servers on Ring */}
                  {[0, 90, 180, 270].map((deg, i) => {
                     const rad = (deg - 90) * (Math.PI / 180);
                     const x = 400 + 300 * Math.cos(rad);
@@ -365,50 +351,46 @@ export const ConsistentHashingCAP: React.FC = () => {
                     )
                  })}
 
-                 {/* Keys on Ring (Random angles) */}
-                 {[45, 120, 200, 300, 350].map((deg, i) => {
-                    const rad = (deg - 90) * (Math.PI / 180);
-                    const x = 400 + 300 * Math.cos(rad);
-                    const y = 400 + 300 * Math.sin(rad);
+                 {/* Animated Key Mapping */}
+                 {/* Example 1: Key at 45° -> S1 at 90° */}
+                 {frame > starts.consistentHashing + 100 && (
+                    <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
+                        <circle cx={400 + 300 * Math.cos((45-90)*Math.PI/180)} cy={400 + 300 * Math.sin((45-90)*Math.PI/180)} r={15} fill={theme.colors.client} />
+                        <text x={400 + 300 * Math.cos((45-90)*Math.PI/180)} y={400 + 300 * Math.sin((45-90)*Math.PI/180)} dy={-20} textAnchor="middle" fill="white" fontSize={24}>K1 (45°)</text>
 
-                    // Determine owner
-                    let owner = "S0";
-                    if (deg > 0 && deg <= 90) owner = "S1";
-                    else if (deg > 90 && deg <= 180) owner = "S2";
-                    else if (deg > 180 && deg <= 270) owner = "S3";
-                    else owner = "S0"; // > 270 loops back to 0
+                        {/* Searching Arc */}
+                        <path d="M 400 100 A 300 300 0 0 1 700 400" fill="none" stroke={theme.colors.dataFlow} strokeWidth={2} strokeDasharray="5,5" opacity={0.5} />
 
-                    return (
-                       <g key={i} opacity={fadeIn(frame, starts.consistentHashing + 50 + i*10, 10)}>
-                          <circle cx={x} cy={y} r={10} fill={theme.colors.client} />
-                          {/* Mapping line to owner (Next clockwise) */}
-                          {frame > starts.consistentHashing + 100 && (
-                             <path
-                               d={`M ${x} ${y} Q ${400} ${400} ${
-                                  // Crude approx of owner coordinates
-                                  owner === "S0" ? 400 : owner === "S1" ? 700 : owner === "S2" ? 400 : 100
-                               } ${
-                                  owner === "S0" ? 100 : owner === "S1" ? 400 : owner === "S2" ? 700 : 400
-                               }`}
-                               fill="none"
-                               stroke={theme.colors.dataFlow}
-                               strokeWidth={1}
-                               opacity={0.5}
-                             />
-                          )}
-                       </g>
-                    )
-                 })}
+                        {/* Arrow to S1 */}
+                        <path d={`M ${400 + 300 * Math.cos((45-90)*Math.PI/180)} ${400 + 300 * Math.sin((45-90)*Math.PI/180)} L ${700} ${400}`} stroke={theme.colors.success} strokeWidth={4} markerEnd="url(#arrowhead)" />
+
+                        <text x={550} y={250} textAnchor="middle" fill={theme.colors.success} fontSize={28} fontWeight="bold">Maps to S1 (90°)</text>
+                    </g>
+                 )}
+
+                 {/* Example 2: Key at 200° -> S3 at 270° */}
+                 {frame > starts.consistentHashing + 400 && (
+                    <g opacity={interpolate(frame, [starts.consistentHashing + 400, starts.consistentHashing + 700], [0, 1, 1, 0] as any)}>
+                        <circle cx={400 + 300 * Math.cos((200-90)*Math.PI/180)} cy={400 + 300 * Math.sin((200-90)*Math.PI/180)} r={15} fill={theme.colors.client} />
+                        <text x={400 + 300 * Math.cos((200-90)*Math.PI/180)} y={400 + 300 * Math.sin((200-90)*Math.PI/180)} dy={-20} textAnchor="middle" fill="white" fontSize={24}>K2 (200°)</text>
+
+                        <path d={`M ${400 + 300 * Math.cos((200-90)*Math.PI/180)} ${400 + 300 * Math.sin((200-90)*Math.PI/180)} L ${400} ${700}`} stroke={theme.colors.success} strokeWidth={4} />
+                         <text x={300} y={600} textAnchor="middle" fill={theme.colors.success} fontSize={28} fontWeight="bold">Maps to S3 (270°)</text>
+                    </g>
+                 )}
 
                  {/* Add New Server S4 at 45 degrees */}
-                 {frame > starts.consistentHashing + 200 && (
-                    <g opacity={fadeIn(frame, starts.consistentHashing + 200, 20)}>
+                 {frame > starts.consistentHashing + 700 && (
+                    <g opacity={fadeIn(frame, starts.consistentHashing + 700, 20)}>
                        <circle cx={400 + 300 * Math.cos((45-90)*Math.PI/180)} cy={400 + 300 * Math.sin((45-90)*Math.PI/180)} r={30} fill={theme.colors.accent} stroke="white" strokeWidth={3} />
                        <text x={400 + 300 * Math.cos((45-90)*Math.PI/180)} y={400 + 300 * Math.sin((45-90)*Math.PI/180)} dy={5} textAnchor="middle" fill="white" fontWeight="bold">S4</text>
 
                        <text x={400} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={24} fontWeight="bold">
-                          Only keys 0-45° move to S4!
+                          Adding S4 (45°)...<br/>Only K1 moves from S1 to S4!
                        </text>
+
+                       {/* Arrow from K1 to S4 */}
+                       <path d={`M ${400 + 300 * Math.cos((30-90)*Math.PI/180)} ${400 + 300 * Math.sin((30-90)*Math.PI/180)} L ${400 + 300 * Math.cos((45-90)*Math.PI/180)} ${400 + 300 * Math.sin((45-90)*Math.PI/180)}`} stroke={theme.colors.warning} strokeWidth={3} strokeDasharray="5,5" />
                     </g>
                  )}
               </svg>
