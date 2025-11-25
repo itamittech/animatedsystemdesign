@@ -1659,7 +1659,7 @@ export const CDNandAPIGateway: React.FC = () => {
 
                 <div style={{fontSize: 22, color: '#e2e8f0', lineHeight: 2.2}}>
                   <div style={{opacity: fadeIn(frame, 5055, 15)}}>
-                    <span style={{fontSize: 24}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Cloudflare CDN + Zuul API Gateway → Serves 200M+ users globally
+                    <span style={{fontSize: 24}}>🎬</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Netflix:</span> Open Connect CDN + Zuul API Gateway → Serves 200M+ users globally
                   </div>
                   <div style={{opacity: fadeIn(frame, 5115, 15)}}>
                     <span style={{fontSize: 24}}>🛒</span> <span style={{color: '#fbbf24', fontWeight: 'bold'}}>Amazon:</span> CloudFront CDN + Custom Gateway → 99.99% availability
