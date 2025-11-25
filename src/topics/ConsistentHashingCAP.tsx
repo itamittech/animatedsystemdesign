@@ -58,16 +58,16 @@ export const ConsistentHashingCAP: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Scene Durations (adjusted for better pacing - neither too fast nor too slow)
+  // Scene Durations (adjusted for faster pacing)
   const sceneDurations = {
     intro: 300,
-    capTheorem: 750, // Reduced from 900, up from 600
+    capTheorem: 500, // Reduced from 750 (User: "triangle ... screen is frozen")
     cpVsAp: 400,
     transition: 300,
     moduloHashing: 450,
-    consistentHashing: 1000, // Reduced from 1250
-    virtualNodes: 750, // Reduced from 900
-    conclusion: 400,
+    consistentHashing: 750, // Reduced from 1000 (User: "key movement ... bit fast")
+    virtualNodes: 550, // Reduced from 750 (User: "last slide is slow")
+    conclusion: 300, // Reduced from 400
   };
 
   const starts = {
@@ -361,7 +361,7 @@ export const ConsistentHashingCAP: React.FC = () => {
         </>
       )}
 
-      {/* Scene 6: Consistent Hashing (The Ring) - Enhanced Explanation */}
+      {/* Scene 6: Consistent Hashing (The Ring) - Accelerated Pace */}
       {frame >= starts.consistentHashing && frame < starts.virtualNodes && (
         <>
            <Title text="The Solution: Consistent Hashing" subtitle="Minimizing data movement" startFrame={starts.consistentHashing} y={50} />
@@ -415,9 +415,10 @@ export const ConsistentHashingCAP: React.FC = () => {
                  </g>
 
                  {/* Animated Key Mapping: K1 (30 deg) -> S1 (0-90 range) */}
-                 {frame > starts.consistentHashing + 100 && (
-                    <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 120, starts.consistentHashing + 380, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
-                        {/* Key Position: 30 deg (Changed from 45 to be clearly < 45 later) */}
+                 {/* Started earlier: +100 -> +80. Faster probe: 80 frames -> 40 frames */}
+                 {frame > starts.consistentHashing + 80 && (
+                    <g opacity={interpolate(frame, [starts.consistentHashing + 80, starts.consistentHashing + 100, starts.consistentHashing + 280, starts.consistentHashing + 300], [0, 1, 1, 0] as any)}>
+                        {/* Key Position: 30 deg */}
                         <circle cx={500 + 300 * Math.cos(30 * Math.PI/180)} cy={400 + 300 * Math.sin(30 * Math.PI/180)} r={15} fill={theme.colors.client} />
                         <LabelWithBackground
                            x={500 + 350 * Math.cos(30 * Math.PI/180)}
@@ -425,9 +426,9 @@ export const ConsistentHashingCAP: React.FC = () => {
                            text="K1 (30°)" color={theme.colors.client} fontSize={20}
                         />
 
-                        {/* Probe Animation (Arc 30 to 90) */}
+                        {/* Probe Animation (Arc 30 to 90) - Faster */}
                         {(() => {
-                           const progress = interpolate(frame, [starts.consistentHashing + 120, starts.consistentHashing + 200], [0, 1], {extrapolateRight: 'clamp'});
+                           const progress = interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 140], [0, 1], {extrapolateRight: 'clamp'});
                            const endAngle = 30 + progress * 60; // 30 to 90
                            const x = 500 + 300 * Math.cos(endAngle * Math.PI/180);
                            const y = 400 + 300 * Math.sin(endAngle * Math.PI/180);
@@ -441,8 +442,9 @@ export const ConsistentHashingCAP: React.FC = () => {
                  )}
 
                  {/* Example 2: K2 (200 deg) -> S3 (270 deg) */}
-                 {frame > starts.consistentHashing + 400 && (
-                    <g opacity={interpolate(frame, [starts.consistentHashing + 400, starts.consistentHashing + 420, starts.consistentHashing + 680, starts.consistentHashing + 700], [0, 1, 1, 0] as any)}>
+                 {/* Started earlier: +400 -> +300 */}
+                 {frame > starts.consistentHashing + 300 && (
+                    <g opacity={interpolate(frame, [starts.consistentHashing + 300, starts.consistentHashing + 320, starts.consistentHashing + 480, starts.consistentHashing + 500], [0, 1, 1, 0] as any)}>
                         <circle cx={500 + 300 * Math.cos(200 * Math.PI/180)} cy={400 + 300 * Math.sin(200 * Math.PI/180)} r={15} fill={theme.colors.client} />
                         <LabelWithBackground
                            x={500 + 350 * Math.cos(200 * Math.PI/180)}
@@ -451,7 +453,7 @@ export const ConsistentHashingCAP: React.FC = () => {
                         />
 
                         {(() => {
-                           const progress = interpolate(frame, [starts.consistentHashing + 420, starts.consistentHashing + 500], [0, 1], {extrapolateRight: 'clamp'});
+                           const progress = interpolate(frame, [starts.consistentHashing + 320, starts.consistentHashing + 360], [0, 1], {extrapolateRight: 'clamp'});
                            const endAngle = 200 + progress * 70; // 200 to 270
                            const x = 500 + 300 * Math.cos(endAngle * Math.PI/180);
                            const y = 400 + 300 * Math.sin(endAngle * Math.PI/180);
@@ -464,8 +466,9 @@ export const ConsistentHashingCAP: React.FC = () => {
                  )}
 
                  {/* Add S4 at 45 deg */}
-                 {frame > starts.consistentHashing + 700 && (
-                    <g opacity={fadeIn(frame, starts.consistentHashing + 700, 20)}>
+                 {/* Started earlier: +700 -> +500 */}
+                 {frame > starts.consistentHashing + 500 && (
+                    <g opacity={fadeIn(frame, starts.consistentHashing + 500, 20)}>
                        <circle cx={500 + 300 * Math.cos(45 * Math.PI/180)} cy={400 + 300 * Math.sin(45 * Math.PI/180)} r={30} fill={theme.colors.warning} stroke="white" strokeWidth={3} />
                        <LabelWithBackground
                            x={500 + 350 * Math.cos(45 * Math.PI/180)}
@@ -495,7 +498,7 @@ export const ConsistentHashingCAP: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7: Virtual Nodes */}
+      {/* Scene 7: Virtual Nodes - Accelerated Pace */}
       {frame >= starts.virtualNodes && frame < starts.conclusion && (
         <>
            <Title text="Virtual Nodes" subtitle="Solving uneven distribution" startFrame={starts.virtualNodes} y={50} />
@@ -517,8 +520,8 @@ export const ConsistentHashingCAP: React.FC = () => {
                  <circle cx={500} cy={400} r={300} fill="none" stroke={theme.text.muted} strokeWidth={4} strokeDasharray="10,10" />
 
                  {/* Phase 1: Uneven Ring (0-150 frames) */}
-                 {/* Updated to match Dialogue: S0 and S4 close to each other (0 and 15) */}
-                 {frame < starts.virtualNodes + 200 && (
+                 {/* Reduced duration: was 200, now 150 */}
+                 {frame < starts.virtualNodes + 150 && (
                     <>
                        {/* S0 at 0 deg */}
                        <circle cx={800} cy={400} r={25} fill={theme.colors.database} stroke="white" strokeWidth={2} />
@@ -542,15 +545,16 @@ export const ConsistentHashingCAP: React.FC = () => {
                     </>
                  )}
 
-                 {/* Phase 2: Virtual Nodes (200+ frames) */}
-                 {frame >= starts.virtualNodes + 200 && (
+                 {/* Phase 2: Virtual Nodes (150+ frames) */}
+                 {frame >= starts.virtualNodes + 150 && (
                     <>
-                       <text x={500} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={32} fontWeight="bold" opacity={fadeIn(frame, starts.virtualNodes + 200, 20)}>
+                       <text x={500} y={400} textAnchor="middle" fill={theme.colors.success} fontSize={32} fontWeight="bold" opacity={fadeIn(frame, starts.virtualNodes + 150, 20)}>
                           Virtual Nodes Balance The Ring
                        </text>
 
                        {/* Load Balance Bar Chart (Approximate) */}
-                       <g opacity={fadeIn(frame, starts.virtualNodes + 400, 20)}>
+                       {/* Appeared at +400, now +300 */}
+                       <g opacity={fadeIn(frame, starts.virtualNodes + 300, 20)}>
                           <text x={500} y={600} textAnchor="middle" fill="white" fontSize={20}>Load Distribution</text>
                           <rect x={350} y={620} width={100} height={20} fill={theme.colors.server} /> <text x={400} y={635} textAnchor="middle" fill="black" fontSize={14}>S1: 33%</text>
                           <rect x={450} y={620} width={100} height={20} fill={theme.colors.accent} /> <text x={500} y={635} textAnchor="middle" fill="black" fontSize={14}>S2: 33%</text>
@@ -568,7 +572,7 @@ export const ConsistentHashingCAP: React.FC = () => {
                           const name = type === 0 ? 'S1' : type === 1 ? 'S2' : 'S3';
 
                           return (
-                             <g key={i} opacity={fadeIn(frame, starts.virtualNodes + 200 + i*10, 10)}>
+                             <g key={i} opacity={fadeIn(frame, starts.virtualNodes + 150 + i*10, 10)}>
                                 <circle cx={x} cy={y} r={15} fill={color} stroke="white" strokeWidth={1} />
                                 <LabelWithBackground
                                    x={500 + 340 * Math.cos(rad)}
