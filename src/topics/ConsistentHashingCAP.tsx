@@ -10,6 +10,47 @@ import {DataFlowStream} from '../components/DataFlowParticle';
 import {fadeIn, pulse, slideInUp} from '../design-system/animations';
 
 /**
+ * Helper to render text with a background box for better visibility
+ */
+const LabelWithBackground: React.FC<{
+  x: number;
+  y: number;
+  text: string;
+  color: string;
+  fontSize?: number;
+}> = ({x, y, text, color, fontSize = 24}) => {
+  const width = text.length * (fontSize * 0.7) + 20;
+  const height = fontSize + 16;
+  return (
+    <g>
+      <rect
+        x={x - width / 2}
+        y={y - height / 2}
+        width={width}
+        height={height}
+        rx={6}
+        fill={theme.background.card}
+        stroke={color}
+        strokeWidth={2}
+        opacity={0.9}
+      />
+      <text
+        x={x}
+        y={y}
+        dy={fontSize * 0.35}
+        textAnchor="middle"
+        fill="white"
+        fontWeight="bold"
+        fontSize={fontSize}
+        style={{textShadow: '0 2px 4px rgba(0,0,0,0.8)'}}
+      >
+        {text}
+      </text>
+    </g>
+  );
+};
+
+/**
  * Consistent Hashing & CAP Theorem
  * Merging two critical distributed system concepts into one narrative flow.
  */
@@ -355,23 +396,22 @@ export const ConsistentHashingCAP: React.FC = () => {
                  {/* S0 (0 deg -> right) - Moved OUTSIDE ring with box for visibility */}
                  <g transform="translate(800, 400)">
                     <circle r={30} fill={theme.colors.database} stroke="white" strokeWidth={3} />
-                    <rect x={35} y={-15} width={50} height={30} fill={theme.background.card} rx={4} opacity={0.8} />
-                    <text x={60} y={5} textAnchor="middle" fill="white" fontWeight="bold" fontSize={24} style={{textShadow: '0 2px 4px black'}}>S0</text>
+                    <LabelWithBackground x={40} y={0} text="S0" color={theme.colors.database} />
                  </g>
                  {/* S1 (90 deg -> bottom) */}
                  <g transform="translate(500, 700)">
                     <circle r={30} fill={theme.colors.server} stroke="white" strokeWidth={3} />
-                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S1</text>
+                    <LabelWithBackground x={0} y={50} text="S1" color={theme.colors.server} />
                  </g>
                  {/* S2 (180 deg -> left) */}
                  <g transform="translate(200, 400)">
                     <circle r={30} fill={theme.colors.accent} stroke="white" strokeWidth={3} />
-                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S2</text>
+                    <LabelWithBackground x={-50} y={0} text="S2" color={theme.colors.accent} />
                  </g>
                  {/* S3 (270 deg -> top) */}
                  <g transform="translate(500, 100)">
                     <circle r={30} fill={theme.colors.loadBalancer} stroke="white" strokeWidth={3} />
-                    <text dy={5} textAnchor="middle" fill="white" fontWeight="bold">S3</text>
+                    <LabelWithBackground x={0} y={-50} text="S3" color={theme.colors.loadBalancer} />
                  </g>
 
                  {/* Animated Key Mapping: K1 (30 deg) -> S1 (0-90 range) */}
@@ -379,7 +419,11 @@ export const ConsistentHashingCAP: React.FC = () => {
                     <g opacity={interpolate(frame, [starts.consistentHashing + 100, starts.consistentHashing + 120, starts.consistentHashing + 380, starts.consistentHashing + 400], [0, 1, 1, 0] as any)}>
                         {/* Key Position: 30 deg (Changed from 45 to be clearly < 45 later) */}
                         <circle cx={500 + 300 * Math.cos(30 * Math.PI/180)} cy={400 + 300 * Math.sin(30 * Math.PI/180)} r={15} fill={theme.colors.client} />
-                        <text x={500 + 340 * Math.cos(30 * Math.PI/180)} y={400 + 340 * Math.sin(30 * Math.PI/180)} textAnchor="middle" fill="white" fontSize={24}>K1</text>
+                        <LabelWithBackground
+                           x={500 + 350 * Math.cos(30 * Math.PI/180)}
+                           y={400 + 350 * Math.sin(30 * Math.PI/180)}
+                           text="K1 (30°)" color={theme.colors.client} fontSize={20}
+                        />
 
                         {/* Probe Animation (Arc 30 to 90) */}
                         {(() => {
@@ -400,7 +444,11 @@ export const ConsistentHashingCAP: React.FC = () => {
                  {frame > starts.consistentHashing + 400 && (
                     <g opacity={interpolate(frame, [starts.consistentHashing + 400, starts.consistentHashing + 420, starts.consistentHashing + 680, starts.consistentHashing + 700], [0, 1, 1, 0] as any)}>
                         <circle cx={500 + 300 * Math.cos(200 * Math.PI/180)} cy={400 + 300 * Math.sin(200 * Math.PI/180)} r={15} fill={theme.colors.client} />
-                        <text x={500 + 340 * Math.cos(200 * Math.PI/180)} y={400 + 340 * Math.sin(200 * Math.PI/180)} textAnchor="middle" fill="white" fontSize={24}>K2</text>
+                        <LabelWithBackground
+                           x={500 + 350 * Math.cos(200 * Math.PI/180)}
+                           y={400 + 350 * Math.sin(200 * Math.PI/180)}
+                           text="K2 (200°)" color={theme.colors.client} fontSize={20}
+                        />
 
                         {(() => {
                            const progress = interpolate(frame, [starts.consistentHashing + 420, starts.consistentHashing + 500], [0, 1], {extrapolateRight: 'clamp'});
@@ -419,7 +467,11 @@ export const ConsistentHashingCAP: React.FC = () => {
                  {frame > starts.consistentHashing + 700 && (
                     <g opacity={fadeIn(frame, starts.consistentHashing + 700, 20)}>
                        <circle cx={500 + 300 * Math.cos(45 * Math.PI/180)} cy={400 + 300 * Math.sin(45 * Math.PI/180)} r={30} fill={theme.colors.warning} stroke="white" strokeWidth={3} />
-                       <text x={500 + 300 * Math.cos(45 * Math.PI/180)} y={400 + 300 * Math.sin(45 * Math.PI/180)} dy={5} textAnchor="middle" fill="white" fontWeight="bold">S4</text>
+                       <LabelWithBackground
+                           x={500 + 350 * Math.cos(45 * Math.PI/180)}
+                           y={400 + 350 * Math.sin(45 * Math.PI/180)}
+                           text="S4" color={theme.colors.warning}
+                        />
 
                        {/* New Zone highlight: 0 to 45 */}
                        <path d={`M 500 400 L ${500+300} 400 A 300 300 0 0 1 ${500 + 300*Math.cos(45*Math.PI/180)} ${400 + 300*Math.sin(45*Math.PI/180)} Z`} fill={theme.colors.warning} opacity={0.3} />
@@ -470,19 +522,19 @@ export const ConsistentHashingCAP: React.FC = () => {
                     <>
                        {/* S0 at 0 deg */}
                        <circle cx={800} cy={400} r={25} fill={theme.colors.database} stroke="white" strokeWidth={2} />
-                       <text x={840} y={400} fill="white" fontWeight="bold" fontSize={24}>S0</text>
+                       <LabelWithBackground x={850} y={400} text="S0" color={theme.colors.database} />
 
                        {/* S4 at 15 deg (Very Close) */}
                        <circle cx={500 + 300 * Math.cos(15*Math.PI/180)} cy={400 + 300 * Math.sin(15*Math.PI/180)} r={25} fill={theme.colors.warning} stroke="white" strokeWidth={2} />
-                       <text x={500 + 340 * Math.cos(15*Math.PI/180)} y={400 + 340 * Math.sin(15*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S4</text>
+                       <LabelWithBackground x={500 + 350 * Math.cos(15*Math.PI/180)} y={400 + 350 * Math.sin(15*Math.PI/180)} text="S4" color={theme.colors.warning} />
 
                        {/* S1 at 150 deg (Huge gap from 15 to 150) */}
                        <circle cx={500 + 300 * Math.cos(150*Math.PI/180)} cy={400 + 300 * Math.sin(150*Math.PI/180)} r={25} fill={theme.colors.server} stroke="white" strokeWidth={2} />
-                       <text x={500 + 340 * Math.cos(150*Math.PI/180)} y={400 + 340 * Math.sin(150*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S1</text>
+                       <LabelWithBackground x={500 + 350 * Math.cos(150*Math.PI/180)} y={400 + 350 * Math.sin(150*Math.PI/180)} text="S1" color={theme.colors.server} />
 
                        {/* S2 at 240 deg */}
                        <circle cx={500 + 300 * Math.cos(240*Math.PI/180)} cy={400 + 300 * Math.sin(240*Math.PI/180)} r={25} fill={theme.colors.accent} stroke="white" strokeWidth={2} />
-                       <text x={500 + 340 * Math.cos(240*Math.PI/180)} y={400 + 340 * Math.sin(240*Math.PI/180)} fill="white" fontWeight="bold" fontSize={24}>S2</text>
+                       <LabelWithBackground x={500 + 350 * Math.cos(240*Math.PI/180)} y={400 + 350 * Math.sin(240*Math.PI/180)} text="S2" color={theme.colors.accent} />
 
                        {/* Hot Zone (15 to 150) - S1 gets huge load because it follows S4 */}
                        <path d={`M 500 400 L ${500 + 300*Math.cos(15*Math.PI/180)} ${400 + 300*Math.sin(15*Math.PI/180)} A 300 300 0 0 1 ${500 + 300*Math.cos(150*Math.PI/180)} ${400 + 300*Math.sin(150*Math.PI/180)} Z`} fill={theme.colors.error} opacity={0.3} />
@@ -505,11 +557,10 @@ export const ConsistentHashingCAP: React.FC = () => {
                           <rect x={550} y={620} width={100} height={20} fill={theme.colors.loadBalancer} /> <text x={600} y={635} textAnchor="middle" fill="black" fontSize={14}>S3: 33%</text>
                        </g>
 
-                       {/* Generate fake virtual nodes */}
-                       {[0, 40, 80, 120, 160, 200, 240, 280, 320].map((angle, i) => {
-                          const offset = (i % 3) * 15; // Slight random offset visually
-                          const finalAngle = angle + offset;
-                          const rad = finalAngle * Math.PI / 180;
+                       {/* Generate perfectly even virtual nodes */}
+                       {Array.from({length: 9}).map((_, i) => {
+                          const angle = i * (360 / 9); // 0, 40, 80... Perfectly Even
+                          const rad = angle * Math.PI / 180;
                           const x = 500 + 300 * Math.cos(rad);
                           const y = 400 + 300 * Math.sin(rad);
                           const type = i % 3; // 0=S1, 1=S2, 2=S3
@@ -519,17 +570,13 @@ export const ConsistentHashingCAP: React.FC = () => {
                           return (
                              <g key={i} opacity={fadeIn(frame, starts.virtualNodes + 200 + i*10, 10)}>
                                 <circle cx={x} cy={y} r={15} fill={color} stroke="white" strokeWidth={1} />
-                                {/* Label the virtual node with name (Small) */}
-                                <text
+                                <LabelWithBackground
                                    x={500 + 340 * Math.cos(rad)}
                                    y={400 + 340 * Math.sin(rad)}
-                                   textAnchor="middle"
-                                   dy={5}
-                                   fill="white"
+                                   text={name}
+                                   color={color}
                                    fontSize={16}
-                                >
-                                   {name}
-                                </text>
+                                />
                              </g>
                           )
                        })}
