@@ -53,6 +53,7 @@ import {SearchOptimization} from './topics/SearchOptimization';
 import {WebSocketRealTimeCommunication} from './topics/WebSocketRealTimeCommunication';
 import {LiveStreamingArchitecture} from './topics/LiveStreamingArchitecture';
 import {NotificationSystems} from './topics/NotificationSystems';
+import {FixProtocol} from './topics/FixProtocol';
 
 const {fontFamily} = loadFont();
 
@@ -63,6 +64,14 @@ export const RemotionRoot: React.FC = () => {
         id="ClientServerDNSProxies"
         component={ClientServerDNSProxies}
         durationInFrames={4080}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FixProtocol"
+        component={FixProtocol}
+        durationInFrames={3600}
         fps={30}
         width={1920}
         height={1080}
