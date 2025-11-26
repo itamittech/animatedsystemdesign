@@ -63,10 +63,12 @@ export const ConsistentHashingCAP: React.FC = () => {
     intro: 300,
     capTheorem: 500, // Reduced from 750 (User: "triangle ... screen is frozen")
     cpVsAp: 400,
+    capUseCases: 400,
     transition: 300,
     moduloHashing: 450,
     consistentHashing: 750, // Reduced from 1000 (User: "key movement ... bit fast")
     virtualNodes: 550, // Reduced from 750 (User: "last slide is slow")
+    hashingUseCases: 400,
     conclusion: 300, // Reduced from 400
   };
 
@@ -74,12 +76,59 @@ export const ConsistentHashingCAP: React.FC = () => {
     intro: 0,
     capTheorem: sceneDurations.intro,
     cpVsAp: sceneDurations.intro + sceneDurations.capTheorem,
-    transition: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp,
-    moduloHashing: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition,
-    consistentHashing: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing,
-    virtualNodes: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing + sceneDurations.consistentHashing,
-    conclusion: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing + sceneDurations.consistentHashing + sceneDurations.virtualNodes,
-    end: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.transition + sceneDurations.moduloHashing + sceneDurations.consistentHashing + sceneDurations.virtualNodes + sceneDurations.conclusion,
+    capUseCases: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp,
+    transition: sceneDurations.intro + sceneDurations.capTheorem + sceneDurations.cpVsAp + sceneDurations.capUseCases,
+    moduloHashing:
+      sceneDurations.intro +
+      sceneDurations.capTheorem +
+      sceneDurations.cpVsAp +
+      sceneDurations.capUseCases +
+      sceneDurations.transition,
+    consistentHashing:
+      sceneDurations.intro +
+      sceneDurations.capTheorem +
+      sceneDurations.cpVsAp +
+      sceneDurations.capUseCases +
+      sceneDurations.transition +
+      sceneDurations.moduloHashing,
+    virtualNodes:
+      sceneDurations.intro +
+      sceneDurations.capTheorem +
+      sceneDurations.cpVsAp +
+      sceneDurations.capUseCases +
+      sceneDurations.transition +
+      sceneDurations.moduloHashing +
+      sceneDurations.consistentHashing,
+    hashingUseCases:
+      sceneDurations.intro +
+      sceneDurations.capTheorem +
+      sceneDurations.cpVsAp +
+      sceneDurations.capUseCases +
+      sceneDurations.transition +
+      sceneDurations.moduloHashing +
+      sceneDurations.consistentHashing +
+      sceneDurations.virtualNodes,
+    conclusion:
+      sceneDurations.intro +
+      sceneDurations.capTheorem +
+      sceneDurations.cpVsAp +
+      sceneDurations.capUseCases +
+      sceneDurations.transition +
+      sceneDurations.moduloHashing +
+      sceneDurations.consistentHashing +
+      sceneDurations.virtualNodes +
+      sceneDurations.hashingUseCases,
+    end:
+      sceneDurations.intro +
+      sceneDurations.capTheorem +
+      sceneDurations.cpVsAp +
+      sceneDurations.capUseCases +
+      sceneDurations.transition +
+      sceneDurations.moduloHashing +
+      sceneDurations.consistentHashing +
+      sceneDurations.virtualNodes +
+      sceneDurations.hashingUseCases +
+      sceneDurations.conclusion,
   };
 
   return (
@@ -221,7 +270,7 @@ export const ConsistentHashingCAP: React.FC = () => {
       )}
 
       {/* Scene 3: CP vs AP Examples */}
-      {frame >= starts.cpVsAp && frame < starts.transition && (
+      {frame >= starts.cpVsAp && frame < starts.capUseCases && (
         <>
            <Title text="Real World Trade-offs" subtitle="When to choose what?" startFrame={starts.cpVsAp} y={50} />
 
@@ -266,7 +315,84 @@ export const ConsistentHashingCAP: React.FC = () => {
         </>
       )}
 
-      {/* Scene 4: Transition to Partitioning */}
+      {/* Scene 4: CAP Use Cases */}
+      {frame >= starts.capUseCases && frame < starts.transition && (
+        <>
+          <Title
+            text="CAP Use Cases"
+            subtitle="Real-world examples of CAP trade-offs"
+            startFrame={starts.capUseCases}
+            y={50}
+          />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: 100,
+              marginTop: 250,
+              width: '100%',
+            }}
+          >
+            {/* CP Systems */}
+            <div
+              style={{
+                width: 600,
+                background:
+                  'linear-gradient(145deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05))',
+                border: `2px solid ${theme.colors.database}`,
+                borderRadius: 20,
+                padding: 30,
+                opacity: fadeIn(frame, starts.capUseCases + 30, 20),
+              }}
+            >
+              <h3 style={{color: theme.colors.database, textAlign: 'center', fontSize: 36, marginTop: 0}}>
+                CP Use Cases
+              </h3>
+              <ul style={{color: theme.text.primary, fontSize: 24, lineHeight: 1.5}}>
+                <li>
+                  <strong>Financial Systems:</strong> Ensuring every transaction is consistent across ledgers.
+                </li>
+                <li>
+                  <strong>E-commerce Checkouts:</strong> Preventing overselling of limited inventory.
+                </li>
+                <li>
+                  <strong>Distributed Locks:</strong> Guaranteeing exclusive access to a resource.
+                </li>
+              </ul>
+            </div>
+
+            {/* AP Systems */}
+            <div
+              style={{
+                width: 600,
+                background:
+                  'linear-gradient(145deg, rgba(52, 211, 153, 0.1), rgba(52, 211, 153, 0.05))',
+                border: `2px solid ${theme.colors.server}`,
+                borderRadius: 20,
+                padding: 30,
+                opacity: fadeIn(frame, starts.capUseCases + 100, 20),
+              }}
+            >
+              <h3 style={{color: theme.colors.server, textAlign: 'center', fontSize: 36, marginTop: 0}}>
+                AP Use Cases
+              </h3>
+              <ul style={{color: theme.text.primary, fontSize: 24, lineHeight: 1.5}}>
+                <li>
+                  <strong>Social Media Feeds:</strong> Prioritizing content availability over strict consistency.
+                </li>
+                <li>
+                  <strong>Real-time Analytics:</strong> Allowing for minor data discrepancies for faster insights.
+                </li>
+                <li>
+                  <strong>IoT Data Ingestion:</strong> Ensuring data from sensors is always accepted.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Scene 5: Transition to Partitioning */}
       {frame >= starts.transition && frame < starts.moduloHashing && (
         <>
            <Title text="Scaling Out" subtitle="From one node to many" startFrame={starts.transition} />
@@ -499,7 +625,7 @@ export const ConsistentHashingCAP: React.FC = () => {
       )}
 
       {/* Scene 7: Virtual Nodes - Accelerated Pace */}
-      {frame >= starts.virtualNodes && frame < starts.conclusion && (
+      {frame >= starts.virtualNodes && frame < starts.hashingUseCases && (
         <>
            <Title text="Virtual Nodes" subtitle="Solving uneven distribution" startFrame={starts.virtualNodes} y={50} />
 
@@ -591,7 +717,68 @@ export const ConsistentHashingCAP: React.FC = () => {
         </>
       )}
 
-      {/* Scene 8: Conclusion */}
+      {/* Scene 8: Consistent Hashing Use Cases */}
+      {frame >= starts.hashingUseCases && frame < starts.conclusion && (
+        <>
+          <Title
+            text="Consistent Hashing Use Cases"
+            subtitle="Where it's used in the real world"
+            startFrame={starts.hashingUseCases}
+            y={50}
+          />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: 100,
+              marginTop: 250,
+              width: '100%',
+            }}
+          >
+            {/* Use Case 1: Distributed Caching */}
+            <div
+              style={{
+                width: 600,
+                background:
+                  'linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05))',
+                border: `2px solid ${theme.colors.accent}`,
+                borderRadius: 20,
+                padding: 30,
+                opacity: fadeIn(frame, starts.hashingUseCases + 30, 20),
+              }}
+            >
+              <h3 style={{color: theme.colors.accent, textAlign: 'center', fontSize: 36, marginTop: 0}}>
+                Distributed Caching
+              </h3>
+              <p style={{color: theme.text.primary, fontSize: 24, lineHeight: 1.5}}>
+                Systems like Memcached and Redis use it to distribute cached objects across a cluster of servers, minimizing cache misses when nodes are added or removed.
+              </p>
+            </div>
+
+            {/* Use Case 2: Load Balancing */}
+            <div
+              style={{
+                width: 600,
+                background:
+                  'linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05))',
+                border: `2px solid ${theme.colors.server}`,
+                borderRadius: 20,
+                padding: 30,
+                opacity: fadeIn(frame, starts.hashingUseCases + 100, 20),
+              }}
+            >
+              <h3 style={{color: theme.colors.server, textAlign: 'center', fontSize: 36, marginTop: 0}}>
+                Load Balancing
+              </h3>
+              <p style={{color: theme.text.primary, fontSize: 24, lineHeight: 1.5}}>
+                Used in load balancers to distribute requests to backend servers. This ensures that when a server is added or removed, only a small fraction of clients are re-routed.
+              </p>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Scene 9: Conclusion */}
       {frame >= starts.conclusion && (
         <>
            <Title text="Summary" subtitle="Architecture is about trade-offs" startFrame={starts.conclusion} y={50} />
