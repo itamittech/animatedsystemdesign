@@ -19,21 +19,22 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const {width, height} = useVideoConfig();
 
   // Define Scene Timings (in frames)
-  // Previous duration: 3480
+  // Adjusted pace: Increased durations for better readability
   const sceneDurations = {
-    intro: 240, // Increased from 120 (+4s) for slower reading
-    singleServer: 150,
-    basicLB: 180,
-    algorithms: 360,
-    l4vsL7: 420,
-    healthChecks: 150,
-    stickySessions: 300,
-    globalLB: 300,
-    tools: 420,
-    deployment: 540, // Increased from 360 (+6s) for carousel effect
-    ssl: 180,
-    websockets: 180,
-    rateLimiting: 360,
+    intro: 300,
+    singleServer: 210,
+    basicLB: 240,
+    algorithms: 480,
+    l4vsL7: 540,
+    healthChecks: 240,
+    stickySessions: 420,
+    consistentHashing: 480, // New scene
+    globalLB: 420,
+    tools: 540,
+    deployment: 720,
+    ssl: 300,
+    websockets: 300,
+    rateLimiting: 480,
   };
 
   // Calculate start frames
@@ -45,12 +46,13 @@ export const LoadBalancingEnhanced: React.FC = () => {
     l4vsL7: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms,
     healthChecks: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7,
     stickySessions: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks,
-    globalLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions,
-    tools: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB,
-    deployment: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools,
-    ssl: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment,
-    websockets: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl,
-    rateLimiting: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets,
+    consistentHashing: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions,
+    globalLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing,
+    tools: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB,
+    deployment: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools,
+    ssl: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment,
+    websockets: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl,
+    rateLimiting: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets,
   };
 
   // --- Scene 2 Calculations (Single Server) ---
@@ -87,6 +89,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const s7ServerX = 1250;
   const s7ServerStartY = 250;
   const s7ServerGap = 150;
+
+  // --- New Scene: Consistent Hashing ---
+  const ringCenterX = width / 2;
+  const ringCenterY = height / 2 + 50;
+  const ringRadius = 250;
 
   // --- Scene 8 Calculations (Global LB) ---
   const s8RegionX = 150;
@@ -660,7 +667,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
       )}
 
       {/* Scene 7: Sticky Sessions */}
-      {frame >= starts.stickySessions && frame < starts.globalLB && (
+      {frame >= starts.stickySessions && frame < starts.consistentHashing && (
         <>
           <Title
             text="Sticky Sessions & Session Affinity"
@@ -728,6 +735,140 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
           <div style={{position: 'absolute', right: 50, top: 650, opacity: fadeIn(frame, starts.stickySessions + 140, 20)}}>
             <InfoCard title="Trade-offs" points={['✅ Session persistence guaranteed', '✅ Simpler application design', '❌ Uneven load distribution', '❌ Harder failover (lost sessions)']} color={theme.colors.warning} />
+          </div>
+        </>
+      )}
+
+      {/* Scene 7.5: Consistent Hashing (NEW SCENE) */}
+      {frame >= starts.consistentHashing && frame < starts.globalLB && (
+        <>
+          <Title
+            text="Advanced: Consistent Hashing"
+            subtitle="The solution for distributed caching"
+            startFrame={starts.consistentHashing}
+            y={50}
+          />
+
+          <Character type="junior" x={150} y={height - 200} startFrame={starts.consistentHashing} size={80} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={starts.consistentHashing} size={80} />
+
+          <Dialogue
+            speaker="junior"
+            text="But Sarah, with standard hashing (mod N), if we add one server, almost ALL keys get remapped! It breaks the cache."
+            x={200}
+            y={height * 0.64}
+            startFrame={starts.consistentHashing + 20}
+            maxWidth={500}
+          />
+
+          <Dialogue
+            speaker="architect"
+            text="Exactly! That's why we use Consistent Hashing. We map both servers and keys to a ring."
+            x={width * 0.60}
+            y={height * 0.64}
+            startFrame={starts.consistentHashing + 60}
+            maxWidth={500}
+          />
+
+          <svg width={width} height={height}>
+             {/* The Ring */}
+             <circle
+                cx={ringCenterX}
+                cy={ringCenterY}
+                r={ringRadius}
+                fill="none"
+                stroke={theme.colors.network}
+                strokeWidth={4}
+                strokeDasharray="10, 5"
+                opacity={fadeIn(frame, starts.consistentHashing + 80, 20)}
+             />
+
+             {/* Servers on Ring (0, 120, 240 degrees) */}
+             {[0, 1, 2].map((i) => {
+                const angle = (i * 120 - 90) * (Math.PI / 180); // Start at top (-90)
+                const x = ringCenterX + ringRadius * Math.cos(angle);
+                const y = ringCenterY + ringRadius * Math.sin(angle);
+                return (
+                  <g key={i} opacity={fadeIn(frame, starts.consistentHashing + 100 + i * 10, 20)}>
+                     <circle cx={x} cy={y} r={30} fill={theme.colors.server} stroke={theme.text.primary} strokeWidth={2} />
+                     <text x={x} y={y} textAnchor="middle" dy=".3em" fontSize={24}>🖥️</text>
+                     <text x={x} y={y - 40} textAnchor="middle" fill={theme.text.primary} fontSize={20} fontWeight="bold">S{i+1}</text>
+                  </g>
+                );
+             })}
+
+             {/* Keys (Users) on Ring */}
+             {[0, 1, 2, 3, 4, 5].map((i) => {
+                const angleDeg = [20, 140, 200, 260, 300, 340][i];
+                const angle = (angleDeg - 90) * (Math.PI / 180);
+                const x = ringCenterX + ringRadius * Math.cos(angle);
+                const y = ringCenterY + ringRadius * Math.sin(angle);
+
+                // Determine which server owns this key (clockwise)
+                // S1 at 0 (top), S2 at 120, S3 at 240
+                let ownerColor = theme.colors.server;
+                let targetX = 0;
+                let targetY = 0;
+                let isRemapped = false;
+
+                // Logic: Find next server clockwise
+                // Angles are 0, 120, 240.
+                // Key angles: 20 -> S2(120), 140 -> S3(240), 200 -> S3(240), 260 -> S1(0/360), 300 -> S1, 340 -> S1
+
+                // NEW SERVER S4 appears at 60 degrees at frame starts.consistentHashing + 200
+                const showNewServer = frame > starts.consistentHashing + 200;
+
+                if (showNewServer) {
+                   // S4 is at 60.
+                   // Key at 20 (was S2) -> Now S4. REMAPPED!
+                   if (i === 0) { // Angle 20
+                      isRemapped = true;
+                   }
+                }
+
+                return (
+                  <g key={i} opacity={fadeIn(frame, starts.consistentHashing + 120 + i * 5, 10)}>
+                     <circle cx={x} cy={y} r={10} fill={isRemapped ? theme.colors.warning : theme.colors.client} />
+                     {isRemapped && (
+                       <circle cx={x} cy={y} r={20} fill="none" stroke={theme.colors.warning} strokeWidth={2} opacity={pulse(frame, 10)} />
+                     )}
+                  </g>
+                );
+             })}
+
+             {/* New Server Entry Animation */}
+             {frame > starts.consistentHashing + 200 && (
+                <g>
+                   {(() => {
+                      const angle = (60 - 90) * (Math.PI / 180); // 60 degrees
+                      const x = ringCenterX + ringRadius * Math.cos(angle);
+                      const y = ringCenterY + ringRadius * Math.sin(angle);
+                      return (
+                         <g opacity={fadeIn(frame, starts.consistentHashing + 200, 10)}>
+                            <circle cx={x} cy={y} r={35} fill={theme.colors.success} stroke={theme.text.primary} strokeWidth={3} />
+                            <text x={x} y={y} textAnchor="middle" dy=".3em" fontSize={24}>✨</text>
+                            <text x={x} y={y - 45} textAnchor="middle" fill={theme.colors.success} fontSize={22} fontWeight="bold">S4 (New)</text>
+                         </g>
+                      )
+                   })()}
+                </g>
+             )}
+
+             {/* Remapping Indicator */}
+             {frame > starts.consistentHashing + 220 && (
+               <Dialogue
+                  speaker="architect"
+                  text="When S4 joins, only keys between S1 and S4 move. The rest stay put! Minimal disruption."
+                  x={width/2 - 300}
+                  y={height/2}
+                  startFrame={starts.consistentHashing + 220}
+                  maxWidth={600}
+               />
+             )}
+          </svg>
+
+          <div style={{position: 'absolute', right: 50, top: 200, opacity: fadeIn(frame, starts.consistentHashing + 160, 20)}}>
+             <InfoCard title="Consistent Hashing" points={['Keys mapped to ring position', 'Servers mapped to ring position', 'Key handled by next clockwise server', 'Add/Remove node = Minimal data movement']} color={theme.colors.info} width={400} />
           </div>
         </>
       )}
@@ -848,11 +989,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
             flexDirection: 'column'
           }}>
 
-            {/* Phase 1: Canary Deployment (Frames 100 - 240) */}
-            {frame >= starts.deployment + 100 && frame < starts.deployment + 240 && (
+            {/* Phase 1: Canary Deployment (Frames 100 - 300) - Increased Duration */}
+            {frame >= starts.deployment + 100 && frame < starts.deployment + 300 && (
               <div style={{
                 opacity: interpolate(frame,
-                  [starts.deployment + 100, starts.deployment + 120, starts.deployment + 220, starts.deployment + 240],
+                  [starts.deployment + 100, starts.deployment + 120, starts.deployment + 280, starts.deployment + 300],
                   [0, 1, 1, 0]
                 ),
                 display: 'flex',
@@ -879,11 +1020,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
               </div>
             )}
 
-            {/* Phase 2: Blue-Green Deployment (Frames 240 - 380) */}
-            {frame >= starts.deployment + 240 && frame < starts.deployment + 380 && (
+            {/* Phase 2: Blue-Green Deployment (Frames 300 - 500) - Increased Duration */}
+            {frame >= starts.deployment + 300 && frame < starts.deployment + 500 && (
               <div style={{
                 opacity: interpolate(frame,
-                  [starts.deployment + 240, starts.deployment + 260, starts.deployment + 360, starts.deployment + 380],
+                  [starts.deployment + 300, starts.deployment + 320, starts.deployment + 480, starts.deployment + 500],
                   [0, 1, 1, 0]
                 ),
                 display: 'flex',
@@ -894,29 +1035,29 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
                 <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
                    <svg width={1000} height={300}>
-                      <Box x={100} y={100} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 240} />
-                      <Box x={400} y={80} width={200} height={120} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔀" subLabel="Immediate Switch" startFrame={starts.deployment + 240} />
+                      <Box x={100} y={100} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 300} />
+                      <Box x={400} y={80} width={200} height={120} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔀" subLabel="Immediate Switch" startFrame={starts.deployment + 300} />
 
                       {/* Blue Env */}
                       <rect x={730} y={30} width={220} height={100} fill="rgba(59, 130, 246, 0.1)" stroke={theme.colors.info} strokeWidth={2} rx={10} />
-                      <Box x={750} y={40} width={180} height={80} color={theme.colors.info} label="Blue (Live)" icon="🔷" startFrame={starts.deployment + 240} />
+                      <Box x={750} y={40} width={180} height={80} color={theme.colors.info} label="Blue (Live)" icon="🔷" startFrame={starts.deployment + 300} />
 
                       {/* Green Env */}
                       <rect x={730} y={160} width={220} height={100} fill="rgba(16, 185, 129, 0.1)" stroke={theme.colors.success} strokeWidth={2} rx={10} />
-                      <Box x={750} y={170} width={180} height={80} color={theme.colors.success} label="Green (Idle)" icon="🟢" startFrame={starts.deployment + 240} />
+                      <Box x={750} y={170} width={180} height={80} color={theme.colors.success} label="Green (Idle)" icon="🟢" startFrame={starts.deployment + 300} />
 
-                      <Arrow x1={220} y1={140} x2={400} y2={140} color={theme.colors.client} startFrame={starts.deployment + 250} />
+                      <Arrow x1={220} y1={140} x2={400} y2={140} color={theme.colors.client} startFrame={starts.deployment + 310} />
 
                       {/* Switch animation */}
-                      {frame < starts.deployment + 310 ? (
+                      {frame < starts.deployment + 400 ? (
                          <>
-                            <Arrow x1={600} y1={140} x2={750} y2={80} color={theme.colors.info} label="100% Traffic" startFrame={starts.deployment + 260} />
-                            <DataFlowStream x1={220} y1={140} x2={750} y2={80} startFrame={starts.deployment + 270} color={theme.colors.info} particleCount={5} />
+                            <Arrow x1={600} y1={140} x2={750} y2={80} color={theme.colors.info} label="100% Traffic" startFrame={starts.deployment + 320} />
+                            <DataFlowStream x1={220} y1={140} x2={750} y2={80} startFrame={starts.deployment + 330} color={theme.colors.info} particleCount={5} />
                          </>
                       ) : (
                          <>
-                            <Arrow x1={600} y1={140} x2={750} y2={210} color={theme.colors.success} label="SWITCHED! 100%" startFrame={starts.deployment + 310} />
-                            <DataFlowStream x1={220} y1={140} x2={750} y2={210} startFrame={starts.deployment + 310} color={theme.colors.success} particleCount={5} />
+                            <Arrow x1={600} y1={140} x2={750} y2={210} color={theme.colors.success} label="SWITCHED! 100%" startFrame={starts.deployment + 400} />
+                            <DataFlowStream x1={220} y1={140} x2={750} y2={210} startFrame={starts.deployment + 400} color={theme.colors.success} particleCount={5} />
                          </>
                       )}
                    </svg>
@@ -924,11 +1065,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
               </div>
             )}
 
-            {/* Phase 3: A/B Testing (Frames 380 - 520) */}
-            {frame >= starts.deployment + 380 && (
+            {/* Phase 3: A/B Testing (Frames 500 - 720) - Increased Duration */}
+            {frame >= starts.deployment + 500 && (
               <div style={{
                 opacity: interpolate(frame,
-                  [starts.deployment + 380, starts.deployment + 400],
+                  [starts.deployment + 500, starts.deployment + 520],
                   [0, 1]
                 ),
                 display: 'flex',
@@ -939,23 +1080,23 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
                 <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
                    <svg width={1000} height={300}>
-                      <Box x={80} y={50} width={140} height={80} color={theme.colors.client} label="Group A" icon="👤" subLabel="ID ends 0-4" startFrame={starts.deployment + 380} />
-                      <Box x={80} y={170} width={140} height={80} color={theme.colors.client} label="Group B" icon="👤" subLabel="ID ends 5-9" startFrame={starts.deployment + 380} />
+                      <Box x={80} y={50} width={140} height={80} color={theme.colors.client} label="Group A" icon="👤" subLabel="ID ends 0-4" startFrame={starts.deployment + 500} />
+                      <Box x={80} y={170} width={140} height={80} color={theme.colors.client} label="Group B" icon="👤" subLabel="ID ends 5-9" startFrame={starts.deployment + 500} />
 
-                      <Box x={400} y={110} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🧠" subLabel="Header Routing" startFrame={starts.deployment + 380} />
+                      <Box x={400} y={110} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🧠" subLabel="Header Routing" startFrame={starts.deployment + 500} />
 
-                      <Box x={750} y={50} width={200} height={90} color={theme.colors.server} label="Feature A" icon="🅰️" subLabel="Original" startFrame={starts.deployment + 380} />
-                      <Box x={750} y={170} width={200} height={90} color={theme.colors.messageQueue} label="Feature B" icon="🅱️" subLabel="New Design" startFrame={starts.deployment + 380} />
+                      <Box x={750} y={50} width={200} height={90} color={theme.colors.server} label="Feature A" icon="🅰️" subLabel="Original" startFrame={starts.deployment + 500} />
+                      <Box x={750} y={170} width={200} height={90} color={theme.colors.messageQueue} label="Feature B" icon="🅱️" subLabel="New Design" startFrame={starts.deployment + 500} />
 
                       {/* Group A to Feature A */}
-                      <Arrow x1={220} y1={90} x2={400} y2={130} color={theme.colors.client} startFrame={starts.deployment + 390} />
-                      <Arrow x1={600} y1={130} x2={750} y2={95} color={theme.colors.server} label="Route A" startFrame={starts.deployment + 400} />
-                      <DataFlowStream x1={220} y1={90} x2={750} y2={95} startFrame={starts.deployment + 410} color={theme.colors.server} particleCount={2} />
+                      <Arrow x1={220} y1={90} x2={400} y2={130} color={theme.colors.client} startFrame={starts.deployment + 510} />
+                      <Arrow x1={600} y1={130} x2={750} y2={95} color={theme.colors.server} label="Route A" startFrame={starts.deployment + 520} />
+                      <DataFlowStream x1={220} y1={90} x2={750} y2={95} startFrame={starts.deployment + 530} color={theme.colors.server} particleCount={2} />
 
                       {/* Group B to Feature B */}
-                      <Arrow x1={220} y1={210} x2={400} y2={170} color={theme.colors.client} startFrame={starts.deployment + 395} />
-                      <Arrow x1={600} y1={170} x2={750} y2={215} color={theme.colors.messageQueue} label="Route B" startFrame={starts.deployment + 405} />
-                      <DataFlowStream x1={220} y1={210} x2={750} y2={215} startFrame={starts.deployment + 415} color={theme.colors.messageQueue} particleCount={2} />
+                      <Arrow x1={220} y1={210} x2={400} y2={170} color={theme.colors.client} startFrame={starts.deployment + 515} />
+                      <Arrow x1={600} y1={170} x2={750} y2={215} color={theme.colors.messageQueue} label="Route B" startFrame={starts.deployment + 525} />
+                      <DataFlowStream x1={220} y1={210} x2={750} y2={215} startFrame={starts.deployment + 535} color={theme.colors.messageQueue} particleCount={2} />
                    </svg>
                 </div>
               </div>
