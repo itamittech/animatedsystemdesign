@@ -19,7 +19,6 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const {width, height} = useVideoConfig();
 
   // Define Scene Timings (in frames)
-  // Adjusted pace: Increased durations for better readability
   const sceneDurations = {
     intro: 300,
     singleServer: 210,
@@ -28,13 +27,14 @@ export const LoadBalancingEnhanced: React.FC = () => {
     l4vsL7: 540,
     healthChecks: 240,
     stickySessions: 420,
-    consistentHashing: 480, // New scene
+    serverlessLB: 420, // New
+    clientSideLB: 420, // New
     globalLB: 420,
     tools: 540,
     deployment: 720,
     ssl: 300,
     websockets: 300,
-    rateLimiting: 480,
+    ddosMitigation: 600, // Enhanced & Renamed
   };
 
   // Calculate start frames
@@ -46,13 +46,14 @@ export const LoadBalancingEnhanced: React.FC = () => {
     l4vsL7: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms,
     healthChecks: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7,
     stickySessions: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks,
-    consistentHashing: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions,
-    globalLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing,
-    tools: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB,
-    deployment: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools,
-    ssl: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment,
-    websockets: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl,
-    rateLimiting: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.consistentHashing + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets,
+    serverlessLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions,
+    clientSideLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB,
+    globalLB: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB + sceneDurations.clientSideLB,
+    tools: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB + sceneDurations.clientSideLB + sceneDurations.globalLB,
+    deployment: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB + sceneDurations.clientSideLB + sceneDurations.globalLB + sceneDurations.tools,
+    ssl: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB + sceneDurations.clientSideLB + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment,
+    websockets: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB + sceneDurations.clientSideLB + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl,
+    ddosMitigation: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.serverlessLB + sceneDurations.clientSideLB + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets,
   };
 
   // --- Scene 2 Calculations (Single Server) ---
@@ -89,11 +90,6 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const s7ServerX = 1250;
   const s7ServerStartY = 250;
   const s7ServerGap = 150;
-
-  // --- New Scene: Consistent Hashing ---
-  const ringCenterX = width / 2;
-  const ringCenterY = height / 2 + 50;
-  const ringRadius = 250;
 
   // --- Scene 8 Calculations (Global LB) ---
   const s8RegionX = 150;
@@ -525,7 +521,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
                 padding: 30,
                 borderRadius: 20,
                 border: `2px solid ${theme.colors.network}`,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
                 opacity: fadeIn(frame, starts.l4vsL7 + 60, 20),
               }}
             >
@@ -557,7 +553,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
                 padding: 30,
                 borderRadius: 20,
                 border: `2px solid ${theme.colors.frontend}`,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
                 opacity: fadeIn(frame, starts.l4vsL7 + 150, 20),
               }}
             >
@@ -667,7 +663,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
       )}
 
       {/* Scene 7: Sticky Sessions */}
-      {frame >= starts.stickySessions && frame < starts.consistentHashing && (
+      {frame >= starts.stickySessions && frame < starts.serverlessLB && (
         <>
           <Title
             text="Sticky Sessions & Session Affinity"
@@ -739,139 +735,153 @@ export const LoadBalancingEnhanced: React.FC = () => {
         </>
       )}
 
-      {/* Scene 7.5: Consistent Hashing (NEW SCENE) */}
-      {frame >= starts.consistentHashing && frame < starts.globalLB && (
+      {/* Scene: Serverless Load Balancing (NEW) */}
+      {frame >= starts.serverlessLB && frame < starts.clientSideLB && (
         <>
           <Title
-            text="Advanced: Consistent Hashing"
-            subtitle="The solution for distributed caching"
-            startFrame={starts.consistentHashing}
+            text="Serverless Load Balancing"
+            subtitle="Invisible scaling managed by the cloud"
+            startFrame={starts.serverlessLB}
             y={50}
           />
 
-          <Character type="junior" x={150} y={height - 200} startFrame={starts.consistentHashing} size={80} />
-          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={starts.consistentHashing} size={80} />
+          <Character type="junior" x={150} y={height - 200} startFrame={starts.serverlessLB} size={80} />
+          <Character type="architect" x={width * 0.75} y={height - 200} startFrame={starts.serverlessLB} size={80} />
 
           <Dialogue
             speaker="junior"
-            text="But Sarah, with standard hashing (mod N), if we add one server, almost ALL keys get remapped! It breaks the cache."
+            text="This sounds like a lot to manage. Is there a way to not think about load balancers?"
             x={200}
             y={height * 0.64}
-            startFrame={starts.consistentHashing + 20}
+            startFrame={starts.serverlessLB + 20}
             maxWidth={500}
           />
 
-          <Dialogue
+           <Dialogue
             speaker="architect"
-            text="Exactly! That's why we use Consistent Hashing. We map both servers and keys to a ring."
+            text="Yes! In Serverless (like AWS Lambda), the cloud provider abstracts it away. You just deploy code."
             x={width * 0.60}
             y={height * 0.64}
-            startFrame={starts.consistentHashing + 60}
+            startFrame={starts.serverlessLB + 50}
             maxWidth={500}
           />
 
           <svg width={width} height={height}>
-             {/* The Ring */}
-             <circle
-                cx={ringCenterX}
-                cy={ringCenterY}
-                r={ringRadius}
-                fill="none"
-                stroke={theme.colors.network}
-                strokeWidth={4}
-                strokeDasharray="10, 5"
-                opacity={fadeIn(frame, starts.consistentHashing + 80, 20)}
-             />
+            <Box x={200} y={300} width={120} height={100} color={theme.colors.client} label="Client" icon="👤" startFrame={starts.serverlessLB + 60} />
 
-             {/* Servers on Ring (0, 120, 240 degrees) */}
-             {[0, 1, 2].map((i) => {
-                const angle = (i * 120 - 90) * (Math.PI / 180); // Start at top (-90)
-                const x = ringCenterX + ringRadius * Math.cos(angle);
-                const y = ringCenterY + ringRadius * Math.sin(angle);
-                return (
-                  <g key={i} opacity={fadeIn(frame, starts.consistentHashing + 100 + i * 10, 20)}>
-                     <circle cx={x} cy={y} r={30} fill={theme.colors.server} stroke={theme.text.primary} strokeWidth={2} />
-                     <text x={x} y={y} textAnchor="middle" dy=".3em" fontSize={24}>🖥️</text>
-                     <text x={x} y={y - 40} textAnchor="middle" fill={theme.text.primary} fontSize={20} fontWeight="bold">S{i+1}</text>
-                  </g>
-                );
-             })}
+            {/* The "Cloud" abstraction */}
+            <rect
+              x={500} y={200} width={1000} height={300}
+              rx={20} fill="rgba(255, 165, 0, 0.05)" stroke={theme.colors.warning} strokeWidth={2} strokeDasharray="10 5"
+              opacity={fadeIn(frame, starts.serverlessLB + 70, 20)}
+            />
+            <text x={1000} y={240} textAnchor="middle" fill={theme.colors.warning} fontSize={24} fontWeight="bold" opacity={fadeIn(frame, starts.serverlessLB + 70, 20)}>☁️ Cloud Provider Managed Zone</text>
 
-             {/* Keys (Users) on Ring */}
-             {[0, 1, 2, 3, 4, 5].map((i) => {
-                const angleDeg = [20, 140, 200, 260, 300, 340][i];
-                const angle = (angleDeg - 90) * (Math.PI / 180);
-                const x = ringCenterX + ringRadius * Math.cos(angle);
-                const y = ringCenterY + ringRadius * Math.sin(angle);
+            {/* API Gateway / Invisible LB */}
+            <Box x={550} y={300} width={200} height={120} color={theme.colors.warning} label="API Gateway" icon="🚪" startFrame={starts.serverlessLB + 80} />
 
-                // Determine which server owns this key (clockwise)
-                // S1 at 0 (top), S2 at 120, S3 at 240
-                let ownerColor = theme.colors.server;
-                let targetX = 0;
-                let targetY = 0;
-                let isRemapped = false;
+            {/* Ephemeral Instances */}
+            {[0, 1, 2].map(i => (
+              <Box
+                key={i}
+                x={1000} y={250 + i * 80} width={250} height={60}
+                color={theme.colors.success}
+                label={`Function Instance #${i+1}`}
+                icon="⚡"
+                startFrame={starts.serverlessLB + 100 + i * 20}
+                subLabel="Auto-spawned"
+              />
+            ))}
 
-                // Logic: Find next server clockwise
-                // Angles are 0, 120, 240.
-                // Key angles: 20 -> S2(120), 140 -> S3(240), 200 -> S3(240), 260 -> S1(0/360), 300 -> S1, 340 -> S1
+            <Arrow x1={320} y1={350} x2={550} y2={350} color={theme.colors.client} startFrame={starts.serverlessLB + 85} />
 
-                // NEW SERVER S4 appears at 60 degrees at frame starts.consistentHashing + 200
-                const showNewServer = frame > starts.consistentHashing + 200;
+            {[0, 1, 2].map(i => (
+               <React.Fragment key={i}>
+                <Arrow
+                  x1={750} y1={360} x2={1000} y2={280 + i * 80}
+                  color={theme.colors.warning}
+                  startFrame={starts.serverlessLB + 110 + i * 20}
+                  dashed
+                />
+                 <DataFlowStream
+                  x1={320} y1={350} x2={1000} y2={280 + i * 80}
+                  startFrame={starts.serverlessLB + 120 + i * 20}
+                  color={theme.colors.success}
+                />
+               </React.Fragment>
+            ))}
 
-                if (showNewServer) {
-                   // S4 is at 60.
-                   // Key at 20 (was S2) -> Now S4. REMAPPED!
-                   if (i === 0) { // Angle 20
-                      isRemapped = true;
-                   }
-                }
-
-                return (
-                  <g key={i} opacity={fadeIn(frame, starts.consistentHashing + 120 + i * 5, 10)}>
-                     <circle cx={x} cy={y} r={10} fill={isRemapped ? theme.colors.warning : theme.colors.client} />
-                     {isRemapped && (
-                       <circle cx={x} cy={y} r={20} fill="none" stroke={theme.colors.warning} strokeWidth={2} opacity={pulse(frame, 10)} />
-                     )}
-                  </g>
-                );
-             })}
-
-             {/* New Server Entry Animation */}
-             {frame > starts.consistentHashing + 200 && (
-                <g>
-                   {(() => {
-                      const angle = (60 - 90) * (Math.PI / 180); // 60 degrees
-                      const x = ringCenterX + ringRadius * Math.cos(angle);
-                      const y = ringCenterY + ringRadius * Math.sin(angle);
-                      return (
-                         <g opacity={fadeIn(frame, starts.consistentHashing + 200, 10)}>
-                            <circle cx={x} cy={y} r={35} fill={theme.colors.success} stroke={theme.text.primary} strokeWidth={3} />
-                            <text x={x} y={y} textAnchor="middle" dy=".3em" fontSize={24}>✨</text>
-                            <text x={x} y={y - 45} textAnchor="middle" fill={theme.colors.success} fontSize={22} fontWeight="bold">S4 (New)</text>
-                         </g>
-                      )
-                   })()}
-                </g>
-             )}
-
-             {/* Remapping Indicator */}
-             {frame > starts.consistentHashing + 220 && (
-               <Dialogue
-                  speaker="architect"
-                  text="When S4 joins, only keys between S1 and S4 move. The rest stay put! Minimal disruption."
-                  x={width/2 - 300}
-                  y={height/2}
-                  startFrame={starts.consistentHashing + 220}
-                  maxWidth={600}
-               />
-             )}
           </svg>
 
-          <div style={{position: 'absolute', right: 50, top: 200, opacity: fadeIn(frame, starts.consistentHashing + 160, 20)}}>
-             <InfoCard title="Consistent Hashing" points={['Keys mapped to ring position', 'Servers mapped to ring position', 'Key handled by next clockwise server', 'Add/Remove node = Minimal data movement']} color={theme.colors.info} width={400} />
+          <div style={{position: 'absolute', left: width/2 - 300, top: 580, opacity: fadeIn(frame, starts.serverlessLB + 150, 20)}}>
+             <InfoCard title="Serverless Benefits" points={['No LB configuration needed', 'Infinite auto-scaling (scale-to-zero)', 'Pay per request', 'Event-driven architecture']} color={theme.colors.warning} width={600} />
           </div>
         </>
       )}
+
+      {/* Scene: Client-Side Load Balancing (NEW) */}
+      {frame >= starts.clientSideLB && frame < starts.globalLB && (
+        <>
+          <Title
+            text="Client-Side Load Balancing"
+            subtitle="The client decides where to go"
+            startFrame={starts.clientSideLB}
+            y={50}
+          />
+
+           <Character type="architect" x={width * 0.1} y={height - 200} startFrame={starts.clientSideLB} size={80} />
+
+          <Dialogue
+            speaker="architect"
+            text="Alternatively, in microservices (like Netflix Ribbon), the CLIENT holds the list of servers and picks one directly."
+            x={width * 0.1 + 250}
+            y={height * 0.64}
+            startFrame={starts.clientSideLB + 20}
+            maxWidth={700}
+          />
+
+          <svg width={width} height={height}>
+             {/* Client with a List */}
+             <g transform="translate(200, 300)">
+                <Box x={0} y={0} width={200} height={150} color={theme.colors.client} label="Smart Client" icon="🧠" startFrame={starts.clientSideLB + 40} />
+                {/* The List */}
+                <rect x={160} y={-20} width={100} height={120} fill="#fff" stroke={theme.colors.text.primary} rx={5} opacity={fadeIn(frame, starts.clientSideLB + 50, 10)} />
+                <text x={210} y={0} textAnchor="middle" fontSize={14} fontWeight="bold">Server List</text>
+                <text x={170} y={20} fontSize={12} fontFamily="monospace">1. 10.0.0.1</text>
+                <text x={170} y={40} fontSize={12} fontFamily="monospace">2. 10.0.0.2</text>
+                <text x={170} y={60} fontSize={12} fontFamily="monospace">3. 10.0.0.3</text>
+             </g>
+
+             {/* Service Registry */}
+             <Box x={600} y={150} width={200} height={100} color={theme.colors.info} label="Service Registry" icon="📒" subLabel="Eureka / Consul" startFrame={starts.clientSideLB + 60} />
+
+             {/* Servers */}
+             {[0, 1, 2].map(i => (
+               <Box key={i} x={1100} y={200 + i * 150} width={180} height={100} color={theme.colors.server} label={`Server ${i+1}`} icon="🖥️" startFrame={starts.clientSideLB + 80 + i * 10} />
+             ))}
+
+             {/* 1. Get List */}
+             <Arrow x1={400} y1={320} x2={600} y2={200} color={theme.colors.info} label="1. Get IPs" startFrame={starts.clientSideLB + 70} dashed />
+
+             {/* 2. Direct Calls */}
+             {[0, 1, 2].map(i => (
+                <React.Fragment key={i}>
+                   <Arrow
+                    x1={400} y1={375} x2={1100} y2={250 + i * 150}
+                    color={theme.colors.client}
+                    startFrame={starts.clientSideLB + 100 + i * 10}
+                    label={`Direct to S${i+1}`}
+                   />
+                </React.Fragment>
+             ))}
+          </svg>
+
+          <div style={{position: 'absolute', right: 100, top: 600, opacity: fadeIn(frame, starts.clientSideLB + 140, 20)}}>
+             <InfoCard title="Client-Side LB" points={['Removes the central LB bottleneck', 'Lower latency (one less hop)', 'Client must be "smart" (complex)', 'Common in gRPC / Microservices']} color={theme.colors.client} width={500} />
+          </div>
+        </>
+      )}
+
 
       {/* Scene 8: Global Load Balancing */}
       {frame >= starts.globalLB && frame < starts.tools && (
@@ -1149,7 +1159,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
       )}
 
       {/* Scene 12: WebSocket Load Balancing */}
-      {frame >= starts.websockets && frame < starts.rateLimiting && (
+      {frame >= starts.websockets && frame < starts.ddosMitigation && (
         <>
           <Title text="WebSocket Load Balancing" subtitle="Long-lived connections require special handling" startFrame={starts.websockets} y={50} />
 
@@ -1193,64 +1203,86 @@ export const LoadBalancingEnhanced: React.FC = () => {
         </>
       )}
 
-      {/* Scene 13: Rate Limiting & DDoS Protection */}
-      {frame >= starts.rateLimiting && (
+      {/* Scene 13: DDoS Mitigation in Depth (ENHANCED) */}
+      {frame >= starts.ddosMitigation && (
         <>
-          <Title text="Rate Limiting & DDoS Protection" subtitle="Protecting your infrastructure" startFrame={starts.rateLimiting} y={50} />
+          <Title text="DDoS Mitigation in Depth" subtitle="Identifying and dropping malicious packets" startFrame={starts.ddosMitigation} y={50} />
 
-          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={starts.rateLimiting} size={80} />
+          <Character type="architect" x={width / 2 - 60} y={height - 200} startFrame={starts.ddosMitigation} size={80} />
 
           <Dialogue
             speaker="architect"
-            text="Load balancers add a critical security layer. They can rate limit, block malicious traffic, and protect backends from overload."
+            text="Load balancers are the first line of defense! They identify malicious patterns like SYN floods and drop them before they hit your app."
             x={width / 2 - 500}
             y={height * 0.64}
-            startFrame={starts.rateLimiting + 20}
+            startFrame={starts.ddosMitigation + 20}
             maxWidth={1000}
           />
 
           <svg width={width} height={height}>
-            <Box x={100} y={200} width={140} height={80} color={theme.colors.client} label="Legit User" icon="👤" startFrame={starts.rateLimiting + 50} />
-            <Box x={100} y={310} width={140} height={80} color={theme.colors.warning} label="Abuser" icon="😈" subLabel="1000 req/s" startFrame={starts.rateLimiting + 55} />
-            <Box x={100} y={420} width={140} height={80} color={theme.colors.error} label="DDoS Bot" icon="🤖" subLabel="100k req/s" startFrame={starts.rateLimiting + 60} />
 
-            <Box x={500} y={280} width={300} height={180} color={theme.colors.loadBalancer} label="Smart Load Balancer" icon="🛡️" subLabel="Rate Limiting + WAF" startFrame={starts.rateLimiting + 70} />
-
-            <Box x={1100} y={300} width={200} height={140} color={theme.colors.success} label="Protected Backend" icon="🖥️" subLabel="Safe!" startFrame={starts.rateLimiting + 80} />
-
-            <Arrow x1={240} y1={240} x2={500} y2={340} color={theme.colors.success} label="✅ Allowed" startFrame={starts.rateLimiting + 90} />
-            <DataFlowStream x1={240} y1={240} x2={500} y2={340} startFrame={starts.rateLimiting + 95} color={theme.colors.success} />
-
-            <Arrow x1={240} y1={350} x2={500} y2={360} color={theme.colors.warning} label="⚠️ Throttled" startFrame={starts.rateLimiting + 100} />
-
-            <g opacity={fadeIn(frame, starts.rateLimiting + 110, 15)}>
-              <line x1={240} y1={460} x2={500} y2={390} stroke={theme.colors.error} strokeWidth={6} />
-              <line x1={240} y1={390} x2={500} y2={460} stroke={theme.colors.error} strokeWidth={6} />
-              <text x={350} y={450} fill={theme.colors.error} fontSize={24} fontWeight="bold" textAnchor="middle">
-                ❌ BLOCKED
-              </text>
+            {/* Attackers */}
+            <g>
+               <Box x={100} y={150} width={120} height={80} color={theme.colors.error} label="Attacker 1" icon="👹" startFrame={starts.ddosMitigation + 40} />
+               <Box x={100} y={250} width={120} height={80} color={theme.colors.error} label="Attacker 2" icon="👹" startFrame={starts.ddosMitigation + 45} />
+               <Box x={100} y={350} width={120} height={80} color={theme.colors.error} label="Attacker 3" icon="👹" startFrame={starts.ddosMitigation + 50} />
             </g>
 
-            <Arrow x1={800} y1={370} x2={1100} y2={370} color={theme.colors.success} label="Clean traffic only" startFrame={starts.rateLimiting + 130} />
-            <DataFlowStream x1={800} y1={370} x2={1100} y2={370} startFrame={starts.rateLimiting + 135} color={theme.colors.success} particleCount={3} />
+            {/* Legit User */}
+            <Box x={100} y={500} width={120} height={80} color={theme.colors.client} label="Legit User" icon="👤" startFrame={starts.ddosMitigation + 60} />
+
+            {/* Smart LB / WAF */}
+            <Box x={500} y={280} width={300} height={200} color={theme.colors.loadBalancer} label="Smart LB + WAF" icon="🛡️" subLabel="Deep Packet Inspection" startFrame={starts.ddosMitigation + 70} />
+
+            {/* Trash Bin */}
+            <Box x={600} y={600} width={100} height={100} color={theme.colors.error} label="Drop" icon="🗑️" startFrame={starts.ddosMitigation + 80} />
+
+            {/* Backend */}
+            <Box x={1100} y={300} width={200} height={140} color={theme.colors.success} label="Protected Server" icon="🖥️" subLabel="Safe!" startFrame={starts.ddosMitigation + 80} />
+
+            {/* SYN Flood Animation - Half-open connections */}
+            {[0, 1, 2].map(i => (
+               <React.Fragment key={i}>
+                  <Arrow
+                     x1={220} y1={200 + i * 100} x2={500} y2={300 + i * 40}
+                     color={theme.colors.error}
+                     label="SYN"
+                     startFrame={starts.ddosMitigation + 90 + i * 10}
+                  />
+                  {/* Dropped packets animation */}
+                  {frame > starts.ddosMitigation + 130 && (
+                     <DataFlowStream
+                        x1={500} y1={300 + i * 40} x2={650} y2={600}
+                        startFrame={starts.ddosMitigation + 130 + i * 10}
+                        color={theme.colors.error}
+                     />
+                  )}
+               </React.Fragment>
+            ))}
+
+            {/* Legit Traffic */}
+            <Arrow x1={220} y1={540} x2={500} y2={450} color={theme.colors.success} label="HTTP Request" startFrame={starts.ddosMitigation + 150} />
+            <DataFlowStream x1={220} y1={540} x2={500} y2={450} startFrame={starts.ddosMitigation + 160} color={theme.colors.success} />
+
+            {/* Forward to Backend */}
+            <Arrow x1={800} y1={380} x2={1100} y2={370} color={theme.colors.success} label="Allowed" startFrame={starts.ddosMitigation + 170} />
+            <DataFlowStream x1={800} y1={380} x2={1100} y2={370} startFrame={starts.ddosMitigation + 180} color={theme.colors.success} particleCount={3} />
+
           </svg>
 
-          <div style={{position: 'absolute', left: 100, top: 620, opacity: fadeIn(frame, starts.rateLimiting + 150, 20)}}>
-            <InfoCard title="Rate Limiting Strategies" points={['Per-IP limits (100 req/min)', 'Token bucket algorithm', 'WAF rules (SQL/XSS)', 'Challenge bad actors']} color={theme.colors.loadBalancer} width={600} />
+          {/* Explanation Cards */}
+          <div style={{position: 'absolute', right: 50, top: 100, opacity: fadeIn(frame, starts.ddosMitigation + 190, 20)}}>
+            <InfoCard title="🛡️ Defense Techniques" points={['SYN Cookies: Verify sender before allocating resources', 'Rate Limiting: Cap requests per IP', 'Blackholing: Drop traffic from known botnets', 'Geo-Blocking: Block suspect regions']} color={theme.colors.error} width={500} />
           </div>
 
-          <div style={{position: 'absolute', right: 50, top: 620, opacity: fadeIn(frame, starts.rateLimiting + 170, 20)}}>
-            <InfoCard title="Circuit Breaker" points={['Monitor backend health', 'Auto-stop to failing servers', 'Exponential backoff', 'Graceful degradation']} color={theme.colors.info} width={600} />
-          </div>
-
-          {frame > starts.rateLimiting + 200 && (
+          {frame > starts.ddosMitigation + 250 && (
             <div
               style={{
                 position: 'absolute',
                 left: width / 2 - 350,
-                top: 900,
+                top: 850,
                 width: 700,
-                opacity: fadeIn(frame, starts.rateLimiting + 200, 20),
+                opacity: fadeIn(frame, starts.ddosMitigation + 250, 20),
                 background: 'linear-gradient(145deg, rgba(16, 185, 129, 0.2), rgba(6, 95, 70, 0.2))',
                 padding: 32,
                 borderRadius: 24,
