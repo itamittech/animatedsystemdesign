@@ -111,7 +111,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="LoadBalancingEnhanced"
         component={LoadBalancingEnhanced}
-        durationInFrames={3780}
+        durationInFrames={5490}
         fps={30}
         width={1920}
         height={1080}

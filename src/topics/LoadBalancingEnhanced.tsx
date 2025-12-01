@@ -19,21 +19,22 @@ export const LoadBalancingEnhanced: React.FC = () => {
   const {width, height} = useVideoConfig();
 
   // Define Scene Timings (in frames)
-  // Previous duration: 3480
+  // Adjusted pace: Increased durations for better readability
   const sceneDurations = {
-    intro: 240, // Increased from 120 (+4s) for slower reading
-    singleServer: 150,
-    basicLB: 180,
-    algorithms: 360,
-    l4vsL7: 420,
-    healthChecks: 150,
-    stickySessions: 300,
-    globalLB: 300,
-    tools: 420,
-    deployment: 540, // Increased from 360 (+6s) for carousel effect
-    ssl: 180,
-    websockets: 180,
-    rateLimiting: 360,
+    intro: 300,
+    singleServer: 210,
+    basicLB: 240,
+    algorithms: 480,
+    l4vsL7: 540,
+    healthChecks: 240,
+    stickySessions: 420,
+    globalLB: 420,
+    tools: 540,
+    deployment: 720,
+    ssl: 300,
+    websockets: 300,
+    rateLimiting: 480,
+    summary: 300, // New Summary Scene
   };
 
   // Calculate start frames
@@ -51,6 +52,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
     ssl: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment,
     websockets: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl,
     rateLimiting: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets,
+    summary: sceneDurations.intro + sceneDurations.singleServer + sceneDurations.basicLB + sceneDurations.algorithms + sceneDurations.l4vsL7 + sceneDurations.healthChecks + sceneDurations.stickySessions + sceneDurations.globalLB + sceneDurations.tools + sceneDurations.deployment + sceneDurations.ssl + sceneDurations.websockets + sceneDurations.rateLimiting,
   };
 
   // --- Scene 2 Calculations (Single Server) ---
@@ -848,11 +850,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
             flexDirection: 'column'
           }}>
 
-            {/* Phase 1: Canary Deployment (Frames 100 - 240) */}
-            {frame >= starts.deployment + 100 && frame < starts.deployment + 240 && (
+            {/* Phase 1: Canary Deployment (Frames 100 - 300) - Increased Duration */}
+            {frame >= starts.deployment + 100 && frame < starts.deployment + 300 && (
               <div style={{
                 opacity: interpolate(frame,
-                  [starts.deployment + 100, starts.deployment + 120, starts.deployment + 220, starts.deployment + 240],
+                  [starts.deployment + 100, starts.deployment + 120, starts.deployment + 280, starts.deployment + 300],
                   [0, 1, 1, 0]
                 ),
                 display: 'flex',
@@ -879,11 +881,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
               </div>
             )}
 
-            {/* Phase 2: Blue-Green Deployment (Frames 240 - 380) */}
-            {frame >= starts.deployment + 240 && frame < starts.deployment + 380 && (
+            {/* Phase 2: Blue-Green Deployment (Frames 300 - 500) - Increased Duration */}
+            {frame >= starts.deployment + 300 && frame < starts.deployment + 500 && (
               <div style={{
                 opacity: interpolate(frame,
-                  [starts.deployment + 240, starts.deployment + 260, starts.deployment + 360, starts.deployment + 380],
+                  [starts.deployment + 300, starts.deployment + 320, starts.deployment + 480, starts.deployment + 500],
                   [0, 1, 1, 0]
                 ),
                 display: 'flex',
@@ -894,29 +896,29 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
                 <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
                    <svg width={1000} height={300}>
-                      <Box x={100} y={100} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 240} />
-                      <Box x={400} y={80} width={200} height={120} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔀" subLabel="Immediate Switch" startFrame={starts.deployment + 240} />
+                      <Box x={100} y={100} width={120} height={80} color={theme.colors.client} label="Users" icon="👥" startFrame={starts.deployment + 300} />
+                      <Box x={400} y={80} width={200} height={120} color={theme.colors.loadBalancer} label="Load Balancer" icon="🔀" subLabel="Immediate Switch" startFrame={starts.deployment + 300} />
 
                       {/* Blue Env */}
                       <rect x={730} y={30} width={220} height={100} fill="rgba(59, 130, 246, 0.1)" stroke={theme.colors.info} strokeWidth={2} rx={10} />
-                      <Box x={750} y={40} width={180} height={80} color={theme.colors.info} label="Blue (Live)" icon="🔷" startFrame={starts.deployment + 240} />
+                      <Box x={750} y={40} width={180} height={80} color={theme.colors.info} label="Blue (Live)" icon="🔷" startFrame={starts.deployment + 300} />
 
                       {/* Green Env */}
                       <rect x={730} y={160} width={220} height={100} fill="rgba(16, 185, 129, 0.1)" stroke={theme.colors.success} strokeWidth={2} rx={10} />
-                      <Box x={750} y={170} width={180} height={80} color={theme.colors.success} label="Green (Idle)" icon="🟢" startFrame={starts.deployment + 240} />
+                      <Box x={750} y={170} width={180} height={80} color={theme.colors.success} label="Green (Idle)" icon="🟢" startFrame={starts.deployment + 300} />
 
-                      <Arrow x1={220} y1={140} x2={400} y2={140} color={theme.colors.client} startFrame={starts.deployment + 250} />
+                      <Arrow x1={220} y1={140} x2={400} y2={140} color={theme.colors.client} startFrame={starts.deployment + 310} />
 
                       {/* Switch animation */}
-                      {frame < starts.deployment + 310 ? (
+                      {frame < starts.deployment + 400 ? (
                          <>
-                            <Arrow x1={600} y1={140} x2={750} y2={80} color={theme.colors.info} label="100% Traffic" startFrame={starts.deployment + 260} />
-                            <DataFlowStream x1={220} y1={140} x2={750} y2={80} startFrame={starts.deployment + 270} color={theme.colors.info} particleCount={5} />
+                            <Arrow x1={600} y1={140} x2={750} y2={80} color={theme.colors.info} label="100% Traffic" startFrame={starts.deployment + 320} />
+                            <DataFlowStream x1={220} y1={140} x2={750} y2={80} startFrame={starts.deployment + 330} color={theme.colors.info} particleCount={5} />
                          </>
                       ) : (
                          <>
-                            <Arrow x1={600} y1={140} x2={750} y2={210} color={theme.colors.success} label="SWITCHED! 100%" startFrame={starts.deployment + 310} />
-                            <DataFlowStream x1={220} y1={140} x2={750} y2={210} startFrame={starts.deployment + 310} color={theme.colors.success} particleCount={5} />
+                            <Arrow x1={600} y1={140} x2={750} y2={210} color={theme.colors.success} label="SWITCHED! 100%" startFrame={starts.deployment + 400} />
+                            <DataFlowStream x1={220} y1={140} x2={750} y2={210} startFrame={starts.deployment + 400} color={theme.colors.success} particleCount={5} />
                          </>
                       )}
                    </svg>
@@ -924,11 +926,11 @@ export const LoadBalancingEnhanced: React.FC = () => {
               </div>
             )}
 
-            {/* Phase 3: A/B Testing (Frames 380 - 520) */}
-            {frame >= starts.deployment + 380 && (
+            {/* Phase 3: A/B Testing (Frames 500 - 720) - Increased Duration */}
+            {frame >= starts.deployment + 500 && (
               <div style={{
                 opacity: interpolate(frame,
-                  [starts.deployment + 380, starts.deployment + 400],
+                  [starts.deployment + 500, starts.deployment + 520],
                   [0, 1]
                 ),
                 display: 'flex',
@@ -939,23 +941,23 @@ export const LoadBalancingEnhanced: React.FC = () => {
 
                 <div style={{marginTop: 40, position: 'relative', width: 1000, height: 300}}>
                    <svg width={1000} height={300}>
-                      <Box x={80} y={50} width={140} height={80} color={theme.colors.client} label="Group A" icon="👤" subLabel="ID ends 0-4" startFrame={starts.deployment + 380} />
-                      <Box x={80} y={170} width={140} height={80} color={theme.colors.client} label="Group B" icon="👤" subLabel="ID ends 5-9" startFrame={starts.deployment + 380} />
+                      <Box x={80} y={50} width={140} height={80} color={theme.colors.client} label="Group A" icon="👤" subLabel="ID ends 0-4" startFrame={starts.deployment + 500} />
+                      <Box x={80} y={170} width={140} height={80} color={theme.colors.client} label="Group B" icon="👤" subLabel="ID ends 5-9" startFrame={starts.deployment + 500} />
 
-                      <Box x={400} y={110} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🧠" subLabel="Header Routing" startFrame={starts.deployment + 380} />
+                      <Box x={400} y={110} width={200} height={120} color={theme.colors.loadBalancer} label="Smart LB" icon="🧠" subLabel="Header Routing" startFrame={starts.deployment + 500} />
 
-                      <Box x={750} y={50} width={200} height={90} color={theme.colors.server} label="Feature A" icon="🅰️" subLabel="Original" startFrame={starts.deployment + 380} />
-                      <Box x={750} y={170} width={200} height={90} color={theme.colors.messageQueue} label="Feature B" icon="🅱️" subLabel="New Design" startFrame={starts.deployment + 380} />
+                      <Box x={750} y={50} width={200} height={90} color={theme.colors.server} label="Feature A" icon="🅰️" subLabel="Original" startFrame={starts.deployment + 500} />
+                      <Box x={750} y={170} width={200} height={90} color={theme.colors.messageQueue} label="Feature B" icon="🅱️" subLabel="New Design" startFrame={starts.deployment + 500} />
 
                       {/* Group A to Feature A */}
-                      <Arrow x1={220} y1={90} x2={400} y2={130} color={theme.colors.client} startFrame={starts.deployment + 390} />
-                      <Arrow x1={600} y1={130} x2={750} y2={95} color={theme.colors.server} label="Route A" startFrame={starts.deployment + 400} />
-                      <DataFlowStream x1={220} y1={90} x2={750} y2={95} startFrame={starts.deployment + 410} color={theme.colors.server} particleCount={2} />
+                      <Arrow x1={220} y1={90} x2={400} y2={130} color={theme.colors.client} startFrame={starts.deployment + 510} />
+                      <Arrow x1={600} y1={130} x2={750} y2={95} color={theme.colors.server} label="Route A" startFrame={starts.deployment + 520} />
+                      <DataFlowStream x1={220} y1={90} x2={750} y2={95} startFrame={starts.deployment + 530} color={theme.colors.server} particleCount={2} />
 
                       {/* Group B to Feature B */}
-                      <Arrow x1={220} y1={210} x2={400} y2={170} color={theme.colors.client} startFrame={starts.deployment + 395} />
-                      <Arrow x1={600} y1={170} x2={750} y2={215} color={theme.colors.messageQueue} label="Route B" startFrame={starts.deployment + 405} />
-                      <DataFlowStream x1={220} y1={210} x2={750} y2={215} startFrame={starts.deployment + 415} color={theme.colors.messageQueue} particleCount={2} />
+                      <Arrow x1={220} y1={210} x2={400} y2={170} color={theme.colors.client} startFrame={starts.deployment + 515} />
+                      <Arrow x1={600} y1={170} x2={750} y2={215} color={theme.colors.messageQueue} label="Route B" startFrame={starts.deployment + 525} />
+                      <DataFlowStream x1={220} y1={210} x2={750} y2={215} startFrame={starts.deployment + 535} color={theme.colors.messageQueue} particleCount={2} />
                    </svg>
                 </div>
               </div>
@@ -1053,7 +1055,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
       )}
 
       {/* Scene 13: Rate Limiting & DDoS Protection */}
-      {frame >= starts.rateLimiting && (
+      {frame >= starts.rateLimiting && frame < starts.summary && (
         <>
           <Title text="Rate Limiting & DDoS Protection" subtitle="Protecting your infrastructure" startFrame={starts.rateLimiting} y={50} />
 
@@ -1101,15 +1103,71 @@ export const LoadBalancingEnhanced: React.FC = () => {
           <div style={{position: 'absolute', right: 50, top: 620, opacity: fadeIn(frame, starts.rateLimiting + 170, 20)}}>
             <InfoCard title="Circuit Breaker" points={['Monitor backend health', 'Auto-stop to failing servers', 'Exponential backoff', 'Graceful degradation']} color={theme.colors.info} width={600} />
           </div>
+        </>
+      )}
 
-          {frame > starts.rateLimiting + 200 && (
+      {/* Scene 14: Summary (New Addition) */}
+      {frame >= starts.summary && (
+        <>
+            <Title text="Key Takeaways" subtitle="Load Balancing Essentials" startFrame={starts.summary} y={50} />
+
+            <Character type="architect" x={width * 0.75} y={height - 200} startFrame={starts.summary} size={80} />
+            <Character type="junior" x={width * 0.25} y={height - 200} startFrame={starts.summary} size={80} />
+
+            <Dialogue
+                speaker="architect"
+                text="And that's a wrap! Remember these three pillars of load balancing..."
+                x={width * 0.60}
+                y={height * 0.64}
+                startFrame={starts.summary + 20}
+                maxWidth={600}
+            />
+
+            <div style={{
+                position: 'absolute',
+                top: 250,
+                left: width / 2 - 400,
+                width: 800,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 40
+            }}>
+                <div style={{opacity: fadeIn(frame, starts.summary + 60, 20)}}>
+                    <InfoCard
+                        title="1. Scalability"
+                        points={['Horizontal scaling with L4/L7 LBs', 'Global reach with GSLB & GeoDNS']}
+                        color={theme.colors.success}
+                        width={800}
+                    />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.summary + 100, 20)}}>
+                    <InfoCard
+                        title="2. Resilience"
+                        points={['No single point of failure', 'Health checks & auto-healing', 'Circuit breakers']}
+                        color={theme.colors.info}
+                        width={800}
+                    />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.summary + 140, 20)}}>
+                    <InfoCard
+                        title="3. Security"
+                        points={['SSL Termination', 'Rate limiting & DDoS protection', 'WAF integration']}
+                        color={theme.colors.warning}
+                        width={800}
+                    />
+                </div>
+            </div>
+
+            {frame > starts.summary + 200 && (
             <div
               style={{
                 position: 'absolute',
                 left: width / 2 - 350,
                 top: 900,
                 width: 700,
-                opacity: fadeIn(frame, starts.rateLimiting + 200, 20),
+                opacity: fadeIn(frame, starts.summary + 200, 20),
                 background: 'linear-gradient(145deg, rgba(16, 185, 129, 0.2), rgba(6, 95, 70, 0.2))',
                 padding: 32,
                 borderRadius: 24,
