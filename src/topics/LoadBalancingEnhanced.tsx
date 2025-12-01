@@ -845,7 +845,7 @@ export const LoadBalancingEnhanced: React.FC = () => {
              <g transform="translate(200, 300)">
                 <Box x={0} y={0} width={200} height={150} color={theme.colors.client} label="Smart Client" icon="🧠" startFrame={starts.clientSideLB + 40} />
                 {/* The List */}
-                <rect x={160} y={-20} width={100} height={120} fill="#fff" stroke={theme.text.primary} rx={5} opacity={fadeIn(frame, starts.clientSideLB + 50, 10)} />
+                <rect x={160} y={-20} width={100} height={120} fill="#fff" stroke={theme.colors.text.primary} rx={5} opacity={fadeIn(frame, starts.clientSideLB + 50, 10)} />
                 <text x={210} y={0} textAnchor="middle" fontSize={14} fontWeight="bold">Server List</text>
                 <text x={170} y={20} fontSize={12} fontFamily="monospace">1. 10.0.0.1</text>
                 <text x={170} y={40} fontSize={12} fontFamily="monospace">2. 10.0.0.2</text>
