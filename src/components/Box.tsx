@@ -13,6 +13,7 @@ interface BoxProps {
   icon?: string;
   startFrame?: number;
   subLabel?: string;
+  fontSize?: number;
 }
 
 /**
@@ -28,6 +29,7 @@ export const Box: React.FC<BoxProps> = ({
   icon,
   startFrame = 0,
   subLabel,
+  fontSize,
 }) => {
   const frame = useCurrentFrame();
   const opacity = fadeIn(frame, startFrame, 20);
@@ -83,7 +85,7 @@ export const Box: React.FC<BoxProps> = ({
         textAnchor="middle"
         dominantBaseline="middle"
         fill={theme.text.primary}
-        fontSize={theme.typography.label.fontSize}
+        fontSize={fontSize || theme.typography.label.fontSize}
         fontWeight={theme.typography.label.fontWeight}
         fontFamily={theme.typography.label.fontFamily}
       >
