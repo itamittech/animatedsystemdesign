@@ -211,7 +211,7 @@ export const RESTAPIDesign: React.FC = () => {
              <div style={{opacity: fadeIn(frame, starts.methods + 120, 20)}}>
                 <div style={{position: 'relative'}}>
                    <Box x={0} y={0} width={350} height={115} color={theme.colors.warning} label="PUT" icon="🔄" subLabel="Replace Fully" startFrame={starts.methods + 120} />
-                   <Box x={0} y={135} width={350} height={115} color={theme.colors.purple || '#8b5cf6'} label="PATCH" icon="📝" subLabel="Partial Update" startFrame={starts.methods + 130} />
+                   <Box x={0} y={135} width={350} height={115} color={theme.colors.messageQueue} label="PATCH" icon="📝" subLabel="Partial Update" startFrame={starts.methods + 130} />
                 </div>
                 <div style={{marginTop: 15, color: theme.text.secondary, fontSize: 20, lineHeight: 1.5}}>
                    • <strong>PUT:</strong> Idempotent (Replace)<br/>
@@ -237,13 +237,13 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="3. Standard Status Codes" subtitle="Stop Returning 200 OK for Errors!" startFrame={starts.statusCodes} y={50} />
 
-          <Character type="junior" x={100} y={height - 150} startFrame={starts.statusCodes} size={90} />
+          <Character type="junior" x={100} y={height - 250} startFrame={starts.statusCodes} size={90} />
 
           <Dialogue
             speaker="junior"
             text="I usually just return 200 OK and put `{ error: 'failed' }` in the JSON body. Is that bad?"
             x={250}
-            y={height - 350}
+            y={height - 400}
             startFrame={starts.statusCodes + 20}
             maxWidth={500}
           />
@@ -252,11 +252,11 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="architect"
             text="Yes, that's a nightmare for monitoring and caching layers! Use the proper standardized codes."
             x={width - 800}
-            y={height - 350}
+            y={height - 400}
             startFrame={starts.statusCodes + 120}
             maxWidth={550}
           />
-          <Character type="architect" x={width - 200} y={height - 150} startFrame={starts.statusCodes} size={90} />
+          <Character type="architect" x={width - 200} y={height - 250} startFrame={starts.statusCodes} size={90} />
 
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40, padding: '0 150px', marginTop: 220}}>
              {/* 2xx & 3xx */}
@@ -307,13 +307,13 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="4. API Versioning" subtitle="Breaking Changes Happen. Be Ready." startFrame={starts.versioning} y={50} />
 
-          <Character type="architect" x={width / 2 - 60} y={height - 180} startFrame={starts.versioning} size={90} />
+          <Character type="architect" x={width / 2 - 60} y={height - 250} startFrame={starts.versioning} size={90} />
 
           <Dialogue
              speaker="architect"
              text="Never break existing clients! When you need to make breaking changes (like renaming fields), introduce a new version."
              x={width / 2 - 450}
-             y={height - 350}
+             y={height - 400}
              startFrame={starts.versioning + 20}
              maxWidth={900}
           />
@@ -322,25 +322,25 @@ export const RESTAPIDesign: React.FC = () => {
              {/* URI Versioning */}
              <div style={{opacity: fadeIn(frame, starts.versioning + 60, 20)}}>
                 <Box x={0} y={0} width={400} height={200} color={theme.colors.info} label="URI Versioning" icon="🔗" startFrame={starts.versioning + 60} />
-                <div style={{background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, fontFamily: 'monospace', fontSize: 22, color: theme.text.primary}}>
+                <div style={{background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, fontFamily: 'monospace', fontSize: 22, color: theme.text.primary, textAlign: 'center'}}>
                    /v1/users<br/>/v2/users
                 </div>
-                <div style={{color: theme.colors.success, marginTop: 10, fontSize: 20}}>✅ Easiest to explore</div>
+                <div style={{color: theme.colors.success, marginTop: 10, fontSize: 20, textAlign: 'center'}}>✅ Easiest to explore</div>
              </div>
 
              {/* Header Versioning */}
              <div style={{opacity: fadeIn(frame, starts.versioning + 90, 20)}}>
                 <Box x={0} y={0} width={400} height={200} color={theme.colors.server} label="Header Versioning" icon="🎩" startFrame={starts.versioning + 90} />
-                <div style={{background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, fontFamily: 'monospace', fontSize: 22, color: theme.text.primary}}>
+                <div style={{background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, fontFamily: 'monospace', fontSize: 22, color: theme.text.primary, textAlign: 'center'}}>
                    Accept-Version: v1
                 </div>
-                <div style={{color: theme.colors.success, marginTop: 10, fontSize: 20}}>✅ Cleaner URLs</div>
+                <div style={{color: theme.colors.success, marginTop: 10, fontSize: 20, textAlign: 'center'}}>✅ Cleaner URLs</div>
              </div>
           </div>
 
           <div style={{position: 'absolute', top: 700, width: '100%', display: 'flex', justifyContent: 'center', opacity: fadeIn(frame, starts.versioning + 150, 20)}}>
-             <div style={{background: theme.colors.background.card, padding: 30, borderRadius: 20, border: `2px solid ${theme.colors.primary}`, maxWidth: 800}}>
-                <h3 style={{color: theme.colors.primary, margin: 0}}>⭐ Recommendation</h3>
+             <div style={{background: theme.background.card, padding: 30, borderRadius: 20, border: `2px solid ${theme.colors.client}`, maxWidth: 800}}>
+                <h3 style={{color: theme.colors.client, margin: 0}}>⭐ Recommendation</h3>
                 <p style={{color: theme.text.secondary, fontSize: 22, lineHeight: 1.5}}>
                    Start with <strong>URI Versioning</strong> (e.g., <code>/api/v1/...</code>). It's explicit, easy to cache, and easy for developers to debug in a browser.
                 </p>
@@ -354,12 +354,12 @@ export const RESTAPIDesign: React.FC = () => {
          <>
             <Title text="5. Pagination & Filtering" subtitle="Handling Large Datasets Efficiently" startFrame={starts.pagination} y={50} />
 
-            <Character type="junior" x={100} y={height - 150} startFrame={starts.pagination} size={90} />
+            <Character type="junior" x={100} y={height - 250} startFrame={starts.pagination} size={90} />
             <Dialogue
                speaker="junior"
                text="If I have 1 million users, I assume /users shouldn't return all of them?"
                x={250}
-               y={height - 350}
+               y={height - 400}
                startFrame={starts.pagination + 20}
                maxWidth={500}
             />
@@ -407,19 +407,19 @@ export const RESTAPIDesign: React.FC = () => {
          <>
             <Title text="6. HATEOAS" subtitle="Hypermedia As The Engine Of Application State" startFrame={starts.hateoas} y={50} />
 
-            <Character type="architect" x={width - 200} y={height - 150} startFrame={starts.hateoas} size={90} />
+            <Character type="architect" x={width - 200} y={height - 250} startFrame={starts.hateoas} size={90} />
 
             <Dialogue
                speaker="architect"
                text="HATEOAS means the API guides the client. Responses include links to related actions."
                x={width - 800}
-               y={height - 350}
+               y={height - 400}
                startFrame={starts.hateoas + 20}
                maxWidth={550}
             />
 
             <div style={{position: 'absolute', top: 200, left: 100, width: 800, opacity: fadeIn(frame, starts.hateoas + 60, 20)}}>
-               <h3 style={{color: theme.colors.primary}}>Without HATEOAS</h3>
+               <h3 style={{color: theme.colors.client}}>Without HATEOAS</h3>
                <div style={{background: '#1e293b', padding: 20, borderRadius: 10, fontFamily: 'monospace', fontSize: 20, color: '#e2e8f0', border: '1px solid #334155'}}>
                   {`{
   "id": 123,
@@ -470,7 +470,7 @@ export const RESTAPIDesign: React.FC = () => {
                </div>
             </div>
 
-            <Character type="junior" x={150} y={height - 180} startFrame={starts.summary + 120} size={110} />
+            <Character type="junior" x={150} y={height - 250} startFrame={starts.summary + 120} size={110} />
             <Dialogue
                speaker="junior"
                text="This is crystal clear! I'll refactor our API design right away."
