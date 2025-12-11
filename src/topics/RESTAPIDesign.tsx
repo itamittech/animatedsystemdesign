@@ -10,7 +10,7 @@ import {fadeIn} from '../design-system/animations';
 
 /**
  * REST API Design Best Practices
- * Enhanced with animations, better character placement, and improved content.
+ * Improved visuals, larger fonts, and better examples.
  */
 export const RESTAPIDesign: React.FC = () => {
   const frame = useCurrentFrame();
@@ -19,8 +19,8 @@ export const RESTAPIDesign: React.FC = () => {
   // Define Scene Timings (in frames)
   const sceneDurations = {
     intro: 300,
-    resources: 540,
-    methods: 600,
+    resources: 600, // Increased for better reading time
+    methods: 660,
     statusCodes: 600,
     versioning: 540,
     pagination: 540,
@@ -82,7 +82,6 @@ export const RESTAPIDesign: React.FC = () => {
         <>
           <Title text="REST API Design Masterclass" subtitle="Building Intuitive, Scalable & Secure APIs" startFrame={0} />
 
-          {/* Adjusted Character Positioning to avoid overlap */}
           <Character type="junior" x={150} y={height - 250} startFrame={30} size={110} />
           <Character type="architect" x={width - 250} y={height - 250} startFrame={30} size={110} />
 
@@ -90,7 +89,7 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="junior"
             text="Sarah, our new mobile app needs an API. Should I just make some endpoints like /getUsers and /saveProduct?"
             x={280}
-            y={height - 450}
+            y={height - 500}
             startFrame={60}
             maxWidth={500}
           />
@@ -99,7 +98,7 @@ export const RESTAPIDesign: React.FC = () => {
             speaker="architect"
             text="Hold on, Alex! That's 'RPC' style. For a true REST API, we need to think in Resources, not Actions. Let's design it properly."
             x={width - 800}
-            y={height - 450}
+            y={height - 500}
             startFrame={180}
             maxWidth={520}
           />
@@ -116,117 +115,138 @@ export const RESTAPIDesign: React.FC = () => {
 
           <Dialogue
              speaker="architect"
-             text="In REST, the URL identifies the 'Thing' (Resource). The HTTP method defines the 'Action'."
+             text="In RPC, you put the action in the URL. In REST, the URL is the resource, and the HTTP method is the action."
              x={width - 800}
              y={height - 400}
              startFrame={starts.resources + 20}
-             maxWidth={580}
+             maxWidth={600}
           />
 
-          <div style={{position: 'absolute', top: 250, width: '100%', display: 'flex', justifyContent: 'center', gap: 100}}>
-             {/* Bad Examples */}
-             <div style={{opacity: fadeIn(frame, starts.resources + 80, 20)}}>
-                <div style={{fontSize: 36, color: theme.colors.error, fontWeight: 'bold', marginBottom: 30, textAlign: 'center'}}>❌ RPC Style (Avoid)</div>
-                <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-                   <Box x={0} y={0} width={450} height={80} color={theme.colors.error} label="POST /getAllUsers" startFrame={starts.resources + 90} fontSize={28} />
-                   <Box x={0} y={0} width={450} height={80} color={theme.colors.error} label="GET /createNewUser" startFrame={starts.resources + 100} fontSize={28} />
-                   <Box x={0} y={0} width={450} height={80} color={theme.colors.error} label="POST /updateUser/123" startFrame={starts.resources + 110} fontSize={28} />
-                   <Box x={0} y={0} width={450} height={80} color={theme.colors.error} label="GET /deleteUser?id=123" startFrame={starts.resources + 120} fontSize={28} />
-                </div>
+          {/* Comparison Table */}
+          <div style={{position: 'absolute', top: 250, width: '100%', padding: '0 100px'}}>
+             {/* Headers */}
+             <div style={{display: 'grid', gridTemplateColumns: '200px 1fr 1fr', gap: 40, marginBottom: 30, opacity: fadeIn(frame, starts.resources + 50, 20)}}>
+                <div style={{fontSize: 32, fontWeight: 'bold', color: theme.text.muted, textAlign: 'right', alignSelf: 'center'}}>Goal</div>
+                <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.error, textAlign: 'center'}}>❌ RPC Style</div>
+                <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.success, textAlign: 'center'}}>✅ REST Style</div>
              </div>
 
-             {/* Good Examples */}
-             <div style={{opacity: fadeIn(frame, starts.resources + 150, 20)}}>
-                <div style={{fontSize: 36, color: theme.colors.success, fontWeight: 'bold', marginBottom: 30, textAlign: 'center'}}>✅ RESTful Style</div>
-                <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-                   <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-                      <div style={{background: theme.colors.info, padding: '10px 20px', borderRadius: 8, color: 'white', fontWeight: 'bold', width: 80, textAlign: 'center'}}>GET</div>
-                      <Box x={0} y={0} width={310} height={70} color={theme.colors.success} label="/users" startFrame={starts.resources + 160} />
-                   </div>
-                   <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-                      <div style={{background: theme.colors.server, padding: '10px 20px', borderRadius: 8, color: 'white', fontWeight: 'bold', width: 80, textAlign: 'center'}}>POST</div>
-                      <Box x={0} y={0} width={310} height={70} color={theme.colors.success} label="/users" startFrame={starts.resources + 170} />
-                   </div>
-                   <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-                      <div style={{background: theme.colors.warning, padding: '10px 20px', borderRadius: 8, color: 'white', fontWeight: 'bold', width: 80, textAlign: 'center'}}>PUT</div>
-                      <Box x={0} y={0} width={310} height={70} color={theme.colors.success} label="/users/123" startFrame={starts.resources + 180} />
-                   </div>
-                   <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-                      <div style={{background: theme.colors.error, padding: '10px 20px', borderRadius: 8, color: 'white', fontWeight: 'bold', width: 80, textAlign: 'center'}}>DEL</div>
-                      <Box x={0} y={0} width={310} height={70} color={theme.colors.success} label="/users/123" startFrame={starts.resources + 190} />
-                   </div>
-                </div>
+             {/* Row 1: Read */}
+             <div style={{display: 'grid', gridTemplateColumns: '200px 1fr 1fr', gap: 40, marginBottom: 30, alignItems: 'center', opacity: fadeIn(frame, starts.resources + 80, 20)}}>
+                <div style={{fontSize: 28, color: theme.text.primary, textAlign: 'right', fontWeight: 'bold'}}>Get User</div>
+                <ComparisonCard color={theme.colors.error} main="POST /getUser" sub="Body: {id: 1}" />
+                <ComparisonCard color={theme.colors.success} main="GET /users/1" sub="" />
+             </div>
+
+             {/* Row 2: Create */}
+             <div style={{display: 'grid', gridTemplateColumns: '200px 1fr 1fr', gap: 40, marginBottom: 30, alignItems: 'center', opacity: fadeIn(frame, starts.resources + 120, 20)}}>
+                <div style={{fontSize: 28, color: theme.text.primary, textAlign: 'right', fontWeight: 'bold'}}>Create</div>
+                <ComparisonCard color={theme.colors.error} main="POST /createUser" sub="" />
+                <ComparisonCard color={theme.colors.success} main="POST /users" sub="" />
+             </div>
+
+             {/* Row 3: Delete */}
+             <div style={{display: 'grid', gridTemplateColumns: '200px 1fr 1fr', gap: 40, alignItems: 'center', opacity: fadeIn(frame, starts.resources + 160, 20)}}>
+                <div style={{fontSize: 28, color: theme.text.primary, textAlign: 'right', fontWeight: 'bold'}}>Delete</div>
+                <ComparisonCard color={theme.colors.error} main="GET /deleteUser?id=1" sub="" />
+                <ComparisonCard color={theme.colors.success} main="DELETE /users/1" sub="" />
              </div>
           </div>
-
-          <Dialogue
-            speaker="junior"
-            text="Ah, so the URL is the 'noun' and the method is the 'verb'. That makes the API much more predictable!"
-            x={200}
-            y={height - 400}
-            startFrame={starts.resources + 300}
-            maxWidth={500}
-          />
         </>
       )}
 
       {/* Scene 3: HTTP Methods */}
       {frame >= starts.methods && frame < starts.statusCodes && (
         <>
-          <Title text="2. HTTP Methods Semantics" subtitle="Idempotency & Safety" startFrame={starts.methods} y={50} />
+          <Title text="2. HTTP Methods Semantics" subtitle="Understanding Safety & Idempotency" startFrame={starts.methods} y={50} />
 
           <Character type="architect" x={width - 200} y={height - 250} startFrame={starts.methods} size={90} />
-
           <Dialogue
             speaker="architect"
-            text="Exactly! And you must respect the semantics. GET is safe (read-only). PUT is for full updates. PATCH is for partial updates."
+            text="Use the right verb! Idempotency is key: it means making the same request multiple times has the same effect as making it once."
             x={width - 800}
             y={height - 400}
             startFrame={starts.methods + 20}
             maxWidth={600}
           />
 
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 30, padding: '0 100px', marginTop: 200}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 30, padding: '0 80px', marginTop: 220}}>
              {/* GET */}
-             <div style={{opacity: fadeIn(frame, starts.methods + 60, 20)}}>
-                <Box x={0} y={0} width={350} height={250} color={theme.colors.info} label="GET" icon="🔍" subLabel="Retrieve Data" startFrame={starts.methods + 60} />
-                <div style={{marginTop: 15, color: theme.text.secondary, fontSize: 20, lineHeight: 1.5}}>
-                   • <strong>Safe:</strong> No side effects<br/>
-                   • <strong>Idempotent:</strong> Yes<br/>
-                   • <strong>Cacheable:</strong> Yes
-                </div>
+             <div style={{opacity: fadeIn(frame, starts.methods + 50, 20)}}>
+                <MethodCard
+                  method="GET"
+                  color={theme.colors.info}
+                  desc="Retrieve resource"
+                  safe={true}
+                  idempotent={true}
+                  example="GET /users/1"
+                />
              </div>
 
              {/* POST */}
+             <div style={{opacity: fadeIn(frame, starts.methods + 70, 20)}}>
+                <MethodCard
+                  method="POST"
+                  color={theme.colors.success}
+                  desc="Create new resource"
+                  safe={false}
+                  idempotent={false}
+                  example="POST /users"
+                />
+             </div>
+
+             {/* PUT */}
              <div style={{opacity: fadeIn(frame, starts.methods + 90, 20)}}>
-                <Box x={0} y={0} width={350} height={250} color={theme.colors.success} label="POST" icon="✨" subLabel="Create New" startFrame={starts.methods + 90} />
-                <div style={{marginTop: 15, color: theme.text.secondary, fontSize: 20, lineHeight: 1.5}}>
-                   • <strong>Unsafe:</strong> Changes state<br/>
-                   • <strong>Idempotent:</strong> ❌ NO<br/>
-                   • Creates child resource
-                </div>
+                <MethodCard
+                  method="PUT"
+                  color={theme.colors.warning}
+                  desc="Replace completely"
+                  safe={false}
+                  idempotent={true}
+                  example="PUT /users/1"
+                />
              </div>
 
-             {/* PUT vs PATCH */}
-             <div style={{opacity: fadeIn(frame, starts.methods + 120, 20)}}>
-                <div style={{position: 'relative'}}>
-                   <Box x={0} y={0} width={350} height={115} color={theme.colors.warning} label="PUT" icon="🔄" subLabel="Replace Fully" startFrame={starts.methods + 120} />
-                   <Box x={0} y={135} width={350} height={115} color={theme.colors.messageQueue} label="PATCH" icon="📝" subLabel="Partial Update" startFrame={starts.methods + 130} />
-                </div>
-                <div style={{marginTop: 15, color: theme.text.secondary, fontSize: 20, lineHeight: 1.5}}>
-                   • <strong>PUT:</strong> Idempotent (Replace)<br/>
-                   • <strong>PATCH:</strong> Usually not idempotent
-                </div>
+             {/* PATCH */}
+             <div style={{opacity: fadeIn(frame, starts.methods + 110, 20)}}>
+                <MethodCard
+                  method="PATCH"
+                  color={theme.colors.messageQueue}
+                  desc="Partial update"
+                  safe={false}
+                  idempotent={false}
+                  example="PATCH /users/1"
+                />
              </div>
-          </div>
 
-          <div style={{position: 'absolute', top: 750, left: 0, width: '100%', textAlign: 'center', opacity: fadeIn(frame, starts.methods + 180, 20)}}>
-             <div style={{background: 'rgba(59, 130, 246, 0.15)', border: `2px solid ${theme.colors.info}`, borderRadius: 15, display: 'inline-block', padding: '20px 40px'}}>
-                <h3 style={{color: theme.colors.info, margin: 0, fontSize: 24}}>💡 Why Idempotency Matters?</h3>
-                <p style={{color: theme.text.secondary, margin: '10px 0 0', fontSize: 20}}>
-                   If a request times out, can the client safely retry it?<br/>
-                   PUT/DELETE = Yes (Result is same). POST = No (Might create duplicate).
-                </p>
+             {/* DELETE */}
+             <div style={{opacity: fadeIn(frame, starts.methods + 130, 20)}}>
+                <MethodCard
+                  method="DELETE"
+                  color={theme.colors.error}
+                  desc="Remove resource"
+                  safe={false}
+                  idempotent={true}
+                  example="DELETE /users/1"
+                />
+             </div>
+
+             {/* Legend/Info */}
+             <div style={{
+                background: 'rgba(255,255,255,0.05)',
+                borderRadius: 20,
+                padding: 20,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                opacity: fadeIn(frame, starts.methods + 150, 20)
+             }}>
+                <div style={{fontSize: 24, color: theme.text.primary, marginBottom: 10}}>
+                   <strong>Safe:</strong> No side effects (Read-only)
+                </div>
+                <div style={{fontSize: 24, color: theme.text.primary}}>
+                   <strong>Idempotent:</strong> Retry safe (Result is same)
+                </div>
              </div>
           </div>
         </>
@@ -235,13 +255,12 @@ export const RESTAPIDesign: React.FC = () => {
       {/* Scene 4: Status Codes */}
       {frame >= starts.statusCodes && frame < starts.versioning && (
         <>
-          <Title text="3. Standard Status Codes" subtitle="Stop Returning 200 OK for Errors!" startFrame={starts.statusCodes} y={50} />
+          <Title text="3. Standard Status Codes" subtitle="Communicate Clearly with Your Client" startFrame={starts.statusCodes} y={50} />
 
           <Character type="junior" x={100} y={height - 250} startFrame={starts.statusCodes} size={90} />
-
           <Dialogue
             speaker="junior"
-            text="I usually just return 200 OK and put `{ error: 'failed' }` in the JSON body. Is that bad?"
+            text="So I shouldn't return 200 OK if something failed?"
             x={250}
             y={height - 400}
             startFrame={starts.statusCodes + 20}
@@ -250,7 +269,7 @@ export const RESTAPIDesign: React.FC = () => {
 
           <Dialogue
             speaker="architect"
-            text="Yes, that's a nightmare for monitoring and caching layers! Use the proper standardized codes."
+            text="Never! That breaks monitoring tools. Use 4xx for client errors and 5xx for server crashes."
             x={width - 800}
             y={height - 400}
             startFrame={starts.statusCodes + 120}
@@ -258,46 +277,43 @@ export const RESTAPIDesign: React.FC = () => {
           />
           <Character type="architect" x={width - 200} y={height - 250} startFrame={starts.statusCodes} size={90} />
 
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40, padding: '0 150px', marginTop: 220}}>
-             {/* 2xx & 3xx */}
-             <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-                <div style={{opacity: fadeIn(frame, starts.statusCodes + 150, 20)}}>
-                   <Box x={0} y={0} width={600} height={120} color={theme.colors.success} label="2xx Success" icon="✅" startFrame={starts.statusCodes + 150} />
-                   <div style={{marginLeft: 20, marginTop: 10, fontSize: 22, color: theme.text.secondary}}>
-                      • <strong>200 OK:</strong> General success<br/>
-                      • <strong>201 Created:</strong> Resource created (POST)<br/>
-                      • <strong>204 No Content:</strong> Action done, no body (DELETE)
-                   </div>
-                </div>
+          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 250}}>
+             {/* 2xx Success */}
+             <StatusCodeGroup
+               title="2xx Success"
+               color={theme.colors.success}
+               codes={[
+                 {code: 200, text: 'OK'},
+                 {code: 201, text: 'Created'},
+                 {code: 204, text: 'No Content'},
+               ]}
+               startFrame={starts.statusCodes + 150}
+             />
 
-                <div style={{opacity: fadeIn(frame, starts.statusCodes + 180, 20)}}>
-                   <Box x={0} y={0} width={600} height={100} color={theme.colors.info} label="3xx Redirection" icon="↩️" startFrame={starts.statusCodes + 180} />
-                   <div style={{marginLeft: 20, marginTop: 10, fontSize: 22, color: theme.text.secondary}}>
-                      • <strong>304 Not Modified:</strong> Use cached version
-                   </div>
-                </div>
-             </div>
+             {/* 4xx Client Error */}
+             <StatusCodeGroup
+               title="4xx Client Error"
+               color={theme.colors.warning}
+               codes={[
+                 {code: 400, text: 'Bad Request'},
+                 {code: 401, text: 'Unauthorized'},
+                 {code: 403, text: 'Forbidden'},
+                 {code: 404, text: 'Not Found'},
+               ]}
+               startFrame={starts.statusCodes + 180}
+             />
 
-             {/* 4xx & 5xx */}
-             <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-                <div style={{opacity: fadeIn(frame, starts.statusCodes + 210, 20)}}>
-                   <Box x={0} y={0} width={600} height={150} color={theme.colors.warning} label="4xx Client Error" icon="🚫" startFrame={starts.statusCodes + 210} />
-                   <div style={{marginLeft: 20, marginTop: 10, fontSize: 22, color: theme.text.secondary}}>
-                      • <strong>400 Bad Request:</strong> Invalid input<br/>
-                      • <strong>401 Unauthorized:</strong> Not logged in<br/>
-                      • <strong>403 Forbidden:</strong> Logged in, but no permission<br/>
-                      • <strong>404 Not Found:</strong> Resource doesn't exist
-                   </div>
-                </div>
-
-                <div style={{opacity: fadeIn(frame, starts.statusCodes + 240, 20)}}>
-                   <Box x={0} y={0} width={600} height={100} color={theme.colors.error} label="5xx Server Error" icon="💥" startFrame={starts.statusCodes + 240} />
-                   <div style={{marginLeft: 20, marginTop: 10, fontSize: 22, color: theme.text.secondary}}>
-                      • <strong>500 Internal Error:</strong> Server crashed<br/>
-                      • <strong>503 Unavailable:</strong> Overloaded/Maintenance
-                   </div>
-                </div>
-             </div>
+             {/* 5xx Server Error */}
+             <StatusCodeGroup
+               title="5xx Server Error"
+               color={theme.colors.error}
+               codes={[
+                 {code: 500, text: 'Internal Error'},
+                 {code: 502, text: 'Bad Gateway'},
+                 {code: 503, text: 'Unavailable'},
+               ]}
+               startFrame={starts.statusCodes + 210}
+             />
           </div>
         </>
       )}
@@ -305,45 +321,70 @@ export const RESTAPIDesign: React.FC = () => {
       {/* Scene 5: Versioning */}
       {frame >= starts.versioning && frame < starts.pagination && (
         <>
-          <Title text="4. API Versioning" subtitle="Breaking Changes Happen. Be Ready." startFrame={starts.versioning} y={50} />
+          <Title text="4. API Versioning" subtitle="Handling Breaking Changes" startFrame={starts.versioning} y={50} />
 
           <Character type="architect" x={width / 2 - 60} y={height - 250} startFrame={starts.versioning} size={90} />
-
           <Dialogue
              speaker="architect"
-             text="Never break existing clients! When you need to make breaking changes (like renaming fields), introduce a new version."
+             text="When you change the response format, you must version your API. I recommend URI versioning for simplicity."
              x={width / 2 - 450}
              y={height - 400}
              startFrame={starts.versioning + 20}
              maxWidth={900}
           />
 
-          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 250}}>
+          <div style={{display: 'flex', justifyContent: 'center', gap: 60, marginTop: 250}}>
              {/* URI Versioning */}
-             <div style={{opacity: fadeIn(frame, starts.versioning + 60, 20)}}>
-                <Box x={0} y={0} width={400} height={200} color={theme.colors.info} label="URI Versioning" icon="🔗" startFrame={starts.versioning + 60} />
-                <div style={{background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, fontFamily: 'monospace', fontSize: 22, color: theme.text.primary, textAlign: 'center'}}>
-                   /v1/users<br/>/v2/users
+             <div style={{opacity: fadeIn(frame, starts.versioning + 60, 20), flex: 1, maxWidth: 600}}>
+                <div style={{
+                   background: theme.colors.info,
+                   color: '#000',
+                   padding: 20,
+                   borderRadius: 15,
+                   fontSize: 32,
+                   fontWeight: 'bold',
+                   display: 'flex',
+                   alignItems: 'center',
+                   justifyContent: 'center',
+                   gap: 15
+                }}>
+                   <span style={{fontSize: 40}}>🔗</span> URI Versioning
                 </div>
-                <div style={{color: theme.colors.success, marginTop: 10, fontSize: 20, textAlign: 'center'}}>✅ Easiest to explore</div>
+                <div style={{marginTop: 20, display: 'flex', flexDirection: 'column', gap: 15}}>
+                   <div style={{background: 'rgba(255,255,255,0.1)', padding: 20, borderRadius: 10, fontSize: 32, fontFamily: 'monospace', color: theme.text.primary}}>
+                      GET /v1/users
+                   </div>
+                   <div style={{textAlign: 'center', fontSize: 40, color: theme.text.muted}}>⬇️</div>
+                   <div style={{background: 'rgba(255,255,255,0.1)', padding: 20, borderRadius: 10, fontSize: 32, fontFamily: 'monospace', color: theme.colors.success, border: `2px solid ${theme.colors.success}`}}>
+                      GET /v2/users
+                   </div>
+                </div>
              </div>
 
              {/* Header Versioning */}
-             <div style={{opacity: fadeIn(frame, starts.versioning + 90, 20)}}>
-                <Box x={0} y={0} width={400} height={200} color={theme.colors.server} label="Header Versioning" icon="🎩" startFrame={starts.versioning + 90} />
-                <div style={{background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, fontFamily: 'monospace', fontSize: 22, color: theme.text.primary, textAlign: 'center'}}>
-                   Accept-Version: v1
+             <div style={{opacity: fadeIn(frame, starts.versioning + 100, 20), flex: 1, maxWidth: 600}}>
+                <div style={{
+                   background: theme.colors.server,
+                   color: '#000',
+                   padding: 20,
+                   borderRadius: 15,
+                   fontSize: 32,
+                   fontWeight: 'bold',
+                   display: 'flex',
+                   alignItems: 'center',
+                   justifyContent: 'center',
+                   gap: 15
+                }}>
+                   <span style={{fontSize: 40}}>🎩</span> Header Versioning
                 </div>
-                <div style={{color: theme.colors.success, marginTop: 10, fontSize: 20, textAlign: 'center'}}>✅ Cleaner URLs</div>
-             </div>
-          </div>
-
-          <div style={{position: 'absolute', top: 700, width: '100%', display: 'flex', justifyContent: 'center', opacity: fadeIn(frame, starts.versioning + 150, 20)}}>
-             <div style={{background: theme.background.card, padding: 30, borderRadius: 20, border: `2px solid ${theme.colors.client}`, maxWidth: 800}}>
-                <h3 style={{color: theme.colors.client, margin: 0}}>⭐ Recommendation</h3>
-                <p style={{color: theme.text.secondary, fontSize: 22, lineHeight: 1.5}}>
-                   Start with <strong>URI Versioning</strong> (e.g., <code>/api/v1/...</code>). It's explicit, easy to cache, and easy for developers to debug in a browser.
-                </p>
+                <div style={{marginTop: 20, display: 'flex', flexDirection: 'column', gap: 15}}>
+                   <div style={{background: 'rgba(255,255,255,0.1)', padding: 20, borderRadius: 10, fontSize: 32, fontFamily: 'monospace', color: theme.text.primary}}>
+                      Accept-Version: v1
+                   </div>
+                </div>
+                <div style={{marginTop: 20, fontSize: 24, color: theme.text.secondary}}>
+                   Keeps URLs clean, but harder to test in browser.
+                </div>
              </div>
           </div>
         </>
@@ -352,50 +393,48 @@ export const RESTAPIDesign: React.FC = () => {
       {/* Scene 6: Pagination */}
       {frame >= starts.pagination && frame < starts.hateoas && (
          <>
-            <Title text="5. Pagination & Filtering" subtitle="Handling Large Datasets Efficiently" startFrame={starts.pagination} y={50} />
+            <Title text="5. Pagination" subtitle="Handling Large Datasets" startFrame={starts.pagination} y={50} />
 
             <Character type="junior" x={100} y={height - 250} startFrame={starts.pagination} size={90} />
             <Dialogue
                speaker="junior"
-               text="If I have 1 million users, I assume /users shouldn't return all of them?"
+               text="If I have 1 million users, returning them all will crash the app!"
                x={250}
                y={height - 400}
                startFrame={starts.pagination + 20}
                maxWidth={500}
             />
 
-            <div style={{position: 'absolute', top: 250, left: 100, right: 100, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 50}}>
-               {/* Bad Approach */}
-               <div style={{opacity: fadeIn(frame, starts.pagination + 60, 20)}}>
-                  <h3 style={{color: theme.colors.error, textAlign: 'center'}}>❌ Return All (Crash)</h3>
-                  <Box x={0} y={0} width={600} height={100} color={theme.colors.error} label="GET /users" subLabel="Returns 1,000,000 records" startFrame={starts.pagination + 60} />
-                  <div style={{marginTop: 20, display: 'flex', justifyContent: 'center'}}>
-                     <Box x={0} y={0} width={200} height={100} color={theme.colors.client} label="App" icon="📱" subLabel="💥 Out of Memory" startFrame={starts.pagination + 80} />
+            <div style={{display: 'flex', justifyContent: 'center', gap: 60, marginTop: 250}}>
+               <div style={{opacity: fadeIn(frame, starts.pagination + 50, 20)}}>
+                  <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.info, marginBottom: 20, textAlign: 'center'}}>Offset Pagination</div>
+                  <div style={{background: theme.background.card, padding: 30, borderRadius: 20, border: `2px solid ${theme.colors.info}`, width: 500}}>
+                     <div style={{fontSize: 28, fontFamily: 'monospace', color: theme.text.primary, marginBottom: 20}}>
+                        GET /users?page=2&limit=10
+                     </div>
+                     <div style={{display: 'flex', gap: 10}}>
+                        {[1, 2, 3].map(i => (
+                           <div key={i} style={{flex: 1, height: 10, background: i === 2 ? theme.colors.info : 'rgba(255,255,255,0.2)', borderRadius: 5}} />
+                        ))}
+                     </div>
+                     <div style={{marginTop: 15, fontSize: 24, color: theme.text.secondary}}>• Easy to implement</div>
+                     <div style={{fontSize: 24, color: theme.text.secondary}}>• Slow for large data</div>
                   </div>
                </div>
 
-               {/* Good Approach */}
-               <div style={{opacity: fadeIn(frame, starts.pagination + 100, 20)}}>
-                  <h3 style={{color: theme.colors.success, textAlign: 'center'}}>✅ Pagination</h3>
-                  <Box x={0} y={0} width={600} height={100} color={theme.colors.success} label="GET /users?limit=20{'&'}page=2" subLabel="Returns 20 records" startFrame={starts.pagination + 100} />
-                  <div style={{marginTop: 20, display: 'flex', justifyContent: 'center'}}>
-                     <Box x={0} y={0} width={200} height={100} color={theme.colors.client} label="App" icon="📱" subLabel="Smooth Scroll" startFrame={starts.pagination + 110} />
-                  </div>
-               </div>
-            </div>
-
-            {/* Pagination Types */}
-            <div style={{position: 'absolute', top: 600, left: 100, right: 100, opacity: fadeIn(frame, starts.pagination + 150, 20)}}>
-               <div style={{display: 'flex', gap: 30, justifyContent: 'center'}}>
-                  <div style={{flex: 1, background: 'rgba(255,255,255,0.05)', padding: 20, borderRadius: 15, border: `1px solid ${theme.colors.info}`}}>
-                     <h4 style={{color: theme.colors.info, margin: 0, fontSize: 24}}>Offset Pagination</h4>
-                     <code style={{color: theme.text.muted, display: 'block', margin: '10px 0'}}>?page=5{'&'}limit=10</code>
-                     <p style={{color: theme.text.secondary}}>Simple, but slow for large data (DB has to count rows).</p>
-                  </div>
-                  <div style={{flex: 1, background: 'rgba(255,255,255,0.05)', padding: 20, borderRadius: 15, border: `1px solid ${theme.colors.success}`}}>
-                     <h4 style={{color: theme.colors.success, margin: 0, fontSize: 24}}>Cursor Pagination</h4>
-                     <code style={{color: theme.text.muted, display: 'block', margin: '10px 0'}}>?after=user_123{'&'}limit=10</code>
-                     <p style={{color: theme.text.secondary}}>Very fast, infinite scroll friendly. No random page jumps.</p>
+               <div style={{opacity: fadeIn(frame, starts.pagination + 80, 20)}}>
+                  <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.success, marginBottom: 20, textAlign: 'center'}}>Cursor Pagination</div>
+                  <div style={{background: theme.background.card, padding: 30, borderRadius: 20, border: `2px solid ${theme.colors.success}`, width: 500}}>
+                     <div style={{fontSize: 28, fontFamily: 'monospace', color: theme.text.primary, marginBottom: 20}}>
+                        GET /users?after=idx_123
+                     </div>
+                     <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
+                        <div style={{width: 50, height: 50, background: 'rgba(255,255,255,0.1)', borderRadius: 5}} />
+                        <Arrow x1={0} y1={0} x2={50} y2={0} color={theme.colors.success} label="" startFrame={starts.pagination + 90} />
+                        <div style={{width: 50, height: 50, background: theme.colors.success, borderRadius: 5}} />
+                     </div>
+                     <div style={{marginTop: 15, fontSize: 24, color: theme.text.secondary}}>• High performance</div>
+                     <div style={{fontSize: 24, color: theme.text.secondary}}>• Good for infinite scroll</div>
                   </div>
                </div>
             </div>
@@ -408,50 +447,50 @@ export const RESTAPIDesign: React.FC = () => {
             <Title text="6. HATEOAS" subtitle="Hypermedia As The Engine Of Application State" startFrame={starts.hateoas} y={50} />
 
             <Character type="architect" x={width - 200} y={height - 250} startFrame={starts.hateoas} size={90} />
-
             <Dialogue
                speaker="architect"
-               text="HATEOAS means the API guides the client. Responses include links to related actions."
+               text="It means the API includes links to tell the client what they can do next. It's self-discoverable!"
                x={width - 800}
                y={height - 400}
                startFrame={starts.hateoas + 20}
                maxWidth={550}
             />
 
-            <div style={{position: 'absolute', top: 200, left: 100, width: 800, opacity: fadeIn(frame, starts.hateoas + 60, 20)}}>
-               <h3 style={{color: theme.colors.client}}>Without HATEOAS</h3>
-               <div style={{background: '#1e293b', padding: 20, borderRadius: 10, fontFamily: 'monospace', fontSize: 20, color: '#e2e8f0', border: '1px solid #334155'}}>
-                  {`{
-  "id": 123,
-  "name": "Alice",
-  "balance": 500
-}`}
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: 220}}>
+               <div style={{
+                  background: '#1e293b',
+                  padding: 40,
+                  borderRadius: 20,
+                  border: `3px solid ${theme.colors.success}`,
+                  width: 900,
+                  fontSize: 28,
+                  fontFamily: 'monospace',
+                  color: '#e2e8f0',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                  opacity: fadeIn(frame, starts.hateoas + 50, 20)
+               }}>
+                  <div>{'{'}</div>
+                  <div style={{paddingLeft: 40}}><span style={{color: '#60a5fa'}}>"id"</span>: 123,</div>
+                  <div style={{paddingLeft: 40}}><span style={{color: '#60a5fa'}}>"balance"</span>: 500,</div>
+                  <div style={{paddingLeft: 40, background: 'rgba(16, 185, 129, 0.2)', borderRadius: 8}}>
+                     <span style={{color: '#34d399'}}>"_links"</span>: {'{'}
+                  </div>
+                  <div style={{paddingLeft: 80, background: 'rgba(16, 185, 129, 0.2)'}}>
+                      <span style={{color: '#facc15'}}>"deposit"</span>: "/accounts/123/deposit",
+                  </div>
+                  <div style={{paddingLeft: 80, background: 'rgba(16, 185, 129, 0.2)'}}>
+                      <span style={{color: '#facc15'}}>"withdraw"</span>: "/accounts/123/withdraw"
+                  </div>
+                  <div style={{paddingLeft: 40, background: 'rgba(16, 185, 129, 0.2)', borderRadius: 8}}>{'}'}</div>
+                  <div>{'}'}</div>
                </div>
-               <div style={{color: theme.colors.error, marginTop: 10}}>Client must hardcode logic: "If balance {'>'} 0, I can show Transfer button".</div>
             </div>
 
-            <div style={{position: 'absolute', top: 200, right: 100, width: 800, opacity: fadeIn(frame, starts.hateoas + 100, 20)}}>
-               <h3 style={{color: theme.colors.success}}>With HATEOAS</h3>
-               <div style={{background: '#1e293b', padding: 20, borderRadius: 10, fontFamily: 'monospace', fontSize: 20, color: '#e2e8f0', border: '2px solid #10b981'}}>
-                  {`{
-  "id": 123,
-  "name": "Alice",
-  "links": [
-    { "rel": "self", "href": "/users/123" },
-    { "rel": "deposit", "href": "/users/123/deposit" },
-    { "rel": "transfer", "href": "/users/123/transfer" }
-  ]
-}`}
+            <div style={{position: 'absolute', top: 750, left: 0, width: '100%', textAlign: 'center', opacity: fadeIn(frame, starts.hateoas + 80, 20)}}>
+               <div style={{fontSize: 32, color: theme.colors.success, fontWeight: 'bold'}}>
+                  ⬆️ The API guides the client!
                </div>
-               <div style={{color: theme.colors.success, marginTop: 10}}>API explicitly tells Client what actions are possible now.</div>
             </div>
-
-            <Arrow
-               x1={width/2 + 50} y1={400} x2={width/2 - 50} y2={400}
-               color={theme.colors.success}
-               startFrame={starts.hateoas + 120}
-               label="Discoverable!"
-            />
          </>
       )}
 
@@ -460,13 +499,12 @@ export const RESTAPIDesign: React.FC = () => {
          <>
             <Title text="Summary Checklist" subtitle="Design like a Pro" startFrame={starts.summary} y={50} />
 
-            <div style={{position: 'absolute', top: 200, left: width/2 - 500, width: 1000}}>
+            <div style={{position: 'absolute', top: 200, left: width/2 - 600, width: 1200}}>
                <div style={{display: 'flex', flexDirection: 'column', gap: 30}}>
-                  <SummaryItem text="Use Nouns for URLs (/products, not /getProducts)" icon="📦" delay={0} start={starts.summary} />
-                  <SummaryItem text="Use correct HTTP verbs (GET, POST, PUT, DELETE)" icon="verb" delay={20} start={starts.summary} />
-                  <SummaryItem text="Use standard Status Codes (200, 201, 400, 401, 404, 500)" icon="🚦" delay={40} start={starts.summary} />
-                  <SummaryItem text="Version your API (/v1/...) to manage breaking changes" icon="📅" delay={60} start={starts.summary} />
-                  <SummaryItem text="Use Pagination for lists (Cursor > Offset)" icon="📄" delay={80} start={starts.summary} />
+                  <SummaryItem text="Use Nouns for URLs (/products)" icon="📦" delay={0} start={starts.summary} />
+                  <SummaryItem text="Use correct HTTP verbs (GET, POST...)" icon="🗣️" delay={20} start={starts.summary} />
+                  <SummaryItem text="Use standard Status Codes (200, 404...)" icon="🚦" delay={40} start={starts.summary} />
+                  <SummaryItem text="Version your API (/v1/...)" icon="📅" delay={60} start={starts.summary} />
                </div>
             </div>
 
@@ -475,7 +513,7 @@ export const RESTAPIDesign: React.FC = () => {
                speaker="junior"
                text="This is crystal clear! I'll refactor our API design right away."
                x={280}
-               y={height - 400}
+               y={height - 500}
                startFrame={starts.summary + 140}
                maxWidth={500}
             />
@@ -485,21 +523,111 @@ export const RESTAPIDesign: React.FC = () => {
   );
 };
 
+// Helper Components
+
+const ComparisonCard: React.FC<{color: string; main: string; sub: string}> = ({color, main, sub}) => (
+   <div style={{
+      background: 'rgba(255,255,255,0.03)',
+      border: `2px solid ${color}`,
+      borderRadius: 16,
+      padding: '20px 30px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      minHeight: 100
+   }}>
+      <div style={{fontSize: 28, color: theme.text.primary, fontWeight: '500', fontFamily: 'monospace'}}>
+         {main}
+      </div>
+      {sub && (
+         <div style={{fontSize: 20, color: theme.text.muted, marginTop: 5, fontFamily: 'monospace'}}>
+            {sub}
+         </div>
+      )}
+   </div>
+);
+
+const MethodCard: React.FC<{
+   method: string;
+   color: string;
+   desc: string;
+   safe: boolean;
+   idempotent: boolean;
+   example: string;
+}> = ({method, color, desc, safe, idempotent, example}) => (
+   <div style={{
+      background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))',
+      border: `2px solid ${color}`,
+      borderRadius: 20,
+      padding: 24,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 15
+   }}>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+         <div style={{fontSize: 40, fontWeight: 'bold', color}}>{method}</div>
+         <div style={{display: 'flex', gap: 10}}>
+            {safe && <Badge text="Safe" color={theme.colors.info} />}
+            {idempotent && <Badge text="Idempotent" color={theme.colors.success} />}
+         </div>
+      </div>
+      <div style={{fontSize: 24, color: theme.text.secondary}}>{desc}</div>
+      <div style={{fontSize: 20, fontFamily: 'monospace', background: 'rgba(0,0,0,0.3)', padding: 10, borderRadius: 8, color: theme.text.muted}}>
+         {example}
+      </div>
+   </div>
+);
+
+const Badge: React.FC<{text: string; color: string}> = ({text, color}) => (
+   <div style={{background: color, color: '#000', padding: '4px 12px', borderRadius: 10, fontSize: 16, fontWeight: 'bold'}}>
+      {text}
+   </div>
+);
+
+const StatusCodeGroup: React.FC<{
+   title: string;
+   color: string;
+   codes: {code: number; text: string}[];
+   startFrame: number;
+}> = ({title, color, codes, startFrame}) => {
+   const frame = useCurrentFrame();
+   return (
+      <div style={{
+         opacity: fadeIn(frame, startFrame, 20),
+         background: 'rgba(255,255,255,0.05)',
+         borderTop: `6px solid ${color}`,
+         borderRadius: 16,
+         padding: 30,
+         width: 400
+      }}>
+         <div style={{fontSize: 32, fontWeight: 'bold', color, marginBottom: 20}}>{title}</div>
+         <div style={{display: 'flex', flexDirection: 'column', gap: 15}}>
+            {codes.map((c, i) => (
+               <div key={i} style={{fontSize: 28, color: theme.text.primary, display: 'flex', gap: 15}}>
+                  <span style={{fontFamily: 'monospace', fontWeight: 'bold', color}}>{c.code}</span>
+                  <span>{c.text}</span>
+               </div>
+            ))}
+         </div>
+      </div>
+   );
+};
+
 const SummaryItem: React.FC<{text: string; icon: string; delay: number; start: number}> = ({text, icon, delay, start}) => {
    const frame = useCurrentFrame();
    return (
       <div style={{
          background: 'rgba(255,255,255,0.08)',
-         padding: 20,
+         padding: 24,
          borderRadius: 15,
          display: 'flex',
          alignItems: 'center',
-         gap: 20,
+         gap: 24,
          opacity: fadeIn(frame, start + delay, 15),
          transform: `translateX(${interpolate(frame, [start + delay, start + delay + 15], [-50, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}px)`
       }}>
-         <div style={{fontSize: 40}}>{icon === 'verb' ? '🗣️' : icon}</div>
-         <div style={{fontSize: 28, color: theme.text.primary, fontWeight: 'bold'}}>{text}</div>
+         <div style={{fontSize: 48}}>{icon}</div>
+         <div style={{fontSize: 32, color: theme.text.primary, fontWeight: 'bold'}}>{text}</div>
       </div>
    );
 };
