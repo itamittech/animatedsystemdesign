@@ -135,7 +135,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="RESTAPIDesign"
         component={RESTAPIDesign}
-        durationInFrames={3900}
+        durationInFrames={4020}
         fps={30}
         width={1920}
         height={1080}
