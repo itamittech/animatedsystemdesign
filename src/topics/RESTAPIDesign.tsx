@@ -469,7 +469,7 @@ export const RESTAPIDesign: React.FC = () => {
                    color: '#e2e8f0',
                    opacity: interpolate(frame, [starts.hateoas + 40, starts.hateoas + 60, starts.hateoas + 350, starts.hateoas + 370], [0, 1, 1, 0])
                }}>
-                  <div style={{color: theme.colors.success, fontSize: 32, marginBottom: 20, fontWeight: 'bold'}}>State: Active (Balance > 0)</div>
+                  <div style={{color: theme.colors.success, fontSize: 32, marginBottom: 20, fontWeight: 'bold'}}>State: Active (Balance {'>'} 0)</div>
                   <div>{'{'}</div>
                   <div style={{paddingLeft: 40}}>"id": 123,</div>
                   <div style={{paddingLeft: 40}}>"balance": <span style={{color: theme.colors.success}}>500</span>,</div>
