@@ -389,7 +389,7 @@ export const RESTAPIDesign: React.FC = () => {
                   <div style={{background: theme.background.card, padding: 40, borderRadius: 20, border: `3px solid ${theme.colors.success}`, width: 600}}>
                      <div style={{fontSize: 32, fontFamily: 'monospace', color: theme.text.primary}}>GET /users?after=user_id_123</div>
                      <div style={{marginTop: 20, fontSize: 24, color: theme.text.muted}}>
-                        • <strong>Seek</strong> to ID > 123<br/>
+                        • <strong>Seek</strong> to ID {'>'} 123<br/>
                         • <strong>Take</strong> 10 rows
                      </div>
                      <div style={{marginTop: 20, fontSize: 28, color: theme.colors.success, fontWeight: 'bold'}}>✅ O(1) Performance</div>
