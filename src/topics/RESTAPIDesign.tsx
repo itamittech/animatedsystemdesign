@@ -16,18 +16,18 @@ export const RESTAPIDesign: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Adjusted timings (reduced by ~20% generally, increased for heavy content)
+  // Adjusted timings (Slower pacing for Intro/Resources/HATEOAS)
   const sceneDurations = {
-    intro: 180,         // 6s (Faster)
-    resources: 360,     // 12s
+    intro: 360,         // 12s (Slower: allows reading Sarah's dialogue)
+    resources: 540,     // 18s (Slower: more time for RPC comparison)
     methods: 420,       // 14s
     contentTypes: 480,  // 16s
-    systemDesign: 1020, // 34s (Detailed explanation)
+    systemDesign: 1020, // 34s
     statusCodes: 360,   // 12s
-    versioning: 540,    // 18s (Deep dive added)
-    pagination: 480,    // 16s (Visualizing offset/limit)
+    versioning: 540,    // 18s
+    pagination: 480,    // 16s
     security: 540,      // 18s
-    hateoas: 540,       // 18s (Deep dive added)
+    hateoas: 750,       // 25s (Increased for dynamic state explanation)
     summary: 300,       // 10s
   };
 
@@ -93,7 +93,7 @@ export const RESTAPIDesign: React.FC = () => {
 
           <Dialogue
             speaker="junior"
-            text="Sarah, should I just create /getUsers for our new API?"
+            text="Sarah, I need to design an API. Should I just make endpoints like /getUsers?"
             x={280}
             y={height - 500}
             startFrame={30}
@@ -105,7 +105,7 @@ export const RESTAPIDesign: React.FC = () => {
             text="That's RPC style! REST uses Resources (Nouns) and Methods (Verbs). Let's dive deep."
             x={width - 800}
             y={height - 500}
-            startFrame={100}
+            startFrame={150}
             maxWidth={520}
           />
         </>
@@ -440,33 +440,70 @@ export const RESTAPIDesign: React.FC = () => {
          </>
       )}
 
-      {/* Scene 10: HATEOAS */}
+      {/* Scene 10: HATEOAS (Enhanced Depth) */}
       {frame >= starts.hateoas && frame < starts.summary && (
          <>
-            <Title text="9. HATEOAS" subtitle="Hypermedia Links" startFrame={starts.hateoas} y={50} />
+            <Title text="9. HATEOAS" subtitle="Dynamic State Transitions" startFrame={starts.hateoas} y={50} />
             <Character type="architect" x={width - 200} y={height - 250} startFrame={starts.hateoas} size={90} />
 
             <Dialogue
                speaker="architect"
-               text="HATEOAS allows the client to discover actions dynamically, just like browsing a website."
+               text="HATEOAS makes your API self-discoverable. The client adapts as the state changes!"
                x={width - 800}
                y={height - 450}
                startFrame={starts.hateoas + 20}
                maxWidth={550}
             />
 
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: 220}}>
-               <div style={{background: '#1e293b', padding: 50, borderRadius: 20, border: `3px solid ${theme.colors.success}`, width: 1000, fontSize: 32, fontFamily: 'monospace', color: '#e2e8f0', opacity: fadeIn(frame, starts.hateoas + 40, 20)}}>
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: 220, gap: 50}}>
+
+               {/* State 1: Positive Balance */}
+               <div style={{
+                   background: '#1e293b',
+                   padding: 40,
+                   borderRadius: 20,
+                   border: `3px solid ${theme.colors.success}`,
+                   width: 800,
+                   fontSize: 28,
+                   fontFamily: 'monospace',
+                   color: '#e2e8f0',
+                   opacity: interpolate(frame, [starts.hateoas + 40, starts.hateoas + 60, starts.hateoas + 350, starts.hateoas + 370], [0, 1, 1, 0])
+               }}>
+                  <div style={{color: theme.colors.success, fontSize: 32, marginBottom: 20, fontWeight: 'bold'}}>State: Active (Balance > 0)</div>
                   <div>{'{'}</div>
                   <div style={{paddingLeft: 40}}>"id": 123,</div>
-                  <div style={{paddingLeft: 40, background: 'rgba(16, 185, 129, 0.2)', borderRadius: 8}}>
-                     <span style={{color: '#34d399'}}>"_links"</span>: {'{'}
-                  </div>
-                  <div style={{paddingLeft: 80, background: 'rgba(16, 185, 129, 0.2)'}}>
-                      <span style={{color: '#facc15'}}>"deposit"</span>: {'{'} "href": "/accounts/123/deposit", "method": "POST" {'}'}
-                  </div>
-                  <div style={{paddingLeft: 40, background: 'rgba(16, 185, 129, 0.2)', borderRadius: 8}}>{'}'}</div>
+                  <div style={{paddingLeft: 40}}>"balance": <span style={{color: theme.colors.success}}>500</span>,</div>
+                  <div style={{paddingLeft: 40, marginTop: 10}}>"_links": {'{'}</div>
+                  <div style={{paddingLeft: 80, background: 'rgba(59, 130, 246, 0.2)'}}>"deposit": "/accounts/123/deposit",</div>
+                  <div style={{paddingLeft: 80, background: 'rgba(16, 185, 129, 0.2)'}}>"withdraw": "/accounts/123/withdraw"</div>
+                  <div style={{paddingLeft: 40}}>{'}'}</div>
                   <div>{'}'}</div>
+                  <div style={{marginTop: 20, color: theme.colors.success}}>✅ "Withdraw" is available</div>
+               </div>
+
+               {/* State 2: Negative Balance (Overdraft) */}
+               <div style={{
+                   position: 'absolute',
+                   background: '#1e293b',
+                   padding: 40,
+                   borderRadius: 20,
+                   border: `3px solid ${theme.colors.error}`,
+                   width: 800,
+                   fontSize: 28,
+                   fontFamily: 'monospace',
+                   color: '#e2e8f0',
+                   opacity: fadeIn(frame, starts.hateoas + 380, 20)
+               }}>
+                  <div style={{color: theme.colors.error, fontSize: 32, marginBottom: 20, fontWeight: 'bold'}}>State: Overdrawn (Balance &lt; 0)</div>
+                  <div>{'{'}</div>
+                  <div style={{paddingLeft: 40}}>"id": 123,</div>
+                  <div style={{paddingLeft: 40}}>"balance": <span style={{color: theme.colors.error}}>-50</span>,</div>
+                  <div style={{paddingLeft: 40, marginTop: 10}}>"_links": {'{'}</div>
+                  <div style={{paddingLeft: 80, background: 'rgba(59, 130, 246, 0.2)'}}>"deposit": "/accounts/123/deposit"</div>
+                  {/* Withdraw is missing */}
+                  <div style={{paddingLeft: 40}}>{'}'}</div>
+                  <div>{'}'}</div>
+                  <div style={{marginTop: 20, color: theme.colors.error}}>❌ "Withdraw" link REMOVED</div>
                </div>
             </div>
          </>
