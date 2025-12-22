@@ -16,19 +16,19 @@ export const RESTAPIDesign: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Adjusted timings (Faster pacing to address user feedback)
+  // Adjusted timings (Extended for new content depth)
   const sceneDurations = {
-    intro: 300,         // 10s (Reduced from 360)
-    resources: 480,     // 16s (Reduced from 540)
-    methods: 480,       // 16s (Reduced from 600 - fast enough for staggered items)
-    contentTypes: 540,  // 18s (Reduced from 720)
-    systemDesign: 960,  // 32s (Reduced from 1200 - tighter conversation)
-    statusCodes: 400,   // 13.3s (Reduced from 480)
-    versioning: 480,    // 16s (Reduced from 540)
-    pagination: 420,    // 14s (Reduced from 480)
-    security: 480,      // 16s (Reduced from 540)
-    hateoas: 660,       // 22s (Reduced from 750)
-    summary: 240,       // 8s (Reduced from 300)
+    intro: 300,         // 10s
+    resources: 510,     // 17s (Extended for query params tip)
+    methods: 540,       // 18s (Extended for Idempotency dialogue)
+    contentTypes: 540,  // 18s
+    systemDesign: 960,  // 32s
+    statusCodes: 450,   // 15s (Extended for RFC 7807 visual)
+    versioning: 480,    // 16s
+    pagination: 420,    // 14s
+    security: 480,      // 16s
+    hateoas: 660,       // 22s
+    summary: 240,       // 8s
   };
 
   // Calculate start frames
@@ -48,7 +48,7 @@ export const RESTAPIDesign: React.FC = () => {
 
   return (
     <AbsoluteFill style={{backgroundColor: theme.background.primary, fontFamily: 'Inter, sans-serif'}}>
-      {/* Credit Bookmark - Moved to Top Right to avoid overlap */}
+      {/* Credit Bookmark - Top Right */}
       <div
         style={{
           position: 'absolute',
@@ -145,6 +145,27 @@ export const RESTAPIDesign: React.FC = () => {
                 <ComparisonCard color={theme.colors.error} main="POST /createUser" sub="" />
                 <ComparisonCard color={theme.colors.success} main="POST /users" sub="" />
              </div>
+
+             {/* PRO TIP: Filtering */}
+             <div style={{
+                 position: 'absolute',
+                 bottom: -150,
+                 left: '50%',
+                 transform: `translateX(-50%) translateY(${interpolate(frame, [starts.resources + 120, starts.resources + 140], [20, 0], {extrapolateRight: 'clamp'})}px)`,
+                 opacity: fadeIn(frame, starts.resources + 120, 20),
+                 background: theme.background.card,
+                 border: `2px solid ${theme.colors.info}`,
+                 borderRadius: 15,
+                 padding: '15px 30px',
+                 boxShadow: `0 0 20px ${theme.colors.info}40`
+             }}>
+                 <div style={{fontSize: 24, color: theme.colors.info, fontWeight: 'bold', marginBottom: 5}}>💡 PRO TIP: Filtering</div>
+                 <div style={{display: 'flex', gap: 30, alignItems: 'center'}}>
+                    <div style={{fontSize: 24, color: theme.colors.error, textDecoration: 'line-through'}}>GET /activeUsers</div>
+                    <Arrow x1={0} y1={0} x2={20} y2={0} color={theme.text.muted} startFrame={starts.resources + 130} />
+                    <div style={{fontSize: 28, color: theme.colors.success, fontFamily: 'monospace', fontWeight: 'bold'}}>GET /users?status=active</div>
+                 </div>
+             </div>
           </div>
         </>
       )}
@@ -193,6 +214,18 @@ export const RESTAPIDesign: React.FC = () => {
                 </div>
              </div>
           </div>
+
+          <Character type="architect" x={width - 250} y={height - 250} startFrame={starts.methods} size={110} />
+          {frame > starts.methods + 230 && (
+            <Dialogue
+                speaker="architect"
+                text="Idempotency means you can retry a request N times without side effects—critical for distributed systems!"
+                x={width - 800}
+                y={height - 400}
+                startFrame={starts.methods + 230}
+                maxWidth={550}
+            />
+          )}
         </>
       )}
 
@@ -382,12 +415,12 @@ export const RESTAPIDesign: React.FC = () => {
          </>
       )}
 
-      {/* Scene 6: Status Codes (Creative Visuals) */}
+      {/* Scene 6: Status Codes (Creative Visuals + RFC 7807) */}
       {frame >= starts.statusCodes && frame < starts.versioning && (
         <>
           <Title text="5. Standard Status Codes" subtitle="The Traffic Signals of the Web" startFrame={starts.statusCodes} y={50} />
 
-          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 250, padding: '0 50px'}}>
+          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 180, padding: '0 50px'}}>
              <CreativeStatusCode
                 type="success"
                 title="2xx Success"
@@ -412,6 +445,27 @@ export const RESTAPIDesign: React.FC = () => {
                 codes={['500 Internal Error', '503 Unavailable']}
                 startFrame={starts.statusCodes + 80}
              />
+          </div>
+
+          {/* RFC 7807 Error Payload */}
+          <div style={{
+              position: 'absolute',
+              bottom: 50,
+              left: '50%',
+              transform: `translateX(-50%)`,
+              opacity: fadeIn(frame, starts.statusCodes + 120, 20),
+              background: '#0f172a',
+              border: `2px solid ${theme.colors.error}`,
+              borderRadius: 15,
+              padding: '20px 40px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+          }}>
+              <div style={{color: theme.colors.error, fontWeight: 'bold', fontSize: 24, marginBottom: 10}}>RFC 7807: Problem Details</div>
+              <div style={{fontFamily: 'monospace', color: '#e2e8f0', fontSize: 22}}>
+                  {`{ "type": "/errors/out-of-credit", "title": "You are broke!", "status": 402 }`}
+              </div>
           </div>
         </>
       )}
@@ -527,7 +581,11 @@ export const RESTAPIDesign: React.FC = () => {
                   icon="🛑"
                   color={theme.colors.error}
                   start={starts.security + 80}
-               />
+               >
+                   <div style={{marginTop: 10, fontFamily: 'monospace', background: 'rgba(0,0,0,0.3)', padding: '5px 15px', borderRadius: 8, fontSize: 20, color: theme.text.muted}}>
+                       X-RateLimit-Remaining: 5
+                   </div>
+               </SecurityCard>
             </div>
          </>
       )}
@@ -686,7 +744,7 @@ const CreativeStatusCode: React.FC<{type: string; title: string; icon: string; c
    );
 };
 
-const SecurityCard: React.FC<{title: string; desc: string; icon: string; color: string; start: number}> = ({title, desc, icon, color, start}) => {
+const SecurityCard: React.FC<{title: string; desc: string; icon: string; color: string; start: number; children?: React.ReactNode}> = ({title, desc, icon, color, start, children}) => {
     const frame = useCurrentFrame();
     return (
         <div style={{
@@ -705,6 +763,7 @@ const SecurityCard: React.FC<{title: string; desc: string; icon: string; color: 
             <div style={{flex: 1}}>
                 <div style={{fontSize: 36, fontWeight: 'bold', color: theme.text.primary, marginBottom: 5}}>{title}</div>
                 <div style={{fontSize: 28, color: theme.text.secondary}}>{desc}</div>
+                {children}
             </div>
         </div>
     );
