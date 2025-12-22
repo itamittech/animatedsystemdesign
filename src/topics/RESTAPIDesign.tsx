@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import {theme} from '../design-system/theme';
 import {Arrow} from '../components/Arrow';
 import {Title} from '../components/Title';
@@ -16,18 +16,18 @@ export const RESTAPIDesign: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Adjusted timings (Slower pacing for Intro/Resources/HATEOAS)
+  // Adjusted timings (Slower pacing for complex scenes as requested)
   const sceneDurations = {
-    intro: 360,         // 12s (Slower: allows reading Sarah's dialogue)
-    resources: 540,     // 18s (Slower: more time for RPC comparison)
-    methods: 420,       // 14s
-    contentTypes: 480,  // 16s
-    systemDesign: 1020, // 34s
-    statusCodes: 360,   // 12s
+    intro: 360,         // 12s
+    resources: 540,     // 18s
+    methods: 600,       // 20s (Increased for more verbs + staggered animation)
+    contentTypes: 720,  // 24s (Increased for headers explanation)
+    systemDesign: 1200, // 40s (Increased for conversational flow)
+    statusCodes: 480,   // 16s (Increased for creative visual)
     versioning: 540,    // 18s
     pagination: 480,    // 16s
     security: 540,      // 18s
-    hateoas: 750,       // 25s (Increased for dynamic state explanation)
+    hateoas: 750,       // 25s
     summary: 300,       // 10s
   };
 
@@ -149,47 +149,59 @@ export const RESTAPIDesign: React.FC = () => {
         </>
       )}
 
-      {/* Scene 3: HTTP Methods */}
+      {/* Scene 3: HTTP Methods (Enhanced with Staggered Animation & More Verbs) */}
       {frame >= starts.methods && frame < starts.contentTypes && (
         <>
           <Title text="2. HTTP Methods Semantics" subtitle="Safety, Idempotency & Body Rules" startFrame={starts.methods} y={50} />
 
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, padding: '0 100px', marginTop: 180}}>
-             <div style={{display: 'flex', flexDirection: 'column', gap: 30}}>
-                <MethodCard method="GET" color={theme.colors.info} desc="Read Resource" safe={true} idempotent={true} example="GET /users/1" />
-                <MethodCard method="POST" color={theme.colors.success} desc="Create Resource" safe={false} idempotent={false} example="POST /users" />
-                <MethodCard method="PUT" color={theme.colors.warning} desc="Replace Full" safe={false} idempotent={true} example="PUT /users/1" />
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, padding: '0 100px', marginTop: 180}}>
+             {/* Column 1: Read/Safe Methods */}
+             <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
+                <div style={{fontSize: 28, color: theme.text.muted, marginBottom: 10, textAlign: 'center', opacity: fadeIn(frame, starts.methods + 10, 10)}}>Safe / Read-Only</div>
+
+                <div style={{opacity: fadeIn(frame, starts.methods + 20, 20), transform: `translateY(${interpolate(frame, [starts.methods + 20, starts.methods + 40], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="GET" color={theme.colors.info} desc="Read Resource" safe={true} idempotent={true} example="GET /users/1" />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.methods + 50, 20), transform: `translateY(${interpolate(frame, [starts.methods + 50, starts.methods + 70], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="HEAD" color={theme.colors.info} desc="Headers Only" safe={true} idempotent={true} example="HEAD /users/1" />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.methods + 80, 20), transform: `translateY(${interpolate(frame, [starts.methods + 80, starts.methods + 100], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="OPTIONS" color={theme.colors.info} desc="Allowed Methods" safe={true} idempotent={true} example="OPTIONS /users" />
+                </div>
              </div>
 
-             <div style={{display: 'flex', flexDirection: 'column', gap: 30}}>
-                <MethodCard method="PATCH" color={theme.colors.messageQueue} desc="Partial Update" safe={false} idempotent={false} example="PATCH /users/1" />
-                <MethodCard method="DELETE" color={theme.colors.error} desc="Remove" safe={false} idempotent={true} example="DELETE /users/1" />
+             {/* Column 2: Write/Unsafe Methods */}
+             <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
+                <div style={{fontSize: 28, color: theme.text.muted, marginBottom: 10, textAlign: 'center', opacity: fadeIn(frame, starts.methods + 10, 10)}}>Unsafe / Write</div>
 
-                <div style={{
-                    opacity: fadeIn(frame, starts.methods + 80, 20),
-                    background: theme.background.card,
-                    borderRadius: 20,
-                    padding: 30,
-                    border: `3px solid ${theme.colors.warning}`,
-                    marginTop: 10
-                }}>
-                     <div style={{fontSize: 28, fontWeight: 'bold', color: theme.colors.warning, marginBottom: 15}}>⚠️ Architect's Note</div>
-                     <div style={{fontSize: 24, color: theme.text.secondary}}>
-                        <strong>GET & DELETE</strong> should NOT have a body.
-                     </div>
-                 </div>
+                <div style={{opacity: fadeIn(frame, starts.methods + 110, 20), transform: `translateY(${interpolate(frame, [starts.methods + 110, starts.methods + 130], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="POST" color={theme.colors.success} desc="Create Resource" safe={false} idempotent={false} example="POST /users" />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.methods + 140, 20), transform: `translateY(${interpolate(frame, [starts.methods + 140, starts.methods + 160], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="PUT" color={theme.colors.warning} desc="Replace Full" safe={false} idempotent={true} example="PUT /users/1" />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.methods + 170, 20), transform: `translateY(${interpolate(frame, [starts.methods + 170, starts.methods + 190], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="PATCH" color={theme.colors.messageQueue} desc="Partial Update" safe={false} idempotent={false} example="PATCH /users/1" />
+                </div>
+
+                <div style={{opacity: fadeIn(frame, starts.methods + 200, 20), transform: `translateY(${interpolate(frame, [starts.methods + 200, starts.methods + 220], [20, 0], {extrapolateRight: 'clamp'})}px)`}}>
+                    <MethodCard method="DELETE" color={theme.colors.error} desc="Remove" safe={false} idempotent={true} example="DELETE /users/1" />
+                </div>
              </div>
           </div>
         </>
       )}
 
-      {/* Scene 4: Content Negotiation */}
+      {/* Scene 4: Content Negotiation (Enhanced with Header Explanation) */}
       {frame >= starts.contentTypes && frame < starts.systemDesign && (
          <>
-            <Title text="3. Data Formats & Negotiation" subtitle="Content-Type, Accept, and Streaming" startFrame={starts.contentTypes} y={50} />
+            <Title text="3. Data Formats & Negotiation" subtitle="Content-Type vs Accept" startFrame={starts.contentTypes} y={50} />
 
             <Character type="junior" x={150} y={height - 250} startFrame={starts.contentTypes} size={110} />
-
             <Dialogue
                speaker="junior"
                text="Sarah, do we just always send JSON? What about images?"
@@ -200,18 +212,54 @@ export const RESTAPIDesign: React.FC = () => {
             />
 
             <Character type="architect" x={width - 250} y={height - 250} startFrame={starts.contentTypes + 100} size={110} />
-            <Dialogue
-               speaker="architect"
-               text="No! We use Headers to negotiate. For binary data, we use specific streams."
-               x={width - 800}
-               y={height - 450}
-               startFrame={starts.contentTypes + 120}
-               maxWidth={520}
-            />
+
+            {frame < starts.contentTypes + 300 && (
+                <Dialogue
+                speaker="architect"
+                text="We use headers! 'Content-Type' describes what you send. 'Accept' describes what you want."
+                x={width - 800}
+                y={height - 450}
+                startFrame={starts.contentTypes + 120}
+                maxWidth={520}
+                />
+            )}
+
+            {/* Header Visual Explanation */}
+            <div style={{
+                position: 'absolute',
+                top: 250,
+                left: width/2 - 400,
+                width: 800,
+                opacity: interpolate(frame, [starts.contentTypes + 150, starts.contentTypes + 170, starts.contentTypes + 330, starts.contentTypes + 350], [0, 1, 1, 0])
+            }}>
+                <div style={{background: theme.background.card, border: `2px solid ${theme.colors.highlight}`, borderRadius: 20, padding: 40}}>
+                    <div style={{marginBottom: 30}}>
+                        <div style={{color: theme.colors.client, fontSize: 32, fontWeight: 'bold', marginBottom: 10}}>➡️ Content-Type</div>
+                        <div style={{fontSize: 24, color: theme.text.secondary}}>Tells the server: "Here is the format of the data I am sending you."</div>
+                        <div style={{fontFamily: 'monospace', background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, color: theme.colors.client}}>Content-Type: application/json</div>
+                    </div>
+                    <div>
+                        <div style={{color: theme.colors.server, fontSize: 32, fontWeight: 'bold', marginBottom: 10}}>⬅️ Accept</div>
+                        <div style={{fontSize: 24, color: theme.text.secondary}}>Tells the server: "Please send me the response in this format."</div>
+                        <div style={{fontFamily: 'monospace', background: 'rgba(0,0,0,0.3)', padding: 15, borderRadius: 10, marginTop: 10, color: theme.colors.server}}>Accept: application/xml</div>
+                    </div>
+                </div>
+            </div>
+
+            {frame >= starts.contentTypes + 300 && (
+                <Dialogue
+                speaker="architect"
+                text="Exactly. We can negotiate JSON for data or Streams for binary."
+                x={width - 800}
+                y={height - 450}
+                startFrame={starts.contentTypes + 300}
+                maxWidth={520}
+                />
+            )}
 
             <div style={{display: 'flex', justifyContent: 'center', gap: 60, marginTop: 250}}>
-               {/* JSON/Standard - Fixed Box Issue */}
-               <div style={{opacity: fadeIn(frame, starts.contentTypes + 160, 20), flex: 1, maxWidth: 700}}>
+               {/* JSON/Standard */}
+               <div style={{opacity: fadeIn(frame, starts.contentTypes + 350, 20), flex: 1, maxWidth: 700}}>
                    <div style={{background: theme.colors.info, borderRadius: 15, padding: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, border: `2px solid ${theme.colors.info}`}}>
                         <span style={{fontSize: 40}}>📄</span>
                         <span style={{fontSize: 32, fontWeight: 'bold', color: '#000'}}>Standard API</span>
@@ -222,8 +270,8 @@ export const RESTAPIDesign: React.FC = () => {
                    </div>
                </div>
 
-               {/* Streaming/Binary - Fixed Box Issue */}
-               <div style={{opacity: fadeIn(frame, starts.contentTypes + 180, 20), flex: 1, maxWidth: 700}}>
+               {/* Streaming/Binary */}
+               <div style={{opacity: fadeIn(frame, starts.contentTypes + 370, 20), flex: 1, maxWidth: 700}}>
                    <div style={{background: theme.colors.messageQueue, borderRadius: 15, padding: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, border: `2px solid ${theme.colors.messageQueue}`}}>
                         <span style={{fontSize: 40}}>🎥</span>
                         <span style={{fontSize: 32, fontWeight: 'bold', color: '#000'}}>Streaming Media</span>
@@ -237,12 +285,13 @@ export const RESTAPIDesign: React.FC = () => {
          </>
       )}
 
-      {/* Scene 5: System Design Example (Enhanced Visibility) */}
+      {/* Scene 5: System Design Example (Interleaved Conversational Flow) */}
       {frame >= starts.systemDesign && frame < starts.statusCodes && (
          <>
             <Title text="4. Real-World Example: Video Upload" subtitle="Separating Metadata from Content" startFrame={starts.systemDesign} y={50} />
             <Character type="architect" x={width - 250} y={height - 250} startFrame={starts.systemDesign} size={110} />
 
+            {/* Intro Dialogue */}
             {frame < starts.systemDesign + 150 && (
                 <Dialogue
                    speaker="architect"
@@ -266,7 +315,18 @@ export const RESTAPIDesign: React.FC = () => {
                </div>
 
                {/* Step 2: Presigned URL */}
-               <div style={{position: 'absolute', top: 0, right: 0, opacity: fadeIn(frame, starts.systemDesign + 300, 20)}}>
+               {frame >= starts.systemDesign + 250 && frame < starts.systemDesign + 400 && (
+                 <Dialogue
+                    speaker="architect"
+                    text="The server saves the metadata and returns a pre-signed URL for the actual upload."
+                    x={width - 800}
+                    y={height - 450}
+                    startFrame={starts.systemDesign + 250}
+                    maxWidth={520}
+                 />
+               )}
+
+               <div style={{position: 'absolute', top: 0, right: 0, opacity: fadeIn(frame, starts.systemDesign + 280, 20)}}>
                   <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.server}}>2. Get Upload URL</div>
                   <div style={{background: theme.background.card, padding: 30, borderRadius: 15, border: `2px solid ${theme.colors.server}`, width: 500, marginTop: 15}}>
                      <div style={{fontFamily: 'monospace', color: theme.text.success, fontSize: 24}}>202 Accepted</div>
@@ -274,10 +334,21 @@ export const RESTAPIDesign: React.FC = () => {
                   </div>
                </div>
 
-               <Arrow x1={550} y1={100} x2={950} y2={100} color={theme.colors.client} startFrame={starts.systemDesign + 250} />
+               <Arrow x1={550} y1={100} x2={950} y2={100} color={theme.colors.client} startFrame={starts.systemDesign + 350} />
 
                {/* Step 3: Binary Upload */}
-               <div style={{position: 'absolute', top: 350, left: 300, opacity: fadeIn(frame, starts.systemDesign + 500, 20)}}>
+               {frame >= starts.systemDesign + 450 && frame < starts.systemDesign + 650 && (
+                 <Dialogue
+                    speaker="architect"
+                    text="Now the client uploads the heavy binary file directly to storage (S3), bypassing the API."
+                    x={width - 800}
+                    y={height - 450}
+                    startFrame={starts.systemDesign + 450}
+                    maxWidth={520}
+                 />
+               )}
+
+               <div style={{position: 'absolute', top: 350, left: 300, opacity: fadeIn(frame, starts.systemDesign + 480, 20)}}>
                   <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.messageQueue}}>3. Upload Binary Content</div>
                   <div style={{background: theme.background.card, padding: 30, borderRadius: 15, border: `2px solid ${theme.colors.messageQueue}`, width: 800, marginTop: 15}}>
                      <div style={{fontFamily: 'monospace', color: theme.text.primary, fontSize: 28}}>PUT https://s3.aws.com/upload/vid_123</div>
@@ -288,8 +359,8 @@ export const RESTAPIDesign: React.FC = () => {
                   </div>
                </div>
 
-               {/* Step 4: GET (Enhanced Visibility) */}
-               <div style={{position: 'absolute', top: 600, left: 300, opacity: fadeIn(frame, starts.systemDesign + 700, 20), transform: `scale(${scale(frame, starts.systemDesign+700, 20, 0.9, 1)})`}}>
+               {/* Step 4: GET */}
+               <div style={{position: 'absolute', top: 600, left: 300, opacity: fadeIn(frame, starts.systemDesign + 730, 20), transform: `scale(${scale(frame, starts.systemDesign+730, 20, 0.9, 1)})`}}>
                   <div style={{fontSize: 36, fontWeight: 'bold', color: theme.colors.info}}>4. Get Video</div>
                   <div style={{background: theme.background.card, padding: 30, borderRadius: 15, border: `4px solid ${theme.colors.info}`, width: 800, marginTop: 15, boxShadow: '0 0 30px rgba(59, 130, 246, 0.4)'}}>
                      <div style={{fontFamily: 'monospace', color: theme.text.primary, fontSize: 32, fontWeight: 'bold'}}>GET /videos/vid_123</div>
@@ -303,7 +374,7 @@ export const RESTAPIDesign: React.FC = () => {
                       text="Finally, the GET API returns the metadata and a streaming URL (HLS), not the raw file."
                       x={width - 800}
                       y={height - 450}
-                      startFrame={starts.systemDesign + 710}
+                      startFrame={starts.systemDesign + 700}
                       maxWidth={520}
                    />
                )}
@@ -311,15 +382,36 @@ export const RESTAPIDesign: React.FC = () => {
          </>
       )}
 
-      {/* Scene 6: Status Codes */}
+      {/* Scene 6: Status Codes (Creative Visuals) */}
       {frame >= starts.statusCodes && frame < starts.versioning && (
         <>
-          <Title text="5. Standard Status Codes" subtitle="Communicate Clearly" startFrame={starts.statusCodes} y={50} />
+          <Title text="5. Standard Status Codes" subtitle="The Traffic Signals of the Web" startFrame={starts.statusCodes} y={50} />
 
-          <div style={{display: 'flex', justifyContent: 'center', gap: 60, marginTop: 250}}>
-             <StatusCodeGroup title="2xx Success" color={theme.colors.success} codes={[{code: 200, text: 'OK'}, {code: 201, text: 'Created'}, {code: 202, text: 'Accepted'}]} startFrame={starts.statusCodes + 20} />
-             <StatusCodeGroup title="4xx Client Error" color={theme.colors.warning} codes={[{code: 400, text: 'Bad Request'}, {code: 401, text: 'Unauthorized'}, {code: 429, text: 'Too Many Req'}]} startFrame={starts.statusCodes + 30} />
-             <StatusCodeGroup title="5xx Server Error" color={theme.colors.error} codes={[{code: 500, text: 'Internal Error'}, {code: 503, text: 'Unavailable'}]} startFrame={starts.statusCodes + 40} />
+          <div style={{display: 'flex', justifyContent: 'center', gap: 40, marginTop: 250, padding: '0 50px'}}>
+             <CreativeStatusCode
+                type="success"
+                title="2xx Success"
+                icon="✅"
+                color={theme.colors.success}
+                codes={['200 OK', '201 Created', '202 Accepted']}
+                startFrame={starts.statusCodes + 20}
+             />
+             <CreativeStatusCode
+                type="client_error"
+                title="4xx Client Error"
+                icon="⚠️"
+                color={theme.colors.warning}
+                codes={['400 Bad Request', '401 Unauthorized', '429 Too Many Req']}
+                startFrame={starts.statusCodes + 50}
+             />
+             <CreativeStatusCode
+                type="server_error"
+                title="5xx Server Error"
+                icon="🔥"
+                color={theme.colors.error}
+                codes={['500 Internal Error', '503 Unavailable']}
+                startFrame={starts.statusCodes + 80}
+             />
           </div>
         </>
       )}
@@ -538,29 +630,55 @@ const ComparisonCard: React.FC<{color: string; main: string; sub: string}> = ({c
 );
 
 const MethodCard: React.FC<{method: string; color: string; desc: string; safe: boolean; idempotent: boolean; example: string}> = ({method, color, desc, safe, idempotent, example}) => (
-   <div style={{background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))', border: `2px solid ${color}`, borderRadius: 20, padding: 25, display: 'flex', flexDirection: 'column', gap: 10, width: '100%'}}>
+   <div style={{background: 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))', border: `2px solid ${color}`, borderRadius: 20, padding: 25, display: 'flex', flexDirection: 'column', gap: 10, width: '100%', boxShadow: '0 4px 15px rgba(0,0,0,0.2)'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-         <div style={{fontSize: 40, fontWeight: 'bold', color}}>{method}</div>
-         <div style={{display: 'flex', gap: 10}}>
-             {safe && <span style={{background: theme.colors.info, color: 'black', padding: '2px 8px', borderRadius: 4, fontWeight: 'bold', fontSize: 16}}>SAFE</span>}
-             {idempotent && <span style={{background: theme.colors.success, color: 'black', padding: '2px 8px', borderRadius: 4, fontWeight: 'bold', fontSize: 16}}>IDEMPOTENT</span>}
+         <div style={{fontSize: 36, fontWeight: 'bold', color}}>{method}</div>
+         <div style={{display: 'flex', gap: 8}}>
+             {safe && <span style={{background: 'rgba(255,255,255,0.15)', color: theme.colors.info, padding: '2px 8px', borderRadius: 4, fontWeight: 'bold', fontSize: 14, border: `1px solid ${theme.colors.info}`}}>SAFE</span>}
+             {idempotent && <span style={{background: 'rgba(255,255,255,0.15)', color: theme.colors.success, padding: '2px 8px', borderRadius: 4, fontWeight: 'bold', fontSize: 14, border: `1px solid ${theme.colors.success}`}}>IDEMPOTENT</span>}
          </div>
       </div>
-      <div style={{fontSize: 24, color: theme.text.secondary}}>{desc}</div>
-      <div style={{fontSize: 22, fontFamily: 'monospace', background: 'rgba(0,0,0,0.3)', padding: 8, borderRadius: 8, color: theme.text.muted}}>{example}</div>
+      <div style={{fontSize: 22, color: theme.text.secondary}}>{desc}</div>
+      <div style={{fontSize: 20, fontFamily: 'monospace', background: 'rgba(0,0,0,0.3)', padding: 8, borderRadius: 8, color: theme.text.muted}}>{example}</div>
    </div>
 );
 
-const StatusCodeGroup: React.FC<{title: string; color: string; codes: {code: number; text: string}[]; startFrame: number}> = ({title, color, codes, startFrame}) => {
+const CreativeStatusCode: React.FC<{type: string; title: string; icon: string; color: string; codes: string[]; startFrame: number}> = ({type, title, icon, color, codes, startFrame}) => {
    const frame = useCurrentFrame();
    return (
-      <div style={{opacity: fadeIn(frame, startFrame, 20), background: 'rgba(255,255,255,0.05)', borderTop: `6px solid ${color}`, borderRadius: 16, padding: 30, width: 450}}>
-         <div style={{fontSize: 36, fontWeight: 'bold', color, marginBottom: 20}}>{title}</div>
-         <div style={{display: 'flex', flexDirection: 'column', gap: 15}}>
+      <div style={{
+          opacity: fadeIn(frame, startFrame, 20),
+          transform: `scale(${scale(frame, startFrame, 20, 0.8, 1)})`,
+          background: 'rgba(255,255,255,0.05)',
+          border: `3px solid ${color}`,
+          borderRadius: 24,
+          padding: 30,
+          width: 450,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          boxShadow: `0 0 40px ${color}30` // Glow effect
+      }}>
+         <div style={{
+             fontSize: 60,
+             background: 'rgba(255,255,255,0.1)',
+             borderRadius: '50%',
+             width: 100,
+             height: 100,
+             display: 'flex',
+             alignItems: 'center',
+             justifyContent: 'center',
+             marginBottom: 20,
+             border: `4px solid ${color}`,
+             boxShadow: `0 0 20px ${color}`
+         }}>
+             {icon}
+         </div>
+         <div style={{fontSize: 32, fontWeight: 'bold', color, marginBottom: 20}}>{title}</div>
+         <div style={{display: 'flex', flexDirection: 'column', gap: 10, width: '100%'}}>
             {codes.map((c, i) => (
-               <div key={i} style={{fontSize: 32, color: theme.text.primary, display: 'flex', gap: 15}}>
-                  <span style={{fontFamily: 'monospace', fontWeight: 'bold', color}}>{c.code}</span>
-                  <span>{c.text}</span>
+               <div key={i} style={{fontSize: 24, color: theme.text.primary, background: 'rgba(0,0,0,0.2)', padding: '10px 20px', borderRadius: 10, fontFamily: 'monospace', textAlign: 'center'}}>
+                  {c}
                </div>
             ))}
          </div>
