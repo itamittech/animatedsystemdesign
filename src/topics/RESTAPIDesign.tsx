@@ -16,19 +16,19 @@ export const RESTAPIDesign: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  // Adjusted timings (Slower pacing for complex scenes as requested)
+  // Adjusted timings (Faster pacing to address user feedback)
   const sceneDurations = {
-    intro: 360,         // 12s
-    resources: 540,     // 18s
-    methods: 600,       // 20s (Increased for more verbs + staggered animation)
-    contentTypes: 720,  // 24s (Increased for headers explanation)
-    systemDesign: 1200, // 40s (Increased for conversational flow)
-    statusCodes: 480,   // 16s (Increased for creative visual)
-    versioning: 540,    // 18s
-    pagination: 480,    // 16s
-    security: 540,      // 18s
-    hateoas: 750,       // 25s
-    summary: 300,       // 10s
+    intro: 300,         // 10s (Reduced from 360)
+    resources: 480,     // 16s (Reduced from 540)
+    methods: 480,       // 16s (Reduced from 600 - fast enough for staggered items)
+    contentTypes: 540,  // 18s (Reduced from 720)
+    systemDesign: 960,  // 32s (Reduced from 1200 - tighter conversation)
+    statusCodes: 400,   // 13.3s (Reduced from 480)
+    versioning: 480,    // 16s (Reduced from 540)
+    pagination: 420,    // 14s (Reduced from 480)
+    security: 480,      // 16s (Reduced from 540)
+    hateoas: 660,       // 22s (Reduced from 750)
+    summary: 240,       // 8s (Reduced from 300)
   };
 
   // Calculate start frames
@@ -48,12 +48,12 @@ export const RESTAPIDesign: React.FC = () => {
 
   return (
     <AbsoluteFill style={{backgroundColor: theme.background.primary, fontFamily: 'Inter, sans-serif'}}>
-      {/* Credit Bookmark */}
+      {/* Credit Bookmark - Moved to Top Right to avoid overlap */}
       <div
         style={{
           position: 'absolute',
-          bottom: 20,
-          right: 30,
+          top: 40,
+          right: 40,
           display: 'flex',
           alignItems: 'center',
           gap: 20,
